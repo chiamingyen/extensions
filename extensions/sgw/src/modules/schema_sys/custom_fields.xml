@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Field customization{/t}" default_view="display" orderby="field" order="asc" limit="20" enable_new="true" enable_edit="true" enable_purge="true" enable_purgeall="true" trigger_new="sgsml_customizer::trigger_build_field" trigger_edit="sgsml_customizer::trigger_build_field">
+
+  <view name="display" displayname="{t}Active{/t}" groupby="module">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" tfield_1="module" tfield_2="field">
+  </view>
+  <singlebutton name="deactivate" displayname="{t}Deactivate{/t}" onclick="asset_update_confirm({activated:'0'},'@id@');" condition="activated|neq|0" right="write" icon="disabled.gif" />
+  <singlebutton name="activate" displayname="{t}Activate{/t}" onclick="asset_update_confirm({activated:'1'},'@id@');" condition="activated|neq|1" right="write" icon="enabled.gif" />
+
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="visibility" displayname="{t}Visibility{/t}" />
+  <tab name="extended" displayname="{t}Extended{/t}" />
+  <tab name="database" displayname="{t}Database{/t}" />
+
+  <field name="activated" displayname="{t}Activated{/t}" simple_type="checkbox" simple_default="1">
+    <INDEX/>
+  </field>
+  <field name="module" displayname="{t}Module{/t}" simple_type="select" simple_size="1" required="true" simple_default="blank" form_onchange="
+	var prefix = form_get_prefix(this);
+	var params = [val(this)];
+	ajax('sgsml_customizer::ajax_select_fields', params, function(data){ populate(prefix, 'field|fbefore', data) });
+	ajax('sgsml_customizer::ajax_select_views', params, function(data){ populate(prefix, 'hiddenin|notin|onlyin|readonlyin', data) });
+	ajax('sgsml_customizer::ajax_select_tabs', params, function(data){ populate(prefix, 'simple_tab', data) });
+	getObj(prefix+'field').onchange();
+  " form_onload="
+	if (val(prefix+'module')=='blank' &amp;&amp; val(prefix+'field')=='id') return;
+	var prefix = form_get_prefix(this);
+	var params = [val(this)];
+	ajax('sgsml_customizer::ajax_select_fields', params, function(data){ populate(prefix, 'field|fbefore', data) });
+	ajax('sgsml_customizer::ajax_select_views', params, function(data){ populate(prefix, 'hiddenin|notin|onlyin|readonlyin', data) });
+	ajax('sgsml_customizer::ajax_select_tabs', params, function(data){ populate(prefix, 'simple_tab', data) });
+  ">
+    <data function="modules"/>
+	<INDEX/>
+    <linktext views="all" value="#index.php?folder=schema:/@module@&amp;view=display&amp;iframe=1"/>
+  </field>
+  <field name="field" displayname="{t}Field{/t}" simple_type="select" simple_size="1" required="true" allow_custom="true" form_onchange="
+	var prefix = form_get_prefix(this);
+	ajax('sgsml_customizer::ajax_get_field', [val(prefix+'module'), val(prefix+'field')], function(data) {
+	  form_restore_values(prefix, data);
+	  form_set_values(prefix, data, true);
+	});
+  ">
+    <data function="sgsml_customizer::select_fields|blank" />
+    <linktext views="display" value="#index.php?folder=@folder@&amp;view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="simple_type" displayname="{t}Type{/t}" simple_type="select" simple_size="1" required="true">
+    <data function="sgsml_customizer::select_types" />
+  </field>
+  <field name="simple_size" displayname="{t}Size{/t}" simple_type="text">
+	<notin views="display"/>
+	<validate function="integer"/>
+  </field>
+  <field name="fbefore" displayname="{t}Before{/t}" simple_type="select" simple_size="1">
+    <data function="sgsml_customizer::select_fields|blank" />
+  </field>
+  <field name="simple_tab" displayname="{t}Tab{/t}" simple_type="select" simple_size="1" allow_custom="true">
+    <data function="sgsml_customizer::select_tabs|blank" />
+	<notin views="display"/>
+  </field>
+  <field name="displayname" displayname="{t}Displayname{/t}" simple_type="text">
+  </field>
+  <field name="simple_default" displayname="{t}Default{/t}" simple_type="text">
+	<notin views="display"/>
+  </field>
+  <field name="simple_default_function" displayname="{t}Default function{/t}" simple_type="text">
+	<notin views="display"/>
+  </field>
+  <field name="required" displayname="{t}Required{/t}" simple_type="checkbox">
+  </field>
+  <field name="is_unique" displayname="{t}Unique{/t}" simple_type="checkbox">
+	<notin views="display"/>
+  </field>
+  <field name="allow_custom" displayname="{t}Allow custom values{/t}" simple_type="checkbox">
+	<notin views="display"/>
+  </field>
+  <field name="sum" displayname="{t}Sum{/t}" simple_type="checkbox">
+	<notin views="display"/>
+  </field>
+  <field name="average" displayname="{t}Average{/t}" simple_type="checkbox">
+	<notin views="display"/>
+  </field>
+
+  <field name="hiddenin" displayname="{t}Hidden in{/t}" simple_type="select" simple_size="4" simple_tab="visibility">
+    <data function="sgsml_customizer::select_views|blank" />
+  </field>
+  <field name="hidden" displayname="{t}Hidden in all views{/t}" simple_type="checkbox" simple_tab="visibility">
+  </field>
+  <field name="editable" displayname="{t}Editable if hidden in all views{/t}" simple_type="checkbox" simple_tab="visibility">
+  </field>
+  <field name="notin" displayname="{t}Not in{/t}" simple_type="select" simple_size="4" simple_tab="visibility">
+    <data function="sgsml_customizer::select_views|blank" />
+  </field>
+  <field name="notinall" displayname="{t}Disabled{/t}" simple_type="checkbox" simple_tab="visibility">
+  </field>
+  <field name="onlyin" displayname="{t}Only in{/t}" simple_type="select" simple_size="4" simple_tab="visibility">
+    <data function="sgsml_customizer::select_views|blank" />
+  </field>
+  <field name="readonlyin" displayname="{t}Read only in{/t}" simple_type="select" simple_size="4" simple_tab="visibility">
+    <data function="sgsml_customizer::select_views|blank" />
+  </field>
+
+  <field name="simple_file_size" displayname="{t}Maximum file size{/t}" simple_type="text" simple_tab="extended">
+  </field>
+  <field name="fseparator" displayname="{t}Separator{/t}" simple_type="text" simple_tab="extended">
+  </field>
+  <field name="width" displayname="{t}Width{/t}" simple_type="text" simple_tab="extended">
+  </field>
+  <field name="height" displayname="{t}Height{/t}" simple_type="text" simple_tab="extended">
+	<notin views="display"/>
+  </field>
+  <field name="nowrap" displayname="{t}No wrap{/t}" simple_type="checkbox" simple_tab="extended">
+  </field>
+  <field name="is_unique_with_trash" displayname="{t}Unique with trash{/t}" simple_type="checkbox" simple_tab="extended">
+	<notin views="display"/>
+  </field>
+  <field name="no_search_index" displayname="{t}No search index{/t}" simple_type="checkbox" simple_tab="extended">
+	<notin views="display"/>
+  </field>
+  <field name="disable_ccp" displayname="{t}Disable cut-copy-paste{/t}" simple_type="checkbox" simple_tab="extended">
+	<notin views="display"/>
+  </field>
+  <field name="input_height" displayname="{t}Input field height{/t}" simple_type="text" simple_tab="extended">
+	<notin views="display"/>
+	<validate function="integer"/>
+  </field>
+  <field name="form" displayname="{t}Form{/t}" simple_type="select" simple_size="2" simple_tab="extended">
+	<data values="no_formatting_button|no_template_bar"/>
+	<notin views="display"/>
+  </field>
+  <field name="description_hint" displayname="{t}Description hint{/t}" simple_type="text" simple_tab="extended">
+  </field>
+  <field name="description_title" displayname="{t}Description title{/t}" simple_type="text" simple_tab="extended">
+  </field>
+  <field name="description_value" displayname="{t}Description value{/t}" simple_type="text" simple_tab="extended">
+  </field>
+
+<!-- TODO add description hints from manual, e.g. max file size, form, validate -->  
+<!-- TODO rename is_unique -->
+
+  <field name="nodb" displayname="{t}Not in database{/t}" simple_type="checkbox" simple_tab="database">
+  </field>
+  <field name="fkey" displayname="{t}Primary key{/t}" simple_type="checkbox" simple_tab="database">
+  </field>
+  <field name="findex" displayname="{t}Index{/t}" simple_type="checkbox" simple_tab="database">
+  </field>
+  <field name="findex_fulltext" displayname="{t}Fulltext index{/t}" simple_type="checkbox" simple_tab="database">
+  </field>
+  <field name="db_type" displayname="{t}Database type{/t}" simple_type="text" simple_tab="database">
+  </field>
+  <field name="db_size" displayname="{t}Database size{/t}" simple_type="text" simple_tab="database">
+	<validate function="integer"/>
+  </field>
+
+  <field name="ffolder" displayname="{t}Folder{/t}" simple_type="select" simple_size="5">
+    <data function="dbselect|simple_sys_tree|id,ftitle||lft asc|10"/>
+	<filter views="all" function="getpath"/>
+    <linktext value="#index.php?folder=@ffolder@&amp;view=display&amp;iframe2=1"/>
+  </field>
+  <field name="fdescription" displayname="{t}Description{/t}" simple_type="textarea">
+	<notin views="display"/>
+  </field>
+  <field name="custom_schema" displayname="{t}Custom schema{/t}" simple_type="textarea">
+	<onlyin views="details"/>
+  </field>
+</table>

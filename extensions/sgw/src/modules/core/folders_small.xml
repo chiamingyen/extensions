@@ -1,0 +1,141 @@
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<folder name="{t}Workspace{/t}" description="{t}Welcome to Simple Groupware!{/t}\nOpen Source Groupware &amp; CMS" type="blank" anchor="workspace" rread_users="anonymous" rread_groups="" rwrite_users="" rwrite_groups="" radmin_users="" radmin_groups="">
+  <folder name="{t}Personal folders{/t}" anchor="home" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="{t}Personal department{/t}" anchor="departments" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="{t}Personal projects{/t}" anchor="projects" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="{t}News{/t}" type="news" rwrite_groups="admin_news">
+  </folder>
+  <folder name="{t}Intranet{/t}" type="intranet" rwrite_groups="admin_intranet">
+  </folder>
+  <folder name="{t}Surveys{/t}" type="surveys" rwrite_groups="admin_surveys">
+  </folder>
+  <folder name="{t}Contacts{/t}" type="contacts" rwrite_groups="admin_contacts">
+    <folder name="{t}Contact activities{/t}" type="contactactivities" rread_users="" rread_groups="admin_contacts">
+    </folder>
+    <folder name="{t}Contact groups{/t}" type="contactgroups">
+    </folder>
+    <folder name="{t}Companies{/t}" type="companies">
+    </folder>
+  </folder>
+  <folder name="{t}Calendar{/t}" type="calendar" rwrite_groups="admin_calendar">
+  </folder>
+  <folder name="{t}Forum{/t}" type="forum" rread_users="anonymous" rread_groups="" rwrite_users="anonymous" rwrite_groups="">
+  </folder>
+  <folder name="{t}Files{/t}" type="files" rwrite_groups="admin_files">
+  </folder>
+  <folder name="{t}Projects{/t}" type="projects" rwrite_groups="admin_projects">
+    <folder name="{t}Calendar{/t}" type="calendar">
+    </folder>
+    <folder name="{t}Files{/t}" type="files">
+    </folder>
+  </folder>
+  
+  <folder name="{t}Helpdesk{/t}" type="helpdesk" rread_users="" rwrite_users="" rwrite_groups="admin_helpdesk" rread_groups="admin_helpdesk">
+  </folder>
+
+  <folder name="{t}Accounting{/t}" type="blank" rwrite_groups="admin_payroll">
+    <folder name="{t}Time sheets{/t}" type="timesheets" rwrite_users="anonymous" description="{t}Workflow{/t}:\n1. {t}User{/t}: {t}open{/t}, {t}completed{/t}\n2. {t}Payroll{/t}: {t}confirmed{/t}, {t}booked{/t}">
+    </folder>
+    <folder name="{t}Absence{/t}" type="absence" rwrite_users="anonymous" description="{t}Workflow{/t}:\n1. {t}User{/t}: {t}open{/t}, {t}completed{/t}\n2. {t}Payroll{/t}: {t}confirmed{/t}, {t}booked{/t}">
+    </folder>
+    <folder name="{t}Expenses{/t}" type="expenses" rwrite_users="anonymous" description="{t}Workflow{/t}:\n1. {t}User{/t}: {t}open{/t}, {t}completed{/t}\n2. {t}Payroll{/t}: {t}confirmed{/t}, {t}booked{/t}">
+    </folder>
+    <folder name="{t}Cost center{/t}" type="costcenter">
+    </folder>
+  </folder>
+
+  <folder name="{t}Inventory{/t}" type="inventories" rread_users="" rread_groups="admin_inventory" rwrite_groups="admin_inventory">
+    <folder name="{t}Resources{/t}" type="resources">
+    </folder>
+	<folder name="{t}Device types{/t}" type="devicetypes">
+    </folder>
+    <folder name="{t}Brands{/t}" type="brands">
+    </folder>
+    <folder name="{t}Distributors{/t}" type="distributors">
+    </folder>
+  </folder>
+  <folder name="{t}Organisation{/t}" type="blank" anchor="organisation" rwrite_groups="admin_organisation">
+    <folder name="{t}Users{/t}" type="sys_users" rwrite_users="" radmin_users="" rexception_users="changepwd:write:anonymous">
+    </folder>
+    <folder name="{t}Groups{/t}" type="sys_groups" rwrite_users="" radmin_users="">
+    </folder>
+    <folder name="{t}Mail identities{/t}" type="sys_identities" rwrite_users="" radmin_users="">
+    </folder>
+    <folder name="{t}Departments{/t}" type="departments">
+    </folder>
+    <folder name="{t}Offices{/t}" type="offices">
+    </folder>
+    <folder name="{t}Rooms{/t}" anchor="locations" type="locations">
+    </folder>
+    <folder name="{t}Positions{/t}" type="positions">
+    </folder>
+    <folder name="{t}CMS{/t}" type="cms" data="../import/data_cms_sys.xml">
+    </folder>
+    <folder name="{t}Templates{/t}" type="templates">
+    </folder>
+    <folder name="{t}Categories{/t}" type="categories">
+    </folder>
+    <folder name="{t}Statuses{/t}" type="statuses">
+    </folder>
+  </folder>
+  <folder name="{t}System{/t}" anchor="system" type="sys_nodb_admin" rread_users="" rwrite_users="" radmin_users="">
+    <folder name="{t}Backups{/t}" type="sys_nodb_backups">
+    </folder>
+    <folder name="{t}Sessions{/t}" type="sys_session">
+    </folder>
+    <folder name="{t}Events{/t}" type="sys_events">
+    </folder>
+    <folder name="{t}Notifications{/t}" type="sys_notifications" description="{t}Delivery{/t}: cron.php">
+    </folder>
+    <folder name="{t}Statistics{/t}" type="sys_stats">
+    </folder>
+    <folder name="{t}Tree{/t}" type="sys_tree">
+    </folder>
+    <folder name="{t}Modules{/t}" type="sys_nodb_modules" description="{t}Source{/t}:\nmodules/schema/modules.txt\nmodules/schema_sys/modules.txt">
+    </folder>
+    <folder name="{t}Customize{/t}" type="blank" anchor="customize">
+      <folder name="{t}Fields{/t}" type="sys_custom_fields" description="{t}Customization rules\nfor modules based on sgsML{/t}\nhttp://bit.ly/sgsML">
+      </folder>
+    </folder>
+    <folder name="{t}Table status{/t}" type="sys_nodb_tables">
+    </folder>
+    <folder name="{t}Table sizes{/t}" type="sys_nodb_tablesizes">
+    </folder>
+    <folder name="{t}Database status{/t}" type="sys_nodb_status">
+    </folder>
+    <folder name="{t}Database variables{/t}" type="sys_nodb_variables">
+    </folder>
+    <folder name="{t}Debug{/t}" anchor="debug" mountpoint="fs:../simple_cache/debug/">
+    </folder>
+    <folder name="{t}Trash{/t}" type="blank" anchor="trash">
+      <folder name="{t}Files{/t}" mountpoint="fs:../simple_store/trash/">
+      </folder>
+    </folder>
+  </folder>
+  <folder name="{t}Extensions{/t}" type="blank" anchor="extensions">
+  </folder>
+</folder>

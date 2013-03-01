@@ -1,0 +1,3546 @@
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2006,2007 Dennis van Rijswijk, Henry van der Vegt
+
+{t}!_Language{/t}
+Nederlands / Dutch
+
+{t}%s is not activated{/t}
+%s is niet geactiveerd
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s is niet gecompileerd / Is niet in PHP geladen.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s bestaat niet in de database
+
+{t}%s rows affected{/t}
+
+
+{t}%s secs{/t}
+%s sec.
+
+{t}%s started editing this asset at %s{/t}
+%s begon om %s met het bewerken van deze gegevens
+
+{t}(for active directory username must be: username@domain){/t}
+(de gebruikersnaam moet voor Actieve Directory zijn: gebruiken@domein)
+
+{t}(un)Group{/t}
+(ont)Groeperen
+
+{t}About{/t}
+Over
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+geaccepteerd
+
+{t}Access denied.{/t}
+Toegang geweigerd.
+
+{t}Access to this file has been denied.{/t}
+De toegang tot dit bestand is geweigerd.
+
+{t}Account{/t}
+Account
+
+{t}account of %s has expired{/t}
+Acount van %s is verlopen
+
+{t}Accounting{/t}
+Boekhouding
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Geactiveerd
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Aktief
+
+{t}Ad{/t}
+Aankondiging
+
+{t}Add{/t}
+Toevoegen
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+
+
+{t}added line{/t}
+toegevoegde regel
+
+{t}Address{/t}
+Adres
+
+{t}admin access{/t}
+
+
+{t}Admin access (groups){/t}
+Admin toegang (Groepen)
+
+{t}Admin access (users){/t}
+Admin toegang (Gebruikers)
+
+{t}Admin Password{/t}
+Admin Wachtwoord
+
+{t}Admin Username{/t}
+Admin Gebruikersnaam
+
+{t}Administration{/t}
+Administratie
+
+{t}Advanced tables{/t}
+
+
+{t}Affected user{/t}
+Betreft gebruiker
+
+{t}Affiliate{/t}
+Partner
+
+{t}after{/t}
+
+
+{t}Agent{/t}
+Agent
+
+{t}Ajax Error{/t}
+
+
+{t}All{/t}
+Alle
+
+{t}All day{/t}
+De gehele dag
+
+{t}All events{/t}
+Alle evenementen
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+Werkt al met de laatste versie.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Bedrag
+
+{t}Anchor{/t}
+Anker
+
+{t}and{/t}
+en
+
+{t}Anniversary{/t}
+Jubileum
+
+{t}another page{/t}
+
+
+{t}answered{/t}
+geantwoord
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+Gebaseerd op Apache (.htaccess, Basic, Digest, enz.)
+
+{t}Application title{/t}
+Naam van de applicatie
+
+{t}Apply rights to subfolders{/t}
+Rechten op alle onderliggende mappen toepassen
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+April
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Archief verwijderde bestanden
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Asset gemarkeerd als read-only.
+
+{t}Assets{/t}
+Gegevens
+
+{t}Assets (children){/t}
+Gegevens (onderliggend)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+toegewezen
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+
+
+{t}Attachment{/t}
+Bijlage
+
+{t}Attachments{/t}
+Bijlagen
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+Augustus
+
+{t}Authentication Mode{/t}
+Manier van authenticatie
+
+{t}Author{/t}
+
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+Gemiddelde lengte
+
+{t}Back{/t}
+Terug
+
+{t}Backup{/t}
+Backup
+
+{t}Backup current folder{/t}
+Backup maken van huidige map
+
+{t}Backups{/t}
+Backups
+
+{t}Basic editing{/t}
+
+
+{t}before{/t}
+
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Begin
+
+{t}big{/t}
+
+
+{t}big text{/t}
+
+
+{t}bigger{/t}
+
+
+{t}Billing address{/t}
+Factuuradres
+
+{t}Birthday{/t}
+Verjaardag
+
+{t}Birthdays{/t}
+Verjaardagen
+
+{t}Blank{/t}
+Leeg
+
+{t}blue{/t}
+blauw
+
+{t}bold{/t}
+
+
+{t}bold italic{/t}
+
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+geboekt
+
+{t}Booked{/t}
+Geboekt
+
+{t}Booking number{/t}
+Boeknummer
+
+{t}Bookings{/t}
+Boeking
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Bladwijzer
+
+{t}borrowed{/t}
+geleend
+
+{t}Brand{/t}
+Merk
+
+{t}Brands{/t}
+Merken
+
+{t}Browser Compatibility{/t}
+Browser Compatibility
+
+{t}Browser not supported{/t}
+De browser wordt niet ondersteund
+
+{t}Budget{/t}
+Budget
+
+{t}Bug{/t}
+Bug
+
+{t}bulleted{/t}
+
+
+{t}Business{/t}
+Firma
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+V E R D E R
+
+{t}Cache output{/t}
+Cache output
+
+{t}Caches{/t}
+Cache
+
+{t}Calendar{/t}
+Kalender
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+geannuleerd
+
+{t}Canceled{/t}
+Geannuleerd
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Proc_open kan niet worden aangeroepen. Graag proc_open verwijderen uit disable_functions in php.ini en de safe_mode deactiveren.
+
+{t}Cannot connect to database %s on %s.{/t}
+Kan geen verbinding leggen met de databse %s op %s.
+
+{t}Cannot create preview for %s{/t}
+Kan geen voorbeeld genereren van %s
+
+{t}Cannot read the file %s.{/t}
+Kan het bestand %s niet lezen.
+
+{t}Cardinality{/t}
+Belangrijkheid
+
+{t}Categories{/t}
+Kategorieën
+
+{t}Category{/t}
+Kategorie
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+
+
+{t}CEO{/t}
+Directeur
+
+{t}Change request{/t}
+Wijzigings verzoek
+
+{t}Change settings{/t}
+Instellingen veranderen
+
+{t}Change Setup settings{/t}
+Set-up instellingen veranderen
+
+{t}Change summary{/t}
+
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+veranderde regel
+
+{t}Changelog{/t}
+Laatste wijzigingen
+
+{t}Chat{/t}
+Chat
+
+{t}Check DoS Attacks{/t}
+Controlleren op DoS aanvallen
+
+{t}checked{/t}
+gecontrolleerd
+
+{t}Checked{/t}
+Gecontrolleerd
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+Hoofd IT
+
+{t}City{/t}
+Stad
+
+{t}Clean{/t}
+Opruimen
+
+{t}Clean Cache{/t}
+Cache opruimen
+
+{t}Clear{/t}
+Legen
+
+{t}Clear Cache{/t}
+Cache legen
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Klant
+
+{t}Close{/t}
+Sluiten
+
+{t}Close session{/t}
+Sessie beëindigen
+
+{t}closed{/t}
+gesloten
+
+{t}Closed{/t}
+Afgesloten
+
+{t}CMS{/t}
+
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+Structuur dichtklappen
+
+{t}Color{/t}
+Kleur
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Kolom naam
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Commando
+
+{t}Comment{/t}
+Opmerking
+
+{t}Comment files{/t}
+Bestanden met opmerkingen
+
+{t}Companies{/t}
+Bedrijven
+
+{t}Company{/t}
+Bedrijf
+
+{t}Competition{/t}
+Concurrentie
+
+{t}Competitor{/t}
+Concurrent
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Afgehandeld
+
+{t}Component{/t}
+Component
+
+{t}Compress output{/t}
+Resultaat comprimeren
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+bevestigd
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+De verbinding met de database is mislukt.
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Adviseur
+
+{t}Contact{/t}
+Contact
+
+{t}Contact activities{/t}
+Contact activiteiten
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Contact per
+
+{t}Contact groups{/t}
+Contactgroepen
+
+{t}Contact id{/t}
+Contact Id
+
+{t}Contact person{/t}
+Contactpersoon
+
+{t}Contact user by{/t}
+Benader gebruiker via
+
+{t}Contacts{/t}
+Contacten
+
+{t}contains{/t}
+bevat
+
+{t}Content{/t}
+Inhoud
+
+{t}Continue{/t}
+Doorgaan
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Copieermachine
+
+{t}Copy{/t}
+Kopieëren
+
+{t}Cost center{/t}
+Kostenplaats
+
+{t}Costs of accommodation{/t}
+Verblijfskosten
+
+{t}Could not determine database-version.{/t}
+Kan de database versie niet vaststellen.
+
+{t}Country{/t}
+Land
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Aangemaakt
+
+{t}Creating database failed.{/t}
+De database kon niet worden aangemaakt.
+
+{t}current path{/t}
+
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+Curriculum vitae
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Knippen
+
+{t}daily{/t}
+dagalijks
+
+{t}Data{/t}
+Data
+
+{t}Data free{/t}
+Beschikbare data
+
+{t}Data length{/t}
+Data lengte
+
+{t}Database{/t}
+Database
+
+{t}Database Hostname / IP{/t}
+Naam van de database host / IP adres
+
+{t}Database Name{/t}
+Naam van de database
+
+{t}Database Password{/t}
+Wachtwoord van de database
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Database status
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Gebruikersnaam van de database
+
+{t}Database variables{/t}
+Database variabelen
+
+{t}Date{/t}
+Datum
+
+{t}Day{/t}
+Dag
+
+{t}Day begin{/t}
+Begin van de dag
+
+{t}Day end{/t}
+Eind van de dag
+
+{t}days{/t}
+dagen
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+Deadline
+
+{t}Debug{/t}
+Debug
+
+{t}Debug-dir{/t}
+Debug-map
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+December
+
+{t}Declining balance{/t}
+Restwaarde
+
+{t}Default{/t}
+Standaard
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Standaard Layout
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+
+
+{t}Degree{/t}
+Graad
+
+{t}Delete{/t}
+Verwijderen
+
+{t}Delete incl subfolders{/t}
+Verwijderen inclusief de onderliggende mappen.
+
+{t}deleted{/t}
+
+
+{t}deleted line{/t}
+verwijderde regel
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Vraag
+
+{t}Demo{/t}
+Demo
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Werkgroep
+
+{t}Departments{/t}
+Werkgroepen
+
+{t}Dependancies{/t}
+Afhankelijkheden
+
+{t}Description{/t}
+Omschrijving
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Desktop computer
+
+{t}Details{/t}
+Details
+
+{t}Device type{/t}
+Soort apparaat
+
+{t}Device types{/t}
+Soort apparaten
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+directory bestaat niet.
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+De map bevindt zich buiten de toegestane map. (%s bevindt zich buiten %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Weergave
+
+{t}display filter{/t}
+weergave filter
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+
+
+{t}Distributor{/t}
+Distributeur
+
+{t}Distributors{/t}
+Distributeurs
+
+{t}divorced{/t}
+gescheiden
+
+{t}Documentation{/t}
+Documentatie
+
+{t}Documentation index{/t}
+
+
+{t}Domain{/t}
+Domein
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Naar beneden
+
+{t}Download{/t}
+Download
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Downloading update list
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+dubbel exemplaar
+
+{t}Duration{/t}
+Duratie
+
+{t}E-mail{/t}
+E-Mail
+
+{t}E-mail private{/t}
+E-Mail (privé)
+
+{t}E-mail program{/t}
+E-mail applicatie
+
+{t}e.g.{/t}
+
+
+{t}Edit{/t}
+Bewerken
+
+{t}Edit as new{/t}
+Als nieuw bewerken
+
+{t}Edit rights{/t}
+Rechten bewerken
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+
+
+{t}Emphasis{/t}
+
+
+{t}Empty{/t}
+Leeg
+
+{t}Empty folder{/t}
+Map leegmaken
+
+{t}en{/t}
+nl
+
+{t}Enable anonymous access{/t}
+Anonieme toegang toestaan
+
+{t}Enable anonymous CMS{/t}
+
+
+{t}Enable automatic user creation{/t}
+Automatische creatie van gebruikers toestaan
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Gebruik externe email client voor  mailto: links
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Einde
+
+{t}engaged{/t}
+verloofd
+
+{t}equal{/t}
+gelijk aan
+
+{t}Error{/t}
+Foutmelding
+
+{t}Error doing request to xmlhttp{/t}
+Foutmelding bij xmlhttp-verzoek
+
+{t}Error moving file{/t}
+Foutmelding bij het verplaatsen van het bestand
+
+{t}Error pasting asset{/t}
+Foutmelding bij het bewerken van gegevens
+
+{t}Error: no credentials{/t}
+Foutmelding: geen inloggegevens
+
+{t}Events{/t}
+Gebeurtenissen
+
+{t}Example{/t}
+
+
+{t}Example contacts{/t}
+Voorbeeld contactpersonen
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Voorbeeld zonder zgn. mountpoint
+
+{t}Examples{/t}
+
+
+{t}Execute{/t}
+
+
+{t}Expenses{/t}
+Uitgaven
+
+{t}Experimental{/t}
+Experimenteel
+
+{t}Expires{/t}
+Vervalt op
+
+{t}Expiry{/t}
+Vervaldag
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Bestanden uitpakken
+
+{t}F j{/t}
+F j
+
+{t}F j, Y{/t}
+F j, Y
+
+{t}Failed to create directory: %s{/t}
+De map %s kon niet worden aangemaakt.
+
+{t}Failed to write file to disk.{/t}
+De bestanden konden niet worden weggeschreven.
+
+{t}Failed to write into %s{/t}
+Kon niet wegschrijven naar %s
+
+{t}Family status{/t}
+Familie status
+
+{t}FAQ{/t}
+FAQ
+
+{t}Favorites{/t}
+Favorieten
+
+{t}Fax{/t}
+Fax
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Functionaliteit aanvragen
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+Februarie
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+vrouw
+
+{t}Field{/t}
+Veld
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Bestand
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+Het bestand is te groot. Graag de waarde upload_max_filesize, post_max_size veranderen in het php.ini bestand
+
+{t}file is too big. Please upload a smaller one.{/t}
+Het bestand is te groot. Graag een kleiner bestand uploaden.
+
+{t}File locked.{/t}
+Bestand vergrendeld
+
+{t}file not found in database.{/t}
+Het bestand werd niet gevonden in de database.
+
+{t}file not found.{/t}
+Het bestand werd niet gevonden.
+
+{t}File unlocked.{/t}
+Bestand ontgrendeld
+
+{t}file was uploaded partially.{/t}
+Het bestand werd gedeeltelijk geupload.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Het bestand moet de juiste extensie hebben. Geldige extensies zijn (%s).
+
+{t}Files{/t}
+Bestanden
+
+{t}Filesystem{/t}
+Systeembestand
+
+{t}Filter{/t}
+Filter
+
+{t}Find assets in multiple folders{/t}
+
+
+{t}Finish scheduled{/t}
+Einde van geplande
+
+{t}Finished{/t}
+Afgesloten
+
+{t}First in list{/t}
+Eerste in de lijst
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+Voornaam
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+opgelost
+
+{t}Flags{/t}
+Attribuut
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Map
+
+{t}Folder already exists.{/t}
+
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Folder structuur aangemaakt
+
+{t}Folder structure moved to trash.{/t}
+Folder structuur verplaatst naar de prullebak
+
+{t}Folder Type{/t}
+Map type
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Mappen
+
+{t}for a new paragraph, use a blank line{/t}
+
+
+{t}Force SSL{/t}
+SSL forceren
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Forum
+
+{t}Forward{/t}
+Doorsturen
+
+{t}Fr{/t}
+Vr
+
+{t}Free/busy{/t}
+Vrij / bezet
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Vrij
+
+{t}Friday{/t}
+
+
+{t}From{/t}
+Van
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+Volledige breedte
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+
+
+{t}Function does not exist: %s{/t}
+De functie %s bestaat niet.
+
+{t}g:i a{/t}
+G:i
+
+{t}Gender{/t}
+Geslacht
+
+{t}General{/t}
+Algemeen
+
+{t}Generate{/t}
+Genereren
+
+{t}Gifts{/t}
+Geschenken
+
+{t}Give Feedback{/t}
+Terugkoppeling geven
+
+{t}GNU GPL Frequently Asked Questions{/t}
+Veel gestelde vragen met betrekking tot GNU GPL
+
+{t}greater than{/t}
+groter dan
+
+{t}green{/t}
+groen
+
+{t}Group{/t}
+
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Groepsnaam
+
+{t}Groups{/t}
+Groepen
+
+{t}hanging text{/t}
+
+
+{t}Hardware{/t}
+Hardware
+
+{t}Headers{/t}
+Kopregels
+
+{t}heading{/t}
+
+
+{t}headings{/t}
+
+
+{t}Height{/t}
+Hoogte
+
+{t}Help{/t}
+Help
+
+{t}Helpdesk{/t}
+Helpdesk
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+Geschiedenis
+
+{t}Holiday{/t}
+Vakantie
+
+{t}Home{/t}
+Home
+
+{t}Home folder id{/t}
+
+
+{t}Home page in the CMS{/t}
+
+
+{t}Homepage{/t}
+Homepage
+
+{t}horizontal line{/t}
+
+
+{t}Host{/t}
+Host
+
+{t}Hosts{/t}
+Hosts
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+uren
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+HTML documenten
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+Ik accepteer de GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+I n s t a l l e r e n
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Id
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Ideas{/t}
+Ideeën
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Indien leeg, dan zal de SMTP verbinding van de gebruikers module worden gebruikt.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+indien niet automatisch gedetecteerd met namingContexts
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Indien de gebruikersnaam of wachtwoord de volgende tekens bevat &quot;@&quot; vervang deze door &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Im-/Export
+
+{t}Image{/t}
+Afbeelding
+
+{t}Images{/t}
+
+
+{t}Imap-error: %s{/t}
+Imap-error: %s
+
+{t}immediate{/t}
+per direct
+
+{t}Import{/t}
+Import
+
+{t}In progress{/t}
+In gang
+
+{t}in repair{/t}
+in reparatie
+
+{t}in stock{/t}
+op voorraad
+
+{t}Inactive{/t}
+Inaktief
+
+{t}Include in RSS feed{/t}
+
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+
+
+{t}Index{/t}
+Index
+
+{t}Index length{/t}
+Index lengte
+
+{t}Index type{/t}
+Index type
+
+{t}Indexes{/t}
+Indices
+
+{t}Industry{/t}
+Branche
+
+{t}Info{/t}
+Informatie
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Invoegen
+
+{t}inserted{/t}
+
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+onvoldoende map rechten
+
+{t}Internal recommendation{/t}
+Interne aanbeveling
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Intro
+
+{t}invalid{/t}
+ongeldig
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Voorraad
+
+{t}Inventory number{/t}
+Voorraadnummer
+
+{t}Investor{/t}
+Investeerder
+
+{t}Invoice{/t}
+Rekening
+
+{t}italic{/t}
+
+
+{t}Item created by %s at %s{/t}
+Element aangemaakt door %s om %s
+
+{t}Item deleted by %s at %s{/t}
+Element verwijderd door %s om %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Element (%s) veranderd door %s om %s
+
+{t}Item not found.{/t}
+Element niet gevonden.
+
+{t}Item successfully created.{/t}
+Element succesvol aangemaakt.
+
+{t}Item successfully updated.{/t}
+Element succesvol bijgewerkt.
+
+{t}Item(s) not found or access denied.{/t}
+Item(s) niet gevonden of toegang geweigerd.
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+Januari
+
+{t}Job description{/t}
+Taakomschrijving
+
+{t}Join lines{/t}
+
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+Juli
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+Juni
+
+{t}Key{/t}
+Belangrijkst
+
+{t}Key customer{/t}
+Belangrijkste klant
+
+{t}Key name{/t}
+Belangrijkste naam
+
+{t}Keywords{/t}
+
+
+{t}Knowledge base{/t}
+Kennisbank
+
+{t}L o g i n{/t}
+A a n m e l d e n
+
+{t}l, F j, Y{/t}
+l, F j, Y
+
+{t}Last access{/t}
+Laatste toegang
+
+{t}Last name{/t}
+Achternaam
+
+{t}LDAP anonymous connection failed.{/t}
+De anonieme LDAP-verbinding met de host werkte niet.
+
+{t}LDAP attribute for group memberships{/t}
+
+
+{t}LDAP attribute for rooms{/t}
+
+
+{t}LDAP attribute for usernames{/t}
+
+
+{t}LDAP connection to host %s failed.{/t}
+De LDAP-verbinding met de host %s werkte niet.
+
+{t}LDAP without anonymous access{/t}
+Geen anonieme LDAP-verbinding aangaan
+
+{t}LDAP: no base DN given{/t}
+LDAP: geen basis DN aangegeven
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+weinig belovend
+
+{t}lesser than{/t}
+minder dan
+
+{t}Letter{/t}
+Brief
+
+{t}Level{/t}
+Niveau
+
+{t}License{/t}
+Licentie
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+
+
+{t}Link{/t}
+Link
+
+{t}Link restricted{/t}
+De link is niet toegestaan
+
+{t}link text{/t}
+
+
+{t}link to external page{/t}
+
+
+{t}link to internal page{/t}
+
+
+{t}Links{/t}
+
+
+{t}Lists{/t}
+
+
+{t}Load external images{/t}
+
+
+{t}Location{/t}
+Lokatie
+
+{t}Locations{/t}
+Locaties
+
+{t}Lock{/t}
+Vergrendeld
+
+{t}Locked by{/t}
+Vergrendeld door
+
+{t}Locking{/t}
+Vergrendelen
+
+{t}login %s from %s with %s{/t}
+Aanmelden %s van %s met %s
+
+{t}Login failed from %s.{/t}
+Het aanmelden van %s mislukte.
+
+{t}Login/-out{/t}
+Aan-/Afmelden
+
+{t}Logins{/t}
+Aanmeldingem
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+%s afmelden
+
+{t}Lookup{/t}
+Raadplegen
+
+{t}low{/t}
+laag
+
+{t}lowest{/t}
+zeer laag
+
+{t}M j{/t}
+M j
+
+{t}M j, g:i a{/t}
+M j, G:i
+
+{t}M j, Y{/t}
+M j, Y
+
+{t}m/d/Y{/t}
+d-m-Y
+
+{t}m/d/Y g:i a{/t}
+d-m-y G:i
+
+{t}m/d/y g:i:s a{/t}
+d-m-y G:i:s
+
+{t}magenta{/t}
+violet
+
+{t}mail footer{/t}
+E-Mail voettekst
+
+{t}Mail identities{/t}
+Email identiteiten
+
+{t}mail notification{/t}
+email kennisgeving
+
+{t}mail reminder{/t}
+email herinnering
+
+{t}Main menu{/t}
+Hoofdmenu
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Onderhoudsmode
+
+{t}male{/t}
+man
+
+{t}Man-days{/t}
+Werkdagen
+
+{t}Man-days planned{/t}
+Geplande werkdagen
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Manager
+
+{t}Manufacturer{/t}
+Fabrikant
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+Maart
+
+{t}Marketing event{/t}
+Marketing evenement
+
+{t}married{/t}
+gehuwd
+
+{t}Maximize{/t}
+Maximaliseren
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+Het maximale aantal bestanden is overschreven.
+
+{t}May{/t}
+Mei
+
+{t}Media{/t}
+Media
+
+{t}Meeting{/t}
+Bespreking
+
+{t}Members{/t}
+Leden
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+
+
+{t}Merged folders{/t}
+
+
+{t}Message{/t}
+Bericht
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+min
+
+{t}Minimize{/t}
+Minimaliseren
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+
+
+{t}Miscellaneous{/t}
+Diversen
+
+{t}missing a temporary folder.{/t}
+mist een tijdelijke map.
+
+{t}missing field{/t}
+graag invoeren
+
+{t}missing right: %s{/t}
+missend toegangsrecht: %s
+
+{t}Mo{/t}
+Ma
+
+{t}Mobile{/t}
+Mobiele telefoon
+
+{t}Model{/t}
+Model
+
+{t}Modified{/t}
+Veranderd
+
+{t}Modified by{/t}
+
+
+{t}Modifying database failed.{/t}
+Het wijzigen van de database is mislukt.
+
+{t}Module{/t}
+Module
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Modules
+
+{t}Mon{/t}
+Maa
+
+{t}Monday{/t}
+
+
+{t}monospace{/t}
+
+
+{t}Month{/t}
+Maand
+
+{t}monthly{/t}
+maandelijks
+
+{t}months{/t}
+maanden
+
+{t}More information about the GNU GPL{/t}
+Meer informatie over de GNU GPL
+
+{t}Mountpoint{/t}
+Mountpoint
+
+{t}Move{/t}
+Verplaatsen
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+
+
+{t}My tasks{/t}
+
+
+{t}Name{/t}
+Naam
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+De naam mag niet leeg zijn en dient uit min. 3 en max. 128 karakters te bestaan [a-z0-9_-@.] (geen hoofdletters).
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+
+
+{t}need feedback{/t}
+ruggespraak nodig
+
+{t}Network{/t}
+Netwerk
+
+{t}Never expires{/t}
+Vervalt nooit
+
+{t}New{/t}
+Nieuw
+
+{t}New folder{/t}
+Nieuwe map
+
+{t}News{/t}
+Nieuws
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Bijnaam
+
+{t}Nightwork{/t}
+
+
+{t}no{/t}
+nee
+
+{t}No dataset selected.{/t}
+Geen dataset geselecteerd
+
+{t}No entries found.{/t}
+Geen input gevonden.
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Geen afzender gespecificeerd.
+
+{t}no username submitted{/t}
+Geen gebruikersnaam ingevoerd.
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Niet uniek
+
+{t}none{/t}
+geen
+
+{t}normal{/t}
+normaal
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Niet toegestaan. Graag als Super-Administrator aanmelden.
+
+{t}not contains{/t}
+bevat niet
+
+{t}not equal{/t}
+niet gelijk aan
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+Notebook
+
+{t}Notes{/t}
+Notities
+
+{t}Notificaiton sent to: %s{/t}
+Melding verznden aan: %s
+
+{t}Notification{/t}
+Kennisgeving
+
+{t}Notification summary{/t}
+
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+November
+
+{t}Null{/t}
+Null
+
+{t}Number of employees{/t}
+Aantal medewerkers
+
+{t}numbered{/t}
+
+
+{t}Objectives{/t}
+Doelstellingen
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+Oktober
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Kantoor
+
+{t}Office program{/t}
+Kantoor applicatie
+
+{t}Offices{/t}
+Kantoren
+
+{t}offline{/t}
+offline
+
+{t}Offline folders{/t}
+
+
+{t}Offline sync{/t}
+
+
+{t}Ok{/t}
+Ok
+
+{t}one of{/t}
+
+
+{t}online{/t}
+online
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Open
+
+{t}Operating system{/t}
+Besturings systeem
+
+{t}Operation not allowed. (Data loss protection){/t}
+Bewerking niet toegestaan. (Bescherming tegen dataverlies)
+
+{t}Optimize Tables{/t}
+Tabellen optimaliseren
+
+{t}Options{/t}
+Opties
+
+{t}or{/t}
+
+
+{t}or higher{/t}
+of hoger
+
+{t}orange{/t}
+oranje
+
+{t}Order size{/t}
+Order omvang
+
+{t}Organisation{/t}
+Organisatie
+
+{t}Organizer{/t}
+Organisator
+
+{t}Origin{/t}
+Herkomst
+
+{t}Original message{/t}
+Origineel bericht
+
+{t}Other{/t}
+Andere
+
+{t}out of office{/t}
+niet op kantoor
+
+{t}Outline image{/t}
+Omlijning beeld
+
+{t}Output{/t}
+Output
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+overlap
+
+{t}Overtime{/t}
+
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Eigenaar
+
+{t}Owner since{/t}
+Eigenaar sinds
+
+{t}Package from local file system (.tar.gz){/t}
+
+
+{t}Packed{/t}
+Ingepakt
+
+{t}Page{/t}
+
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+
+
+{t}Page not found{/t}
+
+
+{t}Page title{/t}
+
+
+{t}Pager{/t}
+Bieper
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+
+
+{t}parameters{/t}
+parameter
+
+{t}Parameters{/t}
+Parameters
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Analyseren
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Deelnemers
+
+{t}Participants (external){/t}
+Deelnemer (extern)
+
+{t}Participants (internal){/t}
+Deelnemer (intern)
+
+{t}Password{/t}
+Wachtwoord
+
+{t}Password expired. (password of %s has expired){/t}
+Het wachtwoord is verlopen. (Het wachtwoord van gebruiker %s is verlopen)
+
+{t}Password expires{/t}
+Wachtwoord verloopt op
+
+{t}Password must be not null, min 5 characters.{/t}
+Het wachtwoord mag niet leeg zijn en moet uit min. 5 letters bestaan.
+
+{t}password not confirmed.{/t}
+het wachtwoord is niet bevestigd.
+
+{t}Passwords{/t}
+Wachtwoorden
+
+{t}Paste{/t}
+Plakken
+
+{t}Path{/t}
+Pad
+
+{t}Pause{/t}
+
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Rechten
+
+{t}Permissions added for: %s{/t}
+Rechten toegevoegd voor: %s
+
+{t}Personal{/t}
+Privé
+
+{t}Personal department{/t}
+Mijn werkgroepen
+
+{t}Personal folders{/t}
+Mijn werkmappen
+
+{t}Personal projects{/t}
+Mijn projecten
+
+{t}Phone{/t}
+Telefoon
+
+{t}Phone calls{/t}
+Oproepen
+
+{t}Phone private{/t}
+Telefoon (privé)
+
+{t}Photo{/t}
+Foto
+
+{t}Photo gallery{/t}
+Foto-Galerij
+
+{t}Planned{/t}
+Staat geplanned
+
+{t}Please activate cookies.{/t}
+Graag cookies inschakelen.
+
+{t}Please choose Apache as Web-Server.{/t}
+Graag Apache als web-server kiezen.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Graag een geldige URL ingeven.
+
+{t}Please give read access to %s{/t}
+Geef lees rechten aan %s
+
+{t}Please give write access to %s{/t}
+Graag schrijftoegang geven aan %s
+
+{t}Please give write access to %s and %s{/t}
+Graag schrijftoegang geven aan %s en %s
+
+{t}Please hit reload.{/t}
+Graag op herladen drukken.
+
+{t}Please input a valid e-mail adress.{/t}
+Graag een geldig email adres invoeren.
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Graag tsearch2 voor de PostgreSQL database installeren.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Graag uw php.ini wijzigen of een .htaccess bestand aanmaken, die %s verandert in %s (der huidige waarde is %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Graag de volgende licentieovereenkomst lezen. Gebruik de scrollbar om de rest van deze overeenkomst te lezen.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+
+
+{t}Please upload again.{/t}
+Graag nogmaals uploaden.
+
+{t}Please wait ...{/t}
+Even wachten ...
+
+{t}Pop3-error: %s{/t}
+Pop3-fout: %s
+
+{t}Port{/t}
+Port
+
+{t}Portal{/t}
+Portal
+
+{t}Position{/t}
+Functie
+
+{t}Positions{/t}
+Functies
+
+{t}Post{/t}
+Post
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+
+
+{t}Preview{/t}
+Voorbeeld
+
+{t}Price{/t}
+Prijs
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Afdrukken ...
+
+{t}Print all{/t}
+
+
+{t}Printer{/t}
+Printer
+
+{t}Priority{/t}
+Prioriteit
+
+{t}Problem{/t}
+Probleem
+
+{t}Processes{/t}
+Processen
+
+{t}Processing %s ...{/t}
+Bezig met verwerken van %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Programma werd geïnstalleerd met de %s taal, graag een andere url gebruiken of nogmaals de installatie starten.
+
+{t}Progress{/t}
+Voortgang
+
+{t}Project{/t}
+Project
+
+{t}Project files{/t}
+
+
+{t}Project tasks{/t}
+
+
+{t}Projects{/t}
+Projecten
+
+{t}promising{/t}
+veel belovend
+
+{t}Properties{/t}
+
+
+{t}Prospective client{/t}
+Potentiële cliënt
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Gekocht
+
+{t}Question{/t}
+Vraag
+
+{t}Queue{/t}
+Queue
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Quota
+
+{t}Quota (remaining){/t}
+Quota (over)
+
+{t}Quota [MB]{/t}
+Quota [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Quota overschreven
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Waardering
+
+{t}Read{/t}
+Lees
+
+{t}read access{/t}
+lees toegang
+
+{t}Read access (groups){/t}
+Leestoegang (groepen)
+
+{t}Read access (users){/t}
+Leestoegang (gebruikers)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+gereed voor reparatie
+
+{t}ready for scrap{/t}
+gereed voor scroot
+
+{t}Real URL format in the CMS{/t}
+
+
+{t}Really apply rights to subfolders ?{/t}
+Daadwerkelijk rechten aan onderliggende mappen toekennen?
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Daadwerkelijk verwijderen?
+
+{t}REALLY delete ALL datasets ?{/t}
+Daadwerkelijk ALLE datasets verwijderen?
+
+{t}Really delete ALL subfolders ?{/t}
+Daadwerkelijk ALLE onderliggende mappen verwijderen?
+
+{t}Really delete the dataset(s) ?{/t}
+Daadwerkelijk de datasets verwijderen?
+
+{t}Really empty the folder ?{/t}
+Daadwerkelijk de folder leegmaken?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Daadwerkelijk de bestaande dataset(s) overschrijven?
+
+{t}Really run setup again ?{/t}
+Daadwerkelijk de installatie opnieuw starten?
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Zoekindex opnieuw opbouwen
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Externe aanbeveling
+
+{t}Recurrence{/t}
+Herhaling
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+rood
+
+{t}Redirect to home directory{/t}
+Starten in de bovenste map.
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+
+
+{t}Regular{/t}
+
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+geweigerd
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Installatie opnieuw opstarten
+
+{t}Relevance{/t}
+
+
+{t}Reminder{/t}
+Herinnering
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Map hernoemen
+
+{t}Repeat count{/t}
+Aantal herhalingen
+
+{t}Repeat exclusions{/t}
+Uitgesloten herhalingen
+
+{t}Repeat interval{/t}
+Interval herhaling
+
+{t}Repeat until{/t}
+Herhalen tot
+
+{t}Reply{/t}
+Beantwoorden
+
+{t}Reply all{/t}
+Allen beantwoorden
+
+{t}Require admin access to set mountpoints{/t}
+Vereist admin rechten om mountpoints te zetten
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Doorverkoper
+
+{t}reserved{/t}
+gereserveerd
+
+{t}Reset view{/t}
+Aanzicht terugzetten
+
+{t}Resource{/t}
+Resource
+
+{t}Resources{/t}
+Resources
+
+{t}Responsible{/t}
+Verantwoordelijk
+
+{t}Responsible (external){/t}
+Verantwoordelijk (extern)
+
+{t}Responsible (internal){/t}
+Verantwoordelijk (intern)
+
+{t}Restore complete{/t}
+Herstellen compleet
+
+{t}Restore here{/t}
+Hier herstellen
+
+{t}Restore only missing{/t}
+
+
+{t}Restore only newer{/t}
+Enkel nieuwere herstellen
+
+{t}Restore to origin{/t}
+Herstellen naar oorspronkelijke
+
+{t}Return receipt{/t}
+Ontvangstbevestiging
+
+{t}right-aligned{/t}
+
+
+{t}Rights{/t}
+Rechten
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Kamernaam
+
+{t}Room number{/t}
+Kamernummer
+
+{t}Rooms{/t}
+Kamers
+
+{t}Rows{/t}
+Rijen
+
+{t}Run Setup again{/t}
+Installatie opnieuw uitvoeren
+
+{t}S a v e{/t}
+O P S L A A N
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+
+
+{t}Sa{/t}
+Za
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Verkooppromotie
+
+{t}Sat{/t}
+Zat
+
+{t}Saturday{/t}
+
+
+{t}Scheduling{/t}
+Planning
+
+{t}Schema{/t}
+Schema
+
+{t}Schema data{/t}
+Data schema
+
+{t}Schemafile not found. (%s){/t}
+Het schemabestand werd niet gevonden. (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+vernietigd
+
+{t}Search{/t}
+Zoeken
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+Tweede manager
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Secretaresse
+
+{t}Self registration{/t}
+
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+
+
+{t}September{/t}
+September
+
+{t}Serial number{/t}
+Serienummer
+
+{t}Server{/t}
+Server
+
+{t}Server does not support sorting{/t}
+
+
+{t}Server-IP{/t}
+Server-IP
+
+{t}Service provider{/t}
+Dienstverlener
+
+{t}Session name in cookie{/t}
+
+
+{t}Session timeout{/t}
+Sessie is verlopen
+
+{t}Sessions{/t}
+Sessies
+
+{t}Setup{/t}
+Installatie
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+De installatie vereist een PHP-database-extentie! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+De installatie vereist minimaal PHP versie %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+De installatie vereist een PHP-extentie genaamd %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Installatie: installatie data geschreven naar %s.
+
+{t}Shapes{/t}
+
+
+{t}Share{/t}
+Deel
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+Toon
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Toon archief
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Toon geciteerde tekst
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+
+
+{t}single{/t}
+enkel
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Grootte
+
+{t}Size (children){/t}
+Grootte(onderliggend)
+
+{t}Slow{/t}
+Langzaam
+
+{t}small{/t}
+
+
+{t}small text{/t}
+
+
+{t}smaller{/t}
+
+
+{t}SMTP not configured for %s{/t}
+SMTP is niet geconfigureerd voor %s
+
+{t}Smtp-error %s: %s{/t}
+Smtp-fout %s: %s
+
+{t}Software{/t}
+Software
+
+{t}Solution{/t}
+Oplossing
+
+{t}Solution type{/t}
+Soort oplossing
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Specificaties
+
+{t}Spreadsheet{/t}
+Spreadsheet
+
+{t}SQL failed.{/t}
+SQL opdracht mislukt.
+
+{t}SQL FAILED: %s{/t}
+SQL opdracht MISLUKT: %s
+
+{t}Start scheduled{/t}
+Start geplande
+
+{t}Started{/t}
+Gestart
+
+{t}starts with{/t}
+start met
+
+{t}State{/t}
+Status
+
+{t}Static cache{/t}
+
+
+{t}Statistics{/t}
+Statistieken
+
+{t}Status{/t}
+Status
+
+{t}Statuses{/t}
+Statussen
+
+{t}Strategies{/t}
+Strategieën
+
+{t}Street{/t}
+Straat
+
+{t}Structure{/t}
+Struktuur
+
+{t}Su{/t}
+Zo
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+
+
+{t}Subitem{/t}
+Subelement
+
+{t}Subject{/t}
+Onderwerp
+
+{t}Subjects{/t}
+
+
+{t}Submit a patch{/t}
+Patch doorgeven
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+
+
+{t}Subsistence costs{/t}
+Onderhoudskosten
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Samenvatting
+
+{t}Sun{/t}
+Zon
+
+{t}Sunday{/t}
+
+
+{t}Superior{/t}
+Superieur
+
+{t}superscript{/t}
+
+
+{t}Supplier{/t}
+Leverancier
+
+{t}Suppliers{/t}
+Leverancieren
+
+{t}Support{/t}
+Ondersteuning
+
+{t}Support request{/t}
+Ondersteuning aanvragen
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Opgeschort
+
+{t}Switch maintenance mode{/t}
+Onderhoudsmodus wisselen
+
+{t}Sync4j remote delete items{/t}
+Sync4j remote verwijder items
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+Systeem
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Tabel
+
+{t}Table sizes{/t}
+Tabel grootte
+
+{t}Table status{/t}
+Tabel status
+
+{t}Tables{/t}
+Tabellen
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+Taken
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+
+
+{t}Templates{/t}
+Sjabloon
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Tekstdocument
+
+{t}Text formatting rules{/t}
+
+
+{t}Th{/t}
+Do
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+
+
+{t}The folder cannot be deleted.{/t}
+
+
+{t}The folder cannot be moved.{/t}
+
+
+{t}The new password is{/t}
+
+
+{t}The url doesn't exist.{/t}
+De URL bestaat niet.
+
+{t}Theme{/t}
+Thema
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+Dit bestandstype is niet toegestaan!
+
+{t}Thu{/t}
+Don
+
+{t}Thursday{/t}
+
+
+{t}Time and expenses{/t}
+Urendeclaratie
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+
+
+{t}Time zone{/t}
+
+
+{t}timeout{/t}
+
+
+{t}Title{/t}
+Titel
+
+{t}To{/t}
+Aan
+
+{t}to be checked{/t}
+nog na te zien
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+Om de installatie van Simple Groupware te vervolgen dient u het vakje, onderaan de licentie, aan te vinken.
+
+{t}Today{/t}
+Vandaag
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Te vaak verkeerd ingelogd. Wacht 15 minuten.
+
+{t}Total{/t}
+Totaal
+
+{t}Trace{/t}
+Spoor
+
+{t}Trade fair{/t}
+Beurs
+
+{t}translations{/t}
+vertalingen
+
+{t}Translations of the GNU GPL{/t}
+Vertaling van de GNU GPL
+
+{t}Transportation costs{/t}
+Transportkosten
+
+{t}Trash{/t}
+Prullenbak
+
+{t}Trash folder not found.{/t}
+
+
+{t}Tree{/t}
+Structuur
+
+{t}Trigger failed{/t}
+De trigger mislukte
+
+{t}Tu{/t}
+Di
+
+{t}Tue{/t}
+Din
+
+{t}Tuesday{/t}
+
+
+{t}Type{/t}
+Type
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+kan %s niet vinden
+
+{t}Unable to write to %s{/t}
+Kan niet schrijven naar %s
+
+{t}unconfirmed{/t}
+ongeconfirmeerd
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+niet geïnteresseerd
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Ontgrendel
+
+{t}Up{/t}
+Omhoog
+
+{t}Update{/t}
+Update
+
+{t}Update Simple Groupware{/t}
+Update Simple Groupware
+
+{t}Updated{/t}
+Geupdate
+
+{t}Updating schema %s from %s.{/t}
+Schema aan het updaten %s met %s.
+
+{t}Upload failed{/t}
+Het uploaden is mislukt
+
+{t}Uploaded files{/t}
+Bestanden die zijn ge-upload
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+urgent
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Gebruik
+
+{t}USD{/t}
+EUR
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Use Debian binaries (Warning: not latest versions)
+
+{t}Use LDAP Groups{/t}
+
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Use the mail() function for sending mails (insecure)
+
+{t}User{/t}
+Gebruiker
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Gebruikersnaam
+
+{t}Username must be different from the super administrator.{/t}
+De gebruikersnaam mag niet gelijk zijn aan dien van de Super-Administrator.
+
+{t}Users{/t}
+Gebruikers
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Vakantie
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+validatie is mislukt
+
+{t}Value{/t}
+Waarde
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Variabelen
+
+{t}Variable already exists in table. (%s){/t}
+De variabele bestaat reeds in de tabel. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+De waarde dient de volgende datum notatie te hebben bv. 31-12-2001
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+De waarde dient de volgende datum-tijd notatie te hebben bv. 31-12-2001 23:59
+
+{t}Variable must be of type float.{/t}
+Graag een geldig getal invoeren.
+
+{t}Variable must be of type int and greater than 0.{/t}
+De waarde dient numeriek en groter dan 0 te zijn.
+
+{t}Variable must be of type int.{/t}
+Graag een geldeig geheel getal invoeren.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+De waarde dient de volgende tijd notatie te hebben bv. 23:59
+
+{t}Variables{/t}
+Variabelen
+
+{t}Verbal recommendation{/t}
+Mondelinge aanbeveling
+
+{t}verified{/t}
+gecontroleerd
+
+{t}vertical{/t}
+
+
+{t}very promising{/t}
+zeer veel belovend
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+Virusscanner
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Voice-mail
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+In de wacht
+
+{t}Warning{/t}
+Waarschuwing
+
+{t}We{/t}
+Wo
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Woe
+
+{t}Wednesday{/t}
+
+
+{t}Week{/t}
+Week
+
+{t}Week start{/t}
+Begin van de week
+
+{t}Weekend{/t}
+
+
+{t}weekly{/t}
+wekelijks
+
+{t}weeks{/t}
+weken
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+wit
+
+{t}widowed{/t}
+zonder onderliggenden
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+
+
+{t}won't fix{/t}
+lost niets op
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+werkt zoals verwacht
+
+{t}works for me{/t}
+werkt voor mij voldoende
+
+{t}Workshop{/t}
+Seminar
+
+{t}Workspace{/t}
+Werkruimte
+
+{t}write access{/t}
+schrijftoegang
+
+{t}Write access (groups){/t}
+Schrijftoegang (groepen)
+
+{t}Write access (users){/t}
+Schrijftoegang (gebruikers)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Verkeerde database versie (%s). Graag minstens versie %s gebruiken!
+
+{t}wrong directory{/t}
+Verkeerde map
+
+{t}wrong password{/t}
+ongeldig wachtwoord
+
+{t}Year{/t}
+Jaar
+
+{t}yearly{/t}
+jaarlijks
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+geel
+
+{t}yes{/t}
+ja
+
+{t}You are not allowed to view this folder.{/t}
+U bent niet gemachtigd om deze map te bekijken.
+
+{t}Your message was read on %s.{/t}
+Uw bericht is gelezen op %s.
+
+{t}Your session has timed out.{/t}
+Uw sessie is verlopen.
+
+{t}Zipcode{/t}
+Postcode
+
+{t}{0} - {1} of {2}{/t}
+
+

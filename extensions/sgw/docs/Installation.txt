@@ -1,0 +1,5 @@
+Installation instructions
+-------------------------
+
+See:
+http://www.simple-groupware.de/cms/Installation

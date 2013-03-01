@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<assets>
+  <asset>
+	<name>Directory listing (Windows)</name>
+	<command>dir /a</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Directory listing (Linux)</name>
+	<command>ls -lisa</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Disk info (Linux)</name>
+	<command>df -h</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Disk info (Windows)</name>
+	<command>wmic logicaldisk get Caption, FileSystem, FreeSpace, Size, VolumeName</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Memory info (Linux)</name>
+	<command>free</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Memory info (Windows)</name>
+	<command>wmic os get CSName, FreePhysicalMemory, FreeSpaceInPagingFiles, TotalVisibleMemorySize, TotalVirtualMemorySize</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Process list (Linux)</name>
+	<command>ps aux</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Service list (Windows)</name>
+	<command>wmic service get Caption, ProcessId, StartMode, State</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Task list (Windows)</name>
+	<command>tasklist /V</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>Process list (Windows)</name>
+	<command>wmic process get Caption, ExecutablePath, ProcessId, ThreadCount, WorkingSetSize</command>
+	<console>sys</console>
+  </asset>
+  <asset>
+	<name>show tables</name>
+	<command>show tables</command>
+	<console>sql</console>
+  </asset>
+  <asset>
+	<name>show processlist</name>
+	<command>show processlist</command>
+	<console>sql</console>
+  </asset>
+  <asset>
+	<name>show table status</name>
+	<command>show table status</command>
+	<console>sql</console>
+  </asset>
+  <asset>
+	<name>show variables</name>
+	<command>show variables</command>
+	<console>sql</console>
+  </asset>
+</assets>

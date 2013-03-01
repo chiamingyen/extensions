@@ -1,0 +1,60 @@
+blank|{t}Blank{/t}
+bookmarks|{t}Bookmarks{/t}
+chat|{t}Chat{/t}
+cms|{t}CMS{/t}
+emails|{t}E-mail{/t}
+faq|{t}FAQ{/t}
+files|{t}Files{/t}
+forum|{t}Forum{/t}
+graphviz|GraphViz
+helpdesk|{t}Helpdesk{/t}
+htmldocs|{t}HTML documents{/t}
+intranet|{t}Intranet{/t}
+news|{t}News{/t}
+notes|{t}Notes{/t}
+offline|{t}Offline folders{/t}
+passwords|{t}Passwords{/t}
+gallery|{t}Photo gallery{/t}
+portal|{t}Portal{/t}
+projects|{t}Projects{/t}
+code|{t}Source code{/t}
+spreadsheets|{t}Spreadsheet{/t}
+surveys|{t}Surveys{/t}
+tasks|{t}Tasks{/t}
+wiki|{t}Wiki{/t}
+
+{t}Calendar{/t}
+calendar|{t}Calendar{/t}
+locations|{t}Locations{/t}
+
+{t}Contacts{/t}
+contacts|{t}Contacts{/t}
+contactactivities|{t}Contact activities{/t}
+companies|{t}Companies{/t}
+contactgroups|{t}Contact groups{/t}
+
+{t}Other{/t}
+templates|{t}Templates{/t}
+statuses|{t}Statuses{/t}
+categories|{t}Categories{/t}
+
+{t}Accounting{/t}
+absence|{t}Absence{/t}
+expenses|{t}Expenses{/t}
+timesheets|{t}Time sheets{/t}
+costcenter|{t}Cost center{/t}
+
+{t}Human resources{/t}
+hr_contracts|{t}Contracts{/t}
+
+{t}Inventory{/t}
+brands|{t}Brands{/t}
+devicetypes|{t}Device types{/t}
+distributors|{t}Distributors{/t}
+inventories|{t}Inventory{/t}
+resources|{t}Resources{/t}
+
+{t}Organisation{/t}
+departments|{t}Departments{/t}
+offices|{t}Offices{/t}
+positions|{t}Positions{/t}

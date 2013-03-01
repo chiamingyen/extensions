@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2008 Ibrahim KIZMAZ
+
+{t}!_Language{/t}
+Türkçe / Turkish
+
+{t}%s is not activated{/t}
+%s aktive edilmemiş
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s derlenmemiş PHP ye yüklenmemiş.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s veritabanında yok
+
+{t}%s rows affected{/t}
+%s  kayıt değiştirildi
+
+{t}%s secs{/t}
+%s secs
+
+{t}%s started editing this asset at %s{/t}
+%s started editing this asset at %s
+
+{t}(for active directory username must be: username@domain){/t}
+(aktif dizin için kullanıcı adı şu şekilde olmalı: usrname@domain)
+
+{t}(un)Group{/t}
+Grupla / Grubu Çöz
+
+{t}About{/t}
+Hakkında
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+Kabul edildi
+
+{t}Access denied.{/t}
+Giriş başarısız.
+
+{t}Access to this file has been denied.{/t}
+Bu  dosyaya erişim başarısız.
+
+{t}Account{/t}
+Hesap
+
+{t}account of %s has expired{/t}
+%s hesabının süresi dolmuş
+
+{t}Accounting{/t}
+Muhasebe
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Aktifleştirildi.
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Aktif
+
+{t}Ad{/t}
+Anons
+
+{t}Add{/t}
+Ekle
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+
+
+{t}added line{/t}
+Satır ekle
+
+{t}Address{/t}
+Adres
+
+{t}admin access{/t}
+yönetici erişimi
+
+{t}Admin access (groups){/t}
+Yönetici Erişim (gruplar)
+
+{t}Admin access (users){/t}
+Yönetici Erişim (kullanıcılar)
+
+{t}Admin Password{/t}
+Yönetici Şifresi
+
+{t}Admin Username{/t}
+Yönetici Kullanıcı Adı
+
+{t}Administration{/t}
+Yönetim
+
+{t}Advanced tables{/t}
+
+
+{t}Affected user{/t}
+Etkilenen kullanıcı
+
+{t}Affiliate{/t}
+İlişkilendir
+
+{t}after{/t}
+
+
+{t}Agent{/t}
+Temsilci
+
+{t}Ajax Error{/t}
+Ajax hatası
+
+{t}All{/t}
+Hepsi
+
+{t}All day{/t}
+Tüm gün
+
+{t}All events{/t}
+Tüm olaylar
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+En son sürüm yüklü.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Miktar
+
+{t}Anchor{/t}
+Çapa
+
+{t}and{/t}
+ve
+
+{t}Anniversary{/t}
+Yıldönümü
+
+{t}another page{/t}
+
+
+{t}answered{/t}
+cevaplandı
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+Apache tabanlı (.htaccess, Basic, Digest, vs.)
+
+{t}Application title{/t}
+Uygulama başlığı
+
+{t}Apply rights to subfolders{/t}
+Alt dizinlere uygulama hakkı
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+Nisan
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Arşiv silindi
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Varlık, sadece okunabilir olarak işaretlendi.
+
+{t}Assets{/t}
+Varlıklar
+
+{t}Assets (children){/t}
+Varlıklar (alt)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+tahsis edildi
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+
+
+{t}Attachment{/t}
+Ek
+
+{t}Attachments{/t}
+Ekler
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+Ağustos
+
+{t}Authentication Mode{/t}
+Doğrulama modu
+
+{t}Author{/t}
+
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+Ort. Uzunluk
+
+{t}Back{/t}
+Geri
+
+{t}Backup{/t}
+Yedekle
+
+{t}Backup current folder{/t}
+Aktif dizini yedekle
+
+{t}Backups{/t}
+Yedekler
+
+{t}Basic editing{/t}
+
+
+{t}before{/t}
+
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Başla
+
+{t}big{/t}
+
+
+{t}big text{/t}
+
+
+{t}bigger{/t}
+
+
+{t}Billing address{/t}
+Fatura adresi
+
+{t}Birthday{/t}
+Doğum günü
+
+{t}Birthdays{/t}
+Doğum günleri
+
+{t}Blank{/t}
+Boş
+
+{t}blue{/t}
+mavi
+
+{t}bold{/t}
+
+
+{t}bold italic{/t}
+
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+rezerve edilen
+
+{t}Booked{/t}
+Rezerve edilen
+
+{t}Booking number{/t}
+Rezervasyon numarası
+
+{t}Bookings{/t}
+Rezerveler
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Yer imleri
+
+{t}borrowed{/t}
+ödünç alınan
+
+{t}Brand{/t}
+Marka
+
+{t}Brands{/t}
+Markalar
+
+{t}Browser Compatibility{/t}
+Tarayıcı uyumluluğu
+
+{t}Browser not supported{/t}
+Tarayıcı desteklenmiyor.
+
+{t}Budget{/t}
+Bütçe
+
+{t}Bug{/t}
+Hata
+
+{t}bulleted{/t}
+
+
+{t}Business{/t}
+İş
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+D E V A M
+
+{t}Cache output{/t}
+Önbellek çıktısı
+
+{t}Caches{/t}
+Önbellekler
+
+{t}Calendar{/t}
+Takvim
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+vazge�ildi
+
+{t}Canceled{/t}
+Vazgeçildi
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Cannot call proc_open. Please remove proc_open from disable_functions in php.ini and disable safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+Cannot connect to database %s on %s.
+
+{t}Cannot create preview for %s{/t}
+%s için önizleme oluşturulamıyor.
+
+{t}Cannot read the file %s.{/t}
+%s  dosyası okunamıyor.
+
+{t}Cardinality{/t}
+Önem derecesi
+
+{t}Categories{/t}
+Kategoriler
+
+{t}Category{/t}
+Kategori
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+
+
+{t}CEO{/t}
+Genel Müdür
+
+{t}Change request{/t}
+İsteği değiştir
+
+{t}Change settings{/t}
+Ayarları değiştir
+
+{t}Change Setup settings{/t}
+Genel ayarları değiştir
+
+{t}Change summary{/t}
+
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+değişmiş satır
+
+{t}Changelog{/t}
+Değişiklik kayıtları (log)
+
+{t}Chat{/t}
+Sohbet
+
+{t}Check DoS Attacks{/t}
+DoS saldırılarını kontrol et
+
+{t}checked{/t}
+kontrol edildi
+
+{t}Checked{/t}
+Kontrol edildi
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+Bilgi işlem yöneticisi
+
+{t}City{/t}
+Şehir
+
+{t}Clean{/t}
+Temizle
+
+{t}Clean Cache{/t}
+Önbelleği temizle
+
+{t}Clear{/t}
+Temizle
+
+{t}Clear Cache{/t}
+Önbelleği temizle
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Client
+
+{t}Close{/t}
+Kapat
+
+{t}Close session{/t}
+Oturumu kapat
+
+{t}closed{/t}
+kapalı
+
+{t}Closed{/t}
+Kapalı
+
+{t}CMS{/t}
+
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+Ağacı katla
+
+{t}Color{/t}
+Renk
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Sütun adı
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Komut
+
+{t}Comment{/t}
+Yorum
+
+{t}Comment files{/t}
+Yorum dosyaları
+
+{t}Companies{/t}
+Firmalar
+
+{t}Company{/t}
+Firma
+
+{t}Competition{/t}
+Rekabet
+
+{t}Competitor{/t}
+Rakip
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Tamamlandı
+
+{t}Component{/t}
+Bileşen
+
+{t}Compress output{/t}
+Çıktıyı sıkıştır
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+Onaylandı
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Veritabanı bağlatısı sağlanamadı.
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Danışman
+
+{t}Contact{/t}
+İrtibat
+
+{t}Contact activities{/t}
+İrtibat aktiviteleri
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+İrtibat by
+
+{t}Contact groups{/t}
+İrtibat grupları
+
+{t}Contact id{/t}
+İrtibat id
+
+{t}Contact person{/t}
+İrtibat kişi
+
+{t}Contact user by{/t}
+İrtibat user by
+
+{t}Contacts{/t}
+İrtibatlar
+
+{t}contains{/t}
+kapsam
+
+{t}Content{/t}
+İçerik
+
+{t}Continue{/t}
+Devam
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Kopyalayıcı
+
+{t}Copy{/t}
+Kopyala
+
+{t}Cost center{/t}
+Maliyet merkezi
+
+{t}Costs of accommodation{/t}
+Costs of accommodation
+
+{t}Could not determine database-version.{/t}
+Could not determine database-version..
+
+{t}Country{/t}
+Ülke
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Oluşturuldu
+
+{t}Creating database failed.{/t}
+Veritabanı oluşturulamadı.
+
+{t}current path{/t}
+mevcut yol
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+Özgeçmiş
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Kes
+
+{t}daily{/t}
+Günlük
+
+{t}Data{/t}
+Veri
+
+{t}Data free{/t}
+Veri serbest
+
+{t}Data length{/t}
+Veri uzunluğu
+
+{t}Database{/t}
+Veritabanı
+
+{t}Database Hostname / IP{/t}
+Veritanı Sunucu Adı / IP
+
+{t}Database Name{/t}
+Veritanı Adı
+
+{t}Database Password{/t}
+Veritanı Şifresi
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Veritabanı durumu
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Veritabanı Kullanıcısı
+
+{t}Database variables{/t}
+Veritabanı Değişkenleri
+
+{t}Date{/t}
+Tarih
+
+{t}Day{/t}
+Gün
+
+{t}Day begin{/t}
+Başlama günü
+
+{t}Day end{/t}
+Bitiş günü
+
+{t}days{/t}
+Günler
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+Son tarih
+
+{t}Debug{/t}
+Ayıkla
+
+{t}Debug-dir{/t}
+Dizin ayıkla
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+Aralık
+
+{t}Declining balance{/t}
+Azalan bakiye
+
+{t}Default{/t}
+Varsayılan
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Varsayılan tema
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+
+
+{t}Degree{/t}
+Derece
+
+{t}Delete{/t}
+Sil
+
+{t}Delete incl subfolders{/t}
+Alt dizinlerle birlikte sil
+
+{t}deleted{/t}
+
+
+{t}deleted line{/t}
+satırı sil
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Talep
+
+{t}Demo{/t}
+Demo
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Bölüm
+
+{t}Departments{/t}
+Bölümler
+
+{t}Dependancies{/t}
+Bağımlılıklar
+
+{t}Description{/t}
+Tanım
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Masaüstü bilgisayar
+
+{t}Details{/t}
+Ayrıntılar
+
+{t}Device type{/t}
+Cihaz tipi
+
+{t}Device types{/t}
+Cihaz tipleri
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+dizin yok
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+Dizin, izin verilen dizinin dışında. (%s dışında %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+Basit kimlik denetimini etkisiz kıl.
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Görünüm
+
+{t}display filter{/t}
+görünüm filtresi
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+
+
+{t}Distributor{/t}
+Dağıtıcı
+
+{t}Distributors{/t}
+Dağıtıcılar
+
+{t}divorced{/t}
+boşanmış
+
+{t}Documentation{/t}
+Dokümantasyon
+
+{t}Documentation index{/t}
+
+
+{t}Domain{/t}
+Domain
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Aşağı
+
+{t}Download{/t}
+İndir
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Güncel liste indiriliyor
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+Çoğalt
+
+{t}Duration{/t}
+Durasyon
+
+{t}E-mail{/t}
+E-Posta
+
+{t}E-mail private{/t}
+E-Posta Özel
+
+{t}E-mail program{/t}
+E-Posta programı
+
+{t}e.g.{/t}
+
+
+{t}Edit{/t}
+Düzenle
+
+{t}Edit as new{/t}
+Yeni olarak düzenle
+
+{t}Edit rights{/t}
+Hakları düzenle
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+Editör
+
+{t}Emphasis{/t}
+
+
+{t}Empty{/t}
+Boş
+
+{t}Empty folder{/t}
+Boş dizin
+
+{t}en{/t}
+tr_TR
+
+{t}Enable anonymous access{/t}
+Ziyaretçi girişine izin ver
+
+{t}Enable anonymous CMS{/t}
+
+
+{t}Enable automatic user creation{/t}
+Otomatik kullanıcı oluşturmaya izin ver
+
+{t}Enable external mail client for 'mailto:' links{/t}
+mailto: bağlantıları için harici posta sunucusuna izin ver
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Son
+
+{t}engaged{/t}
+Meşgul
+
+{t}equal{/t}
+eşit
+
+{t}Error{/t}
+Hata
+
+{t}Error doing request to xmlhttp{/t}
+xmlhttp isteğini gerçekleştirmede hata
+
+{t}Error moving file{/t}
+Dosya taşımada hata
+
+{t}Error pasting asset{/t}
+Varlığı yapıştırmada hata
+
+{t}Error: no credentials{/t}
+Hata: izin yok
+
+{t}Events{/t}
+Olaylar
+
+{t}Example{/t}
+Örnek
+
+{t}Example contacts{/t}
+Example contacts
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Example without mount point
+
+{t}Examples{/t}
+
+
+{t}Execute{/t}
+Çalıştır
+
+{t}Expenses{/t}
+Harcamalar
+
+{t}Experimental{/t}
+Deneysel
+
+{t}Expires{/t}
+Bitiyor
+
+{t}Expiry{/t}
+Bitiş
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Dosyalar çıkarılıyor
+
+{t}F j{/t}
+F j
+
+{t}F j, Y{/t}
+F j, Y
+
+{t}Failed to create directory: %s{/t}
+Dizin oluşturmada hata: %s
+
+{t}Failed to write file to disk.{/t}
+Dosyayı diske yazarken hata oluştu.
+
+{t}Failed to write into %s{/t}
+%s içine yazarken hata oluştu
+
+{t}Family status{/t}
+Medeni durum
+
+{t}FAQ{/t}
+SSS
+
+{t}Favorites{/t}
+Favoriler
+
+{t}Fax{/t}
+Faks
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Özellik talebi
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+Şubat
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+Bayan
+
+{t}Field{/t}
+Alan
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Dosya
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+dosya çok büyük. Lütfen php.ini dosyanızdan upload_max_filesize, post_max_size değerlerini değiştirin.
+
+{t}file is too big. Please upload a smaller one.{/t}
+dosya çok büyük. Lütfen dosya boyutunu küçülterek tekrar deneyin.
+
+{t}File locked.{/t}
+Dosya kilitli.
+
+{t}file not found in database.{/t}
+veritabanında dosya bulunamadı
+
+{t}file not found.{/t}
+dosya bulunamadı
+
+{t}File unlocked.{/t}
+Dosya kilidi açıldı
+
+{t}file was uploaded partially.{/t}
+dosya kısmen yüklendi.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Dosya ismi doğru uzantıya sahip olmalı. Geçerli uzantılar;  %s.
+
+{t}Files{/t}
+Dosyalar
+
+{t}Filesystem{/t}
+Dosya sistemi
+
+{t}Filter{/t}
+Filtre
+
+{t}Find assets in multiple folders{/t}
+Varlığı birden fazla dizinde ara
+
+{t}Finish scheduled{/t}
+Planlamayı tamamla
+
+{t}Finished{/t}
+tamamlandı
+
+{t}First in list{/t}
+Listede bir numara
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+İlk isim
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+fixed
+
+{t}Flags{/t}
+Semboler
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Dizin
+
+{t}Folder already exists.{/t}
+
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Dizin yapısı oluşturuldu
+
+{t}Folder structure moved to trash.{/t}
+Dizin yapısı çöpe taşındı.
+
+{t}Folder Type{/t}
+Dizin tipi
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Dizinler
+
+{t}for a new paragraph, use a blank line{/t}
+
+
+{t}Force SSL{/t}
+SSL zorla
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Forum
+
+{t}Forward{/t}
+İlet
+
+{t}Fr{/t}
+Fr
+
+{t}Free/busy{/t}
+Serbest/Meşgul
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Fri
+
+{t}Friday{/t}
+
+
+{t}From{/t}
+From
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+Tam genişlik
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+
+
+{t}Function does not exist: %s{/t}
+Fonksiyon mevcut değil: %s
+
+{t}g:i a{/t}
+g:i a
+
+{t}Gender{/t}
+Cinsiyet
+
+{t}General{/t}
+Genel
+
+{t}Generate{/t}
+Üret
+
+{t}Gifts{/t}
+Ödüller
+
+{t}Give Feedback{/t}
+Geribildirim yap
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL sık sorular sorular
+
+{t}greater than{/t}
+şundan büyük
+
+{t}green{/t}
+yeşil
+
+{t}Group{/t}
+
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Grup adı
+
+{t}Groups{/t}
+Gruplar
+
+{t}hanging text{/t}
+
+
+{t}Hardware{/t}
+Donanım
+
+{t}Headers{/t}
+Başlıklar
+
+{t}heading{/t}
+
+
+{t}headings{/t}
+
+
+{t}Height{/t}
+Yükseklik
+
+{t}Help{/t}
+Yardım
+
+{t}Helpdesk{/t}
+Yard�m masas�
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+Geçmiş
+
+{t}Holiday{/t}
+Tatil
+
+{t}Home{/t}
+Home
+
+{t}Home folder id{/t}
+
+
+{t}Home page in the CMS{/t}
+
+
+{t}Homepage{/t}
+Anasayfa
+
+{t}horizontal line{/t}
+
+
+{t}Host{/t}
+Host
+
+{t}Hosts{/t}
+Hosts
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+saat
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+HTML dokümanları
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+GNU VERSION 2 lisansını kabul ediyorum
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+Y ü k l e
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Id
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id, boş olamaz. Küçük harf ve minimum 3 karakter, maksimum 128... Şu karakterleri içermeli [a-z0-9_-@.]
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Ideas{/t}
+Fikirler
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Eğer boş ise, modül kullanıcılarından SMTP bağlantısı kullanılacak.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+namingContexts ile otomatik bulamazsa
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Kullanıcı adı  &quot;@&quot; karakteri içeriyorsa, şununla değiştirin > &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+ithal / ihraç
+
+{t}Image{/t}
+Resim
+
+{t}Images{/t}
+
+
+{t}Imap-error: %s{/t}
+Imap-hatası: %s
+
+{t}immediate{/t}
+acil
+
+{t}Import{/t}
+ithal
+
+{t}In progress{/t}
+İşleniyor
+
+{t}in repair{/t}
+onarılıyor
+
+{t}in stock{/t}
+Stokta
+
+{t}Inactive{/t}
+İnaktif
+
+{t}Include in RSS feed{/t}
+
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+
+
+{t}Index{/t}
+Indeks
+
+{t}Index length{/t}
+Indeks uzunluğu
+
+{t}Index type{/t}
+Indeks tipi
+
+{t}Indexes{/t}
+Indeksler
+
+{t}Industry{/t}
+Endüstri
+
+{t}Info{/t}
+Bilgi
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Ekle
+
+{t}inserted{/t}
+
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+Yetersiz dizin hakları
+
+{t}Internal recommendation{/t}
+Dahili tavsiye
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Intro
+
+{t}invalid{/t}
+geçersiz
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Envanter
+
+{t}Inventory number{/t}
+Envanter numarası
+
+{t}Investor{/t}
+Yatırımcı
+
+{t}Invoice{/t}
+Fatura
+
+{t}italic{/t}
+
+
+{t}Item created by %s at %s{/t}
+Stoğu oluşturan %s ,  tarihi %s
+
+{t}Item deleted by %s at %s{/t}
+Stoğu silen %s ,  tarihi %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Stoğu değişiren (%s) - %s , tarihi %s
+
+{t}Item not found.{/t}
+Stok bulunamadı.
+
+{t}Item successfully created.{/t}
+Stok başarıyla oluşturuldu.
+
+{t}Item successfully updated.{/t}
+Stok başarıyla güncellendi.
+
+{t}Item(s) not found or access denied.{/t}
+Stok bulunamada ya da erişim engellendi.
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+Ocak
+
+{t}Job description{/t}
+İş tanımı
+
+{t}Join lines{/t}
+
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+Temmuz
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+Haziran
+
+{t}Key{/t}
+Anahtar
+
+{t}Key customer{/t}
+Anahtar müşteri
+
+{t}Key name{/t}
+Anahtar adı
+
+{t}Keywords{/t}
+
+
+{t}Knowledge base{/t}
+Bilgi tabanı
+
+{t}L o g i n{/t}
+G i r i ş
+
+{t}l, F j, Y{/t}
+l, F j, Y
+
+{t}Last access{/t}
+Son erişim
+
+{t}Last name{/t}
+Soyadı
+
+{t}LDAP anonymous connection failed.{/t}
+LDAP anonim bağlantı başarısız.
+
+{t}LDAP attribute for group memberships{/t}
+Grup üyelikleri için LDAP özelliği
+
+{t}LDAP attribute for rooms{/t}
+Odalar için LDAP özelliği
+
+{t}LDAP attribute for usernames{/t}
+Kullanıcı isimleri için LDAP özelliği
+
+{t}LDAP connection to host %s failed.{/t}
+%s sunucusuna LDAP bağlantısı başarısız
+
+{t}LDAP without anonymous access{/t}
+Anonim erişimsiz LDAP
+
+{t}LDAP: no base DN given{/t}
+LDAP: DN alınamadı
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+daha az ümit verici
+
+{t}lesser than{/t}
+şundan daha az
+
+{t}Letter{/t}
+Mektup
+
+{t}Level{/t}
+Seviye
+
+{t}License{/t}
+Lisans
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+
+
+{t}Link{/t}
+Bağlantı
+
+{t}Link restricted{/t}
+Sınırlı bağlantı
+
+{t}link text{/t}
+
+
+{t}link to external page{/t}
+
+
+{t}link to internal page{/t}
+
+
+{t}Links{/t}
+
+
+{t}Lists{/t}
+
+
+{t}Load external images{/t}
+
+
+{t}Location{/t}
+Lokasyon
+
+{t}Locations{/t}
+Lokasyonlar
+
+{t}Lock{/t}
+Kilit
+
+{t}Locked by{/t}
+Kilitleyen
+
+{t}Locking{/t}
+Kilitlemek
+
+{t}login %s from %s with %s{/t}
+Giriş %s , şundan %s , şununla %s
+
+{t}Login failed from %s.{/t}
+%s tarafından giriş başarısız
+
+{t}Login/-out{/t}
+Giriş/Çıkış
+
+{t}Logins{/t}
+Girişler
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+Çıkış %s
+
+{t}Lookup{/t}
+Arama
+
+{t}low{/t}
+düşük
+
+{t}lowest{/t}
+en düşük
+
+{t}M j{/t}
+j. M
+
+{t}M j, g:i a{/t}
+j. M, G:i
+
+{t}M j, Y{/t}
+j. M Y
+
+{t}m/d/Y{/t}
+d.m.Y
+
+{t}m/d/Y g:i a{/t}
+d.m.Y G:i
+
+{t}m/d/y g:i:s a{/t}
+d.m.y G:i:s
+
+{t}magenta{/t}
+magenta
+
+{t}mail footer{/t}
+posta dipnotu
+
+{t}Mail identities{/t}
+Posta kimlikleri
+
+{t}mail notification{/t}
+posta bildirimleri
+
+{t}mail reminder{/t}
+posta hatırlatıcı
+
+{t}Main menu{/t}
+Ana menü
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Bakım modu
+
+{t}male{/t}
+erkek
+
+{t}Man-days{/t}
+Adam-gün
+
+{t}Man-days planned{/t}
+Planlanan adam-gün
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Yönetici
+
+{t}Manufacturer{/t}
+Üretici
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+Mart
+
+{t}Marketing event{/t}
+Pazarlama aktivitesi
+
+{t}married{/t}
+evli
+
+{t}Maximize{/t}
+Maksimize
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+maksimum dosya sayısı aşıldı.
+
+{t}May{/t}
+Mayıs
+
+{t}Media{/t}
+Medya
+
+{t}Meeting{/t}
+Toplantı
+
+{t}Members{/t}
+Üyeler
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+Klasörleri kalıcı olarak birleştir.
+
+{t}Merged folders{/t}
+Birleştirilmiş klasörler
+
+{t}Message{/t}
+Mesaj
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+min
+
+{t}Minimize{/t}
+Minimize
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+minimum = 15 san., 0 = etkisiz
+
+{t}Miscellaneous{/t}
+Çeşitli
+
+{t}missing a temporary folder.{/t}
+bir geçici dizin bulunamadı
+
+{t}missing field{/t}
+eksik alan
+
+{t}missing right: %s{/t}
+eksik yetki: %s
+
+{t}Mo{/t}
+Mo
+
+{t}Mobile{/t}
+Mobil
+
+{t}Model{/t}
+Model
+
+{t}Modified{/t}
+Değiştirilmiş
+
+{t}Modified by{/t}
+
+
+{t}Modifying database failed.{/t}
+Veritabanı değişikliği başarısız.
+
+{t}Module{/t}
+Modül
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Modüller
+
+{t}Mon{/t}
+Ay
+
+{t}Monday{/t}
+
+
+{t}monospace{/t}
+
+
+{t}Month{/t}
+Ay
+
+{t}monthly{/t}
+aylık
+
+{t}months{/t}
+aylar
+
+{t}More information about the GNU GPL{/t}
+GNU GPL hakkında daha fazla bilgi
+
+{t}Mountpoint{/t}
+Montaj noktası
+
+{t}Move{/t}
+Taşı
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+Randevularım
+
+{t}My tasks{/t}
+Görevlerim
+
+{t}Name{/t}
+İsim
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+İsim boş olmamalı, küçük harfle (türkçe harfler hariç) min 3 ve maks 128 karakter olmalıdır. [a-z0-9_-@.].
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+
+
+{t}need feedback{/t}
+geribildirim ihtiyacı
+
+{t}Network{/t}
+Network
+
+{t}Never expires{/t}
+Hiçbir zaman sona ermez
+
+{t}New{/t}
+Yeni
+
+{t}New folder{/t}
+Yeni dizin
+
+{t}News{/t}
+Haberler
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Takma ad
+
+{t}Nightwork{/t}
+
+
+{t}no{/t}
+Hayır
+
+{t}No dataset selected.{/t}
+Seçili veri kümesi yok
+
+{t}No entries found.{/t}
+Veri bulunamadı.
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+G�nderici belirtilmemiş.
+
+{t}no username submitted{/t}
+kayıtlı kullanıcı adı yok
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+eşsiz değil
+
+{t}none{/t}
+hiçbiri
+
+{t}normal{/t}
+normal
+
+{t}Not allowed. Please log in as super administrator.{/t}
+İzin verilmedi. Lütfen  super administrador olarak giriş yapın.
+
+{t}not contains{/t}
+içermez
+
+{t}not equal{/t}
+eşit değil
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+Not defteri
+
+{t}Notes{/t}
+Notlar
+
+{t}Notificaiton sent to: %s{/t}
+Bildiri şuna gönderildi: %s
+
+{t}Notification{/t}
+Bildiri
+
+{t}Notification summary{/t}
+
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+Kasım
+
+{t}Null{/t}
+Boş
+
+{t}Number of employees{/t}
+Çalışan sayısı
+
+{t}numbered{/t}
+
+
+{t}Objectives{/t}
+Hedefler
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+Ekim
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Ofis
+
+{t}Office program{/t}
+Ofis programı
+
+{t}Offices{/t}
+Ofisler
+
+{t}offline{/t}
+Çevrim dışı
+
+{t}Offline folders{/t}
+
+
+{t}Offline sync{/t}
+
+
+{t}Ok{/t}
+Tamam
+
+{t}one of{/t}
+
+
+{t}online{/t}
+Çevrim içi
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Aç
+
+{t}Operating system{/t}
+İşletim sistemi
+
+{t}Operation not allowed. (Data loss protection){/t}
+İşleme izin verilmedi. (Veri kaybı koruması)
+
+{t}Optimize Tables{/t}
+Tabloları optimize et
+
+{t}Options{/t}
+Seçenekler
+
+{t}or{/t}
+
+
+{t}or higher{/t}
+ya da üstü
+
+{t}orange{/t}
+portakal
+
+{t}Order size{/t}
+Sipariş hacmi
+
+{t}Organisation{/t}
+Organizasyon
+
+{t}Organizer{/t}
+Planlayıcı
+
+{t}Origin{/t}
+Orjin
+
+{t}Original message{/t}
+Orjinal mesaj
+
+{t}Other{/t}
+Diğer
+
+{t}out of office{/t}
+ofis dışında
+
+{t}Outline image{/t}
+Taslak resmi
+
+{t}Output{/t}
+Çıktı
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+Örtüşme
+
+{t}Overtime{/t}
+
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Sahip
+
+{t}Owner since{/t}
+Tarihten beri sahip:
+
+{t}Package from local file system (.tar.gz){/t}
+Bilgisayardan paketle
+
+{t}Packed{/t}
+Paketlendi
+
+{t}Page{/t}
+
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+
+
+{t}Page not found{/t}
+
+
+{t}Page title{/t}
+
+
+{t}Pager{/t}
+Pager
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+
+
+{t}parameters{/t}
+parametreler
+
+{t}Parameters{/t}
+Parametreler
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Parsing
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Katılımcılar
+
+{t}Participants (external){/t}
+Katılımcılar (harici)
+
+{t}Participants (internal){/t}
+Katılımcılar (dahili)
+
+{t}Password{/t}
+Şifre
+
+{t}Password expired. (password of %s has expired){/t}
+%s şifre süresi biter.
+
+{t}Password expires{/t}
+Şifre süresi biter
+
+{t}Password must be not null, min 5 characters.{/t}
+Şifre boş olamaz ve minimum 5 karakter olmalıdır.
+
+{t}password not confirmed.{/t}
+Şifre onaylanmadı
+
+{t}Passwords{/t}
+Şifreler
+
+{t}Paste{/t}
+Yapıştır
+
+{t}Path{/t}
+Yol
+
+{t}Pause{/t}
+
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Yetkiler
+
+{t}Permissions added for: %s{/t}
+%s : için yetki eklendi
+
+{t}Personal{/t}
+Kişisel
+
+{t}Personal department{/t}
+Kişisel  bölüm
+
+{t}Personal folders{/t}
+Kişisel dizinler
+
+{t}Personal projects{/t}
+Kişisel projeler
+
+{t}Phone{/t}
+Telefon
+
+{t}Phone calls{/t}
+Telefon aramaları
+
+{t}Phone private{/t}
+Özel telefon
+
+{t}Photo{/t}
+Fotoğraf
+
+{t}Photo gallery{/t}
+Fotoğraf galerisi
+
+{t}Planned{/t}
+Planlı
+
+{t}Please activate cookies.{/t}
+Lütfen çerezleri aktive edin.
+
+{t}Please choose Apache as Web-Server.{/t}
+Lütfen Apache web-server seçin.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Lütfen geçerli bir URl girin.
+
+{t}Please give read access to %s{/t}
+%s kullanıcısına okuma hakkı verin.
+
+{t}Please give write access to %s{/t}
+%s kullanısına yazma hakkı verin.
+
+{t}Please give write access to %s and %s{/t}
+%s  ve  %s kullanıcılarına yazma hakkı verin.
+
+{t}Please hit reload.{/t}
+Lütfen tekrar yükleyin.
+
+{t}Please input a valid e-mail adress.{/t}
+Lütfen geçerli bir e-posta adresi girin
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Lütfen PostgreSQL veritabanı için tsearch2 yükleyin.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Lütfen  %s den  %s değiştirmek amacıyla php.ini dosyanızı düzenleyin ya da .htaccess dosyası ekleyin. (mevcut değer %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Lütfen aşağıdaki lisans sözleşmesini sonuna kadar okuyun.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+Lütfen katılımcı seçiniz.
+
+{t}Please upload again.{/t}
+Lütfen tekrar yükleyin
+
+{t}Please wait ...{/t}
+Lütfen bekleyin ...
+
+{t}Pop3-error: %s{/t}
+Pop3-error: %s
+
+{t}Port{/t}
+Port
+
+{t}Portal{/t}
+Portal
+
+{t}Position{/t}
+Pozisyon
+
+{t}Positions{/t}
+Pozisyonlar
+
+{t}Post{/t}
+Gönder
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+
+
+{t}Preview{/t}
+Önizleme
+
+{t}Price{/t}
+Fiyat
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Yazdır
+
+{t}Print all{/t}
+Tümünü yazdır
+
+{t}Printer{/t}
+Yazıcı
+
+{t}Priority{/t}
+Öncelik
+
+{t}Problem{/t}
+Problem
+
+{t}Processes{/t}
+Süreç
+
+{t}Processing %s ...{/t}
+İşleniyor %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Program %s dili ile yüklenmiştir, lütfen farklı bir url kullanın ya da kurulumu tekrar yapın.
+
+{t}Progress{/t}
+İlerleme
+
+{t}Project{/t}
+Proje
+
+{t}Project files{/t}
+Proje dosyaları
+
+{t}Project tasks{/t}
+Proje görevleri
+
+{t}Projects{/t}
+Projeler
+
+{t}promising{/t}
+Ümit verici
+
+{t}Properties{/t}
+
+
+{t}Prospective client{/t}
+Potansiyel müşteri
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Satın alındı
+
+{t}Question{/t}
+Soru
+
+{t}Queue{/t}
+Kuyruk
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Kota
+
+{t}Quota (remaining){/t}
+Kota (kalan)
+
+{t}Quota [MB]{/t}
+Kota [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Kota limiti aşıldı: %s
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Puanlama
+
+{t}Read{/t}
+Oku
+
+{t}read access{/t}
+okuma erişimi
+
+{t}Read access (groups){/t}
+Okuma erişimi(gruplar)
+
+{t}Read access (users){/t}
+Okuma erişimi (kullanıcılar)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+onarma için hazır
+
+{t}ready for scrap{/t}
+Kırpma için hazır
+
+{t}Real URL format in the CMS{/t}
+
+
+{t}Really apply rights to subfolders ?{/t}
+Yetkiler alt dizinlere uygulansın m� ?
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Silmek istediğinizden emin misiniz ?
+
+{t}REALLY delete ALL datasets ?{/t}
+TÜM veri setini silmek istediğinizden emin misiniz ?
+
+{t}Really delete ALL subfolders ?{/t}
+TÜM alt dizinleri silmek istediğizden emin misiniz? ?
+
+{t}Really delete the dataset(s) ?{/t}
+Veri set(ler)ini silmek istedinizden emin misiniz ?
+
+{t}Really empty the folder ?{/t}
+Dizini boşaltmak istediğinizden emin misiniz ?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Mevcut veri set(ler)inin üzerine yazmak istedinizden emin misiniz ?
+
+{t}Really run setup again ?{/t}
+Kurulumu tekrar çalıştırmak istediğinizden emin misiniz ?
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Arama indeksini tekrar oluştur
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Katılım tavsiyesi
+
+{t}Recurrence{/t}
+Yineleme
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+kırmızı
+
+{t}Redirect to home directory{/t}
+Ana dizine yönlendir
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+Her x saniyede bir yenile
+
+{t}Regular{/t}
+
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+reddedilmiş
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Kurulumu tekrar yap
+
+{t}Relevance{/t}
+
+
+{t}Reminder{/t}
+Hatırlatıcı
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Dizin ismini değiştir
+
+{t}Repeat count{/t}
+Tekrar say
+
+{t}Repeat exclusions{/t}
+Repetir exclusiones
+
+{t}Repeat interval{/t}
+Tekrarla
+
+{t}Repeat until{/t}
+Kadar tekrarla:
+
+{t}Reply{/t}
+Yanıtla
+
+{t}Reply all{/t}
+Tümüne yanıtla
+
+{t}Require admin access to set mountpoints{/t}
+Montaj noktasına erişmek için yönetici girişi iste.
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Bayi
+
+{t}reserved{/t}
+rezerve edilmiş
+
+{t}Reset view{/t}
+Görünümü sıfırla
+
+{t}Resource{/t}
+Kaynak
+
+{t}Resources{/t}
+Kaynaklar
+
+{t}Responsible{/t}
+Sorumlu
+
+{t}Responsible (external){/t}
+Sorumlu (harici)
+
+{t}Responsible (internal){/t}
+Sorumlu (dahili)
+
+{t}Restore complete{/t}
+Restore tamam
+
+{t}Restore here{/t}
+Buradan restore et
+
+{t}Restore only missing{/t}
+Restore only missing
+
+{t}Restore only newer{/t}
+Restore only newer
+
+{t}Restore to origin{/t}
+Orjine resore et
+
+{t}Return receipt{/t}
+Return receipt
+
+{t}right-aligned{/t}
+
+
+{t}Rights{/t}
+Yetkiler
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Oda ismi
+
+{t}Room number{/t}
+Oda numarası
+
+{t}Rooms{/t}
+Odalar
+
+{t}Rows{/t}
+Satırlar
+
+{t}Run Setup again{/t}
+Kurulum tekrar çalıştır
+
+{t}S a v e{/t}
+K a y d e t
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+K a y d e t   v e   g e r i   d ö n
+
+{t}Sa{/t}
+Sa
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Satış promosyonu / Reklam
+
+{t}Sat{/t}
+Sa
+
+{t}Saturday{/t}
+
+
+{t}Scheduling{/t}
+Planlama
+
+{t}Schema{/t}
+Çizelge
+
+{t}Schema data{/t}
+Çizelge verisi
+
+{t}Schemafile not found. (%s){/t}
+Çizelge dosyası bulunamadı. (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+kırpıldı
+
+{t}Search{/t}
+Ara
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+ikinci yönetici
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Sekreter
+
+{t}Self registration{/t}
+Kendi kendine kayıt
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+
+
+{t}September{/t}
+Eylül
+
+{t}Serial number{/t}
+Seri numarası
+
+{t}Server{/t}
+Sunucu
+
+{t}Server does not support sorting{/t}
+Sunucu sıralamayı desteklemiyor
+
+{t}Server-IP{/t}
+Sunucu-IP
+
+{t}Service provider{/t}
+Hizmet sunucu
+
+{t}Session name in cookie{/t}
+
+
+{t}Session timeout{/t}
+Oturum zaman aşımına uğradı
+
+{t}Sessions{/t}
+Oturumlar
+
+{t}Setup{/t}
+Kurulum
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Kurulum database-php-extension gerektiriyor ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Kurulum için en az gerekli php versiyonu:  %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+Kurulum şu php-extension gerektirmekte:  %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Kurulum: Kurulum verileri şuraya yazıldı:  %s.
+
+{t}Shapes{/t}
+
+
+{t}Share{/t}
+Paylaş
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+Göster
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Arşivi göster
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Alıntı metni göster
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+
+
+{t}single{/t}
+tek
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Boyut
+
+{t}Size (children){/t}
+Boyut (alt dosyalar)
+
+{t}Slow{/t}
+Yavaş
+
+{t}small{/t}
+
+
+{t}small text{/t}
+
+
+{t}smaller{/t}
+
+
+{t}SMTP not configured for %s{/t}
+%s kullanıcısı için  SMTP ayarlanmamış
+
+{t}Smtp-error %s: %s{/t}
+Smtp-hatası %s: %s
+
+{t}Software{/t}
+Yazılım
+
+{t}Solution{/t}
+Çözüm
+
+{t}Solution type{/t}
+Çözüm tipi
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Tanım
+
+{t}Spreadsheet{/t}
+Tablo
+
+{t}SQL failed.{/t}
+SQL hatası.
+
+{t}SQL FAILED: %s{/t}
+SQL hatası: %s
+
+{t}Start scheduled{/t}
+Start scheduled
+
+{t}Started{/t}
+Başlatıldı
+
+{t}starts with{/t}
+şununla başlar:
+
+{t}State{/t}
+Eyalet
+
+{t}Static cache{/t}
+
+
+{t}Statistics{/t}
+Istatistik
+
+{t}Status{/t}
+Durum
+
+{t}Statuses{/t}
+Durumlar
+
+{t}Strategies{/t}
+Stratejiler
+
+{t}Street{/t}
+Cadde
+
+{t}Structure{/t}
+Yapı
+
+{t}Su{/t}
+Su
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+
+
+{t}Subitem{/t}
+Subitem
+
+{t}Subject{/t}
+Konu
+
+{t}Subjects{/t}
+
+
+{t}Submit a patch{/t}
+Submit a patch
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+
+
+{t}Subsistence costs{/t}
+Subsistence costs
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Özet
+
+{t}Sun{/t}
+Sun
+
+{t}Sunday{/t}
+
+
+{t}Superior{/t}
+Superior
+
+{t}superscript{/t}
+
+
+{t}Supplier{/t}
+Satıcı
+
+{t}Suppliers{/t}
+Satıcılar
+
+{t}Support{/t}
+Destek
+
+{t}Support request{/t}
+Destek isteği
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Askıya alınmış
+
+{t}Switch maintenance mode{/t}
+Bakım moduna geç
+
+{t}Sync4j remote delete items{/t}
+Sync4j remote delete items
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+Sistem
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Tablo
+
+{t}Table sizes{/t}
+Tablo boyutları
+
+{t}Table status{/t}
+Tablo durumu
+
+{t}Tables{/t}
+Tablolar
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+Görevler
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+
+
+{t}Templates{/t}
+Şablonlar
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Metin dokümanı
+
+{t}Text formatting rules{/t}
+
+
+{t}Th{/t}
+Th
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+
+
+{t}The folder cannot be deleted.{/t}
+
+
+{t}The folder cannot be moved.{/t}
+
+
+{t}The new password is{/t}
+
+
+{t}The url doesn't exist.{/t}
+Url mevcut değil
+
+{t}Theme{/t}
+Tema
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+bu dosya uzantısına izin verilmiyor
+
+{t}Thu{/t}
+Thu
+
+{t}Thursday{/t}
+
+
+{t}Time and expenses{/t}
+Zaman ve maliyetler
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+
+
+{t}Time zone{/t}
+Saat dilimi
+
+{t}timeout{/t}
+zaman aşımı
+
+{t}Title{/t}
+Başlık
+
+{t}To{/t}
+To
+
+{t}to be checked{/t}
+kontrol edilecek
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+Simple Groupware kurulumuna devam edebilmek için aşağıdaki lisans sözleşmesinin altındaki kutuyu işaretleyin
+
+{t}Today{/t}
+Bugün
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Çok fazla hatalı giriş denemesi... Lütfen 15 dk bekleyiniz.
+
+{t}Total{/t}
+Toplam
+
+{t}Trace{/t}
+İzle
+
+{t}Trade fair{/t}
+Ticaret fuarı
+
+{t}translations{/t}
+Çeviriler
+
+{t}Translations of the GNU GPL{/t}
+GNU GPL çevirisi
+
+{t}Transportation costs{/t}
+Nakliye maliyetleri
+
+{t}Trash{/t}
+Çöp
+
+{t}Trash folder not found.{/t}
+
+
+{t}Tree{/t}
+Ağaç
+
+{t}Trigger failed{/t}
+Trigger hatası
+
+{t}Tu{/t}
+Ma
+
+{t}Tue{/t}
+Ma
+
+{t}Tuesday{/t}
+
+
+{t}Type{/t}
+Tip
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+%s  bulunamıyor
+
+{t}Unable to write to %s{/t}
+%s  üzerine yazılamıyor
+
+{t}unconfirmed{/t}
+doğrulanmamış
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+ilgisiz
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Kilidi aç
+
+{t}Up{/t}
+Yukarı
+
+{t}Update{/t}
+Güncelle
+
+{t}Update Simple Groupware{/t}
+Simple Groupware  güncelle
+
+{t}Updated{/t}
+Güncel
+
+{t}Updating schema %s from %s.{/t}
+Şema güncellemesi %s den %s.
+
+{t}Upload failed{/t}
+Y�kleme hatas�
+
+{t}Uploaded files{/t}
+Yüklenen dosyalar
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+acil
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Kullanım
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Use Debian binaries (Warning: not latest versions)
+
+{t}Use LDAP Groups{/t}
+Use LDAP Groups
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Use the mail() function for sending mails (insecure)
+
+{t}User{/t}
+Kullanıcı
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Kullanıcı adı
+
+{t}Username must be different from the super administrator.{/t}
+Kullanıcı ismi super administrador dan farklı olmalıdır.
+
+{t}Users{/t}
+Kullanıcılar
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Tatil
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+Doğrulama hatası
+
+{t}Value{/t}
+Değer
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Değişken
+
+{t}Variable already exists in table. (%s){/t}
+Değişken tabloda mevcut. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Değişken formatı şöyle olmalı (date): (mm/dd/yyyy).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Değişken formatı şöyle olmalı (datetime): (mm/dd/yyyy hh:mm am/pm).
+
+{t}Variable must be of type float.{/t}
+Değişken float tipinde olmalı.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Değişken tamsayı ve sıfırdan büyük olmalı
+
+{t}Variable must be of type int.{/t}
+Değişken tamsayı tipinde olmalı.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Değişken time tipinde olmalı: (hh:mm am/pm).
+
+{t}Variables{/t}
+Değişkenler
+
+{t}Verbal recommendation{/t}
+Sözlü tavsiye
+
+{t}verified{/t}
+doğrulanmış
+
+{t}vertical{/t}
+
+
+{t}very promising{/t}
+çok ümit verici
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+Antivirus
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Voice mail
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+Bekliyor
+
+{t}Warning{/t}
+Uyarı
+
+{t}We{/t}
+We
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Wed
+
+{t}Wednesday{/t}
+
+
+{t}Week{/t}
+Hafta
+
+{t}Week start{/t}
+Hafta başlangıcı
+
+{t}Weekend{/t}
+
+
+{t}weekly{/t}
+haftalık
+
+{t}weeks{/t}
+hafta
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+beyaz
+
+{t}widowed{/t}
+dul
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+
+
+{t}won't fix{/t}
+wont fix
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+beklendiği gibi çalışır
+
+{t}works for me{/t}
+benim için çalışır
+
+{t}Workshop{/t}
+Atölye
+
+{t}Workspace{/t}
+Çalışma yeri
+
+{t}write access{/t}
+yazma erişimi
+
+{t}Write access (groups){/t}
+Yazma erişimi (gruplar)
+
+{t}Write access (users){/t}
+Yazma erişimi (kullanıcılar)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Yanlış veritabanı versiyonu (%s). Lütfen en az   %s  kullanın !
+
+{t}wrong directory{/t}
+yanlış dizin
+
+{t}wrong password{/t}
+yanlış şifre
+
+{t}Year{/t}
+Yıl
+
+{t}yearly{/t}
+Yıllık
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+Sarı
+
+{t}yes{/t}
+evet
+
+{t}You are not allowed to view this folder.{/t}
+Bu dizini görüntüleme yetkiniz yok.
+
+{t}Your message was read on %s.{/t}
+Mesajınız okundu: %s
+
+{t}Your session has timed out.{/t}
+Oturumunuz zaman aşımına uğradı.
+
+{t}Zipcode{/t}
+Posta kodu
+
+{t}{0} - {1} of {2}{/t}
+
+

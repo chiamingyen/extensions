@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2007 Lars Stavholm
+
+{t}!_Language{/t}
+Svenska / Swedish
+
+{t}%s is not activated{/t}
+%s är inte aktiverad
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s är inte kompilerad / laddad i PHP.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s saknas i databasen
+
+{t}%s rows affected{/t}
+
+
+{t}%s secs{/t}
+%s sekunder
+
+{t}%s started editing this asset at %s{/t}
+%s påbörjade ändringen av denna tillgång vid %s
+
+{t}(for active directory username must be: username@domain){/t}
+(för Active Directory måste användarnamnet vara på formen: användare@domän)
+
+{t}(un)Group{/t}
+(av)Gruppera
+
+{t}About{/t}
+Om
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+accepterad
+
+{t}Access denied.{/t}
+Åtkomst nekad.
+
+{t}Access to this file has been denied.{/t}
+Åtkomst till denna fil har blivt nekad.
+
+{t}Account{/t}
+Konto
+
+{t}account of %s has expired{/t}
+Konto för %s har upphört
+
+{t}Accounting{/t}
+Redovisning
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Aktiverad
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Aktiv
+
+{t}Ad{/t}
+Annons
+
+{t}Add{/t}
+Lägg till
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+
+
+{t}added line{/t}
+rad tillagd
+
+{t}Address{/t}
+Adress
+
+{t}admin access{/t}
+
+
+{t}Admin access (groups){/t}
+Admin åtkomst (grupper)
+
+{t}Admin access (users){/t}
+Admin åtkomst (användare)
+
+{t}Admin Password{/t}
+Admin Lösenord
+
+{t}Admin Username{/t}
+Admin Användarnamn
+
+{t}Administration{/t}
+Administration
+
+{t}Advanced tables{/t}
+
+
+{t}Affected user{/t}
+Påverkad användare
+
+{t}Affiliate{/t}
+Förtroende
+
+{t}after{/t}
+
+
+{t}Agent{/t}
+Agent
+
+{t}Ajax Error{/t}
+
+
+{t}All{/t}
+Alla
+
+{t}All day{/t}
+Alla dagar
+
+{t}All events{/t}
+Alla händelser
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+Använder redan senaste version.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Belopp
+
+{t}Anchor{/t}
+Ankare
+
+{t}and{/t}
+och
+
+{t}Anniversary{/t}
+Årsdag
+
+{t}another page{/t}
+
+
+{t}answered{/t}
+svarade
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+Apache baserad (.htaccess, Basic, Digest, etc.)
+
+{t}Application title{/t}
+Applikationstitel
+
+{t}Apply rights to subfolders{/t}
+Anbringa rättigheter till undermappar
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+April
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Arkiv för borttagna filer
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Tillgång märkt som skrivskyddad
+
+{t}Assets{/t}
+Tillgångar
+
+{t}Assets (children){/t}
+Tillgångar (barn)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+tilldelad
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+
+
+{t}Attachment{/t}
+Bifogad fil
+
+{t}Attachments{/t}
+Bifogade filer
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+Augusti
+
+{t}Authentication Mode{/t}
+Äkthetsbevisningsmetod
+
+{t}Author{/t}
+
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+Medellängd
+
+{t}Back{/t}
+Tillbaka
+
+{t}Backup{/t}
+Säkerhetskopia
+
+{t}Backup current folder{/t}
+Säkerhetskopia av aktuell mapp
+
+{t}Backups{/t}
+Säkerhetskopior
+
+{t}Basic editing{/t}
+
+
+{t}before{/t}
+
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Börja
+
+{t}big{/t}
+
+
+{t}big text{/t}
+
+
+{t}bigger{/t}
+
+
+{t}Billing address{/t}
+Fakturaadress
+
+{t}Birthday{/t}
+Födelsedag
+
+{t}Birthdays{/t}
+Födelsedagarna
+
+{t}Blank{/t}
+Blank
+
+{t}blue{/t}
+blå
+
+{t}bold{/t}
+
+
+{t}bold italic{/t}
+
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+bokad
+
+{t}Booked{/t}
+Bokad
+
+{t}Booking number{/t}
+bokningsnummer
+
+{t}Bookings{/t}
+Bokningar
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Bokmärken
+
+{t}borrowed{/t}
+lånade
+
+{t}Brand{/t}
+Märke
+
+{t}Brands{/t}
+Märken
+
+{t}Browser Compatibility{/t}
+Webläsarkompatibilitet
+
+{t}Browser not supported{/t}
+Webläsare inte supportad
+
+{t}Budget{/t}
+Budget
+
+{t}Bug{/t}
+Fel
+
+{t}bulleted{/t}
+
+
+{t}Business{/t}
+Affärsverksamhet
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+F O R T S Ä T T
+
+{t}Cache output{/t}
+Minnesutbyte
+
+{t}Caches{/t}
+Minnen
+
+{t}Calendar{/t}
+Kalender
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+upphävde
+
+{t}Canceled{/t}
+Upphävde
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Kan inte anropa proc_open. Vänligen ta bort proc_open från disable_functions i php.ini och avaktivera safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+Kan inte ansluta till databas %s på %s
+
+{t}Cannot create preview for %s{/t}
+Kan inte skapa förhandsvisning för %s
+
+{t}Cannot read the file %s.{/t}
+Kan inte läsa filen %s
+
+{t}Cardinality{/t}
+Huvudsakliga
+
+{t}Categories{/t}
+Kategorier
+
+{t}Category{/t}
+Kategori
+
+{t}Cc{/t}
+Kopia
+
+{t}centered{/t}
+
+
+{t}CEO{/t}
+VD
+
+{t}Change request{/t}
+Ändringsbegäran
+
+{t}Change settings{/t}
+Ändra uppsättningar
+
+{t}Change Setup settings{/t}
+Ändra Setup-uppsättningar
+
+{t}Change summary{/t}
+
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+Ändrad rad
+
+{t}Changelog{/t}
+Ändringslogg
+
+{t}Chat{/t}
+Chatta
+
+{t}Check DoS Attacks{/t}
+Kontrollera DoS Attacks
+
+{t}checked{/t}
+kontrollerad
+
+{t}Checked{/t}
+Kontrollerad
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+Informationsdirektör
+
+{t}City{/t}
+Stad
+
+{t}Clean{/t}
+Rensa
+
+{t}Clean Cache{/t}
+Rensa minnet
+
+{t}Clear{/t}
+Töm
+
+{t}Clear Cache{/t}
+Töm minnet
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Kund
+
+{t}Close{/t}
+Stäng
+
+{t}Close session{/t}
+Stäng session
+
+{t}closed{/t}
+stängd
+
+{t}Closed{/t}
+Stängd
+
+{t}CMS{/t}
+
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+Komprimera träd
+
+{t}Color{/t}
+Färg
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Kolumnnamn
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Kommando
+
+{t}Comment{/t}
+Kommentar
+
+{t}Comment files{/t}
+Kommentarfiler
+
+{t}Companies{/t}
+Företagen
+
+{t}Company{/t}
+Företag
+
+{t}Competition{/t}
+Konkurrens
+
+{t}Competitor{/t}
+Konkurrent
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Avslutad
+
+{t}Component{/t}
+Komponent
+
+{t}Compress output{/t}
+Komprimera utdata
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+bekräftad
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Anslutning till databas misslyckades
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Konsult
+
+{t}Contact{/t}
+Kontakt
+
+{t}Contact activities{/t}
+Kontaktaktivteter
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Kontaktad av
+
+{t}Contact groups{/t}
+Kontaktgrupp
+
+{t}Contact id{/t}
+Kontakt id
+
+{t}Contact person{/t}
+Kontaktperson
+
+{t}Contact user by{/t}
+Kontakta användare med
+
+{t}Contacts{/t}
+Kontakter
+
+{t}contains{/t}
+innehåll
+
+{t}Content{/t}
+Innehåll
+
+{t}Continue{/t}
+Fortsätt
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Kopiator
+
+{t}Copy{/t}
+Kopiera
+
+{t}Cost center{/t}
+Kostnadställe
+
+{t}Costs of accommodation{/t}
+Kostnader för logi
+
+{t}Could not determine database-version.{/t}
+Kunde inte fastställa databasversion
+
+{t}Country{/t}
+Land
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Skapad
+
+{t}Creating database failed.{/t}
+Skapande av databas misslyckandes.
+
+{t}current path{/t}
+Aktuell sökväg
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+Curriculum vitae
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Klipp ut
+
+{t}daily{/t}
+dagligen
+
+{t}Data{/t}
+Data
+
+{t}Data free{/t}
+Datafri
+
+{t}Data length{/t}
+Datalängd
+
+{t}Database{/t}
+Databas
+
+{t}Database Hostname / IP{/t}
+Databas datornamn / IP
+
+{t}Database Name{/t}
+Databasnamn
+
+{t}Database Password{/t}
+Databaslösenord
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Databasstatus
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Databasanvändare
+
+{t}Database variables{/t}
+Databasvariabler
+
+{t}Date{/t}
+Datum
+
+{t}Day{/t}
+Dag
+
+{t}Day begin{/t}
+Startdag
+
+{t}Day end{/t}
+slutdag
+
+{t}days{/t}
+dagar
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+slutpunkt
+
+{t}Debug{/t}
+Felsöka
+
+{t}Debug-dir{/t}
+Felsök-dir
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+December
+
+{t}Declining balance{/t}
+Sjunkande balans
+
+{t}Default{/t}
+Förvald
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Förvald tema
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+
+
+{t}Degree{/t}
+Grad
+
+{t}Delete{/t}
+Ta bort
+
+{t}Delete incl subfolders{/t}
+Ta bort inkl undermappar
+
+{t}deleted{/t}
+
+
+{t}deleted line{/t}
+Ta bort rad
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Begära
+
+{t}Demo{/t}
+Demo
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Avdelning
+
+{t}Departments{/t}
+Avdelningar
+
+{t}Dependancies{/t}
+Beroenden
+
+{t}Description{/t}
+Beskrivning
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Skrivbordsdator
+
+{t}Details{/t}
+Detaljer
+
+{t}Device type{/t}
+Apparattyp
+
+{t}Device types{/t}
+Apparattyper
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+Katalog existerar inte.
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+Katalog är utanför tillåtna katalogstrukturen. (%s är utanför %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Visa
+
+{t}display filter{/t}
+Visningsfilter
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+
+
+{t}Distributor{/t}
+Distributör
+
+{t}Distributors{/t}
+Distributörer
+
+{t}divorced{/t}
+skringrade
+
+{t}Documentation{/t}
+Dokumentation
+
+{t}Documentation index{/t}
+
+
+{t}Domain{/t}
+Domän
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Ner
+
+{t}Download{/t}
+Nerladda
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Nerladdningsuppdateringslista
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+duplikat
+
+{t}Duration{/t}
+Varaktighet
+
+{t}E-mail{/t}
+E-post
+
+{t}E-mail private{/t}
+E-post privat
+
+{t}E-mail program{/t}
+E-post program
+
+{t}e.g.{/t}
+
+
+{t}Edit{/t}
+Redigera
+
+{t}Edit as new{/t}
+Redigera som ny
+
+{t}Edit rights{/t}
+Redigera rättigheter
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+
+
+{t}Emphasis{/t}
+
+
+{t}Empty{/t}
+Töm
+
+{t}Empty folder{/t}
+Töm mappen
+
+{t}en{/t}
+se
+
+{t}Enable anonymous access{/t}
+Tillåt anonym åtkomst
+
+{t}Enable anonymous CMS{/t}
+
+
+{t}Enable automatic user creation{/t}
+Tillåt automatiskt skapande av användar
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Tillåt extern e-post klient för mailto: länkar
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Slut
+
+{t}engaged{/t}
+beställde
+
+{t}equal{/t}
+lika
+
+{t}Error{/t}
+Fel
+
+{t}Error doing request to xmlhttp{/t}
+Fel vid begäran till xmlhttp
+
+{t}Error moving file{/t}
+Fel vid flyttning av fil
+
+{t}Error pasting asset{/t}
+Fel vid tilläggning av tillång
+
+{t}Error: no credentials{/t}
+Fel: inga identitetspapper
+
+{t}Events{/t}
+Händelser
+
+{t}Example{/t}
+
+
+{t}Example contacts{/t}
+Exempel kontakter
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Exempel utan anslutningspunkt
+
+{t}Examples{/t}
+
+
+{t}Execute{/t}
+
+
+{t}Expenses{/t}
+Utgifter
+
+{t}Experimental{/t}
+Experimental
+
+{t}Expires{/t}
+Gå ut
+
+{t}Expiry{/t}
+Upphörande
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Extraherande filer
+
+{t}F j{/t}
+F j
+
+{t}F j, Y{/t}
+F j, Y
+
+{t}Failed to create directory: %s{/t}
+Misslyckades att skapa katalog: %s
+
+{t}Failed to write file to disk.{/t}
+Misslyckades att skriva fil till disk.
+
+{t}Failed to write into %s{/t}
+Misslyckades att skriva till %s
+
+{t}Family status{/t}
+Familjestatus
+
+{t}FAQ{/t}
+FAQ
+
+{t}Favorites{/t}
+Favoriter
+
+{t}Fax{/t}
+Fax
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Begärd egenskap
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+Februari
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+kvinnlig
+
+{t}Field{/t}
+Fält
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Fil
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+Filen är för stor: vänligen ändra upload_max_filesize, post_max_size i er php.ini
+
+{t}file is too big. Please upload a smaller one.{/t}
+Filen är för stor: vänligen ladda upp en mindre fil.
+
+{t}File locked.{/t}
+Fil är låst.
+
+{t}file not found in database.{/t}
+Fil inte hittad i databasen.
+
+{t}file not found.{/t}
+fil inte hittad.
+
+{t}File unlocked.{/t}
+Fil är olåst.
+
+{t}file was uploaded partially.{/t}
+Fil var uppladdad delvis.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Filnamn måste ha riktiga extension. Giltig extensioner är %s
+
+{t}Files{/t}
+Filer
+
+{t}Filesystem{/t}
+Filsystem
+
+{t}Filter{/t}
+Filter
+
+{t}Find assets in multiple folders{/t}
+
+
+{t}Finish scheduled{/t}
+Planerad avslut
+
+{t}Finished{/t}
+Avslutade
+
+{t}First in list{/t}
+Först i listam
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+Förnamn
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+Fixad
+
+{t}Flags{/t}
+Flagor
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Mapp
+
+{t}Folder already exists.{/t}
+
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Mappstruktur skapad.
+
+{t}Folder structure moved to trash.{/t}
+Mappstruktur flyttad till papperskorg.
+
+{t}Folder Type{/t}
+Mapptyp
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Mappar
+
+{t}for a new paragraph, use a blank line{/t}
+
+
+{t}Force SSL{/t}
+Force SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Forum
+
+{t}Forward{/t}
+Framåt
+
+{t}Fr{/t}
+Fr
+
+{t}Free/busy{/t}
+Fri/Upptagen
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Fre
+
+{t}Friday{/t}
+
+
+{t}From{/t}
+Från
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+full bredd
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+
+
+{t}Function does not exist: %s{/t}
+Funktion existerar inte: %s
+
+{t}g:i a{/t}
+G:i
+
+{t}Gender{/t}
+Sändare
+
+{t}General{/t}
+Allmänt
+
+{t}Generate{/t}
+Generera
+
+{t}Gifts{/t}
+Gåvor
+
+{t}Give Feedback{/t}
+Ge Feedback
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL Frekventa Frågor
+
+{t}greater than{/t}
+större än
+
+{t}green{/t}
+grön
+
+{t}Group{/t}
+
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Gruppnamn
+
+{t}Groups{/t}
+Grupper
+
+{t}hanging text{/t}
+
+
+{t}Hardware{/t}
+Hårdvara
+
+{t}Headers{/t}
+Sidhuvuden
+
+{t}heading{/t}
+
+
+{t}headings{/t}
+
+
+{t}Height{/t}
+Höjd
+
+{t}Help{/t}
+Hjälp
+
+{t}Helpdesk{/t}
+Supportavdelning
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+Historia
+
+{t}Holiday{/t}
+Semester
+
+{t}Home{/t}
+Hem
+
+{t}Home folder id{/t}
+
+
+{t}Home page in the CMS{/t}
+
+
+{t}Homepage{/t}
+Hemsida
+
+{t}horizontal line{/t}
+
+
+{t}Host{/t}
+Värd
+
+{t}Hosts{/t}
+Värdar
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+timmar
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+HTML dokument
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+Jag accepterar GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+I n s t a l l e r a
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Id
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Ideas{/t}
+Ide´er
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Om tom, SMTP anslutning från modellanvändaren vill bli använd.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+om inte autoupptäckt med namninnehållet
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Om användarnamn eller lösenord innehåller &quot;@&quot; karaktärer, byt ut dem mot &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Im-/Export
+
+{t}Image{/t}
+Bild
+
+{t}Images{/t}
+
+
+{t}Imap-error: %s{/t}
+Imap-error: %s
+
+{t}immediate{/t}
+ögonblicklig
+
+{t}Import{/t}
+Import
+
+{t}In progress{/t}
+Aktiv
+
+{t}in repair{/t}
+i återställande
+
+{t}in stock{/t}
+i lager
+
+{t}Inactive{/t}
+inaktiv
+
+{t}Include in RSS feed{/t}
+
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+
+
+{t}Index{/t}
+Index
+
+{t}Index length{/t}
+Indexlängd
+
+{t}Index type{/t}
+Indextyp
+
+{t}Indexes{/t}
+Indexen
+
+{t}Industry{/t}
+Industri
+
+{t}Info{/t}
+Info
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Lägg till
+
+{t}inserted{/t}
+
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+otillräkliga mapprättigheter
+
+{t}Internal recommendation{/t}
+Intern rekommandation
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Inledning
+
+{t}invalid{/t}
+ogiltig
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Inventarier
+
+{t}Inventory number{/t}
+Inventarinummer
+
+{t}Investor{/t}
+Investerare
+
+{t}Invoice{/t}
+Faktura
+
+{t}italic{/t}
+
+
+{t}Item created by %s at %s{/t}
+Post skapad av %s på %s
+
+{t}Item deleted by %s at %s{/t}
+Post borttagen av %s på %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Post redigerad (%s) av %s på %s
+
+{t}Item not found.{/t}
+Post inte hittad.
+
+{t}Item successfully created.{/t}
+Post framgångsrikt skapad.
+
+{t}Item successfully updated.{/t}
+Post framgångsrikt uppdaterad.
+
+{t}Item(s) not found or access denied.{/t}
+Post(er) saknas eller åtkomst nekad.
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+Januari
+
+{t}Job description{/t}
+Jobbbeskrivning
+
+{t}Join lines{/t}
+
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+Juli
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+Juni
+
+{t}Key{/t}
+Nyckel
+
+{t}Key customer{/t}
+Nyckelkund
+
+{t}Key name{/t}
+Nyckelnamn
+
+{t}Keywords{/t}
+
+
+{t}Knowledge base{/t}
+Kundskapsbas
+
+{t}L o g i n{/t}
+L o g g a  i n
+
+{t}l, F j, Y{/t}
+l, F j, Y
+
+{t}Last access{/t}
+Sista åtkomst
+
+{t}Last name{/t}
+Efternamn
+
+{t}LDAP anonymous connection failed.{/t}
+LDAP anonym anslutning misslyckades
+
+{t}LDAP attribute for group memberships{/t}
+
+
+{t}LDAP attribute for rooms{/t}
+
+
+{t}LDAP attribute for usernames{/t}
+
+
+{t}LDAP connection to host %s failed.{/t}
+LDAP anslutning till värd %s misslyckades.
+
+{t}LDAP without anonymous access{/t}
+LDAP utan anonym anslutning
+
+{t}LDAP: no base DN given{/t}
+LDAP: ingen bas DN angiven
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+mindre lovande
+
+{t}lesser than{/t}
+mindre än
+
+{t}Letter{/t}
+Brev
+
+{t}Level{/t}
+Nivå
+
+{t}License{/t}
+Licens
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+
+
+{t}Link{/t}
+Länk
+
+{t}Link restricted{/t}
+Länk begränsad
+
+{t}link text{/t}
+
+
+{t}link to external page{/t}
+
+
+{t}link to internal page{/t}
+
+
+{t}Links{/t}
+
+
+{t}Lists{/t}
+
+
+{t}Load external images{/t}
+
+
+{t}Location{/t}
+Plats
+
+{t}Locations{/t}
+Platser
+
+{t}Lock{/t}
+Låst
+
+{t}Locked by{/t}
+Låst av
+
+{t}Locking{/t}
+Låsning
+
+{t}login %s from %s with %s{/t}
+logga in %s från %s med %s
+
+{t}Login failed from %s.{/t}
+Logga in misslyckades från %s.
+
+{t}Login/-out{/t}
+Logga in/ut
+
+{t}Logins{/t}
+Logga in
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+logga ut %s
+
+{t}Lookup{/t}
+Låsa upp
+
+{t}low{/t}
+låg
+
+{t}lowest{/t}
+lägst
+
+{t}M j{/t}
+j M
+
+{t}M j, g:i a{/t}
+j M, G:i
+
+{t}M j, Y{/t}
+j M Y
+
+{t}m/d/Y{/t}
+Y-m-d
+
+{t}m/d/Y g:i a{/t}
+Y-m-d G:i
+
+{t}m/d/y g:i:s a{/t}
+y-m-d G:i:s
+
+{t}magenta{/t}
+magenta
+
+{t}mail footer{/t}
+post-footer
+
+{t}Mail identities{/t}
+Postidentifierare
+
+{t}mail notification{/t}
+e-post meddelande
+
+{t}mail reminder{/t}
+påminnelse via e-post
+
+{t}Main menu{/t}
+Huvudmeny
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Underhållsläge
+
+{t}male{/t}
+manlig
+
+{t}Man-days{/t}
+Man-dagar
+
+{t}Man-days planned{/t}
+Plannerad man-dagar
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Chef
+
+{t}Manufacturer{/t}
+Tillverkare
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+Mars
+
+{t}Marketing event{/t}
+Marknadsevenemang
+
+{t}married{/t}
+gift
+
+{t}Maximize{/t}
+Maximera
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+maximum antal av filer överskridet.
+
+{t}May{/t}
+Maj
+
+{t}Media{/t}
+Media
+
+{t}Meeting{/t}
+Möten
+
+{t}Members{/t}
+Medlem
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+
+
+{t}Merged folders{/t}
+
+
+{t}Message{/t}
+Meddelande
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+min
+
+{t}Minimize{/t}
+Minimera
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+
+
+{t}Miscellaneous{/t}
+Blandad
+
+{t}missing a temporary folder.{/t}
+saknad temporär mapp.
+
+{t}missing field{/t}
+saknat fält
+
+{t}missing right: %s{/t}
+saknad rättighet: %s
+
+{t}Mo{/t}
+Må
+
+{t}Mobile{/t}
+Mobil
+
+{t}Model{/t}
+Model
+
+{t}Modified{/t}
+Modiferad
+
+{t}Modified by{/t}
+
+
+{t}Modifying database failed.{/t}
+Modifering av databas misslyckades.
+
+{t}Module{/t}
+Modul
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Moduler
+
+{t}Mon{/t}
+Mån
+
+{t}Monday{/t}
+
+
+{t}monospace{/t}
+
+
+{t}Month{/t}
+Månad
+
+{t}monthly{/t}
+månatlig
+
+{t}months{/t}
+månader
+
+{t}More information about the GNU GPL{/t}
+Mer information om GNU GPL
+
+{t}Mountpoint{/t}
+Anslutningspunkt
+
+{t}Move{/t}
+Flytta
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+
+
+{t}My tasks{/t}
+
+
+{t}Name{/t}
+Namn
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Namn får inte vara tom, liten bokstav, min 3 karatärer, max 128 innehållande [a-z0-9_-@.].
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+
+
+{t}need feedback{/t}
+behöver feedback
+
+{t}Network{/t}
+Nätverk
+
+{t}Never expires{/t}
+Aldrig löper ut
+
+{t}New{/t}
+Ny
+
+{t}New folder{/t}
+Ny mapp
+
+{t}News{/t}
+Nyheter
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Smeknamn
+
+{t}Nightwork{/t}
+
+
+{t}no{/t}
+nej
+
+{t}No dataset selected.{/t}
+Inget objekt valt.
+
+{t}No entries found.{/t}
+Inga objekt funna.
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Ingen sändare specificerad.
+
+{t}no username submitted{/t}
+inget användarnamn presenterad
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Inte unik
+
+{t}none{/t}
+ingen
+
+{t}normal{/t}
+normal
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Inte tillåtet. Vänligen logga in som superadministratör.
+
+{t}not contains{/t}
+inget innehåll
+
+{t}not equal{/t}
+inte lika
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+Notebook
+
+{t}Notes{/t}
+Anteckningar
+
+{t}Notificaiton sent to: %s{/t}
+Tillkännagivande skickad till: %s
+
+{t}Notification{/t}
+Tillkännagivande
+
+{t}Notification summary{/t}
+
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+November
+
+{t}Null{/t}
+Tom
+
+{t}Number of employees{/t}
+Antal anställda
+
+{t}numbered{/t}
+
+
+{t}Objectives{/t}
+Målen
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+Oktober
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Kontor
+
+{t}Office program{/t}
+Kontorsprogram
+
+{t}Offices{/t}
+Kontoren
+
+{t}offline{/t}
+offline
+
+{t}Offline folders{/t}
+
+
+{t}Offline sync{/t}
+
+
+{t}Ok{/t}
+Ok
+
+{t}one of{/t}
+
+
+{t}online{/t}
+online
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Öppen
+
+{t}Operating system{/t}
+Operativsystem
+
+{t}Operation not allowed. (Data loss protection){/t}
+Operation inte tillåten. (Data förlorat skydd)
+
+{t}Optimize Tables{/t}
+Optimera Tabeller
+
+{t}Options{/t}
+Optioner
+
+{t}or{/t}
+
+
+{t}or higher{/t}
+eller högre
+
+{t}orange{/t}
+orange
+
+{t}Order size{/t}
+Mappstorlek
+
+{t}Organisation{/t}
+Organisation
+
+{t}Organizer{/t}
+Organisatör
+
+{t}Origin{/t}
+Ursprung
+
+{t}Original message{/t}
+Ursprungligt meddelande
+
+{t}Other{/t}
+Annan
+
+{t}out of office{/t}
+inte på kontoret
+
+{t}Outline image{/t}
+Vektorsbild
+
+{t}Output{/t}
+Utdata
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+Överlappande
+
+{t}Overtime{/t}
+
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Ägare
+
+{t}Owner since{/t}
+Ägare sen
+
+{t}Package from local file system (.tar.gz){/t}
+Paket från lokalt filsystem (.tar.gz)
+
+{t}Packed{/t}
+Paketerad
+
+{t}Page{/t}
+
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+
+
+{t}Page not found{/t}
+
+
+{t}Page title{/t}
+
+
+{t}Pager{/t}
+Personsökare
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+
+
+{t}parameters{/t}
+parametrar
+
+{t}Parameters{/t}
+Parametrar
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Textanalys
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Deltagande
+
+{t}Participants (external){/t}
+Deltagande (externt)
+
+{t}Participants (internal){/t}
+Deltagande (internt)
+
+{t}Password{/t}
+Lösenord
+
+{t}Password expired. (password of %s has expired){/t}
+Lösenord gått ut. (lösenord för %s har gått ut)
+
+{t}Password expires{/t}
+Lösenord gått ut
+
+{t}Password must be not null, min 5 characters.{/t}
+Lösenord får inte vara tomt. min 5 karaktärer.
+
+{t}password not confirmed.{/t}
+Lösenord inte bekräftat.
+
+{t}Passwords{/t}
+Lösenorden
+
+{t}Paste{/t}
+Klistra in
+
+{t}Path{/t}
+Sökväg
+
+{t}Pause{/t}
+
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Tillåtelser
+
+{t}Permissions added for: %s{/t}
+Tillåtelser tillagt för: %s
+
+{t}Personal{/t}
+Privat
+
+{t}Personal department{/t}
+Personlig avdelning
+
+{t}Personal folders{/t}
+Privat mapp
+
+{t}Personal projects{/t}
+Privata projekt
+
+{t}Phone{/t}
+Telefon
+
+{t}Phone calls{/t}
+Telefonsamtal
+
+{t}Phone private{/t}
+Privat telefon
+
+{t}Photo{/t}
+Foto
+
+{t}Photo gallery{/t}
+Fotokalender
+
+{t}Planned{/t}
+Planerad
+
+{t}Please activate cookies.{/t}
+Vänligen aktivera cookies.
+
+{t}Please choose Apache as Web-Server.{/t}
+Vänligen välj Apache som Web-Server.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Vänligen ange en giltig URL.
+
+{t}Please give read access to %s{/t}
+Vänligen ge läsrättigheter till %s
+
+{t}Please give write access to %s{/t}
+Vänligen ge skrivrättigheter till %s
+
+{t}Please give write access to %s and %s{/t}
+Vänligen ge skrivrättigheter till %s och %s
+
+{t}Please hit reload.{/t}
+Vänligen kör återladdning.
+
+{t}Please input a valid e-mail adress.{/t}
+Vänligen mata in en giltig e-post adress.
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Vänligen installera tsearch2 för PostgreSQL databasen.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Vänligen modifiera er php.ini eller lägg till en .htaccess fil som ändrar %s till %s (aktuellt värde är %s)!
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Vänligen läs följande licens avtal. Använd rullningslist till att visa resten av detta avtal.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+
+
+{t}Please upload again.{/t}
+Vänligen ladda upp igen.
+
+{t}Please wait ...{/t}
+Vänligen vänta...
+
+{t}Pop3-error: %s{/t}
+Pop3-error: %s
+
+{t}Port{/t}
+Port
+
+{t}Portal{/t}
+Portal
+
+{t}Position{/t}
+Position
+
+{t}Positions{/t}
+Positioner
+
+{t}Post{/t}
+Post
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+
+
+{t}Preview{/t}
+Förhandsvisning
+
+{t}Price{/t}
+Pris
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Skriv ut
+
+{t}Print all{/t}
+
+
+{t}Printer{/t}
+Skrivare
+
+{t}Priority{/t}
+Prioritet
+
+{t}Problem{/t}
+Problem
+
+{t}Processes{/t}
+Processer
+
+{t}Processing %s ...{/t}
+Bearbetning %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Programmet är installerat med språk %s, vänligen använd en annan url eller kör setup igen.
+
+{t}Progress{/t}
+Framsteg
+
+{t}Project{/t}
+Projekt
+
+{t}Project files{/t}
+
+
+{t}Project tasks{/t}
+
+
+{t}Projects{/t}
+Projekten
+
+{t}promising{/t}
+lovande
+
+{t}Properties{/t}
+
+
+{t}Prospective client{/t}
+Eventuell kund
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Inköpt
+
+{t}Question{/t}
+Fråga
+
+{t}Queue{/t}
+Kö
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Kvot
+
+{t}Quota (remaining){/t}
+Kvot (återstår)
+
+{t}Quota [MB]{/t}
+Kvot [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Kvotbegränsning öcerskriden: %s
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Ranking
+
+{t}Read{/t}
+Läs
+
+{t}read access{/t}
+läsrättighet
+
+{t}Read access (groups){/t}
+Läsrättighet (grupper)
+
+{t}Read access (users){/t}
+Läsrättighet (användare)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+klar för reperation
+
+{t}ready for scrap{/t}
+klar för kassera
+
+{t}Real URL format in the CMS{/t}
+
+
+{t}Really apply rights to subfolders ?{/t}
+Verkligen applicera rättigheter till undermapp?
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Verkligen ta bort?
+
+{t}REALLY delete ALL datasets ?{/t}
+VERKLIGEN ta bort ALLA valda objekt?
+
+{t}Really delete ALL subfolders ?{/t}
+Verkligen ta bort ALLA undermappar?
+
+{t}Really delete the dataset(s) ?{/t}
+Verkligen ta bort dataset(s)?
+
+{t}Really empty the folder ?{/t}
+Verkligen töma mappen?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Verkligen skriva över existerande dataset(s)?
+
+{t}Really run setup again ?{/t}
+Verkligen köra setup igen?
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Bygga om sökindex
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Rekommendation om ansluta
+
+{t}Recurrence{/t}
+Återkommande
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+röd
+
+{t}Redirect to home directory{/t}
+Omdirigera till hemkatalog
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+
+
+{t}Regular{/t}
+
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+förkastade
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Återstarta Setup
+
+{t}Relevance{/t}
+
+
+{t}Reminder{/t}
+Påminnelse
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Döpa om mappen
+
+{t}Repeat count{/t}
+Göra om beräkning
+
+{t}Repeat exclusions{/t}
+Göra om gallringen
+
+{t}Repeat interval{/t}
+Göra om intervallet
+
+{t}Repeat until{/t}
+Göra om tills
+
+{t}Reply{/t}
+Svara
+
+{t}Reply all{/t}
+Svara alla
+
+{t}Require admin access to set mountpoints{/t}
+Behöva admin rättighet till sätta anslutningspunkter
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Äterförsäljare
+
+{t}reserved{/t}
+Reserverad
+
+{t}Reset view{/t}
+Återställatill förvald visning
+
+{t}Resource{/t}
+Tillgång
+
+{t}Resources{/t}
+Tillgångar
+
+{t}Responsible{/t}
+Ansvarig
+
+{t}Responsible (external){/t}
+Ansvarig (externt)
+
+{t}Responsible (internal){/t}
+Ansvarig (internt)
+
+{t}Restore complete{/t}
+Komplett återställa
+
+{t}Restore here{/t}
+Återställ här
+
+{t}Restore only missing{/t}
+
+
+{t}Restore only newer{/t}
+Återställ endast aldrig
+
+{t}Restore to origin{/t}
+Återställ till ursprunget
+
+{t}Return receipt{/t}
+Återkommskvitto
+
+{t}right-aligned{/t}
+
+
+{t}Rights{/t}
+Rättigheter
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Rumsnamn
+
+{t}Room number{/t}
+Rumsnummer
+
+{t}Rooms{/t}
+Rum
+
+{t}Rows{/t}
+Rader
+
+{t}Run Setup again{/t}
+Kör Setup igen
+
+{t}S a v e{/t}
+S p a r a
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+
+
+{t}Sa{/t}
+Lö
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Fäljningsfrämjande
+
+{t}Sat{/t}
+Lör
+
+{t}Saturday{/t}
+
+
+{t}Scheduling{/t}
+Planering
+
+{t}Schema{/t}
+Schema
+
+{t}Schema data{/t}
+Schemadata
+
+{t}Schemafile not found. (%s){/t}
+Schemafil inte hittad. (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+Skrapade
+
+{t}Search{/t}
+Sök
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+Vice direktör
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Sekreterare
+
+{t}Self registration{/t}
+
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+
+
+{t}September{/t}
+September
+
+{t}Serial number{/t}
+Serienummer
+
+{t}Server{/t}
+Server
+
+{t}Server does not support sorting{/t}
+
+
+{t}Server-IP{/t}
+Server-IP
+
+{t}Service provider{/t}
+Tjänsteleveratör
+
+{t}Session name in cookie{/t}
+
+
+{t}Session timeout{/t}
+Sessionstimeout
+
+{t}Sessions{/t}
+Sessioner
+
+{t}Setup{/t}
+Setup
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Setup behöver en database-php-extension ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Setup behöver php med lägst version %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+Setup behöver php-extension med namn %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Setup: setup-data skrivits till %s.
+
+{t}Shapes{/t}
+
+
+{t}Share{/t}
+Delad
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+Visa
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Visa arkiv
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Visa citerad text
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+
+
+{t}single{/t}
+singel
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Storlek
+
+{t}Size (children){/t}
+Storlek (barn)
+
+{t}Slow{/t}
+Långsam
+
+{t}small{/t}
+
+
+{t}small text{/t}
+
+
+{t}smaller{/t}
+
+
+{t}SMTP not configured for %s{/t}
+SMTP inte konfigurad för %s
+
+{t}Smtp-error %s: %s{/t}
+Smtp-fel %s: %s
+
+{t}Software{/t}
+Mjukvara
+
+{t}Solution{/t}
+Lösning
+
+{t}Solution type{/t}
+Lösningstyp
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Specifikation
+
+{t}Spreadsheet{/t}
+Kalkylprogram
+
+{t}SQL failed.{/t}
+SQL felade.
+
+{t}SQL FAILED: %s{/t}
+SQL felade: %s
+
+{t}Start scheduled{/t}
+Starta planering
+
+{t}Started{/t}
+Startade
+
+{t}starts with{/t}
+starta med
+
+{t}State{/t}
+Län
+
+{t}Static cache{/t}
+
+
+{t}Statistics{/t}
+Statistik
+
+{t}Status{/t}
+Status
+
+{t}Statuses{/t}
+Status
+
+{t}Strategies{/t}
+Strategierer
+
+{t}Street{/t}
+Gata
+
+{t}Structure{/t}
+Struktur
+
+{t}Su{/t}
+Sö
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+
+
+{t}Subitem{/t}
+Underpost
+
+{t}Subject{/t}
+Ämne
+
+{t}Subjects{/t}
+
+
+{t}Submit a patch{/t}
+Presentera en mindre rättelse
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+
+
+{t}Subsistence costs{/t}
+Uppehälleskostnader
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Sammanfattande
+
+{t}Sun{/t}
+Sön
+
+{t}Sunday{/t}
+
+
+{t}Superior{/t}
+Överordnad
+
+{t}superscript{/t}
+
+
+{t}Supplier{/t}
+Leverantör
+
+{t}Suppliers{/t}
+Leverantörer
+
+{t}Support{/t}
+Support
+
+{t}Support request{/t}
+Supportbegäran
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Suspenderade
+
+{t}Switch maintenance mode{/t}
+Byt underhållsmod
+
+{t}Sync4j remote delete items{/t}
+Sync4j fjärr ta bort poster
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+System
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Tabell
+
+{t}Table sizes{/t}
+Tabellstorlek
+
+{t}Table status{/t}
+Tabellstatus
+
+{t}Tables{/t}
+Tabeller
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+Uppgifter
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+
+
+{t}Templates{/t}
+Mallar
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Textdokument
+
+{t}Text formatting rules{/t}
+
+
+{t}Th{/t}
+To
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+
+
+{t}The folder cannot be deleted.{/t}
+
+
+{t}The folder cannot be moved.{/t}
+
+
+{t}The new password is{/t}
+
+
+{t}The url doesn't exist.{/t}
+Urlen finns inte.
+
+{t}Theme{/t}
+Tema
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+denna filextension är inte tillåten
+
+{t}Thu{/t}
+Tor
+
+{t}Thursday{/t}
+
+
+{t}Time and expenses{/t}
+Tid och utgifter
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+
+
+{t}Time zone{/t}
+
+
+{t}timeout{/t}
+
+
+{t}Title{/t}
+Titel
+
+{t}To{/t}
+Till
+
+{t}to be checked{/t}
+kommer att kontrolleras
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+För att forstätta installation av Simple Groupware måste du klicka i boxen under licenstexten
+
+{t}Today{/t}
+Idag
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+För många felaktiga inloggningar. Vänligen vänta 15 minuter.
+
+{t}Total{/t}
+Total
+
+{t}Trace{/t}
+Spår
+
+{t}Trade fair{/t}
+Branschmässa
+
+{t}translations{/t}
+översättning
+
+{t}Translations of the GNU GPL{/t}
+Översättning av GNU GPL
+
+{t}Transportation costs{/t}
+Transportkostnader
+
+{t}Trash{/t}
+Skräp
+
+{t}Trash folder not found.{/t}
+
+
+{t}Tree{/t}
+Träd
+
+{t}Trigger failed{/t}
+Utlösare misslyckades
+
+{t}Tu{/t}
+Ti
+
+{t}Tue{/t}
+Tis
+
+{t}Tuesday{/t}
+
+
+{t}Type{/t}
+Typ
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+omöjligt att finna %s
+
+{t}Unable to write to %s{/t}
+Omöjligt att skriva till %s
+
+{t}unconfirmed{/t}
+obekräftad
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+ointresserad
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Olåst
+
+{t}Up{/t}
+Upp
+
+{t}Update{/t}
+Uppdatera
+
+{t}Update Simple Groupware{/t}
+Uppdatera Simple Groupware
+
+{t}Updated{/t}
+Uppdaterad
+
+{t}Updating schema %s from %s.{/t}
+Uppdatera schema %s från %s.
+
+{t}Upload failed{/t}
+Uppladdning misslyckades
+
+{t}Uploaded files{/t}
+Uppladdade filer
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+bråskande
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Behandling
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Använd Debian binärer (Varning: inte sista versionen)
+
+{t}Use LDAP Groups{/t}
+
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Använd mail() funktion för att sända post (osäker)
+
+{t}User{/t}
+Användare
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Användarnamn
+
+{t}Username must be different from the super administrator.{/t}
+Användarnamn får inte var samma som superadministratör.
+
+{t}Users{/t}
+Användare
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Semester
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+Validering misslyckades
+
+{t}Value{/t}
+Värde
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Variabel
+
+{t}Variable already exists in table. (%s){/t}
+Variabel finns redan i tabellen. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Variabel måste vara av datumtyp (yyyy-mm-dd).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Variabel måste vara av datum/tidtyp (yyyy-mm-dd HH:mm).
+
+{t}Variable must be of type float.{/t}
+Variabel måste vara av flyttalstyp.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Variabel måste vara av heltalstyp och större än 0.
+
+{t}Variable must be of type int.{/t}
+Variabel måste vara av heltalstyp.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Variabel måste vara av tidstyp (HH:mm).
+
+{t}Variables{/t}
+Variabler
+
+{t}Verbal recommendation{/t}
+Verbal rekommendation
+
+{t}verified{/t}
+verifierad
+
+{t}vertical{/t}
+
+
+{t}very promising{/t}
+mycket lovande
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+Viruscanner
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Röstpost
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+Väntar
+
+{t}Warning{/t}
+Varning
+
+{t}We{/t}
+On
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Ons
+
+{t}Wednesday{/t}
+
+
+{t}Week{/t}
+Vecka
+
+{t}Week start{/t}
+Veckostart
+
+{t}Weekend{/t}
+
+
+{t}weekly{/t}
+Varje vecka
+
+{t}weeks{/t}
+veckor
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+vit
+
+{t}widowed{/t}
+änka
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+
+
+{t}won't fix{/t}
+blev inte fixat
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+arbetar som förväntat
+
+{t}works for me{/t}
+arbetar för mig
+
+{t}Workshop{/t}
+Workshop
+
+{t}Workspace{/t}
+Arbetsutrymme
+
+{t}write access{/t}
+skrivrättighet
+
+{t}Write access (groups){/t}
+Skrivrättighet (grupper)
+
+{t}Write access (users){/t}
+Skrivrättighet (användare)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Felaktig databas-version (%s). Var snäll använd som lägst %s!
+
+{t}wrong directory{/t}
+felaktig katalog
+
+{t}wrong password{/t}
+felaktigt lösenord
+
+{t}Year{/t}
+År
+
+{t}yearly{/t}
+Årlig
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+gul
+
+{t}yes{/t}
+ja
+
+{t}You are not allowed to view this folder.{/t}
+Du är inte tillåten till att visa denna mapp.
+
+{t}Your message was read on %s.{/t}
+Ditt meddelande var läst på %s.
+
+{t}Your session has timed out.{/t}
+Din sessionstid är överskriden.
+
+{t}Zipcode{/t}
+Postnummer
+
+{t}{0} - {1} of {2}{/t}
+
+

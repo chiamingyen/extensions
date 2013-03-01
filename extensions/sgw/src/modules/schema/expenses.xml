@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Expenses{/t}" default_view="display" orderby="begin" order="asc" limit="20" enable_new="true" enable_edit="true" enable_asset_rights="owner_read" trigger_new="createedit_payroll" trigger_edit="createedit_payroll" disable_copy="true" disable_paste="true" disable_quick_add="true">
+  <view name="display" displayname="{t}Open{/t}" groupby="category" where="status='open'">
+  </view>
+  <view name="completed" displayname="{t}Completed{/t}" groupby="username" where="status in ('completed','confirmed')" template="display">
+  </view>
+  <view name="canceled" displayname="{t}Canceled{/t}" groupby="username" where="status='canceled'" template="display">
+  </view>
+  <view name="booked" displayname="{t}Booked{/t}" groupby="costcenter" where="status='booked'" template="display">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" show_preview="true">
+  </view>
+  
+  <!-- GraphViz
+	digraph {
+		open -> completed [label=user]
+		completed -> confirmed [label=payroll]
+		completed -> booked [label=payroll]
+		confirmed -> booked [label=payroll]
+		open -> canceled [label=user]
+		completed -> canceled [label=payroll]
+	}
+  -->
+
+  <viewbutton name="complete" views="display" displayname="{t}Complete{/t}" onclick="if (asset_form_selected()) asset_update_confirm({status:'completed'},assets_get_selected(true));" right="write" icon="enabled.gif" />
+  <viewbutton name="confirm" views="completed" displayname="{t}Confirm{/t}" onclick="if (asset_form_selected()) asset_update_confirm({status:'confirmed'},assets_get_selected(true));" right="write" icon="accept.gif" />
+  <viewbutton name="cancel" views="display|completed" displayname="{t}Cancel{/t}" onclick="if (asset_form_selected()) asset_update_confirm({status:'canceled'},assets_get_selected(true));" right="write" icon="disabled.gif" />
+
+  <singlebutton name="complete" displayname="{t}Complete{/t}" onclick="asset_update_confirm({status:'completed'},'@id@');" condition="status|eq|open" right="write" icon="enabled.gif" />
+  <singlebutton name="confirm" displayname="{t}Confirm{/t}" onclick="asset_update_confirm({status:'confirmed'},'@id@');" condition="status|eq|completed" right="write" icon="accept.gif" />
+  <singlebutton name="book" displayname="{t}Book{/t}" onclick="bnr=prompt('{t}Booking number{/t}', ''); if (bnr!=null) asset_update({status:'booked', booking_number:bnr},'@id@');" condition="status|oneof|completed,confirmed" right="write" icon="book.gif" />
+  <singlebutton name="cancel" displayname="{t}Cancel{/t}" onclick="asset_update_confirm({status:'canceled'},'@id@');" condition="status|oneof|open,completed" right="write" icon="disabled.gif" />
+
+  <field name="subject" displayname="{t}Title{/t}" simple_type="text" required="true">
+    <linktext views="display|completed|booked" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="amount" displayname="{t}Amount{/t} ({t}USD{/t})" simple_type="float" required="true" sum="true">
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea">
+    <notin views="display|completed|canceled|booked"/>
+  </field>
+  <field name="project" displayname="{t}Project{/t}" simple_type="select" simple_size="1">
+    <notin views="display|completed|booked|canceled"/>
+	<data function="dbselect|simple_projects|projectname,projectname||projectname asc|10"/>
+  </field>
+  <field name="costcenter" displayname="{t}Cost center{/t}" simple_type="select" simple_size="1" required="true">
+    <data function="dbselect|simple_costcenter|cname,cname|activated=1|cname asc|10"/>
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" simple_size="1" required="true">
+	<data sort="asc" values="{t}Transportation costs{/t}|{t}Costs of accommodation{/t}|{t}Subsistence costs{/t}|{t}Other{/t}"/>
+	<data function="dbselect|simple_categories|categoryname,categoryname|cattype='expenses'|categoryname asc|10"/>
+  </field>
+  <field name="username" displayname="{t}Username{/t}" simple_type="select" simple_size="1" simple_default="anonymous" simple_default_function="getusername" required="true">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@username@&amp;view=details"/>
+  </field>
+  <field name="begin" displayname="{t}Begin{/t}" simple_type="date" simple_default_function="dateformat|now|{t}m/d/Y{/t}" required="true" nowrap="true">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+	<description hint="{t}Relative formats{/t}" value="nWin('http://www.php.net/manual/en/datetime.formats.relative.php');"/>
+  </field>
+  <field name="ending" displayname="{t}End{/t}" simple_type="date" simple_default_function="dateformat|now + 1 week|{t}m/d/Y{/t}" required="true" nowrap="true">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+  </field>
+  <field name="booking_number" displayname="{t}Booking number{/t}" simple_type="text" is_unique="true">
+    <notin views="display|canceled|completed"/>
+	<validate function="require_group|admin_payroll" />
+	<restore views="edit_as_new" function="empty_str"/>
+  </field>
+  
+  <field name="invoice" displayname="{t}Invoice{/t}" simple_type="files" simple_file_size="5M" simple_size="10">
+    <notin views="display|canceled|completed|booked"/>
+    <validate function="fileupload|jpg,jpeg,gif,png,pdf"/>
+  </field>
+  <field name="status" displayname="{t}Status{/t}" simple_type="select" simple_size="1" required="true">
+	<data reverse="true" values="open_##_{t}open{/t}|completed_##_{t}completed{/t}|confirmed_##_{t}confirmed{/t}|booked_##_{t}booked{/t}|canceled_##_{t}canceled{/t}"/>
+	<validate function="require_group|admin_payroll|confirmed,booked" />
+	<hiddenin views="display|canceled|booked"/>
+	<restore views="edit_as_new" function="replace|open"/>
+    <INDEX/>
+  </field>
+</table>

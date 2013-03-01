@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+	
+RewriteCond %{REQUEST_METHOD}  ^GET
+RewriteCond %{REQUEST_URI}  /ext/(.*)/
+RewriteCond %{REQUEST_FILENAME}%{PATH_INFO}  ^(.*)/(ext/.*)$
+RewriteCond %1/../custom/%2  -f
+RewriteCond %{REQUEST_URI}  ^(.*)/ext/
+RewriteRule .* %1/../custom/ext/$0  [L]
+
+RewriteCond %{REQUEST_METHOD}  ^GET
+RewriteCond %{REQUEST_URI}  /ext/(.*)/
+RewriteCond %{REQUEST_FILENAME}%{PATH_INFO}  ^(.*)/(ext/.*)$
+RewriteCond %1/../ext/%2  -f
+RewriteCond %{REQUEST_URI}  ^(.*)/ext/
+RewriteRule .* %1/../ext/ext/$0  [L]
+</IfModule>

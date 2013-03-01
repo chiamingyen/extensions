@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Inventory{/t}" default_view="display" orderby="inventorynumber" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" disable_quick_add="true">
+  <view name="display" displayname="{t}Display{/t}" groupby="resourcecol">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" tfield_1="resourcecol" tfield_2="inventorynumber">
+  </view>
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="status" displayname="{t}Status{/t}" />
+  
+  <field name="inventorynumber" displayname="{t}Inventory number{/t}" simple_type="text" is_unique="true" required="true">
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+    <readonlyin views="edit"/>
+  </field>
+  <field name="resourcecol" displayname="{t}Resource{/t}" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_resources|resourcename,resourcename||resourcename asc|10"/>
+	<link value="index.php?find=asset|simple_resources||resourcename=@resourcecol@&amp;view=display"/>
+  </field>
+  <field name="serialnumber" displayname="{t}Serial number{/t}" simple_type="text" is_unique="true">
+  </field>
+  <field name="price" displayname="{t}Price{/t}" simple_type="float" sum="true">
+    <validate function="numeric"/>
+  </field>
+  <field name="decliningbalance" displayname="{t}Declining balance{/t}" simple_type="float" sum="true">
+    <validate function="numeric"/>
+  </field>
+  <field name="status" displayname="{t}Status{/t}" simple_type="select" simple_size="1">
+	<data title="{t}Default{/t}" values="{t}in stock{/t}|{t}reserved{/t}|{t}borrowed{/t}|{t}assigned{/t}|{t}ready for repair{/t}|{t}in repair{/t}|{t}ready for scrap{/t}|{t}scrapped{/t}"/>
+	<data title="{t}Lookup{/t}" function="dbselect|simple_statuses|statusname,statusname|stattype='inventories'|statusname asc|10"/>
+  </field>
+  <field name="owner" displayname="{t}Owner{/t}" simple_type="select" simple_size="1" simple_tab="status">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@owner@&amp;view=details"/>
+  </field>
+  <field name="ownersince" displayname="{t}Owner since{/t}" simple_type="date" simple_default_function="dateformat|now|{t}m/d/Y{/t}" simple_tab="status">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+  </field>
+  <field name="location" displayname="{t}Location{/t}" simple_type="select" simple_size="1" simple_tab="status">
+    <data function="dbselect|simple_locations|locationname,locationname||locationname asc|10" />
+	<link value="index.php?find=asset|simple_locations||locationname=@location@&amp;view=display"/>
+  </field>
+  <field name="purchased" displayname="{t}Purchased{/t}" simple_type="date" simple_default_function="dateformat|now|{t}m/d/Y{/t}" simple_tab="status">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_tab="status">
+	<notin views="display" />
+  </field>
+</table>

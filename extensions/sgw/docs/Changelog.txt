@@ -1,0 +1,2828 @@
+Version 0.745 (March 10, 2012) (tb)
+------------------------------------------
+
+	* added fix for closing sessions with APC installed
+
+
+Version 0.743 (February 2, 2012) (tb)
+------------------------------------------
+
+	* fixed a XSS vulnerability
+	  (thanks to Stefan Schurtz)
+
+	* changed handling for offline folders
+
+	* added some changes for iCalendar exports
+
+	* added a fix for birthdays in sync4j
+
+
+Version 0.742 (January 24, 2012) (tb)
+------------------------------------------
+
+	* smaller bug fixes for PostgreSQL, iframes, select boxes
+
+
+Version 0.741 (January 15, 2012) (tb)
+------------------------------------------
+
+	* added absence to departments module (calendar view)
+
+	* added browser detection for Firefox 10
+
+	* smaller bug fixes
+
+
+Version 0.740 (January 8, 2012) (tb)
+------------------------------------------
+
+	* added archive function to IMAP module
+
+	* added APC cache for faster caching and sessions
+	  (see setup settings)
+	
+	* added notification for unsaved forms
+
+	* added cache and disk usage to admin overview page
+
+
+Version 0.732 (December 28, 2011) (tb)
+------------------------------------------
+
+	* dropped custom date ranges for calendar module
+	  (markdate=custom)
+
+	* fixed broken package (tar.gz)
+
+
+Version 0.731 (December 22, 2011) (tb)
+------------------------------------------
+
+	* added absence to users module (calendar view)
+
+	* added Portugal / Portuguese translation
+	  (thanks to Pedro Silva)
+
+	* changed IMAP module to use seen states from IMAP server
+
+	* fixed week numbers in calendars
+
+
+Version 0.730 (December 10, 2011) (tb)
+------------------------------------------
+
+	* added module for absences
+
+	* added module for contracts (human resources)
+
+	* added reverse lookup for members of contact groups
+
+	* added disable_notification and disable_bgcolor to sgsML
+
+	* changed status for timesheets and expenses:
+	  completed=0 && status=unconfirmed -> status=open
+	  completed=1 && status=unconfirmed -> status=completed
+
+	* updated libraries to the latest version (PmWiki)
+
+	* updated Czech translation
+	  (thanks to Jan Benda)
+
+	* fixed sync4j warnings for new appointments
+
+
+Version 0.727 (November 19, 2011) (tb)
+------------------------------------------
+
+	* fixed updating assets in merged folders
+
+	* fixed moving meta information in CIFS and FS data handlers
+
+
+Version 0.726 (November 14, 2011) (tb)
+------------------------------------------
+
+	* fixed UID search and message-id for new mails in IMAP module
+
+
+Version 0.725 (November 9, 2011) (tb)
+------------------------------------------
+
+	* added phone number field to companies module
+
+	* added private fax number and homepage fields to contacts module
+
+	* added missing icons for tree icons theme
+
+	* added vertical mode and timestamp translation to SQL console
+
+	* added a check for database time mismatch (sync4j)
+
+	* updated Czech translation
+	  (thanks to Jan Benda)
+
+	* updated Spanish translation
+	  (thanks to Nacho Pacheco)
+
+	* optimized compatibility for PHP 5.4
+
+	* fixed imap message caching
+
+	* fixed auto loader for PHP 5.3.7/8
+
+
+Version 0.724 (September 13, 2011) (tb)
+------------------------------------------
+
+	* added close button for preview panes when there are no tabs
+
+	* fixed folder count caching for sys modules
+
+
+Version 0.723 (September 10, 2011) (tb)
+------------------------------------------
+
+	* fixed checkboxes in list view
+
+
+Version 0.722 (September 10, 2011) (tb)
+------------------------------------------
+
+	* added new data handler for Google Docs
+	  (see mountpoint top menu Folder -> Mountpoint)
+
+	* added preview for .url files (links)
+
+	* added vertical preview pane for portal, calendar and files modules
+
+	* updated Spanish translation
+	  (thanks to Nacho Pacheco)
+
+	* fixed handling for NOMODSEQ in the IMAP module
+
+
+Version 0.721 (July 31, 2011) (tb)
+------------------------------------------
+
+	* added new module for console scripts
+	  (see /Workspace/System/Console)
+
+	* added customization bar for super administrators
+	  (between content and filter section on each page)
+
+	* updated Italian translation
+	  (thanks to Federico Giampietro and Massimo Arnaudo)
+
+	* added option to install extensions without internet connection
+
+	* fixed changing customized fields
+
+
+Version 0.720 (June 23, 2011) (tb)
+------------------------------------------
+
+	* optimized setup (hide unneeded fields for SQLite)
+	
+	* added option to disable WebDAV access
+	
+	* added nginx example config to tools/nginx/nginx.conf
+	
+	* moved database processes list to /Workspace/System/Console
+
+
+Version 0.720 (June 23, 2011) (tb)
+------------------------------------------
+
+	* added new module for customizing fields in other modules
+	  (see /Workspace/System/Customize/Fields)
+
+	* added option to hide columns in HTML exports
+	
+	* added the option to skip subfolders on search
+
+	* improved performance for counting assets
+
+	* added holiday to timesheet categories
+	
+	* added a new view for canceled entries in the timesheet module
+
+	* enabled custom functions for Simple Spreadsheet when running inside iframe
+	
+	* cleaned up htaccess rules for the WebDAV server
+
+	* changed update for funambol contact items to ignore unmatched items
+
+	* fixed summing up empty values in Simple Spreadsheet
+
+
+Version 0.711 (April 20, 2011) (tb)
+------------------------------------------
+
+	* optimized performance for select::dbselect
+
+	* fixed JS error in IE
+
+
+Version 0.710 (April 17, 2011) (tb)
+------------------------------------------
+
+	* added a new importer which uses spreadsheet files (.xls)
+
+	* added quick create links to top menu bar
+	  (targets are personal home folders)
+	
+	* added a lightbox to the gallery module
+
+	* added text wrapping to spreadsheet export (.xls)
+	
+	* adjusted some time limits
+
+
+Version 0.709 (March 24, 2011) (tb)
+------------------------------------------
+
+	* added buttons to run actions on multiple assets in timesheets
+
+	* made invalid file extensions configurable
+	  (applies to uploads and downloads)
+
+	* fixed edit view for single select boxes
+
+
+Version 0.708 (March 8, 2011) (tb)
+------------------------------------------
+
+	* added rebuild search index for custom modules
+
+	* fixed creating appointments with PostgreSQL
+
+
+Version 0.707 (February 27, 2011) (tb)
+------------------------------------------
+
+	* added new "Save and Edit" button to new / edit as new views
+
+	* added no_permissions parameter to select::dbselect
+	  (avoid check for folder and asset permissions)
+	  (e.g. <data function="dbselect|table1|id,val||id asc|10|no_permissions"/>)
+	  
+	* fixed taking values from popups
+
+
+Version 0.706 (February 22, 2011) (tb)
+------------------------------------------
+
+	* fixed missing entries in select boxes (new/edit forms)
+
+
+Version 0.705 (February 21, 2011) (tb)
+------------------------------------------
+
+	* changed Italian hour format (submitted by Massimo Arnaudo)
+
+	* added Finnish translation (thanks to Kurt Klippel)
+
+	* updated Croatian translation (thanks to Dario Cikatic)
+
+	* fixed a warning when creating departments in popup mode
+
+
+Version 0.704 (February 15, 2011) (tb)
+------------------------------------------
+
+	* added new intranet module
+
+	* added paging for lookups (new/edit forms)
+	
+	* added keyboard shortcuts for tabs (Alt+1,2,...)
+	
+	* added keyboard shortcuts for tree navigation (Alt + Cursor-Up/Down)
+	
+	* added new merge tab (named "+", merges all tabs)
+
+	* redesigned notifications (cron.php)
+
+	* updated Slovak translation (thanks to Jan Supuka)
+
+	* fixed duplicate folders in WebDAV
+
+	* fixed resetting display_errors in setup settings
+
+
+Version 0.703 (February 5, 2011) (tb)
+------------------------------------------
+
+	* added Google code as mirror to updater
+
+	* extended image preview with GPS link to Google Maps (EXIF data)
+
+	* added "send now" option to IMAP and emails module (Drafts)
+
+	* updated Archive_Tar library to the latest version
+	
+	* fixed payroll trigger
+	
+	* fixed float type in PostgreSQL
+
+
+Version 0.702 (January 31, 2011) (tb)
+------------------------------------------
+
+	* added quick buttons to expenses and timesheets
+	
+	* added links from contacts to appointments, tasks and contact activities
+	
+	* added preview for first page of pdf files
+
+	* added browser detection for Samsung Galaxy Tab
+	
+	* added option to hide fields in display/details view
+
+	* added permissions link to admin overview page
+	
+	* added Simple Groupware File Importer script
+	  (see ext/import_local_fs.php.txt)
+	  
+	* added user agent "curl" for crawling and executing functions
+
+	* moved phpinclude module to example extension
+	
+	* fixed preview for multi-image files
+	  
+	* fixed drag and drop upload with special characters in filenames
+
+
+Version 0.701 (January 10, 2011) (tb)
+------------------------------------------
+
+	* added conditions for "singlebuttons" in sgsML
+	  (e.g. <singlebutton condition="finished|eq|0" ...)
+
+	* added option to show folder description text in content area
+	  (see setup settings)
+	  
+	* moved small notifications to the menu bar
+
+
+Version 0.700 (January 2, 2011) (tb)
+------------------------------------------
+
+	* dropped code and support for Oracle database
+
+	* extended smarty to handle static member functions as modifiers
+	  e.g. {""|modify::get_form_token}
+
+	* increased database requirements for PostgreSQL (at least 8.36)
+
+
+Version 0.665 (December 29, 2010) (tb)
+------------------------------------------
+	
+	* added option to fix paging bar to page bottom
+	  (see setup settings)
+
+
+Version 0.664 (December 27, 2010) (tb)
+------------------------------------------
+
+	* added option to add a second super administrator
+	  (see setup settings)
+
+	* extended PmWiki markup to format fetched content
+
+
+Version 0.663 (December 22, 2010) (tb)
+------------------------------------------
+
+	* added a rating field to bookmarks module
+
+	* re-added validate::itemsexist
+
+	* fixed escaping of quotes in IMAP passwords
+
+	* fixed a typo in copy/paste code
+
+
+Version 0.662 (December 20, 2010) (tb)
+------------------------------------------
+
+	* added new simple type "rating"
+	
+	* added "reverse" attribute to "data" tag in sgsML
+
+	* optimized cache distribution on file system
+
+	* made folder refresh period configurable
+	
+	* fixed charset conversion in IMAP module
+	  (windows-x charsets)
+
+
+Version 0.661 (December 15, 2010) (tb)
+------------------------------------------
+
+	* added "form" attribute to "field" tag in sgsML
+	  (e.g. simple_type="textarea" form="no_formatting_button|no_template_bar")
+
+	* changed file encoding of lib/browser/browser.php
+	  (problems with BOM header in PHP 5.2.x)
+	  
+	* fixed charset conversion in IMAP module
+	  
+	* fixed week start in calendar popup
+
+
+Version 0.660 (December 4, 2010) (tb)
+------------------------------------------
+
+	* fixed sending mails with bcc: syntax
+	
+	* fixed missing view tabs for view permissions
+
+
+Version 0.659 (November 28, 2010) (tb)
+------------------------------------------
+
+	* added a script for unattended update
+	  (see ext/update_unattended.php.txt)
+	
+	* fixed setup with PostgreSQL
+
+
+Version 0.658 (November 27, 2010) (tb)
+------------------------------------------
+
+	* added free/busy view for calendar locations
+	  (similar to free/busy for participants)
+	  
+	* added copy/paste mappings with default values and lookups
+	  (copy mail to contact activities or helpdesk)
+	  
+	* improved setup to set display_errors at runtime
+	  
+	* fixed download locations in the extension manager
+
+
+Version 0.657 (November 18, 2010) (tb)
+------------------------------------------
+
+	* increased BIFFwriter limit for spreadsheet export
+
+	* added checksums (md5) to release informtion
+
+	* fixed downloading attachments from the CMS module
+
+
+Version 0.656 (November 15, 2010) (tb)
+------------------------------------------
+
+	* added a flash-based MP3 Player to listen to .mp3 files
+
+	* added a flash-based FLV Player to watch .flv files
+
+	* added drap and drop upload for URLs (e.g. drag URL from files to emails module)
+	  
+	* added default asset values for folders (with inheritance)
+	  Syntax: field=value\nfield2=value2
+	
+	* added default asset values to URLs (JSON encoding):
+	  index.php?folder=/Workspace/Tasks/&view=new&defaults={"subject":"Hello!"}
+
+	* added new schema mappings to move mails from POP3/IMAP to the emails module
+	
+	* added quicklinks for folders: [/<folder-id>], e.g. [/2001]
+
+	* added suhosin workaround for broken session_encode() function
+	
+	* fixed old update procedure
+	
+	* fixed option to use "cc:" and "bcc:" in notifications
+	
+	* fixed scrolling with Android
+
+
+Version 0.655 (October 30, 2010) (tb)
+------------------------------------------
+
+	* added option to disable modules globally and re-enable
+	  for special users (see setup settings and account tab in users)
+
+	* added self registration to login page
+	  (see setup settings)
+
+	* added function to clear the trash folder
+	  (see administration overview)
+	  
+	* added new minimal folder structure to setup
+
+	* changed login background image
+	
+	* improved LDAP error handling
+	  
+	* added option to open POP3 mails in an external mail client
+	
+	* fixed handling for unknown charsets in the IMAP module
+	
+	* fixed downloading files in merged folders
+
+
+Version 0.654 (October 4, 2010) (tb)
+------------------------------------------
+
+	* cleanup Simple Spreadsheet config variables
+
+
+Version 0.653 (September 30, 2010) (tb)
+------------------------------------------
+
+	* added a new filter operator (one of)
+
+	* replaced Flexigrid with ExtJS grid (export)
+	
+	* added XSS protection to Simple Spreadsheet markup
+	
+	* fixed warnings in spreadsheet export
+
+
+Version 0.652 (September 28, 2010) (tb)
+------------------------------------------
+
+	* added functions to clear events and statistics
+	  (see administration overview)
+
+	* added WikiStylesPlus recipe to the PmWiki engine
+	  (see http://pmwiki.org/wiki/Cookbook/WikiStylesPlus)
+	  
+	* added redirect to "edit" view after "edit as new"
+
+	* fixed required=true for simple type select
+
+
+Version 0.651 (September 25, 2010) (tb)
+------------------------------------------
+
+	* added missing ExtJS folder to the package
+
+	* added include page directive to CMS module
+	  (e.g. (:include_page url="http://maps.google.com":) )
+
+	* fixed copying mails from imap to emails module
+
+
+Version 0.650 (September 24, 2010) (tb)
+------------------------------------------
+
+	* added drag and drop for assets and folders
+	  (not supported by Opera)
+	
+	* added ExtJS grid to the CMS module
+
+	* updated Spanish translation (thanks to Juan Ramon Molina Menor)
+	
+	* changed spreadsheet export column names to displaynames
+	
+	* moved core/classes/surveys.xml to modules/lib/
+
+	* renamed "nosql_" modules to "nodb_"
+	
+	* renamed "cust_name" attribute to "custom_name" in sgsML
+	  ("cust_name" will continue to work)
+	  
+	* fixed resolving folder paths in SOAP
+
+
+Version 0.645 (September 18, 2010) (tb)
+------------------------------------------
+
+	* added URL upload to Simple Spreadsheet and SOAP
+
+	* renamed "multiple" attribute to "separator" in sgsML
+	  ("multiple" will continue to work)
+
+	* changed default for "separator" attribute in sgsML (now: \n)
+
+	* cleanup for Javascript variables
+
+	* fixed output in codearea type handler
+
+	* fixed custom directory for core.css, core_css.conf, functions.js
+
+
+Version 0.644 (September 13, 2010) (tb)
+------------------------------------------
+
+	* added option to use "cc:" and "bcc:" in notifications
+	
+	* added new is_unique_trash attribute to sgsML
+	
+	* cleanup for "multiple" and "simple_size" attributes in sgsML
+	
+	* fixed downloads in CMS module
+
+
+Version 0.643 (September 10, 2010) (tb)
+------------------------------------------
+
+	* raised requirement to PHP 5.2.0
+
+	* added new survey module
+
+	* replaced trigger_*_ccp with trigger_* in sgsML
+	
+	* changed "showonly" tag to view attribute in sgsML
+	
+	* added "hiddenin" attribute to sgsML
+
+	* added "load_css" attribute to sgsML
+	
+	* added "no_checks" attribute to sgsML
+	
+	* added rounded borders (GUI) to Opera
+	
+	* added css gradients (GUI) to IE
+	
+	* extended XSS filter for IE (expressions and XML tags)
+
+
+Version 0.642 (September 3, 2010) (tb)
+------------------------------------------
+
+	* extended updater to handle update methods from extensions
+
+	* optimized error handling for initializing IMAP connections
+	
+	* fixed unicode names in the webdav server for davfs2
+
+	* fixed uninstall of extensions
+
+
+Version 0.641 (August 25, 2010) (tb)
+------------------------------------------
+
+	* added option to define differential sgsML schemas
+	  (see private_items extension)
+	  
+	* added option to install without demo folders
+	  
+	* changed Swedish date and time formats (thanks to Thomas Dilts)
+	
+	* disabled persistent connections for SQLite
+	  (error HY000 17 database schema has changed)
+	
+	* fixed department and project triggers
+
+
+Version 0.640 (August 22, 2010) (tb)
+------------------------------------------
+	
+	* added new extension manager
+	
+	* added new folder string syntax to view more than one folder:
+	  index.php?folder=/Workspace/Personal projects/*/Tasks
+	  
+	* added option to create multiple folders
+	  (e.g. create /Workspace/Personal folders/*/New module)
+
+    * changed default URI in SOAP server (Perl compatibility)
+	
+	* moved freebusy view to the preview pane
+	
+	* fixed deleting rows in Simple Spreadsheet (thanks to Hamidoullah)
+	
+	* moved win32 and debian binaries to an extension
+
+
+Version 0.632 (August 7, 2010) (tb)
+------------------------------------------
+
+	* changed Ajax timeouts for paste and empty
+
+	* fixed setup with PostgreSQL
+
+
+Version 0.631 (August 4, 2010) (tb)
+------------------------------------------
+
+	* fixed an issue freezing search views
+
+
+Version 0.630 (August 3, 2010) (tb)
+------------------------------------------
+
+	* added risks and milestone fields to the tasks module
+
+	* added option to use relative dates and times to create/edit assets
+	  (e.g. next monday, last day in june, +3 weeks, +15 days)
+	
+	* added tooltips to the tree (folder descriptions and IDs)
+	
+	* added Google Apps authentication
+	
+	* added option to customize sgsML schemas for a special folder
+	
+	* moved docs/help.html to the CMS (pagename Help)
+	
+	* refactored code for custom types (htmlarea, wikiarea, pmwikiarea, etc.) 
+	
+	* some smaller bugfixes
+
+	* fixed WebDAV copy/paste in Win7 Explorer
+
+
+Version 0.625 (July 1, 2010) (tb)
+------------------------------------------
+
+	* added quick add button (keyboard shortcut Alt(+Shift)+k)
+	  (can be disabled with <table disable_quick_add="true")
+	  (can be customized with <table quick_add="field1,field2")
+
+	* added buttons to take over a task
+
+	* added buttons to attend or don't attend an appointments
+
+	* tree forms were cleaned up
+
+	* fixed calendar layout (highlighting)
+
+
+Version 0.624 (June 17, 2010) (tb)
+------------------------------------------
+
+	* added Google translator toolkit template
+	  (see lang/master_google_translate.lang.html)
+
+	* fixed notice messages in setup
+
+
+Version 0.623 (June 13, 2010) (tb)
+------------------------------------------
+
+	* added layout changes for the iPad
+
+	* made portal items in user/project/department templates configurable
+	  (see modules/core/<type>_portal.xml)
+	
+	* added custom class handling to sgsML triggers
+	  (e.g. <table trigger_new="my_class::my_func"/> calls my_class::my_func)
+	  
+	* added new folder syntax (reference anchors, module types)
+	  e.g. index.php?folder=^home_jdoe/!emails references the email subfolder of jdoe's home directory
+
+	* adapted drag and drop file upload to Safari
+	  (currently supported by Firefox 3.6, Chrome5, Safari5)
+	  
+	* changed syntax for triggers (dropped "runfunc:")
+	  e.g. trigger_new="exec" instead of trigger_new="runfunc:exec"
+
+
+Version 0.622 (Mai 31, 2010) (tb)
+------------------------------------------
+
+	* added custom class handling to sgsML
+	  (e.g. <filter views="all" function="my_class::my_func"/> calls my_class::my_func)
+	  
+	* added custom ajax class handling to sgsML
+	  (e.g. <singlebutton ... onclick="ajax('my_class_ajax::my_func', [tfolder, '@id@'], print_r);" />)
+
+	* fixed broken import file in package (data_cms.xml)
+
+
+Version 0.621 (Mai 28, 2010) (tb)
+------------------------------------------
+
+	* added option to open views in a new window with selected items
+	  (use Ctrl + click the tab)
+
+	* added button to close tasks directly in the display view
+	  (syntax: <singlebutton name="..." right="write" onclick="asset_update({<field>:<value>},'@id@');"/>)
+
+	* added option to use syslog instead of the events module
+
+	* adapted drag and drop file upload to Chrome
+	  (currently supported by Firefox 3.6, Chrome)
+
+	* updated libraries to the latest version (PmWiki)
+
+
+Version 0.620 (Mai 16, 2010) (tb)
+------------------------------------------
+
+	* added new custom directory structure
+	  (files under "<sgs-dir>/custom" are automatically used in favor of "<sgs-dir>/bin")
+
+	* added categories to the files module
+
+	* added support for unicode filename in POP3/IMAP attachments
+	
+	* added new regexp validator to sgsML
+	  (e.g. <validate function="regexp|/^[0-9]+$/|ID must be numeric"/>
+	  
+	* updated Spanish translation (thanks to Juan Ramon Molina Menor)
+	
+	* fixed editing assets in merged folders
+
+
+Version 0.611 (April 27, 2010) (tb)
+------------------------------------------
+
+	* added IMAP folder operations (create, delete, rename)
+
+	* raised PHP requirement to 5.1.2
+	
+	* some smaller code changes
+
+
+Version 0.610 (April 19, 2010) (tb)
+------------------------------------------
+
+	* added drag and drop file upload to HTML5 compatible browsers
+	  (currently supported by Firefox 3.6)
+
+	* added a function to create contact IDs automatically
+
+	* added new trigger to execute system commands
+	  (e.g. trigger_new="runfunc:exec:echo @fieldname@ >/tmp/example.txt")
+	  
+	* added copy/paste mapping for emails and contact activities (message body)
+	
+	* changed Ajax request parameters (content-type)
+	
+	* fixed timesheet trigger
+
+
+Version 0.607 (April 9, 2010) (tb)
+------------------------------------------
+
+	* added sgsML copy-paste mappings
+	  (see modules/mappings.txt)
+
+	* added CSRF protection to forms
+	  
+	* fixed server based IMAP sorting by date
+
+
+Version 0.606 (March 8, 2010) (tb)
+------------------------------------------
+
+	* added default filters to sgsML
+	  e.g. <view name="display" filters="lastname|like|doe"
+	  (see Filters: http://www.simple-groupware.de/cms/DataExport)
+
+	* added option to hide the top menu or the tree automatically
+	  
+	* added HTMLarea helper functions from paulzarucki
+	
+	* changed export to current view (not all assets)
+	
+	* updated Russian translation (thanks to Nikolay Parukhin)
+	
+	* updated library Spreadsheet_Excel_Writer
+
+	* increased database requirements for MySQL (at least 5.0) and PostgreSQL (at least 8.2)
+
+
+Version 0.605 (February 18, 2010) (tb)
+------------------------------------------
+
+	* added scrollbars to HTML preview popup
+
+	* fixed missing include in PmWiki data handler
+
+	* fixed an include error in cron.php
+	
+	* fixed saving spreadsheet data
+
+
+Version 0.604 (February 15, 2010) (tb)
+------------------------------------------
+
+	* fixed invalid package
+
+
+Version 0.603 (February 7, 2010) (tb)
+------------------------------------------
+
+	* added a new login background
+
+	* fixed saving folder permissions
+	
+	* fixed charset warnings on PostgreSQL installation
+
+	* fixed folder handlers (e.g. fs data handler)
+
+
+Version 0.602 (February 2, 2010) (tb)
+------------------------------------------
+
+	* optimized compatibility to PHP 5.1
+
+	* made timeouts for slow system, database and cms configurable
+	
+	* renamed core classes (moved to classes folder)
+	
+	* renamed function templates (moved to helper folder)
+	
+	* added null handling to store functions
+	
+	* fixed calendar week marks
+
+
+Version 0.601 (January 28, 2010) (tb)
+------------------------------------------
+	
+	* changed input length for maximum number of assets per page
+
+	* fixed search including unicode characters
+
+
+Version 0.600 (January 22, 2010) (tb)
+------------------------------------------
+
+	* added a new SOAP server
+	  (see http://<sgs-server>/<sgs-dir>/bin/soap.php)
+
+	* added folder notifications
+	  
+	* added a notification if a folder was changed by another user
+	
+	* added a warning to the setup if mb_string is missing
+	
+	* added some IE6 fixes
+
+	* made maximum number of assets per page configurable
+	
+	* changed task dependencies to reference IDs
+	
+	* changed Ajax request parameters
+	
+	* improved compatibility with PHP 5.3
+	
+	* some smaller bugfixes 
+
+
+Version 0.541 (November 8, 2009) (tb)
+------------------------------------------
+
+	* updated Czech translation (thanks to Jan)
+	
+	* added short month names to the translation files
+
+	* fixed week start for calendar popup
+	
+	* fixed search module
+
+
+Version 0.540 (November 1, 2009) (tb)
+------------------------------------------
+
+	* added custom icon for folder in the tree
+	
+	* added the option to take value from popups
+	
+	* added automtic resizing for textareas
+	
+	* changed sgsML syntax for is_linked to:
+	  is_linked="simple_contacts|details|contactid"
+	  is now:
+	  <link value="index.php?find=asset|simple_contacts||contactid=@<field_name>@&amp;view=details"/>
+
+	* updated libraries to the latest version (PmWiki)
+	  
+	* fixed a smarty error in the form template
+	
+	* fixed TinyMCE default text align
+	
+
+Version 0.533 (October 11, 2009) (tb)
+------------------------------------------
+
+	* added registry patch for Windows7 WebDAV
+
+	* updated Brazil / Portuguese translation (thanks to Flávio Veras)
+
+	* fixed Firefox search plugin
+
+
+Version 0.532 (August 30, 2009) (tb)
+------------------------------------------
+
+	* added formatting rules documentation to text fields
+	
+	* added attachment field to the FAQ module
+	
+	* added cancel button to new/edit views
+
+	* fixed calendar popup navigation
+	
+	* fixed layout in Opera
+
+
+Version 0.531 (August 15, 2009) (tb)
+------------------------------------------
+
+	* adapted updater to new RSS feeds on Sourceforge
+	
+	* increased file upload limit in the CMS module
+	
+	* updated libraries to the latest version (Smarty, PmWiki, POP3, SMTP, PEAR, TinyMCE)
+
+
+Version 0.530 (August 10, 2009) (tb)
+------------------------------------------
+
+	* added a new mobile user interface (supporting iPhone, iPod touch and Nokia devices)
+
+	* added permissions for views
+	
+	* added Indonesian translation (thanks to Bagus Winar)
+	
+	* added folder descriptions
+	
+	* added a new template to the CMS for using right-to-left layout
+	
+	* added compatibility for PostgreSQL 8.4
+
+	* changed phonetic search to be optional
+	
+	* updated Arabic, Turkish translation
+
+
+Version 0.520 (June 11, 2009) (tb)
+------------------------------------------
+
+	* added task list to projects module
+	
+	* added Arabic translation and new right-to-left theme (thanks to Muhammad Bashir Al-Noimi)
+
+	* added custom timezones for users
+
+	* added links to softphones (SIP) for phone numbers in contacts and users
+	
+	* added internal links to textwiki
+	
+	* added inline assets to XML folder templates
+	
+	* added compatibility for Funambol v7.1
+	
+	* expanded list of modules with groups
+	
+	* moved PmWiki system pages (PageNotFound, Search, etc.) to Workspace/Organization
+	
+	* updated Danish translation
+
+	
+Version 0.510 (April 12, 2009) (tb)
+------------------------------------------
+
+	* added Chinese translation (thanks to Wang Zhanjun)
+
+	* added quicklinks to all texts: [<module>/<id>/<link-name>], e.g. [calendar/11/MyLink]
+	
+	* added quicklinks to all texts: [<id>], e.g. [11] (link to the same module)
+
+	* added new URL find syntax: index.php?find=<module>|<id>, index.php?find=<id>,
+	  index.php?find=calendar|11 (calendar item with id=11)
+	  index.php?find=calendar|subject=Meeting (calendar item with subject equal Meeting)
+	  index.php?find=calendar|subject~Meeting (calendar item with subject containing Meeting)
+
+	* expanded POP3 module to view HTML mails
+	
+	* updated the jCIFS library to version 1.3.8
+	
+	* updated PmWiki engine to 2.2.1
+	
+	* updated links to RSS feeds
+
+	* updated Imagemagick binary to the latest version
+	
+	* applied several smaller bugfixes
+	
+
+Version 0.503 (February 18, 2009) (tb)
+------------------------------------------
+
+	* added Graphviz markup to the CMS module
+	
+	* added folder copying
+	
+	* added custom home folder redirection for users
+	
+	* updated RSS output to RSS 2.0
+	
+	* updated PmWiki engine to 2.2.0
+	
+	* fixed downloading unicode filenames in IE
+
+	* some smaller code optimizations
+
+
+Version 0.502 (February 7, 2009) (tb)
+------------------------------------------
+
+	* expanded IMAP module to view HTML mails
+	
+	* added Polish translation (thanks to Przemyslaw Napierala)
+
+	* added Ukrainian translation (thanks to SSSIE Ecocentre)
+
+	* updated Italian translation (thanks to Stefano Ratti)
+
+	* added higher memory_limit requirement for 64-bit systems
+	  (on 64-bit pointers and longs are twice as long as on 32-bit, see:
+	  http://bugs.php.net/bug.php?id=40720)
+
+	* fixed a parse error in the PmWiki library
+
+
+Version 0.501 (January 16, 2009) (tb)
+------------------------------------------
+
+	* some smaller bugfixes
+	
+
+Version 0.500 (January 6, 2009) (tb)
+------------------------------------------
+
+	* added a new module for offline synchronization with HTML5 compatible browsers
+	  (currently supported by Firefox3)
+
+	* added a new module for rendering GraphViz diagrams
+	  (including win32 binaries)
+	
+	* added a XML sitemap to the CMS module (cms.php?sitemap)
+
+	* added a patch for the spreadsheet export
+	  (http://bugs.gentoo.org/attachment.cgi?id=136412)
+	  
+	* added some improvements to the database api
+	  
+	* updated the Smarty library to the latest version
+
+
+Version 0.430 (December 8, 2008) (tb)
+------------------------------------------
+
+	* added support for SQLite (3.0 and higher)
+
+	* added Greek translation (thanks to Thomas Verikios)
+	
+	* added "jpeg" as a valid file extension for images (next to jpg)
+	
+	* added showing results with full texts to the SQL console
+	
+	* added XML headers to sgsML files
+	
+	* updated the jCIFS library to version 1.3.0 (now using NTLMv2)
+	
+	* updated PmWiki, Net_SMTP, Net_Socket, PEAR to the latest versions
+	
+	* updated binaries (Exiv2, Imagemagick) to the latest versions
+	
+	* changed validation for project and department names
+	
+	* changed cut-copy-paste functions to Ajax calls (better performance)
+
+	* fixed a problem with the Oracle setup
+
+
+Version 0.424 (October 14, 2008) (tb)
+------------------------------------------
+
+	* added Flexigrid for exporting data
+
+	* added external links to HTML exports
+
+	* fixed updating the search index when moving datasets
+
+
+Version 0.423 (September 14, 2008) (tb)
+------------------------------------------
+
+	* updated the Smarty library to the latest version
+
+	* added new events for slow pages in the cms
+
+	* fixed setup for PostgreSQL 8.1.x
+
+
+Version 0.422 (September 2, 2008) (tb)
+------------------------------------------
+
+	* fixed Javascript error in options pane
+
+
+Version 0.421 (August 31, 2008) (tb)
+------------------------------------------
+
+	* added searching for items with special conditions
+	  (module, last modified, last modified by)
+
+	* added new PmWiki markup to fetch content from web pages or RSS feeds
+	  
+	* fixed MySQL setup for Funambol v7
+
+	* fixed PostgreSQL warnings in the setup
+
+
+Version 0.420 (August 15, 2008) (tb)
+------------------------------------------
+
+	* added a new Funambol interface
+	  (now supporting Funambol v7 with MySQL/PostgreSQL)
+	  
+	* added a function for getting data from other Web pages into the CMS
+
+	* updated Spanish translation (thanks to Carlos Zenteno)
+	
+	* fixed PmWiki page variables
+	
+	* fixed updating the search table when deleting events
+
+
+Version 0.414 (July 6, 2008) (tb)
+------------------------------------------
+
+	* added real URLs to the CMS modules
+	
+	* added static caching for attachments in the CMS module
+
+	* added compatibility for Apache 2.2.8 to in WebDAV's default .htaccess
+
+	* added sorting for static values in sgsML
+	  (use <data values="" sort="asc|desc"...)
+	  
+	* updated French and Italian translation
+	  (thanks to Laurent Bardi and Mario Moleri)
+	
+	* updated to PmWiki 2.2.0 beta 66
+	
+	* fixed default numeric default values in PostgreSQL
+	
+	* fixed localized date formatting
+	
+	* fixed view exception permissions
+
+
+Version 0.413 (June 25, 2008) (tb)
+------------------------------------------
+
+	* added individual customizing for code changes and new files
+	  (see the custom/ directory)
+
+	* added RSS feeds for the CMS module
+
+	* added a summary field for notifications
+
+	* added option to configure import folders
+
+
+Version 0.412 (June 23, 2008) (tb)
+------------------------------------------
+
+	* added a new module for time sheets
+
+	* added static caching for the CMS module
+
+	* added multi user authentication to the CMS module
+
+	* added a threads view to the forum module
+	  (applies to new assets)
+
+	* added creating assets in different folders
+	  (if folder merging is active)
+
+	* added exiv2 for parsing exif headers in images
+
+	* updated debian binaries
+
+	* fixed unescaping '@' with variables in mountpoint form
+
+	* fixed folder operations in the CIFS module
+
+	* fixed month translations in calendar headlines
+
+
+Version 0.411 rc4 (June 14, 2008) (tb)
+------------------------------------------
+
+	* added preview function for PmWiki CMS module
+	
+	* added a frontend for the cms module (see cms.php)
+
+	* added embedded mode for the Spreadsheet module
+	
+	* added resizing for Simple Spreadsheet in embedded mode
+	
+	* expanded the module list with the CMS module
+
+
+Version 0.410 rc3 (June 7, 2008) (tb)
+------------------------------------------
+
+	* updated French language file
+	
+	* added image and attachment fields to Htmldocs
+
+	* fixed searching in data lookups
+	
+	* fixed change module in system/tree
+
+
+Version 0.409 rc2 (June 3, 2008) (tb)
+------------------------------------------
+
+	* integrated PmWiki content management
+	
+	* added a new foundation package for Funambol SyncML server v6.5.14
+
+	* changed document preview for html files
+	
+	* added debug parameter for cron job
+	
+	* removed register_globals=off requirement
+	
+	* fixed xml contacts parsing problem
+	
+
+Version 0.408 rc1 (May 17, 2008) (tb)
+------------------------------------------
+
+	* added new keyboard shortcuts for "Options" and "Mountpoint" panes
+	  and the "Edit rights" view
+
+	* added auto-focus for first element in new/edit forms
+
+	* added detection of SimpleXML to the setup
+	
+	* fixed option to use an external mail client for 'mailto:' links
+
+	* fixed saving default theme and default week start
+	
+	* fixed version detection for PostgreSQL in setup
+
+	
+Version 0.407 beta (May 12, 2008) (tb)
+------------------------------------------
+
+	* added default group for self registered users (users_self_registration)
+	
+	* added +/- buttons for select boxes with simple_size=1
+	
+	* added auto creation for the Trash folder when deleting messages in IMAP
+	
+	* added more colors for merging folders
+	
+	* changed the web file browser (admin tool) to handle utf-8
+	
+	* fixed missing translation for the generate password message
+	
+	* fixed copying mails with Cyrus IMAP
+
+
+Version 0.406 beta (April 24, 2008) (tb)
+------------------------------------------
+
+	* added the feature to sgsML to view a field in multiple tabs
+	
+	* added Ajax refresh for fields in new/edit views
+	  (useful when creating new items in popup)
+
+	* added new code editor called codepress
+	  
+	* changed doubleclick to open the details/edit view
+	
+	* changed HTML export for "htmlarea" and "wikiarea" to show rendered HTML
+	
+
+Version 0.405 beta (April 14, 2008) (tb)
+------------------------------------------
+
+	* added doubleclick to open the edit view
+	
+	* added a workaround for using the chat module with IE7
+	
+	* made session name in cookie configurable
+	
+	* fixed version detection in setup for PHP5
+
+
+Version 0.404 beta (April 6, 2008) (tb)
+------------------------------------------
+
+	* added a HTML export with vertical layout
+	
+	* added "last modified by" to HTML export
+
+	* fixed renaming non-empty folders
+	
+	* fixed a problem with sorting in Cyrus imap
+	
+
+Version 0.403 beta (March 24, 2008) (tb)
+------------------------------------------
+
+	* re-added display_error requirement to setup
+	  (avoid problems with memory_limit and blank screens)
+	  
+	* fixed import for Funambol syncML Server
+
+
+Version 0.402 beta (March 17, 2008) (tb)
+------------------------------------------
+
+	* added the option to export data from the SQL console
+	  (using console.php?console=sql&no_gui&code=select ...)
+	
+	* added autocomplete to the SQL console for PostgreSQL
+	
+	* added compatibility for Firefox 3
+	
+	* added OpenSearch integration (replaced Firefox search plugin)
+	
+	* updated components (Smarty, TinyMCE, Net_SMTP, PEAR, ImageMagick)
+	
+	* fixed Ajax calls for PHP 5.1
+	
+	* fixed saving setup settings
+	
+	* fixed a memory leak in setup
+	
+
+Version 0.401 beta (March 12, 2008) (tb)
+------------------------------------------
+
+	* added new SQL console
+	  (including auto-complete for tables, columns and databases in MySQL)
+	  
+	* added calendar view to projects module
+	
+	* added an example module for including custom PHP code
+	  (see core/functions_custom.php, schema_sys/phpinclude.xml)
+
+	* added an option to hide tabs in sgsML (<view hide_tabs="tabname1|tabname2")
+	
+
+Version 0.400 beta (March 6, 2008) (tb)
+------------------------------------------
+
+	* added permanent folder merging
+	
+	* added Italian translation (thanks to Mario Moleri)
+	
+	* added Turkish translation (thanks to Ibrahim KIZMAZ)
+	
+	* added subfolder detection to the tree (hiding unneeded expand icons)
+	
+	* added compatibility for PostgreSQL 8.3.x
+	
+	* added compatibility for Funambol v6.5 SyncML server
+	
+	* added Polish translation to Simple Spreadsheet (thanks to Jan Stepien)
+	
+	* added custom categories to expenses
+	
+	* added footer with current date and time to calendar views
+	
+	* added a new AJAX framework for folder operations and lookups
+	
+	* changed select boxes to allow entries with duplicate keys
+	
+	* reduced include calls in PHP by using an auto loader
+	
+	* dropped display_error requirement in setup
+	
+	* updated the PHP/Java Bridge to 4.3.2
+	
+	* removed XML-RPC Testing Framework (replaced with new AJAX/JSON)
+	
+	* raised minimum PHP version to 5.1.0
+	
+	* optimized memory usage for backup / restore
+	
+	* fixed error handling for PHP 5 and the PHP/Java Bridge
+	
+	* fixed Wiki rendering with PHP 5
+	
+	* fixed exporting for Unicode characters
+	
+
+Version 0.321 (January 1, 2008) (tb)
+------------------------------------------
+
+	* fixed overtaking old numeric or boolean config settings in setup
+
+	* fixed missing id in Simple Spreadsheet component
+	
+	* fixed missing id in Calendar component
+
+	* fixed search plugin for Firefox
+
+
+Version 0.320 (December 16, 2007) (tb)
+------------------------------------------
+
+	* added direct save for webdav files and folders
+	  (e.g. copy/paste folders and files with the windows explorer)
+	
+	* added shorter filenames for webdav (removed "_filedata")
+	
+	* added folder creation / renaming to webdav
+	
+	* added HTML and Excel folder summaries to webdav
+	
+	* added the option to "go back" after saving an asset
+	  (plus Firefox shortcut Alt-Shift-b / Alt-b)
+	
+	* added new fields to contacts (image, curriculum)
+	
+	* improved printing for calendar and Gantt views
+	
+	* added "print all" to the top menu (prints all assets in the current folder)
+	
+	* added Brazil / Portuguese translation for Simple Spreadsheet
+	
+	* added Slovak translation from Tomáš Štefunko
+	
+	* added Croatian translation from Dario Cikatic
+	
+	* added categories to the portal module
+	
+	* raised minimum browser versions for safari (>=1.3) and opera (>=8.5)
+	
+	* cleaned up styles
+	
+	* fixed IMAP sorting together with filters
+	
+	* fixed saving documents in WebDAV with MS Word
+
+	
+Version 0.311 (November 1, 2007) (tb)
+------------------------------------------
+
+	* added support for huge IMAP folders without server based sorting
+	  (e.g. Gmail IMAP)
+	
+	* added the Danish translation from Jens Chr. True
+	
+	* added an average function as progress summary for tasks 
+
+	* added a sum function as cost summary for expenses
+
+	* added a duration field for tasks (automatically calculated)
+
+	* added "firstname" and "lastname" (users) to "from" header in mails
+
+	* added "name" field in mail identities to "from" header in mails
+
+	* added name in smtp options to "from" header in mails
+
+	* added "name" field to the CSV contacts module
+
+	* added a limit for inline text bodies in mails (16k)
+	
+	* added the option to restore only missing items in the backup module
+	
+	* added a new module for user self registration
+	
+	* improved history function for HTML content (hide tags)
+	
+	* integrated TinyMCE HTML editor directly into new/edit forms
+	
+	* enabled tables and images in TinyMCE
+	
+	* updated components (TinyMCE, ImageMagick)
+	
+	* fixed creating portal items for all tasks of a user
+	
+	* fixed moving chat rooms to include chat archives
+	
+	* fixed WebDAV mod_rewrite rules for Apache 1.3.x
+
+	* fixed a mapping problem for firstname/lastname in the ldif handler
+	
+	* fixed LDAP group synchronization for unicode group names
+	
+
+Version 0.310 (October 14, 2007) (tb)
+------------------------------------------
+
+	* added LDAP group synchronization
+	  (thanks to Laurent BARDI for providing the patch)
+
+	* added Swedish translation from Lars Stavholm
+
+	* added the option to refresh portal items after x seconds
+	
+	* added new fields for CSV contacts data handler
+	  (city, zipcode, state, country, department, birthday)
+	
+	* added a new data handler for LDIF contacts
+	  (LDAP Data Interchange Format for Thunderbird, Active Directory)
+	
+	* added buttons to resize textareas in forms
+
+	* added use of the current username and password in mountpoints
+	  (use %username% and %password% in the mountpoint definition)
+	
+	* added new syntax to view assets from different folders:
+	  index.php?find=assets|table|limit|field=value
+	  
+	* added the option to redirect to a predefined folder after login
+	  (use http://<your-server>/<sgs-dir>/bin/index.php?folder=<folder-id>&view=display&logout)
+	
+	* added the option to use PHP functions directly in views instead of Smarty templates
+	  (see http://www.simple-groupware.de/cms/Main/Customization for more)
+	
+	* changed the default portal page for new users to show all tasks and appointments
+	  related to that user
+	
+	* changed the default portal page for new projects to show all tasks and files
+	  related to that project
+	
+	* splitted up functions.js, created functions_edit.js for edit/new forms
+	
+	* fixed SyncML export for contacts and appointments
+	
+	* fixed importing for huge CSV files
+	
+	* fixed ob_flush error handling in install_unattended.php.txt
+
+
+Version 0.301 (August 30, 2007) (tb)
+------------------------------------------
+
+	* added a project field to the files module
+
+	* changed $_ENV to getenv() for better compatibility
+	  (php.ini: variables_order is recommended to be "GPCS")
+	  
+	* fixed a problem with a missing anchor value in mountpoints
+	  
+	* fixed a problem with the Oracle setup
+
+
+Version 0.300 (August 17, 2007) (tb)
+------------------------------------------
+
+	* added error messages for unperformed actions due to missing asset permissions
+	
+	* added the option to update from a package file in the local filesystem
+	
+	* moved folder operations to top menu (move/cut/paste/delete/rights)
+	
+	* updated translations (nl, ptBR)
+	
+	* changed text conversion for HTML-only mails
+
+	* fixed creating SyncML contacts if no lastname is given
+	
+	* fixed setting seen status in the imap module
+
+	* fixed a problem with basic authentication and downloading files
+
+	
+Version 0.299 (August 6, 2007) (tb)
+------------------------------------------
+
+	* added an expenses module
+	
+	* added a checkbox for folder categories to select all items
+	
+	* added auto detection for server-based sorting in the IMAP module
+	
+	* added 15 minute IP blocking if password entered 4 times wrong within 30 minutes
+	
+	* updated xpdf binaries
+
+	* fixed missing cache directory in simple spreadsheet
+	
+	* fixed update problem with missing config parameters
+
+
+Version 0.298 (July 27, 2007) (tb)
+------------------------------------------
+
+	* added WebDAV server (list folder contents / edit files)
+	
+	* added option to require admin rights to set mountpoints
+	  
+	* added option to archive deleted files (activated by default)
+	
+	* added option to use the mail() function instead of SMTP
+	  
+	* added collapsing for assets with many files
+	
+	* added lookup butons for non-overloaded select boxes
+	
+	* added Debian binaries for document preview
+	
+	* added compatibility for IIS
+	
+	* added pure PHP implementation for the PHP/Java Bridge
+	  (no need for the binary extension in PHP 5.2+)
+	  
+	* changed asset background color to the button column
+	  (in the display view)
+	  
+	* updated the libraries to the latest versions
+	
+	* changed the exif reader to ImageMagick identify (better performance)
+
+	* removed a debug statement which stopped deleting multiple assets
+	
+	* fixed a problem with unicode folder names in IMAP
+	
+	* fixed strtotime handling for dates before 1970
+	
+	* fixed quoting for template lookups
+
+	* fixed Outlook CSV data handler with empty "last name" column
+
+	* fixed an error message when creating categories, statuses
+
+	* fixed a problem with Antialias not being compiled into GD
+	
+	* fixed a problem with Denial of Service (DoS) protection
+	  (workaround for touch() bug in PHP 5.x #41786)
+
+
+Version 0.297 (July 7, 2007) (tb)
+------------------------------------------
+
+	* added server based sorting and searching to the IMAP module
+	  (better performance for big folders)
+	
+	* added webkit border radius styles
+	
+	* moved history view to button bar (upper right corner)
+	
+	* changed the chart library to Artichow
+
+	* fixed a problem with the touch() function in PHP 5.x (#41786)
+	
+	* fixed a problem with broken mail structures in the IMAP module
+
+
+Version 0.296 (June 22, 2007) (tb)
+------------------------------------------
+
+	* added support for synchronization with Funambol v6
+	  (experimental)
+
+	* added a new update tool
+	
+	* added '@' as valid character for usernames, groupnames,
+	  contact-ids and identity-ids
+
+	* fixed a IMAP problem receiving headers from Dovecot
+
+
+Version 0.295 (June 18, 2007) (tb)
+------------------------------------------
+
+	* added some changes for Safari 3.0
+
+	* added some fixes for the statistics module
+	
+	* fixed building https-urls for mail reminders
+	
+	* fixed creating LDAP users
+	
+	* fixed password change for users
+	
+
+Version 0.294 (June 11, 2007) (tb)
+------------------------------------------
+
+	* added a helpdesk module
+	
+	* added meta data handling and history for cifs and files module
+	  (fields status, description, color and notification can
+	   be used in these modules, being saved to .meta files)
+
+	* optimized the IMAP handler for bigger folders
+	
+	* changed default calendar view for contacts/users to month, tasks to Gantt
+
+	* fixed searching in data handlers (imap, pop3, etc.)
+	
+	* fixed simple_default_function tags in edit_as_new views
+	
+	* fixed a problem with function overloading from the mbstring library
+	
+	* fixed moving assets
+
+
+Version 0.293 (May 18, 2007) (tb)
+------------------------------------------
+	
+	* added a Gantt view for the calendar component
+	  (also used in tasks, contacts, users, etc.)
+	
+	* added a debian binary for the PHP/Java Bridge
+	
+	* added some changes for the Simple Groupware Client
+	
+
+Version 0.292 (May 14, 2007) (tb)
+------------------------------------------
+
+	* added document locking for checkin/checkout
+
+	* added resizing for the content pane and the tree
+	
+	* added the option to upload files from a URL
+
+	* added icons for the tree and a new theme to use the icons
+	
+	* changed database requirements to version 4.1 for MySQL
+	
+	* fixed clob handling for the Oracle database
+
+
+Version 0.291 (April 30, 2007) (tb)
+------------------------------------------
+
+	* added integration with Skype to contacts and users
+	
+	* added "return receipt" function to email modules
+	
+	* added views for birthdays and anniversaries to users and contacts
+	
+	* added iCalendar attachment to appointment notifications
+
+	* added searching and previewing MS-Office Open XML files
+	
+	* optimized mail format and timing for notifications
+	
+	* fixed problems with missing fields in copy/paste
+	
+	* fixed session states for composing mails
+	
+	* fixed yearly repeating events on leap years
+
+
+Version 0.290 (April 20, 2007) (tb)
+------------------------------------------
+
+	* added e-mail reminders for calendar events, tasks, contact
+	  activities, password / account expirations, birthdays, anniversaries
+	  
+	* added a script for unattended installation
+
+	* updated components / libraries: Smarty, JpGraph, TinyMCE (added template plugin)
+	  EditArea, Net_SMTP, NetSocket, PEAR
+	  
+	* updated win32 binaries: Xpdf, ImageMagick
+	
+	* optimized sgsML parser
+
+	* fixed content pane in popup mode and Konqueror
+
+
+Version 0.282 (April 5, 2007) (tb)
+------------------------------------------
+
+	* improved session handling to allow simultaneous logins for one user
+	  account
+
+	* added Russian translation
+	
+	* added a height parameter to the portal module
+	
+	* fixed problem with setting values in type simple_select
+
+
+Version 0.281 (March 22, 2007) (tb)
+------------------------------------------
+
+	* added NTLM authentication
+	
+	* added ID3 information to MP3 preview
+	
+	* added enable/disable to groups
+	
+	* reduced memory usage in the setup
+
+	* changed upgrade process to include old setup settings automatically
+	
+	* changed unique check for categories and statuses
+	
+	* fixed SyncML remote delete id handling
+	
+
+Version 0.280 (February 21, 2007) (tb)
+------------------------------------------
+
+	* added notifications for all assets
+
+	* added French and Hungarian translations
+	
+	* added a preview pane to the user interface
+	
+	* added code editor component EditArea
+	
+	* added a new data handler for accessing CIFS servers
+	
+	* added the option to show only subscribed folders in the IMAP module
+	
+	* added options to setup settings to allow debugging IMAP, POP3, SMTP
+	
+	* updated imagemagick binary for win32
+	
+	* updated components / libraries: Smarty, PEAR, TinyMCE
+
+	* improved search functionality for lookups
+	
+	* code cleanup for the top menu
+	
+	* cleanup for contact activities
+	
+	* fixed a problem with exporting non-database datasets
+	
+	* fixed a problem with recalculating appointments in the setup
+	
+	* fixed a problem with renaming folders
+
+
+Version 0.270 (January 29, 2007) (tb)
+------------------------------------------
+
+	* added support for syncing tasks over SyncML
+
+	* added individual asset rights to the files, forum and chat module
+
+
+Version 0.261 (January 25, 2007) (tb)
+------------------------------------------
+
+	* added new icons for download, links
+	
+	* updated Brazil / Portuguese, Nederlands / Dutch translations
+	
+	* changed the way to retrieve IMAP folders to support bigger
+	  directory structures
+	
+	* fixed POP3 issues with bad content types and message/rfc822 parts
+	
+	* fixed a problem with the IMAP and SASL libraries
+	  (could cause a blank page in some older PHP versions)
+	  
+
+Version 0.260 (January 13, 2007) (tb)
+------------------------------------------
+
+	* added support for syncing notes over SyncML
+
+	* added possibility to copy/paste assets with unique fields
+	
+	* added new admin function to rebuild the search index
+	
+	* added a diff-function to the history of text areas
+
+	* changed syntax for index.php?find=asset|table|field|value|limit to
+	  index.php?find=asset|table|limit|field1=value1|field2=value2
+	  
+	* changed var_export() to serialize() for building the smarty hash
+	
+	* changed default asset limit in sgsML from 1 to 20
+	
+	* moved processing time from page title to a comment
+	
+	* fixed a date problem in the Brazil / Portuguese language file
+
+	* fixed a problem with setting folder permissions on non-database modules
+	
+	* fixed a problem with paging in Oracle
+	
+	* fixed a problem with mapping SyncML IDs and processing the sync changelog
+
+	
+Version 0.255 (December 14, 2006) (tb)
+------------------------------------------
+
+	* added Brazil Portuguese translation from Gil Leca
+	
+	* added responsible persons to the task module
+	
+	* added new modules: wiki, html documents
+	
+	* added address field to locations, description field to files
+	
+
+Version 0.254 (November 29, 2006) (tb)
+------------------------------------------
+
+	* added Spanish translation from Manuel Ciprián
+	
+	* added translations to Simple Spreadsheet from Sophie Lee
+
+	* added error messages for missing rights in Sync4j database location
+	
+	* added option to allow Sync4j to delete items remotely
+
+	* changed calendar year view to start with current month instead of January
+	
+	* updated imagemagick binary for win32
+	
+	* updated PEAR, JpGraph, TinyMCE (enabled spellcheck for Firefox 2.x)
+
+	* fixed problems with LDAP mountpoint
+	
+	* fixed a problem with long strings crashing in the Oracle database
+	
+
+Version 0.253 (October 15, 2006) (tb)
+------------------------------------------
+
+	* added SyncML support for the calendar module
+
+	* added detection for tsearch2 for PostgreSQL
+	
+	* improved displaying search results (removed IDs)
+	
+	* added new login background image
+
+	* fixed problem with the scrollbar in IE
+	
+	* fixed some styles for IE7
+
+	* fixed missing path in the print view
+	  
+
+Version 0.252 (October 9, 2006) (tb)
+------------------------------------------
+
+	* improved views in the task module
+
+	* added mail identities
+
+	* added fulltext indexes for PostgreSQL
+	
+	* added versioning for files uploaded by the client
+	
+	* added folder history
+	
+	* increased number of files in simple_type=files to allow versioning
+
+	* fixed data handlers for local files
+	
+	* fixed deleting files in simple_type="files"
+	
+	* fixed calendar styles for IE
+
+	
+Version 0.251 (September 29, 2006) (tb)
+------------------------------------------
+
+	* changed session cookie to stay active when the browser closes
+	
+	* removed the need for the plpgsql language when using PostgreSQL
+
+	* fixed sync problem with creating contacts on mobile devices
+
+	* fixed problem with mountpoints containing "." characters
+
+
+Version 0.250 (September 24, 2006) (tb)
+------------------------------------------
+
+	* added SyncML support for the contacts module
+	  
+	* added missing translations for some modules
+
+	* increased maximum length of username and groupname
+	  to 128 characters
+
+	* reduced size of the css sheet
+	  
+	* fixed displaying events crossing into the next day
+	  
+	* changes for sgsML modules: all modules need to be added
+	  to modules/schema/modules.txt
+	
+
+Version 0.241 (September 10, 2006) (tb)
+------------------------------------------
+
+	* added a new engine for filtering assets
+	  (removed the alphabar)
+
+	* added a new theme for high contrast
+	
+	* added Dutch translation
+	
+	* fixed translation problems
+	
+
+Version 0.240 (September 3, 2006) (tb)
+------------------------------------------
+
+	* added full support for Oracle database
+
+	* optimized styles in the datebox
+
+	* removed unnecessary title attributes
+
+
+Version 0.232 (August 30, 2006) (tb)
+------------------------------------------
+
+	* added task dependancies
+	
+	* updated JpGraph component
+
+	* fixed wrong asset selection if </view> is missing in sgsML code
+
+	* fixed password expiration
+	
+
+Version 0.231 (August 25, 2006) (tb)
+------------------------------------------
+
+	* changed date conversion and validation to support date formats like d/m/Y and m/d/Y.
+
+	* added options to set the base DN manually in LDAP
+
+	* changed RSS export for Firefox 2.0
+	
+	* fixed asset history for dates
+	
+	* fixed problem with displaying events (empty asset list)
+	
+	* fixed paths in mountpoints
+	
+	* fixed all-day events in calendar
+
+
+Version 0.230 (August 18, 2006) (tb)
+------------------------------------------
+
+	* added support for the new Simple Groupware Client
+
+	* changed setup to detect a wrong include_path setting in php.ini
+	
+	* enabled Swift browser (using AppleWebKit) in browser check
+
+	* renamed phpinfo.php for security reasons
+	
+	* several smaller bugfixes
+	
+
+Version 0.220 (July 21, 2006) (tb)
+------------------------------------------
+
+	* added EXIF information to JPG preview
+
+	* added searching inside OpenOffice and MS-Office files
+	
+	* improved searching and search indexes
+
+	* replaced HtmlSax for bookmarks with new (faster) code
+
+	* removed popup windows where possible
+
+	* removed mail_text_limit and replaced it with automatic collapsing
+	  of the quoted text parts
+	  
+	* reduced top menu / restructured system menu
+	  -> new administration overview
+	  
+	* added keyboard shortcut for home directory
+	  
+	* fixed utf8 handling in SQL console
+	  
+	* fixes for special characters in spreadsheet import
+
+	* fixes for Safari
+
+	* fixed folder path in search view
+
+
+Version 0.219 (July 13, 2006) (tb)
+------------------------------------------
+
+	* added support for PostgreSQL (8.1.0 and higher)
+	
+	* added Google Maps as link to addresses
+	
+	* added feature to import outlook appointments (csv exports)
+	
+	* fixed attachment detection for outlook mails with appointments
+	
+	* fixed chat module
+	
+	* fixed SQL table optimization
+	
+
+Version 0.218 (July 11, 2006) (tb)
+------------------------------------------
+
+	* added reply all to emails/IMAP/POP3 modules
+
+	* added new simple_type spreadsheet, new module spreadsheets
+	
+	* added support for using sgs as default mail client
+	
+	* added support for using bookmarks directly with RSS feeds
+	
+	* added inline preview for iCalendar and vCard files
+
+	* added new mailto links for to/cc fields in emails/IMAP/POP3
+
+	* added folder strings for mountpoints
+
+	* added keyboard shortcut for hiding the tree
+	
+	
+Version 0.217 (June 30, 2006) (tb)
+------------------------------------------
+
+	* added text preview for .pdf, .tar, .zip, .tar.gz, .tgz files
+	 
+	* added text preview for OpenOffice and MS-Office documents
+	  (.doc, .xls, .ppt, .ods, .sxc, .odt, .sxw, .odp, .sxi)
+	  
+	* added image preview for .bmp, .emf, .eps, .ico, .pcd,
+	  .pcx, .psd, .svg, .tif, .wmf, .xpm files
+	  
+	* changed image preview for .jpg, .gif, .png to ImageMagick
+	  (better quality)
+	  
+	* added option to use a virus scanner for uploading / downloading
+	  files
+
+    * added contact activities module
+	
+	* added statuses to files
+	
+	* added edit mode to sql console
+	
+	* added new/edit to the local filesystem module
+	
+	* changed quota handling to notification
+	
+	* splitted forum into display and details view
+	
+	* fixed imap reply, imap move
+	
+	* fixed bookmark import from Firefox
+	
+	* fixed pop3 attachment detection
+	
+	* fixed flevel-error in news
+
+
+Version 0.216 (June 21, 2006) (tb)
+------------------------------------------
+
+    * fixed deleting folders from trash
+	  (an update is strongly recommended to avoid data loss)
+
+    * added restore to backup folder
+
+    * added portal module 
+
+    * added column summing
+	
+	* added chat module
+
+	* added level structure to tree module
+	
+	* added Simple Spreadsheet
+	
+    * fixed ordering in RSS items
+
+    * fixed categories in tasks
+	
+	* changed readonly behaviour in categories, statuses
+	
+
+Version 0.215 (June 14, 2006) (tb)
+------------------------------------------
+
+	* added option to create users automatically with
+	  LDAP, htaccess or IMAP authentication
+
+	* added anonymous mode for SMTP
+	
+	* made SMTP mail footer configurable
+	
+	* added authentication for LDAP binding
+	
+	* fixed error in Forum
+
+	
+Version 0.214 (June 7, 2006) (tb)
+------------------------------------------
+
+	* changed selecting items to be view-based
+	
+	* fixed selecting many dates in iCalendar
+
+
+Version 0.213 (June 4, 2006) (tb)
+------------------------------------------
+
+	* fixed iCalendar parsing
+
+	* fixed calendar module and week layout
+	  (duration readonly, layout many allday events)
+
+
+Version 0.212 (June 2, 2006) (tb)
+------------------------------------------
+
+	* improved IMAP caching significantly
+	
+	* added highlighting for search results
+	
+	* added native Excel/Spreadsheet export
+	
+	* added Firefox search plugin
+	
+	* updated components (Smarty, TinyMCE, Auth_SASL)
+	
+
+Version 0.211 (Mai 29, 2006) (tb)
+------------------------------------------
+
+	* added duration field to calendar
+	
+	* added tomorrow field to calendar navigation
+	
+	* added forum module
+	
+	* added custom resizing for bookmark previews
+	
+	* fixed resizing for bookmark preview
+	
+	* fixed database indexes
+	
+
+Version 0.210 (Mai 22, 2006) (tb)
+------------------------------------------
+
+	* expanded bookmarks with a (iframe) preview
+	
+	* added RSS links to tree
+	
+	* added datebox to tasks
+	
+	* added option to redirect to home directory after login
+
+	* fixed selecting several assets in external data sources
+	
+	* fixed layout problems with IE
+	
+
+Version 0.29 (Mai 16, 2006) (tb)
+------------------------------------------
+	
+	* added free/busy popup for calendar
+	
+	* changed layout for datebox in tree
+
+	* fixed creating assets
+	
+	* fixed hiding data in calendar
+	
+
+Version 0.28 (Mai 15, 2006) (tb)
+------------------------------------------
+
+	* improved search pane in tree
+	
+	* added tabs to new/edit if there are many data sources
+	
+	* fixed some layout and form problems
+	
+	* added changing rights for non-admin users
+	
+
+Version 0.27 (Mai 12, 2006) (tb)
+------------------------------------------
+
+	* added LDAP module
+
+	* added collapsing for the asset list in calendar mode
+
+	* added faster function for clearing out unsecure HTML
+	
+	* fixed some problems in the IMAP module
+	
+
+Version 0.26 (Mai 8, 2006) (tb)
+------------------------------------------
+
+	* added ajax-based tree expanding/collapsing
+	
+	* added type-field to categories and statuses
+	
+	* added trash-folder for deleted items
+
+	* fixed creating default groups in setup
+	
+
+Version 0.25 (Mai 4, 2006) (tb)
+------------------------------------------
+
+	* added default folder structure for departments
+
+	* added feature for merging folders
+
+	* added gallery module
+
+	* added mountpoint wizard
+	
+	* added delete triggers for users/projects
+
+	* added editor for config.php
+
+	* added default style to config.php
+	
+	* cleaned up default folder structure
+
+	* reduced layout icons
+	
+	* fixed enlarge hidden text in firefox
+	
+
+Version 0.24 (Mai 2, 2006) (tb)
+------------------------------------------
+
+	* changed tree to dynamically resize with the screen resolution
+	
+	* added notes module
+
+
+Version 0.23 (April 30, 2006) (tb)
+------------------------------------------
+
+	* added seen/unseen state for emails
+
+	* added calendar day begin/end settings to user accounts
+	
+	* added keyboard shortcuts, see user manual
+
+	* added automatic url decoding in bookmarks (better readable)
+
+	* several fixes for searching, imap, pop3
+	
+	* fixed changing user settings (password, status, etc.)
+	
+	* fixed mail subject decoding
+	
+	* fixed text highlighting
+
+
+Version 0.22 (April 21, 2006) (tb)
+------------------------------------------
+
+	* added colors to all assets
+
+	* translations are now directly built during setup
+	  (smaller download size)
+
+	* added pop3 cache cleanup
+
+	* fixed asset history
+
+
+Version 0.21 (April 19, 2006) (tb)
+------------------------------------------
+
+	* added pop3 support
+	
+	* relayouted setup
+	
+	* fixed csv-import of contacts
+	
+	* fixed deadlock in update_treesize
+	
+	* fixed path restriction in webfile-browser
+	
+	* fixed db-search
+	
+
+Version 0.2 (April 18, 2006) (tb)
+------------------------------------------
+
+	* added imap message delete, message move
+	
+	* added save mails to imap
+	
+	* added mail to groups, contact groups
+	
+	* added contact groups
+
+	* expanded day and week view: add appointment at specific time
+	
+	* added new sys console
+
+	* updated libraries (smarty, jpgraph, net_smtp, pear, tinymce, textwiki)
+	
+	* fixed ldap login to detect base-dn and search for user-dn
+
+	* changed required-flag in contacts/companies
+
+	* changed size counting
+	
+	* dropped helene code editor (no longer under development)
+	
+	* replaced js-calendar with a new (smaller) javascript calendar
+	
+	
+Version 0.2 beta11 (February 18, 2006) (tb)
+------------------------------------------
+
+	* added templates for textareas
+	
+	* changed some modules from htmlarea to wikiarea
+	
+	* increased performance when synchronizing database metadata
+	
+	* enabled opacity for opera 9
+	
+
+Version 0.2 beta10 (February 5, 2006) (tb)
+------------------------------------------
+
+	* added paths as folder parameter
+	
+	* made mailto-fields sortable
+
+	* improved browser compatibility message
+	
+	* renamed iCalendar module
+
+	* fixed javascripts for Internet Explorer 7.0 beta 2
+	
+	* fixed browser detection for Camino (but disabled)
+	
+	* fixed folder collapsing
+	
+	
+Version 0.2 beta9 (January 26, 2006) (tb)
+------------------------------------------
+
+	* added SQL console
+
+	* added PHP console
+
+	* added support for Opera Mobile 8.5 beta
+	
+	* added vCard export
+	
+	* added LDIF (LDAP Data Interchange Format) export
+	
+	* added folder move
+	
+	* added xml-rpc server and example xml-rpc client library
+	
+	* new efficient locking system to avoid tree corruption
+
+	* fixed browser detection for Mozilla Suite
+
+	* changed all tests to simple blackbox tests
+	
+	* fixed url validation
+
+
+Version 0.2 beta8 (January 18, 2006) (tb)
+------------------------------------------
+
+	* added output compression for javascript and stylesheet files
+	
+	* added Czech translation
+	
+	* added Call Structure Map to docs
+
+
+Version 0.2 beta7 (January 14, 2006) (tb)
+-----------------------------------------
+
+	* added rss support to subscribe to folders (e.g. with Thunderbird 1.5 or Serence KlipFolio)
+	
+	* added support to export iCalendar files (e.g. to Mozilla Sunbird)
+	
+	* changed zipcode handling (no limitation to numbers)
+	
+	* improved browser compatibility
+
+	* fixed icalendar parsing
+	
+
+Version 0.2 beta6 (January 2, 2006) (tb)
+----------------------------------------
+
+	* added warning if two users are simultaneously editing an asset
+	
+	* added year view to calendar module
+
+	* added firefox-bookmark handler
+
+	* added smtp user authentication
+
+	* added ssl to imap/smtp user authentication
+
+	* added auto create group/rights when project is created
+
+	* added maintenance mode
+	
+	* added show urls and email addresses in textareas as links
+	  (also *bold* and _underline_)
+	
+	* updated smarty template engine
+	
+	* fixed search function and anonymous session handling
+	
+
+Version 0.2 beta5 (December 28, 2005) (tb)
+------------------------------------------
+
+	* fixed event logging (stack trace is only shown in details)
+
+	* edit as new feature
+
+	* user interface: added small icons
+	
+	* emails: added reply / forward
+
+	* system modules: splitted table status into status and sizes
+
+	* moved tinymce popup to iframe
+	
+	
+Version 0.2 beta4.1 (December 15, 2005) (tb)
+--------------------------------------------
+
+	* fixed bug 1381552 which prevents users from logging in
+
+	* fixed bug: archive tools might strip empty folders simple_cache / simple_store
+	
+	* fixed bug in setup: better error message if simple_cache / simple_store are read-only
+	
+
+Version 0.2 beta4 (December 14, 2005) (tb)
+------------------------------------------
+
+	* added smtp module
+
+	* added options for ssl and different ports using imap/smtp
+
+	* added caching system for imap, rss, iCalendar, vcard, csv
+
+	* fixes for integrating iCalendar files
+
+	* TinyMCE update and cleanup to load faster
+
+	
+Version 0.2 beta3 (December 9, 2005) (tb)
+-----------------------------------------
+
+	* added feature to view mails on imap accounts
+	
+	* added feature to import icalendar files
+	
+	* added feature to import vcard files
+	
+	* added feature to disable anonymous access
+	
+	* added feature to define exclusions in recurring appointments
+
+	* fixed outlook import for contacts
+	
+	
+Version 0.2 beta2.2 (December 2, 2005) (tb)
+-------------------------------------------
+
+    * setup fixes for Magic_quotes_gpc
+	
+	* added feature to optimize database tables as admin
+	
+
+Version 0.2 beta2.1 (November 23, 2005) (tb)
+--------------------------------------------
+
+    * setup fixes for MySQL 4.0
+	
+	* fix for folder collapsing
+	
+
+Version 0.2 beta2 (November 19, 2005) (tb)
+------------------------------------------
+
+    * packaging changed to a single file for all languages
+
+    * added rss module
+
+	* added calendar module
+
+	* moved client from console to graphical interface using php-gtk
+
+    * switched charsets to utf-8 to allow unicode support
+
+    * added exceptions to right to enable users to change
+	  passwords and online/offline status
+
+    * removed html null byte vulnerability
+
+    * removed page reload on resize, now width/height gets
+	  dynamically recalculated
+	
+	* added php memory usage next to rendering time in title
+	  (active only in debug mode under linux)
+	
+    * removed MySQL 3.x compatibility
+
+    * removed magic_quotes_gpc=off requirement
+	  (register_globals=off stays due to security reasons)
+
+
+Version 0.2 beta1 (October 2, 2005) (tb)
+----------------------------------------
+
+New features:
+
+    * Added save/restore tree scroll-position
+
+    * Added cut / copy / paste function
+
+    * Added folder quotas
+    
+    * Improved calendar to handle recurrences
+
+    * Added new server-based auto-complete component (replacement for popups)
+    
+    * Added functionality to export data to html / csv / xml
+
+    * Added alphabar (show only assets beginning with a chosen character)
+    
+    * Added unit testing with PHPUnit and xmlrpc (disabled by default, rename *.php.txt to *.php)
+
+    * New packaging system to deploy only one file (currently not used and disabled)
+    
+    * Added "Clean Cache" function to remove old cache files
+    
+    * Added Wikipedia, Yahoo and MSN to search sidebar
+
+    * Added new Simple-Type "files" (upload multiple files) as replacement for "file"
+
+    * Expanded slow query logging with "explain" information
+    
+    * Added view to show database status variables
+    
+    * Added view to show database variables
+    
+    * Added system/modules folder and module schema-handler
+    
+    * Added faq module
+
+    * Added possibility to reset folder view
+    
+    * Added online/offline status to users module
+    
+    
+Bugs:
+    * Fix compatibility with Php 4.3.10, MySQL 5.0.x in setup
+    
+    * Fixing view with extra large texts
+
+
+Other changes:
+    
+    * Updated libraries and components to latest versions
+    
+    * Displaying of assets gets a limit of 100
+    
+    * New directory structure: simple_cache and simple_store are now outside the code
+    
+    * Using gzip output compression per default
+    
+    * Removed database caching (inefficient with huge resultsets)
+    
+    * Removed AdoDB (better performance, better schema handling)
+    
+    * Removed doiMenu (better performance)
+    
+
+Version 0.1 (Dec 13, 2004) (tb)
+-------------------------------
+
+    * This release is not suitable for usage in a production environment
+
+    * This release doesn't contain a rights management system
+      Therefore anonymous users will have full administrative rights (e.g. create new users, groups)
+      
+    * PHP-compatibility: When using PHP 4.3.10 or a higher 4.x.x version you need to patch ./setup.php, line 46:
+      replace: 
+      if ((int)str_replace(".","",substr(PHP_VERSION,0,5)) < (int)str_replace(".","",$phpversion)) setup_error(sprintf("{t}Setup needs php with at least version %s !{/t}",$phpversion)); 
+      with: 
+      // if ((int)str_replace(".","",substr(PHP_VERSION,0,5)) < (int)str_replace(".","",$phpversion)) setup_error(sprintf("{t}Setup needs php with at least version %s !{/t}",$phpversion)); 
+
+    * MySQL-compatibility:
+      Mysql 5.0.2-alpha will not work with Simple Groupware: The database crashes when launching the Simple Groupware Setup. (4.0.x and 4.1.x work without any problems)
+
+
+tb = Thomas Bley

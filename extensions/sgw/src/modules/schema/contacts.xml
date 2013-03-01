@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Contacts{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" trigger_edit="notify|sync4j::createedit" trigger_new="notify|sync4j::createedit" trigger_delete="sync4j::delete" quick_add="lastname,firstname,company,email">
+  <view name="display" displayname="{t}Display{/t}" groupby="category">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" tfield_1="firstname" tfield_2="lastname" show_preview="true">
+  </view>
+  <view name="calendar" displayname="{t}Birthdays{/t}" schema="sys_nodb_calendar_contacts" enable_calendar="true">
+  </view>
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="contact" displayname="{t}Contact{/t}" />
+  <tab name="address" displayname="{t}Address{/t}" />
+  <tab name="miscellaneous" displayname="{t}Miscellaneous{/t}" />  
+  <tab name="other" displayname="{t}Other{/t}" />
+  <singlebutton views="display|details" name="calendar" displayname="{t}Appointments{/t}" onclick="locate('index.php?view=display&amp;find=assets|simple_calendar||participants_ext~¦@contactid@¦&amp;markdate=all');" icon="../modules/calendar.png" />
+  <singlebutton views="display|details" name="tasks" displayname="{t}Tasks{/t}" onclick="locate('index.php?view=all&amp;find=assets|simple_tasks||responsibles_ext~¦@contactid@¦');" icon="../modules/tasks.png" />
+  <singlebutton views="display|details" name="contactactivities" displayname="{t}Contact activities{/t}" onclick="locate('index.php?view=all&amp;find=assets|simple_contactactivities||contactid=@contactid@');" icon="../modules/contactactivities.png" />
+  
+  <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" simple_default_function="fillcontact|lastname">
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="firstname" displayname="{t}First name{/t}" simple_type="text" simple_default_function="fillcontact|firstname">
+  </field>
+  <field name="contactid" displayname="{t}Contact id{/t}" simple_type="text" is_unique="true" simple_default_function="fillcontact|contactid">
+    <validate function="regexp|/^[a-z0-9-_@\.]{3,128}$/i|{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}"/>
+	<store function="contactid"/>
+  </field>
+  <field name="company" displayname="{t}Company{/t}" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_companies|companyname,companyname||companyname asc|10"/>
+	<link value="index.php?find=asset|simple_companies||companyname=@company@&amp;view=display"/>
+  </field>
+  <field name="position" displayname="{t}Position{/t}" simple_type="select" simple_size="1" allow_custom="true">
+    <data function="dbselect|simple_positions|positionname,positionname||positionname asc|10"/>
+	<link value="index.php?find=asset|simple_positions||positionname=@position@&amp;view=display"/>
+  </field>
+  <field name="email" displayname="{t}E-mail{/t}" simple_type="text" simple_default_function="fillcontact|email">
+    <validate function="email"/>
+    <link value="@ext/norefer.php?url=@email@" icon="link_mail.gif"/>
+  </field>
+  <field name="phone" displayname="{t}Phone{/t}" simple_type="text">
+    <link value="sip:@phone@" icon="phone.gif"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea">
+    <notin views="display"/>
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" simple_size="1">
+	<data sort="asc" title="{t}Default{/t}" values="{t}Affiliate{/t}|{t}Client{/t}|{t}Competitor{/t}|{t}Consultant{/t}|{t}Distributor{/t}|{t}Investor{/t}|{t}Manufacturer{/t}|{t}Media{/t}|{t}Prospective client{/t}|{t}Reseller{/t}|{t}Service provider{/t}|{t}Supplier{/t}|{t}Other{/t}" />
+	<data title="{t}Lookup{/t}" function="dbselect|simple_categories|categoryname,categoryname|cattype='contacts'|categoryname asc|10"/>
+  </field>
+  <field name="contactperson" displayname="{t}Contact person{/t}" simple_type="select" simple_size="1" simple_tab="contact">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@contactperson@&amp;view=details"/>
+  </field>
+  <field name="fax" displayname="{t}Fax{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="mobile" displayname="{t}Mobile{/t}" simple_type="text" simple_tab="contact">
+    <link value="sip:@mobile@" icon="phone.gif"/>
+  </field>
+  <field name="pager" displayname="{t}Pager{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="skype" displayname="Skype" simple_type="text" simple_tab="contact">
+    <link value="skype:@skype@?userinfo" icon="phone.gif"/>
+  </field>
+  <field name="im" displayname="IM" simple_type="text" simple_tab="contact">
+	<description value="alert('
+MSN: msnim:chat?contact=nada@nowhere.com\n
+AIM: aim:goim?screenname=someuser\n
+Yahoo: ymsgr:sendim?john.doe@yahoo.com\n
+Jabber/Google: xmpp:john.doe@gmail.com');"/>
+    <link value=" @im@" icon="chat.gif"/>
+  </field>
+  <field name="contactby" displayname="{t}Contact by{/t}" simple_type="select" simple_size="1" simple_tab="contact">
+    <data values="{t}E-mail{/t}|{t}Phone{/t}|{t}Fax{/t}|{t}Mobile{/t}|{t}Pager{/t}|{t}Post{/t}"/>
+  </field>
+  <field name="department" displayname="{t}Department{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="street" displayname="{t}Street{/t}" simple_type="text" simple_tab="address">
+    <link value="@ext/norefer.php?url=http://maps.google.com/maps?q=@zipcode@ @city@ @street@ @country@"/>
+  </field>
+  <field name="zipcode" displayname="{t}Zipcode{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="city" displayname="{t}City{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="state" displayname="{t}State{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="country" displayname="{t}Country{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="billingaddress" displayname="{t}Billing address{/t}" simple_type="textarea" simple_tab="address">
+    <notin views="display"/>
+  </field>
+
+  <field name="image" displayname="{t}Photo{/t}" simple_type="files" simple_file_size="5M" simple_size="10" simple_tab="miscellaneous">
+    <notin views="display|calendar"/>
+    <validate function="fileupload|jpg,jpeg,gif,png"/>
+  </field>
+  <field name="cvitae" displayname="{t}Curriculum vitae{/t}" simple_type="files" simple_file_size="10M" simple_size="10" simple_tab="miscellaneous">
+    <notin views="display|calendar"/>
+    <validate function="fileupload|doc,pdf,sxw,txt"/>
+  </field>
+  <field name="gender" displayname="{t}Gender{/t}" simple_type="select" simple_size="1" simple_tab="miscellaneous">
+    <data values="{t}male{/t}|{t}female{/t}"/>
+  </field>
+  <field name="title" displayname="{t}Title{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="degree" displayname="{t}Degree{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="nickname" displayname="{t}Nickname{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="birthday" displayname="{t}Birthday{/t}" simple_type="date" simple_tab="miscellaneous">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+  </field>
+  <field name="homepage" displayname="{t}Homepage{/t}" simple_type="text" simple_tab="miscellaneous" >
+	<filter views="display" function="truncate|20"/>	
+    <validate function="url"/>
+    <link value="@ext/norefer.php?url=@homepage@"/>
+  </field>
+  <field name="secretary" displayname="{t}Secretary{/t}" simple_type="select" simple_tab="miscellaneous" allow_custom="true">
+    <data function="dbselect|simple_contacts|contactid,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_contacts||contactid=@secretary@&amp;view=details"/>
+  </field>
+  <field name="emailprivate" displayname="{t}E-mail private{/t}" simple_type="text" simple_tab="other">
+    <validate function="email"/>
+    <link value="@ext/norefer.php?url=@emailprivate@" icon="link_mail.gif"/>
+  </field>
+  <field name="phoneprivate" displayname="{t}Phone private{/t}" simple_type="text" simple_tab="other">
+    <link value="sip:@phoneprivate@" icon="phone.gif"/>
+  </field>
+  <field name="faxprivate" displayname="{t}Fax private{/t}" simple_type="text" simple_tab="other">
+  </field>
+  <field name="rating" displayname="{t}Rating{/t}" simple_type="select" simple_size="1" simple_tab="other">
+	<data values="{t}promising{/t}|{t}very promising{/t}|{t}less promising{/t}|{t}uninterested{/t}" />
+  </field>
+  <field name="origin" displayname="{t}Origin{/t}" simple_type="select" simple_size="1" simple_tab="other">
+	<data sort="asc" values="{t}Ad{/t}|{t}Homepage{/t}|{t}Internal recommendation{/t}|{t}Marketing event{/t}|{t}Recommendation of affiliate{/t}|{t}Sales promotion{/t}|{t}Trade fair{/t}|{t}Verbal recommendation{/t}|{t}Web{/t}|{t}Workshop{/t}|{t}Other{/t}" />
+  </field>
+  <field name="syncid" simple_type="id" hidden="true">
+  </field>
+</table>

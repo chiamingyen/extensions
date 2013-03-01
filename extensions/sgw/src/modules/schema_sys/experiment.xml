@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Experimental{/t}" default_view="display" orderby="username" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+  <view name="display" displayname="Active" where="activated=1">
+  </view>
+  <view name="displaythread" displayname="Thread" limit="100" template="display" where="activated=1">
+  </view>
+  <view name="display2" displayname="Inactive" where="activated=0" template="display">
+  </view>
+  <view name="details" displayname="Flat" image_width="100%" template_mode="flat" show_preview="true">
+  </view>
+  <view name="changepwd" displayname="Change password" where="username=@username@" template="edit" schema_mode="edit" visibility="active" showonly="password|pwdexpires">
+  </view>
+  <singlebutton views="displaythread" name="subitem" onclick="locate('index.php?view=new&amp;pid=@id@');"/>
+
+  <rowfilter name="filter1" views="display" type="_fgstyle" function="switch_items|male=>color:white;|color:yellow;"/>
+  <rowfilter name="filter2" views="display" type="_bgstyle" function="switch_items|male=>background-color:orange;|background-color:red;"/>
+  <rowfilter name="filter3" views="display" type="_fgstyle" function="switch_items|username=>test=>color:green;|color:red;"/>
+
+  <field name="pid" simple_type="pid" simple_tab="general" hidden="true" simple_default="0">
+    <data values="@pid@"/>
+    <onlyin views="new|displaythread"/>
+  </field>
+  <field name="username" simple_type="text" simple_tab="general" is_unique="true" required="true">
+    <validate function="username"/>
+    <readonlyin views="edit"/>
+
+    <filter views="all" function="switch_items|test=>test_mod"/>
+    <filter views="all" function="switch_items|subject=>test=>test_mod"/>
+  </field>
+  <field name="password" simple_type="password" simple_tab="general" required="true">
+    <onlyin views="new|edit|details|flat|changepwd"/>
+  </field>
+  <field name="email" simple_type="text" simple_tab="general" required="true" is_unique="true">
+    <validate function="email"/>
+    <link value="@ext/norefer.php?url=@email@"/>
+  </field>
+  <field name="firstname" simple_type="text" simple_tab="general">
+  </field>
+  <field name="lastname" simple_type="text" simple_tab="general">
+  </field>
+  <field name="gender" simple_type="select" simple_size="1" simple_default="male">
+    <data values="male|female"/>
+    <filter views="display" type="_fgstyle" function="switch_items|male=>color:blue;|color:magenta;"/>
+    <filter views="display" type="_bgstyle" function="switch_items|male=>background-color:green;|background-color:red;"/>
+  </field>
+  <field name="company" simple_type="text" simple_tab="organisation">
+  </field>
+  <field name="office" simple_type="select" simple_size="1" simple_default="Munich" simple_tab="organisation">
+    <data function="dbselect|simple_offices|officename,officename||officename asc|10"/>
+	<link value="index.php?find=asset|simple_offices||officename=@office@&amp;view=display"/>
+  </field>
+  <field name="department" simple_type="select" simple_size="1" simple_tab="organisation" simple_default="IT" allow_custom="true">
+    <data values="IT|Finance|Sales"/>
+  </field>
+  <field name="position" simple_type="select" simple_size="1" simple_tab="organisation" simple_default="Temp">
+    <data values="Temp|Manager|Director"/>
+  </field>
+  <field name="phone" simple_type="text" simple_tab="organisation">
+  </field>
+  <field name="fax" simple_type="text" simple_tab="organisation">
+  </field>
+  <field name="emailprivate" displayname="E-Mail Privat" simple_type="text" simple_tab="miscellaneous">
+    <validate function="email"/>
+    <link value="sendmail.php?to=@email@"/>
+    <notin views="display"/>
+  </field>
+  <field name="phoneprivate" displayname="Phone (private)" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="mobile" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="homepage" simple_type="text" simple_tab="miscellaneous">
+    <validate function="url"/>
+    <filter views="all" function="truncate|100"/>
+    <filter views="display" function="truncate|20"/>
+    <link value="@ext/norefer.php?url=@homepage@"/>
+  </field>
+  <field name="street" simple_type="text" simple_tab="miscellaneous">
+    <link value="@ext/norefer.php?url=http://maps.google.com/maps?q=@zipcode@ @city@ @street@ @country@"/>
+  </field>
+  <field name="city" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="zipcode" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="country" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="jobdesc" displayname="Job description" simple_type="textarea" simple_tab="miscellaneous">
+    <onlyin views="details|flat"/>
+  </field>
+  <field name="superior" simple_type="select" simple_tab="account" allow_custom="true">
+    <data function="dbselect|simple_sys_users|username,username||username asc|0"/>
+    <notin views="display|display2|displaythread"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@superior@&amp;view=details"/>
+  </field>
+<!--  <field name="image" simple_type="files" simple_file_size="1M" simple_size="1">
+    <notin views="display|display2|displaythread"/>
+    <validate function="fileupload|jpg,gif,png"/>
+  </field>-->
+  <field name="images" simple_type="files" simple_file_size="5M" simple_size="5">
+    <notin views="display|display2|displaythread"/>
+    <validate function="fileupload|jpg,gif,png"/>
+  </field>
+  <field name="cvitae" simple_type="files" simple_file_size="5M" simple_size="1">
+    <notin views="display|display2|displaythread"/>
+  </field>
+  <field name="expires" displayname="Expires" simple_type="date" simple_default_function="dateformat|today + 1 year" simple_tab="account">
+    <filter views="all" function="dateformat"/>
+  </field>
+  <field name="neverexp" displayname="NeverExpires" simple_type="checkbox" simple_default="1" simple_tab="account">
+  </field>
+  <field name="pwdexpires" displayname="PasswordExp." simple_type="date" simple_default_function="dateformat|today + 3 months" simple_tab="account">
+    <restore views="changepwd" function="dateformat|+3 months"/>
+    <filter views="all" function="dateformat"/>
+  </field>
+  <field name="activated" displayname="Enabled" simple_type="checkbox" simple_default="1" simple_tab="account">
+    <INDEX/>
+  </field>
+  <field name="enabledav" displayname="WebDav" simple_type="checkbox" simple_default="1" simple_tab="account">
+  </field>
+  <field name="mailto" simple_type="multitext" simple_tab="experiment" separator=", ">
+    <data function="dbselect|simple_sys_users|username,username||username asc|10"/>
+	<link value="index.php?find=asset|simple_experiment||username=@mailto@&amp;view=details"/>
+  </field>
+  <field name="endet" simple_type="time" simple_default_function="dateformat|now|h:i a" simple_tab="experiment">
+    <filter views="all" function="dateformat||h:i a"/>
+  </field>
+  <field name="endet2" simple_type="datetime" simple_default_function="dateformat|now|m/d/Y h:i a" simple_tab="experiment">
+    <filter views="all" function="shortdatetimeformat"/>
+  </field>
+  <field name="htmlcomment" simple_type="htmlarea" simple_tab="general">
+    <notin views="display|display2"/>
+  </field>
+  <field name="codearea" simple_type="codearea" simple_tab="experiment">
+    <notin views="display|display2"/>
+  </field>
+  <field name="textcomment" simple_type="textarea" simple_tab="experiment">
+    <notin views="display|display2"/>
+  </field>
+  <field name="spreadsheet" simple_type="spreadsheet" simple_tab="experiment">
+    <notin views="display|display2"/>
+  </field>
+  <field name="wikilines" simple_type="wikiarea" simple_tab="experiment">
+    <notin views="display|displaythread|display2"/>
+  </field>
+  <field name="superior2" simple_type="select" simple_size="1" simple_tab="experiment">
+    <data function="dbselect|simple_sys_users|username,username||username asc|10"/>
+    <notin views="display|display2|displaythread"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@superior2@&amp;view=details"/>
+  </field>
+  <field name="get_newsletter" displayname="Newsletter" simple_type="checkbox" simple_tab="experiment">
+  </field>
+</table>

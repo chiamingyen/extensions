@@ -1,0 +1,36 @@
+dn: cn=first last,mail=email@test.de
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+objectclass: mozillaAbPersonAlpha
+givenName: first
+sn: last
+cn: first last
+mozillaNickname: nickname
+mail: email@test.de
+mozillaSecondEmail: email2@test.de
+nsAIMid: Screen Name
+mozillaUseHtmlMail: false
+modifytimestamp: 0Z
+telephoneNumber: 08992301234
+homePhone: 089605611
+fax: 08951231061
+pager: 0160234234
+mobile: 0160912222
+homeStreet: Big street 11
+mozillaHomeLocalityName: Munich
+mozillaHomeState: Bavaria
+mozillaHomePostalCode: 85640
+mozillaHomeCountryName: Country
+street: Address Street 10
+l: Munich
+st: Bavaria
+postalCode: 80335
+c: Germany
+title: Title
+department: Department
+company: Organisation
+mozillaWorkUrl: http://www.bigcomp.de
+mozillaHomeUrl: http://www.heise.de
+description:: bm90ZXMgbGluZTEKbm90ZXNsaW5lMg==

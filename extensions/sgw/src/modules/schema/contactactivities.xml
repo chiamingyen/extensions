@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Contact activities{/t}" default_view="display" orderby="begin" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" trigger_new="duration|notify" trigger_edit="duration|notify" disable_quick_add="true">
+  <view name="display" displayname="{t}Open{/t}" where="finished=0" groupby="category">
+  </view>
+  <view name="calendar" displayname="{t}Calendar{/t} ({t}Open{/t})" where="finished=0" template="display" enable_calendar="begin,ending" groupby="category">
+  </view>
+  <view name="display2" template="display" displayname="{t}Finished{/t}" where="finished=1" groupby="category">
+  </view>
+  <view name="all" template="display" displayname="{t}All{/t}" groupby="category" visibility="active">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" tfield_1="contactid" tfield_2="subject" show_preview="true">
+  </view>
+  <singlebutton name="close" displayname="{t}Close{/t}" onclick="asset_update_confirm({finished:'1'},'@id@');" condition="finished|neq|1" right="write" icon="accept.gif" />
+
+  <field name="finished" displayname="{t}Finished{/t}" simple_type="checkbox">
+    <hiddenin views="display|display2|calendar"/>
+  </field>
+  <field name="contactid" displayname="{t}Contact id{/t}" simple_type="select" simple_size="1" required="true">
+    <data function="dbselect|simple_contacts|contactid,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_contacts||contactid=@contactid@&amp;view=details"/>
+	<linktext value="index.php?view=display&amp;filters=contactid|eq|@contactid@"/>
+  </field>
+  <field name="subject" displayname="{t}Subject{/t}" simple_type="text" required="true">
+    <linktext views="display|display2|calendar|all" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="project" displayname="{t}Project{/t}" simple_type="select" simple_size="1">
+	<data function="dbselect|simple_projects|projectname,projectname||projectname asc|10"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea">
+    <notin views="display|display2|calendar|all" />
+  </field>
+  <field name="location" displayname="{t}Location{/t}" simple_type="select" simple_size="1" allow_custom="true">
+    <data function="dbselect|simple_locations|locationname,locationname||locationname asc|10" />
+    <notin views="display|display2|calendar|all" />
+	<link value="index.php?find=asset|simple_locations||locationname=@location@&amp;view=display"/>
+  </field>
+  <field name="origin" displayname="{t}Origin{/t}" simple_type="select" simple_size="1">
+    <data values="{t}Phone{/t}|{t}E-mail{/t}|{t}Fax{/t}|{t}Letter{/t}|{t}Meeting{/t}|{t}Voice mail{/t}|{t}Other{/t}"/>
+    <notin views="display|display2|calendar|all" />
+  </field>
+
+  <field name="begin" displayname="{t}Begin{/t}" simple_type="datetime" simple_default_function="dateformat_request|begin|now|{t}m/d/Y g:i a{/t}" nowrap="true" required="true">
+    <filter views="all" function="shortdatetimeformat"/>
+    <link views="calendar" value="index.php?view=calendar&amp;today=@begin@"/>
+    <notin views="display2|all" />
+	<description hint="{t}Relative formats{/t}" value="nWin('http://www.php.net/manual/en/datetime.formats.relative.php');"/>
+  </field>
+  <field name="ending" displayname="{t}End{/t}" simple_type="datetime" simple_default_function="dateformat_request|end|now + 1 hour|{t}m/d/Y g:i a{/t}" nowrap="true" required="true">
+    <filter views="all" function="shortdatetimeformat"/>
+  </field>
+  <field name="duration" displayname="{t}Duration{/t}" simple_type="int" sum="true">
+    <filter views="all" function="duration|hours"/>
+	<onlyin views="display2|details|calendar|all"/>
+  </field>
+  
+  <field name="agent" displayname="{t}Agent{/t}" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+    <notin views="display|display2|calendar|all" />
+	<link value="index.php?find=asset|simple_sys_users||username=@agent@&amp;view=details"/>
+  </field>
+  <field name="image" displayname="{t}Image{/t}" simple_type="files" simple_file_size="5M" simple_size="10">
+    <notin views="display|display2|calendar|all"/>
+    <validate function="fileupload|jpg,jpeg,gif,png"/>
+  </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="10">
+    <notin views="display|display2|calendar|all"/>
+  </field>
+
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" separator=", ">
+    <data title="{t}Default{/t}" values="{t}Question{/t}|{t}Problem{/t}|{t}Demand{/t}|{t}Other{/t}"/>
+	<data title="{t}Lookup{/t}" function="dbselect|simple_categories|categoryname,categoryname|cattype='contactactivities'|categoryname asc|10"/>
+  </field>
+</table>

@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2007 Tomáš Štefunko, (C) 2011 Ján Supuka
+
+{t}!_Language{/t}
+slovenčina / Slovak
+
+{t}%s is not activated{/t}
+%s nie je aktívny
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s nie je zkompilované / nahraté do PHP.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s nie je v databáze
+
+{t}%s rows affected{/t}
+%s ovplyvnených riadkov
+
+{t}%s secs{/t}
+%s sekúnd
+
+{t}%s started editing this asset at %s{/t}
+%s začal(a) editovať tento riadok v %s
+
+{t}(for active directory username must be: username@domain){/t}
+(pre Active Directory používateľské meno musí byť v tvare: užívateľ@doména)
+
+{t}(un)Group{/t}
+Zoskupiť alebo Odstrániť zo skupiny
+
+{t}About{/t}
+O aplikácii
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+akceptované
+
+{t}Access denied.{/t}
+Prístup zamietnutý.
+
+{t}Access to this file has been denied.{/t}
+Prístup k tomuto súboru bol zakázaný.
+
+{t}Account{/t}
+Účet
+
+{t}account of %s has expired{/t}
+účet %s expiroval
+
+{t}Accounting{/t}
+Účtovníctvo
+
+{t}Activate{/t}
+Aktivácia
+
+{t}Activated{/t}
+Aktivovaný
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Aktívny
+
+{t}Ad{/t}
+Reklama
+
+{t}Add{/t}
+Pridať
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+Pridať do externých zložiek
+
+{t}added line{/t}
+pridaný riadok
+
+{t}Address{/t}
+Adresa
+
+{t}admin access{/t}
+Administrátorský prístup
+
+{t}Admin access (groups){/t}
+Administrátorský prístup (skupiny)
+
+{t}Admin access (users){/t}
+Administrátorský prístup (užívatelia)
+
+{t}Admin Password{/t}
+Heslo administrátora
+
+{t}Admin Username{/t}
+Login administrátora
+
+{t}Administration{/t}
+Administrácia
+
+{t}Advanced tables{/t}
+Pokročilé tabuľky
+
+{t}Affected user{/t}
+Dotknutý užívateľ
+
+{t}Affiliate{/t}
+Zlúčiť
+
+{t}after{/t}
+po(tom)
+
+{t}Agent{/t}
+Agent
+
+{t}Ajax Error{/t}
+AJAX chyba
+
+{t}All{/t}
+Všetky
+
+{t}All day{/t}
+Celý deň
+
+{t}All events{/t}
+Všetky udalosti
+
+{t}All finished tasks{/t}
+Všetky ukončené úlohy
+
+{t}All pending tasks{/t}
+Všetky neukončené úlohy
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+Povoviť blokované moduly
+
+{t}Already running latest release.{/t}
+Je spustená novšia verzia.
+
+{t}Already voted.{/t}
+Už zvolené.
+
+{t}Amount{/t}
+Množstvo
+
+{t}Anchor{/t}
+Odkaz
+
+{t}and{/t}
+a
+
+{t}Anniversary{/t}
+Výročie
+
+{t}another page{/t}
+iná stránka
+
+{t}answered{/t}
+odpovedané
+
+{t}Answers{/t}
+Odpovede
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+Založené na Apache (.htaccess, Basic, Digest, atď.)
+
+{t}Application title{/t}
+Nadpis aplikácie
+
+{t}Apply rights to subfolders{/t}
+Skopírovať práva i do podzložiek
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+Apr
+
+{t}April{/t}
+Apríl
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Archivovať odstránené súbory
+
+{t}Asset{/t}
+Aktívum
+
+{t}Asset marked as read-only.{/t}
+Aktívum označené iba na čítanie.
+
+{t}Assets{/t}
+Aktíva
+
+{t}Assets (children){/t}
+Aktíva (potomkovia)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+priradené
+
+{t}at least 20 characters{/t}
+min. 20 znakov
+
+{t}attach file{/t}
+pipoj súbor
+
+{t}Attachment{/t}
+Príloha
+
+{t}Attachments{/t}
+Prílohy
+
+{t}Attend{/t}
+Pozornosť
+
+{t}Aug{/t}
+Aug
+
+{t}August{/t}
+August
+
+{t}Authentication Mode{/t}
+Mód overenia užívateľa
+
+{t}Author{/t}
+Autor
+
+{t}Automatically hide the menu{/t}
+Automaticky skryť menu
+
+{t}Automatically hide the tree{/t}
+Automaticky skryť strom
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+Priemerný pokrok
+
+{t}Avg length{/t}
+Priem. dĺžka
+
+{t}Back{/t}
+Späť
+
+{t}Backup{/t}
+Záloha
+
+{t}Backup current folder{/t}
+Zálohovať aktuálny priečinok
+
+{t}Backups{/t}
+Zálohy
+
+{t}Basic editing{/t}
+Základné upravovanie
+
+{t}before{/t}
+pred
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Začiatok
+
+{t}big{/t}
+veľký
+
+{t}big text{/t}
+veľký text
+
+{t}bigger{/t}
+väčší
+
+{t}Billing address{/t}
+Fakturovacia adresa
+
+{t}Birthday{/t}
+Narodenie
+
+{t}Birthdays{/t}
+Narodeniny
+
+{t}Blank{/t}
+Prázdna
+
+{t}blue{/t}
+modrá
+
+{t}bold{/t}
+tučné
+
+{t}bold italic{/t}
+tučné šikmé
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+dohodnuté (objednané)
+
+{t}Booked{/t}
+Objednané
+
+{t}Booking number{/t}
+Číslo objednávky
+
+{t}Bookings{/t}
+Rezervácie
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Záložky
+
+{t}borrowed{/t}
+požičané
+
+{t}Brand{/t}
+Verzia (značka)
+
+{t}Brands{/t}
+Značky
+
+{t}Browser Compatibility{/t}
+Kompatibilita prehliadača
+
+{t}Browser not supported{/t}
+Prehliadač nie je podporovaný
+
+{t}Budget{/t}
+Rozpočet
+
+{t}Bug{/t}
+Chyba
+
+{t}bulleted{/t}
+odfajknuté
+
+{t}Business{/t}
+Podnikanie
+
+{t}C a n c e l{/t}
+O p u s t i ť
+
+{t}C O N T I N U E{/t}
+P O K R A Č O V A Ť
+
+{t}Cache output{/t}
+Kešovať (cache) výstup
+
+{t}Caches{/t}
+Keše (Caches)
+
+{t}Calendar{/t}
+Kalendár
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+zrušené
+
+{t}Canceled{/t}
+Zrušené
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Nemôžem spustiť proc_open. Odstráňte, prosím, proc_open z disable_functions v súbore php.ini a vypnite safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+Nemôžem sa napojiť na databázu %s na %s.
+
+{t}Cannot create preview for %s{/t}
+Nemôžem vytvoriť náhľad pre %s
+
+{t}Cannot read the file %s.{/t}
+Nemôžem prečítať súbor (%s).
+
+{t}Cardinality{/t}
+Mohutnosť
+
+{t}Categories{/t}
+Kategórie
+
+{t}Category{/t}
+Kategória
+
+{t}Cc{/t}
+Kópia
+
+{t}centered{/t}
+zamerané
+
+{t}CEO{/t}
+Výkonný Šéf
+
+{t}Change request{/t}
+Požiadavka na zmenu
+
+{t}Change settings{/t}
+Zmeniť nastavenia
+
+{t}Change Setup settings{/t}
+Zmeniť nastavenia
+
+{t}Change summary{/t}
+Sumár zmien
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+zmenený riadok
+
+{t}Changelog{/t}
+Záznam zmien
+
+{t}Chat{/t}
+Chat (pokec)
+
+{t}Check DoS Attacks{/t}
+Kontrola DoS útokov
+
+{t}checked{/t}
+skontrolované
+
+{t}Checked{/t}
+Skontrolované
+
+{t}Choices{/t}
+Voľby
+
+{t}CIO{/t}
+Informačný Šéf
+
+{t}City{/t}
+Mesto
+
+{t}Clean{/t}
+Čistiť
+
+{t}Clean Cache{/t}
+Vyčistiť Cache
+
+{t}Clear{/t}
+Vyčistiť
+
+{t}Clear Cache{/t}
+Vyčistiť Cache
+
+{t}Clear Data{/t}
+Vymaž Data
+
+{t}Clear grouping{/t}
+Vymaž zoskupenie
+
+{t}Client{/t}
+Klient
+
+{t}Close{/t}
+Zavrieť
+
+{t}Close session{/t}
+Ukončiť sedenie
+
+{t}closed{/t}
+zatvorené
+
+{t}Closed{/t}
+Dokončené
+
+{t}CMS{/t}
+CMS
+
+{t}CMS homepage title{/t}
+Nadpis domovskej stránky CMS
+
+{t}Collapse text{/t}
+Zbaliť text
+
+{t}Collapse tree{/t}
+Zbaliť strom
+
+{t}Color{/t}
+Farba
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Názov stĺpca
+
+{t}Combination{/t}
+Kombinácia
+
+{t}Comma{/t}
+Čiarka
+
+{t}Comma separated values{/t}
+Čiarkou oddelené hodnoty
+
+{t}Command{/t}
+Príkaz
+
+{t}Comment{/t}
+Komentár
+
+{t}Comment files{/t}
+Súbory komentárov
+
+{t}Companies{/t}
+Spoločnosti
+
+{t}Company{/t}
+Spoločnosť
+
+{t}Competition{/t}
+Súťaž
+
+{t}Competitor{/t}
+Súťažiaci
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Hotovo
+
+{t}Component{/t}
+Súčasť
+
+{t}Compress output{/t}
+Komprimovať výstup
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+potvrdené
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Nepodarilo sa pripojiť na databázu.
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Konzultant
+
+{t}Contact{/t}
+Kontakt
+
+{t}Contact activities{/t}
+Aktivity kontaktu
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Spôsob kontaktu
+
+{t}Contact groups{/t}
+Skupiny kontaktu
+
+{t}Contact id{/t}
+ID kontaktu
+
+{t}Contact person{/t}
+Kontaktná osoba
+
+{t}Contact user by{/t}
+Kontaktovať užívateľa cez
+
+{t}Contacts{/t}
+Kontakty
+
+{t}contains{/t}
+obsahuje
+
+{t}Content{/t}
+Obsah
+
+{t}Continue{/t}
+Pokračovať
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Kopírka
+
+{t}Copy{/t}
+Kopírovať
+
+{t}Cost center{/t}
+Nákladové stredisko
+
+{t}Costs of accommodation{/t}
+Náklady na ubytovanie
+
+{t}Could not determine database-version.{/t}
+Nemôžem zistiť verziu databázy.
+
+{t}Country{/t}
+Krajina
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Vytvorené
+
+{t}Creating database failed.{/t}
+Vytváření databáze se nepovedlo.
+
+{t}current path{/t}
+aktuálna cesta
+
+{t}current time{/t}
+aktuálny čas
+
+{t}Curriculum vitae{/t}
+Životopis
+
+{t}Custom schema{/t}
+Užívateľská schéma
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+užív. prispôsobenie
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Vystrihnúť
+
+{t}daily{/t}
+denne
+
+{t}Data{/t}
+Dáta
+
+{t}Data free{/t}
+Voľných dát
+
+{t}Data length{/t}
+Dĺžka dát
+
+{t}Database{/t}
+Databáza
+
+{t}Database Hostname / IP{/t}
+Database Hostname / IP
+
+{t}Database Name{/t}
+Názov databázy
+
+{t}Database Password{/t}
+Heslo databázy
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Stav databázy
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Používateľ databázy
+
+{t}Database variables{/t}
+Databázové premenné
+
+{t}Date{/t}
+Dátum
+
+{t}Day{/t}
+Deň
+
+{t}Day begin{/t}
+Začiatok dňa
+
+{t}Day end{/t}
+Koniec dňa
+
+{t}days{/t}
+dní
+
+{t}Deactivate{/t}
+Deaktivuj
+
+{t}Deadline{/t}
+Termín ukončenia
+
+{t}Debug{/t}
+Vývoj
+
+{t}Debug-dir{/t}
+Vývojový adresár
+
+{t}Dec{/t}
+Dec
+
+{t}December{/t}
+December
+
+{t}Declining balance{/t}
+Klesajúca súvaha
+
+{t}Default{/t}
+Prednastavené
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Štandardná téma
+
+{t}Default values for assets{/t}
+štandartné hodnoty pre aktíva
+
+{t}definition for definition lists{/t}
+definícia pre zoznamy definícií
+
+{t}Degree{/t}
+Stupeň
+
+{t}Delete{/t}
+Vymazať
+
+{t}Delete incl subfolders{/t}
+Vymazať vrátane podpriečinkov
+
+{t}deleted{/t}
+vymazané
+
+{t}deleted line{/t}
+odstránený riadok
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Dopyt
+
+{t}Demo{/t}
+Demo
+
+{t}Demonstration folder{/t}
+Demonštračný priečinok
+
+{t}Department{/t}
+Oddelenie
+
+{t}Departments{/t}
+Oddelenia
+
+{t}Dependancies{/t}
+Závislosti
+
+{t}Description{/t}
+Popis
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Stolný počítač
+
+{t}Details{/t}
+Detaily
+
+{t}Device type{/t}
+Typ zariadenia
+
+{t}Device types{/t}
+Typy zariadení
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+adresár neexistuje.
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+Adresár je mimo povolené adresáre (%s je mimo %s).
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+Blokuj základnú autorizáciu
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+Blokované moduly
+
+{t}Display{/t}
+Zobrazenie
+
+{t}display filter{/t}
+filter zobratenia
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+zobrazuje
+
+{t}Distributor{/t}
+Distribútor
+
+{t}Distributors{/t}
+Distributéri
+
+{t}divorced{/t}
+rozvedený
+
+{t}Documentation{/t}
+Dokumentácia
+
+{t}Documentation index{/t}
+Index dokumentácie
+
+{t}Domain{/t}
+Doména
+
+{t}Don't attend{/t}
+Nestaraj sa
+
+{t}Don't move old files to 'old/'{/t}
+Nepresúvaj staré súbory do old/
+
+{t}Down{/t}
+Dolu
+
+{t}Download{/t}
+Stiahnuť
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+Sťahujem zoznam rozšírení
+
+{t}Downloading update list{/t}
+Sťahujem zoznam aktualizácí
+
+{t}Drag and drop files or URLs here.{/t}
+Uchop a pusti sem súbory alebo URLs
+
+{t}duplicate{/t}
+duplikovať
+
+{t}Duration{/t}
+Dĺžka trvania
+
+{t}E-mail{/t}
+E-mail
+
+{t}E-mail private{/t}
+E-mail súkromný
+
+{t}E-mail program{/t}
+E-mailový program
+
+{t}e.g.{/t}
+napr.
+
+{t}Edit{/t}
+Editovať
+
+{t}Edit as new{/t}
+Editovať ako nový
+
+{t}Edit rights{/t}
+Upraviť oprávnenia
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+Editor
+
+{t}Emphasis{/t}
+Zdôraznenia
+
+{t}Empty{/t}
+Prázdne
+
+{t}Empty folder{/t}
+Vyprázdniť priečinok
+
+{t}en{/t}
+sk
+
+{t}Enable anonymous access{/t}
+Povoliť anonymný prístup
+
+{t}Enable anonymous CMS{/t}
+Povoliť anonymné CMS
+
+{t}Enable automatic user creation{/t}
+Povoliť automatické vytváranie užívateľa
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Povoliť externého klienta pre odkazy písania e-mailov (mailto:)
+
+{t}Enable self registration{/t}
+Povoliť samo registráciu
+
+{t}Enable Sync4j / Funambol{/t}
+Povoliť Sync4j / Funambol
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+Povoliť WebDAV skripty uzamykania súborov
+
+{t}End{/t}
+Koniec
+
+{t}engaged{/t}
+zasnúbený
+
+{t}equal{/t}
+je rovné
+
+{t}Error{/t}
+Chyba
+
+{t}Error doing request to xmlhttp{/t}
+Chyba pri vykonávaní xmlhttp požiadavky
+
+{t}Error moving file{/t}
+Chyba pri presúvaní súboru
+
+{t}Error pasting asset{/t}
+Chyba pri vkladaní riadku
+
+{t}Error: no credentials{/t}
+Chyba: žiadne poverenia užívateľov
+
+{t}Events{/t}
+Udalosti
+
+{t}Example{/t}
+Príklad
+
+{t}Example contacts{/t}
+Príklad kontaktov
+
+{t}Example surveys can be found at:{/t}
+Príklady prieskumov sa nájdu na:
+
+{t}Example without mountpoint{/t}
+Príklad bez prípojného bodu
+
+{t}Examples{/t}
+Príklady
+
+{t}Execute{/t}
+Vykonať
+
+{t}Expenses{/t}
+Náklady
+
+{t}Experimental{/t}
+Experimentálny
+
+{t}Expires{/t}
+Vyprší
+
+{t}Expiry{/t}
+Vypršanie
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+Rozšírenia
+
+{t}Extracting files{/t}
+Rozbaľujem súbory
+
+{t}F j{/t}
+j F
+
+{t}F j, Y{/t}
+j F, Y
+
+{t}Failed to create directory: %s{/t}
+Nepodarilo sa vytvoriť adresár: %s
+
+{t}Failed to write file to disk.{/t}
+Nepodarilo sa zapísať súbor na disk.
+
+{t}Failed to write into %s{/t}
+Nepodarilo sa zapísať do %s
+
+{t}Family status{/t}
+Rodinný stav
+
+{t}FAQ{/t}
+Často kladené otázky
+
+{t}Favorites{/t}
+Obľúbené
+
+{t}Fax{/t}
+Fax
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Požiadavka vlastností
+
+{t}Feb{/t}
+Feb
+
+{t}February{/t}
+Február
+
+{t}Feed{/t}
+Prísun
+
+{t}female{/t}
+žena
+
+{t}Field{/t}
+Pole
+
+{t}Field contains value{/t}
+Pole obsahuje hodnotu
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+Pole je rovné hodnote
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Súbor
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+súbor je veľmi veľký. Zmeňte prosím upload_max_filesize, post_max_size vo vašom php.ini
+
+{t}file is too big. Please upload a smaller one.{/t}
+súbor je príliš veľký. Najrajte menšiu verziu.
+
+{t}File locked.{/t}
+Súbor je uzamknutý.
+
+{t}file not found in database.{/t}
+súbor nebol nájdený v databáze.
+
+{t}file not found.{/t}
+súbor nenájdený.
+
+{t}File unlocked.{/t}
+Súbor odomknutý.
+
+{t}file was uploaded partially.{/t}
+súbor sa podarilo nahrať len čiastočne.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Súbor musí mať správnu príponu. Povolené sú %s
+
+{t}Files{/t}
+Súbory
+
+{t}Filesystem{/t}
+Súborový systém
+
+{t}Filter{/t}
+Filter
+
+{t}Find assets in multiple folders{/t}
+Nájsť aktíva vo viacerých priečinkoch
+
+{t}Finish scheduled{/t}
+Koniec naplánovaný
+
+{t}Finished{/t}
+Dokončený
+
+{t}First in list{/t}
+Prvý v zozname
+
+{t}first level support{/t}
+1.úrovňová podpora
+
+{t}First name{/t}
+Meno
+
+{t}Fix paging bar to page bottom{/t}
+Upevni stránkovaciu lištu na spodok stránky
+
+{t}fixed{/t}
+fixovaný
+
+{t}Flags{/t}
+Príznaky
+
+{t}Flash plugin not installed.{/t}
+Plugin Flash neinštalovaný.
+
+{t}Folder{/t}
+Priečinok
+
+{t}Folder already exists.{/t}
+Priečinok už existuje.
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+Priečinok sa zmenil.
+
+{t}Folder icon{/t}
+Ikona priečinku
+
+{t}Folder not found.{/t}
+Priečinok nenájdený.
+
+{t}Folder refresh period{/t}
+Čas obnovy priečinku
+
+{t}Folder structure{/t}
+Štruktúra priečinkov
+
+{t}Folder structure created.{/t}
+Štruktúra priečinkov bola vytvorená.
+
+{t}Folder structure moved to trash.{/t}
+Štruktúra priečinkov bola presunutá do koša.
+
+{t}Folder Type{/t}
+Tyb priečinku
+
+{t}Folder with ID %s{/t}
+Priečinok s ID %s
+
+{t}Folders{/t}
+Priečinky
+
+{t}for a new paragraph, use a blank line{/t}
+pre nový paragraf použi prázdny riadok
+
+{t}Force SSL{/t}
+Použiť SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Diskusie
+
+{t}Forward{/t}
+Preposlať
+
+{t}Fr{/t}
+Pia
+
+{t}Free/busy{/t}
+Voľný/zaneprázdnený
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Pia
+
+{t}Friday{/t}
+Piatok
+
+{t}From{/t}
+Od
+
+{t}Full screen{/t}
+Celá obrazovka
+
+{t}Full texts{/t}
+Plné texty
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+Celá šírka
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+Funambol pracuje iba s MySQL a PostgreSQL
+
+{t}Function does not exist: %s{/t}
+Funkcia neexistuje: %s
+
+{t}g:i a{/t}
+G:i
+
+{t}Gender{/t}
+Pohlavie
+
+{t}General{/t}
+Všeobecné
+
+{t}Generate{/t}
+Vygenerovať
+
+{t}Gifts{/t}
+Darčeky
+
+{t}Give Feedback{/t}
+Poslať reakciu
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL Často kladené otázky
+
+{t}greater than{/t}
+väčší ako
+
+{t}green{/t}
+zelená
+
+{t}Group{/t}
+Skupina
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Názov skupiny
+
+{t}Groups{/t}
+Skupiny
+
+{t}hanging text{/t}
+visiaci text
+
+{t}Hardware{/t}
+Hardvér
+
+{t}Headers{/t}
+Hlavičky
+
+{t}heading{/t}
+titulok
+
+{t}headings{/t}
+titulky
+
+{t}Height{/t}
+Výška
+
+{t}Help{/t}
+Pomoc
+
+{t}Helpdesk{/t}
+HelpDesk
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+História
+
+{t}Holiday{/t}
+Prázdniny
+
+{t}Home{/t}
+Doma
+
+{t}Home folder id{/t}
+ID domovského priečinka
+
+{t}Home page in the CMS{/t}
+Domovská stránka v CMS
+
+{t}Homepage{/t}
+Domovská stránka
+
+{t}horizontal line{/t}
+horizontálna čiara
+
+{t}Host{/t}
+Hostiteľ
+
+{t}Hosts{/t}
+Hostitelia
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+hodín
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+HTML dokumenty
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+http://www.pmwiki.org/wiki/PmWikiSk/PmWikiSk
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+Súhlasím s GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+N a i n š t a l o v a ť
+
+{t}Icon{/t}
+Ikona
+
+{t}Id{/t}
+ID
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+ID musí byť nenulové, malými písmenami, min. 3 znaky, max. 128 obsahujúce [a-z0-9_-@.].
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+ID musí byť nenulové, min. 3 znaky, max. 128 obsahujúce [a-z0-9_-@.].
+
+{t}Ideas{/t}
+Myšlienky
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Pokiaľ je prázdne, bude použité SMTP pripojenie z modulu používateľov.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+pokiaľ nebude automaticky detekované cez namingContexts
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+Ak meno užívateľa, alebo heslo obsahuje &quot;:&quot; znak, nahraď ho &quot;==&quot;.
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Ak meno užívateľa, alebo heslo obsahuje &quot;@&quot; znak, nahraď ho &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Import/Export
+
+{t}Image{/t}
+Obrázok
+
+{t}Images{/t}
+Obrázky
+
+{t}Imap-error: %s{/t}
+Imap-chyba: %s
+
+{t}immediate{/t}
+okamžite
+
+{t}Import{/t}
+Import
+
+{t}In progress{/t}
+Spracováva sa
+
+{t}in repair{/t}
+v oprave
+
+{t}in stock{/t}
+v sklade
+
+{t}Inactive{/t}
+Neaktívny
+
+{t}Include in RSS feed{/t}
+Vložiť do RSS zdroja
+
+{t}Include page{/t}
+Vložiť stranu
+
+{t}indent text{/t}
+zarovnaj text
+
+{t}Index{/t}
+Index
+
+{t}Index length{/t}
+Dĺžka indexu
+
+{t}Index type{/t}
+Typ indexu
+
+{t}Indexes{/t}
+Indexy
+
+{t}Industry{/t}
+Priemysel
+
+{t}Info{/t}
+Prehľad
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+Vstupné pole
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Vložiť
+
+{t}inserted{/t}
+vložené
+
+{t}Install default folder structure{/t}
+Inštalovať štandartnú štruktúru priečinkov
+
+{t}Install demo folders{/t}
+Inštalovať demo priečinky
+
+{t}Install minimal folder structure{/t}
+Inštalovať minimálnu štruktúru priečinkov
+
+{t}installed{/t}
+inštalované
+
+{t}insufficient folder rights{/t}
+nedostatočné práva na priečinku
+
+{t}Internal recommendation{/t}
+Vnútorné doporučenie
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Úvod
+
+{t}invalid{/t}
+nesprávny
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+Nesprávny mód schémy %s
+
+{t}Invalid security token{/t}
+Nesprávny bezpečnostný token
+
+{t}Inventory{/t}
+Inventár
+
+{t}Inventory number{/t}
+Inventárne číslo
+
+{t}Investor{/t}
+Investor
+
+{t}Invoice{/t}
+Faktúra
+
+{t}italic{/t}
+našikmo
+
+{t}Item created by %s at %s{/t}
+Položka vytvorená %s (kým) v %s
+
+{t}Item deleted by %s at %s{/t}
+Pložka vymazaná %s (kým) v %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Položka upravená %s (kým) v %s
+
+{t}Item not found.{/t}
+Položka nenájdená.
+
+{t}Item successfully created.{/t}
+Položka bola úspešne vytvorená.
+
+{t}Item successfully updated.{/t}
+Položka bola úspešne upravená.
+
+{t}Item(s) not found or access denied.{/t}
+Položka (položky) nebola nájdená alebo prístup zakázaný.
+
+{t}Jan{/t}
+Jan
+
+{t}January{/t}
+Január
+
+{t}Job description{/t}
+Popis práce
+
+{t}Join lines{/t}
+Spojiť čiary
+
+{t}Jul{/t}
+Júl
+
+{t}July{/t}
+Júl
+
+{t}Jun{/t}
+Jún
+
+{t}June{/t}
+Jún
+
+{t}Key{/t}
+Kľúč
+
+{t}Key customer{/t}
+Kľúčový zákazník
+
+{t}Key name{/t}
+Názov kľúča
+
+{t}Keywords{/t}
+Kľúčové slová
+
+{t}Knowledge base{/t}
+Báza znalostí
+
+{t}L o g i n{/t}
+P r i h l á s i ť
+
+{t}l, F j, Y{/t}
+l, j F, Y
+
+{t}Last access{/t}
+Posledný prístup
+
+{t}Last name{/t}
+Priezvisko
+
+{t}LDAP anonymous connection failed.{/t}
+Anonymné pripojenie LDAP sa nepodarilo.
+
+{t}LDAP attribute for group memberships{/t}
+LDAP atribút pre členstvo v skupine
+
+{t}LDAP attribute for rooms{/t}
+LDAP atribút pre miestnosti
+
+{t}LDAP attribute for usernames{/t}
+LDAP atribút pre používateľské mená
+
+{t}LDAP connection to host %s failed.{/t}
+LDAP spojenie na %s sa nepodarilo.
+
+{t}LDAP without anonymous access{/t}
+LDAP bez anonymného prístupu
+
+{t}LDAP: no base DN given{/t}
+LDAP: nebola zadaná báza DN
+
+{t}LDAP: no UID given{/t}
+LDAP: nezadané UID
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+menej sľubný
+
+{t}lesser than{/t}
+menej ako
+
+{t}Letter{/t}
+List
+
+{t}Level{/t}
+Úroveň
+
+{t}License{/t}
+Licencia
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+Koniec riadku
+
+{t}Link{/t}
+Odkaz
+
+{t}Link restricted{/t}
+Obmedzený odkaz
+
+{t}link text{/t}
+text odkazu
+
+{t}link to external page{/t}
+odkaz na externú stránku
+
+{t}link to internal page{/t}
+odkaz na internú stránku
+
+{t}Links{/t}
+Odkazy
+
+{t}Lists{/t}
+Zoznamy
+
+{t}Load external images{/t}
+Stiahni externé obrázky
+
+{t}Location{/t}
+Lokalita
+
+{t}Locations{/t}
+Lokality
+
+{t}Lock{/t}
+Zamknúť
+
+{t}Locked by{/t}
+Zamknuté (kým)
+
+{t}Locking{/t}
+Zamykanie
+
+{t}login %s from %s with %s{/t}
+prihlásenie %s z %s s %s
+
+{t}Login failed from %s.{/t}
+Neúspešné prihlásenie z %s.
+
+{t}Login/-out{/t}
+Odhlásiť
+
+{t}Logins{/t}
+Prihlásenia
+
+{t}Logout{/t}
+Odhlásiť
+
+{t}logout %s{/t}
+odhlásiť %s
+
+{t}Lookup{/t}
+Vyhľadanie
+
+{t}low{/t}
+nízky
+
+{t}lowest{/t}
+najnižší
+
+{t}M j{/t}
+j M
+
+{t}M j, g:i a{/t}
+j M, G:i
+
+{t}M j, Y{/t}
+j M, Y
+
+{t}m/d/Y{/t}
+d.m. Y
+
+{t}m/d/Y g:i a{/t}
+d.m. Y G:i
+
+{t}m/d/y g:i:s a{/t}
+d.m. Y G:i:s
+
+{t}magenta{/t}
+fialová
+
+{t}mail footer{/t}
+päta e-mailu
+
+{t}Mail identities{/t}
+E-mailové identity
+
+{t}mail notification{/t}
+e-mailové upozornenie
+
+{t}mail reminder{/t}
+e-mailová pripomienka
+
+{t}Main menu{/t}
+Hlavné menu
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Údržbový mód
+
+{t}male{/t}
+muž
+
+{t}Man-days{/t}
+Človekodni
+
+{t}Man-days planned{/t}
+Plánované človekodni
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Manažér
+
+{t}Manufacturer{/t}
+Výrobca
+
+{t}Mar{/t}
+Mar
+
+{t}March{/t}
+Marec
+
+{t}Marketing event{/t}
+Obchodná udalosť
+
+{t}married{/t}
+ženatý
+
+{t}Maximize{/t}
+Maximalizovať
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+Maximálny počet aktív na stranu
+
+{t}maximum number of files exceeded.{/t}
+prekročený maximálny počet súborov.
+
+{t}May{/t}
+Máj
+
+{t}Media{/t}
+Médium
+
+{t}Meeting{/t}
+Schôdzka
+
+{t}Members{/t}
+Členovia
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+Zlúč priečinky natrvalo
+
+{t}Merged folders{/t}
+Zlúč priečinky
+
+{t}Message{/t}
+Správa
+
+{t}Messages{/t}
+Správy
+
+{t}Milestone{/t}
+Míľnik
+
+{t}min{/t}
+min
+
+{t}Minimize{/t}
+Minimalizovať
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+minimum = 15 sek., 0 = zakázaný
+
+{t}Miscellaneous{/t}
+Rôzne
+
+{t}missing a temporary folder.{/t}
+chýbajúci dočasný priečinok.
+
+{t}missing field{/t}
+chýbajúce pole
+
+{t}missing right: %s{/t}
+chýbajúce oprávnenie: %s
+
+{t}Mo{/t}
+Pon
+
+{t}Mobile{/t}
+Mobil
+
+{t}Model{/t}
+Model
+
+{t}Modified{/t}
+Zmenené
+
+{t}Modified by{/t}
+Zmenené (kým)
+
+{t}Modifying database failed.{/t}
+Zmena databázy sa nepodarila.
+
+{t}Module{/t}
+Modul
+
+{t}Module disabled.{/t}
+Module zablokovaný.
+
+{t}Modules{/t}
+Moduly
+
+{t}Mon{/t}
+Pon
+
+{t}Monday{/t}
+Pondelok
+
+{t}monospace{/t}
+jednotná šírka znakov
+
+{t}Month{/t}
+Mesiac
+
+{t}monthly{/t}
+mesačne
+
+{t}months{/t}
+mesiacov
+
+{t}More information about the GNU GPL{/t}
+Viac informácií o GNU GPL
+
+{t}Mountpoint{/t}
+Prípojný bod
+
+{t}Move{/t}
+Presunúť
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+Násobiť
+
+{t}Multiple choice{/t}
+Viacnásobná voľba
+
+{t}My appointments{/t}
+Moje schôdzky
+
+{t}My tasks{/t}
+Moje úlohy
+
+{t}Name{/t}
+Názov
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Názov nemôže byť prázdny, musí byť malými znakmi, minimálne 3, maximálne 128 skladajúci sa z a-z0-9_-@.
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+Názov nemôže byť prázdny, minimálne 3 znaky, skladajúci sa z a-z0-9_-.
+
+{t}need feedback{/t}
+potreba spätnej väzby
+
+{t}Network{/t}
+Sieť
+
+{t}Never expires{/t}
+Nikdy nevyprší
+
+{t}New{/t}
+Nový
+
+{t}New folder{/t}
+Nový priečinok
+
+{t}News{/t}
+Novinky
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Prezývka
+
+{t}Nightwork{/t}
+Nočná práca
+
+{t}no{/t}
+nie
+
+{t}No dataset selected.{/t}
+Nebol vybraný dataset.
+
+{t}No entries found.{/t}
+Nenájdené žiadne položky.
+
+{t}No file was uploaded{/t}
+Žiadne súbory sa nedotiahli
+
+{t}No line breaks{/t}
+Bez koncov riadkov
+
+{t}no result{/t}
+žiadne výsledky
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Nebol zadaný odosielateľ.
+
+{t}no username submitted{/t}
+nebolo zadané meno používateľa
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Nie je unikátny
+
+{t}none{/t}
+žiadny
+
+{t}normal{/t}
+obyčajný
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Nepovolené. Prihláste sa prosím ako administrátor.
+
+{t}not contains{/t}
+neobsahuje
+
+{t}not equal{/t}
+je rôzne od
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+Poznámka
+
+{t}Notebook{/t}
+Poznámkový blok
+
+{t}Notes{/t}
+Poznámky
+
+{t}Notificaiton sent to: %s{/t}
+Oznámenie odoslané na: %s
+
+{t}Notification{/t}
+Upozornenie
+
+{t}Notification summary{/t}
+Sumár upozornení
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+Nov
+
+{t}November{/t}
+November
+
+{t}Null{/t}
+Prázdny (null)
+
+{t}Number of employees{/t}
+Počet zamestnancov
+
+{t}numbered{/t}
+číslované
+
+{t}Objectives{/t}
+Ciele
+
+{t}Oct{/t}
+Okt
+
+{t}October{/t}
+Október
+
+{t}of {0}{/t}
+z {0}
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Kancelária
+
+{t}Office program{/t}
+Kancelársky program
+
+{t}Offices{/t}
+Kancelárie
+
+{t}offline{/t}
+offline
+
+{t}Offline folders{/t}
+Offline priečinky
+
+{t}Offline sync{/t}
+Offline synchronizácia
+
+{t}Ok{/t}
+Ok
+
+{t}one of{/t}
+jeden z
+
+{t}online{/t}
+online
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Nedokončené
+
+{t}Operating system{/t}
+Operačný systém
+
+{t}Operation not allowed. (Data loss protection){/t}
+Operácia nebola povolená. (Ochrana proti strate dát)
+
+{t}Optimize Tables{/t}
+Optimalizovať tabuľky
+
+{t}Options{/t}
+Možnosti
+
+{t}or{/t}
+alebo
+
+{t}or higher{/t}
+alebo vyšší
+
+{t}orange{/t}
+oranžová
+
+{t}Order size{/t}
+Veľkosť objednávky
+
+{t}Organisation{/t}
+Organizácia
+
+{t}Organizer{/t}
+Organizátor
+
+{t}Origin{/t}
+Pôvod
+
+{t}Original message{/t}
+Pôvodná správa
+
+{t}Other{/t}
+Iné
+
+{t}out of office{/t}
+mimo kancelárie
+
+{t}Outline image{/t}
+Obrázkový náhľad
+
+{t}Output{/t}
+Výstup
+
+{t}Output empty: %s{/t}
+Výstup prázdny: %s
+
+{t}overlap{/t}
+prekrytie
+
+{t}Overtime{/t}
+Nadčas
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Vlastník
+
+{t}Owner since{/t}
+Vlastník od
+
+{t}Package from local file system (.tar.gz){/t}
+Balíček z lokálneho súborového systému (.tar.gz)
+
+{t}Packed{/t}
+Zabalené
+
+{t}Page{/t}
+Stránka
+
+{t}Page last modified on{/t}
+Stránka menená naposledy
+
+{t}Page name (URL){/t}
+Meno stránky (URL)
+
+{t}Page not found{/t}
+Stránka nenájdená
+
+{t}Page title{/t}
+Nadpis stránky
+
+{t}Pager{/t}
+Pager
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+Odstavce
+
+{t}parameters{/t}
+parametre
+
+{t}Parameters{/t}
+Parametre
+
+{t}Parent folder{/t}
+Nadradený priečinok
+
+{t}Parsing{/t}
+Rozoberám
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Účastníci
+
+{t}Participants (external){/t}
+Účastníci (externí)
+
+{t}Participants (internal){/t}
+Účastníci (interní)
+
+{t}Password{/t}
+Heslo
+
+{t}Password expired. (password of %s has expired){/t}
+Heslo vypršalo. (heslo %s vypršalo)
+
+{t}Password expires{/t}
+Heslo vyprší
+
+{t}Password must be not null, min 5 characters.{/t}
+Heslo nemôže byť prázdne a musí mať aspoň 5 znakov.
+
+{t}password not confirmed.{/t}
+heslo nebolo potvrdené.
+
+{t}Passwords{/t}
+Heslá
+
+{t}Paste{/t}
+Prilepiť
+
+{t}Path{/t}
+Cesta
+
+{t}Pause{/t}
+Prestávka
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Oprávnenia
+
+{t}Permissions added for: %s{/t}
+Práva pridané pre: %s
+
+{t}Personal{/t}
+Osobné
+
+{t}Personal department{/t}
+Osobné oddelenie
+
+{t}Personal folders{/t}
+Osobné priečinky
+
+{t}Personal projects{/t}
+Osobné projekty
+
+{t}Phone{/t}
+Telefón
+
+{t}Phone calls{/t}
+Telefónne hovory
+
+{t}Phone private{/t}
+Súkromný telefón
+
+{t}Photo{/t}
+Foto
+
+{t}Photo gallery{/t}
+Fotogaléria
+
+{t}Planned{/t}
+Naplánovaný
+
+{t}Please activate cookies.{/t}
+Prosím povoľte si cookies.
+
+{t}Please choose Apache as Web-Server.{/t}
+Vyberte Apache ako web server.
+
+{t}Please enable Javascript in your browser.{/t}
+Prosím povoľte Javascript v priehliadači.
+
+{t}Please enter a valid url.{/t}
+Zadajte konkrétnu URL adresu.
+
+{t}Please give read access to %s{/t}
+Pridajte oprávnenia na čítanie na %s
+
+{t}Please give write access to %s{/t}
+Povoľte prosím prístup (zápis) k %s
+
+{t}Please give write access to %s and %s{/t}
+Povoľte prosím prístup (zápis) k %s a %s
+
+{t}Please hit reload.{/t}
+Obnovte prosím stránku (reload).
+
+{t}Please input a valid e-mail adress.{/t}
+Prosím zadajte správnu e-mail adresu.
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Nainštaľujte prosím tsearch2 pre PostgreSQL databázu.
+
+{t}Please install the php-extension with name '%s'.{/t}
+Inštalujte prosím php-extension s menom %s.
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Upravte prosím vaše php.ini alebo pridajte .htaccess súbor so zmenou nastavení %s na %s (súčasná hodnota je %s)
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Prečítajte si pozorne celú nasledujúcu licenciu.
+
+{t}Please select a location.{/t}
+Zvoľte prosím umietnenie
+
+{t}Please select a participant.{/t}
+Vyberte prosím účastníka
+
+{t}Please upload again.{/t}
+Prosím vložte súbor ešte raz.
+
+{t}Please wait ...{/t}
+Čakajte prosím ...
+
+{t}Pop3-error: %s{/t}
+Pop3-chyba: %s
+
+{t}Port{/t}
+Port
+
+{t}Portal{/t}
+Portál
+
+{t}Position{/t}
+Pozícia
+
+{t}Positions{/t}
+Pozície
+
+{t}Post{/t}
+Pošta
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+Predformátovaný blok
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+Zabráň formátovaniu
+
+{t}Preview{/t}
+Náhľad
+
+{t}Price{/t}
+Cena
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Vytlačiť
+
+{t}Print all{/t}
+Vytlačiť všetko
+
+{t}Printer{/t}
+Tlačiareň
+
+{t}Priority{/t}
+Priorita
+
+{t}Problem{/t}
+Problém
+
+{t}Processes{/t}
+Procesy
+
+{t}Processing %s ...{/t}
+Spracovávam %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Program je nainštalovaný v jazyku %s, použite iné URL alebo znovu spustite nastavenia (inštaláciu).
+
+{t}Progress{/t}
+Postup
+
+{t}Project{/t}
+Projekt
+
+{t}Project files{/t}
+Súbory k projektu
+
+{t}Project tasks{/t}
+Úlohy k projektu
+
+{t}Projects{/t}
+Projekty
+
+{t}promising{/t}
+sľubný
+
+{t}Properties{/t}
+Vlastnosti
+
+{t}Prospective client{/t}
+Budúci klient
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Objednaný
+
+{t}Question{/t}
+Otázka
+
+{t}Queue{/t}
+Fronta
+
+{t}Quick add{/t}
+Rýchle pridanie
+
+{t}Quota{/t}
+Kvóta
+
+{t}Quota (remaining){/t}
+Kvóta (zostávajúca)
+
+{t}Quota [MB]{/t}
+Kvóta [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Prekročený pridelený limit: %s
+
+{t}R e g i s t e r{/t}
+R e g i s t r á c i a
+
+{t}Rating{/t}
+Ohodnotenie
+
+{t}Read{/t}
+Čítať
+
+{t}read access{/t}
+prístup na čítanie
+
+{t}Read access (groups){/t}
+Prístup na čítanie (skupiny)
+
+{t}Read access (users){/t}
+Prístup na čítanie (používatelia)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+pripravené na opravu
+
+{t}ready for scrap{/t}
+pripravené k odpisu
+
+{t}Real URL format in the CMS{/t}
+Skutočný URL formát v CMS
+
+{t}Really apply rights to subfolders ?{/t}
+Naozaj skopírovať práva na podpriečinky?
+
+{t}Really apply the changes ?{/t}
+Naozaj vykonať zmeny ?
+
+{t}Really delete ?{/t}
+Naozaj odstrániť?
+
+{t}REALLY delete ALL datasets ?{/t}
+NAOZAJ vymazať VŠETKY datasety?
+
+{t}Really delete ALL subfolders ?{/t}
+Naozaj odstrániť VŠETKY podpriečinky ?
+
+{t}Really delete the dataset(s) ?{/t}
+Naozaj vymazať dataset(y)?
+
+{t}Really empty the folder ?{/t}
+Naozaj chcete vymazať obsah priečinka?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Naozaj chcete prepísať existujúce datasety?
+
+{t}Really run setup again ?{/t}
+Naozaj znovu spustiť inštaláciu?
+
+{t}Really uninstall the module ?{/t}
+Naozaj odinštalovať modul ?
+
+{t}Rebuild search index{/t}
+Znovu vytvoriť hľadací index
+
+{t}Recent changes{/t}
+Minulé zmeny
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Doporučenie priateľskej organizácie
+
+{t}Recurrence{/t}
+Opakovanie
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+červená
+
+{t}Redirect to home directory{/t}
+Presmerovať do hlavného priečinka
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+Obnoviť
+
+{t}Refresh every x seconds{/t}
+Aktualizovať každých x sekúnd
+
+{t}Regular{/t}
+Regulárne
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+odmietnuté
+
+{t}Relative formats{/t}
+Vzťahujúce sa formáty
+
+{t}Relaunch Setup{/t}
+Znovu spustiť nastavenia
+
+{t}Relevance{/t}
+Súvzťažnosť
+
+{t}Reminder{/t}
+Upomienkovač
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Premenovať priečinok
+
+{t}Repeat count{/t}
+Počet opakovaní
+
+{t}Repeat exclusions{/t}
+Výnimky z opakovaní
+
+{t}Repeat interval{/t}
+Interval opakovaní
+
+{t}Repeat until{/t}
+Opakovať do
+
+{t}Reply{/t}
+Odpoveď
+
+{t}Reply all{/t}
+Odpovedať všetkým
+
+{t}Require admin access to set mountpoints{/t}
+Vyžadovať administrátorské práva pre nastavenie prípojných bodov
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Predajca
+
+{t}reserved{/t}
+rezervovaný
+
+{t}Reset view{/t}
+Obnoviť zobrazenie
+
+{t}Resource{/t}
+Zdroj
+
+{t}Resources{/t}
+Zdroje
+
+{t}Responsible{/t}
+Zodpovednosť
+
+{t}Responsible (external){/t}
+Zodpovedný (externý)
+
+{t}Responsible (internal){/t}
+Zodpovedný (interný)
+
+{t}Restore complete{/t}
+Obnovenie hotové
+
+{t}Restore here{/t}
+Obnoviť sem
+
+{t}Restore only missing{/t}
+Obnoviť iba chýbajúca
+
+{t}Restore only newer{/t}
+Nahradiť len novšie
+
+{t}Restore to origin{/t}
+Obnoviť na pôvodné
+
+{t}Return receipt{/t}
+Návratka
+
+{t}right-aligned{/t}
+zarovanné vpravo
+
+{t}Rights{/t}
+Práva
+
+{t}Risks{/t}
+Riziká
+
+{t}Room name{/t}
+Názov miestnosti
+
+{t}Room number{/t}
+Miestnosť číslo
+
+{t}Rooms{/t}
+Miestnosti
+
+{t}Rows{/t}
+Riadky
+
+{t}Run Setup again{/t}
+Znovu spustiť inštaláciu
+
+{t}S a v e{/t}
+U l o ž i ť
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+U l o ž i ť  a  v r á t i ť  s a
+
+{t}Sa{/t}
+So
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Predajná akcia
+
+{t}Sat{/t}
+So
+
+{t}Saturday{/t}
+Sobota
+
+{t}Scheduling{/t}
+Plánovanie
+
+{t}Schema{/t}
+Schéma
+
+{t}Schema data{/t}
+Dátová schéma
+
+{t}Schemafile not found. (%s){/t}
+Súbor so schémou nebol nájdený (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+zošrotované
+
+{t}Search{/t}
+Hľadať
+
+{t}Search by ID{/t}
+Hľadať podľa ID
+
+{t}second level support{/t}
+2.úrovňová podpora
+
+{t}Second manager{/t}
+Zástupca manažéra
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Referent
+
+{t}Self registration{/t}
+Samo registrácia
+
+{t}Self registration needs confirmation by an administrator.{/t}
+Samo registrácia potrebuje potvrdenia od administrátora.
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+Pošli upomienky
+
+{t}Sep{/t}
+Sep
+
+{t}Separate fields{/t}
+Oddeliť polia
+
+{t}Separate values{/t}
+Oddeliť hodnoty
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+Oddeľovače
+
+{t}September{/t}
+September
+
+{t}Serial number{/t}
+Sériové číslo
+
+{t}Server{/t}
+Server
+
+{t}Server does not support sorting{/t}
+Server nepodporuje triedenia
+
+{t}Server-IP{/t}
+IP Servera
+
+{t}Service provider{/t}
+Poskytovateľ služby
+
+{t}Session name in cookie{/t}
+Meno sedenia v cookie
+
+{t}Session timeout{/t}
+Z dôvodu nečinnosti prebehlo automatické odhlásenie.
+
+{t}Sessions{/t}
+Pripojenie
+
+{t}Setup{/t}
+Nastavenie
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Inštalácia potrebuje database-php-extension! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Inštalácia potrebuje php verzi alespoň %s!
+
+{t}Setup needs php-extension with name %s !{/t}
+Inštalácia potrebuje php-extension se jménem %s!
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+Inštalácia potrebuje Simple Groupware verziu minimálne %s !
+
+{t}Setup: setup-data written to %s.{/t}
+Inštalácia: dáta boli zapísané do %s.
+
+{t}Shapes{/t}
+Tvary
+
+{t}Share{/t}
+Zdieľať
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+Skrátené odkazy
+
+{t}Show{/t}
+Zobraziť
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Zobraziť archív
+
+{t}Show details{/t}
+Zobraziť podrobnosti
+
+{t}Show folder description in content area{/t}
+Zobraziť popis priečinka v obsahovom priestore
+
+{t}Show password{/t}
+Zobraziť heslo
+
+{t}Show quoted text{/t}
+Zobraziť citovaný text
+
+{t}Similar{/t}
+Podobné
+
+{t}Simple tables{/t}
+Jednoduché tabuľky
+
+{t}single{/t}
+jednoduchý (slobodný)
+
+{t}Single choice{/t}
+Jednoduchá voľba
+
+{t}Size{/t}
+Veľkosť
+
+{t}Size (children){/t}
+Veľkosť (potomkovia)
+
+{t}Slow{/t}
+Pomalý
+
+{t}small{/t}
+malý
+
+{t}small text{/t}
+malý text
+
+{t}smaller{/t}
+menšie
+
+{t}SMTP not configured for %s{/t}
+SMTP nie je nakonfigurované pre %s
+
+{t}Smtp-error %s: %s{/t}
+Smtp-error %s: %s
+
+{t}Software{/t}
+Softvér
+
+{t}Solution{/t}
+Riešenie
+
+{t}Solution type{/t}
+Typ riešenia
+
+{t}some text{/t}
+nejaký text
+
+{t}Source{/t}
+Zdroj
+
+{t}Source code{/t}
+Zdrojový kód
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Špecifikácia
+
+{t}Spreadsheet{/t}
+Kalkulačná_Tabuľka
+
+{t}SQL failed.{/t}
+SQL zlyhal.
+
+{t}SQL FAILED: %s{/t}
+SQL ZLYHAL: %s
+
+{t}Start scheduled{/t}
+Začiatok naplánovaný
+
+{t}Started{/t}
+Naštartovaný
+
+{t}starts with{/t}
+začína s
+
+{t}State{/t}
+Štát
+
+{t}Static cache{/t}
+Statická cache
+
+{t}Statistics{/t}
+Štatistika
+
+{t}Status{/t}
+Stav
+
+{t}Statuses{/t}
+Stavy
+
+{t}Strategies{/t}
+Stratégie
+
+{t}Street{/t}
+Ulica
+
+{t}Structure{/t}
+Štruktúra
+
+{t}Su{/t}
+Ne
+
+{t}Subfolders{/t}
+Podpriečinky
+
+{t}subheading{/t}
+Podtitulky
+
+{t}Subitem{/t}
+Podpoložka
+
+{t}Subject{/t}
+Predmet
+
+{t}Subjects{/t}
+Predmety
+
+{t}Submit a patch{/t}
+Poslať opravu (patch)
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+dolný index
+
+{t}Subsistence costs{/t}
+Vreckové
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Sumár
+
+{t}Sun{/t}
+Ne
+
+{t}Sunday{/t}
+Nedeľa
+
+{t}Superior{/t}
+Nadradený
+
+{t}superscript{/t}
+horný index
+
+{t}Supplier{/t}
+Dodávateľ
+
+{t}Suppliers{/t}
+Dodavatelé
+
+{t}Support{/t}
+Podpora
+
+{t}Support request{/t}
+Požiadavka podpory
+
+{t}Surveys{/t}
+Prieskumy
+
+{t}Suspended{/t}
+Odložený
+
+{t}Switch maintenance mode{/t}
+Prepnúť údržbový mód
+
+{t}Sync4j remote delete items{/t}
+Sync4j vzdialené odstránenie položiek
+
+{t}Syntax{/t}
+Syntax
+
+{t}System{/t}
+Systém
+
+{t}System command executed: %s{/t}
+Systémový príkaz vykonaný: %s
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Tabuľka
+
+{t}Table sizes{/t}
+Veľkosti tabuliek
+
+{t}Table status{/t}
+Stav tabuľky
+
+{t}Tables{/t}
+Tabuľky
+
+{t}Take over{/t}
+Prevziať
+
+{t}Take selection{/t}
+Uskutočni výber
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+Úloha s ID %s
+
+{t}Tasks{/t}
+Úlohy
+
+{t}Tasks with responsible %s{/t}
+Úlohy so zodpovedajúcim %s
+
+{t}Template{/t}
+Šablóna
+
+{t}Templates{/t}
+Šablóny
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+termín
+
+{t}Text area{/t}
+Textový priestor
+
+{t}Text Document{/t}
+Textový dokument
+
+{t}Text formatting rules{/t}
+Pravidlá formátovania textu
+
+{t}Th{/t}
+Št
+
+{t}Thanks for voting!{/t}
+Vďaka za volenie!
+
+{t}The folder cannot be copied.{/t}
+Priečinok nemôže byť kopírovaný.
+
+{t}The folder cannot be deleted.{/t}
+Priečinok nemôže byť zmazaný.
+
+{t}The folder cannot be moved.{/t}
+Priečinok nemôže byť presunutý.
+
+{t}The new password is{/t}
+Nová heslo je
+
+{t}The url doesn't exist.{/t}
+URL neexistuje.
+
+{t}Theme{/t}
+Téma
+
+{t}third level support{/t}
+3.úrovňová podpora
+
+{t}this file extension is not allowed{/t}
+prípona súboru nie je povolená
+
+{t}Thu{/t}
+Štv
+
+{t}Thursday{/t}
+Štvrtok
+
+{t}Time and expenses{/t}
+Časové a peňažné náklady
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+Časové plány
+
+{t}Time zone{/t}
+Časové pásmo
+
+{t}timeout{/t}
+vypršanie času
+
+{t}Title{/t}
+Titul
+
+{t}To{/t}
+Komu
+
+{t}to be checked{/t}
+ešte skontrolovať
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+Aby ste mohli pokračovať v inštalácii, musíte zafajknúť súhlas pod licenciou.
+
+{t}Today{/t}
+Dnes
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Príliš veľa chybných pokusov o prihlásenie. Počkajte 15 minút.
+
+{t}Total{/t}
+Spolu
+
+{t}Trace{/t}
+Sledovať
+
+{t}Trade fair{/t}
+Trh
+
+{t}translations{/t}
+preklady
+
+{t}Translations of the GNU GPL{/t}
+Preklady GNU GPL
+
+{t}Transportation costs{/t}
+Náklady na prepravu
+
+{t}Trash{/t}
+Kôš
+
+{t}Trash folder not found.{/t}
+Nenájdený priečinok koša.
+
+{t}Tree{/t}
+Strom
+
+{t}Trigger failed{/t}
+Trigger zlyhal
+
+{t}Tu{/t}
+Út
+
+{t}Tue{/t}
+Út
+
+{t}Tuesday{/t}
+Utorok
+
+{t}Type{/t}
+Typ
+
+{t}U n i n s t a l l{/t}
+O d i n š t a l o v a ť
+
+{t}unable to find %s{/t}
+nemôžem nájsť %s
+
+{t}Unable to write to %s{/t}
+Nemôžem zapísať do %s
+
+{t}unconfirmed{/t}
+nepotvrdené
+
+{t}Unconfirmed{/t}
+Nepotvrdené
+
+{t}underline{/t}
+podčiarknuté
+
+{t}Uninstall does not delete any data in the database.{/t}
+Odinštalácia neodmaže žiadne údaje v databáze.
+
+{t}uninterested{/t}
+nemá záujem
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Odomknúť
+
+{t}Up{/t}
+Nahor
+
+{t}Update{/t}
+Upraviť
+
+{t}Update Simple Groupware{/t}
+Aktualizovať Simple Groupware
+
+{t}Updated{/t}
+Aktualizovaný
+
+{t}Updating schema %s from %s.{/t}
+Aktualizujem schému %s z %s.
+
+{t}Upload failed{/t}
+Upload zlyhal
+
+{t}Uploaded files{/t}
+Pridaných súborov
+
+{t}Uploading{/t}
+Upload-ovanie
+
+{t}urgent{/t}
+naliehavý
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Použitie
+
+{t}USD{/t}
+Doláre (USD)
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Používať binárky Debiana (Pozor: nie posledné verzie)
+
+{t}Use LDAP Groups{/t}
+Používať LDAP skupiny
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+Použiť syslog() funkciu pre zaznamenávanie udalostí
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Používať funkciu mail() pre posielanie e-mailu (nezabezpečené)
+
+{t}User{/t}
+Používateľ
+
+{t}User not found.{/t}
+Používateľ nenájdený.
+
+{t}Username{/t}
+Používateľské meno
+
+{t}Username must be different from the super administrator.{/t}
+Meno používateľa musí byť iné ako názov účtu administrátora.
+
+{t}Users{/t}
+Používatelia
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+V o ľ t e !
+
+{t}Vacation{/t}
+Dovolenka
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+overovanie zlyhalo
+
+{t}Value{/t}
+Hodnota
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Premenná
+
+{t}Variable already exists in table. (%s){/t}
+Premenná už v tabuľke existuje. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Premenná musí byť v tvare dátumu (dd.mm. YYYY).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Premenná musí byť v tvare dátumu s časom (dd.mm. YYYY HH:mm).
+
+{t}Variable must be of type float.{/t}
+Premenná musí byť reálne číslo.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Premenná musí byť celé číslo väčšie ako nula.
+
+{t}Variable must be of type int.{/t}
+Premenná musí byť celé číslo.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Premenná musí byť v tvare času (HH:mm).
+
+{t}Variables{/t}
+Premenné
+
+{t}Verbal recommendation{/t}
+Slovné doporučenie
+
+{t}verified{/t}
+skontrolovaný
+
+{t}vertical{/t}
+vertikálne
+
+{t}very promising{/t}
+veľmi sľubný
+
+{t}View{/t}
+Pohľad
+
+{t}View access (groups){/t}
+Pozri prístup (skupiny)
+
+{t}View access (users){/t}
+Pozri prístup (užívatelia)
+
+{t}Virus scanner{/t}
+Virus scanner
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Hlasová správa (voice mail)
+
+{t}Vote{/t}
+Voľte
+
+{t}Voted by{/t}
+Zvolené (kým)
+
+{t}Waiting{/t}
+Čakajúci
+
+{t}Warning{/t}
+Upozornenie
+
+{t}We{/t}
+St
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Str
+
+{t}Wednesday{/t}
+Streda
+
+{t}Week{/t}
+Týždeň
+
+{t}Week start{/t}
+Začiatok týždňa
+
+{t}Weekend{/t}
+Víkend
+
+{t}weekly{/t}
+týždenne
+
+{t}weeks{/t}
+týždňov
+
+{t}Welcome to Simple Groupware!{/t}
+Vitajte v Simple Groupware!
+
+{t}white{/t}
+biela
+
+{t}widowed{/t}
+ovdovelý/á
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+WikiStyles
+
+{t}won't fix{/t}
+nebude opravené
+
+{t}word{/t}
+slovo
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+pracuje podľa očakávaní
+
+{t}works for me{/t}
+pracuje pre mňa
+
+{t}Workshop{/t}
+Workshop
+
+{t}Workspace{/t}
+Pracovná plocha
+
+{t}write access{/t}
+prístup k zápisu
+
+{t}Write access (groups){/t}
+Prístup k zápisu (skupiny)
+
+{t}Write access (users){/t}
+Prístup k zápisu (používatelia)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Zlá verzia databázy (%s). Použite prosím aspoň %s!
+
+{t}wrong directory{/t}
+zlý adresár
+
+{t}wrong password{/t}
+zlé heslo
+
+{t}Year{/t}
+Rok
+
+{t}yearly{/t}
+ročne
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+žltá
+
+{t}yes{/t}
+áno
+
+{t}You are not allowed to view this folder.{/t}
+Na prehliadanie tohto priečinku nemáte oprávnenie.
+
+{t}Your message was read on %s.{/t}
+Vaša správa bola prečítaná v %s.
+
+{t}Your session has timed out.{/t}
+Boli ste odhlásení z dôvodu nečinnosti.
+
+{t}Zipcode{/t}
+PSČ
+
+{t}{0} - {1} of {2}{/t}
+{0} - {1} z {2}
+

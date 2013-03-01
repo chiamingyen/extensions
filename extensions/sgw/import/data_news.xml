@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<assets>
+  <asset>
+	<bookmarkname>0) News</bookmarkname>
+	<url>index.php?view=display&amp;folder=/Workspace/Demo/News/</url>
+	<fullwidth>1</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>1) Simple Groupware Forum</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://groups.google.com/group/simple-groupware/feed/rss_v2_0_msgs.xml</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>2) The New York Times</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>3) CNN.com</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://rss.cnn.com/rss/cnn_topstories.rss</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>4) Slashdot</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://rss.slashdot.org/Slashdot/slashdot</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>5) freshmeat.net</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://freshmeat.net/?format=atom</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>6) php.net</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://www.php.net/news.rss</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+  <asset>
+	<bookmarkname>7) heise.de (German)</bookmarkname>
+	<url>index.php?view=display&amp;folder=rss:/http://www.heise.de/newsticker/heise-atom.xml</url>
+	<fullwidth>0</fullwidth>
+	<height>210</height>
+	<refresh>300</refresh>
+  </asset>
+</assets>

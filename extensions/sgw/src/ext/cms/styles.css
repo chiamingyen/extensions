@@ -1,0 +1,194 @@
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+
+@import "wsplus/wsplus.css";
+
+/***********************************************************************
+** pmwiki.css
+**  Copyright 2004-2006 Patrick R. Michaud (pmichaud@pobox.com)
+**  Copyright 2006 Hagan Fox
+**  This file is part of PmWiki; you can redistribute it and/or modify
+**  it under the terms of the GNU General Public License as published
+**  by the Free Software Foundation; either version 2 of the License, or
+**  (at your option) any later version.  See pmwiki.php for full details.
+***********************************************************************/
+
+.body {
+  margin:0px;
+  background-color:#f7f7f7; 
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:11pt;
+}
+
+/* fix sgs styles */
+div.wikibody, .wikibody td {
+  color:#555555;
+}
+
+/* This sets the overall frame for the site */
+/* These affect the main content area. */
+.wikibody {
+  width:100%;
+  padding:0px;
+  margin-top:3px;
+  margin-bottom:4px;
+  font-size:11pt;
+  font-family:Arial,Helvetica,sans-serif;
+  background-color:#FFFFFF;
+  border-radius:6px;
+}
+
+/* These control the fixed-width text elements of the page */
+pre, code { font-size:0.9em; }
+pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier,monospace; }
+pre { line-height:1.2em; }
+pre code, code code, pre pre { font-size:100%; }
+
+/* These primarily adjust the size and spacing of heading elements,
+** most browsers have atrocious defaults for these. */
+h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+h1, h2, h3, h6 { font-weight:normal; }
+h4, h5 { font-weight:bold; }
+h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+h1 { font-size:1.8em; }
+h2 { font-size:1.44em; }
+h3 { font-size:1.22em; }
+h4 { font-size:1.07em; }
+h5 { font-size:1.0em; }
+h6 { font-size:1.0em; }
+
+#wikilogo {
+  padding: 6px;
+  margin-top:4px;
+  border-bottom:1px #cccccc solid;
+}
+
+/* This controls the rest of the heading (primarily the search box) */
+#wikihead { 
+  position:absolute;
+  right:6px;
+  top:28px; 
+  font-family:Verdana,sans-serif;
+  font-size:85%; 
+}
+#wikihead input { font-size:85%; } 
+
+/* These are for the left-sidebar. */
+#wikileft { 
+  width:155px; 
+  padding:6px;
+  border-right:1px #cccccc solid; 
+  line-height:1.33em;
+  font-size:9.4pt;
+  font-family:Verdana,sans-serif;
+}
+#wikileft .vspace { margin-top:1.125em; }
+#wikileft a { text-decoration:none; color:black; }
+#wikileft a:hover { text-decoration:underline; color:blue; }
+#wikileft ul { list-style:none; padding:0px; margin:0px; }
+#wikileft li { margin:0px; padding-left: 6px; }
+.sidehead {
+  margin:0px; padding:4px 2px 2px 2px;
+  font-size:11pt; font-weight:bold; font-style:normal; 
+}
+.sidehead a 
+  { color:#505050; font-weight:bold; font-style:normal; }
+
+#wikicmds { 
+  float:right; white-space:nowrap; 
+  font-family:Verdana,sans-serif; font-size:80%; 
+}
+#wikicmds ul { list-style:none; margin:0px; padding:0px; }
+#wikicmds li { display:inline; margin:0px 5px; }
+#wikicmds li a { text-decoration:none; color:black; border:none; }
+#wikicmds li a.createlink { display:none; }
+#wikicmds li a:hover { text-decoration:underline; color:blue; }
+.pagegroup { margin-top:8px; margin-bottom:2px; }
+.pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+.wikiaction { margin-top:4px; margin-bottom:4px; }
+#wikitext { margin-top:12px; line-height:1.33em; }
+#wikitext table { font-size:100%; line-height:1.33em; } /* For MSIE 5.5 */
+
+/* These are for the edit form. */
+#wikiedit form { margin:0px; width:100%; }
+#wikiedit textarea { width:100%; }
+.wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+
+/* These affect the lines at the very bottom. */
+#wikifoot { 
+  padding-bottom:4px;
+  padding-top:4px;
+  padding-left:8px;
+  border-top:1px #cccccc solid;
+  font-family:Verdana,sans-serif;
+  font-size:80%; 
+}
+
+/* These affect the printed appearance of the web view (not the separate
+** print view) of pages.  The sidebar and action links aren't printed. */
+@media print {
+  body { padding:0.5em; }
+  #wikileft, #wikihead, .footnav { display:none; }
+  a:link { color:#444444; font-weight:bold; text-decoration:none; }
+  a:visited { color:#444444; font-weight:bold; text-decoration:none; }
+}
+
+ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+code.escaped { white-space: nowrap; }
+.vspace { margin-top:1.33em; }
+.indent { margin-left:40px; }
+.outdent { margin-left:40px; text-indent:-40px; }
+a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:bold; font-size:smaller; border-bottom:none; }
+img { border:0px; }
+.editconflict { color:green; font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+
+table.markup { border:2px dotted #ccf; width:90%; }
+td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+table.vert td.markup1 { border-bottom:1px solid #ccf; }
+table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+table.markup caption { text-align:left; }
+div.faq p, div.faq pre { margin-left:2em; }
+div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+div.faqtoc div.faq * { display:none; }
+div.faqtoc div.faq p.question { display:block; font-weight:normal; margin:0.5em 0 0.5em 20px; line-height:normal; }
+div.faqtoc div.faq p.question * { display:inline; }
+   
+.frame { border:1px solid #cccccc; padding:4px; background-color:#f9f9f9; }
+.lfloat { float:left; margin-right:0.5em; }
+.rfloat { float:right; margin-left:0.5em; }
+a.varlink { text-decoration:none; }
+
+#wikibody {
+  padding:10px;
+  padding-top:8px;
+  background-color:#FFFFFF;
+}
+
+.footnav {
+  margin-bottom:2px;
+}
+
+.searchbutton, .searchbox {
+  border:1px #aaaaaa solid;
+  background-color:#fff;
+}

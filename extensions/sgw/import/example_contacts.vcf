@@ -1,0 +1,74 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Doever;John;W.;Mr.;III,J.D.
+FN:John Doever
+ADR;TYPE=HOME,WORK:;;123 Main,Apartment 101;Beverly Hills;CA;90210
+EMAIL;TYPE=HOME;TYPE=WORK:johndoever@example.com
+EMAIL;TYPE=PREF:dowie@example.net
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Doe;John
+FN:John Doe
+ORG:Wikipedia
+EMAIL;INTERNET:john.doe@example.com
+END:VCARD
+
+BEGIN:VCARD
+VERSION:2.1
+N:Doe;John
+TEL;HOME;VOICE:+99 (1234) 56780
+TEL;HOME;FAX:+99 (1234) 56789
+ADR;WORK;PARCEL;POSTAL;DOM:Wall Street;Sample Town;XX;12345
+END:VCARD
+
+BEGIN:VCARD
+VERSION:2.1
+N:Smith;John;M.;Mr.;Esq.
+TEL;WORK;VOICE;MSG:+1 (123) 555-1234
+TEL;WORK;FAX:+1 (123) 555-9876
+ADR;WORK;PARCEL;POSTAL;DOM:Suite 101;1 Central St.;Any Town;AT;12345
+END:VCARD
+
+BEGIN:vCard
+VERSION:3.0
+FN:Frank Super
+ORG:Super Comp
+ADR;TYPE=WORK,POSTAL,PARCEL:;;1234 Little Island
+ ;State;LI;12345-1234;Anywhere
+TEL;TYPE=VOICE,MSG,WORK:+1-321-123-1234
+TEL;TYPE=FAX,WORK:+1-321-123-1231
+EMAIL;TYPE=INTERNET,PREF:super@example.com
+EMAIL;TYPE=INTERNET:superp@example.com
+END:vCard
+
+
+BEGIN:vCard
+VERSION:3.0
+FN:Tim Example
+ORG:Example Company
+ADR;TYPE=WORK:;;501 SuperJeans;Mountain High;
+ CA; 12345;Country
+TEL;TYPE=VOICE,MSG,WORK:+1-123-456-7890
+TEL;TYPE=FAX,WORK:+1-123-456-0987
+EMAIL;TYPE=INTERNET:example@example.com
+END:vCard
+
+
+begin:vcard
+name:Meister Eder
+fn:Meister Eder
+n:Eder;Meister
+bday;value=date:1973-09-21
+o:Eder and Company
+title:Mayor
+title;language=de;value=text:Burgermaster
+note:The Mayor of the great city of
+  Unknown in the great country of Nowhere.
+email;internet:me@example.com
+home.tel;type=fax,voice,msg:+49 1234 123456
+home.label:Hufenstein 1234\n
+ 12345 Nowhere\n
+ Anywhere
+end:vcard

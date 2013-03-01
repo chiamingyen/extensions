@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Projects{/t}" default_view="display" orderby="projectname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true"
+ trigger_new="runxml:modules/core/projects.xml:projects|createeditproject" trigger_edit="createeditproject" trigger_delete="deleteproject" quick_add="projectname,description">
+  <view name="display" displayname="{t}Open{/t}" groupby="category" where="closed=0">
+  </view>
+  <view name="display2" displayname="{t}Closed{/t}" groupby="category" where="closed=1" template="display">
+  </view>
+  <view name="calendar" displayname="{t}Calendar{/t}" groupby="category" template="display" enable_calendar="startsched,finishsched" markdate="gantt" tfield_1="projectname" tfield_2="progress">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" show_preview="true" tfield_1="projectname" tfield_2="progress">
+  </view>
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="participants" displayname="{t}Participants{/t}" />
+  <tab name="scheduling" displayname="{t}Scheduling{/t}" />
+  <tab name="parameters" displayname="{t}Parameters{/t}" />
+  <singlebutton name="folder" displayname="{t}Folders{/t}" onclick="locate('index.php?folder=^projects_@projectname@');" icon="folder1.gif" />
+  
+  <field name="closed" displayname="{t}Closed{/t}" simple_type="checkbox">
+    <INDEX/>
+    <notin views="display|display2|calendar"/>
+  </field>
+  <field name="projectname" displayname="{t}Name{/t}" simple_type="text" required="true" is_unique="true">
+    <validate function="regexp|/^[a-z0-9-_@\.]{3,128}$/|{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}" />
+    <readonlyin views="edit"/>
+    <linktext views="display|display2|calendar" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="progress" displayname="{t}Progress{/t}" simple_type="select" simple_size="1" avg="true">
+    <data values="0_##_0%|0.05_##_5%|0.1_##_10%|0.2_##_20%|0.25_##_25%|0.4_##_40%|0.5_##_50%|0.6_##_60%|0.75_##_75%|0.8_##_80%|0.9_##_90%|1_##_100%"/>
+    <filter views="all" function="percent"/>
+	<store function="storepercent"/>
+  </field>
+  <field name="status" displayname="{t}Status{/t}" simple_type="select" simple_size="1">
+	<data title="{t}Default{/t}" values="{t}Planned{/t}|{t}Started{/t}|{t}Finished{/t}|{t}Waiting{/t}|{t}Suspended{/t}|{t}Canceled{/t}"/>
+	<data title="{t}Lookup{/t}" function="dbselect|simple_statuses|statusname,statusname|stattype='projects'|statusname asc|10"/>
+  </field>
+  
+  <field name="tasks" displayname="{t}Tasks{/t}" simple_type="textarea" notinall="true">
+    <filter views="all" function="linkselect|\n|simple_tasks|id,concat(subject;' ';round(cast(progress as decimal(3,2))*100);'% ';status)|project=@projectname@ and project!=''|closed,ending"/>
+    <filter views="all" function="showselect|\n|simple_tasks|'',concat('\n{t}Average progress{/t}: ';round(avg(cast(progress as decimal(3,2))*100));'%')|project=@projectname@ and project!=''|"/>
+	<onlyin views="display|details"/>
+  </field>
+  
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea">
+    <notin views="display|display2|calendar"/>
+  </field>
+  <field name="manager" displayname="{t}Manager{/t}" simple_type="select" simple_size="1" simple_tab="participants">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@manager@&amp;view=details"/>
+  </field>
+  <field name="participants" displayname="{t}Participants (internal){/t}" simple_type="select" simple_size="5" simple_tab="participants">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@participants@&amp;view=details"/>
+  </field>
+  <field name="participants_ext" displayname="{t}Participants (external){/t}" simple_type="select" simple_size="5" simple_tab="participants" allow_custom="true">
+    <data function="dbselect|simple_contacts|contactid,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_contacts||contactid=@participants_ext@&amp;view=details"/>
+  </field>
+  <field name="startsched" displayname="{t}Start scheduled{/t}" simple_type="date" simple_default_function="dateformat|now|{t}m/d/Y{/t}" simple_tab="scheduling">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+	<description hint="{t}Relative formats{/t}" value="nWin('http://www.php.net/manual/en/datetime.formats.relative.php');"/>
+  </field>
+  <field name="finishsched" displayname="{t}Finish scheduled{/t}" simple_type="date" simple_default_function="dateformat|now + 1 week|{t}m/d/Y{/t}" simple_tab="scheduling">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+  </field>
+  <field name="duration" displayname="{t}Duration{/t}" simple_type="int" notinall="true" sum="true" simple_tab="scheduling">
+    <filter views="all" function="duration"/>
+	<onlyin views="display|display2|details|calendar"/>
+  </field>
+  <field name="begin" displayname="{t}Started{/t}" simple_type="date" simple_default_function="dateformat|now|{t}m/d/Y{/t}" simple_tab="scheduling">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+    <link views="calendar" value="index.php?view=display&amp;today=@begin@"/>
+  </field>
+  <field name="ending" displayname="{t}Finished{/t}" simple_type="date" simple_tab="scheduling">
+    <filter views="all" function="dateformat||{t}m/d/Y{/t}"/>
+  </field>
+  <field name="priority" displayname="{t}Priority{/t}" simple_type="select" simple_size="1" simple_default="3">
+  	<data reverse="true" values="1_##_{t}lowest{/t}|2_##_{t}low{/t}|3_##_{t}normal{/t}|4_##_{t}urgent{/t}|5_##_{t}immediate{/t}"/>
+  </field>
+  <field name="mandaysplanned" displayname="{t}Man-days planned{/t}" simple_type="text" simple_tab="parameters" sum="true">
+    <validate function="float" />
+  </field>
+  <field name="mandays" displayname="{t}Man-days{/t}" simple_type="text" simple_tab="parameters" sum="true">
+    <validate function="float" />
+  </field>
+  <field name="budget" displayname="{t}Budget{/t}" simple_type="text" simple_tab="parameters" sum="true">
+    <validate function="float" />
+  </field>
+  <field name="ordersize" displayname="{t}Order size{/t}" simple_type="text" simple_tab="parameters" sum="true">
+    <validate function="float" />
+  </field>
+  <field name="outlineimage" displayname="{t}Outline image{/t}" simple_type="files" simple_file_size="5M" simple_size="10">
+    <notin views="display|display2|calendar"/>
+    <validate function="fileupload|jpg,jpeg,gif,png"/>
+  </field>
+  <field name="specification" displayname="{t}Specification{/t}" simple_type="files" simple_file_size="10M" simple_size="10">
+    <notin views="display|display2|calendar"/>
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" simple_size="1">
+	<data function="dbselect|simple_categories|categoryname,categoryname|cattype='projects'|categoryname asc|10"/>
+  </field>
+</table>

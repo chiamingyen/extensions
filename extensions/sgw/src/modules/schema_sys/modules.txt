@@ -1,0 +1,21 @@
+sys_groups|{t}Groups{/t}
+sys_identities|{t}Mail identities{/t}
+sys_users|{t}Users{/t}
+
+{t}System{/t}
+sys_nodb_admin|{t}Administration{/t}
+sys_nodb_backups|{t}Backups{/t}
+sys_console|{t}Console{/t}
+sys_events|{t}Events{/t}
+sys_custom_fields|{t}Field customization{/t}
+sys_hosts|{t}Hosts{/t}
+sys_nodb_modules|{t}Modules{/t}
+sys_notifications|{t}Notifications{/t}
+sys_search|{t}Search{/t}
+sys_session|{t}Sessions{/t}
+sys_stats|{t}Statistics{/t}
+sys_nodb_status|{t}Status{/t}
+sys_nodb_tables|{t}Tables{/t}
+sys_nodb_tablesizes|{t}Table sizes{/t}
+sys_tree|{t}Tree{/t}
+sys_nodb_variables|{t}Variables{/t}

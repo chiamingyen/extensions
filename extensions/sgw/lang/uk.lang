@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2008 SSSIE Ecocentre
+
+{t}!_Language{/t}
+Український / Ukrainian
+
+{t}%s is not activated{/t}
+%s не активований
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s не скомпилирований / не завантажений в PHP.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s не є базой даних
+
+{t}%s rows affected{/t}
+%s рядків задіяно
+
+{t}%s secs{/t}
+%s сек.
+
+{t}%s started editing this asset at %s{/t}
+%s розпочав редактирувати цей розділ в %s
+
+{t}(for active directory username must be: username@domain){/t}
+(для LDAP ім’я повинно бути у вигляді username@domain)
+
+{t}(un)Group{/t}
+(Раз)Згрупувати
+
+{t}About{/t}
+Про програму
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+прийнято
+
+{t}Access denied.{/t}
+Доступ заборонено.
+
+{t}Access to this file has been denied.{/t}
+Доступ до файлу заборонено.
+
+{t}Account{/t}
+Обліковий запис
+
+{t}account of %s has expired{/t}
+Обліковий запис %s застарілий
+
+{t}Accounting{/t}
+Обліковування
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Активований
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Активний
+
+{t}Ad{/t}
+Від
+
+{t}Add{/t}
+Додати
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+Додати до offline каталогу
+
+{t}added line{/t}
+запис добавлено
+
+{t}Address{/t}
+Адреса
+
+{t}admin access{/t}
+admin доступ
+
+{t}Admin access (groups){/t}
+Адміністративний доступ (групи)
+
+{t}Admin access (users){/t}
+Адміністративний доступ (користувачі)
+
+{t}Admin Password{/t}
+Пароль адміністратора
+
+{t}Admin Username{/t}
+Ім’я адміністратора
+
+{t}Administration{/t}
+Адміністрування
+
+{t}Advanced tables{/t}
+Просунуті таблиці
+
+{t}Affected user{/t}
+Affected user
+
+{t}Affiliate{/t}
+Додати
+
+{t}after{/t}
+після
+
+{t}Agent{/t}
+Агент
+
+{t}Ajax Error{/t}
+Ajax помилка
+
+{t}All{/t}
+Всі
+
+{t}All day{/t}
+Всі дні
+
+{t}All events{/t}
+Всі події
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+Остання версія вже запущена.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Кількість
+
+{t}Anchor{/t}
+Якір
+
+{t}and{/t}
+і
+
+{t}Anniversary{/t}
+Річниця
+
+{t}another page{/t}
+інша сторінка
+
+{t}answered{/t}
+відповідь є
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+На основі Apache (.htaccess, Basic, Digest, etc.)
+
+{t}Application title{/t}
+Назва програми
+
+{t}Apply rights to subfolders{/t}
+Примінити права к підкаталогам
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+Квітень
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Архивні знищені файли
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Розділ відмічений як read-only.
+
+{t}Assets{/t}
+Розділи
+
+{t}Assets (children){/t}
+Розділи (дочірні)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+прийнятий
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+приєднай файл
+
+{t}Attachment{/t}
+Вкладення
+
+{t}Attachments{/t}
+Вкладення
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+Серпень
+
+{t}Authentication Mode{/t}
+Режим авторизації
+
+{t}Author{/t}
+Автор
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+Середня довжина
+
+{t}Back{/t}
+Назад
+
+{t}Backup{/t}
+Резервування
+
+{t}Backup current folder{/t}
+Резервувати поточний каталог
+
+{t}Backups{/t}
+Резервні копії
+
+{t}Basic editing{/t}
+Базове редагування
+
+{t}before{/t}
+до того
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Початок
+
+{t}big{/t}
+великий
+
+{t}big text{/t}
+великий текст
+
+{t}bigger{/t}
+більше
+
+{t}Billing address{/t}
+Адреса рахунку
+
+{t}Birthday{/t}
+День народження
+
+{t}Birthdays{/t}
+Дні народження
+
+{t}Blank{/t}
+Порожній
+
+{t}blue{/t}
+блакитний
+
+{t}bold{/t}
+жирний
+
+{t}bold italic{/t}
+жирний курсив
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+замовлений
+
+{t}Booked{/t}
+Замовлений
+
+{t}Booking number{/t}
+Номер замовлення
+
+{t}Bookings{/t}
+Портфель замовлень
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Закладки
+
+{t}borrowed{/t}
+узятий у позику
+
+{t}Brand{/t}
+Бренд
+
+{t}Brands{/t}
+Бренди
+
+{t}Browser Compatibility{/t}
+сумісність браузера
+
+{t}Browser not supported{/t}
+Браузер не підтримується
+
+{t}Budget{/t}
+Бюджет
+
+{t}Bug{/t}
+Дефект
+
+{t}bulleted{/t}
+bulleted
+
+{t}Business{/t}
+Бізнес
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+ПРОДОВЖИТИ
+
+{t}Cache output{/t}
+Вихід кеша
+
+{t}Caches{/t}
+Кеши
+
+{t}Calendar{/t}
+Календар
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+Відмінений
+
+{t}Canceled{/t}
+Відмінений
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Неможливо викликати proc_open. Убрати proc_open з disable_functions в php.ini та забороніти safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+Неможливо з’єднатися з базою %s на %s.
+
+{t}Cannot create preview for %s{/t}
+Неможливо утворити передперегляд для %s
+
+{t}Cannot read the file %s.{/t}
+Неможливо прочитати файл %s.
+
+{t}Cardinality{/t}
+Множина
+
+{t}Categories{/t}
+Категорії
+
+{t}Category{/t}
+Категорія
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+центровано
+
+{t}CEO{/t}
+CEO
+
+{t}Change request{/t}
+Змінити запит
+
+{t}Change settings{/t}
+Змінити установки
+
+{t}Change Setup settings{/t}
+Змінити Setup установки
+
+{t}Change summary{/t}
+Змінити підсумок
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+змінено запис
+
+{t}Changelog{/t}
+Лог змін
+
+{t}Chat{/t}
+Чат
+
+{t}Check DoS Attacks{/t}
+Перевірити атаку DoS
+
+{t}checked{/t}
+перевірено
+
+{t}Checked{/t}
+Перевірено
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+CIO
+
+{t}City{/t}
+Місто
+
+{t}Clean{/t}
+Відчистити
+
+{t}Clean Cache{/t}
+Відчистити кеш
+
+{t}Clear{/t}
+Відчистити
+
+{t}Clear Cache{/t}
+Відчистити кэш
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Клієнт
+
+{t}Close{/t}
+Закрити
+
+{t}Close session{/t}
+Закрити сесію
+
+{t}closed{/t}
+закрито
+
+{t}Closed{/t}
+Закрито
+
+{t}CMS{/t}
+CMS
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+Згорнути дерево
+
+{t}Color{/t}
+Колір
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Ім’я стовбчика
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Команда
+
+{t}Comment{/t}
+Коментарій
+
+{t}Comment files{/t}
+Файл коментаря
+
+{t}Companies{/t}
+Компанії
+
+{t}Company{/t}
+Компанія
+
+{t}Competition{/t}
+Конкуренція
+
+{t}Competitor{/t}
+Конкурент
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Завершено.
+
+{t}Component{/t}
+Компонент
+
+{t}Compress output{/t}
+Стиснути висновок
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+підтверджено
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Підключення до бази не вдалося.
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Консультант
+
+{t}Contact{/t}
+Контакт
+
+{t}Contact activities{/t}
+Активність контакту
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Контакт від
+
+{t}Contact groups{/t}
+Групи контактів
+
+{t}Contact id{/t}
+Id контакту
+
+{t}Contact person{/t}
+Персона контакту
+
+{t}Contact user by{/t}
+Контактуйте з користувачем через
+
+{t}Contacts{/t}
+Контакти
+
+{t}contains{/t}
+Включає
+
+{t}Content{/t}
+вміст
+
+{t}Continue{/t}
+Продовжити
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Копір
+
+{t}Copy{/t}
+Копіювати
+
+{t}Cost center{/t}
+Зведення цін
+
+{t}Costs of accommodation{/t}
+Вартість проживання
+
+{t}Could not determine database-version.{/t}
+Неможливо визначити версію баз даних.
+
+{t}Country{/t}
+Країна
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Утворене
+
+{t}Creating database failed.{/t}
+Не вдалося утворити базу даних
+
+{t}current path{/t}
+поточний шлях
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+Біографія
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+налаштування
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Вирізувати
+
+{t}daily{/t}
+щодня
+
+{t}Data{/t}
+Дані
+
+{t}Data free{/t}
+Вільні дані
+
+{t}Data length{/t}
+Розмір даних
+
+{t}Database{/t}
+База даних
+
+{t}Database Hostname / IP{/t}
+Database Hostname / IP
+
+{t}Database Name{/t}
+Database Name
+
+{t}Database Password{/t}
+Database Password
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Database status
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Database User
+
+{t}Database variables{/t}
+Database variables
+
+{t}Date{/t}
+Дата
+
+{t}Day{/t}
+День
+
+{t}Day begin{/t}
+Початок дня
+
+{t}Day end{/t}
+Кінець дня
+
+{t}days{/t}
+днів
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+Кінцевий строк
+
+{t}Debug{/t}
+Наладка
+
+{t}Debug-dir{/t}
+Debug-dir
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+Грудень
+
+{t}Declining balance{/t}
+Пониження балансу
+
+{t}Default{/t}
+за умовчанням
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Тема за умовчанням
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+визначення до списку визначень
+
+{t}Degree{/t}
+ступінь
+
+{t}Delete{/t}
+Знищити
+
+{t}Delete incl subfolders{/t}
+Знищити с підкаталогами
+
+{t}deleted{/t}
+знищено
+
+{t}deleted line{/t}
+запис знищено
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Запит
+
+{t}Demo{/t}
+Демо
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Відділ
+
+{t}Departments{/t}
+Відділи
+
+{t}Dependancies{/t}
+Залежності
+
+{t}Description{/t}
+Опис
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Настільний комп’ютер
+
+{t}Details{/t}
+Деталі
+
+{t}Device type{/t}
+Тип пристрою
+
+{t}Device types{/t}
+Типи пристроїв
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+каталог не існує.
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+каталог не в допустимому каталозі. (%s вне %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+Заборонити основну автентифікацію
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Показати
+
+{t}display filter{/t}
+фільтр виводу
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+displays
+
+{t}Distributor{/t}
+Дистриб’ютор
+
+{t}Distributors{/t}
+Дистриб’ютори
+
+{t}divorced{/t}
+розведений
+
+{t}Documentation{/t}
+Документація
+
+{t}Documentation index{/t}
+Індекс документації
+
+{t}Domain{/t}
+Область
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Вниз
+
+{t}Download{/t}
+Завантажити
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Список оновлення завантаження
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+дублювати
+
+{t}Duration{/t}
+Тривалість
+
+{t}E-mail{/t}
+E-mail
+
+{t}E-mail private{/t}
+Приватний E-mail
+
+{t}E-mail program{/t}
+E-mail програма
+
+{t}e.g.{/t}
+напр.
+
+{t}Edit{/t}
+Редагувати
+
+{t}Edit as new{/t}
+Редагувати як новий
+
+{t}Edit rights{/t}
+Редагувати права
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+Редактор
+
+{t}Emphasis{/t}
+Наголос
+
+{t}Empty{/t}
+Порожній
+
+{t}Empty folder{/t}
+Порожній каталог
+
+{t}en{/t}
+uk
+
+{t}Enable anonymous access{/t}
+Дозволити гостьовий доступ
+
+{t}Enable anonymous CMS{/t}
+Дозволити гостьовий CMS
+
+{t}Enable automatic user creation{/t}
+Дозволити автоматичне утворення користувачів
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Дозволити використовувати зовнішні почтові програми для mailto: посилань
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+Дозволити Sync4j / Funambol
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Кінець
+
+{t}engaged{/t}
+зайнятий
+
+{t}equal{/t}
+дорівнює
+
+{t}Error{/t}
+Помилка
+
+{t}Error doing request to xmlhttp{/t}
+Помилка запиту до xmlhttp
+
+{t}Error moving file{/t}
+Помилка переміщення файлу
+
+{t}Error pasting asset{/t}
+Помилка вставки розділу
+
+{t}Error: no credentials{/t}
+Помилка: нема мандату
+
+{t}Events{/t}
+Події
+
+{t}Example{/t}
+Приклад
+
+{t}Example contacts{/t}
+приклад контактів
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Приклад без монтування
+
+{t}Examples{/t}
+Приклади
+
+{t}Execute{/t}
+Виконати
+
+{t}Expenses{/t}
+Висновки
+
+{t}Experimental{/t}
+Експериментальний
+
+{t}Expires{/t}
+закінчилося
+
+{t}Expiry{/t}
+Закінчення
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Виділення файлів
+
+{t}F j{/t}
+j F
+
+{t}F j, Y{/t}
+j F, Y
+
+{t}Failed to create directory: %s{/t}
+Не вдалося утворити каталог: %s
+
+{t}Failed to write file to disk.{/t}
+Не вдалося записати файл на диск
+
+{t}Failed to write into %s{/t}
+Не вдалося записати в %s
+
+{t}Family status{/t}
+Сімейне положення
+
+{t}FAQ{/t}
+ЧАВО
+
+{t}Favorites{/t}
+вибране
+
+{t}Fax{/t}
+Факс
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Запит нових можливостей
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+Лютий
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+жіночій
+
+{t}Field{/t}
+Поле
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Файл
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+файл занадто великий. Змініть upload_max_filesize, post_max_size у вашому php.ini
+
+{t}file is too big. Please upload a smaller one.{/t}
+файл занадто великий. Виберіть менший файл.
+
+{t}File locked.{/t}
+Файл заблоковано.
+
+{t}file not found in database.{/t}
+файл не знайдений в базі даних.
+
+{t}file not found.{/t}
+файл не знайдений.
+
+{t}File unlocked.{/t}
+Файл розблоковано.
+
+{t}file was uploaded partially.{/t}
+файл завантажений частково.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Розширення файлу повинно бути вірним. Допустимі розширення %s
+
+{t}Files{/t}
+Файли
+
+{t}Filesystem{/t}
+Файлова система
+
+{t}Filter{/t}
+Фільтр
+
+{t}Find assets in multiple folders{/t}
+Знайти розділ у декількох каталогах
+
+{t}Finish scheduled{/t}
+Розклад завершено
+
+{t}Finished{/t}
+Завершено
+
+{t}First in list{/t}
+Перший у списку
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+Ім’я
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+улагоджено
+
+{t}Flags{/t}
+Прапорці
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Каталог
+
+{t}Folder already exists.{/t}
+Каталог вже існує.
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Створена структура каталогу.
+
+{t}Folder structure moved to trash.{/t}
+Структура каталогу переміщена у смітник.
+
+{t}Folder Type{/t}
+Тип каталогу
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Каталоги
+
+{t}for a new paragraph, use a blank line{/t}
+для нового абзацу, використовуйте порожній рядок
+
+{t}Force SSL{/t}
+Використати SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Форум
+
+{t}Forward{/t}
+Вперед
+
+{t}Fr{/t}
+Пт
+
+{t}Free/busy{/t}
+Вільний/зайнятий
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Пят
+
+{t}Friday{/t}
+П’ятниця
+
+{t}From{/t}
+Від
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+Повний текст
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+На всю ширину
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+Funambol працює лише з MySQL і PostgreSQL.
+
+{t}Function does not exist: %s{/t}
+Функція не існує: %s
+
+{t}g:i a{/t}
+H:i
+
+{t}Gender{/t}
+Пол
+
+{t}General{/t}
+Загальний
+
+{t}Generate{/t}
+Генерувати
+
+{t}Gifts{/t}
+Обдарованість
+
+{t}Give Feedback{/t}
+Зворотній зв’язок
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL Часті Запитання
+
+{t}greater than{/t}
+більше ніж
+
+{t}green{/t}
+зелений
+
+{t}Group{/t}
+Група
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Ім’я групи
+
+{t}Groups{/t}
+Групи
+
+{t}hanging text{/t}
+висячі рядки
+
+{t}Hardware{/t}
+Апаратура
+
+{t}Headers{/t}
+Заголовки
+
+{t}heading{/t}
+заголовок
+
+{t}headings{/t}
+заголовки
+
+{t}Height{/t}
+Висота
+
+{t}Help{/t}
+Довідка
+
+{t}Helpdesk{/t}
+Служба технічної підтримки
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+Історія
+
+{t}Holiday{/t}
+Свято
+
+{t}Home{/t}
+Дім
+
+{t}Home folder id{/t}
+
+
+{t}Home page in the CMS{/t}
+Домашня сторінка в CMS
+
+{t}Homepage{/t}
+Домашня сторінка
+
+{t}horizontal line{/t}
+горизонтальна лінія
+
+{t}Host{/t}
+Хост
+
+{t}Hosts{/t}
+Хости
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+Годин
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+документ HTML
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+http://www.pmwiki.org/PmWiki/
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+Я приймаю GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+ВСТАНОВИТИ
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Ідентифікатор
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id повинен бути непустим, в нижньому регістрі, мінімум 3 и максимум 128 символів [a-z0-9_-@.].
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id повинен бути непустим, мінімум 3 и максимум 128 символів [a-z0-9_@.].
+
+{t}Ideas{/t}
+Ідеї
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Якщо пусто, буде використовуватись SMTP з’єднання модуля.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+якщо не визначилось с namingContexts
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Якщо ім’я користувача або пароль включає &quot;@&quot;, замініть їх на &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Імпорт-Експорт
+
+{t}Image{/t}
+Малюнок
+
+{t}Images{/t}
+Зображення
+
+{t}Imap-error: %s{/t}
+Помилка IMAP: %s
+
+{t}immediate{/t}
+Невідкладно
+
+{t}Import{/t}
+Імпорт
+
+{t}In progress{/t}
+Виконується
+
+{t}in repair{/t}
+у відновленні
+
+{t}in stock{/t}
+в запасі
+
+{t}Inactive{/t}
+Неактивний
+
+{t}Include in RSS feed{/t}
+Include in RSS feed
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+текст з відступом
+
+{t}Index{/t}
+Індекс
+
+{t}Index length{/t}
+Довжина індексу
+
+{t}Index type{/t}
+Тип індексу
+
+{t}Indexes{/t}
+Індекси
+
+{t}Industry{/t}
+Промисловість
+
+{t}Info{/t}
+Інфо
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Вставити
+
+{t}inserted{/t}
+вставлено
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+недостатні права для каталогу
+
+{t}Internal recommendation{/t}
+Внутрішня рекомендація
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Інтро
+
+{t}invalid{/t}
+недійсний
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Інвентар
+
+{t}Inventory number{/t}
+Інвентарній номер
+
+{t}Investor{/t}
+Інвестор
+
+{t}Invoice{/t}
+Платіжка
+
+{t}italic{/t}
+курсив
+
+{t}Item created by %s at %s{/t}
+Об’єкт утворений %s от %s
+
+{t}Item deleted by %s at %s{/t}
+Об’єкт знищений %s от %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Об’єкт (%s) відредагований %s от %s
+
+{t}Item not found.{/t}
+Об’єкт не знайдений
+
+{t}Item successfully created.{/t}
+Об’єкт успішно утворений.
+
+{t}Item successfully updated.{/t}
+Об’єкт успішно змінено.
+
+{t}Item(s) not found or access denied.{/t}
+Об’єкт(и) не знайдено або у доступі відмовлено.
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+Січень
+
+{t}Job description{/t}
+Опис роботи
+
+{t}Join lines{/t}
+Об’єднати рядки
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+Липень
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+Червень
+
+{t}Key{/t}
+Ключ
+
+{t}Key customer{/t}
+Ключовий заказник
+
+{t}Key name{/t}
+Ім’я ключа
+
+{t}Keywords{/t}
+Ключові слова
+
+{t}Knowledge base{/t}
+База знань
+
+{t}L o g i n{/t}
+ВХІД
+
+{t}l, F j, Y{/t}
+l, j F, Y
+
+{t}Last access{/t}
+Останній доступ
+
+{t}Last name{/t}
+Прізвище
+
+{t}LDAP anonymous connection failed.{/t}
+LDAP гостьове з’єднання не вдалося
+
+{t}LDAP attribute for group memberships{/t}
+LDAP атрибут членства у групі
+
+{t}LDAP attribute for rooms{/t}
+LDAP атрибут простору
+
+{t}LDAP attribute for usernames{/t}
+LDAP атрибут імен користувачів
+
+{t}LDAP connection to host %s failed.{/t}
+LDAP з’єднання з хостом %s не вдалося.
+
+{t}LDAP without anonymous access{/t}
+LDAP без гостьового доступу
+
+{t}LDAP: no base DN given{/t}
+LDAP: не заданий DN
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+що менш обіцяє
+
+{t}lesser than{/t}
+менше ніж
+
+{t}Letter{/t}
+Лист
+
+{t}Level{/t}
+Рівень
+
+{t}License{/t}
+Ліцензія
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+Розрив рядка
+
+{t}Link{/t}
+Посилання
+
+{t}Link restricted{/t}
+Посилання обмежено
+
+{t}link text{/t}
+посилання на текст
+
+{t}link to external page{/t}
+посилання на зовнішню сторінку
+
+{t}link to internal page{/t}
+посилання на внутрішню сторінку
+
+{t}Links{/t}
+Посилання
+
+{t}Lists{/t}
+Списки
+
+{t}Load external images{/t}
+
+
+{t}Location{/t}
+Розташування
+
+{t}Locations{/t}
+Розташування
+
+{t}Lock{/t}
+Блокувати
+
+{t}Locked by{/t}
+Заблоковано
+
+{t}Locking{/t}
+Блокування
+
+{t}login %s from %s with %s{/t}
+вхід %s с %s с %s
+
+{t}Login failed from %s.{/t}
+Вхід невдалий с %s.
+
+{t}Login/-out{/t}
+Вхід/Вихід
+
+{t}Logins{/t}
+Сеанси
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+вийшов %s
+
+{t}Lookup{/t}
+Шукати
+
+{t}low{/t}
+низький
+
+{t}lowest{/t}
+самий низький
+
+{t}M j{/t}
+j M
+
+{t}M j, g:i a{/t}
+j M H:i
+
+{t}M j, Y{/t}
+j M, Y
+
+{t}m/d/Y{/t}
+d/m/Y
+
+{t}m/d/Y g:i a{/t}
+d/m/Y H:i
+
+{t}m/d/y g:i:s a{/t}
+d/m/y H:i:s
+
+{t}magenta{/t}
+пурпурний
+
+{t}mail footer{/t}
+підпис листа
+
+{t}Mail identities{/t}
+Списки розсилки
+
+{t}mail notification{/t}
+почтове повідомлення
+
+{t}mail reminder{/t}
+почтове нагадування
+
+{t}Main menu{/t}
+Головне меню
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Режим обслуговування
+
+{t}male{/t}
+чоловічий
+
+{t}Man-days{/t}
+Людино-днів
+
+{t}Man-days planned{/t}
+Людино-днів заплановано
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Менеджер
+
+{t}Manufacturer{/t}
+Виробник
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+Березень
+
+{t}Marketing event{/t}
+Продаж
+
+{t}married{/t}
+Одружений
+
+{t}Maximize{/t}
+Розвернути
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+перевищено максимальна кількість файлів
+
+{t}May{/t}
+Травень
+
+{t}Media{/t}
+Медіа
+
+{t}Meeting{/t}
+Зустріч
+
+{t}Members{/t}
+Члени
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+Приєднувати каталоги постійно
+
+{t}Merged folders{/t}
+Приєднані каталоги
+
+{t}Message{/t}
+Повідомлення
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+мін
+
+{t}Minimize{/t}
+Звернути
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+мінімум = 15 сек, 0 = заборонено
+
+{t}Miscellaneous{/t}
+Різне
+
+{t}missing a temporary folder.{/t}
+відсутній тимчасовий каталог.
+
+{t}missing field{/t}
+відсутнє поле
+
+{t}missing right: %s{/t}
+відсутні права: %s
+
+{t}Mo{/t}
+Пн
+
+{t}Mobile{/t}
+Мобільний
+
+{t}Model{/t}
+Модель
+
+{t}Modified{/t}
+Змінений
+
+{t}Modified by{/t}
+Modified by
+
+{t}Modifying database failed.{/t}
+Змінення бази даних не вдалося.
+
+{t}Module{/t}
+Модуль
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Модулі
+
+{t}Mon{/t}
+Пон
+
+{t}Monday{/t}
+Monday
+
+{t}monospace{/t}
+рівноширинний
+
+{t}Month{/t}
+Місяць
+
+{t}monthly{/t}
+щомісячно
+
+{t}months{/t}
+місяців
+
+{t}More information about the GNU GPL{/t}
+Детальніше про GNU GPL
+
+{t}Mountpoint{/t}
+Монтування
+
+{t}Move{/t}
+Перемістити
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+Мої призначені зустрічі
+
+{t}My tasks{/t}
+Мої завдання
+
+{t}Name{/t}
+Ім’я
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Ім’я повинно бути непустим, в нижньому регістрі, мінімум 3 и максимум 128 символів [a-z0-9_-@.].
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+Ім’я повинно бути непустим, мінімум 3 и максимум 128 символів [a-zA-Z0-9-_.].
+
+{t}need feedback{/t}
+потрібний зворотний зв’язок
+
+{t}Network{/t}
+Мережа
+
+{t}Never expires{/t}
+Ніколи не закінчується
+
+{t}New{/t}
+Новий
+
+{t}New folder{/t}
+Новий каталог
+
+{t}News{/t}
+Новини
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Видиме ім’я
+
+{t}Nightwork{/t}
+Нічна робота
+
+{t}no{/t}
+ні
+
+{t}No dataset selected.{/t}
+Дані не вибрані.
+
+{t}No entries found.{/t}
+Нічого не знайдено.
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+нема результату
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Не заданий відправник
+
+{t}no username submitted{/t}
+не задано ім’я користувача
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Не унікальний
+
+{t}none{/t}
+нема
+
+{t}normal{/t}
+нормальний
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Неможливо. Ввійдіть як адміністратор.
+
+{t}not contains{/t}
+не містить
+
+{t}not equal{/t}
+не рівний
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+Записничок
+
+{t}Notes{/t}
+Примітки
+
+{t}Notificaiton sent to: %s{/t}
+Повідомлення направлено до: %s
+
+{t}Notification{/t}
+сповіщення
+
+{t}Notification summary{/t}
+Підсумки повідомлень
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+Листопад
+
+{t}Null{/t}
+Недійсний
+
+{t}Number of employees{/t}
+Число робітників
+
+{t}numbered{/t}
+нумерований
+
+{t}Objectives{/t}
+Целі
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+Жовтень
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Офіс
+
+{t}Office program{/t}
+Офісна програма
+
+{t}Offices{/t}
+Офіси
+
+{t}offline{/t}
+не підключений
+
+{t}Offline folders{/t}
+Offline каталоги
+
+{t}Offline sync{/t}
+Offline синхронізація
+
+{t}Ok{/t}
+Ок
+
+{t}one of{/t}
+
+
+{t}online{/t}
+підключений
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Відкрити
+
+{t}Operating system{/t}
+Операційна система
+
+{t}Operation not allowed. (Data loss protection){/t}
+Операція не допустима. (Захист від втрати даних)
+
+{t}Optimize Tables{/t}
+Оптимізувати таблиці
+
+{t}Options{/t}
+Налаштування
+
+{t}or{/t}
+або
+
+{t}or higher{/t}
+або вище
+
+{t}orange{/t}
+рудий
+
+{t}Order size{/t}
+Розмір замовлення
+
+{t}Organisation{/t}
+Організація
+
+{t}Organizer{/t}
+Організатор
+
+{t}Origin{/t}
+Джерело
+
+{t}Original message{/t}
+Початкове повідомлення
+
+{t}Other{/t}
+Інший
+
+{t}out of office{/t}
+поза офісом
+
+{t}Outline image{/t}
+Контур малюнка
+
+{t}Output{/t}
+Висновок
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+перекриває
+
+{t}Overtime{/t}
+Понаднормовий час
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Власник
+
+{t}Owner since{/t}
+Власник с
+
+{t}Package from local file system (.tar.gz){/t}
+Пакет з локальної файлової системи (.tar.gz)
+
+{t}Packed{/t}
+Запакований
+
+{t}Page{/t}
+Сторінка
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+Ім’я сторінки (URL)
+
+{t}Page not found{/t}
+Сторінка не знайдена
+
+{t}Page title{/t}
+Титул сторінки
+
+{t}Pager{/t}
+Пэйджер
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+Абзаци
+
+{t}parameters{/t}
+параметри
+
+{t}Parameters{/t}
+Параметри
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Парсінг
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Учасники
+
+{t}Participants (external){/t}
+Учасники (зовнішнє)
+
+{t}Participants (internal){/t}
+Учасники (внутрішнє)
+
+{t}Password{/t}
+Пароль
+
+{t}Password expired. (password of %s has expired){/t}
+Строк дії пароля вийшов. (пароль %s застарілий)
+
+{t}Password expires{/t}
+Строк дії пароля вийшов
+
+{t}Password must be not null, min 5 characters.{/t}
+Пароль не повинен бути порожнім, и мінімум з 5 символів
+
+{t}password not confirmed.{/t}
+пароль не підтверджений
+
+{t}Passwords{/t}
+Паролі
+
+{t}Paste{/t}
+Вставити
+
+{t}Path{/t}
+Путь
+
+{t}Pause{/t}
+Пауза
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Дозвіл
+
+{t}Permissions added for: %s{/t}
+Дозволи додані до: %s
+
+{t}Personal{/t}
+Персональний
+
+{t}Personal department{/t}
+Персональний відділ
+
+{t}Personal folders{/t}
+Персональні каталоги
+
+{t}Personal projects{/t}
+Персональні проекти
+
+{t}Phone{/t}
+Телефон
+
+{t}Phone calls{/t}
+Телефонні дзвінки
+
+{t}Phone private{/t}
+Приватний телефон
+
+{t}Photo{/t}
+Фото
+
+{t}Photo gallery{/t}
+Фотогалерея
+
+{t}Planned{/t}
+Заплановано
+
+{t}Please activate cookies.{/t}
+Активуйте cookies.
+
+{t}Please choose Apache as Web-Server.{/t}
+Виберіть Apache в якості Web-сервера.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Введіть правильний url.
+
+{t}Please give read access to %s{/t}
+Надайте доступ на читання до %s
+
+{t}Please give write access to %s{/t}
+Дайте права на запис для %s
+
+{t}Please give write access to %s and %s{/t}
+Дайте права на запис для %s и %s
+
+{t}Please hit reload.{/t}
+Перезавантажить сторінку
+
+{t}Please input a valid e-mail adress.{/t}
+Введіть діючий e-mail
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Встановіть tsearch2 для PostgreSQL бази даних.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Змініть ваш php.ini або додайте .htaccess файл с змінами %s на %s (поточне значення %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Прочитайте ліцензійне узгодження. Використовуйте смугу прокрутки для перегляду всієї угоди.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+Виберіть учасника.
+
+{t}Please upload again.{/t}
+Завантажте знову.
+
+{t}Please wait ...{/t}
+Зачекайте...
+
+{t}Pop3-error: %s{/t}
+Помилка POP3: %s
+
+{t}Port{/t}
+Порт
+
+{t}Portal{/t}
+Портал
+
+{t}Position{/t}
+Позиція
+
+{t}Positions{/t}
+Позиції
+
+{t}Post{/t}
+Почтовий адрес
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+Попередньо форматований блок
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+Запобігти форматування
+
+{t}Preview{/t}
+Передперегляд
+
+{t}Price{/t}
+Прайс
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Друк
+
+{t}Print all{/t}
+Друкувати все
+
+{t}Printer{/t}
+Принтер
+
+{t}Priority{/t}
+Пріоритет
+
+{t}Problem{/t}
+Проблема
+
+{t}Processes{/t}
+Процеси
+
+{t}Processing %s ...{/t}
+Обробка %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Програма встановлена з мовою %s, використайте інше url або запустіть установку заново.
+
+{t}Progress{/t}
+Прогрес
+
+{t}Project{/t}
+Проект
+
+{t}Project files{/t}
+Файли проекту
+
+{t}Project tasks{/t}
+Задачі проекту
+
+{t}Projects{/t}
+Проекти
+
+{t}promising{/t}
+обіцяючий
+
+{t}Properties{/t}
+Властивості
+
+{t}Prospective client{/t}
+Очікуваний клієнт
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Сплачено
+
+{t}Question{/t}
+Питання
+
+{t}Queue{/t}
+Черга
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Квота
+
+{t}Quota (remaining){/t}
+Квота (залишалась)
+
+{t}Quota [MB]{/t}
+Квота [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Перевищена квота: %s
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Рейтинг
+
+{t}Read{/t}
+Читати
+
+{t}read access{/t}
+права на читання
+
+{t}Read access (groups){/t}
+Права на читання (групи)
+
+{t}Read access (users){/t}
+Права на читання (користувачі)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+готовий до відновлення
+
+{t}ready for scrap{/t}
+готовий до знищення
+
+{t}Real URL format in the CMS{/t}
+Реальний URL формат у CMS
+
+{t}Really apply rights to subfolders ?{/t}
+Дійсно примінити права до підкаталогів?
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Дійсно знищити?
+
+{t}REALLY delete ALL datasets ?{/t}
+Дійсно знищити ВСІ дані?
+
+{t}Really delete ALL subfolders ?{/t}
+Дійсно знищити ВСІ підкаталоги?
+
+{t}Really delete the dataset(s) ?{/t}
+Дійсно знищити дані?
+
+{t}Really empty the folder ?{/t}
+Дійсно очистити каталог?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Дійсно переписати існуючі дані?
+
+{t}Really run setup again ?{/t}
+Дійсно запустити установку заново?
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Перестроїти індекси
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Рекомендації до прийому
+
+{t}Recurrence{/t}
+Повернення
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+Червоний
+
+{t}Redirect to home directory{/t}
+Перейти на домашній каталог
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+Оновлювати кожних x секунд
+
+{t}Regular{/t}
+Регулярне
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+відкинуто
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Перезапустити установку
+
+{t}Relevance{/t}
+Доречність
+
+{t}Reminder{/t}
+Нагадування
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Перейменувати каталог
+
+{t}Repeat count{/t}
+Кількість повторів
+
+{t}Repeat exclusions{/t}
+Виключення повторів
+
+{t}Repeat interval{/t}
+Інтервал повтору
+
+{t}Repeat until{/t}
+Повторяти до
+
+{t}Reply{/t}
+Відповісти
+
+{t}Reply all{/t}
+Відповісти всім
+
+{t}Require admin access to set mountpoints{/t}
+Вимагається admin доступ до mountpoints
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Реселлер
+
+{t}reserved{/t}
+зарезервовано
+
+{t}Reset view{/t}
+Відновити вид
+
+{t}Resource{/t}
+Ресурс
+
+{t}Resources{/t}
+Ресурси
+
+{t}Responsible{/t}
+Відповідальний
+
+{t}Responsible (external){/t}
+Відповідальний (зовнішній)
+
+{t}Responsible (internal){/t}
+Відповідальний (внутрішній)
+
+{t}Restore complete{/t}
+Відновлення завершено
+
+{t}Restore here{/t}
+Відновити тут
+
+{t}Restore only missing{/t}
+Відновити тільки загублені
+
+{t}Restore only newer{/t}
+Відновити тільки нові
+
+{t}Restore to origin{/t}
+Відновити оригінал
+
+{t}Return receipt{/t}
+Повідомлення про вручення
+
+{t}right-aligned{/t}
+вирівняно праворуч
+
+{t}Rights{/t}
+Права
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Найменування приміщення
+
+{t}Room number{/t}
+Номер приміщення
+
+{t}Rooms{/t}
+Приміщення
+
+{t}Rows{/t}
+Строки
+
+{t}Run Setup again{/t}
+Запустіть установку заново
+
+{t}S a v e{/t}
+ЗБЕРЕГТИ
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+Зберегти і повернутися
+
+{t}Sa{/t}
+Сб
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Рух продаж
+
+{t}Sat{/t}
+Суб
+
+{t}Saturday{/t}
+Субота
+
+{t}Scheduling{/t}
+Складання розкладу
+
+{t}Schema{/t}
+Схема
+
+{t}Schema data{/t}
+Дані схеми
+
+{t}Schemafile not found. (%s){/t}
+Файл схеми не знайдено. (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+зламано
+
+{t}Search{/t}
+Пошук
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+Другий менеджер
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Секретар
+
+{t}Self registration{/t}
+Самореєстрація
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+Надіслане нагадування
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+Розділитель
+
+{t}September{/t}
+Вересень
+
+{t}Serial number{/t}
+Порядковий номер
+
+{t}Server{/t}
+Сервер
+
+{t}Server does not support sorting{/t}
+Сервер не підтримує сортування
+
+{t}Server-IP{/t}
+Сервер IP
+
+{t}Service provider{/t}
+Поставщик послуг
+
+{t}Session name in cookie{/t}
+Ім’я сесії у cookie
+
+{t}Session timeout{/t}
+Таймаут сесії
+
+{t}Sessions{/t}
+Сесії
+
+{t}Setup{/t}
+Установка
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Установка потребує database-php-extension ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Установка потребує php версії не нижче %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+Установка потребує розширення php %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Установка: дані записані в %s.
+
+{t}Shapes{/t}
+Обриси
+
+{t}Share{/t}
+Загальні ресурси
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+Показати
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Показати архів
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Показати текст в лапках
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+Прості таблиці
+
+{t}single{/t}
+одиночний
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Розмір
+
+{t}Size (children){/t}
+Розмір (потомки)
+
+{t}Slow{/t}
+Повільно
+
+{t}small{/t}
+малий
+
+{t}small text{/t}
+малий текст
+
+{t}smaller{/t}
+менше
+
+{t}SMTP not configured for %s{/t}
+SMTP не налаштований для %s
+
+{t}Smtp-error %s: %s{/t}
+Помилка SMTP: %s
+
+{t}Software{/t}
+Програмне забезпечення
+
+{t}Solution{/t}
+Рішення
+
+{t}Solution type{/t}
+Тип рішення
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+Вихідний код
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Специфікація
+
+{t}Spreadsheet{/t}
+Електронна таблиця
+
+{t}SQL failed.{/t}
+SQL не виконано.
+
+{t}SQL FAILED: %s{/t}
+SQL НЕ ВИКОНАНО: %s
+
+{t}Start scheduled{/t}
+Старт внесено в розклад
+
+{t}Started{/t}
+Запущено
+
+{t}starts with{/t}
+починається з
+
+{t}State{/t}
+Регіон
+
+{t}Static cache{/t}
+Статичний кеш
+
+{t}Statistics{/t}
+Статистика
+
+{t}Status{/t}
+Статус
+
+{t}Statuses{/t}
+Статуси
+
+{t}Strategies{/t}
+Стратегії
+
+{t}Street{/t}
+Вулиця
+
+{t}Structure{/t}
+Структура
+
+{t}Su{/t}
+Вс
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+підзаголовки
+
+{t}Subitem{/t}
+Підоб’єкт
+
+{t}Subject{/t}
+Тема
+
+{t}Subjects{/t}
+Теми
+
+{t}Submit a patch{/t}
+Вислати заплатку
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+підрядковий
+
+{t}Subsistence costs{/t}
+Прожиткова вартість
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Підсумок
+
+{t}Sun{/t}
+Нед
+
+{t}Sunday{/t}
+Неділя
+
+{t}Superior{/t}
+Начальник
+
+{t}superscript{/t}
+надрядковий
+
+{t}Supplier{/t}
+Поставщик
+
+{t}Suppliers{/t}
+Поставщики
+
+{t}Support{/t}
+Підтримка
+
+{t}Support request{/t}
+Запит на підтримку
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Призупинено
+
+{t}Switch maintenance mode{/t}
+Переключити режим обслуговування
+
+{t}Sync4j remote delete items{/t}
+Sync4j віддалене знищення
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+Система
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Таблиця
+
+{t}Table sizes{/t}
+Розмір таблиці
+
+{t}Table status{/t}
+Стан таблиці
+
+{t}Tables{/t}
+Таблиці
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+Задача
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+Шаблон
+
+{t}Templates{/t}
+Шаблони
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+строк
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Текстовий документ
+
+{t}Text formatting rules{/t}
+Правила форматування тексту
+
+{t}Th{/t}
+Чт
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+
+
+{t}The folder cannot be deleted.{/t}
+Каталог на може бути знищений
+
+{t}The folder cannot be moved.{/t}
+Каталог на може бути переміщений.
+
+{t}The new password is{/t}
+Новий пароль є
+
+{t}The url doesn't exist.{/t}
+url не існує
+
+{t}Theme{/t}
+Оформлення
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+дане розширення файлу недопустимо.
+
+{t}Thu{/t}
+Ні
+
+{t}Thursday{/t}
+Четвер
+
+{t}Time and expenses{/t}
+Час и затрати
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+Табель
+
+{t}Time zone{/t}
+Часовий пояс
+
+{t}timeout{/t}
+таймаут
+
+{t}Title{/t}
+Заголовок
+
+{t}To{/t}
+Кому
+
+{t}to be checked{/t}
+буде перевірено
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+для продовження інсталяції Simple Groupware ви повинні встановити прапорець під ліцензією
+
+{t}Today{/t}
+Сьогодні
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Занадто багато неправильних входжень. Чекайте 15 хвилин.
+
+{t}Total{/t}
+Всього
+
+{t}Trace{/t}
+Слід
+
+{t}Trade fair{/t}
+Ярмарок
+
+{t}translations{/t}
+переклади
+
+{t}Translations of the GNU GPL{/t}
+Переклади GNU GPL
+
+{t}Transportation costs{/t}
+Вартіст транспортування
+
+{t}Trash{/t}
+Корзина
+
+{t}Trash folder not found.{/t}
+Каталог-смітник не знайдено
+
+{t}Tree{/t}
+Дерево
+
+{t}Trigger failed{/t}
+Переключення тригеру не вдалося
+
+{t}Tu{/t}
+Вв
+
+{t}Tue{/t}
+Ввт
+
+{t}Tuesday{/t}
+Вівторок
+
+{t}Type{/t}
+Тип
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+Неможливо знайти %s
+
+{t}Unable to write to %s{/t}
+Неможливо записати в %s
+
+{t}unconfirmed{/t}
+непідтверджено
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+нецікавий
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Розблокувати
+
+{t}Up{/t}
+Уверх
+
+{t}Update{/t}
+Поновити
+
+{t}Update Simple Groupware{/t}
+Оновити Simple Groupware
+
+{t}Updated{/t}
+Поновлено
+
+{t}Updating schema %s from %s.{/t}
+Поновлення схеми %s з %s.
+
+{t}Upload failed{/t}
+Завантаження не вдалося
+
+{t}Uploaded files{/t}
+Завантажені файли
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+невідкладний
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Використання
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Використання бінарні файли Debian (Попередження: не найновіші версії)
+
+{t}Use LDAP Groups{/t}
+Використати Групи LDAP
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Використання функції mail() для відправки пошти (небезпечно)
+
+{t}User{/t}
+Використовувати
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Ім’я користувача
+
+{t}Username must be different from the super administrator.{/t}
+Ім’я користувача не повинно співпадати з адміністратором.
+
+{t}Users{/t}
+Користувачі
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Відпустка
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+перевірка невдала
+
+{t}Value{/t}
+Значення
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Змінна
+
+{t}Variable already exists in table. (%s){/t}
+Змінна уже існує в таблиці. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Змінна повинна бути типу (дати (dd/mm/yyyy).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Змінна повинна бути типу дати-часу (dd/mm/yyyy HH:mm).
+
+{t}Variable must be of type float.{/t}
+Змінна повинна бути дійсного типу.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Змінна повинна бути цілого типу и більше 0.
+
+{t}Variable must be of type int.{/t}
+Змінна повинна бути цілого типу.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Змінна повинна бути типу часу (hh:mm am/pm).
+
+{t}Variables{/t}
+Змінні
+
+{t}Verbal recommendation{/t}
+усні рекомендації
+
+{t}verified{/t}
+перевірений
+
+{t}vertical{/t}
+вертикальний
+
+{t}very promising{/t}
+багатообіцяючий
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+Сканер вирусів
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Голосова пошта
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+Очікування
+
+{t}Warning{/t}
+Попередження
+
+{t}We{/t}
+Ср
+
+{t}Web{/t}
+Веб
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Сер
+
+{t}Wednesday{/t}
+Середа
+
+{t}Week{/t}
+Тиждень
+
+{t}Week start{/t}
+Початок тижня
+
+{t}Weekend{/t}
+Вихідні
+
+{t}weekly{/t}
+щотижня
+
+{t}weeks{/t}
+тижнів
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+білий
+
+{t}widowed{/t}
+одинокий
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Вікі
+
+{t}WikiStyles{/t}
+WikiStyles
+
+{t}won't fix{/t}
+
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+робота як очікувалось
+
+{t}works for me{/t}
+робота для мене
+
+{t}Workshop{/t}
+Робоча площадка
+
+{t}Workspace{/t}
+Робоче місце
+
+{t}write access{/t}
+доступ на запис
+
+{t}Write access (groups){/t}
+Доступ на запис (групи)
+
+{t}Write access (users){/t}
+Доступ на запис (користувачі)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Невірний номер версії бази даних (%s). Використовуйте версію не нижче %s !
+
+{t}wrong directory{/t}
+невірний каталог
+
+{t}wrong password{/t}
+невірний пароль
+
+{t}Year{/t}
+Рік
+
+{t}yearly{/t}
+щорічно
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+жовтий
+
+{t}yes{/t}
+так
+
+{t}You are not allowed to view this folder.{/t}
+Вам не дозволено проглядати цей каталог.
+
+{t}Your message was read on %s.{/t}
+Ваше повідомлення було прочитано %s.
+
+{t}Your session has timed out.{/t}
+Час вашої сесії вичерпаний.
+
+{t}Zipcode{/t}
+Zip код
+
+{t}{0} - {1} of {2}{/t}
+
+

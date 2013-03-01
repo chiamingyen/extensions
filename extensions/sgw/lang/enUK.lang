@@ -1,0 +1,3546 @@
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2002-2011 Thomas Bley
+
+{t}!_Language{/t}
+English (United Kingdom)
+
+{t}%s is not activated{/t}
+
+
+{t}%s is not compiled / loaded into PHP.{/t}
+
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+
+
+{t}%s rows affected{/t}
+
+
+{t}%s secs{/t}
+
+
+{t}%s started editing this asset at %s{/t}
+
+
+{t}(for active directory username must be: username@domain){/t}
+
+
+{t}(un)Group{/t}
+
+
+{t}About{/t}
+
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+
+
+{t}Access denied.{/t}
+
+
+{t}Access to this file has been denied.{/t}
+
+
+{t}Account{/t}
+
+
+{t}account of %s has expired{/t}
+
+
+{t}Accounting{/t}
+
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+
+
+{t}active{/t}
+
+
+{t}Active{/t}
+
+
+{t}Ad{/t}
+
+
+{t}Add{/t}
+
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+
+
+{t}added line{/t}
+
+
+{t}Address{/t}
+
+
+{t}admin access{/t}
+
+
+{t}Admin access (groups){/t}
+
+
+{t}Admin access (users){/t}
+
+
+{t}Admin Password{/t}
+
+
+{t}Admin Username{/t}
+
+
+{t}Administration{/t}
+
+
+{t}Advanced tables{/t}
+
+
+{t}Affected user{/t}
+
+
+{t}Affiliate{/t}
+
+
+{t}after{/t}
+
+
+{t}Agent{/t}
+
+
+{t}Ajax Error{/t}
+
+
+{t}All{/t}
+
+
+{t}All day{/t}
+
+
+{t}All events{/t}
+
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+
+
+{t}Anchor{/t}
+
+
+{t}and{/t}
+
+
+{t}Anniversary{/t}
+
+
+{t}another page{/t}
+
+
+{t}answered{/t}
+
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+
+
+{t}Application title{/t}
+
+
+{t}Apply rights to subfolders{/t}
+
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+
+
+{t}Assets{/t}
+
+
+{t}Assets (children){/t}
+
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+
+
+{t}Attachment{/t}
+
+
+{t}Attachments{/t}
+
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+
+
+{t}Authentication Mode{/t}
+
+
+{t}Author{/t}
+
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+
+
+{t}Back{/t}
+
+
+{t}Backup{/t}
+
+
+{t}Backup current folder{/t}
+
+
+{t}Backups{/t}
+
+
+{t}Basic editing{/t}
+
+
+{t}before{/t}
+
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+
+
+{t}big{/t}
+
+
+{t}big text{/t}
+
+
+{t}bigger{/t}
+
+
+{t}Billing address{/t}
+
+
+{t}Birthday{/t}
+
+
+{t}Birthdays{/t}
+
+
+{t}Blank{/t}
+
+
+{t}blue{/t}
+
+
+{t}bold{/t}
+
+
+{t}bold italic{/t}
+
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+
+
+{t}Booked{/t}
+
+
+{t}Booking number{/t}
+
+
+{t}Bookings{/t}
+
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+
+
+{t}borrowed{/t}
+
+
+{t}Brand{/t}
+
+
+{t}Brands{/t}
+
+
+{t}Browser Compatibility{/t}
+
+
+{t}Browser not supported{/t}
+
+
+{t}Budget{/t}
+
+
+{t}Bug{/t}
+
+
+{t}bulleted{/t}
+
+
+{t}Business{/t}
+
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+
+
+{t}Cache output{/t}
+
+
+{t}Caches{/t}
+
+
+{t}Calendar{/t}
+
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+
+
+{t}Canceled{/t}
+
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+
+
+{t}Cannot connect to database %s on %s.{/t}
+
+
+{t}Cannot create preview for %s{/t}
+
+
+{t}Cannot read the file %s.{/t}
+
+
+{t}Cardinality{/t}
+
+
+{t}Categories{/t}
+
+
+{t}Category{/t}
+
+
+{t}Cc{/t}
+
+
+{t}centered{/t}
+
+
+{t}CEO{/t}
+
+
+{t}Change request{/t}
+
+
+{t}Change settings{/t}
+
+
+{t}Change Setup settings{/t}
+
+
+{t}Change summary{/t}
+
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+
+
+{t}Changelog{/t}
+
+
+{t}Chat{/t}
+
+
+{t}Check DoS Attacks{/t}
+
+
+{t}checked{/t}
+
+
+{t}Checked{/t}
+
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+
+
+{t}City{/t}
+
+
+{t}Clean{/t}
+
+
+{t}Clean Cache{/t}
+
+
+{t}Clear{/t}
+
+
+{t}Clear Cache{/t}
+
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+
+
+{t}Close{/t}
+
+
+{t}Close session{/t}
+
+
+{t}closed{/t}
+
+
+{t}Closed{/t}
+
+
+{t}CMS{/t}
+
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+
+
+{t}Color{/t}
+
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+
+
+{t}Comment{/t}
+
+
+{t}Comment files{/t}
+
+
+{t}Companies{/t}
+
+
+{t}Company{/t}
+
+
+{t}Competition{/t}
+
+
+{t}Competitor{/t}
+
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+
+
+{t}Component{/t}
+
+
+{t}Compress output{/t}
+
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+
+
+{t}Contact{/t}
+
+
+{t}Contact activities{/t}
+
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+
+
+{t}Contact groups{/t}
+
+
+{t}Contact id{/t}
+
+
+{t}Contact person{/t}
+
+
+{t}Contact user by{/t}
+
+
+{t}Contacts{/t}
+
+
+{t}contains{/t}
+
+
+{t}Content{/t}
+
+
+{t}Continue{/t}
+
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+
+
+{t}Copy{/t}
+
+
+{t}Cost center{/t}
+
+
+{t}Costs of accommodation{/t}
+
+
+{t}Could not determine database-version.{/t}
+
+
+{t}Country{/t}
+
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+
+
+{t}Creating database failed.{/t}
+
+
+{t}current path{/t}
+
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+
+
+{t}daily{/t}
+
+
+{t}Data{/t}
+
+
+{t}Data free{/t}
+
+
+{t}Data length{/t}
+
+
+{t}Database{/t}
+
+
+{t}Database Hostname / IP{/t}
+
+
+{t}Database Name{/t}
+
+
+{t}Database Password{/t}
+
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+
+
+{t}Database variables{/t}
+
+
+{t}Date{/t}
+
+
+{t}Day{/t}
+
+
+{t}Day begin{/t}
+
+
+{t}Day end{/t}
+
+
+{t}days{/t}
+
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+
+
+{t}Debug{/t}
+
+
+{t}Debug-dir{/t}
+
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+
+
+{t}Declining balance{/t}
+
+
+{t}Default{/t}
+
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+
+
+{t}Degree{/t}
+
+
+{t}Delete{/t}
+
+
+{t}Delete incl subfolders{/t}
+
+
+{t}deleted{/t}
+
+
+{t}deleted line{/t}
+
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+
+
+{t}Demo{/t}
+
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+
+
+{t}Departments{/t}
+
+
+{t}Dependancies{/t}
+
+
+{t}Description{/t}
+
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+
+
+{t}Details{/t}
+
+
+{t}Device type{/t}
+
+
+{t}Device types{/t}
+
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+
+
+{t}display filter{/t}
+
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+
+
+{t}Distributor{/t}
+
+
+{t}Distributors{/t}
+
+
+{t}divorced{/t}
+
+
+{t}Documentation{/t}
+
+
+{t}Documentation index{/t}
+
+
+{t}Domain{/t}
+
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+
+
+{t}Download{/t}
+
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+
+
+{t}Duration{/t}
+
+
+{t}E-mail{/t}
+
+
+{t}E-mail private{/t}
+
+
+{t}E-mail program{/t}
+
+
+{t}e.g.{/t}
+
+
+{t}Edit{/t}
+
+
+{t}Edit as new{/t}
+
+
+{t}Edit rights{/t}
+
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+
+
+{t}Emphasis{/t}
+
+
+{t}Empty{/t}
+
+
+{t}Empty folder{/t}
+
+
+{t}en{/t}
+enUK
+
+{t}Enable anonymous access{/t}
+
+
+{t}Enable anonymous CMS{/t}
+
+
+{t}Enable automatic user creation{/t}
+
+
+{t}Enable external mail client for 'mailto:' links{/t}
+
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+
+
+{t}engaged{/t}
+
+
+{t}equal{/t}
+
+
+{t}Error{/t}
+
+
+{t}Error doing request to xmlhttp{/t}
+
+
+{t}Error moving file{/t}
+
+
+{t}Error pasting asset{/t}
+
+
+{t}Error: no credentials{/t}
+
+
+{t}Events{/t}
+
+
+{t}Example{/t}
+
+
+{t}Example contacts{/t}
+
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+
+
+{t}Examples{/t}
+
+
+{t}Execute{/t}
+
+
+{t}Expenses{/t}
+
+
+{t}Experimental{/t}
+
+
+{t}Expires{/t}
+
+
+{t}Expiry{/t}
+
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+
+
+{t}F j{/t}
+j F
+
+{t}F j, Y{/t}
+j F Y
+
+{t}Failed to create directory: %s{/t}
+
+
+{t}Failed to write file to disk.{/t}
+
+
+{t}Failed to write into %s{/t}
+
+
+{t}Family status{/t}
+
+
+{t}FAQ{/t}
+
+
+{t}Favorites{/t}
+
+
+{t}Fax{/t}
+
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+
+
+{t}Field{/t}
+
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+
+
+{t}file is too big. Please upload a smaller one.{/t}
+
+
+{t}File locked.{/t}
+
+
+{t}file not found in database.{/t}
+
+
+{t}file not found.{/t}
+
+
+{t}File unlocked.{/t}
+
+
+{t}file was uploaded partially.{/t}
+
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+
+
+{t}Files{/t}
+
+
+{t}Filesystem{/t}
+
+
+{t}Filter{/t}
+
+
+{t}Find assets in multiple folders{/t}
+
+
+{t}Finish scheduled{/t}
+
+
+{t}Finished{/t}
+
+
+{t}First in list{/t}
+
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+
+
+{t}Flags{/t}
+
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+
+
+{t}Folder already exists.{/t}
+
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+
+
+{t}Folder structure moved to trash.{/t}
+
+
+{t}Folder Type{/t}
+
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+
+
+{t}for a new paragraph, use a blank line{/t}
+
+
+{t}Force SSL{/t}
+
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+
+
+{t}Forward{/t}
+
+
+{t}Fr{/t}
+
+
+{t}Free/busy{/t}
+
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+
+
+{t}Friday{/t}
+
+
+{t}From{/t}
+
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+
+
+{t}Function does not exist: %s{/t}
+
+
+{t}g:i a{/t}
+
+
+{t}Gender{/t}
+
+
+{t}General{/t}
+
+
+{t}Generate{/t}
+
+
+{t}Gifts{/t}
+
+
+{t}Give Feedback{/t}
+
+
+{t}GNU GPL Frequently Asked Questions{/t}
+
+
+{t}greater than{/t}
+
+
+{t}green{/t}
+
+
+{t}Group{/t}
+
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+
+
+{t}Groups{/t}
+
+
+{t}hanging text{/t}
+
+
+{t}Hardware{/t}
+
+
+{t}Headers{/t}
+
+
+{t}heading{/t}
+
+
+{t}headings{/t}
+
+
+{t}Height{/t}
+
+
+{t}Help{/t}
+
+
+{t}Helpdesk{/t}
+
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+
+
+{t}Holiday{/t}
+
+
+{t}Home{/t}
+
+
+{t}Home folder id{/t}
+
+
+{t}Home page in the CMS{/t}
+
+
+{t}Homepage{/t}
+
+
+{t}horizontal line{/t}
+
+
+{t}Host{/t}
+
+
+{t}Hosts{/t}
+
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Ideas{/t}
+
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+
+
+{t}Image{/t}
+
+
+{t}Images{/t}
+
+
+{t}Imap-error: %s{/t}
+
+
+{t}immediate{/t}
+
+
+{t}Import{/t}
+
+
+{t}In progress{/t}
+
+
+{t}in repair{/t}
+
+
+{t}in stock{/t}
+
+
+{t}Inactive{/t}
+
+
+{t}Include in RSS feed{/t}
+
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+
+
+{t}Index{/t}
+
+
+{t}Index length{/t}
+
+
+{t}Index type{/t}
+
+
+{t}Indexes{/t}
+
+
+{t}Industry{/t}
+
+
+{t}Info{/t}
+
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+
+
+{t}inserted{/t}
+
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+
+
+{t}Internal recommendation{/t}
+
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+
+
+{t}invalid{/t}
+
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+
+
+{t}Inventory number{/t}
+
+
+{t}Investor{/t}
+
+
+{t}Invoice{/t}
+
+
+{t}italic{/t}
+
+
+{t}Item created by %s at %s{/t}
+
+
+{t}Item deleted by %s at %s{/t}
+
+
+{t}Item edited (%s) by %s at %s{/t}
+
+
+{t}Item not found.{/t}
+
+
+{t}Item successfully created.{/t}
+
+
+{t}Item successfully updated.{/t}
+
+
+{t}Item(s) not found or access denied.{/t}
+
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+
+
+{t}Job description{/t}
+
+
+{t}Join lines{/t}
+
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+
+
+{t}Key{/t}
+
+
+{t}Key customer{/t}
+
+
+{t}Key name{/t}
+
+
+{t}Keywords{/t}
+
+
+{t}Knowledge base{/t}
+
+
+{t}L o g i n{/t}
+
+
+{t}l, F j, Y{/t}
+l, j F Y
+
+{t}Last access{/t}
+
+
+{t}Last name{/t}
+
+
+{t}LDAP anonymous connection failed.{/t}
+
+
+{t}LDAP attribute for group memberships{/t}
+
+
+{t}LDAP attribute for rooms{/t}
+
+
+{t}LDAP attribute for usernames{/t}
+
+
+{t}LDAP connection to host %s failed.{/t}
+
+
+{t}LDAP without anonymous access{/t}
+
+
+{t}LDAP: no base DN given{/t}
+
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+
+
+{t}lesser than{/t}
+
+
+{t}Letter{/t}
+
+
+{t}Level{/t}
+
+
+{t}License{/t}
+
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+
+
+{t}Link{/t}
+
+
+{t}Link restricted{/t}
+
+
+{t}link text{/t}
+
+
+{t}link to external page{/t}
+
+
+{t}link to internal page{/t}
+
+
+{t}Links{/t}
+
+
+{t}Lists{/t}
+
+
+{t}Load external images{/t}
+
+
+{t}Location{/t}
+
+
+{t}Locations{/t}
+
+
+{t}Lock{/t}
+
+
+{t}Locked by{/t}
+
+
+{t}Locking{/t}
+
+
+{t}login %s from %s with %s{/t}
+
+
+{t}Login failed from %s.{/t}
+
+
+{t}Login/-out{/t}
+
+
+{t}Logins{/t}
+
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+
+
+{t}Lookup{/t}
+
+
+{t}low{/t}
+
+
+{t}lowest{/t}
+
+
+{t}M j{/t}
+j M
+
+{t}M j, g:i a{/t}
+j M, g:i a
+
+{t}M j, Y{/t}
+j M Y
+
+{t}m/d/Y{/t}
+d/m/Y
+
+{t}m/d/Y g:i a{/t}
+d/m/Y g:i a
+
+{t}m/d/y g:i:s a{/t}
+d/m/y g:i:s a
+
+{t}magenta{/t}
+
+
+{t}mail footer{/t}
+
+
+{t}Mail identities{/t}
+
+
+{t}mail notification{/t}
+
+
+{t}mail reminder{/t}
+
+
+{t}Main menu{/t}
+
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+
+
+{t}male{/t}
+
+
+{t}Man-days{/t}
+
+
+{t}Man-days planned{/t}
+
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+
+
+{t}Manufacturer{/t}
+
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+
+
+{t}Marketing event{/t}
+
+
+{t}married{/t}
+
+
+{t}Maximize{/t}
+
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+
+
+{t}May{/t}
+
+
+{t}Media{/t}
+
+
+{t}Meeting{/t}
+
+
+{t}Members{/t}
+
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+
+
+{t}Merged folders{/t}
+
+
+{t}Message{/t}
+
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+
+
+{t}Minimize{/t}
+
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+
+
+{t}Miscellaneous{/t}
+
+
+{t}missing a temporary folder.{/t}
+
+
+{t}missing field{/t}
+
+
+{t}missing right: %s{/t}
+
+
+{t}Mo{/t}
+
+
+{t}Mobile{/t}
+
+
+{t}Model{/t}
+
+
+{t}Modified{/t}
+
+
+{t}Modified by{/t}
+
+
+{t}Modifying database failed.{/t}
+
+
+{t}Module{/t}
+
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+
+
+{t}Mon{/t}
+
+
+{t}Monday{/t}
+
+
+{t}monospace{/t}
+
+
+{t}Month{/t}
+
+
+{t}monthly{/t}
+
+
+{t}months{/t}
+
+
+{t}More information about the GNU GPL{/t}
+
+
+{t}Mountpoint{/t}
+
+
+{t}Move{/t}
+
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+
+
+{t}My tasks{/t}
+
+
+{t}Name{/t}
+
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+
+
+{t}need feedback{/t}
+
+
+{t}Network{/t}
+
+
+{t}Never expires{/t}
+
+
+{t}New{/t}
+
+
+{t}New folder{/t}
+
+
+{t}News{/t}
+
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+
+
+{t}Nightwork{/t}
+
+
+{t}no{/t}
+
+
+{t}No dataset selected.{/t}
+
+
+{t}No entries found.{/t}
+
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+
+
+{t}no username submitted{/t}
+
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+
+
+{t}none{/t}
+
+
+{t}normal{/t}
+
+
+{t}Not allowed. Please log in as super administrator.{/t}
+
+
+{t}not contains{/t}
+
+
+{t}not equal{/t}
+
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+
+
+{t}Notes{/t}
+
+
+{t}Notificaiton sent to: %s{/t}
+
+
+{t}Notification{/t}
+
+
+{t}Notification summary{/t}
+
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+
+
+{t}Null{/t}
+
+
+{t}Number of employees{/t}
+
+
+{t}numbered{/t}
+
+
+{t}Objectives{/t}
+
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+
+
+{t}Office program{/t}
+
+
+{t}Offices{/t}
+
+
+{t}offline{/t}
+
+
+{t}Offline folders{/t}
+
+
+{t}Offline sync{/t}
+
+
+{t}Ok{/t}
+
+
+{t}one of{/t}
+
+
+{t}online{/t}
+
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+
+
+{t}Operating system{/t}
+
+
+{t}Operation not allowed. (Data loss protection){/t}
+
+
+{t}Optimize Tables{/t}
+
+
+{t}Options{/t}
+
+
+{t}or{/t}
+
+
+{t}or higher{/t}
+
+
+{t}orange{/t}
+
+
+{t}Order size{/t}
+
+
+{t}Organisation{/t}
+
+
+{t}Organizer{/t}
+
+
+{t}Origin{/t}
+
+
+{t}Original message{/t}
+
+
+{t}Other{/t}
+
+
+{t}out of office{/t}
+
+
+{t}Outline image{/t}
+
+
+{t}Output{/t}
+
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+
+
+{t}Overtime{/t}
+
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+
+
+{t}Owner since{/t}
+
+
+{t}Package from local file system (.tar.gz){/t}
+
+
+{t}Packed{/t}
+
+
+{t}Page{/t}
+
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+
+
+{t}Page not found{/t}
+
+
+{t}Page title{/t}
+
+
+{t}Pager{/t}
+
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+
+
+{t}parameters{/t}
+
+
+{t}Parameters{/t}
+
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+
+
+{t}Participants (external){/t}
+
+
+{t}Participants (internal){/t}
+
+
+{t}Password{/t}
+
+
+{t}Password expired. (password of %s has expired){/t}
+
+
+{t}Password expires{/t}
+
+
+{t}Password must be not null, min 5 characters.{/t}
+
+
+{t}password not confirmed.{/t}
+
+
+{t}Passwords{/t}
+
+
+{t}Paste{/t}
+
+
+{t}Path{/t}
+
+
+{t}Pause{/t}
+
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+
+
+{t}Permissions added for: %s{/t}
+
+
+{t}Personal{/t}
+
+
+{t}Personal department{/t}
+
+
+{t}Personal folders{/t}
+
+
+{t}Personal projects{/t}
+
+
+{t}Phone{/t}
+
+
+{t}Phone calls{/t}
+
+
+{t}Phone private{/t}
+
+
+{t}Photo{/t}
+
+
+{t}Photo gallery{/t}
+
+
+{t}Planned{/t}
+
+
+{t}Please activate cookies.{/t}
+
+
+{t}Please choose Apache as Web-Server.{/t}
+
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+
+
+{t}Please give read access to %s{/t}
+
+
+{t}Please give write access to %s{/t}
+
+
+{t}Please give write access to %s and %s{/t}
+
+
+{t}Please hit reload.{/t}
+
+
+{t}Please input a valid e-mail adress.{/t}
+
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+
+
+{t}Please upload again.{/t}
+
+
+{t}Please wait ...{/t}
+
+
+{t}Pop3-error: %s{/t}
+
+
+{t}Port{/t}
+
+
+{t}Portal{/t}
+
+
+{t}Position{/t}
+
+
+{t}Positions{/t}
+
+
+{t}Post{/t}
+
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+
+
+{t}Preview{/t}
+
+
+{t}Price{/t}
+
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+
+
+{t}Print all{/t}
+
+
+{t}Printer{/t}
+
+
+{t}Priority{/t}
+
+
+{t}Problem{/t}
+
+
+{t}Processes{/t}
+
+
+{t}Processing %s ...{/t}
+
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+
+
+{t}Progress{/t}
+
+
+{t}Project{/t}
+
+
+{t}Project files{/t}
+
+
+{t}Project tasks{/t}
+
+
+{t}Projects{/t}
+
+
+{t}promising{/t}
+
+
+{t}Properties{/t}
+
+
+{t}Prospective client{/t}
+
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+
+
+{t}Question{/t}
+
+
+{t}Queue{/t}
+
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+
+
+{t}Quota (remaining){/t}
+
+
+{t}Quota [MB]{/t}
+
+
+{t}Quota limitation exceeded: %s{/t}
+
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+
+
+{t}Read{/t}
+
+
+{t}read access{/t}
+
+
+{t}Read access (groups){/t}
+
+
+{t}Read access (users){/t}
+
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+
+
+{t}ready for scrap{/t}
+
+
+{t}Real URL format in the CMS{/t}
+
+
+{t}Really apply rights to subfolders ?{/t}
+
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+
+
+{t}REALLY delete ALL datasets ?{/t}
+
+
+{t}Really delete ALL subfolders ?{/t}
+
+
+{t}Really delete the dataset(s) ?{/t}
+
+
+{t}Really empty the folder ?{/t}
+
+
+{t}Really overwrite existing dataset(s) ?{/t}
+
+
+{t}Really run setup again ?{/t}
+
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+
+
+{t}Recurrence{/t}
+
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+
+
+{t}Redirect to home directory{/t}
+
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+
+
+{t}Regular{/t}
+
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+
+
+{t}Relevance{/t}
+
+
+{t}Reminder{/t}
+
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+
+
+{t}Repeat count{/t}
+
+
+{t}Repeat exclusions{/t}
+
+
+{t}Repeat interval{/t}
+
+
+{t}Repeat until{/t}
+
+
+{t}Reply{/t}
+
+
+{t}Reply all{/t}
+
+
+{t}Require admin access to set mountpoints{/t}
+
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+
+
+{t}reserved{/t}
+
+
+{t}Reset view{/t}
+
+
+{t}Resource{/t}
+
+
+{t}Resources{/t}
+
+
+{t}Responsible{/t}
+
+
+{t}Responsible (external){/t}
+
+
+{t}Responsible (internal){/t}
+
+
+{t}Restore complete{/t}
+
+
+{t}Restore here{/t}
+
+
+{t}Restore only missing{/t}
+
+
+{t}Restore only newer{/t}
+
+
+{t}Restore to origin{/t}
+
+
+{t}Return receipt{/t}
+
+
+{t}right-aligned{/t}
+
+
+{t}Rights{/t}
+
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+
+
+{t}Room number{/t}
+
+
+{t}Rooms{/t}
+
+
+{t}Rows{/t}
+
+
+{t}Run Setup again{/t}
+
+
+{t}S a v e{/t}
+
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+
+
+{t}Sa{/t}
+
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+
+
+{t}Sat{/t}
+
+
+{t}Saturday{/t}
+
+
+{t}Scheduling{/t}
+
+
+{t}Schema{/t}
+
+
+{t}Schema data{/t}
+
+
+{t}Schemafile not found. (%s){/t}
+
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+
+
+{t}Search{/t}
+
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+
+
+{t}Self registration{/t}
+
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+
+
+{t}September{/t}
+
+
+{t}Serial number{/t}
+
+
+{t}Server{/t}
+
+
+{t}Server does not support sorting{/t}
+
+
+{t}Server-IP{/t}
+
+
+{t}Service provider{/t}
+
+
+{t}Session name in cookie{/t}
+
+
+{t}Session timeout{/t}
+
+
+{t}Sessions{/t}
+
+
+{t}Setup{/t}
+
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+
+
+{t}Setup needs php with at least version %s !{/t}
+
+
+{t}Setup needs php-extension with name %s !{/t}
+
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+
+
+{t}Shapes{/t}
+
+
+{t}Share{/t}
+
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+
+
+{t}single{/t}
+
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+
+
+{t}Size (children){/t}
+
+
+{t}Slow{/t}
+
+
+{t}small{/t}
+
+
+{t}small text{/t}
+
+
+{t}smaller{/t}
+
+
+{t}SMTP not configured for %s{/t}
+
+
+{t}Smtp-error %s: %s{/t}
+
+
+{t}Software{/t}
+
+
+{t}Solution{/t}
+
+
+{t}Solution type{/t}
+
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+
+
+{t}Spreadsheet{/t}
+
+
+{t}SQL failed.{/t}
+
+
+{t}SQL FAILED: %s{/t}
+
+
+{t}Start scheduled{/t}
+
+
+{t}Started{/t}
+
+
+{t}starts with{/t}
+
+
+{t}State{/t}
+
+
+{t}Static cache{/t}
+
+
+{t}Statistics{/t}
+
+
+{t}Status{/t}
+
+
+{t}Statuses{/t}
+
+
+{t}Strategies{/t}
+
+
+{t}Street{/t}
+
+
+{t}Structure{/t}
+
+
+{t}Su{/t}
+
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+
+
+{t}Subitem{/t}
+
+
+{t}Subject{/t}
+
+
+{t}Subjects{/t}
+
+
+{t}Submit a patch{/t}
+
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+
+
+{t}Subsistence costs{/t}
+
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+
+
+{t}Sun{/t}
+
+
+{t}Sunday{/t}
+
+
+{t}Superior{/t}
+
+
+{t}superscript{/t}
+
+
+{t}Supplier{/t}
+
+
+{t}Suppliers{/t}
+
+
+{t}Support{/t}
+
+
+{t}Support request{/t}
+
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+
+
+{t}Switch maintenance mode{/t}
+
+
+{t}Sync4j remote delete items{/t}
+
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+
+
+{t}Table sizes{/t}
+
+
+{t}Table status{/t}
+
+
+{t}Tables{/t}
+
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+
+
+{t}Templates{/t}
+
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+
+
+{t}Text formatting rules{/t}
+
+
+{t}Th{/t}
+
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+
+
+{t}The folder cannot be deleted.{/t}
+
+
+{t}The folder cannot be moved.{/t}
+
+
+{t}The new password is{/t}
+
+
+{t}The url doesn't exist.{/t}
+
+
+{t}Theme{/t}
+
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+
+
+{t}Thu{/t}
+
+
+{t}Thursday{/t}
+
+
+{t}Time and expenses{/t}
+
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+
+
+{t}Time zone{/t}
+
+
+{t}timeout{/t}
+
+
+{t}Title{/t}
+
+
+{t}To{/t}
+
+
+{t}to be checked{/t}
+
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+
+
+{t}Today{/t}
+
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+
+
+{t}Total{/t}
+
+
+{t}Trace{/t}
+
+
+{t}Trade fair{/t}
+
+
+{t}translations{/t}
+
+
+{t}Translations of the GNU GPL{/t}
+
+
+{t}Transportation costs{/t}
+
+
+{t}Trash{/t}
+
+
+{t}Trash folder not found.{/t}
+
+
+{t}Tree{/t}
+
+
+{t}Trigger failed{/t}
+
+
+{t}Tu{/t}
+
+
+{t}Tue{/t}
+
+
+{t}Tuesday{/t}
+
+
+{t}Type{/t}
+
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+
+
+{t}Unable to write to %s{/t}
+
+
+{t}unconfirmed{/t}
+
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+
+
+{t}Up{/t}
+
+
+{t}Update{/t}
+
+
+{t}Update Simple Groupware{/t}
+
+
+{t}Updated{/t}
+
+
+{t}Updating schema %s from %s.{/t}
+
+
+{t}Upload failed{/t}
+
+
+{t}Uploaded files{/t}
+
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+
+
+{t}URL{/t}
+
+
+{t}Usage{/t}
+
+
+{t}USD{/t}
+
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+
+
+{t}Use LDAP Groups{/t}
+
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+
+
+{t}User{/t}
+
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+
+
+{t}Username must be different from the super administrator.{/t}
+
+
+{t}Users{/t}
+
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+
+
+{t}Value{/t}
+
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+
+
+{t}Variable already exists in table. (%s){/t}
+
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Variable must be of type date (dd/mm/yyyy).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Variable must be of type datetime (dd/mm/yyyy hh:mm am/pm).
+
+{t}Variable must be of type float.{/t}
+
+
+{t}Variable must be of type int and greater than 0.{/t}
+
+
+{t}Variable must be of type int.{/t}
+
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+
+
+{t}Variables{/t}
+
+
+{t}Verbal recommendation{/t}
+
+
+{t}verified{/t}
+
+
+{t}vertical{/t}
+
+
+{t}very promising{/t}
+
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+
+
+{t}Warning{/t}
+
+
+{t}We{/t}
+
+
+{t}Web{/t}
+
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+
+
+{t}Wednesday{/t}
+
+
+{t}Week{/t}
+
+
+{t}Week start{/t}
+
+
+{t}Weekend{/t}
+
+
+{t}weekly{/t}
+
+
+{t}weeks{/t}
+
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+
+
+{t}widowed{/t}
+
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+
+
+{t}WikiStyles{/t}
+
+
+{t}won't fix{/t}
+
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+
+
+{t}works for me{/t}
+
+
+{t}Workshop{/t}
+
+
+{t}Workspace{/t}
+
+
+{t}write access{/t}
+
+
+{t}Write access (groups){/t}
+
+
+{t}Write access (users){/t}
+
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+
+
+{t}wrong directory{/t}
+
+
+{t}wrong password{/t}
+
+
+{t}Year{/t}
+
+
+{t}yearly{/t}
+
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+
+
+{t}yes{/t}
+
+
+{t}You are not allowed to view this folder.{/t}
+
+
+{t}Your message was read on %s.{/t}
+
+
+{t}Your session has timed out.{/t}
+
+
+{t}Zipcode{/t}
+
+
+{t}{0} - {1} of {2}{/t}
+
+

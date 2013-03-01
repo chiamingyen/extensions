@@ -1,0 +1,58 @@
+<!--
+// GPL
+-->
+<html>
+<head>
+<style>
+body,html {
+  overflow-y: hidden;
+  overflow: hidden;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+input {
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  border: 1px solid #AAAAAA;
+  background-color: #F5F5F5;
+  color: #0000FF;
+  font-size: 12px;
+  border-radius:10px;
+}
+</style>
+<script language="javascript" type="text/javascript" src="./codepress.js"></script>
+
+<script language="javascript" type="text/javascript">
+var parent_elem = top.getObj(window.name.replace("_iframe",""));
+
+function change() {
+  parent_elem.value = elem.getCode();
+}
+function resize() {
+  if (obj = document.getElementById("elem")) {
+    obj.style.height = top.getObj(window.name).clientHeight-28+"px";
+  } else {
+    elem.style.height = top.getObj(window.name).clientHeight-28+"px";
+  }
+}
+</script>
+</head>
+<body onresize="resize();" onload="resize();">
+
+  <div style="padding-bottom:2px;">
+    <textarea id="elem" class="codepress html" style="width:100%; height:100%;"></textarea>
+	<script>document.getElementById("elem").value = parent_elem.value;</script>
+  </div>
+  <input type="button" value="PHP" onclick="elem.edit(elem.getCode(),'php');">&nbsp;
+  <input type="button" value="JavaScript" onclick="elem.edit(elem.getCode(),'javascript')">&nbsp;
+  <input type="button" value="Java" onclick="elem.edit(elem.getCode(),'java')">&nbsp;
+  <input type="button" value="HTML" onclick="elem.edit(elem.getCode(),'html')">&nbsp;
+  <input type="button" value="CSS" onclick="elem.edit(elem.getCode(),'css')">&nbsp;
+  <input type="button" value="Perl" onclick="elem.edit(elem.getCode(),'perl')">&nbsp;
+  <input type="button" value="Ruby" onclick="elem.edit(elem.getCode(),'ruby')">&nbsp;
+  <input type="button" value="SQL" onclick="elem.edit(elem.getCode(),'SQL')">&nbsp;
+  <input type="button" value="C#" onclick="elem.edit(elem.getCode(),'csharp')">&nbsp;
+  <input type="button" value="AutoIt" onclick="elem.edit(elem.getCode(),'autoit')">&nbsp;
+  <input type="button" value="Text" onclick="elem.edit(elem.getCode(),'text')">&nbsp;
+</body>
+</html>

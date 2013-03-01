@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Surveys{/t}" default_view="display" orderby="question" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+  <view name="display" displayname="{t}Vote{/t}">
+  </view>
+  <view name="answers" displayname="{t}Answers{/t}" template="display" showonly="question|answers">
+  </view>
+  <view name="details" displayname="{t}Details{/t}">
+  </view>
+
+  <field name="question" displayname="{t}Question{/t}" simple_type="text" required="true">
+  </field>
+  <field name="qtype" displayname="{t}Type{/t}" simple_type="select" simple_size="1" required="true">
+    <data title="{t}Default{/t}" values="text_##_{t}Input field{/t}|textarea_##_{t}Text area{/t}|radio_##_{t}Single choice{/t}|checkbox_##_{t}Multiple choice{/t}"/>
+	<hiddenin views="display"/>
+  </field>
+  <field name="choices" displayname="{t}Choices{/t}" simple_type="text" no_checks="true" sum="true">
+    <filter views="display" function="lib_surveys::choices"/>
+	<description value="alert('{t}Comma separated values{/t}');"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea">
+  </field>
+  <field name="answers" displayname="{t}Answers{/t}" simple_type="textarea" disable_ccp="true">
+	<onlyin views="details|answers"/>
+	<filter views="all" function="lib_surveys::answers"/>
+  </field>
+  <field name="votedby" displayname="{t}Voted by{/t}" simple_type="textarea" disable_ccp="true">
+	<onlyin views="details"/>
+	<filter views="all" function="lib_surveys::votedby"/>
+  </field>
+</table>

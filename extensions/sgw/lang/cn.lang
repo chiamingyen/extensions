@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2009 Wang Zhanjun
+
+{t}!_Language{/t}
+Chinese / China
+
+{t}%s is not activated{/t}
+%s没有激活
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s没有编译/载入PHP
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+数据库中没有找到%s
+
+{t}%s rows affected{/t}
+影响%s行
+
+{t}%s secs{/t}
+%s秒
+
+{t}%s started editing this asset at %s{/t}
+%s开始编辑%s附件
+
+{t}(for active directory username must be: username@domain){/t}
+(for active directory username must be: username@domain)
+
+{t}(un)Group{/t}
+(取消)分组
+
+{t}About{/t}
+关于
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+接受
+
+{t}Access denied.{/t}
+无权访问。
+
+{t}Access to this file has been denied.{/t}
+无权访问此文件。
+
+{t}Account{/t}
+账户
+
+{t}account of %s has expired{/t}
+%s的账户已经过期
+
+{t}Accounting{/t}
+账户
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+已激活
+
+{t}active{/t}
+
+
+{t}Active{/t}
+活动
+
+{t}Ad{/t}
+广告
+
+{t}Add{/t}
+添加
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+添加到离线文件夹
+
+{t}added line{/t}
+添加行
+
+{t}Address{/t}
+地址
+
+{t}admin access{/t}
+管理区
+
+{t}Admin access (groups){/t}
+管理（组）
+
+{t}Admin access (users){/t}
+管理（成员）
+
+{t}Admin Password{/t}
+管理员密码
+
+{t}Admin Username{/t}
+管理员用户名
+
+{t}Administration{/t}
+管理
+
+{t}Advanced tables{/t}
+高级表格
+
+{t}Affected user{/t}
+受影响用户
+
+{t}Affiliate{/t}
+附属机构
+
+{t}after{/t}
+之后
+
+{t}Agent{/t}
+代理
+
+{t}Ajax Error{/t}
+Ajax错误
+
+{t}All{/t}
+所有
+
+{t}All day{/t}
+全天
+
+{t}All events{/t}
+所有事件
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+已经是最新版本。
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+总额
+
+{t}Anchor{/t}
+标记
+
+{t}and{/t}
+和
+
+{t}Anniversary{/t}
+周年纪念日
+
+{t}another page{/t}
+另一页
+
+{t}answered{/t}
+已回答
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+基于Apache(.htaccess, Basic, Digest, 等.)
+
+{t}Application title{/t}
+系统标题
+
+{t}Apply rights to subfolders{/t}
+应用权限到子目录
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+四月
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+归档已删除文件
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Asset标记为只读。
+
+{t}Assets{/t}
+Assets
+
+{t}Assets (children){/t}
+Assets (children)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+分配
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+附加文件
+
+{t}Attachment{/t}
+附件
+
+{t}Attachments{/t}
+附件
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+八月
+
+{t}Authentication Mode{/t}
+身份认证模式
+
+{t}Author{/t}
+作者
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+平均长度
+
+{t}Back{/t}
+返回
+
+{t}Backup{/t}
+备份
+
+{t}Backup current folder{/t}
+备份当前文件夹
+
+{t}Backups{/t}
+备份
+
+{t}Basic editing{/t}
+基本编辑
+
+{t}before{/t}
+之前
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+开始
+
+{t}big{/t}
+大
+
+{t}big text{/t}
+大字体
+
+{t}bigger{/t}
+较大
+
+{t}Billing address{/t}
+账单地址
+
+{t}Birthday{/t}
+生日
+
+{t}Birthdays{/t}
+生日
+
+{t}Blank{/t}
+空白
+
+{t}blue{/t}
+蓝色
+
+{t}bold{/t}
+加粗
+
+{t}bold italic{/t}
+倾斜加粗
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+登记
+
+{t}Booked{/t}
+登记
+
+{t}Booking number{/t}
+登记编号
+
+{t}Bookings{/t}
+登记
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+书签
+
+{t}borrowed{/t}
+借入
+
+{t}Brand{/t}
+商标
+
+{t}Brands{/t}
+商标
+
+{t}Browser Compatibility{/t}
+浏览器兼容性
+
+{t}Browser not supported{/t}
+不支持的浏览器
+
+{t}Budget{/t}
+预算
+
+{t}Bug{/t}
+缺陷
+
+{t}bulleted{/t}
+项目列表符号
+
+{t}Business{/t}
+事务
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+继续
+
+{t}Cache output{/t}
+缓存输出
+
+{t}Caches{/t}
+缓存
+
+{t}Calendar{/t}
+日程表
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+取消
+
+{t}Canceled{/t}
+取消
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Cannot call proc_open. Please remove proc_open from disable_functions in php.ini and disable safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+不能连接到%s数据库到%s。
+
+{t}Cannot create preview for %s{/t}
+不能建立%s的预览
+
+{t}Cannot read the file %s.{/t}
+不能读取文件%s。
+
+{t}Cardinality{/t}
+表间关系
+
+{t}Categories{/t}
+类别
+
+{t}Category{/t}
+类别
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+中心的
+
+{t}CEO{/t}
+CEO
+
+{t}Change request{/t}
+更改请求
+
+{t}Change settings{/t}
+更改设置
+
+{t}Change Setup settings{/t}
+更改安装设置
+
+{t}Change summary{/t}
+更改摘要
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+已修改行
+
+{t}Changelog{/t}
+更改日志
+
+{t}Chat{/t}
+聊天
+
+{t}Check DoS Attacks{/t}
+检查DoS攻击
+
+{t}checked{/t}
+选中的
+
+{t}Checked{/t}
+选中的
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+CIO
+
+{t}City{/t}
+城市
+
+{t}Clean{/t}
+清除
+
+{t}Clean Cache{/t}
+清除缓存
+
+{t}Clear{/t}
+清理
+
+{t}Clear Cache{/t}
+清理缓存
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+客户
+
+{t}Close{/t}
+结束
+
+{t}Close session{/t}
+结束会话
+
+{t}closed{/t}
+已结束
+
+{t}Closed{/t}
+已结束
+
+{t}CMS{/t}
+CMS
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+收缩树型结构
+
+{t}Color{/t}
+颜色
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+栏目名称
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+命令
+
+{t}Comment{/t}
+评论
+
+{t}Comment files{/t}
+注释文件
+
+{t}Companies{/t}
+公司
+
+{t}Company{/t}
+公司
+
+{t}Competition{/t}
+竞争
+
+{t}Competitor{/t}
+竞争者
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+完成
+
+{t}Component{/t}
+组件
+
+{t}Compress output{/t}
+压缩输出
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+确定
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+连接到数据库失败
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+顾问
+
+{t}Contact{/t}
+联系人
+
+{t}Contact activities{/t}
+联系人活动
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+联系
+
+{t}Contact groups{/t}
+联系人组
+
+{t}Contact id{/t}
+联系人id
+
+{t}Contact person{/t}
+联系人
+
+{t}Contact user by{/t}
+联系用户
+
+{t}Contacts{/t}
+通讯录
+
+{t}contains{/t}
+包含
+
+{t}Content{/t}
+内容
+
+{t}Continue{/t}
+继续
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+副本
+
+{t}Copy{/t}
+副本
+
+{t}Cost center{/t}
+费用中心
+
+{t}Costs of accommodation{/t}
+住宿费
+
+{t}Could not determine database-version.{/t}
+未知数据库版本。
+
+{t}Country{/t}
+国家地区
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+创建
+
+{t}Creating database failed.{/t}
+建立数据库失败
+
+{t}current path{/t}
+当前路径
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+履历
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+用户化
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+裁剪
+
+{t}daily{/t}
+每天
+
+{t}Data{/t}
+数据
+
+{t}Data free{/t}
+自由数据
+
+{t}Data length{/t}
+数据长度
+
+{t}Database{/t}
+数据库
+
+{t}Database Hostname / IP{/t}
+数据库主机名称/IP
+
+{t}Database Name{/t}
+数据库名称
+
+{t}Database Password{/t}
+数据库密码
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+数据库状态
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+数据库用户
+
+{t}Database variables{/t}
+数据库变量
+
+{t}Date{/t}
+日期
+
+{t}Day{/t}
+天
+
+{t}Day begin{/t}
+开始日
+
+{t}Day end{/t}
+结束日
+
+{t}days{/t}
+天
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+最后期限
+
+{t}Debug{/t}
+调试
+
+{t}Debug-dir{/t}
+调试目录
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+12月
+
+{t}Declining balance{/t}
+余额递减
+
+{t}Default{/t}
+默认
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+默认主题
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+列表定义的定义
+
+{t}Degree{/t}
+程度
+
+{t}Delete{/t}
+删除
+
+{t}Delete incl subfolders{/t}
+删除时包含子目录
+
+{t}deleted{/t}
+删除
+
+{t}deleted line{/t}
+删除的行
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+要求
+
+{t}Demo{/t}
+演示
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+部门
+
+{t}Departments{/t}
+部门
+
+{t}Dependancies{/t}
+依赖
+
+{t}Description{/t}
+描述
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+桌面电脑
+
+{t}Details{/t}
+细节
+
+{t}Device type{/t}
+设备类型
+
+{t}Device types{/t}
+设备类型
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+目录不存在。
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+目录在许可目录之外（%s在%s之外）
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+停用基本认证
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+显示
+
+{t}display filter{/t}
+显示过滤
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+显示
+
+{t}Distributor{/t}
+经销商
+
+{t}Distributors{/t}
+经销商
+
+{t}divorced{/t}
+离异
+
+{t}Documentation{/t}
+文件
+
+{t}Documentation index{/t}
+文件索引
+
+{t}Domain{/t}
+域
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+向下
+
+{t}Download{/t}
+下载
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+下载更新列表
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+复制
+
+{t}Duration{/t}
+持续时间
+
+{t}E-mail{/t}
+E-mail
+
+{t}E-mail private{/t}
+E-mail私人
+
+{t}E-mail program{/t}
+E-mail程序
+
+{t}e.g.{/t}
+例如
+
+{t}Edit{/t}
+编辑
+
+{t}Edit as new{/t}
+作为新的编辑
+
+{t}Edit rights{/t}
+编辑权限
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+编辑者
+
+{t}Emphasis{/t}
+重点
+
+{t}Empty{/t}
+空白
+
+{t}Empty folder{/t}
+空文件夹
+
+{t}en{/t}
+在
+
+{t}Enable anonymous access{/t}
+允许匿名使用
+
+{t}Enable anonymous CMS{/t}
+允许匿名CMS
+
+{t}Enable automatic user creation{/t}
+允许自动创建用户
+
+{t}Enable external mail client for 'mailto:' links{/t}
+允许外部邮件客户程序打开mailto:连接
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+允许Sync4j / Funambol
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+结束
+
+{t}engaged{/t}
+预定
+
+{t}equal{/t}
+等于
+
+{t}Error{/t}
+错误
+
+{t}Error doing request to xmlhttp{/t}
+执行xmlhttp请求时发生错误
+
+{t}Error moving file{/t}
+移动文件时发生错误
+
+{t}Error pasting asset{/t}
+粘贴asset时发生错误
+
+{t}Error: no credentials{/t}
+错误：没有证书
+
+{t}Events{/t}
+日程
+
+{t}Example{/t}
+例子
+
+{t}Example contacts{/t}
+通讯录示例
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+无mountpoint示例
+
+{t}Examples{/t}
+示例
+
+{t}Execute{/t}
+执行
+
+{t}Expenses{/t}
+费用
+
+{t}Experimental{/t}
+实验
+
+{t}Expires{/t}
+到期
+
+{t}Expiry{/t}
+期满
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+提取文件
+
+{t}F j{/t}
+F j
+
+{t}F j, Y{/t}
+F j, Y
+
+{t}Failed to create directory: %s{/t}
+建立目录%s失败
+
+{t}Failed to write file to disk.{/t}
+文件写入磁盘失败。
+
+{t}Failed to write into %s{/t}
+写入%s失败
+
+{t}Family status{/t}
+家庭状况
+
+{t}FAQ{/t}
+常见问题
+
+{t}Favorites{/t}
+收藏夹
+
+{t}Fax{/t}
+传真
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+功能建议
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+2月
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+女
+
+{t}Field{/t}
+字段
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+文件
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+文件太大。请修改php.ini文件中的upload_max_filesize, post_max_size设置。
+
+{t}file is too big. Please upload a smaller one.{/t}
+文件太大，请上传小一点的文件。
+
+{t}File locked.{/t}
+文件锁定。
+
+{t}file not found in database.{/t}
+在数据库中找不到文件。
+
+{t}file not found.{/t}
+文件没找到。
+
+{t}File unlocked.{/t}
+文件解锁。
+
+{t}file was uploaded partially.{/t}
+文件部分上传。
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+文件名应该包含正确的扩展名：%s。
+
+{t}Files{/t}
+文件
+
+{t}Filesystem{/t}
+文件系统
+
+{t}Filter{/t}
+过滤器
+
+{t}Find assets in multiple folders{/t}
+在多个文件夹中找到assets.
+
+{t}Finish scheduled{/t}
+已结束计划
+
+{t}Finished{/t}
+结束
+
+{t}First in list{/t}
+列表中第一项
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+名
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+固定
+
+{t}Flags{/t}
+标志
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+文件夹
+
+{t}Folder already exists.{/t}
+文件夹已经存在。
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+文件夹结构已建立。
+
+{t}Folder structure moved to trash.{/t}
+文件夹结构已移动到回收站。
+
+{t}Folder Type{/t}
+文件夹类型
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+文件夹
+
+{t}for a new paragraph, use a blank line{/t}
+使用新行开始一个段落
+
+{t}Force SSL{/t}
+强制使用SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+论坛
+
+{t}Forward{/t}
+下一个
+
+{t}Fr{/t}
+Fr
+
+{t}Free/busy{/t}
+空闲/忙
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+五
+
+{t}Friday{/t}
+星期五
+
+{t}From{/t}
+来自
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+全文
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+整个宽度
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+Funambol仅在MySQL和PostgreSQL下可用。
+
+{t}Function does not exist: %s{/t}
+%s功能没找到
+
+{t}g:i a{/t}
+g:i a
+
+{t}Gender{/t}
+性别
+
+{t}General{/t}
+普通
+
+{t}Generate{/t}
+生成
+
+{t}Gifts{/t}
+礼物
+
+{t}Give Feedback{/t}
+提供反馈
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL常见问题
+
+{t}greater than{/t}
+大于
+
+{t}green{/t}
+绿色
+
+{t}Group{/t}
+组
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+组名称
+
+{t}Groups{/t}
+组
+
+{t}hanging text{/t}
+悬挂文字
+
+{t}Hardware{/t}
+硬件
+
+{t}Headers{/t}
+标题
+
+{t}heading{/t}
+标题
+
+{t}headings{/t}
+标题
+
+{t}Height{/t}
+高度
+
+{t}Help{/t}
+帮助
+
+{t}Helpdesk{/t}
+用户指南
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+历史
+
+{t}Holiday{/t}
+节假日
+
+{t}Home{/t}
+主页
+
+{t}Home folder id{/t}
+主页文件夹ID
+
+{t}Home page in the CMS{/t}
+CMS主页
+
+{t}Homepage{/t}
+主页
+
+{t}horizontal line{/t}
+水平行
+
+{t}Host{/t}
+主机
+
+{t}Hosts{/t}
+主机
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+小时
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+HTML文档
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+http://www.pmwiki.org/PmWiki/
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+接受GNU通用公共许可证第二版
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+安装
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Id
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id不能为空，小写，由[a-z0-9_-@.]组成，3到128字符。
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id不能为空，由[a-z0-9_-@.]组成，3到128字符。
+
+{t}Ideas{/t}
+观念
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+If empty, the SMTP connection from the module users will be used.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+if not autodetected with namingContexts
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+如果用户名或密码包含 &quot;@&quot;字符，替换为&quot;%%&quot;。
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+导入/导出
+
+{t}Image{/t}
+图像
+
+{t}Images{/t}
+图像
+
+{t}Imap-error: %s{/t}
+Imap错误：%s
+
+{t}immediate{/t}
+立即
+
+{t}Import{/t}
+导入
+
+{t}In progress{/t}
+正在处理
+
+{t}in repair{/t}
+正在修复
+
+{t}in stock{/t}
+备有
+
+{t}Inactive{/t}
+停止
+
+{t}Include in RSS feed{/t}
+包含到RSS
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+文字缩进
+
+{t}Index{/t}
+索引
+
+{t}Index length{/t}
+索引长度
+
+{t}Index type{/t}
+索引类型
+
+{t}Indexes{/t}
+索引
+
+{t}Industry{/t}
+行业
+
+{t}Info{/t}
+信息
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+插入
+
+{t}inserted{/t}
+插入
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+文件夹权限不足
+
+{t}Internal recommendation{/t}
+内部推荐
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+简介
+
+{t}invalid{/t}
+无效
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+详细目录
+
+{t}Inventory number{/t}
+目录数
+
+{t}Investor{/t}
+创建者
+
+{t}Invoice{/t}
+发票
+
+{t}italic{/t}
+斜体
+
+{t}Item created by %s at %s{/t}
+%s在%s创建项目
+
+{t}Item deleted by %s at %s{/t}
+%s在%s删除项目
+
+{t}Item edited (%s) by %s at %s{/t}
+项目%s由%s在%s编辑
+
+{t}Item not found.{/t}
+项目不存在。
+
+{t}Item successfully created.{/t}
+项目成功创建。
+
+{t}Item successfully updated.{/t}
+项目成功更新。
+
+{t}Item(s) not found or access denied.{/t}
+项目没找到或拒绝访问。
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+1月
+
+{t}Job description{/t}
+工作描述
+
+{t}Join lines{/t}
+连接行
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+7月
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+6月
+
+{t}Key{/t}
+关键
+
+{t}Key customer{/t}
+主要客户
+
+{t}Key name{/t}
+关键字名称
+
+{t}Keywords{/t}
+关键字
+
+{t}Knowledge base{/t}
+基础知识
+
+{t}L o g i n{/t}
+登录
+
+{t}l, F j, Y{/t}
+l, F j, Y
+
+{t}Last access{/t}
+上次登录
+
+{t}Last name{/t}
+姓
+
+{t}LDAP anonymous connection failed.{/t}
+LDAP匿名连接失败。
+
+{t}LDAP attribute for group memberships{/t}
+LDAP组成员属性
+
+{t}LDAP attribute for rooms{/t}
+LDAP attribute for rooms
+
+{t}LDAP attribute for usernames{/t}
+LDAP attribute for usernames
+
+{t}LDAP connection to host %s failed.{/t}
+LDAP connection to host %s failed.
+
+{t}LDAP without anonymous access{/t}
+LDAP without anonymous access
+
+{t}LDAP: no base DN given{/t}
+LDAP: no base DN given
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+可行性
+
+{t}lesser than{/t}
+小于
+
+{t}Letter{/t}
+字母
+
+{t}Level{/t}
+级别
+
+{t}License{/t}
+许可证
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+换行
+
+{t}Link{/t}
+连接
+
+{t}Link restricted{/t}
+连接限制
+
+{t}link text{/t}
+连接文字
+
+{t}link to external page{/t}
+连接到外部页面
+
+{t}link to internal page{/t}
+连接到内部页面
+
+{t}Links{/t}
+连接
+
+{t}Lists{/t}
+列表
+
+{t}Load external images{/t}
+载入外部图像
+
+{t}Location{/t}
+地点
+
+{t}Locations{/t}
+地点
+
+{t}Lock{/t}
+锁定
+
+{t}Locked by{/t}
+由锁定
+
+{t}Locking{/t}
+锁定中
+
+{t}login %s from %s with %s{/t}
+%s登录从%s和%s
+
+{t}Login failed from %s.{/t}
+从%s登录失败。
+
+{t}Login/-out{/t}
+登录/注销
+
+{t}Logins{/t}
+登录
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+注销%s
+
+{t}Lookup{/t}
+查找
+
+{t}low{/t}
+低
+
+{t}lowest{/t}
+最低
+
+{t}M j{/t}
+}M j
+
+{t}M j, g:i a{/t}
+M j, g:i a
+
+{t}M j, Y{/t}
+M j, Y
+
+{t}m/d/Y{/t}
+m/d/Y
+
+{t}m/d/Y g:i a{/t}
+m/d/Y g:i a
+
+{t}m/d/y g:i:s a{/t}
+m/d/y g:i:s a
+
+{t}magenta{/t}
+品红
+
+{t}mail footer{/t}
+邮件脚部内容
+
+{t}Mail identities{/t}
+邮件身份
+
+{t}mail notification{/t}
+邮件通知
+
+{t}mail reminder{/t}
+邮件提醒
+
+{t}Main menu{/t}
+主菜单
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+维护模式
+
+{t}male{/t}
+男
+
+{t}Man-days{/t}
+工作日
+
+{t}Man-days planned{/t}
+工作日安排
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+管理员
+
+{t}Manufacturer{/t}
+制造者
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+3月
+
+{t}Marketing event{/t}
+营销事件
+
+{t}married{/t}
+已婚
+
+{t}Maximize{/t}
+最大化
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+超过文件最大数量
+
+{t}May{/t}
+5月
+
+{t}Media{/t}
+媒体
+
+{t}Meeting{/t}
+会议
+
+{t}Members{/t}
+成员
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+永久合并文件夹
+
+{t}Merged folders{/t}
+合并文件夹
+
+{t}Message{/t}
+消息
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+最小
+
+{t}Minimize{/t}
+最小化
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+minimum = 15秒, 0 = 禁止
+
+{t}Miscellaneous{/t}
+其他
+
+{t}missing a temporary folder.{/t}
+丢失临时文件夹
+
+{t}missing field{/t}
+丢失字段
+
+{t}missing right: %s{/t}
+丢失权限：%s
+
+{t}Mo{/t}
+Mo
+
+{t}Mobile{/t}
+手机
+
+{t}Model{/t}
+模型
+
+{t}Modified{/t}
+修改
+
+{t}Modified by{/t}
+修改者
+
+{t}Modifying database failed.{/t}
+修改数据库失败。
+
+{t}Module{/t}
+模块
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+模块
+
+{t}Mon{/t}
+一
+
+{t}Monday{/t}
+星期一
+
+{t}monospace{/t}
+等宽字体
+
+{t}Month{/t}
+月
+
+{t}monthly{/t}
+每月
+
+{t}months{/t}
+月
+
+{t}More information about the GNU GPL{/t}
+GNU GPL的更多信息
+
+{t}Mountpoint{/t}
+Mountpoint
+
+{t}Move{/t}
+移动
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+我的安排
+
+{t}My tasks{/t}
+我的任务
+
+{t}Name{/t}
+姓名
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+姓名不能空，小写，由3--128个 [a-z0-9_-@.]字符组成
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+姓名不能为空，小写，最少3个 [a-zA-Z0-9-_.]字符组成
+
+{t}need feedback{/t}
+需要反馈
+
+{t}Network{/t}
+网络
+
+{t}Never expires{/t}
+永不过期
+
+{t}New{/t}
+新建
+
+{t}New folder{/t}
+新文件夹
+
+{t}News{/t}
+新闻
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+昵称
+
+{t}Nightwork{/t}
+夜间工作
+
+{t}no{/t}
+否
+
+{t}No dataset selected.{/t}
+没有选择数据集。
+
+{t}No entries found.{/t}
+没有记录。
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+没有找到
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+没指定发送人
+
+{t}no username submitted{/t}
+没填写发生用户
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+重复
+
+{t}none{/t}
+没有
+
+{t}normal{/t}
+正常
+
+{t}Not allowed. Please log in as super administrator.{/t}
+不允许。请以管理员登录。
+
+{t}not contains{/t}
+不包含
+
+{t}not equal{/t}
+不等于
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+记事本
+
+{t}Notes{/t}
+便签
+
+{t}Notificaiton sent to: %s{/t}
+通知发送到：%s
+
+{t}Notification{/t}
+通知
+
+{t}Notification summary{/t}
+通知摘要
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+11月
+
+{t}Null{/t}
+无效
+
+{t}Number of employees{/t}
+雇员人数
+
+{t}numbered{/t}
+编号标记
+
+{t}Objectives{/t}
+目标
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+10月
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+办公
+
+{t}Office program{/t}
+办公程序
+
+{t}Offices{/t}
+办公
+
+{t}offline{/t}
+离线
+
+{t}Offline folders{/t}
+离线文件夹
+
+{t}Offline sync{/t}
+离线同步
+
+{t}Ok{/t}
+确定
+
+{t}one of{/t}
+
+
+{t}online{/t}
+在线
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+打开
+
+{t}Operating system{/t}
+操作系统
+
+{t}Operation not allowed. (Data loss protection){/t}
+操作禁止。（数据丢失保护）
+
+{t}Optimize Tables{/t}
+优化数据表
+
+{t}Options{/t}
+选项
+
+{t}or{/t}
+或
+
+{t}or higher{/t}
+或更高
+
+{t}orange{/t}
+橙色
+
+{t}Order size{/t}
+订单量
+
+{t}Organisation{/t}
+组织
+
+{t}Organizer{/t}
+组织者
+
+{t}Origin{/t}
+起源
+
+{t}Original message{/t}
+原始消息
+
+{t}Other{/t}
+其他
+
+{t}out of office{/t}
+离开办公室
+
+{t}Outline image{/t}
+图像轮廓
+
+{t}Output{/t}
+输出
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+重叠
+
+{t}Overtime{/t}
+超时
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+所有者
+
+{t}Owner since{/t}
+取得所有权
+
+{t}Package from local file system (.tar.gz){/t}
+在本地文件系统压缩（.tar.gz）
+
+{t}Packed{/t}
+压缩
+
+{t}Page{/t}
+页面
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+页面名称（URL）
+
+{t}Page not found{/t}
+页面没找到
+
+{t}Page title{/t}
+页面标题
+
+{t}Pager{/t}
+分页
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+段落
+
+{t}parameters{/t}
+参数
+
+{t}Parameters{/t}
+参数
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+分析
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+参与
+
+{t}Participants (external){/t}
+参与（外部）
+
+{t}Participants (internal){/t}
+参与（内部）
+
+{t}Password{/t}
+密码
+
+{t}Password expired. (password of %s has expired){/t}
+密码过期。（%s密码已经失效）
+
+{t}Password expires{/t}
+密码失效
+
+{t}Password must be not null, min 5 characters.{/t}
+密码不能为空，最少5个字符。
+
+{t}password not confirmed.{/t}
+密码不匹配。
+
+{t}Passwords{/t}
+密码
+
+{t}Paste{/t}
+粘贴
+
+{t}Path{/t}
+路径
+
+{t}Pause{/t}
+暂停
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+权限
+
+{t}Permissions added for: %s{/t}
+权限许可给：%s
+
+{t}Personal{/t}
+个性化
+
+{t}Personal department{/t}
+人事部
+
+{t}Personal folders{/t}
+个人文件夹
+
+{t}Personal projects{/t}
+个人项目
+
+{t}Phone{/t}
+电话
+
+{t}Phone calls{/t}
+通话记录
+
+{t}Phone private{/t}
+私人电话
+
+{t}Photo{/t}
+图片
+
+{t}Photo gallery{/t}
+图片夹
+
+{t}Planned{/t}
+计划
+
+{t}Please activate cookies.{/t}
+请启用cookies。
+
+{t}Please choose Apache as Web-Server.{/t}
+Please choose Apache as Web-Server.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+请输入有效url
+
+{t}Please give read access to %s{/t}
+请赋予%s读取权限
+
+{t}Please give write access to %s{/t}
+请赋予%s写入权限
+
+{t}Please give write access to %s and %s{/t}
+请赋予%s和%s写入权限
+
+{t}Please hit reload.{/t}
+请点击重新加载。
+
+{t}Please input a valid e-mail adress.{/t}
+请输入有效的e-mail地址。
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Please install tsearch2 for the PostgreSQL database.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Please modify your php.ini or add an .htaccess file changing the setting %s to %s (current value is %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Please read the following license agreement. Use the scroll bar to view the rest of this agreement.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+请选择参与者。
+
+{t}Please upload again.{/t}
+请重新上传。
+
+{t}Please wait ...{/t}
+请等待...
+
+{t}Pop3-error: %s{/t}
+Pop3错误：%s
+
+{t}Port{/t}
+端口
+
+{t}Portal{/t}
+站点
+
+{t}Position{/t}
+位置
+
+{t}Positions{/t}
+位置
+
+{t}Post{/t}
+发送
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+预先定义块
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+禁止格式化
+
+{t}Preview{/t}
+预览
+
+{t}Price{/t}
+价格
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+打印
+
+{t}Print all{/t}
+全部打印
+
+{t}Printer{/t}
+打印机
+
+{t}Priority{/t}
+优先权
+
+{t}Problem{/t}
+问题
+
+{t}Processes{/t}
+处理
+
+{t}Processing %s ...{/t}
+%s处理中...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+程序用%s语言安装，请用另一个url或重新安装。
+
+{t}Progress{/t}
+进度
+
+{t}Project{/t}
+项目
+
+{t}Project files{/t}
+项目文件
+
+{t}Project tasks{/t}
+项目任务
+
+{t}Projects{/t}
+项目
+
+{t}promising{/t}
+前景
+
+{t}Properties{/t}
+属性
+
+{t}Prospective client{/t}
+潜在客户
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+购买
+
+{t}Question{/t}
+问题
+
+{t}Queue{/t}
+队列
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+限额
+
+{t}Quota (remaining){/t}
+限额（剩余）
+
+{t}Quota [MB]{/t}
+限额[MB]
+
+{t}Quota limitation exceeded: %s{/t}
+%s：超过限额限制
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+评分
+
+{t}Read{/t}
+读取
+
+{t}read access{/t}
+读取权限
+
+{t}Read access (groups){/t}
+读取权限（组）
+
+{t}Read access (users){/t}
+读取权限（用户）
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+准备好修理
+
+{t}ready for scrap{/t}
+准备好报废
+
+{t}Real URL format in the CMS{/t}
+CMS真实URL格式
+
+{t}Really apply rights to subfolders ?{/t}
+确认赋权到子目录？
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+确认删除？
+
+{t}REALLY delete ALL datasets ?{/t}
+确定删除所有数据集？
+
+{t}Really delete ALL subfolders ?{/t}
+确定删除所有子文件夹？
+
+{t}Really delete the dataset(s) ?{/t}
+确定删除数据集？
+
+{t}Really empty the folder ?{/t}
+确定清空文件夹？
+
+{t}Really overwrite existing dataset(s) ?{/t}
+确定覆盖原有数据集？
+
+{t}Really run setup again ?{/t}
+确定重新安装？
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+重建搜索索引
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+合并建议
+
+{t}Recurrence{/t}
+重复
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+红色
+
+{t}Redirect to home directory{/t}
+回到主目录
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+每%s秒刷新一次
+
+{t}Regular{/t}
+定期
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+拒绝
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+重新安装
+
+{t}Relevance{/t}
+相关
+
+{t}Reminder{/t}
+提醒人
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+文件夹改名
+
+{t}Repeat count{/t}
+重复计数
+
+{t}Repeat exclusions{/t}
+重复排除
+
+{t}Repeat interval{/t}
+重复间隔
+
+{t}Repeat until{/t}
+重复直到
+
+{t}Reply{/t}
+回复
+
+{t}Reply all{/t}
+全部回复
+
+{t}Require admin access to set mountpoints{/t}
+设置mountpoints需要admin权限
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+代理商
+
+{t}reserved{/t}
+预留
+
+{t}Reset view{/t}
+重置视图
+
+{t}Resource{/t}
+资源
+
+{t}Resources{/t}
+资源
+
+{t}Responsible{/t}
+负责
+
+{t}Responsible (external){/t}
+负责（外部）
+
+{t}Responsible (internal){/t}
+负责（内部）
+
+{t}Restore complete{/t}
+恢复结束
+
+{t}Restore here{/t}
+恢复到这里
+
+{t}Restore only missing{/t}
+仅恢复丢失
+
+{t}Restore only newer{/t}
+仅恢复新的
+
+{t}Restore to origin{/t}
+恢复到原始状态
+
+{t}Return receipt{/t}
+返回回执
+
+{t}right-aligned{/t}
+右对齐
+
+{t}Rights{/t}
+权限
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+房间名称
+
+{t}Room number{/t}
+房间号码
+
+{t}Rooms{/t}
+房间
+
+{t}Rows{/t}
+行
+
+{t}Run Setup again{/t}
+再次执行安装
+
+{t}S a v e{/t}
+保存
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+保存并返回
+
+{t}Sa{/t}
+Sa
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+促销
+
+{t}Sat{/t}
+六
+
+{t}Saturday{/t}
+星期六
+
+{t}Scheduling{/t}
+行程安排
+
+{t}Schema{/t}
+架构
+
+{t}Schema data{/t}
+架构数据
+
+{t}Schemafile not found. (%s){/t}
+架构文件没找到。(%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+销毁
+
+{t}Search{/t}
+搜索
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+第二管理员
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+秘书
+
+{t}Self registration{/t}
+自注册
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+发送提醒
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+分隔符
+
+{t}September{/t}
+9月
+
+{t}Serial number{/t}
+序列号
+
+{t}Server{/t}
+服务器
+
+{t}Server does not support sorting{/t}
+服务器不支持排序
+
+{t}Server-IP{/t}
+服务器IP
+
+{t}Service provider{/t}
+服务提供者
+
+{t}Session name in cookie{/t}
+cookie中的会话名称
+
+{t}Session timeout{/t}
+会话超时
+
+{t}Sessions{/t}
+会话
+
+{t}Setup{/t}
+安装
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+安装程序需要database-php-extension ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+安装需要php最低版本%s!
+
+{t}Setup needs php-extension with name %s !{/t}
+安装需要%s php-extension
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+安装：安装数据写入%s。
+
+{t}Shapes{/t}
+图形
+
+{t}Share{/t}
+共享
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+显示
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+显示归档文件
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+显示引用文本
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+简单数据表
+
+{t}single{/t}
+单一
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+尺寸
+
+{t}Size (children){/t}
+尺寸（下级）
+
+{t}Slow{/t}
+慢
+
+{t}small{/t}
+小
+
+{t}small text{/t}
+小字体
+
+{t}smaller{/t}
+较小
+
+{t}SMTP not configured for %s{/t}
+%s没有设置SMTP
+
+{t}Smtp-error %s: %s{/t}
+Smtp错误%s：%s
+
+{t}Software{/t}
+软件
+
+{t}Solution{/t}
+解决方案
+
+{t}Solution type{/t}
+方案类型
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+源代码
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+规范
+
+{t}Spreadsheet{/t}
+电子表格
+
+{t}SQL failed.{/t}
+SQL失败。
+
+{t}SQL FAILED: %s{/t}
+SQL失败：%s
+
+{t}Start scheduled{/t}
+计划启动
+
+{t}Started{/t}
+启动
+
+{t}starts with{/t}
+和启动
+
+{t}State{/t}
+状态
+
+{t}Static cache{/t}
+统计缓存
+
+{t}Statistics{/t}
+统计
+
+{t}Status{/t}
+状态
+
+{t}Statuses{/t}
+状态
+
+{t}Strategies{/t}
+策略
+
+{t}Street{/t}
+街道
+
+{t}Structure{/t}
+结构
+
+{t}Su{/t}
+Su
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+副标题
+
+{t}Subitem{/t}
+子项目
+
+{t}Subject{/t}
+主题
+
+{t}Subjects{/t}
+主题
+
+{t}Submit a patch{/t}
+提交补丁
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+标记
+
+{t}Subsistence costs{/t}
+生存费用
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+概要
+
+{t}Sun{/t}
+日
+
+{t}Sunday{/t}
+星期天
+
+{t}Superior{/t}
+最优先
+
+{t}superscript{/t}
+上标
+
+{t}Supplier{/t}
+提供人
+
+{t}Suppliers{/t}
+提供人
+
+{t}Support{/t}
+支持
+
+{t}Support request{/t}
+请求支持
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+停止
+
+{t}Switch maintenance mode{/t}
+切换到维护模式
+
+{t}Sync4j remote delete items{/t}
+同步远程删除项目
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+系统
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+数据表
+
+{t}Table sizes{/t}
+表大小
+
+{t}Table status{/t}
+表状态
+
+{t}Tables{/t}
+数据表
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+任务
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+模板
+
+{t}Templates{/t}
+模板
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+期限
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+文本文档
+
+{t}Text formatting rules{/t}
+文本格式化规则
+
+{t}Th{/t}
+Th
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+文件夹不能复制。
+
+{t}The folder cannot be deleted.{/t}
+文件夹不能删除。
+
+{t}The folder cannot be moved.{/t}
+文件夹不能移动。
+
+{t}The new password is{/t}
+新密码是
+
+{t}The url doesn't exist.{/t}
+url没找到
+
+{t}Theme{/t}
+主题
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+此扩展名无效
+
+{t}Thu{/t}
+三
+
+{t}Thursday{/t}
+星期三
+
+{t}Time and expenses{/t}
+时间和费用
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+时间表
+
+{t}Time zone{/t}
+时区
+
+{t}timeout{/t}
+超时
+
+{t}Title{/t}
+标题
+
+{t}To{/t}
+到
+
+{t}to be checked{/t}
+等待检查
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+必须选择许可证下面的选择框才能继续安装
+
+{t}Today{/t}
+今天
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+错误登录多次。等15分钟再试。
+
+{t}Total{/t}
+总共
+
+{t}Trace{/t}
+追踪
+
+{t}Trade fair{/t}
+交易会
+
+{t}translations{/t}
+翻译
+
+{t}Translations of the GNU GPL{/t}
+GNU GPL翻译
+
+{t}Transportation costs{/t}
+运输成本
+
+{t}Trash{/t}
+回收站
+
+{t}Trash folder not found.{/t}
+没找到回收站文件夹
+
+{t}Tree{/t}
+功能树
+
+{t}Trigger failed{/t}
+触发失败
+
+{t}Tu{/t}
+Tu
+
+{t}Tue{/t}
+二
+
+{t}Tuesday{/t}
+星期二
+
+{t}Type{/t}
+类型
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+找不到%s
+
+{t}Unable to write to %s{/t}
+不能写入%s
+
+{t}unconfirmed{/t}
+未确认
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+无关的
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+解锁
+
+{t}Up{/t}
+向上
+
+{t}Update{/t}
+更新
+
+{t}Update Simple Groupware{/t}
+更新Simple Groupware
+
+{t}Updated{/t}
+更新
+
+{t}Updating schema %s from %s.{/t}
+更新架构%s从%s.
+
+{t}Upload failed{/t}
+上传失败
+
+{t}Uploaded files{/t}
+上传文件
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+紧急
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+用途
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Use Debian binaries (Warning: not latest versions)
+
+{t}Use LDAP Groups{/t}
+Use LDAP Groups
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+使用mail()函数发送邮件（不安全）
+
+{t}User{/t}
+用户
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+用户名
+
+{t}Username must be different from the super administrator.{/t}
+用户名不能与超级管理员相同。
+
+{t}Users{/t}
+用户
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+假期
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+验证失败
+
+{t}Value{/t}
+值
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+变量
+
+{t}Variable already exists in table. (%s){/t}
+表中已经有此变量（%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+必须是日期变量（mm/dd/yyyy)。
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+必须是日期时间变量 (mm/dd/yyyy hh:mm am/pm).
+
+{t}Variable must be of type float.{/t}
+必须是float变量。
+
+{t}Variable must be of type int and greater than 0.{/t}
+必须是大于0的整数。
+
+{t}Variable must be of type int.{/t}
+必须是整数。
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+必须是时间变量 (hh:mm am/pm)。
+
+{t}Variables{/t}
+变量
+
+{t}Verbal recommendation{/t}
+推荐操作
+
+{t}verified{/t}
+验证
+
+{t}vertical{/t}
+垂直
+
+{t}very promising{/t}
+很有前途
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+病毒扫描
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+语音邮件
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+等待
+
+{t}Warning{/t}
+警告
+
+{t}We{/t}
+我们
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+三
+
+{t}Wednesday{/t}
+星期三
+
+{t}Week{/t}
+周
+
+{t}Week start{/t}
+周开始
+
+{t}Weekend{/t}
+周末
+
+{t}weekly{/t}
+每周
+
+{t}weeks{/t}
+周
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+白色
+
+{t}widowed{/t}
+单独的
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+Wiki样式表
+
+{t}won't fix{/t}
+不修复
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+需要工人
+
+{t}works for me{/t}
+为我工作
+
+{t}Workshop{/t}
+工作室
+
+{t}Workspace{/t}
+工作空间
+
+{t}write access{/t}
+写权限
+
+{t}Write access (groups){/t}
+写权限（组）
+
+{t}Write access (users){/t}
+写权限（用户）
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+错误的数据库版本（%s）。请使用最新版本%s！
+
+{t}wrong directory{/t}
+错误目录
+
+{t}wrong password{/t}
+密码错误
+
+{t}Year{/t}
+年
+
+{t}yearly{/t}
+每年
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+黄色
+
+{t}yes{/t}
+是
+
+{t}You are not allowed to view this folder.{/t}
+你无权查看此文件夹。
+
+{t}Your message was read on %s.{/t}
+你的消息在%s阅读。
+
+{t}Your session has timed out.{/t}
+你的会话超时。
+
+{t}Zipcode{/t}
+邮编
+
+{t}{0} - {1} of {2}{/t}
+
+

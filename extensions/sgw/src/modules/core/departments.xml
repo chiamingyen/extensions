@@ -1,0 +1,75 @@
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<folder name="@departmentname@" type="portal" anchor="departments_@departmentname@" rread_groups="department_@departmentname@|admin_organisation" rwrite_groups="department_@departmentname@|admin_organisation" rread_users="" rwrite_users="" radmin_users=""
+data="modules/core/departments_portal.xml" default_values="department=@departmentname@">
+  <folder name="{t}News{/t}" type="news">
+  </folder>
+  <folder name="{t}Files{/t}" type="files">
+  </folder>
+  <folder name="{t}E-mail{/t}" type="emails">
+  </folder>
+  <folder name="{t}Calendar{/t}" type="calendar">
+    <folder name="{t}Locations{/t}" type="locations">
+    </folder>
+  </folder>
+  <folder name="{t}Contact activities{/t}" type="contactactivities">
+  </folder>
+  <folder name="{t}Contacts{/t}" type="contacts">
+    <folder name="{t}Companies{/t}" type="companies">
+    </folder>
+    <folder name="{t}Contact groups{/t}" type="contactgroups">
+    </folder>
+  </folder>
+  <folder name="{t}Tasks{/t}" type="tasks">
+    <folder name="{t}Statuses{/t}" type="statuses">
+    </folder>
+  </folder>
+  <folder name="{t}Bookmarks{/t}" type="bookmarks">
+  </folder>
+  <folder name="{t}Notes{/t}" type="notes">
+  </folder>
+  <folder name="{t}Spreadsheet{/t}" type="spreadsheets">
+  </folder>
+  <folder name="GraphViz" type="graphviz">
+  </folder>
+  <folder name="{t}HTML documents{/t}" type="htmldocs">
+  </folder>
+  <folder name="{t}Wiki{/t}" type="cms">
+  </folder>
+  <folder name="{t}Chat{/t}" type="chat">
+  </folder>
+  <folder name="{t}Forum{/t}" type="forum">
+  </folder>
+  <folder name="{t}Photo gallery{/t}" type="gallery">
+  </folder>
+  <folder name="{t}Passwords{/t}" type="passwords">
+  </folder>
+  <folder name="{t}Categories{/t}" type="categories">
+  </folder>
+  <folder name="{t}Templates{/t}" type="templates">
+  </folder>
+  <folder name="{t}Surveys{/t}" type="surveys">
+  </folder>
+  <folder name="{t}FAQ{/t}" type="faq">
+  </folder>
+</folder>

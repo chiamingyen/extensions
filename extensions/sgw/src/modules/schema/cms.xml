@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}CMS{/t}" load_css="ext/cms/styles.css" load_library="lib/pmwiki/pmwiki.php" default_view="display" orderby="pagename" order="asc" limit="2" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" enable_asset_rights="full" trigger_edit="createeditcms" trigger_new="createeditcms" trigger_delete="deletecms" quick_add="pagename,title,data">
+  <view name="display" displayname="{t}Active{/t}" where="activated=1" limit="20">
+  </view>
+  <view name="display2" displayname="{t}Inactive{/t}" where="activated=0" template="display" limit="20">
+  </view>
+  <view name="view" template="details" template_mode="noheader" displayname="{t}View{/t}" where="activated=1" limit="1" show_preview="true" tfield_1="pagename" tfield_2="title" showonly="pagename|title|data|attachment|staticcache" disable_tabs="true">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" show_preview="true" limit="20">
+  </view>
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="meta" displayname="{t}Properties{/t}" />
+  
+  <field name="pagename" displayname="{t}Page name (URL){/t}" simple_type="text" is_unique="true" required="true">
+	<validate function="regexp|/^[a-z0-9-_\.]{3,}$/i|{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}"/>
+    <linktext views="display|display2" value="index.php?view=details&amp;item[]=@id@"/>
+    <link views="display|display2" value="index.php?view=view&amp;item[]=@id@" icon="link.gif"/>
+	<store function="pagename"/>
+    <INDEX/>
+  </field>
+  <field name="title" displayname="{t}Page title{/t}" simple_type="text">
+  </field>
+  <field name="data" displayname="{t}Content{/t}" simple_type="pmwikiarea">
+    <notin views="display|display2"/>
+ </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="20">
+    <notin views="display|display2"/>
+  </field>
+  <field name="change_summary" displayname="{t}Change summary{/t}" simple_type="text" hidden="true" editable="true">
+    <onlyin views="edit"/>
+    <restore function="empty_str"/>
+  </field>
+  <field name="activated" displayname="{t}Activated{/t}" simple_type="checkbox" simple_default="1">
+    <INDEX/>
+    <notin views="display|display2"/>
+  </field>
+  <field name="rss_include" displayname="{t}Include in RSS feed{/t}" simple_type="checkbox" simple_default="1">
+    <INDEX/>
+    <notin views="display|display2"/>
+  </field>
+  <field name="template" displayname="{t}Template{/t}" simple_type="select" simple_size="1" simple_default="pmwiki.tpl" simple_tab="meta">
+    <data function="cms_templates"/>
+  </field>
+  <field name="staticcache" displayname="{t}Static cache{/t}" simple_type="checkbox" simple_default="1" simple_tab="meta">
+    <notin views="display|display2"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="text" simple_tab="meta">
+  </field>
+  <field name="keywords" displayname="{t}Keywords{/t}" simple_type="text" simple_tab="meta">
+  </field>
+  <field name="author" displayname="{t}Author{/t}" simple_type="text" simple_default_function="getusername" simple_tab="meta">
+  </field>
+</table>

@@ -1,0 +1,182 @@
+130224 20:42:32 [Note] Plugin 'FEDERATED' is disabled.
+130224 20:42:32 InnoDB: The InnoDB memory heap is disabled
+130224 20:42:32 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 20:42:32 InnoDB: Compressed tables use zlib 1.2.3
+130224 20:42:33  InnoDB: Error: unable to create temporary file; errno: 2
+130224 20:42:33 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 20:42:33 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 20:42:34 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 20:42:34 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 20:42:34 [Note] Server socket created on IP: '127.0.0.1'.
+130224 20:42:37 [Note] Event Scheduler: Loaded 0 events
+130224 20:42:37 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130224 20:54:30 [Note] Plugin 'FEDERATED' is disabled.
+130224 20:54:30 InnoDB: The InnoDB memory heap is disabled
+130224 20:54:30 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 20:54:30 InnoDB: Compressed tables use zlib 1.2.3
+130224 20:54:30  InnoDB: Error: unable to create temporary file; errno: 2
+130224 20:54:30 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 20:54:30 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 20:54:30 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 20:54:30 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 20:54:30 [Note] Server socket created on IP: '127.0.0.1'.
+130224 20:54:30 [Note] Event Scheduler: Loaded 0 events
+130224 20:54:30 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130224 21:04:53 [Note] Plugin 'FEDERATED' is disabled.
+130224 21:04:53 InnoDB: The InnoDB memory heap is disabled
+130224 21:04:53 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 21:04:53 InnoDB: Compressed tables use zlib 1.2.3
+130224 21:04:53  InnoDB: Error: unable to create temporary file; errno: 2
+130224 21:04:53 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 21:04:53 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 21:04:53 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 21:04:53 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 21:04:53 [Note] Server socket created on IP: '127.0.0.1'.
+130224 21:04:53 [Note] Event Scheduler: Loaded 0 events
+130224 21:04:53 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130224 22:09:54 [Note] Plugin 'FEDERATED' is disabled.
+130224 22:09:55 InnoDB: The InnoDB memory heap is disabled
+130224 22:09:55 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 22:09:55 InnoDB: Compressed tables use zlib 1.2.3
+130224 22:09:55  InnoDB: Error: unable to create temporary file; errno: 2
+130224 22:09:55 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 22:09:55 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 22:09:55 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 22:09:55 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 22:09:55 [Note] Server socket created on IP: '127.0.0.1'.
+130224 22:09:55 [Note] Event Scheduler: Loaded 0 events
+130224 22:09:55 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130224 22:36:07 [Note] Plugin 'FEDERATED' is disabled.
+130224 22:36:07 InnoDB: The InnoDB memory heap is disabled
+130224 22:36:07 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 22:36:07 InnoDB: Compressed tables use zlib 1.2.3
+130224 22:36:07  InnoDB: Error: unable to create temporary file; errno: 2
+130224 22:36:07 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 22:36:07 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 22:36:07 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 22:36:07 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 22:36:07 [Note] Server socket created on IP: '127.0.0.1'.
+130224 22:36:07 [Note] Event Scheduler: Loaded 0 events
+130224 22:36:07 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130224 22:54:07 [Note] Plugin 'FEDERATED' is disabled.
+130224 22:54:07 InnoDB: The InnoDB memory heap is disabled
+130224 22:54:07 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 22:54:07 InnoDB: Compressed tables use zlib 1.2.3
+130224 22:54:07  InnoDB: Error: unable to create temporary file; errno: 2
+130224 22:54:07 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 22:54:07 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 22:54:07 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 22:54:07 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 22:54:07 [Note] Server socket created on IP: '127.0.0.1'.
+130224 22:54:07 [Note] Event Scheduler: Loaded 0 events
+130224 22:54:07 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130224 23:00:08 [Note] Plugin 'FEDERATED' is disabled.
+130224 23:00:08 InnoDB: The InnoDB memory heap is disabled
+130224 23:00:08 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130224 23:00:08 InnoDB: Compressed tables use zlib 1.2.3
+130224 23:00:08  InnoDB: Error: unable to create temporary file; errno: 2
+130224 23:00:08 [ERROR] Plugin 'InnoDB' init function returned error.
+130224 23:00:08 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130224 23:00:08 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130224 23:00:08 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130224 23:00:08 [Note] Server socket created on IP: '127.0.0.1'.
+130224 23:00:08 [ERROR] Can't start server: Bind on TCP/IP port: No such file or directory
+130224 23:00:08 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+130224 23:00:08 [ERROR] Aborting
+
+130224 23:00:08 [Note] v:\extensions\mysql\bin\mysqld1.exe: Shutdown complete
+
+130225  7:55:00 [Note] Plugin 'FEDERATED' is disabled.
+130225  7:55:00 InnoDB: The InnoDB memory heap is disabled
+130225  7:55:00 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130225  7:55:00 InnoDB: Compressed tables use zlib 1.2.3
+130225  7:55:00  InnoDB: Error: unable to create temporary file; errno: 2
+130225  7:55:00 [ERROR] Plugin 'InnoDB' init function returned error.
+130225  7:55:00 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130225  7:55:01 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130225  7:55:01 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130225  7:55:01 [Note] Server socket created on IP: '127.0.0.1'.
+130225  7:55:02 [Note] Event Scheduler: Loaded 0 events
+130225  7:55:02 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130225 16:30:08 [Note] Plugin 'FEDERATED' is disabled.
+130225 16:30:10 InnoDB: The InnoDB memory heap is disabled
+130225 16:30:10 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130225 16:30:10 InnoDB: Compressed tables use zlib 1.2.3
+130225 16:30:11  InnoDB: Error: unable to create temporary file; errno: 2
+130225 16:30:11 [ERROR] Plugin 'InnoDB' init function returned error.
+130225 16:30:11 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130225 16:30:12 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130225 16:30:12 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130225 16:30:12 [Note] Server socket created on IP: '127.0.0.1'.
+130225 16:30:18 [Note] Event Scheduler: Loaded 0 events
+130225 16:30:18 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130226 12:26:57 [Note] Plugin 'FEDERATED' is disabled.
+130226 12:27:05 InnoDB: The InnoDB memory heap is disabled
+130226 12:27:05 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130226 12:27:05 InnoDB: Compressed tables use zlib 1.2.3
+130226 12:27:05  InnoDB: Error: unable to create temporary file; errno: 2
+130226 12:27:05 [ERROR] Plugin 'InnoDB' init function returned error.
+130226 12:27:05 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130226 12:27:05 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130226 12:27:07 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130226 12:27:07 [Note] Server socket created on IP: '127.0.0.1'.
+130227 16:36:40 [Note] Plugin 'FEDERATED' is disabled.
+130227 16:36:46 InnoDB: The InnoDB memory heap is disabled
+130227 16:36:46 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130227 16:36:46 InnoDB: Compressed tables use zlib 1.2.3
+130227 16:36:48  InnoDB: Error: unable to create temporary file; errno: 2
+130227 16:36:48 [ERROR] Plugin 'InnoDB' init function returned error.
+130227 16:36:48 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130227 16:36:48 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130227 16:36:48 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130227 16:36:48 [Note] Server socket created on IP: '127.0.0.1'.
+130227 16:37:09 [Note] Event Scheduler: Loaded 0 events
+130227 16:37:09 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130227 16:50:23 [Note] Plugin 'FEDERATED' is disabled.
+130227 16:50:23 InnoDB: The InnoDB memory heap is disabled
+130227 16:50:23 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130227 16:50:23 InnoDB: Compressed tables use zlib 1.2.3
+130227 16:50:23  InnoDB: Error: unable to create temporary file; errno: 2
+130227 16:50:23 [ERROR] Plugin 'InnoDB' init function returned error.
+130227 16:50:23 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130227 16:50:23 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130227 16:50:23 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130227 16:50:23 [Note] Server socket created on IP: '127.0.0.1'.
+130227 16:50:39 [Note] Event Scheduler: Loaded 0 events
+130227 16:50:39 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130301 14:09:44 [Note] Plugin 'FEDERATED' is disabled.
+130301 14:09:48 InnoDB: The InnoDB memory heap is disabled
+130301 14:09:48 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130301 14:09:48 InnoDB: Compressed tables use zlib 1.2.3
+130301 14:09:58  InnoDB: Error: unable to create temporary file; errno: 2
+130301 14:09:58 [ERROR] Plugin 'InnoDB' init function returned error.
+130301 14:09:58 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130301 14:10:03 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130301 14:10:03 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130301 14:10:03 [Note] Server socket created on IP: '127.0.0.1'.
+130301 14:10:21 [Note] Event Scheduler: Loaded 0 events
+130301 14:10:21 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)
+130301 14:32:43 [Note] Plugin 'FEDERATED' is disabled.
+130301 14:32:43 InnoDB: The InnoDB memory heap is disabled
+130301 14:32:43 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+130301 14:32:43 InnoDB: Compressed tables use zlib 1.2.3
+130301 14:32:43  InnoDB: Error: unable to create temporary file; errno: 2
+130301 14:32:43 [ERROR] Plugin 'InnoDB' init function returned error.
+130301 14:32:43 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+130301 14:32:43 [Note] Server hostname (bind-address): '127.0.0.1'; port: 3306
+130301 14:32:43 [Note]   - '127.0.0.1' resolves to '127.0.0.1';
+130301 14:32:43 [Note] Server socket created on IP: '127.0.0.1'.
+130301 14:32:54 [Note] Event Scheduler: Loaded 0 events
+130301 14:32:54 [Note] v:\extensions\mysql\bin\mysqld1.exe: ready for connections.
+Version: '5.5.28'  socket: ''  port: 3306  MySQL Community Server (GPL)

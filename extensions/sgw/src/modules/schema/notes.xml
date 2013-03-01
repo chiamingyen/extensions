@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Notes{/t}" default_view="display" orderby="id" order="desc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" trigger_edit="sync4j::createedit" trigger_new="sync4j::createedit" trigger_delete="sync4j::delete" quick_add="title,content">
+  <view name="display" template="free" displayname="{t}Display{/t}" image_width="250" image_height="145" cols="3" row_height="215px">
+  </view>
+  <view name="details" template_mode="small" showinsingleview="true" displayname="{t}Details{/t}" show_preview="true">
+  </view>
+
+  <field name="title" displayname="{t}Title{/t}" simple_type="text" height="16px" required="true">
+  </field>
+  <field name="content" displayname="{t}Content{/t}" simple_type="textarea">
+  </field>
+  <field name="link" displayname="{t}Link{/t}" simple_type="text">
+	<linktext value="@ext/norefer.php?url=@link@"/>
+  </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="10">
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" simple_size="1" height="16px">
+	<data title="{t}Default{/t}" sort="asc" values="{t}Birthday{/t}|{t}Business{/t}|{t}Competition{/t}|{t}Favorites{/t}|{t}Gifts{/t}|{t}Holiday{/t}|{t}Ideas{/t}|{t}Key customer{/t}|{t}Miscellaneous{/t}|{t}Objectives{/t}|{t}Personal{/t}|{t}Phone calls{/t}|{t}Status{/t}|{t}Strategies{/t}|{t}Suppliers{/t}|{t}Time and expenses{/t}|{t}Vacation{/t}" />
+	<data title="{t}Lookup{/t}" function="dbselect|simple_categories|categoryname,categoryname|cattype='notes'|categoryname asc|10"/>
+  </field>
+  <field name="syncid" simple_type="id" hidden="true">
+  </field>
+</table>

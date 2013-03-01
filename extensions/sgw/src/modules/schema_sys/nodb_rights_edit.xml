@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Rights{/t}" name="simple_sys_tree" default_sql="select * from simple_sys_tree where id=@folder@" default_view="display" orderby="folder" order="asc">
+  <view name="display" displayname="{t}Display{/t}" template="edit" schema_mode="edit">
+  </view>
+  <field name="id" displayname="{t}Id{/t}" simple_type="id">
+  </field>
+  <field name="ftitle" displayname="{t}Title{/t}" simple_type="text" required="true">
+  </field>
+  <field name="icon" displayname="{t}Folder icon{/t}" simple_type="select" simple_size="1">
+    <data function="icons_modules"/>
+	<description value="nWin('ext/modules/folder_icons.php?obj=@prefix@icon');"/>
+  </field>
+  <field name="fdescription" displayname="{t}Description{/t}" simple_type="textarea">
+  </field>
+  <field name="fquota" displayname="{t}Quota [MB]{/t}" simple_type="int"/>
+  <field name="default_values" displayname="{t}Default values for assets{/t}" simple_type="textarea">
+	<description value="alert('
+	{t}Usage{/t}:\n\n
+	{t}Field{/t}={t}Value{/t}\n
+	{t}Field{/t}2={t}Value{/t}2\n\n
+	e.g. project=pr1');"/>
+  </field>
+  <field name="anchor" displayname="{t}Anchor{/t}" simple_type="text"/>
+  <field name="notification" displayname="{t}Notification{/t}" simple_type="multitext" separator=", " hidden="true" editable="true">
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|email,concat(lastname;' ';firstname)|length(email)!=0 and activated=1|lastname asc|10"/>
+    <data title="{t}Groups{/t}" function="dbselect|simple_sys_groups|concat('@';groupname),groupname|length(members)!=0 and activated=1|groupname asc|10"/>
+    <data title="{t}Contacts{/t}" function="dbselect|simple_contacts|email,concat(lastname;' ';firstname)|length(email)!=0|lastname asc|10"/>
+    <data title="{t}Contact groups{/t}" function="dbselect|simple_contactgroups|concat('@';groupname),groupname|length(members)!=0|groupname asc|10"/>
+  </field>
+  <field name="rread_users" displayname="{t}Read access (users){/t}" simple_type="select">
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<data title="{t}Default{/t}" values="anonymous"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@rread_users@&amp;view=details"/>
+  </field>
+  <field name="rread_groups" displayname="{t}Read access (groups){/t}" simple_type="select">
+    <data function="dbselect|simple_sys_groups|groupname,groupname||groupname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_groups||groupname=@rread_groups@&amp;view=display"/>
+  </field>
+  <field name="rwrite_users" displayname="{t}Write access (users){/t}" simple_type="select">
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<data title="{t}Default{/t}" values="anonymous"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@rwrite_users@&amp;view=details"/>
+  </field>
+  <field name="rwrite_groups" displayname="{t}Write access (groups){/t}" simple_type="select">
+    <data function="dbselect|simple_sys_groups|groupname,groupname||groupname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_groups||groupname=@rwrite_groups@&amp;view=display"/>
+  </field>
+  <field name="radmin_users" displayname="{t}Admin access (users){/t}" simple_type="select">
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<data title="{t}Default{/t}" values="anonymous"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@radmin_users@&amp;view=details"/>
+  </field>
+  <field name="radmin_groups" displayname="{t}Admin access (groups){/t}" simple_type="select">
+    <data function="dbselect|simple_sys_groups|groupname,groupname||groupname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_groups||groupname=@radmin_groups@&amp;view=display"/>
+  </field>
+  <field name="rexception_users" displayname="{t}View access (users){/t}" simple_type="text">
+	<description value="alert('
+{t}Syntax{/t}:\n
+|&lt;view[,view2]&gt;:&lt;right&gt;:&lt;username[,username2]&gt;|\n
+\n
+{t}Examples{/t}:\n
+|freebusy:read:anonymous|\n
+|freebusy:read:anonymous|details:no_read:anonymous|\n
+\n
+{t}Rights{/t}: read, no_read, write, no_write
+');"/>
+  </field>
+  <field name="rexception_groups" displayname="{t}View access (groups){/t}" simple_type="text">
+	<description value="alert('
+{t}Syntax{/t}:\n
+|&lt;view[,view2]&gt;:&lt;right&gt;:&lt;groupname[,groupname2]&gt;|\n
+\n
+{t}Examples{/t}:\n
+|freebusy:read:internals|\n
+|freebusy:read:internals|details:no_read:guests|\n
+\n
+{t}Rights{/t}: read, no_read, write, no_write
+');"/>
+  </field>
+</table>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Bookmarks{/t}" default_view="display" orderby="sort" order="asc" limit="20" sql_handler="bookmarks" disable_folder_operations="true" disable_rights="true">
+  <view name="display" displayname="{t}Display{/t}" groupby="category">
+  </view>
+  <field name="sort" simple_type="int" hidden="true">
+  </field>
+  <field name="bookmarkname" displayname="{t}Name{/t}" simple_type="text" width="35%">
+	<linktext value="@ext/norefer.php?url=@url@"/>
+  </field>
+  <field name="url" displayname="{t}URL{/t}" simple_type="text" width="25%">
+	<linktext value="@ext/norefer.php?url=@url@"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea" width="40%">
+	<filter views="all" function="truncate|100"/>
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="text">
+  </field>
+</table>

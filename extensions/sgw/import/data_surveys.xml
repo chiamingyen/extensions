@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<assets>
+<asset>
+	<question>1) What is your overall satisfaction?</question>
+	<qtype>radio</qtype>
+	<choices>1 (best),2,3,4,5</choices>
+</asset>
+<asset>
+	<question>1b) If you are not satisfied, why?</question>
+	<qtype>textarea</qtype>
+</asset>
+<asset>
+	<question>1c) What could we improved to increase your level of satisfaction?</question>
+	<qtype>textarea</qtype>
+</asset>
+<asset>
+	<question>2) How satisfied are you with value for money?</question>
+	<qtype>radio</qtype>
+	<choices>1 (best),2,3,4,5</choices>
+</asset>
+<asset>
+	<question>3) How satisfied are you with quality?</question>
+	<qtype>radio</qtype>
+	<choices>1 (best),2,3,4,5</choices>
+</asset>
+<asset>
+	<question>4) How satisfied are you with user experience?</question>
+	<qtype>radio</qtype>
+	<choices>1 (best),2,3,4,5</choices>
+</asset>
+<asset>
+	<question>5) How satisfied are you with design and appearance?</question>
+	<qtype>radio</qtype>
+	<choices>1 (best),2,3,4,5</choices>
+</asset>
+<asset>
+	<question>6) How satisfied are you with ability to meet your needs?</question>
+	<qtype>radio</qtype>
+	<choices>1 (best),2,3,4,5</choices>
+</asset>
+<asset>
+	<question>7) Did you experience any problems?</question>
+	<qtype>radio</qtype>
+	<choices>Yes (often),Yes (sometimes),No,Don&#039;t remember</choices>
+</asset>
+<asset>
+	<question>7b) If you did, what kind of problems?</question>
+	<qtype>textarea</qtype>
+</asset>
+<asset>
+	<question>8) What did you like most?</question>
+	<qtype>checkbox</qtype>
+	<choices>Products,Pricing,Support,Organisation,Marketing</choices>
+</asset>
+<asset>
+	<question>9) Will you recommend the company?</question>
+	<qtype>radio</qtype>
+	<choices>Yes!,Maybe,No</choices>
+</asset>
+</assets>

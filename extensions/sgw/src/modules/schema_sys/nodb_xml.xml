@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Example.xml - {t}Contact{/t}" default_view="display" orderby="lastname" order="asc" limit="20" sql_handler="xml" disable_folder_operations="true" disable_rights="true">
+  <view name="display" displayname="{t}Display{/t}">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" tfield_1="firstname" tfield_2="lastname">
+  </view>
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="contact" displayname="{t}Contact{/t}" />
+  <tab name="address" displayname="{t}Address{/t}" />
+  <tab name="miscellaneous" displayname="{t}Miscellaneous{/t}" />  
+  <tab name="other" displayname="{t}Other{/t}" />  
+
+  <field name="title" displayname="{t}Title{/t}" simple_type="text">
+  </field>
+  <field name="lastname" displayname="{t}Last name{/t}" simple_type="text">
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="firstname" displayname="{t}First name{/t}" simple_type="text">
+  </field>
+  <field name="company" displayname="{t}Company{/t}" simple_type="text">
+  </field>
+  <field name="email" displayname="{t}E-mail{/t}" simple_type="text">
+    <link value="@ext/norefer.php?url=@email@" icon="link_mail.gif"/>
+  </field>
+  
+  <field name="position" displayname="{t}Position{/t}" simple_type="text">
+  </field>
+  <field name="contactperson" displayname="{t}Contact person{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="phone" displayname="{t}Phone{/t}" simple_type="text" simple_tab="contact">
+    <link value="sip:@phone@" icon="phone.gif"/>
+  </field>
+  <field name="fax" displayname="{t}Fax{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="mobile" displayname="{t}Mobile{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="pager" displayname="{t}Pager{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="contactby" displayname="{t}Contact by{/t}" simple_type="text" simple_tab="contact">
+  </field>
+  <field name="department" displayname="{t}Department{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="street" displayname="{t}Street{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="zipcode" displayname="{t}Zipcode{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="city" displayname="{t}City{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="state" displayname="{t}State{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="country" displayname="{t}Country{/t}" simple_type="text" simple_tab="address">
+  </field>
+  <field name="billingaddress" displayname="{t}Billing address{/t}" simple_type="textarea" simple_tab="address">
+    <notin views="display"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="textarea">
+    <notin views="display"/>
+  </field>
+  <field name="contactid" displayname="{t}Contact id{/t}" simple_type="text" simple_tab="other">
+  </field>
+  <field name="rating" displayname="{t}Rating{/t}" simple_type="text" simple_tab="other">
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="text" simple_tab="other">
+  </field>
+  <field name="nickname" displayname="{t}Nickname{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="degree" displayname="{t}Degree{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="birthday" displayname="{t}Birthday{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="secretary" displayname="{t}Secretary{/t}" simple_type="select" simple_tab="miscellaneous">
+  </field>
+  <field name="emailprivate" displayname="{t}E-mail private{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="phoneprivate" displayname="{t}Phone private{/t}" simple_type="text" simple_tab="miscellaneous">
+  </field>
+  <field name="origin" displayname="{t}Origin{/t}" simple_type="text" simple_tab="other">
+  </field>  
+</table>

@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2007 Vityusha V. Vinokurov
+
+{t}!_Language{/t}
+Русский / Russian
+
+{t}%s is not activated{/t}
+%s не активирован
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s не скомпилирован / не загружен в PHP.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s не является базой данных
+
+{t}%s rows affected{/t}
+%s столбцов затронуто
+
+{t}%s secs{/t}
+%s сек.
+
+{t}%s started editing this asset at %s{/t}
+%s начал редактировать этот раздел в %s
+
+{t}(for active directory username must be: username@domain){/t}
+(для LDAP имя должно быть в виде username@domain)
+
+{t}(un)Group{/t}
+(Раз)Сгруппировать
+
+{t}About{/t}
+О программе
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+принято
+
+{t}Access denied.{/t}
+Доступ запрещен.
+
+{t}Access to this file has been denied.{/t}
+Доступ к файлу запрещен.
+
+{t}Account{/t}
+Учетная запись
+
+{t}account of %s has expired{/t}
+учетная запись %s устарела
+
+{t}Accounting{/t}
+
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Активирован
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Активный
+
+{t}Ad{/t}
+От
+
+{t}Add{/t}
+Добавить
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+Добавить к автономным папкам
+
+{t}added line{/t}
+запись добавлена
+
+{t}Address{/t}
+Адрес
+
+{t}admin access{/t}
+административный доступ
+
+{t}Admin access (groups){/t}
+Административный доступ (группы)
+
+{t}Admin access (users){/t}
+Административный доступ (пользователи)
+
+{t}Admin Password{/t}
+Пароль администратора
+
+{t}Admin Username{/t}
+Имя администратора
+
+{t}Administration{/t}
+Администорирование
+
+{t}Advanced tables{/t}
+Расширенные таблицы
+
+{t}Affected user{/t}
+Затронутый пользователь
+
+{t}Affiliate{/t}
+Присоединить
+
+{t}after{/t}
+после
+
+{t}Agent{/t}
+Агент
+
+{t}Ajax Error{/t}
+Ошибка Ajax
+
+{t}All{/t}
+Все
+
+{t}All day{/t}
+Все дни
+
+{t}All events{/t}
+Все события
+
+{t}All finished tasks{/t}
+Все завершенные задачи
+
+{t}All pending tasks{/t}
+Все ожидающие задачи
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+Уже используется последняя версия.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Количество
+
+{t}Anchor{/t}
+Якроь
+
+{t}and{/t}
+и
+
+{t}Anniversary{/t}
+Годовщина
+
+{t}another page{/t}
+другая страница
+
+{t}answered{/t}
+отвеченный
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+На основе Apache (.htaccess, Basic, Digest, etc.)
+
+{t}Application title{/t}
+Наименование приложения
+
+{t}Apply rights to subfolders{/t}
+Применить права к подкаталогам
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+Апр
+
+{t}April{/t}
+Апрель
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Архивировать удалённые файлы
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Актив помечен только для чтения.
+
+{t}Assets{/t}
+Активы
+
+{t}Assets (children){/t}
+Активы (дочерние)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+принят
+
+{t}at least 20 characters{/t}
+не менее 20 символов
+
+{t}attach file{/t}
+присоеденить файл
+
+{t}Attachment{/t}
+Вложение
+
+{t}Attachments{/t}
+Вложения
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+Авг
+
+{t}August{/t}
+Август
+
+{t}Authentication Mode{/t}
+Режим авторизации
+
+{t}Author{/t}
+Автор
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+Средний прогресс
+
+{t}Avg length{/t}
+Средняя длина
+
+{t}Back{/t}
+Назад
+
+{t}Backup{/t}
+Резервирование
+
+{t}Backup current folder{/t}
+Резервировать текущий каталог
+
+{t}Backups{/t}
+Резервные копии
+
+{t}Basic editing{/t}
+Базовое редактирование
+
+{t}before{/t}
+перед
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Начало
+
+{t}big{/t}
+большой
+
+{t}big text{/t}
+большой текст
+
+{t}bigger{/t}
+больший
+
+{t}Billing address{/t}
+Адресат счета
+
+{t}Birthday{/t}
+День рождения
+
+{t}Birthdays{/t}
+Дни рождений
+
+{t}Blank{/t}
+Пустой
+
+{t}blue{/t}
+голубой
+
+{t}bold{/t}
+полужирный
+
+{t}bold italic{/t}
+полужирный курсив
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+заказанный
+
+{t}Booked{/t}
+Заказанный
+
+{t}Booking number{/t}
+Номер заказа
+
+{t}Bookings{/t}
+Портфель заказов
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Закладки
+
+{t}borrowed{/t}
+взятый взаем
+
+{t}Brand{/t}
+Брэнд
+
+{t}Brands{/t}
+Брэнды
+
+{t}Browser Compatibility{/t}
+Совместимость браузера
+
+{t}Browser not supported{/t}
+Браузер не поддерживается
+
+{t}Budget{/t}
+Бюджет
+
+{t}Bug{/t}
+Ошибка
+
+{t}bulleted{/t}
+маркированный
+
+{t}Business{/t}
+Бизнес
+
+{t}C a n c e l{/t}
+О т м е н а
+
+{t}C O N T I N U E{/t}
+П Р О Д О Л Ж И Т Ь
+
+{t}Cache output{/t}
+Вывод кэша
+
+{t}Caches{/t}
+Кэши
+
+{t}Calendar{/t}
+Календарь
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+отменен
+
+{t}Canceled{/t}
+Отменен
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Невозможно вызвать proc_open. Удалите proc_open из disable_functions в php.ini и запретите safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+Невозможно подключиться к базе %s на %s.
+
+{t}Cannot create preview for %s{/t}
+Невозможно создать предпросмотр для %s
+
+{t}Cannot read the file %s.{/t}
+Невозможно прочитать файл  %s.
+
+{t}Cardinality{/t}
+Множество
+
+{t}Categories{/t}
+Категории
+
+{t}Category{/t}
+Категория
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+центрированный
+
+{t}CEO{/t}
+CEO
+
+{t}Change request{/t}
+Изменить запрос
+
+{t}Change settings{/t}
+Изменить настройки
+
+{t}Change Setup settings{/t}
+Изменить настройки установки
+
+{t}Change summary{/t}
+Изменить резюме
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+изменена запись
+
+{t}Changelog{/t}
+Лог изменений
+
+{t}Chat{/t}
+Чат
+
+{t}Check DoS Attacks{/t}
+Проверить DoS атаки
+
+{t}checked{/t}
+проверено
+
+{t}Checked{/t}
+Проверено
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+CIO
+
+{t}City{/t}
+Город
+
+{t}Clean{/t}
+Очистить
+
+{t}Clean Cache{/t}
+Очистить кэш
+
+{t}Clear{/t}
+Очистить
+
+{t}Clear Cache{/t}
+Очистить кэш
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Клиент
+
+{t}Close{/t}
+Закрыть
+
+{t}Close session{/t}
+Закрыть сессию
+
+{t}closed{/t}
+закрытый
+
+{t}Closed{/t}
+Закрыто
+
+{t}CMS{/t}
+CMS
+
+{t}CMS homepage title{/t}
+Заголовок домашней страницы CMS
+
+{t}Collapse text{/t}
+Свернуть текст
+
+{t}Collapse tree{/t}
+Свернуть дерево
+
+{t}Color{/t}
+Цвет
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Имя столбца
+
+{t}Combination{/t}
+Сочетание
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Команда
+
+{t}Comment{/t}
+Комментарий
+
+{t}Comment files{/t}
+Файлы комментариев
+
+{t}Companies{/t}
+Компании
+
+{t}Company{/t}
+Компания
+
+{t}Competition{/t}
+Конкуренция
+
+{t}Competitor{/t}
+Конкурент
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Завершено
+
+{t}Component{/t}
+Компонент
+
+{t}Compress output{/t}
+Сжать вывод
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+подтверждено
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Сбой подключения к базе.
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Консультант
+
+{t}Contact{/t}
+Контакт
+
+{t}Contact activities{/t}
+Активность контакта
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Контакт от
+
+{t}Contact groups{/t}
+Группы контактов
+
+{t}Contact id{/t}
+Id контакта
+
+{t}Contact person{/t}
+Контактное лицо
+
+{t}Contact user by{/t}
+Связаться с пользователем по
+
+{t}Contacts{/t}
+Контакты
+
+{t}contains{/t}
+содержит
+
+{t}Content{/t}
+Содержимое
+
+{t}Continue{/t}
+Продолжить
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Копир
+
+{t}Copy{/t}
+Копировать
+
+{t}Cost center{/t}
+Бюро калькуляций
+
+{t}Costs of accommodation{/t}
+Стоимость размещения
+
+{t}Could not determine database-version.{/t}
+Невозможно определить версию базы данных.
+
+{t}Country{/t}
+Страна
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Создан
+
+{t}Creating database failed.{/t}
+Не удалось создать базу данных.
+
+{t}current path{/t}
+текущий путь
+
+{t}current time{/t}
+текущее время
+
+{t}Curriculum vitae{/t}
+Биография
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+настройки
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Вырезать
+
+{t}daily{/t}
+ежедневно
+
+{t}Data{/t}
+Данные
+
+{t}Data free{/t}
+Свободные данные
+
+{t}Data length{/t}
+Размер данных
+
+{t}Database{/t}
+База данных
+
+{t}Database Hostname / IP{/t}
+Имя хоста/IP базы данных
+
+{t}Database Name{/t}
+Имя базы данных
+
+{t}Database Password{/t}
+Пароль базы данных
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Статус базы данных
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Пользователь базы данных
+
+{t}Database variables{/t}
+Переменные базы данных
+
+{t}Date{/t}
+Дата
+
+{t}Day{/t}
+День
+
+{t}Day begin{/t}
+Начало дня
+
+{t}Day end{/t}
+Конец дня
+
+{t}days{/t}
+дней
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+Конечный срок
+
+{t}Debug{/t}
+Отладка
+
+{t}Debug-dir{/t}
+Каталог-отладки
+
+{t}Dec{/t}
+Дек
+
+{t}December{/t}
+Декабрь
+
+{t}Declining balance{/t}
+Снижение баланса
+
+{t}Default{/t}
+По умолчанию
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Тема по умолчанию
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+определение для списка определений
+
+{t}Degree{/t}
+Степень
+
+{t}Delete{/t}
+Удалить
+
+{t}Delete incl subfolders{/t}
+Удалить с подкаталогами
+
+{t}deleted{/t}
+удалённый
+
+{t}deleted line{/t}
+запись удалена
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Запрос
+
+{t}Demo{/t}
+Демо
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Отдел
+
+{t}Departments{/t}
+Отделы
+
+{t}Dependancies{/t}
+Зависимости
+
+{t}Description{/t}
+Описание
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Настольный компьютер
+
+{t}Details{/t}
+Детали
+
+{t}Device type{/t}
+Тип прибора
+
+{t}Device types{/t}
+Типы приборов
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+каталог не существует.
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+каталог вне допустимого каталога. (%s вне %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+Отключить базовую аутентификацию
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Показать
+
+{t}display filter{/t}
+фильтр вывода
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+показывается
+
+{t}Distributor{/t}
+Дистрибьютор
+
+{t}Distributors{/t}
+Дистрибьюторы
+
+{t}divorced{/t}
+разведен
+
+{t}Documentation{/t}
+Документация
+
+{t}Documentation index{/t}
+Индекс документации
+
+{t}Domain{/t}
+Область
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Вниз
+
+{t}Download{/t}
+Загрузка
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Загрузка списка обновлений
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+дублировать
+
+{t}Duration{/t}
+Продолжительность
+
+{t}E-mail{/t}
+E-mail
+
+{t}E-mail private{/t}
+Частный E-mail
+
+{t}E-mail program{/t}
+Почтовый клиент
+
+{t}e.g.{/t}
+например
+
+{t}Edit{/t}
+Редактировать
+
+{t}Edit as new{/t}
+Редактировать как новый
+
+{t}Edit rights{/t}
+Редактировать права
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+Редактор
+
+{t}Emphasis{/t}
+Выделение
+
+{t}Empty{/t}
+Пустой
+
+{t}Empty folder{/t}
+Пустой каталог
+
+{t}en{/t}
+ru
+
+{t}Enable anonymous access{/t}
+Разрешить гостевой доступ
+
+{t}Enable anonymous CMS{/t}
+Разрешить гостевой CMS
+
+{t}Enable automatic user creation{/t}
+Разрешить автоматическое создание пользователей
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Разрешить использовать внешние почтовые программы для mailto:
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+Разрешить Sync4j/Funambol
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Конец
+
+{t}engaged{/t}
+занятый
+
+{t}equal{/t}
+равно
+
+{t}Error{/t}
+Ошибка
+
+{t}Error doing request to xmlhttp{/t}
+Ошибка запроса к xmlhttp
+
+{t}Error moving file{/t}
+Ошибка перемещения файла
+
+{t}Error pasting asset{/t}
+Ошибка вставки раздела
+
+{t}Error: no credentials{/t}
+Ошибка: нет мандата
+
+{t}Events{/t}
+События
+
+{t}Example{/t}
+Пример
+
+{t}Example contacts{/t}
+пример контактов
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Пример без точки монтирования
+
+{t}Examples{/t}
+Примеры
+
+{t}Execute{/t}
+Выполнить
+
+{t}Expenses{/t}
+Расходы
+
+{t}Experimental{/t}
+Экспериментальный
+
+{t}Expires{/t}
+Истекло
+
+{t}Expiry{/t}
+Окончание
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Извлечение файлов
+
+{t}F j{/t}
+j F
+
+{t}F j, Y{/t}
+j F, Y
+
+{t}Failed to create directory: %s{/t}
+Не удалось создать каталог: %s
+
+{t}Failed to write file to disk.{/t}
+Не удалось записать файл на диск
+
+{t}Failed to write into %s{/t}
+Не удалось записать в %s
+
+{t}Family status{/t}
+Семейное положение
+
+{t}FAQ{/t}
+ЧАВО
+
+{t}Favorites{/t}
+Избранное
+
+{t}Fax{/t}
+Факс
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Запрос новых возможностей
+
+{t}Feb{/t}
+Фев
+
+{t}February{/t}
+Февраль
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+женский
+
+{t}Field{/t}
+Поле
+
+{t}Field contains value{/t}
+Поле содержит значение
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+Поле равно значению
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Файл
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+файл слишком большой. Измените upload_max_filesize, post_max_size в вашем php.ini
+
+{t}file is too big. Please upload a smaller one.{/t}
+файл слишком большой. Выберите файл поменьше.
+
+{t}File locked.{/t}
+Файл заблокирован.
+
+{t}file not found in database.{/t}
+файл не найден в базе данных.
+
+{t}file not found.{/t}
+файл не найден.
+
+{t}File unlocked.{/t}
+Файл разблокирован.
+
+{t}file was uploaded partially.{/t}
+файл загружен частично.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Расширение файла должно быть правильным. Допустимые расширения %s
+
+{t}Files{/t}
+Файлы
+
+{t}Filesystem{/t}
+Файловая система
+
+{t}Filter{/t}
+Фильтр
+
+{t}Find assets in multiple folders{/t}
+Поиск активов в разных папках
+
+{t}Finish scheduled{/t}
+Окончание запланировано
+
+{t}Finished{/t}
+Завершено
+
+{t}First in list{/t}
+Первый в списке
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+Имя
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+исправлено
+
+{t}Flags{/t}
+Флаги
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Папка
+
+{t}Folder already exists.{/t}
+Папка уже существует.
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+Папка изменена.
+
+{t}Folder icon{/t}
+Значок папки
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Структура папок создана.
+
+{t}Folder structure moved to trash.{/t}
+Структура папок удалена в корзину.
+
+{t}Folder Type{/t}
+Тип папки
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Папки
+
+{t}for a new paragraph, use a blank line{/t}
+для нового абзаца используйте пустую строку
+
+{t}Force SSL{/t}
+Использовать SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Форум
+
+{t}Forward{/t}
+Вперед
+
+{t}Fr{/t}
+Пт
+
+{t}Free/busy{/t}
+Свободен/занят
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Пят
+
+{t}Friday{/t}
+Пятница
+
+{t}From{/t}
+От
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+Полные тексты
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+На всю ширину
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+Funambol работает только с MySQL и PostgreSQL.
+
+{t}Function does not exist: %s{/t}
+Функция не существует: %s
+
+{t}g:i a{/t}
+H:i
+
+{t}Gender{/t}
+Пол
+
+{t}General{/t}
+Общий
+
+{t}Generate{/t}
+Генерировать
+
+{t}Gifts{/t}
+Одаренность
+
+{t}Give Feedback{/t}
+Обратная связь
+
+{t}GNU GPL Frequently Asked Questions{/t}
+Часто Задаваемые Вопросы по GNU GPL
+
+{t}greater than{/t}
+больше чем
+
+{t}green{/t}
+зеленый
+
+{t}Group{/t}
+Группа
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Имя группы
+
+{t}Groups{/t}
+Группы
+
+{t}hanging text{/t}
+подвешенный текст
+
+{t}Hardware{/t}
+Оборудование
+
+{t}Headers{/t}
+Заголовки
+
+{t}heading{/t}
+заголовок
+
+{t}headings{/t}
+заголовки
+
+{t}Height{/t}
+Высота
+
+{t}Help{/t}
+Справка
+
+{t}Helpdesk{/t}
+Служба поддержки
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+История
+
+{t}Holiday{/t}
+Праздник
+
+{t}Home{/t}
+Дом
+
+{t}Home folder id{/t}
+Id домашней папки
+
+{t}Home page in the CMS{/t}
+Домашняя страница в CMS
+
+{t}Homepage{/t}
+Домашняя страница
+
+{t}horizontal line{/t}
+горизонтальная линия
+
+{t}Host{/t}
+Хост
+
+{t}Hosts{/t}
+Хосты
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+часов
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+HTML документы
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+http://www.pmwiki.org/wiki/PmWikiRu/PmWikiRu
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+Я принимаю GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+У с т а н о в и т ь
+
+{t}Icon{/t}
+Значок
+
+{t}Id{/t}
+Идентификатор
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id должен быть непустым, в нижнем регистре, минимум 3, максимум 128 символов включая [a-z0-9_-@.].
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id должен быть непустым, минимум 3, максимум 128 символов включая [a-z0-9_-@.].
+
+{t}Ideas{/t}
+Идеи
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Если пусто, будет использоваться SMTP соединение модуля.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+если не определилось с namingContexts
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Если имя пользователя или пароль содержат &quot;@&quot;, замените их на &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Импорт/Экспорт
+
+{t}Image{/t}
+Рисунок
+
+{t}Images{/t}
+Рисуноки
+
+{t}Imap-error: %s{/t}
+Ошибка IMAP: %s
+
+{t}immediate{/t}
+немедленно
+
+{t}Import{/t}
+Импорт
+
+{t}In progress{/t}
+Выполняется
+
+{t}in repair{/t}
+на востановлении
+
+{t}in stock{/t}
+в запасе
+
+{t}Inactive{/t}
+Неактивный
+
+{t}Include in RSS feed{/t}
+Включит в RSS ленту
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+выровненный текст
+
+{t}Index{/t}
+Индекс
+
+{t}Index length{/t}
+Длина индекса
+
+{t}Index type{/t}
+Тип индекса
+
+{t}Indexes{/t}
+Индексы
+
+{t}Industry{/t}
+Промышленность
+
+{t}Info{/t}
+Инфо
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Вставить
+
+{t}inserted{/t}
+вставленный
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+недостаточные права для папки
+
+{t}Internal recommendation{/t}
+Внутренняя рекомендация
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Введение
+
+{t}invalid{/t}
+неверный
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+Неверный режим схемы %s
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Инвентарь
+
+{t}Inventory number{/t}
+Инвентарный номер
+
+{t}Investor{/t}
+Инвестор
+
+{t}Invoice{/t}
+Счёт
+
+{t}italic{/t}
+курсив
+
+{t}Item created by %s at %s{/t}
+Пункт создан %s от %s
+
+{t}Item deleted by %s at %s{/t}
+Пункт удален %s от %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Пункт (%s) отредактирован %s от %s
+
+{t}Item not found.{/t}
+Пункт не найден.
+
+{t}Item successfully created.{/t}
+Пункт успешно создан.
+
+{t}Item successfully updated.{/t}
+Пункт успешно изменен.
+
+{t}Item(s) not found or access denied.{/t}
+Пункт не найден или запрещён доступ.
+
+{t}Jan{/t}
+Янв
+
+{t}January{/t}
+Январь
+
+{t}Job description{/t}
+Описание работы
+
+{t}Join lines{/t}
+Объеденить строки
+
+{t}Jul{/t}
+Июл
+
+{t}July{/t}
+Июль
+
+{t}Jun{/t}
+Июн
+
+{t}June{/t}
+Июнь
+
+{t}Key{/t}
+Ключ
+
+{t}Key customer{/t}
+Ключевой заказчик
+
+{t}Key name{/t}
+Имя ключа
+
+{t}Keywords{/t}
+Ключевые слова
+
+{t}Knowledge base{/t}
+База знаний
+
+{t}L o g i n{/t}
+В х о д
+
+{t}l, F j, Y{/t}
+l, j F, Y
+
+{t}Last access{/t}
+Последний доступ
+
+{t}Last name{/t}
+Фамилия
+
+{t}LDAP anonymous connection failed.{/t}
+LDAP гостевое подключение отвергнуто.
+
+{t}LDAP attribute for group memberships{/t}
+LDAP атрибут для группового членства
+
+{t}LDAP attribute for rooms{/t}
+LDAP атрибут для помещений
+
+{t}LDAP attribute for usernames{/t}
+LDAP атрибут для имён пользователей
+
+{t}LDAP connection to host %s failed.{/t}
+LDAP подключение к хосту %s прервано.
+
+{t}LDAP without anonymous access{/t}
+LDAP без гостевого доступа
+
+{t}LDAP: no base DN given{/t}
+LDAP: не задан базовый DN
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+менее обещающий
+
+{t}lesser than{/t}
+меньше чем
+
+{t}Letter{/t}
+Письмо
+
+{t}Level{/t}
+Уровень
+
+{t}License{/t}
+Лицензия
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+Разрыв строки
+
+{t}Link{/t}
+Ссылка
+
+{t}Link restricted{/t}
+Связь ограничена
+
+{t}link text{/t}
+текст ссылки
+
+{t}link to external page{/t}
+ссылка на внешнюю страницу
+
+{t}link to internal page{/t}
+ссылка на внутреннюю страницу
+
+{t}Links{/t}
+Ссылки
+
+{t}Lists{/t}
+Списки
+
+{t}Load external images{/t}
+Загрузить внешние изображения
+
+{t}Location{/t}
+Местоположение
+
+{t}Locations{/t}
+Местоположения
+
+{t}Lock{/t}
+Блокировка
+
+{t}Locked by{/t}
+Заблокировано
+
+{t}Locking{/t}
+Блокировка
+
+{t}login %s from %s with %s{/t}
+Вход %s с %s с %s
+
+{t}Login failed from %s.{/t}
+Вход неудачен с %s.
+
+{t}Login/-out{/t}
+Вход/Выход
+
+{t}Logins{/t}
+Сеансы
+
+{t}Logout{/t}
+Выход
+
+{t}logout %s{/t}
+вышел %s
+
+{t}Lookup{/t}
+Поиск
+
+{t}low{/t}
+низкий
+
+{t}lowest{/t}
+самый низкий
+
+{t}M j{/t}
+j M
+
+{t}M j, g:i a{/t}
+j M H:i
+
+{t}M j, Y{/t}
+j M, Y
+
+{t}m/d/Y{/t}
+d/m/Y
+
+{t}m/d/Y g:i a{/t}
+d/m/Y H:i
+
+{t}m/d/y g:i:s a{/t}
+d/m/y H:i:s
+
+{t}magenta{/t}
+пурпурный
+
+{t}mail footer{/t}
+подпись письма
+
+{t}Mail identities{/t}
+Списки рассылки
+
+{t}mail notification{/t}
+почтовое извещение
+
+{t}mail reminder{/t}
+почтовое напоминание
+
+{t}Main menu{/t}
+Главное меню
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Режим обслуживания
+
+{t}male{/t}
+мужской
+
+{t}Man-days{/t}
+Человеко-дней
+
+{t}Man-days planned{/t}
+Человеко-дней запланировано
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Менеджер
+
+{t}Manufacturer{/t}
+Производитель
+
+{t}Mar{/t}
+Мар
+
+{t}March{/t}
+Март
+
+{t}Marketing event{/t}
+Продажа
+
+{t}married{/t}
+женат/замужем
+
+{t}Maximize{/t}
+Развернуть
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+Максимальное число активов на странице
+
+{t}maximum number of files exceeded.{/t}
+превышено максимальное число файлов.
+
+{t}May{/t}
+Май
+
+{t}Media{/t}
+Медиа
+
+{t}Meeting{/t}
+Встреча
+
+{t}Members{/t}
+Члены
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+Объединить папки постоянно
+
+{t}Merged folders{/t}
+Объединённые папки
+
+{t}Message{/t}
+Сообщение
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+мин
+
+{t}Minimize{/t}
+Свернуть
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+минимум = 15 сек, 0 = отключено
+
+{t}Miscellaneous{/t}
+Различный
+
+{t}missing a temporary folder.{/t}
+остутствует временный каталог.
+
+{t}missing field{/t}
+отсутствует поле
+
+{t}missing right: %s{/t}
+отсутствуют права: %s
+
+{t}Mo{/t}
+Пн
+
+{t}Mobile{/t}
+Мобильный
+
+{t}Model{/t}
+Модель
+
+{t}Modified{/t}
+Изменен
+
+{t}Modified by{/t}
+Изменен
+
+{t}Modifying database failed.{/t}
+Изменение базы данных не удалось.
+
+{t}Module{/t}
+Модуль
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Модули
+
+{t}Mon{/t}
+Пон
+
+{t}Monday{/t}
+Понедельник
+
+{t}monospace{/t}
+равноширинный
+
+{t}Month{/t}
+Месяц
+
+{t}monthly{/t}
+ежемесячно
+
+{t}months{/t}
+месяцев
+
+{t}More information about the GNU GPL{/t}
+Подробнее о GNU GPL
+
+{t}Mountpoint{/t}
+Точка монтирования
+
+{t}Move{/t}
+Переместить
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+Мои встречи
+
+{t}My tasks{/t}
+Мои задачи
+
+{t}Name{/t}
+Имя
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Имя должно быть непустым, в нижнем регистре, минимум 3 и максимум 128 символов [a-z0-9_-@.].
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+Имя должно быть непустым, минимум 3 символа, содержать [a-zA-Z0-9-_.].
+
+{t}need feedback{/t}
+нужен отзыв
+
+{t}Network{/t}
+Сеть
+
+{t}Never expires{/t}
+Никогда не истекает
+
+{t}New{/t}
+Новый
+
+{t}New folder{/t}
+Новая папка
+
+{t}News{/t}
+Новости
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Видимое имя
+
+{t}Nightwork{/t}
+Ночная смена
+
+{t}no{/t}
+нет
+
+{t}No dataset selected.{/t}
+Набор данных не выбран.
+
+{t}No entries found.{/t}
+Ничего не найдено.
+
+{t}No file was uploaded{/t}
+Файл не был загружен
+
+{t}No line breaks{/t}
+Нет разрывов строк
+
+{t}no result{/t}
+нет результата
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Не задан отправитель.
+
+{t}no username submitted{/t}
+не задано имя пользователя
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Не уникальный
+
+{t}none{/t}
+нет
+
+{t}normal{/t}
+нормальный
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Невозможно. Войдите как супер администратор.
+
+{t}not contains{/t}
+не содержит
+
+{t}not equal{/t}
+не равно
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+Ноутбук
+
+{t}Notes{/t}
+Заметки
+
+{t}Notificaiton sent to: %s{/t}
+Извещение отправлено для: %s
+
+{t}Notification{/t}
+Извещения
+
+{t}Notification summary{/t}
+Резюме уведомления
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+Ноя
+
+{t}November{/t}
+Ноябрь
+
+{t}Null{/t}
+Недействительный
+
+{t}Number of employees{/t}
+Число работников
+
+{t}numbered{/t}
+нумерованый
+
+{t}Objectives{/t}
+Цели
+
+{t}Oct{/t}
+Окт
+
+{t}October{/t}
+Октябрь
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Офис
+
+{t}Office program{/t}
+Офисная программа
+
+{t}Offices{/t}
+Офисы
+
+{t}offline{/t}
+не подключен
+
+{t}Offline folders{/t}
+Автономные папки
+
+{t}Offline sync{/t}
+Автономная синхронизация
+
+{t}Ok{/t}
+Ок
+
+{t}one of{/t}
+
+
+{t}online{/t}
+подключен
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Открыть
+
+{t}Operating system{/t}
+Операционная система
+
+{t}Operation not allowed. (Data loss protection){/t}
+Операция не допустима. (Защита потери данных)
+
+{t}Optimize Tables{/t}
+Оптимизировать таблицы
+
+{t}Options{/t}
+Настройки
+
+{t}or{/t}
+или
+
+{t}or higher{/t}
+или выше
+
+{t}orange{/t}
+оранжевый
+
+{t}Order size{/t}
+Размер заказа
+
+{t}Organisation{/t}
+Организация
+
+{t}Organizer{/t}
+Организатор
+
+{t}Origin{/t}
+Источник
+
+{t}Original message{/t}
+Первоначальное сообщение
+
+{t}Other{/t}
+Другой
+
+{t}out of office{/t}
+вне оффиса
+
+{t}Outline image{/t}
+Контур рисунка
+
+{t}Output{/t}
+Вывод
+
+{t}Output empty: %s{/t}
+Вывод пуст: %s
+
+{t}overlap{/t}
+перекрывает
+
+{t}Overtime{/t}
+Сверхурочные
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Владелец
+
+{t}Owner since{/t}
+Владелец с
+
+{t}Package from local file system (.tar.gz){/t}
+Пакет на локальной файловой системе (.tar.gz)
+
+{t}Packed{/t}
+Упакован
+
+{t}Page{/t}
+Страница
+
+{t}Page last modified on{/t}
+Страница последний раз изменена
+
+{t}Page name (URL){/t}
+Имя страницы (URL)
+
+{t}Page not found{/t}
+Страница не найдена
+
+{t}Page title{/t}
+Заголовок страницы
+
+{t}Pager{/t}
+Пэйджер
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+Абзацы
+
+{t}parameters{/t}
+параметры
+
+{t}Parameters{/t}
+Параметры
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Разбор
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Участники
+
+{t}Participants (external){/t}
+Участники (внешние)
+
+{t}Participants (internal){/t}
+Участники (внутренние)
+
+{t}Password{/t}
+Пароль
+
+{t}Password expired. (password of %s has expired){/t}
+Срок действия пароля истек. (пароль %s устарел)
+
+{t}Password expires{/t}
+Срок действия пароля истекает
+
+{t}Password must be not null, min 5 characters.{/t}
+Пароль не должен быть пустым, и минимум из 5 символов
+
+{t}password not confirmed.{/t}
+пароль не подтвержден.
+
+{t}Passwords{/t}
+Пароли
+
+{t}Paste{/t}
+Вставить
+
+{t}Path{/t}
+Путь
+
+{t}Pause{/t}
+Пауза
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Разрешения
+
+{t}Permissions added for: %s{/t}
+Разрешения добавлены для: %s
+
+{t}Personal{/t}
+Персональный
+
+{t}Personal department{/t}
+Персональный отдел
+
+{t}Personal folders{/t}
+Персональные папки
+
+{t}Personal projects{/t}
+Персональные проекты
+
+{t}Phone{/t}
+Телефон
+
+{t}Phone calls{/t}
+Телефонные звонки
+
+{t}Phone private{/t}
+Частный телефон
+
+{t}Photo{/t}
+Фото
+
+{t}Photo gallery{/t}
+Фотогаллерея
+
+{t}Planned{/t}
+Запланировано
+
+{t}Please activate cookies.{/t}
+Пожалуйста, активируйте cookies.
+
+{t}Please choose Apache as Web-Server.{/t}
+Пожалуйста, выберите Apache в качестве веб-сервера.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Пожалуйста, введите правильный url.
+
+{t}Please give read access to %s{/t}
+Пожалуйста, дайте права на чтение для %s
+
+{t}Please give write access to %s{/t}
+Пожалуйста, дайте права на запись для %s
+
+{t}Please give write access to %s and %s{/t}
+Пожалуйста,  дайте права на запись для %s и %s
+
+{t}Please hit reload.{/t}
+Перезагрузите страницу
+
+{t}Please input a valid e-mail adress.{/t}
+Пожалуйста, введите действительный e-mail
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Пожалуйста, установите tsearch2 для PostgreSQL базы данных.
+
+{t}Please install the php-extension with name '%s'.{/t}
+Пожалуйста, установите php-расширение %s.
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Пожалуйста, измените ваш php.ini или добавьте .htaccess файл с изменением %s на %s (текущее значение %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Пожалуйста, прочитайте лицензионное соглашение. Используйте полосу прокрутки для просмотра всего соглашения.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+Пожалуйста, выберите участников.
+
+{t}Please upload again.{/t}
+Пожалуйста, загрузите снова.
+
+{t}Please wait ...{/t}
+Пожалуйста, подождите...
+
+{t}Pop3-error: %s{/t}
+Ошибка POP3: %s
+
+{t}Port{/t}
+Порт
+
+{t}Portal{/t}
+Портал
+
+{t}Position{/t}
+Позиция
+
+{t}Positions{/t}
+Позиции
+
+{t}Post{/t}
+Почтовый адрес
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+Преформатированный блок
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+Препятствовать форматированию
+
+{t}Preview{/t}
+Предпросмотр
+
+{t}Price{/t}
+Прайс
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Печать
+
+{t}Print all{/t}
+Печатать все
+
+{t}Printer{/t}
+Принтер
+
+{t}Priority{/t}
+Приоритет
+
+{t}Problem{/t}
+Проблема
+
+{t}Processes{/t}
+Процессы
+
+{t}Processing %s ...{/t}
+Обработка %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Программа установлена с языком %s, используйте другой url или запустите установку заново.
+
+{t}Progress{/t}
+Прогресс
+
+{t}Project{/t}
+Проект
+
+{t}Project files{/t}
+Файлы проекта
+
+{t}Project tasks{/t}
+Задачи проекта
+
+{t}Projects{/t}
+Проекты
+
+{t}promising{/t}
+обещающий
+
+{t}Properties{/t}
+Свойства
+
+{t}Prospective client{/t}
+Ожидаемый клиент
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Оплачено
+
+{t}Question{/t}
+Вопрос
+
+{t}Queue{/t}
+Очередь
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Квота
+
+{t}Quota (remaining){/t}
+Квота (оставшаяся)
+
+{t}Quota [MB]{/t}
+Квота [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Превышена квота: %s
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Рейтинг
+
+{t}Read{/t}
+Читать
+
+{t}read access{/t}
+права на чтение
+
+{t}Read access (groups){/t}
+Права на чтение (группы)
+
+{t}Read access (users){/t}
+Права на чтение (пользователи)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+готов к восстановлению
+
+{t}ready for scrap{/t}
+готов к удалению
+
+{t}Real URL format in the CMS{/t}
+Действительный формат URL в CMS
+
+{t}Really apply rights to subfolders ?{/t}
+Действительно применить права к подкаталогам?
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Действительно удалить?
+
+{t}REALLY delete ALL datasets ?{/t}
+ДЕЙСТВИТЕЛЬНО удалить ВСЕ данные?
+
+{t}Really delete ALL subfolders ?{/t}
+Действительно удалить ВСЕ подкаталоги?
+
+{t}Really delete the dataset(s) ?{/t}
+Действительно удалить данные?
+
+{t}Really empty the folder ?{/t}
+Действительно очистить папку?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Действительно переписать существующие данные?
+
+{t}Really run setup again ?{/t}
+Действительно запустить установку заново?
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Перестроить поисковые индексы
+
+{t}Recent changes{/t}
+Последние изменения
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Рекомендации к приему
+
+{t}Recurrence{/t}
+Возврат
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+красный
+
+{t}Redirect to home directory{/t}
+Перейти к домашнему каталогу
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+Обновить
+
+{t}Refresh every x seconds{/t}
+Обновлять каждые x секунд
+
+{t}Regular{/t}
+Постоянный
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+непригодный
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Перезапустить установку
+
+{t}Relevance{/t}
+Значимость
+
+{t}Reminder{/t}
+Напоминание
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Переименовать папку
+
+{t}Repeat count{/t}
+Количество повторов
+
+{t}Repeat exclusions{/t}
+Исключения повторов
+
+{t}Repeat interval{/t}
+Интервал повтора
+
+{t}Repeat until{/t}
+Повторять до
+
+{t}Reply{/t}
+Ответить
+
+{t}Reply all{/t}
+Ответить всем
+
+{t}Require admin access to set mountpoints{/t}
+Требуется административный доступ для задания точек монтирования
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Реселлер
+
+{t}reserved{/t}
+зарезервировано
+
+{t}Reset view{/t}
+Восстановить вид
+
+{t}Resource{/t}
+Ресурс
+
+{t}Resources{/t}
+Ресурсы
+
+{t}Responsible{/t}
+Ответственный
+
+{t}Responsible (external){/t}
+Ответственный (внешний)
+
+{t}Responsible (internal){/t}
+Responsible (внутренний)
+
+{t}Restore complete{/t}
+Восстановление завершено
+
+{t}Restore here{/t}
+Восстановить здесь
+
+{t}Restore only missing{/t}
+Восстановить только отсутствующие
+
+{t}Restore only newer{/t}
+Восстановить только новые
+
+{t}Restore to origin{/t}
+Восстановить оригинал
+
+{t}Return receipt{/t}
+Уведомление о вручении
+
+{t}right-aligned{/t}
+выровненный вправо
+
+{t}Rights{/t}
+Права
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Наименование помещения
+
+{t}Room number{/t}
+Номер помещения
+
+{t}Rooms{/t}
+Помещения
+
+{t}Rows{/t}
+Строки
+
+{t}Run Setup again{/t}
+Запустите установку заново
+
+{t}S a v e{/t}
+С о х р а н и т ь
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+С о х р а н и т ь  и  в е р н у т ь с я
+
+{t}Sa{/t}
+Сб
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Продвижение продаж
+
+{t}Sat{/t}
+Суб
+
+{t}Saturday{/t}
+Суббота
+
+{t}Scheduling{/t}
+Составление расписания
+
+{t}Schema{/t}
+Схема
+
+{t}Schema data{/t}
+Данные схемы
+
+{t}Schemafile not found. (%s){/t}
+Файл схемы не найден. (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+сломано
+
+{t}Search{/t}
+Поиск
+
+{t}Search by ID{/t}
+Поиск по ID
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+Второй менеджер
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Секретарь
+
+{t}Self registration{/t}
+Саморегистрация
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+Отправленные напоминания
+
+{t}Sep{/t}
+Сен
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+Разделители
+
+{t}September{/t}
+Сентябрь
+
+{t}Serial number{/t}
+Порядковый номер
+
+{t}Server{/t}
+Сервер
+
+{t}Server does not support sorting{/t}
+Сервер не поддерживает сортировку
+
+{t}Server-IP{/t}
+Сервер IP
+
+{t}Service provider{/t}
+Поставщик услуг
+
+{t}Session name in cookie{/t}
+Имя сессии в cookie
+
+{t}Session timeout{/t}
+Таймаут сессии
+
+{t}Sessions{/t}
+Сессии
+
+{t}Setup{/t}
+Установка
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Установка требует database-php-extension ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Установка требует php версии не ниже %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+Установка требует расширение php %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Установка: данные записаны в %s.
+
+{t}Shapes{/t}
+Формы
+
+{t}Share{/t}
+Общие ресурсы
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+Короткие ссылки
+
+{t}Show{/t}
+Показать
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Показать архив
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Показать текст в кавычках
+
+{t}Similar{/t}
+Похожий
+
+{t}Simple tables{/t}
+Простые таблицы
+
+{t}single{/t}
+одиночный
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Размер
+
+{t}Size (children){/t}
+Размер (потомки)
+
+{t}Slow{/t}
+Медленно
+
+{t}small{/t}
+маленький
+
+{t}small text{/t}
+маленький текст
+
+{t}smaller{/t}
+меньший
+
+{t}SMTP not configured for %s{/t}
+SMTP не настроен для %s
+
+{t}Smtp-error %s: %s{/t}
+Ошибка SMTP: %s
+
+{t}Software{/t}
+Программы
+
+{t}Solution{/t}
+Решение
+
+{t}Solution type{/t}
+Тип решения
+
+{t}some text{/t}
+некоторый текст
+
+{t}Source{/t}
+Источник
+
+{t}Source code{/t}
+Исходный код
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Спецификация
+
+{t}Spreadsheet{/t}
+Электронная таблица
+
+{t}SQL failed.{/t}
+SQL не выполнен.
+
+{t}SQL FAILED: %s{/t}
+SQL НЕ ВЫПОЛНЕН: %s
+
+{t}Start scheduled{/t}
+Старт внесен в расписание
+
+{t}Started{/t}
+Запущен
+
+{t}starts with{/t}
+начинается с
+
+{t}State{/t}
+Регион
+
+{t}Static cache{/t}
+Статический кэш
+
+{t}Statistics{/t}
+Статистика
+
+{t}Status{/t}
+Статус
+
+{t}Statuses{/t}
+Статусы
+
+{t}Strategies{/t}
+Стратегии
+
+{t}Street{/t}
+Улица
+
+{t}Structure{/t}
+Структура
+
+{t}Su{/t}
+Вс
+
+{t}Subfolders{/t}
+Подпапки
+
+{t}subheading{/t}
+подзаголовок
+
+{t}Subitem{/t}
+Подраздел
+
+{t}Subject{/t}
+Тема
+
+{t}Subjects{/t}
+Темы
+
+{t}Submit a patch{/t}
+Выслать заплатку
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+подстрочный
+
+{t}Subsistence costs{/t}
+Стоимость существования
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Итог
+
+{t}Sun{/t}
+Вос
+
+{t}Sunday{/t}
+Воскресенье
+
+{t}Superior{/t}
+Начальник
+
+{t}superscript{/t}
+надстрочный
+
+{t}Supplier{/t}
+Поставщик
+
+{t}Suppliers{/t}
+Поставщики
+
+{t}Support{/t}
+Поддержка
+
+{t}Support request{/t}
+Запрос к поддержке
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Приостановлен
+
+{t}Switch maintenance mode{/t}
+Переключить режим обслуживания
+
+{t}Sync4j remote delete items{/t}
+Sync4j удаленное удаление
+
+{t}Syntax{/t}
+Синтаксис
+
+{t}System{/t}
+Система
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Таблица
+
+{t}Table sizes{/t}
+Размеры таблицы
+
+{t}Table status{/t}
+Состояние таблицы
+
+{t}Tables{/t}
+Таблицы
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+Сделайте выбор
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+Задача с ID %s
+
+{t}Tasks{/t}
+Задачи
+
+{t}Tasks with responsible %s{/t}
+Задачи с ответственным %s
+
+{t}Template{/t}
+Шаблон
+
+{t}Templates{/t}
+Шаблоны
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+термин(срок)
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Текстовый документ
+
+{t}Text formatting rules{/t}
+Правила форматирования текста
+
+{t}Th{/t}
+Чт
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+Папка не может быть скопирована.
+
+{t}The folder cannot be deleted.{/t}
+Папка не может быть удалена.
+
+{t}The folder cannot be moved.{/t}
+Папка не может быть перемещена.
+
+{t}The new password is{/t}
+Новый пароль -
+
+{t}The url doesn't exist.{/t}
+URL не существует.
+
+{t}Theme{/t}
+Оформление
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+данное расширение файла недопустимо.
+
+{t}Thu{/t}
+Чет
+
+{t}Thursday{/t}
+Четверг
+
+{t}Time and expenses{/t}
+Время и затраты
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+Табели
+
+{t}Time zone{/t}
+Часовой пояс
+
+{t}timeout{/t}
+тайм-аут
+
+{t}Title{/t}
+Заголовок
+
+{t}To{/t}
+Кому
+
+{t}to be checked{/t}
+будет проверено
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+Для продолжения установки Simple Groupware вы должны установить флажок под лицензией
+
+{t}Today{/t}
+Сегодня
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Слишком много неверных входов. Пожалуйста, подождите 15 минут.
+
+{t}Total{/t}
+Всего
+
+{t}Trace{/t}
+Черта
+
+{t}Trade fair{/t}
+Ярмарка
+
+{t}translations{/t}
+переводы
+
+{t}Translations of the GNU GPL{/t}
+Переводы GNU GPL
+
+{t}Transportation costs{/t}
+Стоимости перевозки
+
+{t}Trash{/t}
+Корзина
+
+{t}Trash folder not found.{/t}
+Папка корзины не найдена.
+
+{t}Tree{/t}
+Дерево
+
+{t}Trigger failed{/t}
+Переключение не удалось
+
+{t}Tu{/t}
+Вт
+
+{t}Tue{/t}
+Вто
+
+{t}Tuesday{/t}
+Вторник
+
+{t}Type{/t}
+Тип
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+невозможно найти %s
+
+{t}Unable to write to %s{/t}
+Невозможно записать в %s
+
+{t}unconfirmed{/t}
+неподтсвержденный
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+подчёркнутый
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+неинтересный
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Разблокировать
+
+{t}Up{/t}
+Вверх
+
+{t}Update{/t}
+Обновить
+
+{t}Update Simple Groupware{/t}
+Обновить Simple Groupware
+
+{t}Updated{/t}
+Обновлено
+
+{t}Updating schema %s from %s.{/t}
+Обновление схемы %s из %s.
+
+{t}Upload failed{/t}
+Загрузка не удалась
+
+{t}Uploaded files{/t}
+Загруженные файлы
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+безотлагательный
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Использование
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Использовать исполняемые файлы Debian (Внимание: не последние версии)
+
+{t}Use LDAP Groups{/t}
+Использовать группы LDAP
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Использовать функцию mail() для отправки почты (небезопасно)
+
+{t}User{/t}
+Пользователь
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Имя пользователя
+
+{t}Username must be different from the super administrator.{/t}
+Имя пользователя не должно совпадать с администратором.
+
+{t}Users{/t}
+Пользователи
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Отпуск
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+проверка неудачна
+
+{t}Value{/t}
+Значение
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Переменная
+
+{t}Variable already exists in table. (%s){/t}
+Переменная уже существует в таблице. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Тип переменной должен быть дата (dd/mm/yyyy).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Тип переменной должен быть дата-время (dd/mm/yyyy HH:mm).
+
+{t}Variable must be of type float.{/t}
+Переменная должна быть вещественного типа.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Переменная должна быть целого типа и больше 0.
+
+{t}Variable must be of type int.{/t}
+Переменная должна быть целого типа.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Тип переменной должен быть время (hh:mm am/pm).
+
+{t}Variables{/t}
+Переменные
+
+{t}Verbal recommendation{/t}
+Устные рекомендации
+
+{t}verified{/t}
+проверенный
+
+{t}vertical{/t}
+вертикальный
+
+{t}very promising{/t}
+многообещающий
+
+{t}View{/t}
+Просмотр
+
+{t}View access (groups){/t}
+Просмотр доступа (группы)
+
+{t}View access (users){/t}
+Просмотр доступа (пользователи)
+
+{t}Virus scanner{/t}
+Сканер вирусов
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Голосовая почта
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+Ожидание
+
+{t}Warning{/t}
+Предупреждение
+
+{t}We{/t}
+Ср
+
+{t}Web{/t}
+Веб
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Сре
+
+{t}Wednesday{/t}
+Среда
+
+{t}Week{/t}
+Неделя
+
+{t}Week start{/t}
+Начало недели
+
+{t}Weekend{/t}
+Уикэнд
+
+{t}weekly{/t}
+еженедельно
+
+{t}weeks{/t}
+недель
+
+{t}Welcome to Simple Groupware!{/t}
+Добро пожаловать в Simple Groupware!
+
+{t}white{/t}
+белый
+
+{t}widowed{/t}
+одинокий
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Вики
+
+{t}WikiStyles{/t}
+WikiStyles
+
+{t}won't fix{/t}
+не исправлено
+
+{t}word{/t}
+слово
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+работает как надо
+
+{t}works for me{/t}
+работает для меня
+
+{t}Workshop{/t}
+Рабочая площадка
+
+{t}Workspace{/t}
+Рабочее место
+
+{t}write access{/t}
+доступ на запись
+
+{t}Write access (groups){/t}
+Доступ на запись (группы)
+
+{t}Write access (users){/t}
+Доступ на запись (пользователи)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Неверная версия базы данных (%s). Используйте версию не ниже %s !
+
+{t}wrong directory{/t}
+неверный каталог
+
+{t}wrong password{/t}
+неверный пароль
+
+{t}Year{/t}
+Год
+
+{t}yearly{/t}
+ежегодно
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+желтый
+
+{t}yes{/t}
+да
+
+{t}You are not allowed to view this folder.{/t}
+Вам не разрешено просматривать этот каталог.
+
+{t}Your message was read on %s.{/t}
+Ваше сообщение было прочитано %s.
+
+{t}Your session has timed out.{/t}
+Время вашей сессии истекло.
+
+{t}Zipcode{/t}
+Почтовый индекс
+
+{t}{0} - {1} of {2}{/t}
+
+

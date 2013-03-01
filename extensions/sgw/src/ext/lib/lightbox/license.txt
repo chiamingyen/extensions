@@ -1,0 +1,6 @@
+jQuery lightBox plugin
+
+Copyright (C) 2008 Leandro Vieira Pinho (leandrovieira.com)
+
+License: CCAttribution-ShareAlike 2.5 Brazil
+http://creativecommons.org/licenses/by-sa/2.5/br/deed.en_US

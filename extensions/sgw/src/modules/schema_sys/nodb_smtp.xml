@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="SMTP" limit="20" default_view="display" orderby="created" order="desc" sql_handler="smtp" disable_folder_operations="true" enable_new_only="true" disable_rights="true">
+  <view name="display" displayname="{t}Display{/t}">
+  </view>
+
+  <field name="id" displayname="{t}Id{/t}" simple_type="id" hidden="true">
+  </field>
+  <field name="subject" displayname="{t}Subject{/t}" simple_type="text" required="true">
+  </field>
+  <field name="efrom" displayname="{t}From{/t}" simple_type="select" simple_size="1" required="true">
+    <notin views="new" />
+  </field>
+  <field name="eto" displayname="{t}To{/t}" simple_type="multitext" required="true" separator=", ">
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|email,concat(lastname;' ';firstname)|length(email)!=0 and activated=1|lastname asc|10"/>
+    <data title="{t}Groups{/t}" function="dbselect|simple_sys_groups|concat('@';groupname),groupname|length(members)!=0 and activated=1|groupname asc|10"/>
+    <data title="{t}Contacts{/t}" function="dbselect|simple_contacts|email,concat(lastname;' ';firstname)|length(email)!=0|lastname asc|10"/>
+    <data title="{t}Contact groups{/t}" function="dbselect|simple_contactgroups|concat('@';groupname),groupname|length(members)!=0|groupname asc|10"/>
+	<description value="sys_alert('{t}Syntax{/t}:\nabc@doecorp.com, cc:abcd@doecorp.com, bcc:abcde@diecorp.com,\n@{t}Group{/t}, cc:@{t}Group{/t}1, bcc:@{t}Group{/t}2');"/>
+  </field>
+  <field name="message" displayname="{t}Message{/t}" simple_type="textarea" form="no_formatting_button">
+  </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="10">
+  </field>
+  <field name="receipt" displayname="{t}Return receipt{/t}" simple_type="checkbox">
+  </field>
+</table>

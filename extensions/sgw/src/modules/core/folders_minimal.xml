@@ -1,0 +1,90 @@
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<folder name="{t}Workspace{/t}" description="{t}Welcome to Simple Groupware!{/t}\nOpen Source Groupware &amp; CMS" type="blank" anchor="workspace" rread_users="anonymous" rread_groups="" rwrite_users="" rwrite_groups="" radmin_users="" radmin_groups="">
+  <folder name="{t}Personal folders{/t}" anchor="home" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="{t}Personal department{/t}" anchor="departments" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="{t}Personal projects{/t}" anchor="projects" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  
+  <folder name="{t}Organisation{/t}" type="blank" anchor="organisation" rwrite_groups="admin_organisation">
+    <folder name="{t}Users{/t}" type="sys_users" rwrite_users="" radmin_users="" rexception_users="changepwd:write:anonymous">
+    </folder>
+    <folder name="{t}Groups{/t}" type="sys_groups" rwrite_users="" radmin_users="">
+    </folder>
+	<folder name="{t}Projects{/t}" type="projects" rwrite_groups="admin_projects|admin_organisation">
+	</folder>
+	<!-- TODO fix perms?? -->
+	<folder name="{t}Helpdesk{/t}" type="helpdesk" rread_users="" rwrite_users="" rwrite_groups2="admin_helpdesk" rread_groups2="admin_helpdesk"><!--###-->
+	</folder>
+    <folder name="{t}Mail identities{/t}" type="sys_identities" rwrite_users="" radmin_users="">
+    </folder>
+    <folder name="{t}Departments{/t}" type="departments">
+    </folder>
+    <folder name="{t}Offices{/t}" type="offices">
+    </folder>
+    <folder name="{t}Rooms{/t}" anchor="locations" type="locations">
+    </folder>
+    <folder name="{t}Positions{/t}" type="positions">
+    </folder>
+    <folder name="{t}CMS{/t}" type="cms" data="../import/data_cms_sys.xml">
+    </folder>
+  </folder>
+  <folder name="{t}System{/t}" anchor="system" type="sys_nodb_admin" rread_users="" rwrite_users="" radmin_users="">
+    <folder name="{t}Backups{/t}" type="sys_nodb_backups">
+    </folder>
+    <folder name="{t}Sessions{/t}" type="sys_session">
+    </folder>
+    <folder name="{t}Events{/t}" type="sys_events">
+    </folder>
+    <folder name="{t}Notifications{/t}" type="sys_notifications" description="{t}Delivery{/t}: cron.php">
+    </folder>
+    <folder name="{t}Statistics{/t}" type="sys_stats">
+    </folder>
+    <folder name="{t}Tree{/t}" type="sys_tree">
+    </folder>
+    <folder name="{t}Modules{/t}" type="sys_nodb_modules" description="{t}Source{/t}:\nmodules/schema/modules.txt\nmodules/schema_sys/modules.txt">
+    </folder>
+    <folder name="{t}Customize{/t}" type="blank" anchor="customize">
+      <folder name="{t}Fields{/t}" type="sys_custom_fields" description="{t}Customization rules\nfor modules based on sgsML{/t}\nhttp://bit.ly/sgsML">
+      </folder>
+    </folder>
+    <folder name="{t}Table status{/t}" type="sys_nodb_tables">
+    </folder>
+    <folder name="{t}Table sizes{/t}" type="sys_nodb_tablesizes">
+    </folder>
+    <folder name="{t}Database status{/t}" type="sys_nodb_status">
+    </folder>
+    <folder name="{t}Database variables{/t}" type="sys_nodb_variables">
+    </folder>
+    <folder name="{t}Debug{/t}" anchor="debug" mountpoint="fs:../simple_cache/debug/">
+    </folder>
+    <folder name="{t}Trash{/t}" type="blank" anchor="trash">
+      <folder name="{t}Files{/t}" mountpoint="fs:../simple_store/trash/">
+      </folder>
+    </folder>
+  </folder>
+  <folder name="{t}Extensions{/t}" type="blank" anchor="extensions">
+  </folder>
+</folder>

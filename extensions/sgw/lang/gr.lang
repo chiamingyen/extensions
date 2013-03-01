@@ -1,0 +1,3546 @@
+﻿	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2008 Thomas Verikios
+
+{t}!_Language{/t}
+Ελληνικά / Greek
+
+{t}%s is not activated{/t}
+%s δεν έχει ενεργοποιηθεί
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s δεν έχει μεταγλωτιστή / φορτωθεί στην PHP.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s δεν υπάρχει στην database
+
+{t}%s rows affected{/t}
+μεταβλήθηκαν %s γραμμές
+
+{t}%s secs{/t}
+%s δευτερόλεπτα
+
+{t}%s started editing this asset at %s{/t}
+%s άρχισε να διορθώνει αυτο το στοιχείο στις %s
+
+{t}(for active directory username must be: username@domain){/t}
+(για το active directory το όνομα χρήστη πρέπει να είναι: username@domain)
+
+{t}(un)Group{/t}
+(απο)Ομαδοποίηση
+
+{t}About{/t}
+Σχετικά
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+εγκρίθηκε
+
+{t}Access denied.{/t}
+Απαγορεύθηκε η πρόσβαση.
+
+{t}Access to this file has been denied.{/t}
+Απαγορεύθηκε η πρόσβαση σε αυτό το αρχείο.
+
+{t}Account{/t}
+Λογαριασμός
+
+{t}account of %s has expired{/t}
+ο λογαριασμός %s έχει λήξη
+
+{t}Accounting{/t}
+Λογαριασμοί
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Ενεργοποιήθηκε
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Ενεργός
+
+{t}Ad{/t}
+Ad
+
+{t}Add{/t}
+Πρόσθεσε
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+
+
+{t}added line{/t}
+γραμμή που προστέθηκε
+
+{t}Address{/t}
+Διεύθυνση
+
+{t}admin access{/t}
+πρόσβαση διαχειριστή
+
+{t}Admin access (groups){/t}
+Πρόσβαση διαχειριστή (ομάδες)
+
+{t}Admin access (users){/t}
+Πρόσβαση διαχειριστή (χρήστες)
+
+{t}Admin Password{/t}
+Κωδικός Διαχειριστή
+
+{t}Admin Username{/t}
+Ονομα Διαχειριστή
+
+{t}Administration{/t}
+Διαχείριση
+
+{t}Advanced tables{/t}
+Προηγμένοι πίνακες
+
+{t}Affected user{/t}
+Χρήστες που επηρεάστηκαν
+
+{t}Affiliate{/t}
+Ένταξη
+
+{t}after{/t}
+μετά
+
+{t}Agent{/t}
+Παράγων
+
+{t}Ajax Error{/t}
+Λάθος Ajax
+
+{t}All{/t}
+Ολα
+
+{t}All day{/t}
+Ολη μέρα
+
+{t}All events{/t}
+Ολα τα συμβάντα
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+Χρησιμοποιήται ήδη την τελευταία έκδοση.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Πόσό
+
+{t}Anchor{/t}
+Αγκυρα
+
+{t}and{/t}
+και
+
+{t}Anniversary{/t}
+Επέτειος
+
+{t}another page{/t}
+άλλη σελίδα
+
+{t}answered{/t}
+απαντήθηκε
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+Apache based (.htaccess, Basic, Digest, etc.)
+
+{t}Application title{/t}
+Τίτλος εφαρμογής
+
+{t}Apply rights to subfolders{/t}
+Εφαρμογή των δικαιωμάτων στους υποφακέλους
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+Απρίλιος
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+Αρχειοθέτηση διαγραμμένων αρχείων
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Το στοιχείο έχει σημανθεί μόνο για ανάγνωση.
+
+{t}Assets{/t}
+Στοιχεία
+
+{t}Assets (children){/t}
+Στοιχεία (παιδιά)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+καθορίστηκε
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+συνοδευτικό αρχείο
+
+{t}Attachment{/t}
+Συνοδευτικό
+
+{t}Attachments{/t}
+Συνοδευτικά
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+Αύγουστος
+
+{t}Authentication Mode{/t}
+Μέθοδος Πιστοποίησης
+
+{t}Author{/t}
+Δημιουργός
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+Μέσο μέγεθος
+
+{t}Back{/t}
+Πίσω
+
+{t}Backup{/t}
+Αντίγραφο ασφαλείας
+
+{t}Backup current folder{/t}
+Αντίγραφο ασφαλείας του παρόντος καταλόγου
+
+{t}Backups{/t}
+Αντίγραφα ασφαλείας
+
+{t}Basic editing{/t}
+Βασική επεξεργασία
+
+{t}before{/t}
+πρίν
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Αρχή
+
+{t}big{/t}
+μεγάλο
+
+{t}big text{/t}
+μεγάλο κείμενο
+
+{t}bigger{/t}
+μεγαλύτερο
+
+{t}Billing address{/t}
+Διεύθυνση αποστολής λογαριασμών
+
+{t}Birthday{/t}
+Γενέθλια
+
+{t}Birthdays{/t}
+Γενέθλια
+
+{t}Blank{/t}
+Κενό
+
+{t}blue{/t}
+μπλέ
+
+{t}bold{/t}
+έντονα
+
+{t}bold italic{/t}
+έντονα πλάγια
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+κρατήθηκε
+
+{t}Booked{/t}
+Κρατήθηκε
+
+{t}Booking number{/t}
+Αριθμός κράτησης
+
+{t}Bookings{/t}
+Κρατήσεις
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Επισημάνσεις
+
+{t}borrowed{/t}
+borrowed
+
+{t}Brand{/t}
+Κατασκευαστής
+
+{t}Brands{/t}
+Κατασκευαστές
+
+{t}Browser Compatibility{/t}
+Συμβατότητα με Browser
+
+{t}Browser not supported{/t}
+Ο Browser δεν υποστηρίζεται
+
+{t}Budget{/t}
+Προϋπολογισμός
+
+{t}Bug{/t}
+Bug
+
+{t}bulleted{/t}
+bulleted
+
+{t}Business{/t}
+Επάγγελμα
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+Σ Υ Ν Ε Χ Ε Ι Α
+
+{t}Cache output{/t}
+Cache output
+
+{t}Caches{/t}
+Caches
+
+{t}Calendar{/t}
+Ημερολόγιο
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+ακυρώθηκε
+
+{t}Canceled{/t}
+Ακυρώθηκε
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Δεν μπορώ να καλέσω την proc_open. Παρακαλώ αφαιρέστε την proc_open απο disable_functions στο php.ini και απενεργοποιήστε την safe_mode.
+
+{t}Cannot connect to database %s on %s.{/t}
+Δεν μπορώ να συνδεθώ με την βάση δεδομένων %s στο %s.
+
+{t}Cannot create preview for %s{/t}
+Δεν μπορώ να δημιουργήσω την προεπισκόπηση για %s
+
+{t}Cannot read the file %s.{/t}
+Δεν μπορώ να διαβάσω το αρχείο %s.
+
+{t}Cardinality{/t}
+ΑριθμόςΣτοιχείων
+
+{t}Categories{/t}
+Κατηγορίες
+
+{t}Category{/t}
+Κατηγορία
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+τοποθετήθηκε στο κέντρο
+
+{t}CEO{/t}
+CEO
+
+{t}Change request{/t}
+Αλλαγή αιτήματος
+
+{t}Change settings{/t}
+Αλλαγή ρυθμίσεων
+
+{t}Change Setup settings{/t}
+Αλλαγή των αρχικών ρυθμίσεων
+
+{t}Change summary{/t}
+Σύνοψη αλλαγών
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+γραμμή που αλλάχθηκε
+
+{t}Changelog{/t}
+Καταχωρημένες αλλαγές
+
+{t}Chat{/t}
+Chat
+
+{t}Check DoS Attacks{/t}
+Ελεγμένες Επιθέσεις DoS
+
+{t}checked{/t}
+ελέγχθηκαν
+
+{t}Checked{/t}
+ελέγχθηκαν
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+CIO
+
+{t}City{/t}
+Πόλη
+
+{t}Clean{/t}
+Καθαρισμός
+
+{t}Clean Cache{/t}
+Καθαρισμός/Διαγραφή Cache
+
+{t}Clear{/t}
+Καθαρισμός
+
+{t}Clear Cache{/t}
+Καθαρισμός/Διαγραφή Cache
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Πελάτης
+
+{t}Close{/t}
+Κλείσιμο
+
+{t}Close session{/t}
+Κλείσιμο περιόδου
+
+{t}closed{/t}
+κλειστό
+
+{t}Closed{/t}
+Εκλεισε
+
+{t}CMS{/t}
+CMS
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+Πτυσσόμενο δέντρο
+
+{t}Color{/t}
+Χρώμα
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Ονομα στήλης
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Διαταγή
+
+{t}Comment{/t}
+Σημείωση
+
+{t}Comment files{/t}
+Αρχεία σημειώσεων
+
+{t}Companies{/t}
+Εταιρείες
+
+{t}Company{/t}
+Εταιρεία
+
+{t}Competition{/t}
+Ανταγωνισμός
+
+{t}Competitor{/t}
+Ανταγωνιστής
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Ολοκληρώθηκαν
+
+{t}Component{/t}
+Συστατικό
+
+{t}Compress output{/t}
+Compress output
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+επιβεβαιωθηκε
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Απέτυχε η σύνδεση στην βάση δεδομένων
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Σύμβουλος
+
+{t}Contact{/t}
+Επαφή
+
+{t}Contact activities{/t}
+Δραστηριότητες επαφής
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Επαφή απο
+
+{t}Contact groups{/t}
+Ομάδες επαφών
+
+{t}Contact id{/t}
+Αναγνωριστικό επαφής
+
+{t}Contact person{/t}
+Πρόσωπο επαφής
+
+{t}Contact user by{/t}
+Επαφή χρήστη απο
+
+{t}Contacts{/t}
+Επαφές
+
+{t}contains{/t}
+περιέχει
+
+{t}Content{/t}
+Περιεχόμενο
+
+{t}Continue{/t}
+Συνέχεια
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Αντιγραφικό
+
+{t}Copy{/t}
+Αντίγραφο
+
+{t}Cost center{/t}
+Κέντρο κόστους
+
+{t}Costs of accommodation{/t}
+Κόστος φιλοξενίας
+
+{t}Could not determine database-version.{/t}
+Δεν μπορώ να βρω την έκδοση της βάσης δεδομένων
+
+{t}Country{/t}
+Χώρα
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Δημιουργήθηκε
+
+{t}Creating database failed.{/t}
+Η δημιουργία της βάσης δεδομένων απέτυχε.
+
+{t}current path{/t}
+παρούσα διαδρομή
+
+{t}current time{/t}
+
+
+{t}Curriculum vitae{/t}
+βιογραφικό σημείωμα
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Περικοπή
+
+{t}daily{/t}
+καθημερινά
+
+{t}Data{/t}
+Δεδομένα
+
+{t}Data free{/t}
+Data free
+
+{t}Data length{/t}
+Μήκος δεδομένων
+
+{t}Database{/t}
+Βάση δεδομένων
+
+{t}Database Hostname / IP{/t}
+Βάση δεδομένων Hostname / IP
+
+{t}Database Name{/t}
+Ονομα Βάσης δεδομένων
+
+{t}Database Password{/t}
+Κωδικός πρόσβασης Βάσης δεδομένων
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Κατάσταση Βάσης δεδομένων
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+Χρήστης Βάσης δεδομένων
+
+{t}Database variables{/t}
+Μεταβλητές Βάσης δεδομένων
+
+{t}Date{/t}
+Ημερομηνία
+
+{t}Day{/t}
+Ημέρα
+
+{t}Day begin{/t}
+Ημέρα αρχής
+
+{t}Day end{/t}
+Ημέρα τέλους
+
+{t}days{/t}
+ημέρες
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+Τελική ημερομηνία
+
+{t}Debug{/t}
+Αποσφαλμάτωση
+
+{t}Debug-dir{/t}
+Φάκελος αποσφαλμάτωσης
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+Δεκεμβριος
+
+{t}Declining balance{/t}
+Declining balance
+
+{t}Default{/t}
+εξ ορισμού
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+εξ ορισμού αντικείμενο (Default theme)
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+καθορισμός των λιστών προσδιορισμού
+
+{t}Degree{/t}
+Βαθμός
+
+{t}Delete{/t}
+Διαγραφή
+
+{t}Delete incl subfolders{/t}
+Διαγραφή των και των περιεχομ. υποκαταλόγων
+
+{t}deleted{/t}
+διαγράφθηκε
+
+{t}deleted line{/t}
+διαγραμένη γραμμή
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Απαίτηση
+
+{t}Demo{/t}
+Επίδειξη
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Τμήμα
+
+{t}Departments{/t}
+Τμήματα
+
+{t}Dependancies{/t}
+Εξαρτήσεις
+
+{t}Description{/t}
+Περιγραφή
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Desktop computer
+
+{t}Details{/t}
+Λεπτομερή στοιχεία
+
+{t}Device type{/t}
+Τύπος συσκευης
+
+{t}Device types{/t}
+Τύποι συσκευων
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+ο κατάλογος δεν υπάρχει.
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+Ο κατάλογος είναι εκτός του επιτρπόμενου καταλόγου. (%s είναι εκτός του %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+Η βασική πιστοποίηση δεν είναι ενεργή
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Παρουσίαση
+
+{t}display filter{/t}
+παρουσίαση φίλτρου
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+Παρουσιάσεις
+
+{t}Distributor{/t}
+Διανομέας
+
+{t}Distributors{/t}
+Διανομείς
+
+{t}divorced{/t}
+χωρισμένα
+
+{t}Documentation{/t}
+Τεκμηρίωση
+
+{t}Documentation index{/t}
+Ευρετήριο τεκμηρίωσης
+
+{t}Domain{/t}
+Domain
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Κάτω
+
+{t}Download{/t}
+Κατέβασμα
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Κατέβασμα ενημερωμένης λίστας
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+πανομοιότυπο
+
+{t}Duration{/t}
+Διάρκεια
+
+{t}E-mail{/t}
+E-mail
+
+{t}E-mail private{/t}
+Ιδιωτικό E-mail
+
+{t}E-mail program{/t}
+Πρόγραμμα E-mail
+
+{t}e.g.{/t}
+e.g.
+
+{t}Edit{/t}
+Επεξεργασία
+
+{t}Edit as new{/t}
+Επεξεργασία σαν νέο
+
+{t}Edit rights{/t}
+Επεξεργασία δικαιωμάτων
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+Επεξεργαστής
+
+{t}Emphasis{/t}
+Εμφαση
+
+{t}Empty{/t}
+Κενό
+
+{t}Empty folder{/t}
+Κενός κατάλογος
+
+{t}en{/t}
+gr
+
+{t}Enable anonymous access{/t}
+Ενεργοποίηση πρόσβασης ανώνυμου χρήστη
+
+{t}Enable anonymous CMS{/t}
+Ενεργοποίηση ανώνυμου CMS
+
+{t}Enable automatic user creation{/t}
+Ενεργοποίηση αυτόματης δημιουργίας χρήστη
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Ενεργοποίηση εξωτερικού mail client για mailto: links
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+Ενεργοποίηση  Sync4j / Funambol
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Τέλος
+
+{t}engaged{/t}
+απασχολημένος
+
+{t}equal{/t}
+ίσος
+
+{t}Error{/t}
+Λάθος
+
+{t}Error doing request to xmlhttp{/t}
+Λάθος αιτήματος στο xmlhttp
+
+{t}Error moving file{/t}
+Λάθος μετακίνησης αρχείου
+
+{t}Error pasting asset{/t}
+Λάθος αντιγραφής στοιχείου
+
+{t}Error: no credentials{/t}
+Λάθος: δεν υπάρχουν πιστοποιητικά
+
+{t}Events{/t}
+Συμβάν
+
+{t}Example{/t}
+Παράδειγμα
+
+{t}Example contacts{/t}
+Παράδειγμα επαφής
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Παράδειγμα χωρίς mountpoint
+
+{t}Examples{/t}
+
+
+{t}Execute{/t}
+Εκτέλεση
+
+{t}Expenses{/t}
+Εξοδα
+
+{t}Experimental{/t}
+Πειραματικό
+
+{t}Expires{/t}
+Λήξη
+
+{t}Expiry{/t}
+Λήξη
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Εξαγωγή αρχείων
+
+{t}F j{/t}
+F j
+
+{t}F j, Y{/t}
+F j, Y
+
+{t}Failed to create directory: %s{/t}
+Αποτυχία δημιουργίας καταλόγου: %s
+
+{t}Failed to write file to disk.{/t}
+Αποτυχία εγγραφής αρχείου στον δίσκο.
+
+{t}Failed to write into %s{/t}
+Αποτυχία εγγραφής σε %s
+
+{t}Family status{/t}
+Οικογενειακή κατάσταση
+
+{t}FAQ{/t}
+FAQ
+
+{t}Favorites{/t}
+Αγαπημένα
+
+{t}Fax{/t}
+Fax
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Μελοντικά αιτήματα
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+Φεβρουάριος
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+θύλη
+
+{t}Field{/t}
+Πεδίο
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+Αρχείο
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+το αρχείο είναι πολύ μεγάλο. Παρακαλώ αλλάξτε το upload_max_filesize, post_max_size στο php.ini
+
+{t}file is too big. Please upload a smaller one.{/t}
+το αρχείο είναι πολύ μεγάλο. Παρακαλώ στείλτε ενα μικρότερο.
+
+{t}File locked.{/t}
+Το αρχείο κλειδώθηκε.
+
+{t}file not found in database.{/t}
+δεν βρέθηκε το αρχείο στην βάση δεδομένων.
+
+{t}file not found.{/t}
+δεν βρέθηκε το αρχείο.
+
+{t}File unlocked.{/t}
+Το αρχείο ξεκλειδώθηκε.
+
+{t}file was uploaded partially.{/t}
+το αρχείο έχει μερικώς αποσταλεί.
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Το όνομα του αρχείου πρέπει να έχει επιτρεπτη επέκταση. Οι επιτρεπτές επεκτάσεςι είναι %s
+
+{t}Files{/t}
+Αρχεία
+
+{t}Filesystem{/t}
+Αρχείο Συστήματος
+
+{t}Filter{/t}
+Φίλτρο
+
+{t}Find assets in multiple folders{/t}
+Βρες στοιχεία σε πολλούς καταλόγους
+
+{t}Finish scheduled{/t}
+Τέλος προγραμματισμένης
+
+{t}Finished{/t}
+Τελείωσε
+
+{t}First in list{/t}
+Πρώτο στην λίστα
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+Ονομα
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+σταθερός
+
+{t}Flags{/t}
+Σημαίες
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Κατάλογος
+
+{t}Folder already exists.{/t}
+Ο κατάλογος υπάρχει ήδη.
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Δημιουργήθηκε η δομή του καταλόγου.
+
+{t}Folder structure moved to trash.{/t}
+Η δομή του καταλόγου μετακινήθηκε στα απορρίμματα.
+
+{t}Folder Type{/t}
+Τύπος καταλόγου
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Κατάλογοι
+
+{t}for a new paragraph, use a blank line{/t}
+για νέα παράγραφο, χρησιμοποιήστε κενή γραμμή
+
+{t}Force SSL{/t}
+Εξαναγκασμός SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Forum
+
+{t}Forward{/t}
+Μπροστά
+
+{t}Fr{/t}
+Πα
+
+{t}Free/busy{/t}
+Ελέυθερο/απασχολημένο
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Παρ
+
+{t}Friday{/t}
+Παρασκευή
+
+{t}From{/t}
+Από
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+Πλήρες πλάτος
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+Το Funambol λειτουργεί με MySQL και PostgreSQL.
+
+{t}Function does not exist: %s{/t}
+Δεν υπάρχει η λειτουργία: %s
+
+{t}g:i a{/t}
+g:i a
+
+{t}Gender{/t}
+Φύλο
+
+{t}General{/t}
+Γενικά
+
+{t}Generate{/t}
+Παραγωγή
+
+{t}Gifts{/t}
+Δώρα
+
+{t}Give Feedback{/t}
+Δώσε παρατηρήσεις
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL Frequently Asked Questions
+
+{t}greater than{/t}
+μεγαλύτερο απο
+
+{t}green{/t}
+πράσινο
+
+{t}Group{/t}
+Ομάδα
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Ονομα ομάδας
+
+{t}Groups{/t}
+Ομάδες
+
+{t}hanging text{/t}
+ανάρτηση κειμένου
+
+{t}Hardware{/t}
+Hardware
+
+{t}Headers{/t}
+Τίτλοι
+
+{t}heading{/t}
+κεφαλίδα
+
+{t}headings{/t}
+κεφαλίδες
+
+{t}Height{/t}
+Υψος
+
+{t}Help{/t}
+Βοήθεια
+
+{t}Helpdesk{/t}
+Helpdesk
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+Ιστορικό
+
+{t}Holiday{/t}
+Διακοπές
+
+{t}Home{/t}
+Αρχική
+
+{t}Home folder id{/t}
+
+
+{t}Home page in the CMS{/t}
+Αρχική για CMS
+
+{t}Homepage{/t}
+Αρχική σελίδα
+
+{t}horizontal line{/t}
+οριζόντια γραμμή
+
+{t}Host{/t}
+Host
+
+{t}Hosts{/t}
+Hosts
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+ώρες
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+Έγγραφα HTML
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+http://www.pmwiki.org/PmWiki/
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+Ε Γ Κ Α Τ Α Σ Τ Α Σ Η
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Αναγνωριστικό
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Το αναγνωριστικό δεν πρέπει να είναι κενό,με μικρά,το λιγότερο 3 χαρακτήρες, εως 128 χαρακτήρες [a-z0-9_-@.].
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Το αναγνωριστικό δεν πρέπει να είναι κενό,με μικρά,το λιγότερο 3 χαρακτήρες, εως 128 χαρακτήρες [a-z0-9_-@.].
+
+{t}Ideas{/t}
+Ιδέες
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Εαν είναι κενό, θα χρησιμοποιηθεί η ρύθμιση σύνδεσης του SMTP απο την ενότητα των χρηστών.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+ενα δεν εντοπιστεί θα γίνη με χρήση των συμφραζομένων
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+εαν ενα ονομα ή κωδικός περιέχει χαρακτήρα &quot;@&quot; , αντικαταστήστε τον με &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Εισ-/Εξαγωγή
+
+{t}Image{/t}
+Εικόνα
+
+{t}Images{/t}
+Εικόνες
+
+{t}Imap-error: %s{/t}
+Imap-λάθος: %s
+
+{t}immediate{/t}
+άμεσα
+
+{t}Import{/t}
+Εισαγωγή
+
+{t}In progress{/t}
+Σε εξέλιξη
+
+{t}in repair{/t}
+Σε ανακατασκευή
+
+{t}in stock{/t}
+σε απόθεμα
+
+{t}Inactive{/t}
+Ανενεργό
+
+{t}Include in RSS feed{/t}
+Περιέχεται στο RSS feed
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+indent text
+
+{t}Index{/t}
+Ευρετήριο
+
+{t}Index length{/t}
+Μήκος ευρετηρίου
+
+{t}Index type{/t}
+Είδος ευρετηρίου
+
+{t}Indexes{/t}
+Ευρετήρια
+
+{t}Industry{/t}
+Βιομηχανία
+
+{t}Info{/t}
+Πληροφορίες
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Εισαγωγή
+
+{t}inserted{/t}
+καταχωρήθηκε
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+ανεπαρκή δικαιώματα καταλόγου
+
+{t}Internal recommendation{/t}
+Εσωτερική σύσταση
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Παρουσίαση
+
+{t}invalid{/t}
+μη επιτρεπτώ
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Κατάλογος
+
+{t}Inventory number{/t}
+Αριθμός καταλόγου
+
+{t}Investor{/t}
+Επενδυτής
+
+{t}Invoice{/t}
+Τιμολόγιο
+
+{t}italic{/t}
+πλάγια
+
+{t}Item created by %s at %s{/t}
+Το στοιχείο δημιουργήθηκε απο %s στις %s
+
+{t}Item deleted by %s at %s{/t}
+Το στοιχείο διαγράφθηκε απο %s στις %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Το στοιχείο διορθώθηκε απο %s στις %s
+
+{t}Item not found.{/t}
+Δεν βρέθηκε το στοιχείο
+
+{t}Item successfully created.{/t}
+Το στοιχείο δημιουργήθηκε.
+
+{t}Item successfully updated.{/t}
+Το στοιχείο εμηνερώθηκε.
+
+{t}Item(s) not found or access denied.{/t}
+Το στοιχείο(α) δεν βρέθηκαν ή η πρόσβαση απορίφθηκε.
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+Ιανουάριος
+
+{t}Job description{/t}
+Περιγραφή εργασίας
+
+{t}Join lines{/t}
+Ενωση γραμμών
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+Ιούλιος
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+Ιούνιος
+
+{t}Key{/t}
+Κλειδί
+
+{t}Key customer{/t}
+Κλειδί πελάτη
+
+{t}Key name{/t}
+Ονομα κλειδιού
+
+{t}Keywords{/t}
+Λέξεις κλειδιά
+
+{t}Knowledge base{/t}
+Γνωσιακή γνώσεων
+
+{t}L o g i n{/t}
+Σ ύ ν δ ε σ η
+
+{t}l, F j, Y{/t}
+l, F j, Y
+
+{t}Last access{/t}
+Τελευταία πρόσβαση
+
+{t}Last name{/t}
+Επώνυμο
+
+{t}LDAP anonymous connection failed.{/t}
+LDAP απέτυχε η ανώνυμη σύνδεση.
+
+{t}LDAP attribute for group memberships{/t}
+Ιδιότητα LDAP για ομάδα μέλους
+
+{t}LDAP attribute for rooms{/t}
+Ιδιότητα LDAP για δωμάτια
+
+{t}LDAP attribute for usernames{/t}
+Ιδιότητα LDAP για ονόματα χρηστών
+
+{t}LDAP connection to host %s failed.{/t}
+Η σύνδεση LDAP στον  %s απέτυχε.
+
+{t}LDAP without anonymous access{/t}
+LDAP χωρίς ανώνυμη πρόσβαση
+
+{t}LDAP: no base DN given{/t}
+LDAP: δεν δόθηκε DN
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+μικρότερων προοπτικών
+
+{t}lesser than{/t}
+μικρότερο απο
+
+{t}Letter{/t}
+Γράμμα
+
+{t}Level{/t}
+Επίπεδο
+
+{t}License{/t}
+Αδεια
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+Διακοπή γραμμής
+
+{t}Link{/t}
+Σύνδεση
+
+{t}Link restricted{/t}
+Περιορισμένη σύνδεση
+
+{t}link text{/t}
+συνδεδεμένο κείμενο
+
+{t}link to external page{/t}
+σύνδεση σε εξωτερική σελίδα
+
+{t}link to internal page{/t}
+σύνδεση σε εσωτερική σελίδα
+
+{t}Links{/t}
+Συνδέσεις
+
+{t}Lists{/t}
+Λίστες
+
+{t}Load external images{/t}
+
+
+{t}Location{/t}
+Θέση
+
+{t}Locations{/t}
+Θέσεις
+
+{t}Lock{/t}
+Κλείδωμα
+
+{t}Locked by{/t}
+Κλειδώθηκε απο
+
+{t}Locking{/t}
+Κλειδώνω
+
+{t}login %s from %s with %s{/t}
+σύνδεση %s απο %s με %s
+
+{t}Login failed from %s.{/t}
+Απέτυχε η σύνδεση απο %s.
+
+{t}Login/-out{/t}
+Σύνδεση-Αποσ/ση
+
+{t}Logins{/t}
+Συνδέσεις
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+Αποσύνδεση %s
+
+{t}Lookup{/t}
+Lookup
+
+{t}low{/t}
+χαμηλά
+
+{t}lowest{/t}
+κατώτατος
+
+{t}M j{/t}
+M j
+
+{t}M j, g:i a{/t}
+M j, g:i a
+
+{t}M j, Y{/t}
+M j, Y
+
+{t}m/d/Y{/t}
+m/d/Y
+
+{t}m/d/Y g:i a{/t}
+m/d/Y g:i a
+
+{t}m/d/y g:i:s a{/t}
+m/d/y g:i:s a
+
+{t}magenta{/t}
+πορφυρό
+
+{t}mail footer{/t}
+υποσέλιδο μυνήματος
+
+{t}Mail identities{/t}
+Ταυτότητα μυνήματος
+
+{t}mail notification{/t}
+ειδοποίηση μυνήματος
+
+{t}mail reminder{/t}
+υπενθύμιση μυνήματος
+
+{t}Main menu{/t}
+Κυρίως επιλογές
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Λειτουργία συντήρησης
+
+{t}male{/t}
+άρρεν
+
+{t}Man-days{/t}
+Ανθρωποημέρες
+
+{t}Man-days planned{/t}
+Προγραμματισμένες ανθρωποημέρες
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Διευθυντής
+
+{t}Manufacturer{/t}
+Κατασκευαστής
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+Μάρτιος
+
+{t}Marketing event{/t}
+Εκδήλωση Marketing
+
+{t}married{/t}
+παντρεμένος
+
+{t}Maximize{/t}
+Μεγιστοποίηση
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+έχει γίνει υπέρβαση του μέγιστου αριθμού αρχείων.
+
+{t}May{/t}
+Μάιος
+
+{t}Media{/t}
+Media
+
+{t}Meeting{/t}
+Συνάντηση
+
+{t}Members{/t}
+Μέλοι
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+Μόνιμη ένωση καταλόγων
+
+{t}Merged folders{/t}
+Εένωση καταλόγων
+
+{t}Message{/t}
+Μύνημα
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+λεπτό
+
+{t}Minimize{/t}
+Ελαχιστοποίηση
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+ελάχιστο = 15 δευτερόλεπτα, 0 = ανενεργό
+
+{t}Miscellaneous{/t}
+Miscellaneous
+
+{t}missing a temporary folder.{/t}
+λείπει ο προσωρινός κατάλογος
+
+{t}missing field{/t}
+λείπει πεδίο
+
+{t}missing right: %s{/t}
+missing right: %s
+
+{t}Mo{/t}
+Μο
+
+{t}Mobile{/t}
+Κινητό
+
+{t}Model{/t}
+Μοντέλο
+
+{t}Modified{/t}
+Αλλαξε
+
+{t}Modified by{/t}
+Αλλαξε απο
+
+{t}Modifying database failed.{/t}
+Απέτυχε η αλλαγή της βάσης δεδομένων.
+
+{t}Module{/t}
+Ενότητα
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Ενότητες
+
+{t}Mon{/t}
+Δευ
+
+{t}Monday{/t}
+Δευτέρα
+
+{t}monospace{/t}
+μονοδιάστημα
+
+{t}Month{/t}
+Μήνας
+
+{t}monthly{/t}
+μηνιαία
+
+{t}months{/t}
+μήνες
+
+{t}More information about the GNU GPL{/t}
+Περισσότερες πληροφορίες σχετικά με GNU GPL
+
+{t}Mountpoint{/t}
+Mountpoint
+
+{t}Move{/t}
+Μετακίνηση
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+Τα ραντεβού μου
+
+{t}My tasks{/t}
+Οι εργασίες μου
+
+{t}Name{/t}
+Ονομα
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Το όνομα να μην είναι κενό, με μικρά, το λιγότερο 3 χαρακτήρε, εως 128 που να περιέχει [a-z0-9_-@.].
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+Το όνομα να μην είναι κενό, το λιγότερο 3 χαρακτήρε, εως 128 που να περιέχει [a-z0-9_@.].
+
+{t}need feedback{/t}
+χρειάζονται παρατηρήσεις
+
+{t}Network{/t}
+Δίκτυο
+
+{t}Never expires{/t}
+Δεν λήγη ποτέ
+
+{t}New{/t}
+Νεο
+
+{t}New folder{/t}
+Νέος κατάλογος
+
+{t}News{/t}
+Νεα
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+υποκοριστικό
+
+{t}Nightwork{/t}
+Nightwork
+
+{t}no{/t}
+no
+
+{t}No dataset selected.{/t}
+Δεν επιλέχθηκε προέλευση δεδομένων
+
+{t}No entries found.{/t}
+Δεν βρέθηκαν καταχωρήσεις
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+χωρίς αποτέλεσμα
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Δεν καθορίστηκε αποστολέας
+
+{t}no username submitted{/t}
+δεν υποβλήθηκε όνομα
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Οχι μοναδικό
+
+{t}none{/t}
+κανένα
+
+{t}normal{/t}
+κανονικό
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Δεν έγινε επιτρεπτώ. Παρακαλώ συνδεθήτε σαν υπερ-διαχειριστής
+
+{t}not contains{/t}
+δεν περιέχει
+
+{t}not equal{/t}
+δεν είναι ισο
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+σημειωματάριο
+
+{t}Notes{/t}
+Σημειώσεις
+
+{t}Notificaiton sent to: %s{/t}
+Στάλθηκε ειδοποίηση σε: %s
+
+{t}Notification{/t}
+Ειδοποίηση
+
+{t}Notification summary{/t}
+Σύνοψη ειδοποιήσεων
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+Νοέμβριος
+
+{t}Null{/t}
+Κενό
+
+{t}Number of employees{/t}
+Αριθμός εργαζομένων
+
+{t}numbered{/t}
+αριθμημένα
+
+{t}Objectives{/t}
+Στόχοι-Επιδιώξεις
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+Οκτώβριος
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Γραφείο
+
+{t}Office program{/t}
+Πρόγραμμα γραφείου
+
+{t}Offices{/t}
+Γραφεία
+
+{t}offline{/t}
+αποσυνδεδεμένος
+
+{t}Offline folders{/t}
+
+
+{t}Offline sync{/t}
+
+
+{t}Ok{/t}
+Εντάξει
+
+{t}one of{/t}
+
+
+{t}online{/t}
+Συνδεδεμένος
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Ανοικτό
+
+{t}Operating system{/t}
+Λειτουργικό σύστημα
+
+{t}Operation not allowed. (Data loss protection){/t}
+Δεν επιτρέπεται η εργασία. (Προστασία δεδομένων)
+
+{t}Optimize Tables{/t}
+Βελτιστοποίηση Πινάκων
+
+{t}Options{/t}
+Επιλογές
+
+{t}or{/t}
+ή
+
+{t}or higher{/t}
+ή μεγαλήτερο
+
+{t}orange{/t}
+πορτοκαλί
+
+{t}Order size{/t}
+Μέγεθος ταξινόμησης-Order size
+
+{t}Organisation{/t}
+Οργανισμός
+
+{t}Organizer{/t}
+Ατζέντα
+
+{t}Origin{/t}
+Προέλευση
+
+{t}Original message{/t}
+Αρχικό μύνημα
+
+{t}Other{/t}
+Αλλα
+
+{t}out of office{/t}
+εκτός γραφείου
+
+{t}Outline image{/t}
+Περίγραμμα εικόνας
+
+{t}Output{/t}
+Εξαγωγή
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+επικάλυψη
+
+{t}Overtime{/t}
+Υπερωρία
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Κάτοχος
+
+{t}Owner since{/t}
+Κάτοχος απο
+
+{t}Package from local file system (.tar.gz){/t}
+Package from local file system (.tar.gz)
+
+{t}Packed{/t}
+Packed
+
+{t}Page{/t}
+Σελίδα
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+Ονομα σελίδας (URL)
+
+{t}Page not found{/t}
+Δεν βρέθηκε η σελίδα
+
+{t}Page title{/t}
+Τίτλος σελίδας
+
+{t}Pager{/t}
+Pager
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+Παράγραφοι
+
+{t}parameters{/t}
+παράμετροι
+
+{t}Parameters{/t}
+παράμετροι
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Parsing
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Συμμέτοχος
+
+{t}Participants (external){/t}
+Συμμέτοχος (εξωτερικά)
+
+{t}Participants (internal){/t}
+Συμμέτοχος (εσωτερικά)
+
+{t}Password{/t}
+Κωδικός
+
+{t}Password expired. (password of %s has expired){/t}
+Ο κωδικός έληξε. (ο κωδικός του %s έχει λήξη)
+
+{t}Password expires{/t}
+Ο κωδικός έληξε
+
+{t}Password must be not null, min 5 characters.{/t}
+Ο κωδικός δεν πρέπει να είναι κενός και μικρότερος απο 5 χαρακτήρες.
+
+{t}password not confirmed.{/t}
+ο κωδικός δεν επιβεβαιώθηκε.
+
+{t}Passwords{/t}
+Κωδικοί
+
+{t}Paste{/t}
+Επικόλληση
+
+{t}Path{/t}
+Μονοπάτι
+
+{t}Pause{/t}
+Παύση
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Δικαιώματα
+
+{t}Permissions added for: %s{/t}
+Προστέθηκαν δικαιώματα για: %s
+
+{t}Personal{/t}
+Ιδιωτικός
+
+{t}Personal department{/t}
+Ιδιωτικό τμήμα
+
+{t}Personal folders{/t}
+Ιδιωτικοί φάκελλοι
+
+{t}Personal projects{/t}
+Ιδιωτικές εργασίες
+
+{t}Phone{/t}
+Τηλέφωνο
+
+{t}Phone calls{/t}
+Τηλεφωνικές κλήσεις
+
+{t}Phone private{/t}
+Ιδιαίτερο τηλέφωνο
+
+{t}Photo{/t}
+Φωτογραφία
+
+{t}Photo gallery{/t}
+Εκθεση φωτογραφιών
+
+{t}Planned{/t}
+Προγραμματίστηκε
+
+{t}Please activate cookies.{/t}
+Παρακαλώ ενεργοποιήστε τα cookies.
+
+{t}Please choose Apache as Web-Server.{/t}
+Please choose Apache as Web-Server.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Παρακαλώ εισάγεται ενα έγκυρο url.
+
+{t}Please give read access to %s{/t}
+Παρακαλώ δώστε πρόσβαση διαβάσματος στο %s
+
+{t}Please give write access to %s{/t}
+Παρακαλώ δώστε πρόσβαση εγγραφής στο %s
+
+{t}Please give write access to %s and %s{/t}
+Παρακαλώ δώστε πρόσβαση εγγραφής στο %s και %s
+
+{t}Please hit reload.{/t}
+Παρακαλώ πιέστε ανανέωση.
+
+{t}Please input a valid e-mail adress.{/t}
+Παρακαλώ εισάγεται μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου.
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Παρακαλώ εγκαταστήστε το tsearch2 για την PostgreSQL.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Παρακαλώ αλλάξτε το php.ini ή προσθέστε ενα .htaccess αρχείο αλλάζοντας την ρύθμιση %s σε %s (τρέχουσα τιμή %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Παρακαλώ διαβάστε την ακόλουθη άδεια χρήσης. Χρησιμοποιήστε το scroll bar για να δείτε και το υπόλοιπο της αδείας.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+Παρακαλώ διαλέξτε εναν συμμετέχοντα.
+
+{t}Please upload again.{/t}
+Παρακαλώ αποστείλεται ξανά.
+
+{t}Please wait ...{/t}
+Παρακαλώ περιμένεται...
+
+{t}Pop3-error: %s{/t}
+Pop3-λάθος: %s
+
+{t}Port{/t}
+Port
+
+{t}Portal{/t}
+Portal
+
+{t}Position{/t}
+Θέση
+
+{t}Positions{/t}
+Θέσεις
+
+{t}Post{/t}
+Καταχώρηση
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+Προκαθορισμένο σχήμα μπλοκ
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+Αποτροπή προκαθορισμού
+
+{t}Preview{/t}
+Προεπισκόπηση
+
+{t}Price{/t}
+Τιμή
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Εκτύπωση
+
+{t}Print all{/t}
+Εκτύπωση ολων
+
+{t}Printer{/t}
+Εκτυπωτής
+
+{t}Priority{/t}
+Προτεραιότητα
+
+{t}Problem{/t}
+Πρόβλημα
+
+{t}Processes{/t}
+Διαδικασίες
+
+{t}Processing %s ...{/t}
+Εξέλιξη διαδικασίας %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Το πρόγραμμα έχει εγκατασταθεί με γλώσσα %s, παρακαλώ χρησιμοποιήστε διαφορετικό url ή τρέξτε το πρόγραμμα εγκατάστασης ξανά.
+
+{t}Progress{/t}
+Πρόοδος
+
+{t}Project{/t}
+Εργο
+
+{t}Project files{/t}
+Αρχεία έργου
+
+{t}Project tasks{/t}
+Εργασίες έργου
+
+{t}Projects{/t}
+Εργά
+
+{t}promising{/t}
+προοπτικές
+
+{t}Properties{/t}
+Ιδιώτητες
+
+{t}Prospective client{/t}
+Μελλοντικός πελάτης
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Αγοράσθηκε
+
+{t}Question{/t}
+Ερώτηση
+
+{t}Queue{/t}
+Προτεραιότητα
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Μερίδιο χώρου
+
+{t}Quota (remaining){/t}
+Μερίδιο χώρου (που απομένη)
+
+{t}Quota [MB]{/t}
+Μερίδιο χώρου [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Το μερίδιο χώρου εξαντλήθηκε: %s
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Αξιολόγηση
+
+{t}Read{/t}
+Διάβασμα
+
+{t}read access{/t}
+πρόσβαση διαβάσματος
+
+{t}Read access (groups){/t}
+Πρόσβαση διαβάσματος (ομάδες)
+
+{t}Read access (users){/t}
+Πρόσβαση διαβάσματος (χρήστες)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+έτοιμο για επιδιόρθωση
+
+{t}ready for scrap{/t}
+έτοιμο για αχρηστία
+
+{t}Real URL format in the CMS{/t}
+Real URL format in the CMS
+
+{t}Really apply rights to subfolders ?{/t}
+Να δώσω τα δικαιώματα στους υποφακέλλους;
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Να διαγράψω;
+
+{t}REALLY delete ALL datasets ?{/t}
+ΝΑ ΔΙΑΓΡΑΨΩ ΟΛΑ ΤΑ δεδομένα;
+
+{t}Really delete ALL subfolders ?{/t}
+Να διαγράψω ΟΛΟΥΣ τους υποφακέλλους;
+
+{t}Really delete the dataset(s) ?{/t}
+ΝΑ ΔΙΑΓΡΑΨΩ τα δεδομένα;
+
+{t}Really empty the folder ?{/t}
+Να διαγράψω τα περιεχόμενα του φακέλλου;
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Να γράψω πάνω απο τα υπάρχοντα δεδομένα;
+
+{t}Really run setup again ?{/t}
+Να ξανατρέξω το πρόγραμμα εγκατάστασης;
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Επανακατασκευη ευρετηρίων αναζήτησης
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Υπόδειξη ένταξης
+
+{t}Recurrence{/t}
+Επανάληψη
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+κόκκινο
+
+{t}Redirect to home directory{/t}
+Προώθηση στον φάκελλό μου
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+Ανανέωση κάθε x δευτερόλεπτα
+
+{t}Regular{/t}
+Τακτικός
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+απόρριψη
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Επανάληψη εγκατάστασης
+
+{t}Relevance{/t}
+
+
+{t}Reminder{/t}
+Υπενθύμιση
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Μετονομασία καταλόγου
+
+{t}Repeat count{/t}
+Επανάληψη μέτρησης
+
+{t}Repeat exclusions{/t}
+Επανάληψη αποκλεισμών
+
+{t}Repeat interval{/t}
+Επανάληψη μεσολαβούν διαστήματος
+
+{t}Repeat until{/t}
+Επανάληψη εως
+
+{t}Reply{/t}
+Απάντηση
+
+{t}Reply all{/t}
+Απάντηση σε ολα
+
+{t}Require admin access to set mountpoints{/t}
+Χρειάζεται δικαίωμα διαχειριστή για να θέσετε mountpoints
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Reseller
+
+{t}reserved{/t}
+προκρατήθηκε
+
+{t}Reset view{/t}
+Μηδενισμός θέσης
+
+{t}Resource{/t}
+Πόρος-Πηγή
+
+{t}Resources{/t}
+Πόροι-Πηγές
+
+{t}Responsible{/t}
+Υπεύθυνος
+
+{t}Responsible (external){/t}
+Υπεύθυνος (εξωτερικά)
+
+{t}Responsible (internal){/t}
+Υπεύθυνος (εσωτερικά)
+
+{t}Restore complete{/t}
+Η επαναφορά τελείωσε
+
+{t}Restore here{/t}
+Επαναφορά εδώ
+
+{t}Restore only missing{/t}
+Επαναφορά μόνο όσον λείπουν
+
+{t}Restore only newer{/t}
+Επαναφορά μόνο των νεοτέρων
+
+{t}Restore to origin{/t}
+Επαναφορά στην αρχική θέση
+
+{t}Return receipt{/t}
+Επιστροφή παραλαβής
+
+{t}right-aligned{/t}
+δεξιά στοίχιση
+
+{t}Rights{/t}
+Δικαιώματα
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Ονομασία δωματίου
+
+{t}Room number{/t}
+Αριθμός δωματίου
+
+{t}Rooms{/t}
+Δωμάτια
+
+{t}Rows{/t}
+Γραμμές
+
+{t}Run Setup again{/t}
+Ξανατρέξιμο αρχικής εγκατάστασης.
+
+{t}S a v e{/t}
+Κ α τ α χ ώ ρ η σ η
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+Κ α τ α χ ώ ρ η σ η   και   π ί σ ω
+
+{t}Sa{/t}
+Σα
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Προώθηση πωλήσεων
+
+{t}Sat{/t}
+Σαβ
+
+{t}Saturday{/t}
+Σάββατο
+
+{t}Scheduling{/t}
+Χρονοδιάγραμμα
+
+{t}Schema{/t}
+Σχημα
+
+{t}Schema data{/t}
+Σχήμα δεδομένων
+
+{t}Schemafile not found. (%s){/t}
+Το αρχείο σχήματος δεν βρέθηκε. (%s)
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+αχρηστεύθηκε
+
+{t}Search{/t}
+Αναζήτηση
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+Υποδιευθυντής
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Γραμματέας
+
+{t}Self registration{/t}
+Αυτο-εγγραφή
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+Αποστολή υπενθυμήσεων
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+Διαχωριστές
+
+{t}September{/t}
+Σεπτέμβριος
+
+{t}Serial number{/t}
+Σειριακός αριθμός
+
+{t}Server{/t}
+Server
+
+{t}Server does not support sorting{/t}
+Ο Server δεν υποστηρίζει ταξινόμηση
+
+{t}Server-IP{/t}
+Server-IP
+
+{t}Service provider{/t}
+Παροχέας υπηρεσιών
+
+{t}Session name in cookie{/t}
+Session name in cookie
+
+{t}Session timeout{/t}
+Εληξε η περίοδος
+
+{t}Sessions{/t}
+Περίοδοι (Sessions)
+
+{t}Setup{/t}
+Εγκατάσταση
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Η εγκατάσταση χρειάζεται μια βάση δεδομένων με-php-επέκταση ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Η εγκατάσταση χρειάζεται php με αριθμό έκδοσης τουλάχιστον %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+Η εγκατάσταση χρειάζεται επέκταση της php με όνομα %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Εγκατάσταση: Τα στοιχεία της εγκατάστασης γράφθηκαν στο  %s.
+
+{t}Shapes{/t}
+
+
+{t}Share{/t}
+Μοίρασμα
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+Παρουσίαση
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Παρουσίαση αρχείων
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Παρουσίαση κειμένου με εισαγωγικά
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+Απλοί πίνακες
+
+{t}single{/t}
+Μονός (single)
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Μέγεθος
+
+{t}Size (children){/t}
+Μέγεθος (παιδιού)
+
+{t}Slow{/t}
+Σιγά
+
+{t}small{/t}
+μικρό
+
+{t}small text{/t}
+μικρό κείμενο
+
+{t}smaller{/t}
+μικρότερο
+
+{t}SMTP not configured for %s{/t}
+Το SMTP δεν έχει διαμορφωθεί για %s
+
+{t}Smtp-error %s: %s{/t}
+Smtp-λάθος %s: %s
+
+{t}Software{/t}
+Λογισμικό
+
+{t}Solution{/t}
+Λύση
+
+{t}Solution type{/t}
+Τύπος λύσης
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+Πηγαίος κώδικας
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Προδιαγραφές
+
+{t}Spreadsheet{/t}
+Υπολογιστικά φύλλα
+
+{t}SQL failed.{/t}
+Η SQL απέτυχε
+
+{t}SQL FAILED: %s{/t}
+Η SQL ΑΠΕΤΥΧΕ: %s
+
+{t}Start scheduled{/t}
+Εναρξη προγραμματισμού
+
+{t}Started{/t}
+Ξεκίνησε
+
+{t}starts with{/t}
+Ξεκίνησε με
+
+{t}State{/t}
+State
+
+{t}Static cache{/t}
+Στατικη μνήμη
+
+{t}Statistics{/t}
+Στατιστικά
+
+{t}Status{/t}
+Κατάσταση
+
+{t}Statuses{/t}
+Είδος κατάστασης
+
+{t}Strategies{/t}
+Στρατηγικές
+
+{t}Street{/t}
+Οδός
+
+{t}Structure{/t}
+Δομή
+
+{t}Su{/t}
+Κυ
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+υπότιτλος
+
+{t}Subitem{/t}
+Υπο-στοιχείο
+
+{t}Subject{/t}
+Θέμα
+
+{t}Subjects{/t}
+Θέματα
+
+{t}Submit a patch{/t}
+Αποστολή διόρθωσης
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+υπόστιξη
+
+{t}Subsistence costs{/t}
+Κόστος συντήρησης
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Σύνοψη
+
+{t}Sun{/t}
+Κυρ
+
+{t}Sunday{/t}
+Κυριακή
+
+{t}Superior{/t}
+Ανώτερος
+
+{t}superscript{/t}
+υπέρστιξη
+
+{t}Supplier{/t}
+Προμηθευτής
+
+{t}Suppliers{/t}
+Προμηθευτές
+
+{t}Support{/t}
+Υποστήριξη
+
+{t}Support request{/t}
+Αίτημα υποστήριξης
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Αναστάλθηκε
+
+{t}Switch maintenance mode{/t}
+Εναλλαγή σε Λειτουργία συντήρησης
+
+{t}Sync4j remote delete items{/t}
+Sync4j απομακρυσμένη διαγραφή στοιχείων  (remote delete items)
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+Σύστημα
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Πίνακας
+
+{t}Table sizes{/t}
+Μέγεθος πίνακα
+
+{t}Table status{/t}
+Κατάσταση πίνακα
+
+{t}Tables{/t}
+Πίνακες
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+Διεργασίες
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+Πρότυπο
+
+{t}Templates{/t}
+Πρότυπα
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+όρος
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Εγγραφο κειμένου
+
+{t}Text formatting rules{/t}
+Κανόνες προκαθορισμού κειμένου
+
+{t}Th{/t}
+Πε
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+
+
+{t}The folder cannot be deleted.{/t}
+Ο κατάλογος δεν μπορεί να διαγραφεί.
+
+{t}The folder cannot be moved.{/t}
+Ο κατάλογος δεν μπορεί να μετακινηθεί.
+
+{t}The new password is{/t}
+Ο νέος κωδικός είναι
+
+{t}The url doesn't exist.{/t}
+Η διεύθυνση (url) δεν υπάρχει.
+
+{t}Theme{/t}
+Θέμα
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+δεν επιτρέπεται αυτή η επέκταση στο αρχείο
+
+{t}Thu{/t}
+Πεμ
+
+{t}Thursday{/t}
+Πέμπτη
+
+{t}Time and expenses{/t}
+Ωρα και δαπάνη
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+Φύλλο ωραρίου
+
+{t}Time zone{/t}
+Ζώνη ωρας
+
+{t}timeout{/t}
+διάλειμα
+
+{t}Title{/t}
+Τίτλος
+
+{t}To{/t}
+Σε
+
+{t}to be checked{/t}
+να γίνει έλεγχος
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+Για να συνεχίσεται την εγκατάσταση του Simple Groupware πρέπει να τσεκάρεται ο κουτάκι κάτω απο την άδεια χρήσης
+
+{t}Today{/t}
+Σήμερα
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Πάρα πολλές λάθος προσπάθειες εισόδου.Παρακαλώ περιμένεται 15 λεπτά.
+
+{t}Total{/t}
+Σύνολο
+
+{t}Trace{/t}
+Ιχνη (Trace)
+
+{t}Trade fair{/t}
+Trade fair
+
+{t}translations{/t}
+μεταγλωτίσεις
+
+{t}Translations of the GNU GPL{/t}
+Μεταγλωτίσεις του GNU GPL
+
+{t}Transportation costs{/t}
+Κόστοι μεταφοράς
+
+{t}Trash{/t}
+Αχρηστα
+
+{t}Trash folder not found.{/t}
+Ο κατάλογος των αχρήστων δεν βρέθηκε.
+
+{t}Tree{/t}
+Δέντρο
+
+{t}Trigger failed{/t}
+Trigger failed
+
+{t}Tu{/t}
+Τρ
+
+{t}Tue{/t}
+Τρι
+
+{t}Tuesday{/t}
+Τρίτη
+
+{t}Type{/t}
+Τύπος
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+δεν μπορώ να βρω %s
+
+{t}Unable to write to %s{/t}
+δεν μπορώ να γράψω στο %s
+
+{t}unconfirmed{/t}
+ανεπιβεβαίωτος
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+Αδιάφορος
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+ξεκλειδωμα
+
+{t}Up{/t}
+Πάνω
+
+{t}Update{/t}
+Ενημέρωση
+
+{t}Update Simple Groupware{/t}
+Ενημέρωση του Simple Groupware
+
+{t}Updated{/t}
+Ενημερώθηκε
+
+{t}Updating schema %s from %s.{/t}
+Ενημέρωση σχήματος %s απο %s.
+
+{t}Upload failed{/t}
+Η αποστολή απέτυχε
+
+{t}Uploaded files{/t}
+Αποστολή αρχείων
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+επείγων
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Χρήση
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Χρήση Debian binaries (Warning: not latest versions)
+
+{t}Use LDAP Groups{/t}
+Χρήση LDAP Ομάδων
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Χρήση  της mail() λειτουργίας για αποστολή μυνημάτων (μη ασφαλές)
+
+{t}User{/t}
+Χρήστης
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Ονομα χρήστη
+
+{t}Username must be different from the super administrator.{/t}
+Το Ονομα χρήστη πρέπει να είναι διαφορετικό απο αυτό του υπερ-διαχειριστή.
+
+{t}Users{/t}
+Χρήστες
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Διακοπές
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+Η επικύρωση απέτυχε
+
+{t}Value{/t}
+Τιμή
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Μεταβλητή
+
+{t}Variable already exists in table. (%s){/t}
+Η μεταβλητή υπάρχει ήδη στο αρχείο. (%s)
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Η μεταβλητή πρέπει να είναι τύπου ημερομηνίας (dd/mm/yyyy).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+
+
+{t}Variable must be of type float.{/t}
+Η μεταβλητή πρέπει να είναι δεκαδικού τύπου.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Η μεταβλητή πρέπει να είναι τύπου ακέραιου και με τιμή μεγαλύτερη του 0.
+
+{t}Variable must be of type int.{/t}
+Η μεταβλητή πρέπει να είναι τύπου ακέραιου.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Η μεταβλητή πρέπει να είναι τύπου ώρας (hh:mm am/pm).
+
+{t}Variables{/t}
+Μεταβλητές
+
+{t}Verbal recommendation{/t}
+Σύσταση λεκτικών
+
+{t}verified{/t}
+επαληθεύθηκε
+
+{t}vertical{/t}
+κάθετος
+
+{t}very promising{/t}
+με προοπτικές
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+Virus scanner
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Μύνημα φωνής
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+Κατάσταση αναμονής
+
+{t}Warning{/t}
+Προειδοποίηση
+
+{t}We{/t}
+Τε
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Τετ
+
+{t}Wednesday{/t}
+Τετάρτη
+
+{t}Week{/t}
+Εβδομάδα
+
+{t}Week start{/t}
+Εναρξη εβδομάδας
+
+{t}Weekend{/t}
+Σαβατοκύριακο
+
+{t}weekly{/t}
+εβδομαδιαία
+
+{t}weeks{/t}
+εβδομάδες
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+λευκό
+
+{t}widowed{/t}
+widowed
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+WikiStyles
+
+{t}won't fix{/t}
+δεν επισκευάζεται
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+works as expected
+
+{t}works for me{/t}
+εργάζεται για μένα
+
+{t}Workshop{/t}
+Εργαστήριο
+
+{t}Workspace{/t}
+Χώρος εργασίας
+
+{t}write access{/t}
+πρόσβαση με δικαίωμα εγγραφής
+
+{t}Write access (groups){/t}
+Δικαίωμα εγγραφής (ομάδες)
+
+{t}Write access (users){/t}
+Δικαίωμα εγγραφής (χρήστες)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Λάθος βάση δεδομένων-version (%s). Παρακαλώ χρησιμοποιήστε τουλάχιστον  %s !
+
+{t}wrong directory{/t}
+λάθος κατάλογος
+
+{t}wrong password{/t}
+λάθος κωδικός
+
+{t}Year{/t}
+Ετος
+
+{t}yearly{/t}
+ετήσια
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+κίτρινο
+
+{t}yes{/t}
+ναι
+
+{t}You are not allowed to view this folder.{/t}
+Δεν έχετε δικαίωμα να δείτε αυτο τον κατάλογο.
+
+{t}Your message was read on %s.{/t}
+Το μύνημά σας έχει διαβαστεί στις %s.
+
+{t}Your session has timed out.{/t}
+Η συνεδρία σας έχει λήξη.
+
+{t}Zipcode{/t}
+ΤαχυδρομικόςΚώδικας
+
+{t}{0} - {1} of {2}{/t}
+
+

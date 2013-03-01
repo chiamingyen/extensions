@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Helpdesk{/t}" limit="20" default_view="display" orderby="begin" order="asc" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" trigger_edit="duration" trigger_new="duration" disable_quick_add="true">
+  <view name="display" displayname="{t}Open{/t}" where="finished=0" groupby="category">
+  </view>
+  <view name="calendar" displayname="{t}Calendar{/t} ({t}Open{/t})" where="finished=0" template="display" enable_calendar="begin,ending">
+  </view>
+  <view name="display2" template="display" displayname="{t}Finished{/t}" where="finished=1" orderby="ending" order="desc">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" tfield_1="affecteduser" tfield_2="subject" show_preview="true">
+  </view>
+  <singlebutton name="take_over" displayname="{t}Take over{/t}" onclick="asset_update_confirm({responsibles:sys.username},'@id@');" condition="responsibles|nlike|@username@||finished|eq|0" right="write" icon="user_add.gif" />
+  <singlebutton name="close" displayname="{t}Close{/t}" onclick="asset_update_confirm({finished:'1'},'@id@');" condition="finished|neq|1" right="write" icon="accept.gif" />
+
+  <tab name="general" displayname="{t}General{/t}" />
+  <tab name="responsible" displayname="{t}Responsible{/t}" />
+  <tab name="miscellaneous" displayname="{t}Miscellaneous{/t}" />  
+  
+  <rowfilter name="filter1" views="all" type="_bgstyle" function="isimportant|priority|background-color:#FFDDDD;|background-color:#FFAAAA;"/>
+
+  <field name="finished" displayname="{t}Finished{/t}" simple_type="checkbox">
+    <hiddenin views="display|display2|calendar"/>
+  </field>
+  <field name="subject" displayname="{t}Subject{/t}" simple_type="text" required="true">
+    <linktext views="display|display2|calendar" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+
+  <field name="affecteduser" displayname="{t}Affected user{/t}" simple_type="select" simple_size="1" required="true">
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+    <data title="{t}Contacts{/t}" function="dbselect|simple_contacts|contactid,concat(lastname;' ';firstname)||lastname asc|10"/>
+    <link views="all" value="index.php?find[]=asset|simple_sys_users|1|username=@affecteduser@&amp;find[]=asset|simple_contacts|1|contactid=@affecteduser@&amp;view=details" />
+  </field>
+  <field name="efrom" displayname="{t}Contact user by{/t}" simple_type="text">
+	<notin views="display|display2|calendar" />
+  </field>
+
+  <field name="message" displayname="{t}Description{/t}" simple_type="textarea">
+    <filter views="display" function="shortmessage|100"/>
+	<notin views="display|display2|calendar" />
+  </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="10">
+	<notin views="display|display2|calendar" />
+  </field>
+  <!-- TODO2 link auf knowledge base ?? -->
+  <field name="solution" displayname="{t}Solution{/t}" simple_type="textarea">
+    <filter views="display" function="shortmessage|100"/>
+	<notin views="display|display2|calendar" />
+  </field>
+  <field name="solutiontype" displayname="{t}Solution type{/t}" simple_type="select" simple_size="1">
+    <data values="{t}unconfirmed{/t}|{t}need feedback{/t}|{t}confirmed{/t}|{t}assigned{/t}|{t}fixed{/t}|{t}verified{/t}|{t}closed{/t}|--- |{t}duplicate{/t}|{t}works for me{/t}|{t}works as expected{/t}|{t}won't fix{/t}|{t}invalid{/t}|---|{t}to be checked{/t}|{t}checked{/t}|{t}answered{/t}|{t}accepted{/t}|{t}rejected{/t}|{t}canceled{/t}"/>
+  </field>
+  <field name="begin" displayname="{t}Begin{/t}" simple_type="datetime" simple_default_function="dateformat_request|begin|now|{t}m/d/Y g:i a{/t}" nowrap="true" required="true">
+    <filter views="all" function="shortdatetimeformat"/>
+    <link views="calendar" value="index.php?view=calendar&amp;today=@begin@"/>
+    <notin views="display2" />
+	<description hint="{t}Relative formats{/t}" value="nWin('http://www.php.net/manual/en/datetime.formats.relative.php');"/>
+  </field>
+  <field name="ending" displayname="{t}End{/t}" simple_type="datetime" simple_default_function="dateformat_request|end|now + 1 hour|{t}m/d/Y g:i a{/t}" nowrap="true" required="true">
+    <filter views="all" function="shortdatetimeformat"/>
+    <notin views="display|display2" />
+  </field>
+  <field name="duration" displayname="{t}Duration{/t}" simple_type="int" sum="true">
+    <filter views="all" function="duration|hours"/>
+	<onlyin views="details|display2"/>
+  </field>
+  <field name="priority" displayname="{t}Priority{/t}" simple_type="select" simple_size="1" simple_default="3">
+    <notin views="display2" />
+	<data reverse="true" values="1_##_{t}lowest{/t}|2_##_{t}low{/t}|3_##_{t}normal{/t}|4_##_{t}urgent{/t}|5_##_{t}immediate{/t}"/>
+  </field>
+  <field name="status" displayname="{t}Status{/t}" simple_type="select" simple_size="1">
+	<data title="{t}Default{/t}" values="{t}Planned{/t}|{t}In progress{/t}|{t}Completed{/t}|{t}Waiting{/t}|{t}Suspended{/t}|{t}Canceled{/t}"/>
+	<data title="{t}Lookup{/t}" function="dbselect|simple_statuses|statusname,statusname|stattype='helpdesk'|statusname asc|10"/>
+    <notin views="calendar" />
+  </field>
+  <field name="progress" displayname="{t}Progress{/t}" simple_type="select" simple_size="1">
+    <data values="0%|5%|10%|20%|25%|40%|50%|60%|75%|80%|90%|100%"/>
+    <notin views="display2|calendar" />
+  </field>
+  <field name="origin" displayname="{t}Origin{/t}" simple_type="select" simple_size="1" simple_tab="miscellaneous">
+    <data values="{t}E-mail{/t}|{t}Phone{/t}|{t}Voice mail{/t}|{t}Fax{/t}|{t}Letter{/t}|{t}Meeting{/t}|{t}Other{/t}"/>
+  </field>
+  <!-- TODO2 component: link auf inventory, software inventory -->
+  <field name="hardware" displayname="{t}Hardware{/t}" simple_type="select" separator=", " simple_tab="miscellaneous" allow_custom="true">
+    <data sort="asc" values="{t}Printer{/t}|{t}Copier{/t}|{t}Fax{/t}|{t}Phone{/t}|{t}Mobile{/t}|PDA|{t}Desktop computer{/t}|{t}Notebook{/t}|{t}Server{/t}|{t}Network{/t}|VPN|{t}Other{/t}"/>
+  </field>
+  <field name="software" displayname="{t}Software{/t}" simple_type="select" separator=", " simple_tab="miscellaneous" allow_custom="true">
+    <data sort="asc" values="{t}E-mail program{/t}|{t}Office program{/t}|{t}Operating system{/t}|{t}Other{/t}"/>
+  </field>
+  <field name="eto" displayname="{t}Queue{/t}" simple_type="select" simple_size="1" allow_custom="true" simple_tab="responsible" simple_default="1st">
+	<data values="1st_##_{t}first level support{/t}|2nd_##_{t}second level support{/t}|3rd_##_{t}third level support{/t}"/>
+  </field>
+  <field name="responsibles" displayname="{t}Responsible (internal){/t}" simple_type="select" simple_size="5" simple_tab="responsible">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@responsibles@&amp;view=details"/>
+  </field>
+  <field name="responsibles_ext" displayname="{t}Responsible (external){/t}" simple_type="select" simple_size="5" allow_custom="true" simple_tab="responsible">
+    <data function="dbselect|simple_contacts|contactid,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_contacts||contactid=@responsibles_ext@&amp;view=details"/>
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" separator=", ">
+    <data title="{t}Default{/t}" values="{t}Question{/t}|{t}Problem{/t}|{t}Demand{/t}|{t}Change request{/t}|{t}Bug{/t}|{t}Other{/t}"/>
+	<data title="{t}Lookup{/t}" function="dbselect|simple_categories|categoryname,categoryname|cattype='helpdesk'|categoryname asc|10"/>
+  </field>
+</table>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Forum{/t}" default_view="display" orderby="id" order="desc" limit="20" enable_new="true" enable_delete="true" enable_empty="true" enable_edit="true" enable_asset_rights="owner_write" trigger_edit="createeditforum" trigger_new="createeditforum" quick_add="subject,content">
+  <view name="display" displayname="{t}Display{/t}" enable_calendar="created">
+  </view>
+  <view name="display2" displayname="{t}Subjects{/t}" where="pid=0" enable_calendar="created" template="display">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" template_mode="noheader" show_preview="true">
+  </view>
+  <view name="reply" displayname="{t}Reply{/t}" schema_mode="edit_as_new" showinsingleview="true" template="edit" right="write" visibility="bottom">
+  </view>
+
+  <field name="threadid" simple_type="int" hidden="true" simple_default="0">
+	<restore views="reply" function="replythreadid"/>
+	<INDEX/>
+  </field>
+  <field name="pid" simple_type="pid" hidden="true" simple_default="0">
+	<restore views="reply" function="replypid"/>
+	<notin views="display2"/>
+  </field>
+  <field name="subject" displayname="{t}Subject{/t}" simple_type="text" required="true">
+	<restore views="reply" function="replysubject"/>
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+    <link views="display" value="index.php?view=details&amp;find[]=assets|simple_forum||threadid=@id@"/>
+    <linktext views="display2" value="#index.php?view=details&amp;iframe=1&amp;find[]=assets|simple_forum||threadid=@id@"/>
+  </field>
+  <field name="content" displayname="{t}Content{/t}" simple_type="wikiarea">
+	<restore views="reply" function="replymessage"/>
+    <filter views="display|display2" function="shortmessage|100"/>
+  </field>
+  <field name="image" displayname="{t}Image{/t}" simple_type="files" simple_file_size="5M" simple_size="10">
+    <notin views="display|display2"/>
+    <validate function="fileupload|jpg,jpeg,gif,png"/>
+	<restore views="reply" function="empty_str"/>
+  </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="10">
+    <notin views="display|display2"/>
+	<restore views="reply" function="empty_str"/>
+  </field>
+  <field name="notification" displayname="{t}Notification{/t}" simple_type="multitext" separator=", " hidden="true" editable="true">
+	<restore views="reply" function="replyfield"/>
+    <data title="{t}Users{/t}" function="dbselect|simple_sys_users|email,concat(lastname;' ';firstname)|length(email)!=0 and activated=1|lastname asc|10"/>
+    <data title="{t}Groups{/t}" function="dbselect|simple_sys_groups|concat('@';groupname),groupname|length(members)!=0 and activated=1|groupname asc|10"/>
+    <data title="{t}Contacts{/t}" function="dbselect|simple_contacts|email,concat(lastname;' ';firstname)|length(email)!=0|lastname asc|10"/>
+    <data title="{t}Contact groups{/t}" function="dbselect|simple_contactgroups|concat('@';groupname),groupname|length(members)!=0|groupname asc|10"/>
+  </field>
+  <field name="notification_summary" displayname="{t}Notification summary{/t}" simple_type="text" hidden="true" editable="true">
+  </field>
+  <field name="category" displayname="{t}Category{/t}" simple_type="select" simple_size="1">
+	<restore views="reply" function="replyfield"/>
+	<data function="dbselect|simple_categories|categoryname,categoryname|cattype='forum'|categoryname asc|10"/>
+  </field>
+</table>

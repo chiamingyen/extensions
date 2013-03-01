@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table custom_name="
+(select b.*, username, concat('{t}Birthday{/t}: ';firstname;' ';lastname;' ';username) as subject,
+		86400 as duration,0 as repeatuntil,birthday as begin,(birthday+86399) as ending,1 as allday,
+		'years' as recurrence,0 as until,1 as repeatinterval,0 as repeatcount,'' as repeatexcludes,
+		0 as repeatbegin,365 as repeatend from simple_sys_users, simple_departments b
+		where activated=1 and birthday!=0 and members like concat('%|';username;'|%')
+union all
+select b.*, username, concat('{t}Anniversary{/t}: ';firstname;' ';lastname;' ';username) as subject,
+		86400 as duration,0 as repeatuntil,anniversary as begin,(anniversary+86399) as ending,1 as allday,
+		'years' as recurrence,0 as until,1 as repeatinterval,0 as repeatcount,'' as repeatexcludes,
+		0 as repeatbegin,365 as repeatend from simple_sys_users, simple_departments b
+		where activated=1 and anniversary!=0 and members like concat('%|';username;'|%')
+union all
+select c.*, a.username, concat('{t}Absence{/t}: ';firstname;' ';lastname;' ';a.username) as subject,
+		duration,0 as repeatuntil,begin,ending,1 as allday,
+		'' as recurrence,0 as until,1 as repeatinterval,0 as repeatcount,'' as repeatexcludes,
+		0 as repeatbegin,0 as repeatend from simple_absence b, simple_sys_users a, simple_departments c
+		where a.username=b.username and a.activated=1 and b.status in ('confirmed', 'booked') and
+		  category!='holiday' and members like concat('%|';a.username;'|%')
+) p
+" modulename="{t}Calendar{/t}" default_view="display" orderby="begin" order="asc" limit="20" enable_calendar="begin,ending,recurrence,until,allday,repeatinterval,repeatexcludes,repeatbegin,repeatend">
+  <view name="display" template="display" markdate="month">
+  </view>
+  <tab name="general"/>
+
+  <field name="subject" displayname="{t}Subject{/t}" simple_type="text">
+	<linktext value="index.php?find=asset|simple_sys_users||username=@username@&amp;view=details"/>
+  </field>
+  <field name="departmentname" displayname="{t}Department{/t}" simple_type="text">
+    <linktext views="display" value="index.php?view=details&amp;item[]=@id@"/>
+  </field>
+  <field name="username" simple_type="text" hidden="true">
+  </field>
+  <field name="begin" displayname="{t}Begin{/t}" simple_type="datetime" nowrap="true">
+    <filter views="all" function="shortdatetimeformat"/>
+    <link value="index.php?view=calendar&amp;today=@begin@"/>
+  </field>
+  <field name="ending" displayname="{t}End{/t}" simple_type="datetime" nowrap="true">
+    <filter views="all" function="shortdatetimeformat"/>
+  </field>
+  <field name="duration" displayname="{t}Duration{/t}" simple_type="int">
+    <filter views="all" function="duration"/>
+  </field>
+  <field name="allday" simple_type="checkbox" hidden="true">
+  </field>
+  <field name="recurrence" simple_type="select" hidden="true">
+  </field>
+  <field name="repeatinterval" simple_type="int" hidden="true">
+  </field>
+  <field name="repeatcount" simple_type="int" hidden="true">
+  </field>
+  <field name="repeatuntil" simple_type="date" hidden="true">
+  </field>
+  <field name="repeatexcludes" simple_type="dateselect" hidden="true">
+  </field>
+  <field name="until" simple_type="int" hidden="true">
+  </field>
+</table>

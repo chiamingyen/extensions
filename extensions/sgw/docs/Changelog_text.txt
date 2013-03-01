@@ -1,0 +1,831 @@
+Version 0.745 (March 10, 2012) (tb)
+------------------------------------------
+
+A fix was applied for closing sessions with APC installed.
+
+
+Version 0.743 (February 2, 2012) (tb)
+------------------------------------------
+
+A fix was applied for a XSS vulnerability.
+Handling for offline folders was changed.
+Other changes were applied to iCalendar exports and synchronizing birthdays with Funambol.
+
+
+Version 0.742 (January 24, 2012) (tb)
+------------------------------------------
+
+Some smaller fixes were applied.
+
+
+Version 0.741 (January 15, 2012) (tb)
+------------------------------------------
+
+A calendar view was added to the departments module containing absence information.
+Also browser detection for Firefox 10 and some smaller bug fixes were added.
+
+
+Version 0.740 (January 8, 2012) (tb)
+------------------------------------------
+
+An archive function was added to the IMAP module.
+The Alternative PHP Cache was added for faster caching and sessions.
+A notification was implemented for unsaved forms.
+The admin overview page was extended with information about cache and disk usage.
+
+
+Version 0.732 (December 28, 2011) (tb)
+------------------------------------------
+
+Custom date ranges were dropped in the calendar module.
+A broken package file was fixed.
+
+
+Version 0.731 (December 22, 2011) (tb)
+------------------------------------------
+
+The calendar view from the users module was extended with absences.
+A new translation for Portugal / Portuguese was added.
+The IMAP module was changed to use seen states from an IMAP server.
+A fix was applied to week numbers in the calendar module.
+
+
+Version 0.730 (December 10, 2011) (tb)
+------------------------------------------
+
+New modules were added for employee contracts and absence.
+A reverse lookup was added for members of contract groups.
+sgsML was extended with new attributes to disable notification and bgcolor fields.
+Updates were applied to the PmWiki engine and the Czech translation.
+A sync4j warning was fixed.
+
+
+Version 0.727 (November 19, 2011) (tb)
+------------------------------------------
+
+Fixes were applied to updating assets in merged folders and moving meta information in CIFS and FS data handlers.
+
+
+Version 0.726 (November 14, 2011) (tb)
+------------------------------------------
+
+A fix was applied to searching and composing mails in the IMAP module.
+
+
+Version 0.725 (November 9, 2011) (tb)
+------------------------------------------
+
+A field for phone numbers was added to the companies module together with fields for a private fax number and homepage in the contacts module.
+The sync4j code was extended with a check for database time mismatch.
+A vertical mode and automatic timestamp translation was added to the SQL console.	
+The Czech and Spanish translation was updated.	  
+Missing icons for the tree icons theme were added.
+Fixes were applied to caching IMAP messages and compatibility to PHP 5.3 and 5.4.
+
+
+Version 0.724 (September 13, 2011) (tb)
+------------------------------------------
+
+A close button was added to the preview panes when there are no tabs.
+The caching for folder counts was fixed for system modules.
+
+
+Version 0.723 (September 10, 2011) (tb)
+------------------------------------------
+
+A fix was applied to checkboxes in the list view.
+
+
+Version 0.722 (September 10, 2011) (tb)
+------------------------------------------
+
+A new data handler was implemented for Google Docs together with a preview for internet shortcut files.
+The files, calendar and portal modules were expanded with a vertical preview pane.
+The Spanish translation was updated.
+A fix was applied to NOMODSEQ handling in the IMAP module.
+
+
+Version 0.721 (July 31, 2011) (tb)
+------------------------------------------
+
+A new module was implemented for console scripts.
+For super administrators, a customization bar was added to each page.
+The Italian translation was updated.
+An option was added to install extensions without an internet connection.
+A fix was applied to changing customized fields.
+
+
+Version 0.720 (June 23, 2011) (tb)
+------------------------------------------
+
+A new module was implemented for customizing fields in other modules.
+Options were added to hide columns in HTML exports and skip subfolders in the search.
+The timesheet module was extended with a new view for canceled entries and a holiday category.
+The performance was improved for counting assets.
+Custom functions were enabled in Simple Spreadsheet when running inside an iframe.
+The htaccess rules for the WebDAV server were cleaned up.
+Updating funambol contact items was changed to ignore unmatched items.
+A fix was applied to summing up empty values in Simple Spreadsheet.
+
+
+Version 0.711 (April 20, 2011) (tb)
+------------------------------------------
+
+The performance was optimized for database lookups.
+A fix was applied to a Javascript error in the Internet Explorer.
+
+
+Version 0.710 (April 17, 2011) (tb)
+------------------------------------------
+
+A new importer was implemented which uses spreadsheet files (.xls).
+Quick links were added to the top menu bar for creating new items.
+A lightbox was added to the gallery module.	
+Text wrapping was added to the spreadsheet export.
+Adjustments were made to time limits in some scripts.
+
+
+Version 0.709 (March 24, 2011) (tb)
+------------------------------------------
+
+New buttons were added to run actions on multiple assets in timesheets.
+Invalid file extensions were made configurable.
+A fix was applied to single select boxes in the edit view.
+
+
+Version 0.708 (March 8, 2011) (tb)
+------------------------------------------
+
+Rebuilding the search index for custom modules was added.
+A fix was applied to creating appointments with PostgreSQL.
+
+
+Version 0.707 (February 27, 2011) (tb)
+------------------------------------------
+
+A new button was added to save new assets and open them in the "Edit" view afterwards.
+The parameter "no_permissions" was added to the dbselect method.
+A fix was applied to taking values from popups.
+
+
+Version 0.706 (February 22, 2011) (tb)
+------------------------------------------
+
+A fix was applied to missing entries in select boxes.
+
+
+Version 0.705 (February 21, 2011) (tb)
+------------------------------------------
+
+The Italian hour format was changed.
+A new translation for Finnish was added and the Croatian translation was updated.
+A fix was applied to creating departments in popup mode.
+
+
+Version 0.704 (February 15, 2011) (tb)
+------------------------------------------
+
+A new module was added for creating Intranet pages.
+Paging was implemented for lookups in new/edit forms.
+New keyboard shortcuts were added for navigating through tabs and the tree.
+A new tab was added which merges all tabs in one view.
+The email reminders were redesigned and the Slovak translation was updated.
+Fixes were applied to duplicate folders in WebDAV and resetting the display_errors variable in setup settings.
+
+
+Version 0.703 (February 5, 2011) (tb)
+------------------------------------------
+
+Google Code was added as a mirror for the updater.
+The image preview was extended with a link to Google Maps using GPS data from EXIF headers.
+A "send now" option was implemented for IMAP and the emails module to handle drafts.
+The Archive_Tar library was updated to the latest version.
+Fixes were applied to the payroll trigger and the float type in PostgreSQL.
+
+
+Version 0.702 (January 31, 2011) (tb)
+------------------------------------------
+
+Quick buttons were added to the modules for expenses and timesheets.
+The preview for PDF files was expanded with an image preview for the first page.
+Links from contacts to appointments, tasks and contact activities were implemented.
+An option was implemented to hide fields in the display and details views.
+A new script was added to allow batch importing of files from the local file system.
+The automatic browser detection was extended for the Samsung Galaxy Tab and Curl.
+Fixes were applied to the preview of multi-image files and
+drag and drop upload with special characters in filenames.
+
+
+Version 0.701 (January 10, 2011) (tb)
+------------------------------------------
+
+Conditions were added to the "singlebutton" tag in sgsML.
+A new option was implemented to show folder descriptions in the content area.
+Small notifications were moved to the menu bar.
+
+
+Version 0.700 (January 2, 2011) (tb)
+------------------------------------------
+
+Support and code for the Oracle database was dropped.
+The Smarty template engine was extended to handle static member functions as modifiers.
+Database requirements were increased for PostgreSQL (8.36+).
+
+
+Version 0.665 (December 29, 2010) (tb)
+------------------------------------------
+	
+An option was added to fix the paging bar to the bottom of the page.
+
+
+Version 0.664 (December 27, 2010) (tb)
+------------------------------------------
+
+An option was added to define a second super administrator.
+The PmWiki markup was extended to format fetched content.
+
+
+Version 0.663 (December 22, 2010) (tb)
+------------------------------------------
+
+A rating field was added to the bookmarks module.
+The validation function itemsexist was re-added.
+Fixes were applies to escaping quotes in IMAP passwords and a typo in copy/paste code.
+
+
+Version 0.662 (December 20, 2010) (tb)
+------------------------------------------
+
+A new simple type was added for rating assets.
+The "data" tag was expanded with a "reverse" attribute in sgsML.
+Distribution of caches on the file system was optimized.
+The period of refreshing folders was made configurable.
+A fix was applied to charset conversion in the IMAP module.
+
+
+Version 0.661 (December 15, 2010) (tb)
+------------------------------------------
+
+A new "form" attribute was added to the "field" tag in sgsML.
+The encoding of the file browser's sources was changed.
+Fixes were applied to charset conversion in the IMAP module and the "week start" parameter in the calendar popup.
+
+
+Version 0.660 (December 4, 2010) (tb)
+------------------------------------------
+
+Fixes were applied to sending mails with "bcc:" syntax and
+missing view tabs when using custom view permissions.
+
+
+Version 0.659 (November 28, 2010) (tb)
+------------------------------------------
+
+A new script was added to perform an unattended update.
+The setup was fixed for PostgreSQL.
+
+
+Version 0.658 (November 27, 2010) (tb)
+------------------------------------------
+
+A free/busy view was added to calendar locations.
+Copy/paste mappings were extended with default values and lookups.
+The setup was improved to set the "display_errors" parameter automatically at runtime.
+A fix was applied to download locations in the extension manager.
+
+
+Version 0.657 (November 18, 2010) (tb)
+------------------------------------------
+
+The BIFFwriter limit parameter was increased to speed up spreadsheet exports.
+MD5 checksums were added to the release informtion.
+Downloading attachments was fixed for the CMS module.
+
+
+Version 0.656 (November 14, 2010) (tb)
+------------------------------------------
+
+Playing MP3 files and FLV videos directly in the web-browser was added.
+The drag and drop function was extended to upload files by dropping URLs.
+Default values for assets were implemented in folder properties and URL parameters.
+New schema mappings were added to move mails from a POP3/IMAP folder directly to the emails module.
+Quicklinks were added for folders.
+A workaround for using session encryption with the suhosin extension was included.
+Fixes were applied to the old update procedure, using carbon copies (cc:) in notifications and scrolling on Android devices.
+
+
+Version 0.655 (October 30, 2010) (tb)
+------------------------------------------
+
+A new option was implemented to disable modules globally and re-enable them for special users.
+Self registration was added to the login page.
+Administration was improved by a new function to clear the trash folder.
+A new minimal folder structure was added to the setup.
+The background image for the login page was changed.
+Error handling was improved in the LDAP login handler.
+The POP3 module was extended to open mails in an external mail client.
+Fixes were applied to handle unknown charsets in the IMAP module and downloading files in merged folders.
+
+
+Version 0.654 (October 4, 2010) (tb)
+------------------------------------------
+
+Config variables in Simple Spreadsheet were cleaned up.
+
+
+Version 0.653 (September 30, 2010) (tb)
+------------------------------------------
+
+A new filter operator was implemented for matching more than one value.
+The Flexigrid export was replaced by the ExtJS grid.
+XSS protection was added to Simple Spreadsheet markup.
+A fix was applied to remove warnings in the spreadsheet export.
+
+
+Version 0.652 (September 28, 2010) (tb)
+------------------------------------------
+
+The WikiStylesPlus recipe was added to the PmWiki engine.
+Redirection from "edit as new" to the "edit" view was implemented.
+A fix was applied to make select fields required.
+
+
+Version 0.651 (September 25, 2010) (tb)
+------------------------------------------
+
+A missing folder for the ExtJS framework was added to the package.
+The CMS module was expanded with a new include page directive.
+A fix was applied to copying mails from IMAP to the emails module.
+
+
+Version 0.650 (September 24, 2010) (tb)
+------------------------------------------
+
+Drag and drop was implemented for assets and folders.
+The CMS module was expanded with an ExtJS grid.
+Column names in spreadsheet export were changed to displayed names.
+The "cust_name" attribute was renamed to "custom_name" in sgsML.
+Module names starting with "nosql_" were renamed to "nodb_".
+The Spanish translation was updated and a fix was applied to resolving folder paths in the SOAP server.
+
+
+Version 0.645 (September 18, 2010) (tb)
+------------------------------------------
+
+Uploading files by using a URL was added to Simple Spreadsheet and the SOAP server.
+The default value for the "separator" attribute was changed in sgsML.	
+The "multiple" attribute was renamed to "separator" in sgsML.
+A cleanup was made on Javascript variables.
+Fixes were applied to the spreadsheet type handler and customizing stylesheets.
+
+
+Version 0.644 (September 13, 2010) (tb)
+------------------------------------------
+
+Using "cc:" and "bcc:" in notifications was implemented.
+The new attribute "is_unique_trash" was added to sgsML,
+and a cleanup was made on the attributes "multiple" and "simple_size".
+A fix was applied to downloads in the CMS module.
+
+
+Version 0.643 (September 10, 2010) (tb)
+------------------------------------------
+
+The requirements were increased to PHP 5.2.0.
+A new module for creating surveys was implemented.
+Several attributes in sgsML were changed.
+Some new attributes were added to sgsML.
+Layout optimizations were made for Opera and IE.
+The XSS filter was extended to remove expressions and XML tags
+(can be interpreted only by IE).
+
+
+Version 0.642 (September 3, 2010) (tb)
+------------------------------------------
+
+The updater was extended to handle update methods from extensions.
+Error handling was optimized for initializing IMAP connections.
+Fixes were applied to unicode names in the WebDAV server and uninstalling extensions.
+
+
+Version 0.641 (August 25, 2010) (tb)
+------------------------------------------
+
+The use of differential sgsML schemas was implemented.
+A new option was added to install without demo folders.
+Date and time formats were changed in the Swedish translation.
+Persistent connections were disabled for SQLite.
+Department and project triggers were fixed.
+
+
+Version 0.640 (August 22, 2010) (tb)
+------------------------------------------
+
+A new extension manager was implemented.
+The URL syntax for folders was changed to view more than one folder.
+An option was added to create multiple folders at once.
+The free/busy view was moved to the preview pane.
+The default URI in the SOAP server was changed for Perl compatibility.
+A fix was applied to deleting rows in Simple Spreadsheet and binaries were moved to an extension.
+
+
+Version 0.632 (August 7, 2010) (tb)
+------------------------------------------
+
+The setup was fixed for PostgreSQL and Ajax timeouts were increased for paste and empty.
+
+
+Version 0.631 (August 4, 2010) (tb)
+------------------------------------------
+
+An issue was fixed that freezed the search views.
+
+
+Version 0.630 (August 3, 2010) (tb)
+------------------------------------------
+
+New fields for risks and milestones were added to the task module.
+An option was implemented to use relative dates and times to create or edit assets (e.g. "next Friday" or "now +3 days").
+Tooltips were added to the tree showing IDs and descriptions of the folders.
+Authentication handlers were expanded with logins from Google Apps.
+An option was implemented to customize sgsML schemas for a individual folders.
+The static help page linked in the top menu was moved to the CMS.
+Some smaller bugfixes were added.
+A change was applied to the WebDAV server fixing copy/paste in Windows7 Explorer.
+
+
+Version 0.625 (July 2, 2010) (tb)
+------------------------------------------
+
+A quick add button was implemented to make creating new assets faster.
+Buttons were added to take over tasks or attend appointments.
+The tree forms were cleaned up and a fix was applied to the calendar layout.
+
+
+Version 0.624 (June 18, 2010) (tb)
+------------------------------------------
+
+A language template was added for the Google translator toolkit.
+Some notice messages were fixed in the setup.
+
+
+Version 0.623 (June 13, 2010) (tb)
+------------------------------------------
+
+Layout changes were added for the iPad.
+Portal items for user, project or department templates were made configurable.
+Using custom classes for PHP based triggers was added to sgsML.
+The URL syntax for finding folder was extended.
+Drag and drop file upload was adapted to Safari.
+
+
+Version 0.622 (Mai 31, 2010) (tb)
+------------------------------------------
+
+Using custom classes for functions and Ajax calls was added to sgsML.
+A broken import file was fixed in the package (data_cms.xml).
+
+
+Version 0.621 (Mai 28, 2010) (tb)
+------------------------------------------
+
+An option was implemented to open views in a new window including selected items.
+A button was added to close tasks directly in the display view.
+Drag and drop file upload was adapted to Chrome.
+An option was included to use syslog instead of the built-in events module.
+The PmWiki content management engine was updated to the latest version.
+
+
+Version 0.620 (Mai 16, 2010) (tb)
+------------------------------------------
+
+A new directory structure was implemented to offer customizing without changing code or overwriting files.
+Also categories for the files module were added together with support for unicode filenames in POP3/IMAP attachments.
+Input validation was made easier by using regular expressions directly in sgsML.
+The Spanish translation was updated and a fix was applied to edit assets in merged folders.
+
+
+Version 0.611 (April 27, 2010) (tb)
+------------------------------------------
+
+IMAP folder operations were added to create, delete and rename folders.
+The requirements were increased to PHP 5.1.2 and some smaller code changes were applied.
+
+
+Version 0.610 (April 19, 2010) (tb)
+------------------------------------------
+
+Uploading new files with drag and drop was implementd (currently supported by Firefox 3.6+).
+A new function was added to create contact IDs automatically together with a trigger to execute system commands.
+Copy/paste mapping for emails and contact activities was added.
+Request parameters for Ajax were changed to improve compatibility with application firewalls.
+A fix was applied to the timesheet trigger.
+
+
+Version 0.607 (April 9, 2010) (tb)
+------------------------------------------
+
+New field mappings were added to copy-paste functionality.
+Also CSRF protection was added to forms and sorting by date was fixed in the IMAP module.
+
+
+Version 0.606 (March 21, 2010) (tb)
+------------------------------------------
+
+Default filters were added to sgsML.
+An option was implemented to hide the tree and the menu automatically.
+Some HTML helper functions were added.
+The export function was changed to export only the current view.
+The Russian translation and the spreadsheet export library were updated.
+The database requirements were increased for MySQL (5.0+) and PostgreSQL (8.2+).
+
+
+Version 0.605 (February 18, 2010) (tb)
+------------------------------------------
+
+Scrollbars were added to the HTML preview popup.
+Fixes were applied to saving spreadsheets and includes in the PmWiki data handler and the scheduler.
+
+
+Version 0.604 (February 15, 2010) (tb)
+------------------------------------------
+
+Fixed a broken package file.
+
+
+Version 0.603 (February 7, 2010) (tb)
+------------------------------------------
+
+A new login background was added.
+Fixes were applied to saving folder permissions, PostgreSQL installation and customer folder handlers.
+
+
+Version 0.602 (February 2, 2010) (tb)
+------------------------------------------
+
+Compatibility was optimized for PHP 5.1.
+Timeouts for page rendering, database and cms can now be configured.
+Core classes and function templates were renamed.
+Storage functions were optimized to handle null values.
+A fix was applied to the calendar navigation.
+
+
+Version 0.601 (January 28, 2010) (tb)
+------------------------------------------
+
+Some smaller bugfixes were added.
+
+
+Version 0.600 (January 22, 2010) (tb)
+------------------------------------------
+
+A new SOAP server was implemented, allowing remote access to read, create and change assets.
+Also a notification was added to indicate that the current folder was changed by another user.
+Compatibility for IE6 was improved.
+A warning was added to the setup reporting the absence of the mb_string extension.
+The maximum number of assets per page can now be configured.
+Request parameters for Ajax requests were changed to improve compatibility with application firewalls.
+Some smaller bugfixes were added and compatibility with PHP 5.3 was improved.
+
+
+Version 0.541 (November 8, 2009) (tb)
+------------------------------------------
+
+The Czech translation was updated and short month names were added to the translation files.
+Fixes were applied to the search module and the calendar popup.
+
+
+Version 0.540 (November 1, 2009) (tb)
+------------------------------------------
+
+Custom icons were added to the folders in the tree.
+The option to overtake items from popups was implemented.
+Also automatic resizing was added to textareas and sgsML was reduced by the "is_linked" attribute.
+The PmWiki content management engine was updated to the latest version.
+Fixes were applied to smarty errors in the form template and the default alignment in TinyMCE.
+	
+
+Version 0.533 (October 11, 2009) (tb)
+------------------------------------------
+
+A registry patch for WebDAV with Windows7 was added.
+The Brazil / Portuguese translation was updated.
+A fix was applied to the Firefox search plugin.
+
+
+Version 0.532 (August 30, 2009) (tb)
+------------------------------------------
+
+Documentation about formatting rules was added to text fields.
+An attachment field was added to the FAQ module and a cancel button was added to the new/edit views.
+Fixes were applied to calendar popup navigation and layout in Opera.
+
+
+Version 0.531 (August 15, 2009) (tb)
+------------------------------------------
+
+The updater was adapted to the new RSS feeds on sourceforge.net.
+Also, the upload limit for files in the CMS module was increased.
+Furthermore, libraries were updated to the latest version (Smarty, PmWiki, POP3, SMTP, PEAR, TinyMCE).
+
+
+Version 0.530 (August 10, 2009) (tb)
+------------------------------------------
+
+A new user interface was built for mobile devices (iPhone, Android, Nokia etc.).
+Permissions for views were implemented.
+A translation for Indonesian was included (thanks to Bagus Winar).
+Folder descriptions were added.
+The CMS module was expanded with a new template for using right-to-left layout in the frontend.
+Compatibility for PostgreSQL 8.4 was improved.
+The phonetic search was made optional.
+Finally, the translation for Turkish and Arabic were updated.
+
+
+Version 0.520 (June 11, 2009) (tb)
+------------------------------------------
+
+A task list was implemented for the projects module.
+Custom timezones can now be set in the user accounts.
+A translation for Arabic was included together with a new right-to-left theme.
+Links to softphone applications (SIP) were added to contacts and users module.
+Compatibility for Funambol v7.1 was improved.
+The list of modules was expanded with groups.
+Internal links were configured for the wiki module.
+Inline asset tags were built into XML folder templates.
+The PmWiki system pages (PageNotFound, Search, etc.) were moved to the Organization tree.
+Finally, the translation for Danish was updated.
+
+
+Version 0.510 (April 12, 2009) (tb)
+------------------------------------------
+
+A translation for Simplified Chinese was added (thanks to Wang Zhanjun).
+Referencing other datasets was made easier by adding quicklinks to all text fields together with shorter URL parameters for finding datasets.
+The POP3 module was expanded to view HTML mails, including newsletters.
+jCIFS, Imagemagick and the PmWiki engine were updated to the latest version.
+Some smaller bugfixes were added.
+
+
+Version 0.503 (February 18, 2009) (tb)
+------------------------------------------
+
+Graphviz markup was added to the CMS module.
+Folder copying was implemented.
+RSS feeds were updated to RSS version 2.0.
+Folder redirections after the login were made configurable.	
+A fix was applied to downloading unicode filenames in IE and some smaller code optimizations were made.
+
+
+Version 0.502 (January 7, 2009) (tb)
+------------------------------------------
+
+The IMAP module was expanded to view HTML mails, including newsletters.
+Translations for Polish and Ukrainian were added, Italian was updated.
+The setup was adapted to higher memory requirements on 64-bit systems.
+A parse error was fixed in the PmWiki library.
+
+
+Version 0.501 (January 16, 2009) (tb)
+------------------------------------------
+
+Some smaller bugfixes were added.
+
+
+Version 0.500 (January 6, 2009) (tb)
+------------------------------------------
+
+A new module was implemented for viewing folders and attachments in the web browser when being offline.
+Also a new module was implemented for showing and building Graphviz diagrams.
+The CMS module was extended with a XML sitemap.	
+A patch was added to stabilize the spreadsheet export.
+Furthermore, the database api was improved and the Smarty library was updated.
+
+
+Version 0.430 (December 8, 2008) (tb)
+------------------------------------------
+
+Support for using SQLite with Simple Groupware was added.
+Also the Greek translation was added.
+Performance was optimized for cut, copy and paste operations.	
+The SQL console was extended to show full texts instead of shortened values.	
+Libraries, components and the PmWiki engine were updated to the latest version.
+The validation for project and department names was changed to match the convention for group names.
+Jpeg was added as an extension for images (next to jpg).
+A fix was applied to the Oracle setup.
+
+
+Version 0.424 (October 14, 2008) (tb)
+------------------------------------------
+
+The new Javascript component Flexigrid was added for exporting data.
+Also external links from sgsML were added to the HTML export.
+Updating the search index when moving datasets was fixed.
+
+
+Version 0.423 (September 14, 2008) (tb)
+------------------------------------------
+
+New events were added for slow pages in the CMS module.
+The Smarty library was updated to the latest version.
+A fix was applied to the PostgreSQL (8.1.x) setup.
+
+
+Version 0.422 (September 2, 2008) (tb)
+------------------------------------------
+
+A fix was applied to Javascript handling in the GUI.
+
+
+Version 0.421 (August 31, 2008) (tb)
+------------------------------------------
+
+Searching for items with special conditions like modules or last modification was added.
+Also new PmWiki markup was added to fetch content from other web pages and RSS feeds.
+Fixes were applied to the setup for PostgreSQL and MySQL in combination with Funambol.
+
+
+Version 0.420 (August 15, 2008) (tb)
+------------------------------------------
+
+A new Funambol interface was implemented to support Funambol v7 SyncML server in combination with
+MySQL and PostgreSQL.
+The CMS module was expanded with a function for getting data from other Web pages.
+Also the Spanish translation was updated.
+Fixes were applied to PmWiki page variables and updating the search index when deleting events.
+
+
+Version 0.414 (July 6, 2008) (tb)
+------------------------------------------
+
+Real URLs were implemented in the CMS module as well as static caching for attachments.
+Also, compatibility for Apache 2.2.8 was added in the default WebDAV configuration.
+The sgsML parser was expanded with sorting for static values.
+Italian and French translations were updated and the new version of PmWiki was included.
+Fixes were applied to numeric default values in PostgreSQL, localized date formatting and exceptional view permissions.
+
+
+Version 0.413 (June 25, 2008) (tb)
+------------------------------------------
+
+A new technique for customizing Simple Groupware was implemented.
+Individual changes to the code can now be made persistent over new releases and updates.
+Also RSS feeds were added to the CMS module and notifications now have a summary field to describe the changes.
+The import folders were made configurable.
+
+
+Version 0.412 (June 23, 2008) (tb)
+------------------------------------------
+
+A new module for time sheets was added.
+Also multi-user authentication and static caching was implemented for the CMS module.
+The forum module was expanded with a new view for threads.
+If folder merging is active, assets can now be directly created in different folders.
+The exiv2 binary was included for parsing exif headers in images, and the Debian binaries were updated.
+Fixes where applied to escaping special characters in mountpoint forms,
+folder operations in the CIFS module and localized date formattings in the calendar mmodule.
+
+
+Version 0.411 rc4 (June 14, 2008) (tb)
+------------------------------------------
+
+A preview function and a webpage frontend were added to the PmWiki CMS module.
+Also an embedded mode was implemented for Simple Spreadsheet and the module list was expanded with the CMS module.
+
+
+Version 0.410 rc3 (June 7, 2008) (tb)
+------------------------------------------
+
+Fields for files and images were added to the Htmldocs module.
+Also the French language file was updated. A fix was applied to searching in data lookups.
+
+
+Version 0.409 rc2 (June 3, 2008) (tb)
+------------------------------------------
+
+The PmWiki content management engine was added to Simple Groupware.
+Also a new foundation package was added to support the latest Funambol SyncML server.
+The document preview was changed for HTML files and a debug parameter was implemented for the cron job.
+Additionally the installation can now be run without register_globals being activated, although it is not recommended.	
+Fixes were applied to mounting XML contact files.
+
+
+Version 0.408 rc1 (May 17, 2008) (tb)
+------------------------------------------
+
+New keyboard shortcuts were added for folder operations and changing folder permissions.
+Also usability was improved by adding auto-focus for the first element of a form in new or edit views.
+The setup was extended to detect missing default libraries like SimpleXML or JSON.
+Fixes were applied to using external mail clients, detecting PostgreSQL versions and
+changing the default theme or week start in setup settings.
+
+
+Version 0.407 beta (May 12, 2008) (tb)
+------------------------------------------
+
+A default group for self registered users was added, together with buttons for resizing select boxes.
+Also automatic creation for the trash folder in IMAP was implemented and some more colors were added to merged folders.
+Fixes were applied to the web file browser, missing translations and compatibility with Cyrus IMAP.
+
+
+tb = Thomas Bley

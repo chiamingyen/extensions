@@ -1,0 +1,3546 @@
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+{t}!_Copyright_Language_File{/t}
+Copyright (C) 2009 Bagus Winar
+
+{t}!_Language{/t}
+Indonesia
+
+{t}%s is not activated{/t}
+%s tidak diaktifkan
+
+{t}%s is not compiled / loaded into PHP.{/t}
+%s tidak dikompile / load ke dalam PHP.
+
+{t}%s M memory usage{/t}
+
+
+{t}%s not in database{/t}
+%s tidak di dalam database
+
+{t}%s rows affected{/t}
+%s baris terdampak
+
+{t}%s secs{/t}
+%s detik
+
+{t}%s started editing this asset at %s{/t}
+%s mulai editing asset ini pada %s
+
+{t}(for active directory username must be: username@domain){/t}
+(untuk username aktive directory harus: username@domain)
+
+{t}(un)Group{/t}
+Group
+
+{t}About{/t}
+Tentang Aplikasi Knowledge Management
+
+{t}Absence{/t}
+
+
+{t}accepted{/t}
+diterima
+
+{t}Access denied.{/t}
+Akses ditolak
+
+{t}Access to this file has been denied.{/t}
+Akses untuk file ini telah ditolak
+
+{t}Account{/t}
+Account
+
+{t}account of %s has expired{/t}
+account dari %s telah expired
+
+{t}Accounting{/t}
+Akuntansi
+
+{t}Activate{/t}
+
+
+{t}Activated{/t}
+Diaktifkan
+
+{t}active{/t}
+
+
+{t}Active{/t}
+Aktif
+
+{t}Ad{/t}
+Kegiatan
+
+{t}Add{/t}
+Tambahkan
+
+{t}Add a special rule{/t}
+
+
+{t}Add to offline folders{/t}
+Tambahkan untuk folder-folder offline
+
+{t}added line{/t}
+menambah baris
+
+{t}Address{/t}
+Alamat
+
+{t}admin access{/t}
+akses admin
+
+{t}Admin access (groups){/t}
+Admin akses (group)
+
+{t}Admin access (users){/t}
+Admin akses (user)
+
+{t}Admin Password{/t}
+Password admin
+
+{t}Admin Username{/t}
+Username admin
+
+{t}Administration{/t}
+Administrasi
+
+{t}Advanced tables{/t}
+Tabel-tabel advance
+
+{t}Affected user{/t}
+User yang terpengaruh
+
+{t}Affiliate{/t}
+Afiliasi/Gabungan
+
+{t}after{/t}
+sesudah
+
+{t}Agent{/t}
+Agen
+
+{t}Ajax Error{/t}
+Ajax Error
+
+{t}All{/t}
+Semua
+
+{t}All day{/t}
+Sepanjang hari
+
+{t}All events{/t}
+Semua event
+
+{t}All finished tasks{/t}
+
+
+{t}All pending tasks{/t}
+
+
+{t}Allow custom values{/t}
+
+
+{t}Allow disabled modules{/t}
+
+
+{t}Already running latest release.{/t}
+Sudah berjalan dengan rilis terbaru.
+
+{t}Already voted.{/t}
+
+
+{t}Amount{/t}
+Jumlah
+
+{t}Anchor{/t}
+Anchor
+
+{t}and{/t}
+dan
+
+{t}Anniversary{/t}
+Hari ulang tahun
+
+{t}another page{/t}
+halaman lain
+
+{t}answered{/t}
+jawab
+
+{t}Answers{/t}
+
+
+{t}Apache based (.htaccess, Basic, Digest, etc.){/t}
+Dasar-dasar Apache (.htaccess, Basic, Digest, dll.)
+
+{t}Application title{/t}
+Nama aplikasi
+
+{t}Apply rights to subfolders{/t}
+Terapkan hak-hak untuk subfolder
+
+{t}Appointment{/t}
+
+
+{t}Appointments{/t}
+
+
+{t}Apprenticeship{/t}
+
+
+{t}Apr{/t}
+
+
+{t}April{/t}
+April
+
+{t}Archive{/t}
+
+
+{t}Archive deleted files{/t}
+File arsip dihapus
+
+{t}Asset{/t}
+
+
+{t}Asset marked as read-only.{/t}
+Tandai asset sebagai read-only.
+
+{t}Assets{/t}
+Asset
+
+{t}Assets (children){/t}
+Assets (anak)
+
+{t}Assets can be imported into multiple folders by adding the "Folder" column.{/t}
+
+
+{t}Assets can be overwritten by adding the "Id" column.{/t}
+
+
+{t}assigned{/t}
+ditugaskan
+
+{t}at least 20 characters{/t}
+
+
+{t}attach file{/t}
+file lampiran
+
+{t}Attachment{/t}
+Lampiran
+
+{t}Attachments{/t}
+Lampiran-lampiran
+
+{t}Attend{/t}
+
+
+{t}Aug{/t}
+
+
+{t}August{/t}
+Agustus
+
+{t}Authentication Mode{/t}
+Mode otentifikasi
+
+{t}Author{/t}
+Author
+
+{t}Automatically hide the menu{/t}
+
+
+{t}Automatically hide the tree{/t}
+
+
+{t}Average{/t}
+
+
+{t}Average progress{/t}
+
+
+{t}Avg length{/t}
+Panjang rata-rata
+
+{t}Back{/t}
+Kembali
+
+{t}Backup{/t}
+Backup
+
+{t}Backup current folder{/t}
+Bakup folder
+
+{t}Backups{/t}
+Backups
+
+{t}Basic editing{/t}
+Dasar penyuntingan/editing
+
+{t}before{/t}
+sebelum
+
+{t}Before{/t}
+
+
+{t}Begin{/t}
+Mulai
+
+{t}big{/t}
+besar
+
+{t}big text{/t}
+text besar
+
+{t}bigger{/t}
+lebih besar
+
+{t}Billing address{/t}
+Alamat penagihan
+
+{t}Birthday{/t}
+Hari lahir
+
+{t}Birthdays{/t}
+Hari lahir
+
+{t}Blank{/t}
+Kosong
+
+{t}blue{/t}
+biru
+
+{t}bold{/t}
+tebal
+
+{t}bold italic{/t}
+tebal italic
+
+{t}Book{/t}
+
+
+{t}booked{/t}
+dipesan
+
+{t}Booked{/t}
+Dipesan
+
+{t}Booking number{/t}
+Jumlah pesanan
+
+{t}Bookings{/t}
+Pesanan
+
+{t}Bookmark{/t}
+
+
+{t}Bookmarks{/t}
+Bookmarks
+
+{t}borrowed{/t}
+borrow
+
+{t}Brand{/t}
+Brand
+
+{t}Brands{/t}
+Brands
+
+{t}Browser Compatibility{/t}
+Kompatibilitas Browser
+
+{t}Browser not supported{/t}
+Browser tidak support
+
+{t}Budget{/t}
+Anggaran
+
+{t}Bug{/t}
+Bug
+
+{t}bulleted{/t}
+bulleted
+
+{t}Business{/t}
+Bisnis
+
+{t}C a n c e l{/t}
+
+
+{t}C O N T I N U E{/t}
+L A N J U T
+
+{t}Cache output{/t}
+Output cache
+
+{t}Caches{/t}
+Caches
+
+{t}Calendar{/t}
+Kalender
+
+{t}Cancel{/t}
+
+
+{t}canceled{/t}
+dibatalkan
+
+{t}Canceled{/t}
+Dibatalkan
+
+{t}Cannot call 'proc_open'. Please remove 'proc_open' from 'disable_functions' in php.ini and disable 'safe_mode'.{/t}
+Tidak dapat memanggil proc_open. Silahkan hilangkan proc_open dari disable_functions di dalam php.ini dan disable safe_mode
+
+{t}Cannot connect to database %s on %s.{/t}
+Tidak dapat terhubung ke database %s pada %s.
+
+{t}Cannot create preview for %s{/t}
+Tidak dapat membuat pratinjau/preview untuk %s
+
+{t}Cannot read the file %s.{/t}
+Tidak dapat membaca file %s.
+
+{t}Cardinality{/t}
+Kardinalitas
+
+{t}Categories{/t}
+Kategori
+
+{t}Category{/t}
+Kategori
+
+{t}Cc{/t}
+Cc
+
+{t}centered{/t}
+center
+
+{t}CEO{/t}
+CEO
+
+{t}Change request{/t}
+Rubah request
+
+{t}Change settings{/t}
+Rubah setting/pengaturan
+
+{t}Change Setup settings{/t}
+Rubah pengaturan Setup
+
+{t}Change summary{/t}
+Rubah rangkuman/summary
+
+{t}Changed{/t}
+
+
+{t}changed line{/t}
+rubah baris
+
+{t}Changelog{/t}
+Laporan perubahan
+
+{t}Chat{/t}
+Chat
+
+{t}Check DoS Attacks{/t}
+Check DoS Attacks
+
+{t}checked{/t}
+verifikasi
+
+{t}Checked{/t}
+Verifikasi
+
+{t}Choices{/t}
+
+
+{t}CIO{/t}
+CIO
+
+{t}City{/t}
+Kota
+
+{t}Clean{/t}
+Bersih
+
+{t}Clean Cache{/t}
+Bersihkan Cache
+
+{t}Clear{/t}
+Clear
+
+{t}Clear Cache{/t}
+Clear Cache
+
+{t}Clear Data{/t}
+
+
+{t}Clear grouping{/t}
+
+
+{t}Client{/t}
+Client
+
+{t}Close{/t}
+Tutup
+
+{t}Close session{/t}
+Tutup sesi
+
+{t}closed{/t}
+ditutup
+
+{t}Closed{/t}
+Ditutup
+
+{t}CMS{/t}
+CMS
+
+{t}CMS homepage title{/t}
+
+
+{t}Collapse text{/t}
+
+
+{t}Collapse tree{/t}
+Collapse tree
+
+{t}Color{/t}
+Warna
+
+{t}Column{/t}
+
+
+{t}Column name{/t}
+Nama kolom
+
+{t}Combination{/t}
+
+
+{t}Comma{/t}
+
+
+{t}Comma separated values{/t}
+
+
+{t}Command{/t}
+Perintah/Command
+
+{t}Comment{/t}
+Komentar
+
+{t}Comment files{/t}
+File komentar
+
+{t}Companies{/t}
+Perusahaan
+
+{t}Company{/t}
+Perusahaan
+
+{t}Competition{/t}
+Kompetisi
+
+{t}Competitor{/t}
+Kompetitor
+
+{t}Complete{/t}
+
+
+{t}completed{/t}
+
+
+{t}Completed{/t}
+Selesai
+
+{t}Component{/t}
+Komponen
+
+{t}Compress output{/t}
+Kompres output
+
+{t}Confirm{/t}
+
+
+{t}confirmed{/t}
+dikonfirmasi
+
+{t}Connection error: %s [%s]{/t}
+
+
+{t}Connection to database failed.{/t}
+Koneksi ke database gagal
+
+{t}Console{/t}
+
+
+{t}Console scripts{/t}
+
+
+{t}Consultant{/t}
+Konsultan
+
+{t}Contact{/t}
+Contact
+
+{t}Contact activities{/t}
+Aktivitas cotact
+
+{t}Contact activity{/t}
+
+
+{t}Contact by{/t}
+Contact oleh
+
+{t}Contact groups{/t}
+Group contact
+
+{t}Contact id{/t}
+ID contact
+
+{t}Contact person{/t}
+Contact person
+
+{t}Contact user by{/t}
+Contact user oleh
+
+{t}Contacts{/t}
+Contacts
+
+{t}contains{/t}
+berisi
+
+{t}Content{/t}
+Isi
+
+{t}Continue{/t}
+Lanjutkan
+
+{t}Contracts{/t}
+
+
+{t}Copier{/t}
+Copier
+
+{t}Copy{/t}
+Copy
+
+{t}Cost center{/t}
+Cost center
+
+{t}Costs of accommodation{/t}
+Biaya-biaya akomodasi
+
+{t}Could not determine database-version.{/t}
+Tidak dapat menentukan versi-database.
+
+{t}Country{/t}
+Negara
+
+{t}Create new{/t}
+
+
+{t}Created{/t}
+Dibuat
+
+{t}Creating database failed.{/t}
+Gagal membuat database
+
+{t}current path{/t}
+path saat ini
+
+{t}current time{/t}
+waktu saat ini
+
+{t}Curriculum vitae{/t}
+Curriculum vitae
+
+{t}Custom schema{/t}
+
+
+{t}Customization rules\nfor modules based on sgsML{/t}
+
+
+{t}customizations{/t}
+Kustomisasi
+
+{t}Customize{/t}
+
+
+{t}Cut{/t}
+Cut
+
+{t}daily{/t}
+harian
+
+{t}Data{/t}
+Data
+
+{t}Data free{/t}
+Data free
+
+{t}Data length{/t}
+Panjang data
+
+{t}Database{/t}
+Database
+
+{t}Database Hostname / IP{/t}
+Hostname Database / IP
+
+{t}Database Name{/t}
+Nama Database
+
+{t}Database Password{/t}
+Password Database
+
+{t}Database size{/t}
+
+
+{t}Database status{/t}
+Status database
+
+{t}Database type{/t}
+
+
+{t}Database User{/t}
+User Database
+
+{t}Database variables{/t}
+Variabel-variabel database
+
+{t}Date{/t}
+Tanggal
+
+{t}Day{/t}
+Hari
+
+{t}Day begin{/t}
+Awal hari kerja
+
+{t}Day end{/t}
+Akhir hari kerja
+
+{t}days{/t}
+hari-hari
+
+{t}Deactivate{/t}
+
+
+{t}Deadline{/t}
+Deadline
+
+{t}Debug{/t}
+Debug
+
+{t}Debug-dir{/t}
+Debug-dir
+
+{t}Dec{/t}
+
+
+{t}December{/t}
+Desember
+
+{t}Declining balance{/t}
+Declining balance
+
+{t}Default{/t}
+Default
+
+{t}Default function{/t}
+
+
+{t}Default theme{/t}
+Tema default
+
+{t}Default values for assets{/t}
+
+
+{t}definition for definition lists{/t}
+definisi untuk daftar definis
+
+{t}Degree{/t}
+Tingkatan
+
+{t}Delete{/t}
+Hapus
+
+{t}Delete incl subfolders{/t}
+Hapus termasuk subfolder
+
+{t}deleted{/t}
+dihapus
+
+{t}deleted line{/t}
+menghapus garis
+
+{t}Delivery{/t}
+
+
+{t}Demand{/t}
+Permintaan/Demand
+
+{t}Demo{/t}
+Demo
+
+{t}Demonstration folder{/t}
+
+
+{t}Department{/t}
+Departemen
+
+{t}Departments{/t}
+Departemen-Departemen
+
+{t}Dependancies{/t}
+Dependansi
+
+{t}Description{/t}
+Deskripsi
+
+{t}Description hint{/t}
+
+
+{t}Description title{/t}
+
+
+{t}Description value{/t}
+
+
+{t}Desktop computer{/t}
+Komputer desktop
+
+{t}Details{/t}
+Detail
+
+{t}Device type{/t}
+Tipe alat/device
+
+{t}Device types{/t}
+Tipe-tipe alat/device
+
+{t}Diagram{/t}
+
+
+{t}directory does not exist.{/t}
+direktori tidak ada
+
+{t}Directory is outside the allowed directory. (%s is outside %s){/t}
+Direktori berada diluar dari direktori yang diijinkan. (%s berada diluar %s)
+
+{t}disable{/t}
+
+
+{t}Disable basic authentication{/t}
+Nonaktifkan dasar otentifikasi
+
+{t}Disable cut-copy-paste{/t}
+
+
+{t}Disabled{/t}
+
+
+{t}Disabled modules{/t}
+
+
+{t}Display{/t}
+Tampilan
+
+{t}display filter{/t}
+tampilan filter
+
+{t}Displayname{/t}
+
+
+{t}displays{/t}
+tampilan-tampilan
+
+{t}Distributor{/t}
+Distributor
+
+{t}Distributors{/t}
+Distributor-distributor
+
+{t}divorced{/t}
+cerai
+
+{t}Documentation{/t}
+Dokumentasi
+
+{t}Documentation index{/t}
+Index dokumentasi
+
+{t}Domain{/t}
+Domain
+
+{t}Don't attend{/t}
+
+
+{t}Don't move old files to 'old/'{/t}
+
+
+{t}Down{/t}
+Turun
+
+{t}Download{/t}
+Download
+
+{t}Download example file{/t}
+
+
+{t}Downloading extension list{/t}
+
+
+{t}Downloading update list{/t}
+Downloading daftar update
+
+{t}Drag and drop files or URLs here.{/t}
+
+
+{t}duplicate{/t}
+duplikat
+
+{t}Duration{/t}
+Durasi
+
+{t}E-mail{/t}
+E-mail
+
+{t}E-mail private{/t}
+Private E-mail
+
+{t}E-mail program{/t}
+Program E-mail
+
+{t}e.g.{/t}
+misal
+
+{t}Edit{/t}
+Edit
+
+{t}Edit as new{/t}
+Edit menjadi baru
+
+{t}Edit rights{/t}
+Hak edit
+
+{t}Editable if hidden in all views{/t}
+
+
+{t}Editor{/t}
+Editor
+
+{t}Emphasis{/t}
+Penekanan/emphasis
+
+{t}Empty{/t}
+Kosong
+
+{t}Empty folder{/t}
+Folder kosong
+
+{t}en{/t}
+idn
+
+{t}Enable anonymous access{/t}
+Aktifkan akses anonim
+
+{t}Enable anonymous CMS{/t}
+Aktifkan CMS anonim
+
+{t}Enable automatic user creation{/t}
+Aktifkan pembuatan user otomatis
+
+{t}Enable external mail client for 'mailto:' links{/t}
+Aktifkan client external mail untuk link mailto:
+
+{t}Enable self registration{/t}
+
+
+{t}Enable Sync4j / Funambol{/t}
+Aktifkan Sync4j / Funambol
+
+{t}Enable WebDAV{/t}
+
+
+{t}Enable WebDAV file locking scripts{/t}
+
+
+{t}End{/t}
+Akhir/Selesai
+
+{t}engaged{/t}
+terlibat
+
+{t}equal{/t}
+sama dengan
+
+{t}Error{/t}
+Error
+
+{t}Error doing request to xmlhttp{/t}
+Error melakukan permintaan ke xmlhttp
+
+{t}Error moving file{/t}
+Error pindahkan file
+
+{t}Error pasting asset{/t}
+Error pasting asset
+
+{t}Error: no credentials{/t}
+Error: tanpa credensial
+
+{t}Events{/t}
+Event
+
+{t}Example{/t}
+Contoh
+
+{t}Example contacts{/t}
+Contoh contact
+
+{t}Example surveys can be found at:{/t}
+
+
+{t}Example without mountpoint{/t}
+Contoh tanpa mountpoint
+
+{t}Examples{/t}
+Contoh-contoh
+
+{t}Execute{/t}
+Jalankan
+
+{t}Expenses{/t}
+Pengeluaran
+
+{t}Experimental{/t}
+Ekperimental
+
+{t}Expires{/t}
+Berakhir
+
+{t}Expiry{/t}
+Kadaluwarsa
+
+{t}Extended{/t}
+
+
+{t}Extensions{/t}
+
+
+{t}Extracting files{/t}
+Extracting file
+
+{t}F j{/t}
+F j
+
+{t}F j, Y{/t}
+F j Y
+
+{t}Failed to create directory: %s{/t}
+Gagal untuk membuat direktori: %s
+
+{t}Failed to write file to disk.{/t}
+Gagal menulis file ke disk.
+
+{t}Failed to write into %s{/t}
+Gagal untuk menulis kedalam %s
+
+{t}Family status{/t}
+Status keluarga
+
+{t}FAQ{/t}
+FAQ
+
+{t}Favorites{/t}
+Favorit
+
+{t}Fax{/t}
+Fax
+
+{t}Fax private{/t}
+
+
+{t}Feature request{/t}
+Fitur request
+
+{t}Feb{/t}
+
+
+{t}February{/t}
+Februari
+
+{t}Feed{/t}
+
+
+{t}female{/t}
+wanita
+
+{t}Field{/t}
+Field
+
+{t}Field contains value{/t}
+
+
+{t}Field customization{/t}
+
+
+{t}Field is equal to value{/t}
+
+
+{t}Fields{/t}
+
+
+{t}File{/t}
+File
+
+{t}file is too big. Please change upload_max_filesize, post_max_size in your php.ini{/t}
+file terlalu besar. Silahkan ubah upload_max_filesize, post_max_size php.ini Anda
+
+{t}file is too big. Please upload a smaller one.{/t}
+file terlalu besar. Harap upload dengan ukuran yang lebih kecil.
+
+{t}File locked.{/t}
+File terkunci
+
+{t}file not found in database.{/t}
+file tidak ditemukan di dalam database
+
+{t}file not found.{/t}
+file tidak ditemukan
+
+{t}File unlocked.{/t}
+File tidak terkunci
+
+{t}file was uploaded partially.{/t}
+file sudah ter-upload sebagian
+
+{t}Filename must have the right extension. Valid extensions are %s{/t}
+Nama fila harus memiliki ekstensi yang benar. Ekstensi yang valid adalah %s
+
+{t}Files{/t}
+File-file
+
+{t}Filesystem{/t}
+Filesystem
+
+{t}Filter{/t}
+Filter
+
+{t}Find assets in multiple folders{/t}
+Temukan beberapa assets di dalam folder
+
+{t}Finish scheduled{/t}
+Penjadwalan berakhir
+
+{t}Finished{/t}
+Selesai
+
+{t}First in list{/t}
+Pertama di dalam daftar
+
+{t}first level support{/t}
+
+
+{t}First name{/t}
+Nama depan
+
+{t}Fix paging bar to page bottom{/t}
+
+
+{t}fixed{/t}
+tetap
+
+{t}Flags{/t}
+Flag
+
+{t}Flash plugin not installed.{/t}
+
+
+{t}Folder{/t}
+Folder
+
+{t}Folder already exists.{/t}
+Folder sudah ada
+
+{t}Folder created.{/t}
+
+
+{t}Folder has changed.{/t}
+
+
+{t}Folder icon{/t}
+
+
+{t}Folder not found.{/t}
+
+
+{t}Folder refresh period{/t}
+
+
+{t}Folder structure{/t}
+
+
+{t}Folder structure created.{/t}
+Struktur folder terbentuk
+
+{t}Folder structure moved to trash.{/t}
+Struktur folder dipindahkan ke trash
+
+{t}Folder Type{/t}
+Tipe Folder
+
+{t}Folder with ID %s{/t}
+
+
+{t}Folders{/t}
+Folder-folder
+
+{t}for a new paragraph, use a blank line{/t}
+untuk sebuah paragrap baru, gunakan sebuah baris kosong
+
+{t}Force SSL{/t}
+Force SSL
+
+{t}Form{/t}
+
+
+{t}Forum{/t}
+Forum
+
+{t}Forward{/t}
+Forward
+
+{t}Fr{/t}
+Fr
+
+{t}Free/busy{/t}
+Bebas/sibuk
+
+{t}Freelance{/t}
+
+
+{t}Fri{/t}
+Jum
+
+{t}Friday{/t}
+Jumat
+
+{t}From{/t}
+Dari
+
+{t}Full screen{/t}
+
+
+{t}Full texts{/t}
+Text penuh
+
+{t}Full time{/t}
+
+
+{t}Full width{/t}
+Lebar penuh
+
+{t}Fulltext index{/t}
+
+
+{t}Funambol only works with MySQL and PostgreSQL.{/t}
+Funambol hanya berjalan dengan MySQL dan PostgreSQL.
+
+{t}Function does not exist: %s{/t}
+Fungsi: %s tidak ada
+
+{t}g:i a{/t}
+g:i a
+
+{t}Gender{/t}
+Jenis kelamin
+
+{t}General{/t}
+Umum/General
+
+{t}Generate{/t}
+Generate
+
+{t}Gifts{/t}
+Hadiah
+
+{t}Give Feedback{/t}
+Berikan Tanggapan
+
+{t}GNU GPL Frequently Asked Questions{/t}
+GNU GPL Frequently Asked Questions
+
+{t}greater than{/t}
+lebih besar dari
+
+{t}green{/t}
+hijau
+
+{t}Group{/t}
+Group
+
+{t}Group created.{/t}
+
+
+{t}Group deactivated.{/t}
+
+
+{t}Groupname{/t}
+Nama group
+
+{t}Groups{/t}
+Group-group
+
+{t}hanging text{/t}
+hanging text
+
+{t}Hardware{/t}
+Hardware
+
+{t}Headers{/t}
+Header
+
+{t}heading{/t}
+heading
+
+{t}headings{/t}
+headings
+
+{t}Height{/t}
+Tinggi
+
+{t}Help{/t}
+Bantuan
+
+{t}Helpdesk{/t}
+Helpdesk
+
+{t}Hidden in{/t}
+
+
+{t}Hidden in all views{/t}
+
+
+{t}Hide{/t}
+
+
+{t}hide in all views{/t}
+
+
+{t}hide in this view{/t}
+
+
+{t}History{/t}
+Histori
+
+{t}Holiday{/t}
+Hari Libur/Hari Besar
+
+{t}Home{/t}
+Home
+
+{t}Home folder id{/t}
+Home folder id
+
+{t}Home page in the CMS{/t}
+Home page di dalam CMS ini
+
+{t}Homepage{/t}
+Homepage
+
+{t}horizontal line{/t}
+garis horizontal
+
+{t}Host{/t}
+Host
+
+{t}Hosts{/t}
+Hosts
+
+{t}Hour{/t}
+
+
+{t}hours{/t}
+jam
+
+{t}Hours per week{/t}
+
+
+{t}HTML document{/t}
+
+
+{t}HTML documents{/t}
+Dokumen HTML
+
+{t}http://www.pmwiki.org/PmWiki/{/t}
+
+
+{t}Human resources{/t}
+
+
+{t}I Accept the GNU GENERAL PUBLIC LICENSE VERSION 2{/t}
+Saya menyetujui GNU GENERAL PUBLIC LICENSE VERSION 2
+
+{t}I m p o r t{/t}
+
+
+{t}I n s t a l l{/t}
+I n s t a l l
+
+{t}Icon{/t}
+
+
+{t}Id{/t}
+Id
+
+{t}Id must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id tidak boleh kosong, huruf kecil, min 3 karakter, mak 128 dan berisi [a-z0-9_-@.]
+
+{t}Id must be not null, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Id tidak boleh kosong, min 3 karakter, mak 128 dan berisi [a-z0-9_-@.]
+
+{t}Ideas{/t}
+Ide
+
+{t}If empty, the SMTP connection from the module users will be used.{/t}
+Jika kosong, maka koneksi SMTP dari modul user ini akan digunakan.
+
+{t}If file system permissions are ok, please check the configurations of %s if present.{/t}
+
+
+{t}if not autodetected with namingContexts{/t}
+jika tidak ada autodeteksi dengan namingContexts
+
+{t}If username or password contains the &quot;:&quot; character, replace it with &quot;==&quot;.{/t}
+
+
+{t}If username or password contains the &quot;@&quot; character, replace it with &quot;%%&quot;.{/t}
+Jika username atau pasword berisi karakter &quot;@&quot;, replace/timpa hal itu dengan &quot;%%&quot;.
+
+{t}Illness{/t}
+
+
+{t}Im-/Export{/t}
+Im-/Export
+
+{t}Image{/t}
+Gambar
+
+{t}Images{/t}
+Gambar-gambar
+
+{t}Imap-error: %s{/t}
+Imap-error: %s
+
+{t}immediate{/t}
+segera
+
+{t}Import{/t}
+Impor
+
+{t}In progress{/t}
+Dalam proses
+
+{t}in repair{/t}
+dalam perbaikan
+
+{t}in stock{/t}
+dalam persediaan
+
+{t}Inactive{/t}
+Tidak akrif
+
+{t}Include in RSS feed{/t}
+Termasuk di dalam RSS feed
+
+{t}Include page{/t}
+
+
+{t}indent text{/t}
+indent text
+
+{t}Index{/t}
+Index
+
+{t}Index length{/t}
+Panjang index
+
+{t}Index type{/t}
+Tipe index
+
+{t}Indexes{/t}
+Index
+
+{t}Industry{/t}
+Industri
+
+{t}Info{/t}
+Info
+
+{t}inheritance to subfolders without default values{/t}
+
+
+{t}Input field{/t}
+
+
+{t}Input field height{/t}
+
+
+{t}Insert{/t}
+Sisipkan
+
+{t}inserted{/t}
+disisipkan
+
+{t}Install default folder structure{/t}
+
+
+{t}Install demo folders{/t}
+
+
+{t}Install minimal folder structure{/t}
+
+
+{t}installed{/t}
+
+
+{t}insufficient folder rights{/t}
+hak folder tidak memadai
+
+{t}Internal recommendation{/t}
+Rekomendasi internal
+
+{t}Intranet{/t}
+
+
+{t}Intro{/t}
+Intro
+
+{t}invalid{/t}
+tidak valid
+
+{t}Invalid file extensions{/t}
+
+
+{t}Invalid schema mode '%s'{/t}
+
+
+{t}Invalid security token{/t}
+
+
+{t}Inventory{/t}
+Inventori
+
+{t}Inventory number{/t}
+Jumlah inventori
+
+{t}Investor{/t}
+Investor
+
+{t}Invoice{/t}
+Invoice
+
+{t}italic{/t}
+italic
+
+{t}Item created by %s at %s{/t}
+Item dibuat oleh %s pada %s
+
+{t}Item deleted by %s at %s{/t}
+Item dihapus oleh %s pada %s
+
+{t}Item edited (%s) by %s at %s{/t}
+Item (%s) diedit oleh %s pada %s
+
+{t}Item not found.{/t}
+Item tidak ditemukan
+
+{t}Item successfully created.{/t}
+Item berhasil dibuat.
+
+{t}Item successfully updated.{/t}
+Item berhasil diupdate
+
+{t}Item(s) not found or access denied.{/t}
+Item tidak ditemukan atau akses ditolak.
+
+{t}Jan{/t}
+
+
+{t}January{/t}
+Januari
+
+{t}Job description{/t}
+Job description
+
+{t}Join lines{/t}
+Gabung baris
+
+{t}Jul{/t}
+
+
+{t}July{/t}
+Juli
+
+{t}Jun{/t}
+
+
+{t}June{/t}
+Juni
+
+{t}Key{/t}
+Key
+
+{t}Key customer{/t}
+Key customer
+
+{t}Key name{/t}
+Nama key
+
+{t}Keywords{/t}
+Kata kunci
+
+{t}Knowledge base{/t}
+Pengetahuan dasar
+
+{t}L o g i n{/t}
+L o g i n
+
+{t}l, F j, Y{/t}
+l, F j Y
+
+{t}Last access{/t}
+Akses terakhir
+
+{t}Last name{/t}
+Nama belakang
+
+{t}LDAP anonymous connection failed.{/t}
+Koneksi LDAP anonim gagal.
+
+{t}LDAP attribute for group memberships{/t}
+Atribut LDAP untuk group memberships
+
+{t}LDAP attribute for rooms{/t}
+Atribut LDAP untuk room
+
+{t}LDAP attribute for usernames{/t}
+Atribut LDAP untuk username
+
+{t}LDAP connection to host %s failed.{/t}
+Koneksi LDAP untuk host %s gagal.
+
+{t}LDAP without anonymous access{/t}
+LDAP tanpa anonim akses
+
+{t}LDAP: no base DN given{/t}
+LDAP: tanpa diberikan dasar DN
+
+{t}LDAP: no UID given{/t}
+
+
+{t}Leave of absence{/t}
+
+
+{t}less promising{/t}
+kurang menjanjikan
+
+{t}lesser than{/t}
+kurang dari
+
+{t}Letter{/t}
+Surat
+
+{t}Level{/t}
+Level
+
+{t}License{/t}
+Lisensi
+
+{t}line{/t}
+
+
+{t}Line break{/t}
+Batas baris
+
+{t}Link{/t}
+Link
+
+{t}Link restricted{/t}
+Pembatasan link
+
+{t}link text{/t}
+text link
+
+{t}link to external page{/t}
+link untuk halaman eksternal
+
+{t}link to internal page{/t}
+link untuk halaman internal
+
+{t}Links{/t}
+Links
+
+{t}Lists{/t}
+Daftar
+
+{t}Load external images{/t}
+Load gambar eksternal
+
+{t}Location{/t}
+Lokasi
+
+{t}Locations{/t}
+Lokasi-lokasi
+
+{t}Lock{/t}
+Kunci
+
+{t}Locked by{/t}
+Dikunci oleh
+
+{t}Locking{/t}
+Terkunci
+
+{t}login %s from %s with %s{/t}
+login %s dari %s dengan %s
+
+{t}Login failed from %s.{/t}
+Login gagal dari %s.
+
+{t}Login/-out{/t}
+Login/Logout
+
+{t}Logins{/t}
+Logins
+
+{t}Logout{/t}
+
+
+{t}logout %s{/t}
+logout %s
+
+{t}Lookup{/t}
+Lookup
+
+{t}low{/t}
+rendah
+
+{t}lowest{/t}
+lebih rendah
+
+{t}M j{/t}
+M j
+
+{t}M j, g:i a{/t}
+M j, g:i a
+
+{t}M j, Y{/t}
+M j, Y
+
+{t}m/d/Y{/t}
+d/m/Y
+
+{t}m/d/Y g:i a{/t}
+d/m/Y g:i a
+
+{t}m/d/y g:i:s a{/t}
+d/m/y g:i:s a
+
+{t}magenta{/t}
+magenta
+
+{t}mail footer{/t}
+footer mail
+
+{t}Mail identities{/t}
+Identitas mail
+
+{t}mail notification{/t}
+notifikasi mail
+
+{t}mail reminder{/t}
+pengingat mail
+
+{t}Main menu{/t}
+Menu utama
+
+{t}Main page{/t}
+
+
+{t}Maintenance mode{/t}
+Modus pemeliharaan
+
+{t}male{/t}
+laki-laki
+
+{t}Man-days{/t}
+Man-days
+
+{t}Man-days planned{/t}
+Perencanaan Man-days
+
+{t}Manage offline folders{/t}
+
+
+{t}Manager{/t}
+Manager
+
+{t}Manufacturer{/t}
+Pabrikan
+
+{t}Mar{/t}
+
+
+{t}March{/t}
+Maret
+
+{t}Marketing event{/t}
+Kegiatan pemasaran/marketing
+
+{t}married{/t}
+menikah
+
+{t}Maximize{/t}
+Maximize
+
+{t}Maximum file size{/t}
+
+
+{t}Maximum number of assets per page{/t}
+
+
+{t}maximum number of files exceeded.{/t}
+melebihi jumlah file maksimum
+
+{t}May{/t}
+Mei
+
+{t}Media{/t}
+Media
+
+{t}Meeting{/t}
+Meeting
+
+{t}Members{/t}
+Member
+
+{t}Memory limit{/t}
+
+
+{t}Merge folders permanently{/t}
+Gabung folder secara permanen
+
+{t}Merged folders{/t}
+Gabung folder
+
+{t}Message{/t}
+Pesan
+
+{t}Messages{/t}
+
+
+{t}Milestone{/t}
+
+
+{t}min{/t}
+min
+
+{t}Minimize{/t}
+Minimize
+
+{t}minimum = 15 secs, 0 = disabled{/t}
+minimum = 15 detik, 0 = nonaktif
+
+{t}Miscellaneous{/t}
+Miscellaneous
+
+{t}missing a temporary folder.{/t}
+folder temporer hilang.
+
+{t}missing field{/t}
+field hilang
+
+{t}missing right: %s{/t}
+kehilangan hak: %s
+
+{t}Mo{/t}
+Sn
+
+{t}Mobile{/t}
+Mobile
+
+{t}Model{/t}
+Model
+
+{t}Modified{/t}
+Dimodifikasi
+
+{t}Modified by{/t}
+Dimodifikasi oleh
+
+{t}Modifying database failed.{/t}
+Modifikasi database gagal
+
+{t}Module{/t}
+Modul
+
+{t}Module disabled.{/t}
+
+
+{t}Modules{/t}
+Modul
+
+{t}Mon{/t}
+Sen
+
+{t}Monday{/t}
+Senin
+
+{t}monospace{/t}
+monospace
+
+{t}Month{/t}
+Bulan
+
+{t}monthly{/t}
+bulanan
+
+{t}months{/t}
+bulan
+
+{t}More information about the GNU GPL{/t}
+Informasi lebih lanjut tentang GNU GPL
+
+{t}Mountpoint{/t}
+Mountpoint
+
+{t}Move{/t}
+Pindah
+
+{t}Move to subfolder 'Archive'{/t}
+
+
+{t}Multiple{/t}
+
+
+{t}Multiple choice{/t}
+
+
+{t}My appointments{/t}
+Appointment saya
+
+{t}My tasks{/t}
+Tugas-tugas saya
+
+{t}Name{/t}
+Nama
+
+{t}Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.].{/t}
+Nama tidak boleh kosong, huruf kecil, min 3 karakter, mak 128 dan berisi [a-z0-9_-@.].
+
+{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}
+Nama tidak boleh kosong, min 3 karakter, berisi [a-zA-Z0-9-_.].
+
+{t}need feedback{/t}
+membutuhkan tanggapan
+
+{t}Network{/t}
+Network
+
+{t}Never expires{/t}
+Tidak pernah berakhir
+
+{t}New{/t}
+Baru
+
+{t}New folder{/t}
+Folder baru
+
+{t}News{/t}
+Berita
+
+{t}Next recurrences{/t}
+
+
+{t}Nickname{/t}
+Nama panggilan
+
+{t}Nightwork{/t}
+Kerja lembur/Nightwork
+
+{t}no{/t}
+tidak
+
+{t}No dataset selected.{/t}
+Tidak ada dataset yang dipilih
+
+{t}No entries found.{/t}
+Tidak ditemukan masukan data
+
+{t}No file was uploaded{/t}
+
+
+{t}No line breaks{/t}
+
+
+{t}no result{/t}
+tidak ada hasil
+
+{t}No search index{/t}
+
+
+{t}No sender specified.{/t}
+Tanpa pengirim yang spesifik
+
+{t}no username submitted{/t}
+tanpa mengirim username
+
+{t}No wrap{/t}
+
+
+{t}Non unique{/t}
+Tidak unik
+
+{t}none{/t}
+tidak ada
+
+{t}normal{/t}
+normal
+
+{t}Not allowed. Please log in as super administrator.{/t}
+Tidak diijinkan. Harap log in sebagai super administrator.
+
+{t}not contains{/t}
+tidak berisi
+
+{t}not equal{/t}
+tidak sama dengan
+
+{t}Not in{/t}
+
+
+{t}Not in database{/t}
+
+
+{t}not installed{/t}
+
+
+{t}Note{/t}
+
+
+{t}Notebook{/t}
+Notebook
+
+{t}Notes{/t}
+Catatan
+
+{t}Notificaiton sent to: %s{/t}
+Notifikasi dikirim ke: %s
+
+{t}Notification{/t}
+Notifikasi
+
+{t}Notification summary{/t}
+Rangkuman notifikasi
+
+{t}Notifications{/t}
+
+
+{t}Nov{/t}
+
+
+{t}November{/t}
+Nopember
+
+{t}Null{/t}
+Null
+
+{t}Number of employees{/t}
+Jumlah karyawan
+
+{t}numbered{/t}
+penomoran
+
+{t}Objectives{/t}
+Obyektif
+
+{t}Oct{/t}
+
+
+{t}October{/t}
+Oktober
+
+{t}of {0}{/t}
+
+
+{t}offer{/t}
+
+
+{t}Offer{/t}
+
+
+{t}Office{/t}
+Kantor
+
+{t}Office program{/t}
+Program kantor
+
+{t}Offices{/t}
+Kantor
+
+{t}offline{/t}
+offline
+
+{t}Offline folders{/t}
+Folder offline
+
+{t}Offline sync{/t}
+Sync offline
+
+{t}Ok{/t}
+Ok
+
+{t}one of{/t}
+
+
+{t}online{/t}
+online
+
+{t}Only for this folder{/t}
+
+
+{t}Only in{/t}
+
+
+{t}open{/t}
+
+
+{t}Open{/t}
+Buka
+
+{t}Operating system{/t}
+System operasi
+
+{t}Operation not allowed. (Data loss protection){/t}
+Operasi tidak diijinkan. (Data kehilangan proteksi)
+
+{t}Optimize Tables{/t}
+Optimasi Tabel
+
+{t}Options{/t}
+Pilihan
+
+{t}or{/t}
+atau
+
+{t}or higher{/t}
+atau lebih tinggi
+
+{t}orange{/t}
+orange
+
+{t}Order size{/t}
+Jumlah order
+
+{t}Organisation{/t}
+Organisasi
+
+{t}Organizer{/t}
+Penyelenggara
+
+{t}Origin{/t}
+Asli
+
+{t}Original message{/t}
+Pesan original
+
+{t}Other{/t}
+Lain
+
+{t}out of office{/t}
+diluar kantor
+
+{t}Outline image{/t}
+Garis luar gambar
+
+{t}Output{/t}
+Output
+
+{t}Output empty: %s{/t}
+
+
+{t}overlap{/t}
+overlap
+
+{t}Overtime{/t}
+Lembur
+
+{t}Overtime compensation per hour{/t}
+
+
+{t}Owner{/t}
+Owner/Pemilik
+
+{t}Owner since{/t}
+Owner sejak
+
+{t}Package from local file system (.tar.gz){/t}
+Paket dari file system lokal (.tar.gz)
+
+{t}Packed{/t}
+Packed
+
+{t}Page{/t}
+Halaman
+
+{t}Page last modified on{/t}
+
+
+{t}Page name (URL){/t}
+Nama halaman (URL)
+
+{t}Page not found{/t}
+Halaman tidak ditemukan
+
+{t}Page title{/t}
+Judul halaman
+
+{t}Pager{/t}
+Pager
+
+{t}Paid{/t}
+
+
+{t}Paid holidays{/t}
+
+
+{t}Paragraphs{/t}
+Paragrap
+
+{t}parameters{/t}
+parameter
+
+{t}Parameters{/t}
+Parameter
+
+{t}Parent folder{/t}
+
+
+{t}Parsing{/t}
+Parsing
+
+{t}Part time{/t}
+
+
+{t}Participants{/t}
+Peserta
+
+{t}Participants (external){/t}
+Peserta (eksternal)
+
+{t}Participants (internal){/t}
+Peserta (internal)
+
+{t}Password{/t}
+Password
+
+{t}Password expired. (password of %s has expired){/t}
+Password expired. (password dari %s telah expired)
+
+{t}Password expires{/t}
+Password expires
+
+{t}Password must be not null, min 5 characters.{/t}
+Password tidak boleh kosong, min 5 karakter.
+
+{t}password not confirmed.{/t}
+password tanpa dikonfirmasi.
+
+{t}Passwords{/t}
+Passwords
+
+{t}Paste{/t}
+Paste
+
+{t}Path{/t}
+Path
+
+{t}Pause{/t}
+Pause
+
+{t}Payroll{/t}
+
+
+{t}Permissions{/t}
+Perijinan
+
+{t}Permissions added for: %s{/t}
+Perijinan ditambahkan untu: %s
+
+{t}Personal{/t}
+Personal
+
+{t}Personal department{/t}
+Departemen personal
+
+{t}Personal folders{/t}
+Folder personal
+
+{t}Personal projects{/t}
+Proyek personal
+
+{t}Phone{/t}
+Telepon
+
+{t}Phone calls{/t}
+Panggilan telepon
+
+{t}Phone private{/t}
+Private phone
+
+{t}Photo{/t}
+Photo
+
+{t}Photo gallery{/t}
+Galeri photo
+
+{t}Planned{/t}
+Perencanaan
+
+{t}Please activate cookies.{/t}
+Harap aktifkan cookies.
+
+{t}Please choose Apache as Web-Server.{/t}
+Harap pilih Apache sebagai Web-Server.
+
+{t}Please enable Javascript in your browser.{/t}
+
+
+{t}Please enter a valid url.{/t}
+Silahkan masukkan url yang valid.
+
+{t}Please give read access to %s{/t}
+Harap berikan akses baca untuk %s
+
+{t}Please give write access to %s{/t}
+Harap berikan akses menulis untuk %s
+
+{t}Please give write access to %s and %s{/t}
+Harap berikan akses menulis untuk %s dan %s
+
+{t}Please hit reload.{/t}
+Silahkan tekan reload.
+
+{t}Please input a valid e-mail adress.{/t}
+Silahkan masukkan alamat e-mail yang valid.
+
+{t}Please install 'tsearch2' for the PostgreSQL database.{/t}
+Harap install tsearch2 untuk database PostgreSQL.
+
+{t}Please install the php-extension with name '%s'.{/t}
+
+
+{t}Please modify your php.ini or add an .htaccess file changing the setting '%s' to '%s' (current value is '%s') !{/t}
+Harap rubah php.ini anda tau tambahkan perubahan pada file .htaccess dengan disetting %s ke %s (nilai saat ini adalah %s) !
+
+{t}Please read the following license agreement. Use the scroll bar to view the rest of this agreement.{/t}
+Bacalah perjanjian lisensi berikut ini. Gunakan scroll bar untuk melihat sampai akhir halaman dari perjanjian ini.
+
+{t}Please select a location.{/t}
+
+
+{t}Please select a participant.{/t}
+Silahkan pilih seorang peserta.
+
+{t}Please upload again.{/t}
+Silahkan upload lagi
+
+{t}Please wait ...{/t}
+Harap tunggu ...
+
+{t}Pop3-error: %s{/t}
+Pop3-error: %s
+
+{t}Port{/t}
+Port
+
+{t}Portal{/t}
+Portal
+
+{t}Position{/t}
+Posisi
+
+{t}Positions{/t}
+Posisi
+
+{t}Post{/t}
+Posting
+
+{t}Practical training{/t}
+
+
+{t}Preformatted block{/t}
+Preformatted block
+
+{t}Prepend new field as{/t}
+
+
+{t}Prevent formatting{/t}
+Pencegahan pemformatan
+
+{t}Preview{/t}
+Preview
+
+{t}Price{/t}
+Harga
+
+{t}Primary key{/t}
+
+
+{t}Print{/t}
+Cetak
+
+{t}Print all{/t}
+Cetak semua
+
+{t}Printer{/t}
+Printer
+
+{t}Priority{/t}
+Prioritas
+
+{t}Problem{/t}
+Problem
+
+{t}Processes{/t}
+Proses
+
+{t}Processing %s ...{/t}
+Prosesing %s ...
+
+{t}Program is installed with language %s, please use a different url or run the setup again.{/t}
+Program diinstall dengan bahasa %s, harap gunakan url yang berbeda atau jalankan setup lagi.
+
+{t}Progress{/t}
+Progres
+
+{t}Project{/t}
+Proyek
+
+{t}Project files{/t}
+File proyek
+
+{t}Project tasks{/t}
+Tugas proyek
+
+{t}Projects{/t}
+Proyek
+
+{t}promising{/t}
+perjanjian
+
+{t}Properties{/t}
+Properti
+
+{t}Prospective client{/t}
+Calon client
+
+{t}Public holiday{/t}
+
+
+{t}Purchased{/t}
+Pembelian
+
+{t}Question{/t}
+Pertanyaan
+
+{t}Queue{/t}
+Antrian
+
+{t}Quick add{/t}
+
+
+{t}Quota{/t}
+Kuaota
+
+{t}Quota (remaining){/t}
+Sisa kuota
+
+{t}Quota [MB]{/t}
+Kuota [MB]
+
+{t}Quota limitation exceeded: %s{/t}
+Melebihi batas kuota: %s
+
+{t}R e g i s t e r{/t}
+
+
+{t}Rating{/t}
+Rating
+
+{t}Read{/t}
+Baca
+
+{t}read access{/t}
+akses baca
+
+{t}Read access (groups){/t}
+Akses baca (group)
+
+{t}Read access (users){/t}
+Akses baca (user)
+
+{t}Read only in{/t}
+
+
+{t}ready for repair{/t}
+siap untuk perbaikan
+
+{t}ready for scrap{/t}
+siap untuk scrap
+
+{t}Real URL format in the CMS{/t}
+Format real URL di dalam CMS ini
+
+{t}Really apply rights to subfolders ?{/t}
+Yakin menerapkan hak untuk subfolder ?
+
+{t}Really apply the changes ?{/t}
+
+
+{t}Really delete ?{/t}
+Yakin dihapus ?
+
+{t}REALLY delete ALL datasets ?{/t}
+YAKIN hapus SEMUA dataset ?
+
+{t}Really delete ALL subfolders ?{/t}
+Yakin menghapus SEMUA subfolder ?
+
+{t}Really delete the dataset(s) ?{/t}
+Yakin menghapus dataset ini ?
+
+{t}Really empty the folder ?{/t}
+Yakin mengosongkan folder ini?
+
+{t}Really overwrite existing dataset(s) ?{/t}
+Yakin overwrite dataset yang sudah ada ?
+
+{t}Really run setup again ?{/t}
+Yakin akan menjalankan setup lagi ?
+
+{t}Really uninstall the module ?{/t}
+
+
+{t}Rebuild search index{/t}
+Ulang index pencarian
+
+{t}Recent changes{/t}
+
+
+{t}Recipients{/t}
+
+
+{t}Recommendation of affiliate{/t}
+Rekomendasi dari afiliasi
+
+{t}Recurrence{/t}
+Pengulangan
+
+{t}Recurrences{/t}
+
+
+{t}red{/t}
+merah
+
+{t}Redirect to home directory{/t}
+Redirect untuk home direktori
+
+{t}Reference{/t}
+
+
+{t}Refresh{/t}
+
+
+{t}Refresh every x seconds{/t}
+Refresh setiap x detik
+
+{t}Regular{/t}
+Reguler
+
+{t}Reject{/t}
+
+
+{t}rejected{/t}
+ditolak
+
+{t}Relative formats{/t}
+
+
+{t}Relaunch Setup{/t}
+Relaunch Setup
+
+{t}Relevance{/t}
+Relevansi
+
+{t}Reminder{/t}
+Pengingat
+
+{t}rename{/t}
+
+
+{t}Rename folder{/t}
+Ubah nama folder
+
+{t}Repeat count{/t}
+Jumlah ulang
+
+{t}Repeat exclusions{/t}
+Ulang pengecualian
+
+{t}Repeat interval{/t}
+Interval pengulangan
+
+{t}Repeat until{/t}
+Ulang sampai dengan
+
+{t}Reply{/t}
+Balas
+
+{t}Reply all{/t}
+Balas semua
+
+{t}Require admin access to set mountpoints{/t}
+Dibutuhkan hak akses admin untuk melakukan set maountpoints
+
+{t}Required{/t}
+
+
+{t}Required fields{/t}
+
+
+{t}Reseller{/t}
+Reseller
+
+{t}reserved{/t}
+reservasi
+
+{t}Reset view{/t}
+Reset view
+
+{t}Resource{/t}
+Resource
+
+{t}Resources{/t}
+Resources
+
+{t}Responsible{/t}
+Tanggung jawab
+
+{t}Responsible (external){/t}
+Tanggung jawab (eksternal)
+
+{t}Responsible (internal){/t}
+Tanggung jawab (internal)
+
+{t}Restore complete{/t}
+Restore selesai
+
+{t}Restore here{/t}
+Restore disini
+
+{t}Restore only missing{/t}
+Restore hanya untuk yang hilang
+
+{t}Restore only newer{/t}
+Restore hanya untuk yang terbaru
+
+{t}Restore to origin{/t}
+Restore untuk yang original
+
+{t}Return receipt{/t}
+Terima kembali
+
+{t}right-aligned{/t}
+rata kanan
+
+{t}Rights{/t}
+Hak-hak
+
+{t}Risks{/t}
+
+
+{t}Room name{/t}
+Nama room
+
+{t}Room number{/t}
+Nomor room
+
+{t}Rooms{/t}
+Room
+
+{t}Rows{/t}
+Baris
+
+{t}Run Setup again{/t}
+Jalankan Setup lagi
+
+{t}S a v e{/t}
+S i m p a n
+
+{t}S a v e  a n d  E d i t{/t}
+
+
+{t}S a v e  a n d  g o  b a c k{/t}
+S i m p a n  d a n  k e m b a l i
+
+{t}Sa{/t}
+Sb
+
+{t}Salary{/t}
+
+
+{t}Salary per{/t}
+
+
+{t}Sales promotion{/t}
+Promosi penjualan
+
+{t}Sat{/t}
+Sb
+
+{t}Saturday{/t}
+Sabtu
+
+{t}Scheduling{/t}
+Penjadwalan
+
+{t}Schema{/t}
+Skema
+
+{t}Schema data{/t}
+Skema data
+
+{t}Schemafile not found. (%s){/t}
+Skema file tidak ditemukan
+
+{t}School{/t}
+
+
+{t}scrapped{/t}
+scrapped
+
+{t}Search{/t}
+Cari
+
+{t}Search by ID{/t}
+
+
+{t}second level support{/t}
+
+
+{t}Second manager{/t}
+Wakil manager
+
+{t}seconds{/t}
+
+
+{t}Secretary{/t}
+Sekretaris
+
+{t}Self registration{/t}
+Registrasi
+
+{t}Self registration needs confirmation by an administrator.{/t}
+
+
+{t}Send now{/t}
+
+
+{t}Sent{/t}
+
+
+{t}Sent reminders{/t}
+Kirim reminder
+
+{t}Sep{/t}
+
+
+{t}Separate fields{/t}
+
+
+{t}Separate values{/t}
+
+
+{t}Separator{/t}
+
+
+{t}Separators{/t}
+Spasi/Pemisah
+
+{t}September{/t}
+September
+
+{t}Serial number{/t}
+Serial number
+
+{t}Server{/t}
+Server
+
+{t}Server does not support sorting{/t}
+Server tidak support untuk sorting
+
+{t}Server-IP{/t}
+IP-Server
+
+{t}Service provider{/t}
+Service provider
+
+{t}Session name in cookie{/t}
+Nama sesi di dalam cookie
+
+{t}Session timeout{/t}
+Sesi timeout
+
+{t}Sessions{/t}
+Sesi
+
+{t}Setup{/t}
+Setup
+
+{t}Setup needs a database-php-extension ! (%s){/t}
+Setup membutuhkan sebuah database-php-extension ! (%s)
+
+{t}Setup needs php with at least version %s !{/t}
+Setup membutuhkan php dengan versi minimum %s !
+
+{t}Setup needs php-extension with name %s !{/t}
+Setup membutuhkan php-extension dengan nama %s !
+
+{t}Setup needs Simple Groupware with at least version %s !{/t}
+
+
+{t}Setup: setup-data written to %s.{/t}
+Setup: setup-data ditulis ke %s.
+
+{t}Shapes{/t}
+Shape
+
+{t}Share{/t}
+Share
+
+{t}Shared{/t}
+
+
+{t}Short links{/t}
+
+
+{t}Show{/t}
+Show
+
+{t}Show all rules{/t}
+
+
+{t}Show archive{/t}
+Show arsip
+
+{t}Show details{/t}
+
+
+{t}Show folder description in content area{/t}
+
+
+{t}Show password{/t}
+
+
+{t}Show quoted text{/t}
+Tampilkan kutipan text
+
+{t}Similar{/t}
+
+
+{t}Simple tables{/t}
+Simple tabel
+
+{t}single{/t}
+single
+
+{t}Single choice{/t}
+
+
+{t}Size{/t}
+Size
+
+{t}Size (children){/t}
+Size (anak)
+
+{t}Slow{/t}
+Lambat
+
+{t}small{/t}
+kecil
+
+{t}small text{/t}
+text kecil
+
+{t}smaller{/t}
+lebih kecil
+
+{t}SMTP not configured for %s{/t}
+SMTP tidak dikonfigurasi untuk %s
+
+{t}Smtp-error %s: %s{/t}
+Smtp-error %s: %s
+
+{t}Software{/t}
+Software
+
+{t}Solution{/t}
+Solusi
+
+{t}Solution type{/t}
+Tipe solusi
+
+{t}some text{/t}
+
+
+{t}Source{/t}
+
+
+{t}Source code{/t}
+Source code
+
+{t}Special leave{/t}
+
+
+{t}Specification{/t}
+Spesifikasi
+
+{t}Spreadsheet{/t}
+Spreadsheet
+
+{t}SQL failed.{/t}
+SQL gagal.
+
+{t}SQL FAILED: %s{/t}
+SQL GAGAL: %s
+
+{t}Start scheduled{/t}
+Mulai penjadwalan
+
+{t}Started{/t}
+Dimulai
+
+{t}starts with{/t}
+mulai dengan
+
+{t}State{/t}
+Propinsi
+
+{t}Static cache{/t}
+Cache static
+
+{t}Statistics{/t}
+Statistik
+
+{t}Status{/t}
+Status
+
+{t}Statuses{/t}
+Status
+
+{t}Strategies{/t}
+Strategi
+
+{t}Street{/t}
+Jalan
+
+{t}Structure{/t}
+Struktur
+
+{t}Su{/t}
+Mg
+
+{t}Subfolders{/t}
+
+
+{t}subheading{/t}
+subheading
+
+{t}Subitem{/t}
+Subitem
+
+{t}Subject{/t}
+Subyek
+
+{t}Subjects{/t}
+Subyek
+
+{t}Submit a patch{/t}
+Kirim patch
+
+{t}Subpages{/t}
+
+
+{t}subscript{/t}
+subscript
+
+{t}Subsistence costs{/t}
+Cost subsistence
+
+{t}Sum{/t}
+
+
+{t}Summary{/t}
+Rangkuman
+
+{t}Sun{/t}
+Mgu
+
+{t}Sunday{/t}
+Minggu
+
+{t}Superior{/t}
+Superior
+
+{t}superscript{/t}
+superscript
+
+{t}Supplier{/t}
+Supplier
+
+{t}Suppliers{/t}
+Supplier
+
+{t}Support{/t}
+Support/dukungan
+
+{t}Support request{/t}
+Request support
+
+{t}Surveys{/t}
+
+
+{t}Suspended{/t}
+Ditangguhkan
+
+{t}Switch maintenance mode{/t}
+Switch modus pemeliharaan
+
+{t}Sync4j remote delete items{/t}
+Hapus item Sync4j secara remote
+
+{t}Syntax{/t}
+
+
+{t}System{/t}
+System
+
+{t}System command executed: %s{/t}
+
+
+{t}Tab{/t}
+
+
+{t}Table{/t}
+Tabel
+
+{t}Table sizes{/t}
+Ukuran tabel
+
+{t}Table status{/t}
+Status tabel
+
+{t}Tables{/t}
+Tabel
+
+{t}Take over{/t}
+
+
+{t}Take selection{/t}
+
+
+{t}Task{/t}
+
+
+{t}Task with ID %s{/t}
+
+
+{t}Tasks{/t}
+Tugas
+
+{t}Tasks with responsible %s{/t}
+
+
+{t}Template{/t}
+Template
+
+{t}Templates{/t}
+Template
+
+{t}Temporary work{/t}
+
+
+{t}term{/t}
+istilah
+
+{t}Text area{/t}
+
+
+{t}Text Document{/t}
+Dokument Text
+
+{t}Text formatting rules{/t}
+Aturan pemformatan text
+
+{t}Th{/t}
+Km
+
+{t}Thanks for voting!{/t}
+
+
+{t}The folder cannot be copied.{/t}
+Folder ini tidak dapat di copy
+
+{t}The folder cannot be deleted.{/t}
+Folder ini tidak dapat dihapus
+
+{t}The folder cannot be moved.{/t}
+Folder ini tidak dapat dipindahkan
+
+{t}The new password is{/t}
+Password yang baru adalah
+
+{t}The url doesn't exist.{/t}
+Url ini tidak ada
+
+{t}Theme{/t}
+Tema
+
+{t}third level support{/t}
+
+
+{t}this file extension is not allowed{/t}
+ekstensi file ini tidak diijinkan
+
+{t}Thu{/t}
+Kms
+
+{t}Thursday{/t}
+Kamis
+
+{t}Time and expenses{/t}
+Waktu dan biaya
+
+{t}Time limit{/t}
+
+
+{t}Time sheets{/t}
+Time sheets
+
+{t}Time zone{/t}
+Zona waktu
+
+{t}timeout{/t}
+timeout
+
+{t}Title{/t}
+Judul
+
+{t}To{/t}
+Kepada
+
+{t}to be checked{/t}
+yang akan diperiksa
+
+{t}To continue installing Simple Groupware you must check the box under the license{/t}
+Untuk melanjutkan installing Aplikasi Knowledge Management anda harus menandai check box dibawah perjanjian ini
+
+{t}Today{/t}
+Hari ini
+
+{t}Too many wrong logins. Please wait 15 minutes.{/t}
+Terlalu banyak salah login. Mohon tunggu 15 menit lagi.
+
+{t}Total{/t}
+Total
+
+{t}Trace{/t}
+Trace
+
+{t}Trade fair{/t}
+Trade fair
+
+{t}translations{/t}
+translasi
+
+{t}Translations of the GNU GPL{/t}
+Translasi dari GNU GPL
+
+{t}Transportation costs{/t}
+Biaya perjalanan
+
+{t}Trash{/t}
+Trash
+
+{t}Trash folder not found.{/t}
+Folder trash tidak ditemukan
+
+{t}Tree{/t}
+Tree
+
+{t}Trigger failed{/t}
+Trigger gagal
+
+{t}Tu{/t}
+Sl
+
+{t}Tue{/t}
+Sel
+
+{t}Tuesday{/t}
+Selasa
+
+{t}Type{/t}
+Tipe
+
+{t}U n i n s t a l l{/t}
+
+
+{t}unable to find %s{/t}
+tidak menemukan %s
+
+{t}Unable to write to %s{/t}
+Tidak dapat menulis untuk %s
+
+{t}unconfirmed{/t}
+tanpa konfirmasi
+
+{t}Unconfirmed{/t}
+
+
+{t}underline{/t}
+
+
+{t}Uninstall does not delete any data in the database.{/t}
+
+
+{t}uninterested{/t}
+tidak interest
+
+{t}Unique{/t}
+
+
+{t}Unique with trash{/t}
+
+
+{t}Unlock{/t}
+Tidak terkunci
+
+{t}Up{/t}
+Naik
+
+{t}Update{/t}
+Update
+
+{t}Update Simple Groupware{/t}
+
+
+{t}Updated{/t}
+Diupdate
+
+{t}Updating schema %s from %s.{/t}
+Update skema %s dari %s.
+
+{t}Upload failed{/t}
+Upload gagal
+
+{t}Uploaded files{/t}
+Upload file
+
+{t}Uploading{/t}
+
+
+{t}urgent{/t}
+mendesak
+
+{t}URL{/t}
+URL
+
+{t}Usage{/t}
+Penggunaan
+
+{t}USD{/t}
+USD
+
+{t}Use APC for session storage{/t}
+
+
+{t}Use Debian binaries (Warning: not latest versions){/t}
+Gunakan Debian binari (Perhatian: tidak versi terbaru)
+
+{t}Use LDAP Groups{/t}
+Gunakan Group LPAD
+
+{t}use mirror from{/t}
+
+
+{t}Use syslog() function for logging events{/t}
+
+
+{t}Use the mail() function for sending mails (insecure){/t}
+Gunakan fungsi mail() untuk mengirim mail (aman)
+
+{t}User{/t}
+User
+
+{t}User not found.{/t}
+
+
+{t}Username{/t}
+Username
+
+{t}Username must be different from the super administrator.{/t}
+Username harus berbeda dengan super administrator.
+
+{t}Users{/t}
+User
+
+{t}V a l i d a t e{/t}
+
+
+{t}V o t e !{/t}
+
+
+{t}Vacation{/t}
+Liburan
+
+{t}Vacation days per year{/t}
+
+
+{t}Validating %s ...{/t}
+
+
+{t}validation failed{/t}
+validasi gagal
+
+{t}Value{/t}
+Value
+
+{t}Value '%s' needs a group membership: %s{/t}
+
+
+{t}Variable{/t}
+Variabel
+
+{t}Variable already exists in table. (%s){/t}
+Variabel sudah ada didalam tabel.
+
+{t}Variable must be of type date (mm/dd/yyyy).{/t}
+Variabel harus bertipe tanggal (dd/mm/yyyy).
+
+{t}Variable must be of type datetime (mm/dd/yyyy hh:mm am/pm).{/t}
+Variabel harus bertipe tanggal waktu (dd/mm/yyyy hh:mm am/pm).
+
+{t}Variable must be of type float.{/t}
+Variabel harus bertipe float.
+
+{t}Variable must be of type int and greater than 0.{/t}
+Variabel harus bertipe int dan lebih besar dari 0.
+
+{t}Variable must be of type int.{/t}
+Variabel harus bertipe int.
+
+{t}Variable must be of type time (hh:mm am/pm).{/t}
+Variabel harus bertipe data waktu (hh:mm am/pm).
+
+{t}Variables{/t}
+Variabel
+
+{t}Verbal recommendation{/t}
+Rekomendasi verbal
+
+{t}verified{/t}
+Diverifikasi
+
+{t}vertical{/t}
+vertical
+
+{t}very promising{/t}
+sangat menjanjikan
+
+{t}View{/t}
+
+
+{t}View access (groups){/t}
+
+
+{t}View access (users){/t}
+
+
+{t}Virus scanner{/t}
+Virus scanner
+
+{t}Visibility{/t}
+
+
+{t}Voice mail{/t}
+Voice mail
+
+{t}Vote{/t}
+
+
+{t}Voted by{/t}
+
+
+{t}Waiting{/t}
+Menunggu
+
+{t}Warning{/t}
+Perhatian
+
+{t}We{/t}
+Rb
+
+{t}Web{/t}
+Web
+
+{t}Web page{/t}
+
+
+{t}Wed{/t}
+Rab
+
+{t}Wednesday{/t}
+Rabu
+
+{t}Week{/t}
+Seminggu
+
+{t}Week start{/t}
+Awal pekan
+
+{t}Weekend{/t}
+Akhir pekan
+
+{t}weekly{/t}
+mingguan
+
+{t}weeks{/t}
+pekan
+
+{t}Welcome to Simple Groupware!{/t}
+
+
+{t}white{/t}
+putih
+
+{t}widowed{/t}
+janda
+
+{t}Width{/t}
+
+
+{t}Wiki{/t}
+Wiki
+
+{t}WikiStyles{/t}
+WikiStyles
+
+{t}won't fix{/t}
+wont fix
+
+{t}word{/t}
+
+
+{t}Workflow{/t}
+
+
+{t}Working student{/t}
+
+
+{t}works as expected{/t}
+pekerjaan yang diharapkan
+
+{t}works for me{/t}
+pekerjaan untuk saya
+
+{t}Workshop{/t}
+Workshop
+
+{t}Workspace{/t}
+Workspace
+
+{t}write access{/t}
+akses menulis
+
+{t}Write access (groups){/t}
+Akses menulis (group)
+
+{t}Write access (users){/t}
+Akses menulis (user)
+
+{t}Wrong database-version (%s). Please use at least %s !{/t}
+Versi database (%s) salah. Harap gunakan paling tidak %s !
+
+{t}wrong directory{/t}
+direktori salah
+
+{t}wrong password{/t}
+password salah
+
+{t}Year{/t}
+Tahun
+
+{t}yearly{/t}
+tahunan
+
+{t}years{/t}
+
+
+{t}yellow{/t}
+kuning
+
+{t}yes{/t}
+ya
+
+{t}You are not allowed to view this folder.{/t}
+Anda tidak diijinkan untuk melihat folder ini.
+
+{t}Your message was read on %s.{/t}
+Pesan anda sudah dibaca pada %s.
+
+{t}Your session has timed out.{/t}
+Sesi anda sudah time out.
+
+{t}Zipcode{/t}
+Kode pos
+
+{t}{0} - {1} of {2}{/t}
+
+

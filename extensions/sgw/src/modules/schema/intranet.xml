@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="{t}Intranet{/t}" load_js="ext/lib/extjs/ext-base.js" load_css="ext/cms/styles.css" load_library="lib/pmwiki/pmwiki.php" default_view="view" orderby="pagename" order="asc" limit="2" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" enable_asset_rights="full" quick_add="pagename,title,data">
+  <view name="view" template="details" schema_mode="static" template_mode="noheader" displayname="{t}Main page{/t}" limit="1" show_preview="true" tfield_1="pagename" tfield_2="title" showonly="pagename|title|data|attachment|description|subpages" disable_tabs="true" orderby="mainpage=0">
+  </view>
+  <view name="display" displayname="{t}Subpages{/t}" limit="20" where="mainpage='0'">
+  </view>
+  <view name="details" displayname="{t}Details{/t}" show_preview="true" limit="20">
+  </view>
+  <tab name="general" displayname="{t}General{/t}" />
+  
+  <field name="pagename" displayname="{t}Page name (URL){/t}" simple_type="text" is_unique="true" required="true">
+	<validate function="regexp|/^[a-z0-9-_\.]{3,}$/i|{t}Name must be not null, min 3 characters, containing [a-zA-Z0-9-_.].{/t}"/>
+    <link views="display" value="index.php?view=details&amp;item[]=@id@" icon="link.gif"/>
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+	<store function="pagename"/>
+    <INDEX/>
+  </field>
+  <field name="title" displayname="{t}Page title{/t}" simple_type="text">
+  </field>
+  <field name="data" displayname="{t}Content{/t}" simple_type="pmwikiarea">
+    <notin views="display"/>
+ </field>
+  <field name="attachment" displayname="{t}Attachment{/t}" simple_type="files" simple_file_size="10M" simple_size="20">
+    <notin views="display"/>
+  </field>
+  <field name="description" displayname="{t}Description{/t}" simple_type="text">
+  </field>
+  <field name="mainpage" displayname="{t}Main page{/t}" simple_type="checkbox" simple_default="0">
+  </field>
+  <field name="subpages" displayname="{t}Subpages{/t}" simple_type="textarea" notinall="true">
+	<filter views="all" function="append|Main page"/>
+	<filter views="all" function="linkselect||simple_intranet|id,concat(pagename;' ';title)|folder=@folder@ and mainpage='1'|pagename"/>
+	<filter views="all" function="append|\nSubpages"/>
+	<filter views="all" function="linkselect|, |simple_intranet|id,concat(pagename;' ';title)|folder=@folder@ and mainpage='0'|pagename"/>
+	<onlyin views="view|details"/>
+  </field>
+</table>
