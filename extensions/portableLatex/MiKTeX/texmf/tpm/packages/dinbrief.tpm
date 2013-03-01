@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/dinbrief"><TPM:Name>dinbrief</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>German letter DIN style.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Implements a document layout for writing letters according to
+      the rules of DIN (Deutsches Institut f\"ur Normung, German
+      standardization institute).  A style file for LaTeX 209 (with
+      limited support of the features) is part of the package.  Since
+      the letter layout is based on a German standard, the user guide
+      is written in German, but most macros have English names from
+      which the user can recognize what they are used for.  In
+      addition there are example files showing how letters may be
+      created with the package.</TPM:Description><TPM:RunFiles size="64487">texmf\tex\latex\dinbrief\dinbrief.cfg texmf\tex\latex\dinbrief\dinbrief.cls texmf\tex\latex\dinbrief\dinbrief.sty texmf\tpm\packages\dinbrief.tpm</TPM:RunFiles><TPM:DocFiles size="447046">texmf\doc\latex\dinbrief\brfbody.tex texmf\doc\latex\dinbrief\brfkopf.tex texmf\doc\latex\dinbrief\dbold.tex texmf\doc\latex\dinbrief\dinbrief.dvi texmf\doc\latex\dinbrief\dinbrief.tex texmf\doc\latex\dinbrief\dintab.dvi texmf\doc\latex\dinbrief\dintab.tex texmf\doc\latex\dinbrief\example.tex texmf\doc\latex\dinbrief\liesmich texmf\doc\latex\dinbrief\readme texmf\doc\latex\dinbrief\test10.tex texmf\doc\latex\dinbrief\test11.tex texmf\doc\latex\dinbrief\test12.tex texmf\doc\latex\dinbrief\testnorm.tex</TPM:DocFiles><TPM:SourceFiles size="253081">texmf\source\latex\dinbrief\dinbrief.drv texmf\source\latex\dinbrief\dinbrief.dtx texmf\source\latex\dinbrief\dinbrief.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>cf1edef254aeb8f89357800d42036bec</TPM:MD5></rdf:Description></rdf:RDF>

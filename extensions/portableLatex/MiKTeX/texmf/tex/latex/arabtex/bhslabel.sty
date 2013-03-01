@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% bhslabel.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bhslabel.sty
+% called by bhs.sty
+% generate markup from BHS label notation
+% 01.12.1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {bhslabel.sty} {3.00 BHS label markup} {01.12.1998}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\xpa \gdef \csname a@c@\string ~\endcsname #1 {% get BHS label
+%\tracingmacros 1
+\def \bhs@@label {#1}\bhs@label #1\@ 
+\tracingmacros 0
+\bhs@out \test@token }
+
+\errorcontextlines 10
+
+\def \is@digit #1{\is@in@list #10123456789>}
+
+\def \is@label #1{\is@in@list #1abcvwxyz>}
+
+\def \bhs@err {% illegal BHS label
+\errmessage {illegal BHS label `\bhs@@label'}}
+
+\def \bhs@label #1{% start processing BHS label
+\if\is@label #1\bhs@init {#1}\let \next \bhs@A 
+\else \let \next \bhs@err 
+\fi \next }
+
+{\catcode `\" 12
+\gdef \bhs@A #1{% get label value
+\ifx #1\@ \bhs@store \let \next \relax \else
+\ifx #1"\let \next \bhs@B \else 
+\if\is@label #1\bhs@store % null value
+	\bhs@init {#1}\let \next \bhs@A \else
+\if\is@digit #1\def \bhs@value {#1}\let \next \bhs@D \else
+	\let \next \bhs@err 
+\fi\fi\fi\fi \next }
+
+\gdef \bhs@B #1"{% get label string value
+\def \bhs@kind {S}\def \bhs@value {#1}\bhs@C }
+
+\gdef \bhs@C #1{% get next label after string
+\ifx #1\@ \bhs@store \let \next \relax \else
+\if\is@label #1\bhs@store 
+	\bhs@init {#1}\let \next \bhs@A \else
+	\let \next \bhs@err 
+\fi\fi \next }
+
+\gdef \bhs@D #1{% get next digit
+\def \bhs@kind {I}%
+\ifx #1\@ \bhs@store \let \next \relax \else
+\if\is@label #1\bhs@store
+	\bhs@init {#1}\let \next \bhs@A \else
+\if\is@digit #1\edef \bhs@value {\bhs@value #1}%
+	\let \next \bhs@D \else
+	\let \next \bhs@err 
+\fi\fi\fi \next }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcount \bhs@cnt
+\newif \ifbhs@outa	\newif \ifbhs@outx
+\newif \ifbhs@outy	\newif \ifbhs@outz
+
+\def \bhs@init #1{% init label
+\def \bhs@name {#1}\def \bhs@value {}\def \bhs@kind {N}}
+
+\def \bhs@store {% store label value and execute
+\begingroup \edef \x {\endgroup \if N\bhs@kind \nxp \bhs@inc {\bhs@name }%
+\else \nxp \bhs@set {\bhs@name }{\bhs@value }{\bhs@kind }\fi }\x }
+
+\def \bhs@set #1#2#3{% set label value
+\csname bhs@#1set\endcsname {#2}{#3}}
+
+\def \bhs@inc #1{% increase label value
+\if I\csname bhs@#1kind\endcsname \bhs@cnt \csname bhs@#1value\endcsname 
+	\advance \bhs@cnt 1 \begingroup 
+	\edef \x {\endgroup \nxp \bhs@set {#1}{\the\bhs@cnt }{I}}\x 
+\else \errmessage {BHS level `#1' has no numeric value}%
+	\bhs@set {#1}{1}{I}%
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \bhs@aset #1#2{% set level a
+\def \bhs@avalue {#1}\def \bhs@akind {#2}\bhs@outatrue 
+\bhs@xset {0}{I}\bhs@yset {0}{I}\bhs@zset {0}{I}}
+
+\def \bhs@bset #1#2{% set level b
+\def \bhs@bvalue {#1}\def \bhs@bkind {#2}}
+
+\def \bhs@cset #1#2{% set level c
+\def \bhs@cvalue {#1}\def \bhs@ckind {#2}}
+
+\def \bhs@zset #1#2{% set level z
+\def \bhs@zvalue {#1}\bhs@outztrue \def \bhs@zkind {#2}}
+
+\def \bhs@yset #1#2{% set level y
+\def \bhs@ykind {#2}\def \bhs@value {#1}%
+\ifx \bhs@yvalue \bhs@value \else 
+	\def \bhs@yvalue {#1}\bhs@outytrue \bhs@zreset 
+	\if #2I\ifnum #1 = 0 
+		\bhs@outyfalse \bhs@outzfalse
+	\fi\fi
+\fi }
+
+\def \bhs@xset #1#2{% set level x
+\def \bhs@xkind {#2}\def \bhs@value {#1}%
+\ifx \bhs@xvalue \bhs@value \else 
+	\def \bhs@xvalue {#1}\bhs@outxtrue \bhs@yreset 
+	\if #2I\ifnum #1 = 0 
+		\bhs@outxfalse \bhs@outyfalse \bhs@outzfalse
+	\fi\fi
+\fi }
+
+\def \bhs@yreset {% reset level y
+\def \bhs@yvalue {1}\def \bhs@ykind {I}\bhs@outytrue \bhs@zreset }
+
+\def \bhs@zreset {% reset level z
+\def \bhs@zvalue {1}\def \bhs@zkind {I}\bhs@outztrue }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \bhs@yout {% verse
+\putwordb@x {\tracingmacros 0 \rm $^{\bhs@yvalue }$\space }\a@spacetrue }
+
+\def \bhs@xout {% chapter
+\putwordb@x {\tracingmacros 0 \bf \bhs@xvalue \space }}
+
+\def \bhs@aout {% heading
+{\tracingmacros 0 \rm \hfill \bhs@@label }\bigskip }
+
+\def \bhs@out {% print new label
+\ifbhs@outa \bhs@outafalse \bhs@aout \fi
+\ifbhs@outx \bhs@outxfalse \bhs@xout \fi
+\ifbhs@outy \bhs@outyfalse \bhs@yout \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

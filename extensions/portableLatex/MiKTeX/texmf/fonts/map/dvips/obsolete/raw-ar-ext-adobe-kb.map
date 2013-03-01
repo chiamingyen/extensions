@@ -1,0 +1,16 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% raw-ar-ext-adobe-kb.map: map file with basic ps fonts (those available
+%   to the acrobat reader and most printers). Downloads type1 fonts and
+%   assumes Berry names.
+%
+% "Faked" ExtendFont / SlantFont with download. Useful for ps2pk and pdftex.
+rphvbrn Helvetica-Bold ".82 ExtendFont" <phvb8a.pfb
+rphvbon Helvetica-BoldOblique ".82 ExtendFont" <phvbo8a.pfb
+rphvrrn Helvetica ".82 ExtendFont" <phvr8a.pfb
+rphvron Helvetica-Oblique ".82 ExtendFont" <phvro8a.pfb
+rpsyro Symbol ".167 SlantFont" <psyr.pfb
+rptmbo Times-Bold ".167 SlantFont" <ptmb8a.pfb
+rptmrrn Times-Roman ".82 ExtendFont" <ptmr8a.pfb
+rptmro Times-Roman ".167 SlantFont" <ptmr8a.pfb
+rptmrre Times-Roman "1.2 ExtendFont" <ptmr8a.pfb

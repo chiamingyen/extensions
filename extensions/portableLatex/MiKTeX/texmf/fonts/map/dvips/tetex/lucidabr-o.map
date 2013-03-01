@@ -1,0 +1,34 @@
+% Thomas Esser, 2003, public domain.
+%
+% lucidabr-o.map: support old (non-berry) names for lucida bright family
+%
+lbc LucidaCalligraphy-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbc.pfb
+lbd LucidaBright-Demi "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbd.pfb
+lbdi LucidaBright-DemiItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbdi.pfb
+lbdsc LucidaBrightSmallcaps-Demi "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbdsc.pfb
+lbh LucidaHandwriting-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbh.pfb
+lbi LucidaBright-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbi.pfb
+lbki LucidaCasual-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbki.pfb
+lbkr LucidaCasual "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbkr.pfb
+lbl LucidaBlackletter "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbl.pfb
+lbr LucidaBright "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbr.pfb
+lbrsc LucidaBrightSmallcaps "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbrsc.pfb
+lbsl LucidaBright-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbsl.pfb 
+lbtb LucidaTypewriterBold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbtb.pfb
+lbtbo LucidaTypewriterBoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbtbo.pfb
+lbto LucidaTypewriterOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbto.pfb
+lbtr LucidaTypewriter "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lbtr.pfb
+lfd LucidaFax-Demi "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lfd.pfb
+lfdi LucidaFax-DemiItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lfdi.pfb
+lfi LucidaFax-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lfi.pfb
+lfr LucidaFax "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lfr.pfb
+lsb LucidaSans-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsb.pfb
+lsbi LucidaSans-BoldItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsbi.pfb
+lsd LucidaSans-Demi "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsd.pfb
+lsdi LucidaSans-DemiItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsdi.pfb
+lsi LucidaSans-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsi.pfb
+lsr LucidaSans "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsr.pfb
+lstb LucidaSans-TypewriterBold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lstb.pfb
+lstbo LucidaSans-TypewriterBoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lstbo.pfb
+lsto LucidaSans-TypewriterOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lsto.pfb
+lstr LucidaSans-Typewriter "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <lstr.pfb

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/resume"><TPM:Name>resume</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description></TPM:Description><TPM:RunFiles size="25626">texmf\tex\latex\resume\res.cls texmf\tpm\packages\resume.tpm</TPM:RunFiles><TPM:TimePackaged>999424503</TPM:TimePackaged><TPM:MD5>c18ab993ea418ff6668224c884abbf97</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% afoot.sty
+% ArabTeX footnotes
+% 12.05.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \undefined \LaTeX \xpa \endinput \fi
+
+\a@ident {afoot.sty} {3.11 ArabTeX footnotes} {12.05.2003}
+
+%%%%%%%%%%%%%%%%%%% \footnote in an arabic environment %%%%%%%%%%%%%%%
+% footnotes inside an Arabic environment, Roman document style
+
+\let \a@@footnotemark \@footnotemark
+\let \a@@footnotetext \@footnotetext
+
+\def \a@footnotemark {% inside Arabic environment
+\iftrans \unskip \unskip \nobreak \@makefnmark \fi 
+\ifarab \a@spacefalse \putwordb@x \@makefnmark \a@spacetrue \fi }
+
+\long\def \a@footnotetext #1{\a@@footnotetext {#1}\arab@tail }
+
+\at@arabtext {% inside Arabic environments
+\let \@footnotemark \a@footnotemark 
+\let \@footnotetext \a@footnotetext }
+
+\def \a@c@footnote {% ArabTeX-LaTeX version
+\let \@footnotemark \a@footnotemark 
+\unarab@codes \footnote }
+
+\def \a@c@footnotemark {% ArabTeX-LaTeX version
+\def \@footnotemark {\a@footnotemark \arab@tail }%
+\unarab@codes \footnotemark }
+
+\long\def \a@c@footnotetext {% ArabTeX-LaTeX version
+\unarab@codes \footnotetext }
+
+\def \LRfootnotes {% left to right footnotes
+\def \a@fnhook {\a@@mkfntext }% Roman document
+%\def \a@fnhook {\a@rmfntext }% Roman document
+\def \a@@fnhook {\a@rmfntext }% Arabic document
+}
+
+\all@wcmd \LRfootnotes			\LRfootnotes	% default
+
+%%%%%%%%%%%%%%%%%%% \footnote in an arabic environment %%%%%%%%%%%%%%%
+% footnotes inside an Arabic environment, Arabic document style
+
+\iffalse
+\def \a@@footnote {% ArabTeX-LaTeX version
+\def \@footnotemark {%
+	\a@spacefalse \putwordb@x \@makefnmark \a@spacetrue }%
+\def \a@@fntext ##1{% common part for footnote text
+	\def \end {\a@par \egroup \test@token }%
+	\hsize \columnwidth \@parboxrestore 
+	\initlineb@x \@footnotemark \test@token ##1 \end }
+}
+
+\def \a@@footnotemark {%
+\def \@footnotemark % ArabTeX-LaTeX version
+	{\a@spacefalse \putwordb@x \@makefnmark \a@spacetrue \test@token }%
+\footnotemark }
+\fi
+
+\long\def \a@@fntext #1{% common part for footnote text
+%\def \@footnotemark {%
+%	\a@spacefalse \putwordb@x \@makefnmark \a@spacetrue }%
+\def \end {\a@par \egroup \test@token }%
+	\a@hsize \columnwidth \hsize \columnwidth \@parboxrestore 
+	\initlineb@x \putwordb@x \@makefnmark \a@spacetrue
+\set@arabfont
+	\arabtrue \test@token #1 \end }
+
+\long\def \a@@@fntext #1{% common part for RL footnote text, Roman mode
+%\def \@footnotemark {%
+%	\a@spacefalse \putwordb@x \@makefnmark \a@spacetrue }%
+\def \end {\a@par \egroup }%
+	\a@hsize \columnwidth \hsize \columnwidth \@parboxrestore 
+	\the\arabtext@hook \putwordb@x \@makefnmark \a@spacetrue
+	\test@token #1 \end }
+
+%%%%%%%%%%%%%%%%%%% \footnote in an arabic environment %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%w%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \RLfootnotes {% right to left footnotes
+\def \a@fnhook {\a@@@fntext }% Roman document
+\def \a@@fnhook {\a@@fntext }% Arabic document
+}
+
+\all@wcmd \RLfootnotes
+
+\let \arabfootnotes \RLfootnotes	\all@wcmd \arabfootnotes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

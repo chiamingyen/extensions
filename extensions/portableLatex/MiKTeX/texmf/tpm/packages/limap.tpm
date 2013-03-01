@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/limap"><TPM:Name>limap</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Typeset maps and blocks according to the Information Mapping method.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The Information Mapping method provides a methodology for
+      structuring and presenting information.  It claims to be useful
+      for readers who are more concerned about finding the right
+      information than reading the document as a whole.  Thus short,
+      highly structured, and context free pieces of information are
+      used. A LaTeX style and a LaTeX class are provided.  The style
+      contains definitions to typeset maps and blocks according to the
+      Information Mapping method.  The class provides all definitions
+      to typeset a whole document.</TPM:Description><TPM:RunFiles size="22766">texmf\tex\latex\limap\limap.cls texmf\tex\latex\limap\limap.sty texmf\tpm\packages\limap.tpm</TPM:RunFiles><TPM:SourceFiles size="46933">texmf\source\latex\limap\limap.dtx texmf\source\latex\limap\limap.ins texmf\source\latex\limap\Makefile</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>53bc2e69604b2b58f20585a21e7d4bee</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,51 @@
+
+% Croatian Glagolitic
+% Basska plate, 11th century
+% 1995, darko.zubrinic@etf.hr
+
+% x = trokutasti a
+% 1 = trokutasti a (bez horizontalne precckice) -- Sumpetarski odlm.
+% j = sljubljeni kljucc (vidi Fuccich, Gl.natpisi str. 13,
+      % nastaje i gubi se u 13.st
+% 3, 4 = tvrdi znak (dvije varijante), prva je kao kljucc
+
+% BASSCCANSKA PLOCCA, mala slova su glagoljiccka, velika lat.
+% sijeccanj 95.
+
+
+mode_setup;
+ font_size 10pt#;
+ u#:=.8pt#; font_quad= 24u#;
+            font_normal_space= 10u#; %9
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 2u#;
+ em#:=10pt#;  cap#:=7pt#;
+ thin#:=2/3pt#; thick#:=.9*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=round 1.1*1/10em; %1.1
+
+
+
+\input basscc
+
+\input glz
+
+ligtable "c": "c" =: oct"013",  "h" =: oct"011";
+ligtable "C": "C" =: oct"023";
+ligtable "s": "s" =: oct"014"; %umjesto sh
+ligtable "z":    "z" =: oct"015", "o" kern -.5u#,
+              "u" kern -.5u#;
+%ligtable "d": "d" =: oct"016"; % "d" =: oct"012";
+ligtable "y": "a" =: "w", "e" =: "w", "u" =: oct"004";
+ligtable "-": "-" =: oct"173";
+%ligtable "e": "i" kern -.5u#;
+%ligtable "f": "o" kern -u#, "u" kern -u#, "i" kern -.5u#, "g" kern-.5u#;
+%ligtable "i": "f" kern -.5u#;
+%ligtable "r": "k" kern -.5u#;
+%ligtable "n": "a" kern -.5u#;
+%ligtable "j": "a" kern -.5u#;
+
+end.
+

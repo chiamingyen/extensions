@@ -1,0 +1,30 @@
+%%% Save file as: TIME.STY (TIME.TEX)      Source: FILESERV@SHSU.BITNET  
+%%% Author: Sunando Sen <sens@nyuacf.bitnet> <sens@acfcluster.nyu.edu>
+%%% Source: INFO-TeX@SHSU.edu, Mon, 6 Jan 1992 23:14 EST
+%%% Purpose: The command \now produces the current time in hh:mm A.M./P.M.
+%%%          format; similar to \today
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%  Macro to write the current time  %%%%%%%%%%%%%%%%%%%
+%          \now produces the current time, e.g., 11:15 A.M.            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcount\hour \newcount\minute
+\hour=\time \divide \hour by 60
+\minute=\time
+
+\count99=\hour \multiply \count99 by -60 \advance \minute by \count99
+
+\def\now{%
+\ifnum \hour<13
+  \ifnum \hour=0 \advance \hour by 12 \number\hour:\else \number\hour:\fi%
+     \ifnum \minute<10 0\fi%
+     \number\minute%
+\ A.M.%
+\else \advance \hour by -12 \number\hour:%
+  \ifnum \minute<10 0\fi%
+  \number\minute%
+  \ P.M.%
+\fi%
+}
+
+\endinput

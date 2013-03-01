@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/mhequ"><TPM:Name>mhequ</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Multicolumn equations, tags, labels, sub-numbering.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>MHequ simplifies the creation of multi-column equation
+      environments, and to tag the equations therein. It supports
+      sub-numbers of blocks of equations (like (1.2a), (1.2b), etc)
+      and references to each equation individually (1.2a) or to the
+      whole block (1.2).  The labels can be shown in draft mode.</TPM:Description><TPM:RunFiles size="12271">texmf\tex\latex\mhequ\mhequ.sty texmf\tpm\packages\mhequ.tpm</TPM:RunFiles><TPM:DocFiles size="45071">texmf\doc\latex\mhequ\example.pdf</TPM:DocFiles><TPM:SourceFiles size="1393">texmf\source\mhequ-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1209754074</TPM:TimePackaged><TPM:MD5>ed3d497e079764f530fe8c39fe208a18</TPM:MD5></rdf:Description></rdf:RDF>

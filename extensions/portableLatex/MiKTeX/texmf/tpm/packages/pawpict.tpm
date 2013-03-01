@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/pawpict"><TPM:Name>pawpict</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Using graphics from PAW.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Support for the easy inclusion of graphics made by PAW
+      (Physics Analysis Workstation). You need to have PAW installed
+      on your system to benefit from this package. This package is
+      now obsolete and will not be supported anymore.</TPM:Description><TPM:RunFiles size="2212">texmf\tex\latex\pawpict\pawpict.sty texmf\tpm\packages\pawpict.tpm</TPM:RunFiles><TPM:SourceFiles size="38626">texmf\source\latex\pawpict\pawpict.dtx texmf\source\latex\pawpict\pawpict.ins texmf\source\latex\pawpict\README</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>e73d1de7aadafeef252224370a89ed72</TPM:MD5></rdf:Description></rdf:RDF>

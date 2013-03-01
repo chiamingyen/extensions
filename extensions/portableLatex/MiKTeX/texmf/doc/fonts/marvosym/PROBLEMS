@@ -1,0 +1,34 @@
+Problem:
+LaTeX complains with
+! Font U/mvs/m/n/10=umvs at 10.0pt not loadable: Bad metric (TFM) file.
+<to be read again> 
+
+Possible cause:
+File umvs.tfm was not downloaded in BINARY mode.
+
+Solution:
+Download all files again, this time in BINARY mode.
+
+
+Problem:
+Some versions of dvips (e.g. 5.76) complain with error message
+<marvosym.pfb> Second number not found ...
+or similar
+
+Possible cause:
+There is a problem with partial font downloading feature of dvips
+
+Solution:
+Turn off partial font downloading with
+dvips -j0 <dvi-file>
+
+
+Problem:
+Ghostscript complains. No errors with LaTeX or dvips.
+
+Possible cause:
+Spelling error in Font map file.
+
+Solution:
+Check line (especially the spaces)
+umvs MarVoSym <marvosym.pfb

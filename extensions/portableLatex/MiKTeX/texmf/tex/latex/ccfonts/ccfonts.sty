@@ -1,0 +1,97 @@
+%%
+%% This is file `ccfonts.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% ccfonts.dtx  (with options: `package')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from ccfonts.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file ccfonts.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+\NeedsTeXFormat{LaTeX2e}[1995/06/01]
+\ProvidesPackage{ccfonts}
+           [2000/06/30 v1.1 (WaS)]
+\renewcommand{\rmdefault}{ccr}
+\def\cc@baselineskip@table
+   {<\@viiipt>10<\@ixpt>11.5<\@xpt>13<\@xipt>14.5<\@xiipt>16}
+\def\cc@setfontsize#1#2#3%
+   {\edef\@tempa{\def\noexpand\@tempb####1<#2}%
+    \@tempa>##2<##3\@nil{\def\cc@baselineskip@value{##2}}%
+    \edef\@tempa{\noexpand\@tempb\cc@baselineskip@table<#2}%
+    \@tempa><\@nil
+    \ifx\cc@baselineskip@value\@empty
+       \def\cc@baselineskip@value{#3}%
+    \fi
+    \old@setfontsize{#1}{#2}\cc@baselineskip@value}
+\let\old@setfontsize=\@setfontsize
+\let\@setfontsize=\cc@setfontsize
+\DeclareOption{standard-baselineskips}{%
+ \let\@setfontsize=\old@setfontsize}
+\DeclareOption{exscale}{
+\DeclareFontFamily{OMX}{ccex}{}
+\DeclareFontShape{OMX}{ccex}{m}{n}{%
+<-8>sfixed*xccex7%
+<8>xccex8%
+<9>xccex9%
+<10><10.95><12><14.4><17.28><20.74><24.88>xccex10%
+}{}
+\newdimen\big@size
+\addto@hook\every@math@size{\setbox\z@\vbox{\hbox{$($}\kern\z@}%
+   \global\big@size 1.2\ht\z@}
+\def\bBigg@#1#2{%
+   {\hbox{$\left#2\vcenter to#1\big@size{}\right.\n@space$}}}
+\def\big{\bBigg@\@ne}
+\def\Big{\bBigg@{1.5}}
+\def\bigg{\bBigg@\tw@}
+\def\Bigg{\bBigg@{2.5}}
+}
+\let\upDelta\Delta
+\let\upOmega\Omega
+\DeclareOption{slantedGreek}{%
+ \DeclareMathSymbol{\Gamma}{\mathalpha}{letters}{0}
+ \DeclareMathSymbol{\Delta}{\mathalpha}{letters}{1}
+ \DeclareMathSymbol{\Theta}{\mathalpha}{letters}{2}
+ \DeclareMathSymbol{\Lambda}{\mathalpha}{letters}{3}
+ \DeclareMathSymbol{\Xi}{\mathalpha}{letters}{4}
+ \DeclareMathSymbol{\Pi}{\mathalpha}{letters}{5}
+ \DeclareMathSymbol{\Sigma}{\mathalpha}{letters}{6}
+ \DeclareMathSymbol{\Upsilon}{\mathalpha}{letters}{7}
+ \DeclareMathSymbol{\Phi}{\mathalpha}{letters}{8}
+ \DeclareMathSymbol{\Psi}{\mathalpha}{letters}{9}
+ \DeclareMathSymbol{\Omega}{\mathalpha}{letters}{10}
+}
+\DeclareOption{boldsans}{%
+  \renewcommand{\bfdefault}{sbc}}
+\ProcessOptions\relax
+\DeclareSymbolFont  {operators}   {OT1}{ccr} {m}{n}
+\DeclareSymbolFont  {letters}     {OML}{ccm} {m}{it}
+\DeclareSymbolFont  {symbols}     {OMS}{ccsy}{m}{n}
+\DeclareSymbolFont  {largesymbols}{OMX}{ccex}{m}{n}
+\DeclareMathAlphabet{\mathbf}     {OT1}{ccr}{bx}{n}
+\DeclareMathAlphabet{\mathit}     {OT1}{ccr} {m}{it}
+\AtBeginDocument{
+   \DeclareFontFamily{U}{msa}{}
+   \DeclareFontShape{U}{msa}{m}{n}{%
+   <5><6><7><8><9><10>gen*xccam%
+   <10.95><12><14.4><17.28><20.74><24.88>xccam10}{}
+   \DeclareFontFamily{U}{msb}{}
+   \DeclareFontShape{U}{msb}{m}{n}{%
+   <5><6><7><8><9><10>gen*xccbm%
+   <10.95><12><14.4><17.28><20.74><24.88>xccbm10}{}
+}
+\normalsize
+\endinput
+%%
+%% End of file `ccfonts.sty'.

@@ -1,0 +1,65 @@
+%
+% The following files form the SplitIndex Bundle and also every
+% SplitIndex Distribution since 2002.
+%
+%
+% CONTENTS OF THE SplitIndex DISTRIBUTION
+% =======================================
+%
+% Documentation:
+% --------------
+%
+% manifest.txt      --  This file.
+% install.txt       --  How to install SplitIndex (overview).
+% README            --  Should be read first.
+% splitindex.1      --  The unix manual page of all SplitIndex
+%                       programs.
+%
+%
+% LaTeX files:
+% ------------
+%
+% splitidx.dtx      --  The source of the splitidx package and of the
+%                       manual.
+% splitidx.ins      --  The installation script for the splitidx
+%                       package.
+%
+%
+% Program sources:
+% ----------------
+%
+% splitindex.pl     --  The source of the reference implementation of
+%                       the SplitIndex program.
+% splitindex.java   --  The source of the SUN JAVA 1.4.1 implementation
+%                       of the SplitIndex program.
+% splitindex.c      --  The source of the C implementation of the
+%                       SplitIndex program.
+% splitindex.tex    --  The source of the TeX implementation of the
+%                       SplitIndex program.
+%
+%
+% Programs (binaries):
+% --------------------
+%
+% splitindex.pl     --  Perl is an interpreter, so this is the source
+%                       and the program itself (but not binary)
+% splitindex.class  --  The SUN JAVA 1.4.1 bitcode of the SplitIndex
+%                       program.
+% splitindex-Linux-i386
+%                   --  The Linux-i386-ELF binary of the SplitIndex
+%                       program.
+% splitindex-OpenBSD-i386
+%                   --  The OpenBSD-i386 binary of the SplitIndex
+%                       program.
+% splitindex.exe    --  The CygWin-i386 (Win32) binary the SplitIndex
+%                       program.
+%
+%
+% Installation programs:
+% ----------------------
+%
+% install.sh        --  See `install.txt' for more information about
+%                       this.
+%
+% ====================================================================
+%

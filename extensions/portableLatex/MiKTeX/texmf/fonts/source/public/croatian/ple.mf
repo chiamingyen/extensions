@@ -1,0 +1,89 @@
+
+% Croatian Wattle Patterns
+% Circular wattle pattern, 1994, darko.zubrinic@etf.hr
+
+mode_setup;
+ font_size 10pt#;
+ u#:=.8pt#; font_quad= 24u#;
+            font_normal_space= 9u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 2u#;
+ em#:=10pt#; cap#:=7pt#;
+ thin#:=2/3pt#; thick#:=.9*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=round 1.1*1/10em;
+
+
+beginchar("a",10cap#,5cap#,5cap#); "veliki, gusti pleter"; %10
+pickup pencircle scaled .2thick;
+n:=20; % 20
+kuts:=360/(2n);
+z0=(.5w,0);
+r:=.7*.5w; % .7
+R:=.5w;
+.5[x7,x6]=.5[w-(R-r),w];
+x8-x7=x7-x6=x6-x5=1.41*1/7*(R-r);  % def z5,...,z8
+y5=y6=y7=y8=0;
+z1=(w,0) rotatedaround (z0,kuts);
+z4=(w-3*1/7*(R-r),0) rotatedaround (z0,kuts);
+z1-z2=z2-z3=z3-z4; % def z1,...,z4
+z9=(w-(R-r),0) rotatedaround (z0,-kuts);
+z12=(w-(R-r)+3*1/7*(R-r),0) rotatedaround (z0,-kuts);
+z12-z11=z11-z10=z10-z9; % def z9,...,z12
+
+path p[]; path q[];
+path qq[]; path pp[];
+path p$[]; path q$[];
+path qq$[]; path pp$[];
+
+for l=1 upto 5:
+kutt[l]:=(2l-1)*360/(2n);
+kuttt[l]:=kutt[l]-360/n;
+
+for k=1 upto 12: z'[k][l]=z[k] rotatedaround (z0,kutt[l]); endfor
+kut[l]=angle (z'[9][l]-z'[1][l]); %-10;
+p[l]= z'[1][l]{dir (kutt[l]-90)}..tension1.1..
+      {dir(kut[l])}z'[8][l]..{dir (kuttt[l]-90)}z'[12][l];
+q[l]= z'[2][l]{dir(kutt[l]-90)}..{dir(kut[l])}z'[7][l]..
+      {dir(kuttt[l]-90)}z'[11][l];
+qq[l]= z'[3][l]{dir(kutt[l]-90)}..{dir(kut[l])}z'[6][l]..
+       {dir(kuttt[l]-90)}z'[10][l];
+pp[l]= z'[4][l]{dir(kutt[l]-90)}..{dir(kut[l])}z'[5][l]..
+       {dir(kuttt[l]-90)}z'[9][l];
+
+p$[l]= p[l] reflectedabout (z0,z'[8][l]);
+q$[l]= q[l] reflectedabout (z0,z'[8][l]);
+qq$[l]= qq[l] reflectedabout (z0,z'[8][l]);
+pp$[l]= pp[l] reflectedabout (z0,z'[8][l]);
+
+pickup pencircle   scaled .2thick;
+draw p[l];
+pickup pencircle   scaled .1thick;
+draw q[l]; draw qq[l];
+pickup pencircle   scaled .2thick;
+draw pp[l];
+draw p$[l];
+pickup pencircle   scaled .1thick;
+draw q$[l];  draw qq$[l];
+pickup pencircle   scaled .2thick;
+draw pp$[l];
+
+unfill z'[1][l]--z'[4][l]{dir(kutt[l]-90)}..{dir(kut[l])}z'[5][l]..
+{dir(kuttt[l]-90)}z'[9][l]--z'[12][l]{dir(90+kuttt[l])}..
+{dir(kut[l]-180)}z'[8][l]..{dir(90+kutt[l])}z'[1][l]..cycle;
+draw p[l];
+pickup pencircle   scaled .1thick;
+draw q[l]; draw qq[l];
+pickup pencircle scaled .2thick;
+draw pp[l];
+endfor
+transform s; s=identity rotatedaround (z0,90);
+addto currentpicture also currentpicture transformed s;
+addto currentpicture also currentpicture transformed (s transformed s);
+endchar;
+
+
+end.
+

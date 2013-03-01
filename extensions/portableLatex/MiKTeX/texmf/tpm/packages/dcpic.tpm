@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/dcpic"><TPM:Name>dcpic</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Commutative diagrams in a LaTeX and TeX documents.</TPM:Title><TPM:Version></TPM:Version><TPM:TargetSystem></TPM:TargetSystem><TPM:Description>DCpic is a package for typesetting Commutative Diagrams within a LaTeX
+and TeX documents. Its distinguishing features are: a powerful
+graphical engine, the PiCTeX package; an easy specification syntax in
+which a commutative diagram is described in terms of its objects and
+its arrows (morphism), positioned in a Cartesian coordinate system.
+</TPM:Description><TPM:RunFiles size="45225">texmf\tex\latex\dcpic\dcpic.sty texmf\tpm\packages\dcpic.tpm</TPM:RunFiles><TPM:DocFiles size="425712">texmf\doc\latex\dcpic\examples.tex texmf\doc\latex\dcpic\gpl.txt texmf\doc\latex\dcpic\manPT_dcpic.pdf texmf\doc\latex\dcpic\man_dcpic.pdf texmf\doc\latex\dcpic\README</TPM:DocFiles><TPM:SourceFiles size="3950">texmf\source\dcpic-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1261594589</TPM:TimePackaged><TPM:MD5>3090ec8c055d6ff6875a4b7fbef5bc25</TPM:MD5></rdf:Description></rdf:RDF>

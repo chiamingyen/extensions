@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Preamble
+
+\input epsf.tex
+
+\def \bs {\char`\\}
+
+\def \heading #1{\centerline{\bf #1}}
+
+\def \myfont {%
+    \baselineskip = 9.6pt
+    \font \rm = cmr8 at 8pt
+    \rm
+}
+
+\def \noise
+{%
+    Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah
+    blah blah blah blah blah. Blah blah blah blah blah blah
+}
+
+\def \ARROWPICTURE {\llap{$\Rightarrow$}\PLAINPICTURE\rlap{$\Leftarrow$}}
+
+\def \PLAINPICTURE {\epsffile{tepsf.eps}}
+
+\parindent = 2em
+
+\parskip = 2ex plus 0.5ex minus 0.5ex
+
+%% Page size in mid-Atlantic units
+\voffset = -0.5in
+
+\vsize = 9.5in
+
+\hsize = 12.5cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document body
+
+\myfont
+
+\heading{Test of {\tt epsf.tex}}
+
+\noise
+
+This figure should be centered:
+
+\centerline{XXX\vbox{\PLAINPICTURE}XXX}
+
+\noise
+
+This figure should be left-adjusted:
+
+\leftline{\vbox{\PLAINPICTURE}XXX}
+
+\noise
+
+This figure should be right-adjusted:
+
+\rightline{XXX\vbox{\PLAINPICTURE}}
+
+\noise
+
+This figure should be centered:
+
+\centerline{XXX\hbox{\PLAINPICTURE}XXX}
+
+\noise
+
+This figure should be left-adjusted:
+
+\leftline{\hbox{\PLAINPICTURE}XXX}
+
+\noise
+
+This figure should be right-adjusted:
+
+\rightline{XXX\hbox{\PLAINPICTURE}}
+
+\noise
+
+This figure should be centered with abutting arrows on the baseline:
+
+\centerline{\vbox{\ARROWPICTURE}}
+
+\noise
+
+This figure should be left-adjusted with abutting arrows on the
+baseline, the leftmost of which is in the left margin on the baseline:
+
+\leftline{\vbox{\ARROWPICTURE}}
+
+\noise
+
+This figure should be right-adjusted with abutting arrows on the
+baseline, the rightmost of which is in the right margin on the
+baseline:
+
+\rightline{\vbox{\ARROWPICTURE}}
+
+\noise
+
+\vfill
+\eject
+
+%% ---------------------------------------------------------------------
+
+\bye

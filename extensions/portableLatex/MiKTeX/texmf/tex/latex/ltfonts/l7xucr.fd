@@ -1,0 +1,34 @@
+%Filename: l7xucr.fd
+%Created by: tex makelt
+%Created using fontinst v1.929
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{l7xucr.fd}
+   [2006/09/05 Fontinst v1.929 font definitions for L7x/ucr.]
+
+\DeclareFontFamily{L7x}{ucr}{}
+
+\DeclareFontShape{L7x}{ucr}{b}{n}{
+   <-> l7x-ucrb
+}{}
+
+\DeclareFontShape{L7x}{ucr}{b}{it}{
+   <-> l7x-ucrbo
+}{}
+
+\DeclareFontShape{L7x}{ucr}{m}{n}{
+   <-> l7x-ucrr
+}{}
+
+\DeclareFontShape{L7x}{ucr}{m}{it}{
+   <-> l7x-ucrro
+}{}
+
+\DeclareFontShape{L7x}{ucr}{bx}{n}{<->ssub * ucr/b/n}{}
+\DeclareFontShape{L7x}{ucr}{bx}{it}{<->ssub * ucr/b/it}{}
+\DeclareFontShape{L7x}{ucr}{b}{sl}{<->ssub * ucr/b/it}{}
+\DeclareFontShape{L7x}{ucr}{bx}{sl}{<->ssub * ucr/b/sl}{}
+\DeclareFontShape{L7x}{ucr}{m}{sl}{<->ssub * ucr/m/it}{}
+
+\endinput

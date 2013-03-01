@@ -1,0 +1,89 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_acc : readfrom("gen_acc") fi
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def width = 9.5u enddef;
+def dims = width#,x_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  lft x4r=hround .75u; x8r=w-x4r; y4r=y8r=.5x_height;   %top and bottom
+  top y2r=x_height+oo; bot y6r=-oo; x2r=x6r=.5w;        %right and left
+  filldraw stroke
+    gr_arc.e(8,1,2)(vair,curve,otilt) & gr_arc.e(2,3,4)(vair,curve,otilt) &
+    gr_arc.e(4,5,6)(vair,curve,otilt) & gr_arc.e(6,7,8)(vair,curve,otilt) ;
+  numeric x_baryctr; x_baryctr=x2;                      %accent reference
+enddef;
+     
+     
+cmchar "Lowercase omicron";
+beginchar("o",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase omicron with grave";
+beginchar(oct"344",width#,acc_ht#,0);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase omicron with rough breathing";
+beginchar(oct"345",width#,acc_ht#,0);
+this_letter; spirit(x_baryctr)<; endchar;
+     
+cmchar "Lowercase omicron with smooth breathing";
+beginchar(oct"346",width#,acc_ht#,0);
+this_letter; spirit(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by omicron with grave";
+begindoublechar(oct"347",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase omicron with acute";
+beginchar(oct"354",width#,acc_ht#,0);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase omicron with rough breathing and acute";
+beginchar(oct"355",width#,acc_ht#,0);
+this_letter; spirit_acute(x_baryctr)<; endchar;
+     
+cmchar "Lowercase omicron with smooth breathing and acute";
+beginchar(oct"356",width#,acc_ht#,0);
+this_letter; spirit_acute(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by omicron with acute";
+begindoublechar(oct"357",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase sigma followed by omicron";
+begindoublechar(oct"017",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

@@ -1,0 +1,502 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% ascan.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ascan.sty
+% ArabTeX
+% Standard Scanner 
+% 22.08.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {ascan.sty} {3.11 standard ZDMG input encoding } {22.08.2003}
+
+\chardef \testatcode = \catcode`\@  \catcode`\@ = 11
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \seta@codes {% define standard \ArabTeX input coding
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@@ {@}   % illegal character
+\def \sc@a {a}
+\def \sc@b {b}         
+\def \sc@c {\ift@rk G\else \ifs@nd J\else 
+            \ifm@lay J\else c\fi\fi\fi }          
+\def \sc@d {d}         
+\def \sc@e {e}
+\def \sc@f {\ifm@gh \n@xp \a@F \else f\fi }
+\def \sc@g {\ifm@lay \n@xp \a@K \else g\fi }
+\def \sc@h {h}        
+\def \sc@i {i}
+\def \sc@j {\ift@rk j\else G\fi }  
+\def \sc@k {\ifs@nd \n@xp \a@ax \else 
+            \ifk@fs \n@xp \a@k \else k\fi\fi }         
+\def \sc@l {l}  
+\def \sc@m {m}  
+\def \sc@n {n}  
+\def \sc@o {o}
+\def \sc@p {\ifm@lay v\else p\fi }
+\def \sc@q {\ifm@gh \n@xp \a@Q \else q\fi }
+\def \sc@r {r}  
+\def \sc@s {s}  
+\def \sc@t {t}        
+\def \sc@u {u}
+\def \sc@v {\ifm@gh \n@xp \a@V \else \ift@rk w\else 
+            \ifm@lay \n@xp \a@x \else v\fi\fi\fi }
+\def \sc@w {\ifu@gh \n@xp \a@X \else w\fi }        
+\def \sc@x {X}  
+\def \sc@y {y}  
+\def \sc@z {z}
+\def \sc@A {A}  
+\def \sc@B {B}  
+\def \sc@C {@}  
+\def \sc@D {@}
+\def \sc@E {E}
+\def \sc@F {@}  
+\def \sc@G {\n@xp \a@g }  % Pashto gaf with ring
+\def \sc@H {\n@xp \a@H }  % Heh marbouta
+\def \sc@I {I}  
+\def \sc@J {@}  
+\def \sc@K {K}  
+\def \sc@L {@}
+\def \sc@M {M}  
+\def \sc@N {N}  
+\def \sc@O {O}  
+\def \sc@P {@}
+\def \sc@Q {@}  
+\def \sc@R {@}  
+\def \sc@S {\n@xp \a@S }  
+\def \sc@T {T}  
+\def \sc@U {U}  
+\def \sc@V {v}  
+\def \sc@W {W}  
+\def \sc@X {@}        
+\def \sc@Y {Y}  
+\def \sc@Z {@}
+\a@digits = {0123456789}             
+\a@paren  = {()[]}
+\global\a@first  = {.^_-'`~,|"=:\a@tok \lq \rq \cap \MIN \IN }
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@@scan #1>{% standard scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \a@verb #1>\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\arab@codes % because of special characters
+
+\gdef \set@next #1{\def \next {#1}}
+
+\gdef \t@b@g #1{% start \ArabTeX scanner
+        \def \next {\sc@word {#1}}\def \sc@char {@}%
+\ifcat a\nxp #1\else                                     % letter
+\apply \set@next \tocase #1\of 
+{      \@{\sc@endscan }                % finished
+        '{\t@rquote }
+        `{\t@lquote }
+\default {\sc@word {#1}}
+}\endcase 
+\fi \next }
+
+\gdef \t@w@rd #1{% transform input into internal notation
+     \def \next {\sc@word }%
+\ifx #1\@\def \next {\sc@endscan }\else                 % finished
+\ifcat \nxp #1a%
+        \ifx #1a\def \next {\t@aa }\else                % test for aa -> A
+        \ifx #1n\def \next {\t@nn }\else                % test for ng, ny
+                \edef \sc@char {\csname sc@#1\endcsname }% letter
+                \ifx \sc@char \relax \def \sc@char {#1}%  undef letter
+                \fi 
+                \ifs@nd \edef \next {\nxp \t@asp {\sc@char }}\else \sc@put 
+                \fi
+        \fi\fi \else                                    % other character
+\ifcat \nxp #1\relax \def \next {\t@cs #1}\else         % control sequence
+\ifx #1'\def \next {\t@hamza }\else                     % hamza
+	\def \sc@char {#1}%
+\apply \set@next \tocase #1\of 
+{~\@ldtie{\t@tie }
+        .{\t@dot }
+        ,{\t@comma }
+        -{\t@minus }
+        `{\t@ain }
+        "{\t@dquote }
+       :={\t@colon }
+        ^{\t@up }
+        _{\t@down }
+        |{\t@bar }
+\default {\t@w@@rd {#1}}
+}\endcase 
+\fi\fi\fi\fi \next }
+
+\gdef \t@w@@rd #1{% default branch
+\ifcat \nxp #1\nxp ~\def \next {\t@cs #1}%        % active character
+\else \def \sc@char {\nxp #1}%                    % other character
+        \ifs@nd \edef \next {\nxp \t@asp {\sc@char }}%
+        \else \sc@put \def \next {\sc@word }%
+	\fi
+\fi \next }
+
+} % \arab@codes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@char@next #1#2{\def \sc@char {#1}\def \next {#2}}
+
+\def \set@@c@n #1{\set@char@next #1}
+
+\def \t@cs #1{% control sequence within a word; push back
+\apply \set@@c@n \tocase #1\of 
+{ \a@tok \MIN \IN \cap
+  \shadda \madda \sukun 
+  \raphe \dagesh \mappiq \ldot \rdot \cdot 
+         {{#1}		{\csname t@\xpa\@gobble\string #1\endcsname }}
+ \maqqef {{B}		{\sc@put \sc@word }}
+      \, {{"|}		{\sc@put \sc@word }}
+     \lq {{`}		{\sc@put \sc@word }}
+    \c@p {{\nxp \cap }	{\sc@put \sc@word }}
+   \abbr {{'}		{\sc@put \sc@word }}
+     \rq {{'}		{\sc@put \sc@back }}
+\default {{#1}		{\sc@back #1}}%
+}\endcase \next }
+
+\def \tdef #1{% define robust ArabTeX scanner command 
+\def #1{\nxp #1}%
+\xpa\def \csname t@\xpa\@gobble\string #1\endcsname }
+
+\tdef \a@tok (#1){% direct substitution
+\global \a@tokens \xpa {\the\a@tokens #1}\sc@word }
+
+\tdef \MIN {\def \sc@char {\nxp\a@ao \nxp\a@Zi }\sc@put \sc@word }
+
+\tdef \IN {\def \sc@char {\nxp\a@ai \nxp\a@Zi }\sc@put \sc@word }
+
+\tdef \shadda {\sc@dep {\nxp \a@Ze }}
+\tdef \madda  {\sc@dep {\nxp \a@ZE }}
+\tdef \sukun  {\sc@dep {\nxp \a@e  }}
+\tdef \raphe  {\sc@dep {\nxp \a@Zo }}
+\tdef \dagesh {\sc@dep {\nxp \a@Zu }}
+\tdef \mappiq {\sc@dep {\nxp \a@Zu }}
+\tdef \ldot   {\sc@dep {\nxp \a@Za }}
+\tdef \rdot   {\sc@dep {\nxp \a@Ze }}
+
+\def \t@cdot  {\sc@dep {\nxp \a@Zi }}
+\def \t@cap #1{\sc@word \c@p #1} % kill braces on #1
+
+\def \sc@@back #1\@ \@@ {% end scanning, push back into input
+\global\def \a@rest {#1}\global\let \test@token \test@rest }
+
+\def \sc@@endscan \@@ {\global\let \a@scan \a@@scan }
+
+\def \sc@dep #1{% deposit tokens and proceed
+\def \sc@char {#1}\sc@put \sc@word }
+
+\def \sc@put {% deposit a symbol                                % no group!
+\edef \temp {\global \nxp \a@tokens                                 % \temp
+        {\the\a@tokens \sc@char }}\temp }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \t@rquote #1#2{% context '#1#2 , initial
+\ifh@mza \ifx #1\@ \def \sc@char {QQ}\sc@put % '>
+			\def \next {\sc@endscan #2}\else
+	\ifx #1'\ifx #2\@ \def \sc@char {'}\sc@put 
+			\def \next {\sc@word #2}% ''>
+	        \else \def \sc@char {QQ}\sc@put \def \sc@char {Q}%
+			\def \next {\sc@word '#2}% ''x
+	        \fi
+	\else   \def \sc@char {QQ}\sc@put \def \sc@char {Q}%
+		\def \next {\sc@word #1#2}% 'xy
+	\fi\fi 
+\else   \ifu@gh \def \sc@char {QY}\sc@put 
+	\else \def \sc@char {Q}\sc@put 
+        \fi \def \next {\sc@word #1#2}%
+\fi \next }
+
+\def \t@hamza #1{% context \sc@char ' #1
+\ifh@mza % not verbatim mode
+        \ifx #1'\let \next \t@hamza@ii \else
+        \ifcat -\sc@char \def \sc@char {QQ}\sc@put 
+        \else \xpa\def \xpa\sc@char \xpa{\xpa Q\sc@char }\sc@put 
+        \fi \def \sc@char {Q}\def \next {\sc@word #1}% 
+	\fi 
+\else   % verbatim mode
+	\ifx #1'\def \sc@char {'}\sc@put \let \next \sc@word 
+	\else   \ifu@gh \def \sc@char {QY}\sc@put 
+		\else \def \sc@char {Q}\sc@put
+	        \fi \def \next {\sc@word #1}%
+        \fi 
+\fi \next }
+
+\def \t@hamza@ii #1#2{% context \sc@char '' #1 #2
+\ifcat \nxp #1a%
+	\edef \sc@toks {\the\a@tokens Q\sc@char QQ}%
+	\global \a@tokens =\xpa {\sc@toks }\def \sc@char {Q}%
+\else
+\ifcat \nxp #2a%
+	\edef \sc@toks {\the\a@tokens Q\sc@char QQ}%
+	\global \a@tokens =\xpa {\sc@toks }\def \sc@char {Q}%
+\else \def \sc@char {'}\sc@put 		% right quote
+\fi\fi \sc@word #1#2}
+
+\def \t@dquote #1{% verbatim
+\ifx #1'\ifh@mza \def \sc@char {"QQ}\sc@put 
+	\else \def \sc@char {"Q}\sc@put 
+        \fi \def \sc@char {Q}\let \next \sc@word
+\else \def \sc@char {"}\sc@put \def \next {\sc@word #1}%
+\fi \next }
+
+\def \t@ain {% ` = `ain
+\def \sc@char {P}\sc@put \sc@word }
+
+\def \t@lquote #1#2{% context `#1#2 at the beginning of a word
+\ifx #1`\def \sc@char {`}\sc@put \def \next {\sc@word #2}% ``x
+\else \def \sc@char {P}\sc@put \def \next {\sc@word #1#2}% `xy
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \t@aa #1{% aa -> A
+\edef \@tempa {\sc@char }%
+\xpa\ifx \@tempa Q\def \next {\sc@word #1}\def \sc@char {a}\else
+\ifx #1a\def \sc@char {A}\def \next {\sc@word }\else 
+        \edef \sc@char {\sc@a }\def \next {\sc@word #1}%
+\fi\fi \sc@put \next }
+
+\def \t@nn #1{% after n
+        \def \sc@char {n}\def \next {\sc@word }%
+\ifm@lay \ifx #1g\def \sc@char {\nxp \a@p }\else 
+        \ifx #1y\def \sc@char {\nxp \a@am }\else 
+                \def \next {\sc@word #1}%
+        \fi\fi 
+\else \def \next {\sc@word #1}%
+\fi \sc@put \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \t@minus #1{% after -
+\ifx #1-\def \sc@char {B}\def \next {\sc@word }\else 
+        \def \sc@char {-}\def \next {\sc@word #1}%
+\fi \sc@put \next }
+
+\def \t@bar #1{% after |
+\ifx #1|\def \next {\sc@word \,}\else 
+        \def \sc@char {|}\sc@put \def \next {\sc@word #1}%
+\fi \next }
+
+\def \set@char #1{\def \sc@char {#1}}
+
+\def \t@tail #1#2{% default exit
+\ifx \sc@char \empty \set@char {#1}\def \next {\sc@put \sc@word #2}%
+\else \def \next {\edef \temp {\nxp \t@asp {\sc@char }}\temp }%
+\fi \next }
+
+\def \t@dot #1{% after .
+\apply \set@char \tocase #1\of 
+{       a{\ifk@sh \nxp \a@Za \else \nxp \a@A \fi }
+        b{\nxp \a@b }
+	c{c}
+        d{D}
+        e{\nxp \a@I }
+        f{\nxp \a@f }
+        g{R}
+        h{H}
+        i{\nxp \a@e }
+        k{\ift@rk q\else \nxp \a@k \fi }
+        l{\nxp \a@l }
+        n{\ifp@sht \nxp \a@m \else 
+          \ifs@nd \nxp \a@an \else \nxp \a@n \fi\fi }
+        o{\ifk@sh \nxp \a@Zo \else \nxp \a@O \fi }
+        p{\nxp \a@f }
+        r{\ifs@nd \nxp \a@ar \else \nxp \a@R \fi }
+        s{S}
+        t{V}
+        u{\ifk@sh \nxp \a@Zu \else \nxp \a@U \fi }
+        v{\nxp \a@b }
+        y{\nxp \a@ZI }
+        z{Z}
+	A{\nxp \a@ZA }
+	O{\nxp \a@ZO }
+	U{\nxp \a@ZU }
+        Z{\nxp \a@Zz }
+        T{Y} 
+}\endcase \t@tail .#1}
+
+\def \t@comma #1{% after ,
+\apply \set@char \tocase #1\of 
+{       a{a\nxp \a@H }
+        A{\nxp \a@a \nxp \a@H }
+        c{\ift@rk J\else \nxp \a@c \fi }
+        d{\ifp@sht \nxp \a@aA \else
+          \ifs@nd \nxp \a@D \else \nxp \a@d \fi\fi }
+        e{e\nxp \a@H }
+        g{\nxp \a@L }
+        h{\nxp \a@h }
+        n{\ifs@nd \nxp \a@an \else \nxp \a@M \fi }
+        r{\ifp@sht \nxp \a@q \else 
+          \ifs@nd \nxp \a@ar \else \nxp \a@r \fi\fi }
+        s{\ift@rk x\else \nxp \a@s \fi }
+        t{\ifp@sht \nxp \a@v \else 
+          \ifs@nd \nxp \a@at \else \nxp \a@t \fi\fi }
+        z{\ift@rk D\else \nxp \a@z \fi }
+}\endcase \t@tail ,#1}
+
+\def \t@up #1{% after ^
+\apply \set@char \tocase #1\of 
+{       c{J}
+        d{\nxp \a@D }
+        e{\nxp \a@E }
+        g{\ift@rk \nxp \a@p \else \ifk@rd R\else 
+		\ifu@gh R\else G\fi\fi\fi }
+	l{\nxp \a@l }
+        n{\ifs@nd \nxp \a@ag \else \ifm@lay M\else K\fi\fi }
+        s{x}
+        u{U}
+        z{j}
+}\endcase \t@tail ^#1}
+
+\def \t@down #1{% after _
+\apply \set@char \tocase #1\of 
+{       a{\nxp \a@a }
+        A{Y}
+        d{F}
+        e{\nxp \a@E }
+        h{X}
+        i{\nxp \a@i }
+        k{R}
+        o{\nxp \a@o }
+        O{\nxp \a@O }
+        s{C}
+        t{C}
+        u{\nxp \a@u }
+        U{\nxp \a@o }
+        z{F} 
+}\endcase \t@tail @#1}
+
+\gdef \t@colon #1{% after = or :
+\apply \set@char \tocase #1\of 
+{       a{\ifu@gh \nxp \a@H \else \nxp \a@A \fi }
+        b{\nxp \a@ab }
+        d{\nxp \a@ae }
+        e{\nxp \a@I }
+        g{\nxp \a@ak }
+        i{\nxp \a@I }
+        j{\nxp \a@ah }
+        I{\nxp \a@e }
+        n{\nxp \a@al }
+        o{\ifu@gh \nxp \a@W \else \nxp \a@O \fi }
+        s{\nxp \a@aJ }
+        O{\nxp \a@P }
+        t{V}
+        u{\ifu@gh \nxp \a@aw \else \nxp \a@U \fi }
+        U{\nxp \a@w }
+        z{D}
+}\endcase \t@tail :#1}
+
+\gdef \t@colon #1{% after = or :
+\apply \set@char \tocase #1\of 
+{       a{\nxp \a@A }
+        b{\nxp \a@ab }
+        d{\nxp \a@ae }
+        e{\nxp \a@I }
+        g{\nxp \a@ak }
+        i{\nxp \a@I }
+        j{\nxp \a@ah }
+        I{\nxp \a@e }
+        n{\nxp \a@al }
+        o{\nxp \a@O }
+        s{\nxp \a@aJ }
+        O{\nxp \a@P }
+        t{V}
+        u{\nxp \a@U }
+        U{\nxp \a@w }
+        z{D}
+}\endcase \t@tail :#1}
+
+\def \t@tie #1{% after ~
+\apply \set@char \tocase #1\of 
+{       l{\nxp \a@l }
+        g{\nxp \a@p }
+        n{\ifs@nd \nxp \a@ag \else \ifm@lay M\else K\fi\fi }
+}\endcase \t@tail ^#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \t@asp #1#2{% test for hah
+\ifs@nd \ifx #2h\def \next {\t@@asp {#1}}%
+        \else \def \next {\sc@put \sc@word #2}%
+        \fi 
+\else \def \next {\sc@put \sc@word #2}%
+\fi \next }
+
+\def \t@@asp #1{% test for aspiration
+\apply \set@char \tocase #1\of 
+{       b{\nxp \a@ap }
+        c{J}
+        d{\nxp \a@ad }
+        p{\nxp \a@aq }
+        k{\ifs@nd \nxp \a@k \else X\fi }
+        t{\nxp \a@ac }
+        J{\nxp \a@aj }
+     \a@D{\nxp \a@af }
+    \a@at{\nxp \a@T }
+    \a@ax{\nxp \a@k }
+}\endcase 
+\ifx \empty \sc@char \def \sc@char {\nxp #1}\def \next {\sc@word h}%
+\else \def \next {\sc@word }%
+\fi \sc@put \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% preparations for additional scanners
+\def \setcode #1{% switch the input encoding
+\lowercase {\def \sc@code {#1}%
+\ifx \sc@code \sc@oldcode \else
+\begingroup \def \sc@lookup ##1#1##2##3\@@ {\endgroup ##2}%
+\xpa \sc@lookup \sc@table #1\sc@default \@@ \fi }%
+\let \sc@oldcode \sc@code }
+
+\pdef \stdcode #1{% prepare temp switch to standard
+\let \a@oldcode \sc@code \sc@standard \test@token #1 \@stdcode }
+
+\def \a@c@@stdcode {\xpa\setcode\xpa{\a@oldcode }}
+
+\all@w@ne \stdcode
+\xpa \all@w@ne \csname stdcode \endcsname
+
+\def \sc@table {% table of code names
+standard\sc@standard                arabtex\sc@standard }
+
+\def \sc@restore {% restore scanner defaults
+\let \vocalize \v@calize    \let \fullvocalize \fullv@calize  
+\let \sc@beg \t@b@g         \let \sc@word \t@w@rd      
+\let \sc@back \sc@@back     \let \sc@endscan \sc@@endscan
+\let \a@scan \a@@scan       \seta@codes 
+\let \arab@codes \a@arab@codes
+\let \unarab@codes \a@unarab@codes
+}
+
+\def \sc@standard {\sc@restore % standard encoding
+\ifx \sc@code \sc@oldcode \else
+\a@message {input encoding set to ArabTeX standard conventions.}\fi }
+
+\def \sc@default {\sc@restore % unknown encoding
+\a@message {unknown input encoding `\sc@code'; 
+ArabTeX standard encoding is assumed.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for code `arabtex' installed.}
+\let \sc@oldcode \@ 	\setcode {standard}	% default
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

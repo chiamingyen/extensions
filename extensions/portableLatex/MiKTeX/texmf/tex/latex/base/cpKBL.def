@@ -1,0 +1,153 @@
+%%
+%% This is file `cpKBL.def',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% inputenc.dtx  (with options: `cpKBL')
+%%
+%% This is a generated file.
+%%
+%% Copyright 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006
+%% The LaTeX3 Project and any individual authors listed elsewhere
+%% in this file.
+%%
+%% This file was generated from file(s) of the LaTeX base system.
+%% --------------------------------------------------------------
+%%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This file has the LPPL maintenance status "maintained".
+%%
+%% This file may only be distributed together with a copy of the LaTeX
+%% base system. You may however distribute the LaTeX base system without
+%% such generated files.
+%%
+%% The list of all files belonging to the LaTeX base distribution is
+%% given in the file `manifest.txt'. See also `legal.txt' for additional
+%% information.
+%%
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+ \ProvidesFile{cpKBL.def}
+   [1995/06/06 v0.9d Input encoding file.]
+\ProvideTextCommandDefault{\textonequarter}{$\frac14$}
+\ProvideTextCommandDefault{\textonehalf}{$\frac12$}
+\ProvideTextCommandDefault{\textflorin}{\textit{f}}
+\providecommand{\mathordmasculine}{{{}^o}}
+\providecommand{\mathordfeminine}{{{}^a}}
+\providecommand{\uplow}[3]{\global\uccode#1=#2\global\lccode#1=#3}
+\DeclareInputText{"80}{{\c C}}
+\DeclareInputText{"81}{\"u}
+\DeclareInputText{"82}{\'e}
+\DeclareInputText{"83}{\^a}
+\DeclareInputText{"84}{\"a}
+\DeclareInputText{"85}{\`a}
+\DeclareInputText{"86}{\aa}
+\DeclareInputText{"87}{{\c c}}
+\DeclareInputText{"88}{\^e}
+\DeclareInputText{"89}{\"e}
+\DeclareInputText{"8A}{\`e}
+\DeclareInputText{"8B}{\"\i}
+\DeclareInputText{"8C}{\^\i}
+\DeclareInputText{"8D}{\`\i}
+\DeclareInputText{"8E}{\"A}
+\DeclareInputText{"8F}{\AA}
+\DeclareInputText{"90}{\'E}
+\DeclareInputText{"91}{\ae}
+\DeclareInputText{"92}{\AE}
+\DeclareInputText{"93}{\^o}
+\DeclareInputText{"94}{\"o}
+\DeclareInputText{"95}{\`o}
+\DeclareInputText{"96}{\^u}
+\DeclareInputText{"97}{\`u}
+\DeclareInputText{"98}{\"y}
+\DeclareInputText{"99}{\"O}
+\DeclareInputText{"9A}{\"U}
+\DeclareInputText{"9B}{\textcent}
+\DeclareInputText{"9C}{\textsterling}
+\DeclareInputText{"9D}{\textyen}
+\DeclareInputText{"9F}{\textflorin}
+\DeclareInputText{"A0}{\'a}
+\DeclareInputText{"A1}{\'\i}
+\DeclareInputText{"A2}{\'o}
+\DeclareInputText{"A3}{\'u}
+\DeclareInputText{"A4}{\~n}
+\DeclareInputText{"A5}{\~N}
+\DeclareInputMath{"A6}{\mathordfeminine}
+\DeclareInputMath{"A7}{\mathordmasculine}
+\DeclareInputText{"A8}{\textquestiondown}
+\DeclareInputText{"AB}{\textonehalf}
+\DeclareInputText{"AC}{\textonequarter}
+\DeclareInputText{"AD}{\textexclamdown}
+\DeclareInputText{"AE}{\guillemotleft}
+\DeclareInputText{"AF}{\guillemotright}
+\DeclareInputText{"C4}{\textendash}
+\DeclareInputText{"DC}{{\k A}}
+\DeclareInputText{"DD}{{\k a}}
+\DeclareInputText{"DE}{{\v C}}
+\DeclareInputText{"DF}{{\v c}}
+\DeclareInputMath{"E0}{\alpha}
+\DeclareInputMath{"E1}{\beta}
+\DeclareInputMath{"E2}{\Gamma}
+\DeclareInputMath{"E3}{\Pi}
+\DeclareInputMath{"E4}{\Sigma}
+\DeclareInputMath{"E5}{\sigma}
+\DeclareInputMath{"E6}{\mu}
+\DeclareInputMath{"E7}{\gamma}
+\DeclareInputMath{"E8}{\Theta}
+\DeclareInputMath{"E9}{\theta}
+\DeclareInputMath{"EA}{\Omega}
+\DeclareInputMath{"EB}{\delta}
+\DeclareInputMath{"EC}{\infty}
+\DeclareInputMath{"ED}{\emptyset}
+\DeclareInputMath{"EE}{\varepsilon}
+\DeclareInputMath{"EF}{\cap}
+\DeclareInputText{"F0}{{\k E}}
+\DeclareInputText{"F1}{{\k e}}
+\DeclareInputText{"F2}{{\. E}}
+\DeclareInputText{"F3}{{\. e}}
+\DeclareInputText{"F4}{{\k I}}
+\DeclareInputText{"F5}{{\k i}}
+\DeclareInputText{"F6}{{\v S}}
+\DeclareInputText{"F7}{{\v s}}
+\DeclareInputText{"F8}{{\k U}}
+\DeclareInputText{"F9}{{\k u}}
+\DeclareInputText{"FA}{{\= U}}
+\DeclareInputText{"FB}{{\= u}}
+\DeclareInputText{"FC}{{\v Z}}
+\DeclareInputText{"FD}{{\v z}}
+\uplow{"DC}{"DC}{"DD}\uplow{"DD}{"DC}{"DD}
+\uplow{"F0}{"F0}{"F1}\uplow{"F1}{"F0}{"F1}
+\uplow{"F4}{"F4}{"F5}\uplow{"F5}{"F4}{"F5}
+\uplow{"F8}{"F8}{"F9}\uplow{"F9}{"F8}{"F9}
+\uplow{"F2}{"F2}{"F3}\uplow{"F3}{"F2}{"F3}
+\uplow{"FA}{"FA}{"FB}\uplow{"FB}{"FA}{"FB}
+\uplow{"DE}{"DE}{"DF}\uplow{"DF}{"DE}{"DF}
+\uplow{"F6}{"F6}{"F7}\uplow{"F7}{"F6}{"F7}
+\uplow{"FC}{"FC}{"FD}\uplow{"FD}{"FC}{"FD}
+\endinput
+%% 
+%% End of file `cpKBL.def'.

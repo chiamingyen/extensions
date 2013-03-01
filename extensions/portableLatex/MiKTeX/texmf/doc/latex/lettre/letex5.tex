@@ -1,0 +1,64 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage[english,francais]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+%
+% Fichier de defaut de l'Observatoire
+% ===================================
+\institut{obs}
+%
+% Entete officielle, signature precisee,
+% ======================================
+% langue anglaise, format plain,
+% ==============================
+% precision de departement.
+% =========================
+% Champs: objet, annexes.
+% =======================
+% Lignes auxiliaires de reference et d'E-Mail.
+% ============================================
+%
+\begin{letter}{ \TeX\ Users Group \\
+                P.O.Box 594 \\
+                Providence, RI 02901 \\
+                USA}
+
+\anglais
+\pagestyle{plain}
+
+\name{Denis M\'egevand}
+\psobs
+\location{Dr~D.~M\'egevand\\ Ing\'enieur de recherche}
+\signature{Dr~D.~M\'egevand}
+
+\nref{PCT8289}
+\vref{TUG/kb}
+\faxobs
+\ccpobs
+\username{megevand}
+\ccittobs
+\internetobs
+
+\conc{PiC\TeX\ Manuals}
+\opening{Dear Sir,}
+
+Enclosed, you will find a check of \$60.00 corresponding to your
+invoice \#902 dated June 2,1993 for 2 PiC\TeX\ manuals. 
+
+\closing{Sincerely}
+\encl{1 check}
+
+\end{letter}
+%
+\end{document}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/boldtensors"><TPM:Name>boldtensors</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Bold latin and greek characters through simple prefix characters</TPM:Title><TPM:Version></TPM:Version><TPM:Description>This package provides bold latin and greek characters within \mathversion{normal}, by using ~ and " as prefix characters. 
+
+The authors are Werner Fink and Jürgen Bachteler. The package is Copyright © 2007 Werner Fink.
+
+</TPM:Description><TPM:RunFiles size="10863">texmf\tex\latex\boldtensors\boldtensors.sty texmf\tpm\packages\boldtensors.tpm</TPM:RunFiles><TPM:DocFiles size="3776">texmf\doc\latex\boldtensors\boldtensors.dvi</TPM:DocFiles><TPM:SourceFiles size="1334">texmf\source\boldtensors-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1183529916</TPM:TimePackaged><TPM:MD5>100da124d45f2b00e861726d8e8052b1</TPM:MD5></rdf:Description></rdf:RDF>

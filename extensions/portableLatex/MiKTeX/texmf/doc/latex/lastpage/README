@@ -1,0 +1,151 @@
+README for lastpage package, 2011/08/08, v1.2i
+
+
+TABLE OF CONTENTS
+=================
+
+1 Introduction
+2 Download
+3 Installation
+4 Additional Packages
+5 Package Compatibility
+6 Authors/Maintainer
+7 Bug Reports
+8 Known Problems
+
+
+1 INTRODUCTION
+==============
+
+This package puts the label LastPage (\AtEndDocument) into
+the .aux file, allowing the user to refer to the last page
+of a document. This might be particularly useful in places
+like headers or footers. -
+When more than one page numbering scheme is used, or the
+fnsymbol page numbering scheme is used, or another package
+has output after this package, or the number of pages
+instead of the last page's name is needed, or the page
+numbers exeed a certain range, there might be problems,
+which can be solved by using the pageslts package instead.
+This material is subject to the LaTeX Project Public License
+(LPPL). See http://www.ctan.org/tex-archive/help/Catalogue/
+licenses.lppl.html for the details of that license.
+
+
+2 DOWNLOAD
+==========
+
+`lastpage' is available on CTAN:
+  CTAN:macros/latex/contrib/lastpage/
+
+Also a ZIP file is provided that contains the files, already
+sorted in a TDS tree (should become available on CTAN soon):
+  CTAN:install/macros/latex/contrib/lastpage.tds.zip
+
+`CTAN:' means one of the `Comprehensive TeX Archive Network'
+nodes or one of its mirrors. This is explained in
+  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=archives
+
+The CTAN stuff will be mirrored automatically from the
+ftp server, so
+  ftp://ftp.tug.org/pub/tex/lastpage/
+corresponds to
+  CTAN:macros/latex/contrib/lastpage/
+
+
+3 INSTALLATION
+==============
+
+First, please make sure that there is no old version of
+lastpage at some obsolete place in your system.
+
+Installation with ZIP file in TDS format
+----------------------------------------
+The ZIP file `lastpage.tds.zip' contains the files sorted
+in a TDS tree. Thus you can directly unpack the ZIP file
+inside a TDS tree.
+(See CTAN:tds.zip for an explanation of TDS.)
+Example:
+  cd /...somewhere.../texmf
+  unzip /...downloadpath.../lastpage.tds.zip
+Do not forget to refresh the file name database of this
+TDS tree.
+Example:
+  texhash /...somewhere.../texmf
+
+Manual installation
+-------------------
+a) Download the lastpage files from CTAN or the TUG server.
+   If necessary, unpack them.
+b) Generate the package and driver files:
+     tex lastpage.ins
+c) Install the file `*.sty' in your TDS tree:
+     cp *.sty TDS:tex/latex/lastpage/
+   Replace `TDS:' by the prefix of your TDS tree
+   (texmf directory).
+d) Copy the documentation files to
+   "TDS:doc/latex/lastpage/":
+   README, lastpage.pdf, lastpage-example.tex,
+   lastpage-example.pdf.
+e) Update the databases if necessary, e.g. for teTeX:
+     mktexlsr .../texmf
+
+
+4 ADDITIONAL PACKAGES
+=====================
+
+The lastpage package does not depend on other packages,
+but the lastpage.dtx does (for unpacking and constructing
+the documentation), see "7.1 Downloads" in the manual,
+ftp://ftp.ctan.org/tex-archive/
+macros/latex/contrib/lastpage/lastpage.pdf
+
+
+5 PACKAGE COMPATIBILITY
+=======================
+
+lastpage is not compatible with the very old version 2.0
+(and earlier) of the endfloat package. Newer versions of
+endfloat exists (at the time of writing this documentation:
+v2.4i as of 1995/10/11), which are available at CTAN.
+
+
+6 AUTHORS/MAINTAINER
+=====================
+
+* Author of the original main code: Jeffrey P. Goldberg (Thanks!)
+* Author of the recent package and maintainer:
+   H.-Martin Münch
+
+
+7 BUG REPORTS
+==============
+
+A bug report should contain:
+* Comprehensive problem description. This includes error or
+  warning messages.
+  * \errorcontextlines=\maxdimen can be added in the
+    TeX code to get more information in TeX error messages.
+* Minimal test file that shows the problem, but does not
+  contain any unnecessary packages and code.
+* Used drivers/programs.
+* Version information about used packages and programs.
+  * If you are using LaTeX, then add "\listfiles". Then
+    a list of version information is printed at the end
+    of the LaTeX run.
+* Please no other files than the minimal test file.
+  The other files .log, .dvi, .ps, .pdf are seldom
+  necessary, so send them only on request.
+* Please .zip or .tar.gz your file(s) before sending them!
+
+Bug address
+-----------
+Bug reports can be send to the maintainer:
+  H.-Martin Münch
+  <Martin [dot] Muench [at] Uni-Bonn [dot] de>
+
+
+8 KNOWN PROBLEMS
+=================
+
+Really a lot, see chapter 3 of the documentation!

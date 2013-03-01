@@ -1,0 +1,29 @@
+% Thomas Esser, 1998, public domain.
+%
+% raw-lw35extra-urw-kb.map: completes acrobat map with fonts available
+%    to most ps printers (LW35 fonts). Downloads URW fonts with Berry
+%    names.
+%
+% Useful for ps2pk and pdftex.
+rpagd URWGothicL-Demi "StandardEncoding ReEncodeFont" <8a.enc <uagd8a.pfb
+rpagdo URWGothicL-DemiObli "StandardEncoding ReEncodeFont" <8a.enc <uagdo8a.pfb
+rpagk URWGothicL-Book "StandardEncoding ReEncodeFont" <8a.enc <uagk8a.pfb
+rpagko URWGothicL-BookObli "StandardEncoding ReEncodeFont" <8a.enc <uagko8a.pfb
+rpbkd URWBookmanL-DemiBold "StandardEncoding ReEncodeFont" <8a.enc <ubkd8a.pfb
+rpbkdi URWBookmanL-DemiBoldItal "StandardEncoding ReEncodeFont" <8a.enc <ubkdi8a.pfb
+rpbkl URWBookmanL-Ligh "StandardEncoding ReEncodeFont" <8a.enc <ubkl8a.pfb
+rpbkli URWBookmanL-LighItal "StandardEncoding ReEncodeFont" <8a.enc <ubkli8a.pfb
+rpncb CenturySchL-Bold "StandardEncoding ReEncodeFont" <8a.enc <uncb8a.pfb
+rpncbi CenturySchL-BoldItal "StandardEncoding ReEncodeFont" <8a.enc <uncbi8a.pfb
+rpncr CenturySchL-Roma "StandardEncoding ReEncodeFont" <8a.enc <uncr8a.pfb
+rpncri CenturySchL-Ital "StandardEncoding ReEncodeFont" <8a.enc <uncri8a.pfb
+rpplb URWPalladioL-Bold "StandardEncoding ReEncodeFont" <8a.enc <uplb8a.pfb
+rpplbi URWPalladioL-BoldItal "StandardEncoding ReEncodeFont" <8a.enc <uplbi8a.pfb
+rpplbu URWPalladioL-BoldItal "-.1763 SlantFont StandardEncoding ReEncodeFont" <8a.enc <uplbi8a.pfb
+rpplr URWPalladioL-Roma "StandardEncoding ReEncodeFont" <8a.enc <uplr8a.pfb
+rpplri URWPalladioL-Ital "StandardEncoding ReEncodeFont" <8a.enc <uplri8a.pfb
+rpplro URWPalladioL-Roma ".167 SlantFont StandardEncoding ReEncodeFont" <8a.enc <uplr8a.pfb
+rpplrre URWPalladioL-Roma "1.2 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <uplr8a.pfb
+rpplrrn URWPalladioL-Roma ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <uplr8a.pfb
+rpplru URWPalladioL-Ital "-.1763 SlantFont StandardEncoding ReEncodeFont" <8a.enc <uplri8a.pfb
+rpzcmi URWChanceryL-MediItal "StandardEncoding ReEncodeFont" <8a.enc <uzcmi8a.pfb

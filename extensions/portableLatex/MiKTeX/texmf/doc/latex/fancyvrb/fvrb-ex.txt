@@ -1,0 +1,57 @@
+                    -------------------------------------
+                    |             `fvrb-ex'             |
+                    |            Version 1.7            |
+                    |           March 27, 1998          |
+                    |                                   |
+                    | Denis Girou (CNRS/IDRIS - France) |
+                    |       <Denis.Girou@idris.fr>      |
+                    -------------------------------------
+
+
+  This package, built above the `fancyvrb' one (from Timothy van Zandt),
+offer several kinds of the so-called "example" environments to format some
+code both in "verbatim" mode and in the "normal" way, below or on the side.
+The advantage of such environments is that the code itself is included only
+one time in the source code, which allow to be sure of the consistence of the
+two versions shown.
+
+  Some other kinds of such environments are specially devoted to graphics,
+allowing to give the size of them. It is also possible in this case to draw
+also a grid.
+
+                                   Warning!
+                                   --------
+
+  * You must be aware that it has been reported that this package doesn't work
+at all on some platforms, due to the way the 8 bits characters are managed by
+some TeX systems.
+    You can make first the following test (courtesy Sebastian Rahtz):
+
+\documentclass{article}
+\usepackage{moreverb} % CTAN/macros/latex/contrib/supported/moreverb
+\begin{document}
+\begin{verbatimwrite}{test.txt}
+  £hello
+\end{verbatimwrite}
+\end{document}
+
+    If you got in the file "test.txt" not the exact input line but ^^a3 for
+the first character, this package has no change to really work for you...
+
+    Just try to position (courtesy Thomas Esser) LC_CTYPE=C if your system
+accept it and retry the preceding test.
+
+  * We suppose here that you already know the `fancyvrb' package. If not, look
+at it own documentation!
+
+  * The standard `color' package must be available, with a correct "color.cfg"
+file defining the dvi converter that must be used.
+
+  * Some environments, specially devoted to graphics, require PSTricks,
+but `fvrb-ex' desactivate them if PSTricks is not available so it can be used
+without it.
+
+.............................................................................
+
+     Comments, suggestions and bug reports (with version number and the
+keyword "fancyvrb" in the subject of the message) to <Denis.Girou@idris.fr>

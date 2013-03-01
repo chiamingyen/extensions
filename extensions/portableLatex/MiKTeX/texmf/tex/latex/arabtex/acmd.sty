@@ -1,0 +1,335 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% acmd.sty
+% ArabTeX command processing
+% 20.08.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {acmd.sty} {3.11 Arabic command processing } {20.08.2003}
+
+\def \a@command #1{% process an internal command
+\iftest@command \tracingmacros 1 \fi
+        \def@@cmd #1\xpa 
+\ifx \the\a@@cmd \relax % no special handling?
+  \if\is@in@set #1\a@@listreg 
+%        \def \next {\xpa \test@token #1}\else
+        \def \next {\xpa \arab@tail #1}\else
+  \if\is@in@set #1\a@@listzero 
+        \unarab@codes \def \next {#1\arab@tail }\else
+  \if\is@in@set #1\a@@listone 
+        \unarab@codes \def \next ##1{#1{##1}\arab@tail }\else
+  \if\is@in@set #1\a@@listtwo 
+        \unarab@codes \def \next ##1##2{#1{##1}{##2}\arab@tail }\else
+  \def \next {\a@cmderr #1}% disallowed
+  \fi\fi\fi\fi
+\else \def \next {\the\a@@cmd }% local routine
+\fi \next }
+
+\def \a@cmderr #1{% complain and substitute a dummy command
+        \errhelp {Your command will be echoed in the output}%
+\ifx #1\undefined \def \next {\a@puttt #1\test@token }%
+        \errmessage {Unknown arabic command: \nxp #1}%
+\else \errmessage {Illegal arabic command: \nxp #1}%
+        \a@@cmd = {{\a@puttt #1\arab@tail }}
+        \immediate\openout \a@@err = \jobname.err
+        \immediate\write \a@@err {\string \gdef \string \next \space
+           \xpa \a@@pat \meaning #1:->\pat@end \the\a@@cmd }% substitution
+        \immediate\closeout \a@@err 
+        {\catcode `\@=11 \input \jobname.err }%
+\fi \next }
+
+\def \def@@cmd #1{% define \a@@cmd as \a@c@#1
+\ifcat \nxp #1\nxp ~%
+\global\a@@cmd = \xpa {\csname a@c@\string #1\endcsname }\else 
+\global\a@@cmd = \xpa {\csname a@c@\xpa \@gobble \string #1\endcsname }\fi }
+
+\def \arab@tail {\arab@codes \set@arabfont \test@token }
+
+\def \a@@pat #1:#2->#3\pat@end {#2}
+
+\def \a@puttt #1{\putwordb@x {\tt \string #1}}
+
+%%%%%%%%%%%%%%%%%%%%%% enable internal commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtoks \a@@listzero        \newtoks \a@@listone        
+\newtoks \a@@listtwo         \newtoks \a@@listreg
+
+\long\def \a@@addcmd #1#2{% #1 cmd, #2 list
+\global #2 = \xpa {\the #2#1}}
+
+\long\def \all@wcmd #1{% enable parameterless command in arabic environment
+\a@@addcmd #1\a@@listzero }
+
+\long\def \all@w@ne #1{% enable command with 1 param in arabic environment
+\a@@addcmd #1\a@@listone }
+
+\long\def \all@wtw@ #1{% enable command with 2 params in arabic environment
+\a@@addcmd #1\a@@listtwo }
+
+\long\def \all@wif #1{% enable \#1true, \#1false
+\a@@name = \xpa \xpa \xpa {\xpa \@gobble \string #1}%
+\xpa \all@wcmd \csname \the\a@@name true\endcsname
+\xpa \all@wcmd \csname \the\a@@name false\endcsname }
+
+\long\def \all@whcmd #1{% enable command for horizontal mode
+\def@@cmd #1\all@wcmd #1%
+\xpa \def \the\a@@cmd {\putwordb@x {\leavevmode #1}\test@token }}
+
+\long\def \all@wvcmd #1{% enable command for vertical mode
+\def@@cmd #1\all@wcmd #1%
+\xpa \def \the\a@@cmd {\a@@par #1\test@token }}
+
+%%%%%%%%%%%%%%%%%%%%%% enable command definitions %%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def \allowarab #1{% enable new command in arabic environment
+\a@@addcmd #1\a@@listreg }
+
+\def \a@@def #1#2#3#4{% define command in RL mode
+\allowarab #2#1#2#3{#4}\test@token }
+
+\def \a@c@def #1#2#{\a@@def \def {#1}{#2}}
+
+\def \a@c@edef #1#2#{\a@@def \edef {#1}{#2}}
+
+\def \a@c@gdef #1#2#{\a@@def \gdef {#1}{#2}}
+
+\def \a@c@xdef #1#2#{\a@@def \xdef {#1}{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%% enable ArabTeX commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\all@wcmd \novocalize   \all@wcmd \vocalize     \all@wcmd \fullvocalize
+\all@wcmd \setnash      \all@wcmd \setnashbf    \all@wcmd \setnastaliq
+\all@wcmd \setarab      \all@wcmd \setmaghribi  \all@wcmd \setfarsi
+\all@wcmd \setturk      \all@wcmd \setkurdish   \all@wcmd \setbalut
+\all@wcmd \seturdu      \all@wcmd \setpashto    \all@wcmd \setverb
+\all@wcmd \yahdots      \all@wcmd \yahnodots    \all@wcmd \oldtanwin
+\all@wcmd \newtanwin    \all@wcmd \accentshigh  \all@wcmd \accentslow
+\all@wcmd \oldhamza     \all@wcmd \newhamza     \all@w@ne \setarabfont
+\all@w@ne \setcode      \all@wcmd \endsetcode   \all@wcmd \setuighur
+\iffalse
+\all@w@ne \input        \all@w@ne \end
+\all@wcmd \relax        \all@wcmd \indent       \all@wcmd \noindent
+\all@w@ne \emphasize    \all@wtw@ \footnote     \all@w@ne \marginpar
+\all@w@ne \docommand    \all@wtw@ \doassign     \all@w@ne \mbox
+\all@w@ne \centerline   \all@w@ne \spreadline   \all@wtw@ \spreadbox
+\all@wcmd \nospace      \all@w@ne \hspace       \all@w@ne \tracingmacros
+\fi
+
+\all@wif \arab          \all@wif \trans         \all@wif \show
+\all@wif \spread        \all@wif \ligs          \all@wif \RL
+
+\all@whcmd \bigskip     \all@whcmd \medskip     \all@whcmd \smallskip
+\all@whcmd \hfill       \all@whcmd \hfil        \all@whcmd \space           
+\all@whcmd \hss                
+
+\ifx \LaTeX \undefined 
+\all@wvcmd \bigskip     \all@wvcmd \medskip     \all@wvcmd \smallskip
+\fi
+
+\all@wvcmd \newpage     \all@wvcmd \clearpage
+\all@wvcmd \vfil        \all@wvcmd \vfill
+
+
+%%%%%%%%%%%%%%%%%%% special characters %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@spec@def #1#2{% define routine for special character
+\def@@cmd #1\xpa \gdef \the\a@@cmd {#2}}
+
+\def \a@@chardef #1{\begingroup \lccode `\0 #1\lowercase 
+{\endgroup \ifarab \putwordb@x {\a@rabwrite {0}}\fi 
+\a@showinput {0}}\obey@space }
+
+\a@spec@def \#{\a@@chardef {`\#}}        \a@spec@def \${\a@@chardef {`\$}}
+\a@spec@def \%{\a@@chardef {`\%}}        \a@spec@def \&{\a@@chardef {`\&}}
+\a@spec@def \^{\a@@chardef {`\^}}        \a@spec@def \_{\a@@chardef {`\_}}
+
+\a@spec@def \ {\a@spacefalse \putwordb@x {\arab@space }\test@token }
+
+\def \a@c@arabchar #1{% single character in the font
+\ifarab \putwordb@x {\char #1}\fi \a@showinput {\arabchar #1}\obey@space }
+
+\def \a@c@char {% read char number
+\begingroup \afterassignment \a@@char \count0=}
+
+\def \a@@char {% deposit character
+\edef \a@ch@r {\noexpand\a@c@arabchar {\the\count0}}%
+\xpa\endgroup \a@ch@r }
+
+%%%%%%%%%%%%%%%%%%% miscellaneous commands %%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@end {\end }        \def \a@c@relax {\test@token }
+
+\def \a@c@par {\a@@par \test@token }
+
+\def \a@c@indent {\arab@indent \test@token }
+
+\def \a@c@noindent {\arab@noindent \test@token }
+
+\def \a@c@input {% \input inside arabic environment, Plain version
+\xpa \test@token \input }
+
+\def \a@c@doassign #1#2{% execute assignment
+#1#2\relax \test@token }
+
+\def \a@c@docommand #1{% expand and process user command
+\xpa \test@token \xpa {#1} }
+
+\def \a@c@bf {\setnashbf \arab@tail } 
+\def \a@c@rm {\setnash \arab@tail } 
+
+\def \a@c@today {\xpa \a@c@mbox \xpa {\a@@today }}
+
+\edef \a@@today {\number\day \space \ifcase\month\or
+yanAyir \or febrAyir \or mAris \or 'abrIl \or 
+mAyU \or yUniyU \or yUliyU \or 'a.gus.tus \or 
+sibtambar \or 'uktUbar \or nUfambar \or disambar \fi ,
+\number\year}
+
+\def \a@c@protect {\test@token }
+
+\long\def \a@c@cond #1#2#3\fi {% call conditional
+#1\ReturnElseFi {\test@token #2}%
+\else \ReturnFi {\test@token #3}\fi }
+
+\def \a@c@endinput {\endinput \test@token }
+
+%%%%%%%%%%%%%% \begin ... \end {romantext} %%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@romantext {% end Arabic mode and switch down (!) to Roman
+\endgroup \endarabtext \endgroup 
+\def \@currenvir {romantext}\let \end \a@r@end \ignorespaces }
+
+\def \endromantext {% switch up (!) to Arabic mode
+\endgraf
+\def \@currenvir {document}\begingroup
+\def \@currenvir {arabtext}\arabtext }
+
+\let \a@l@end \end % save current meaning of \end
+
+\def \a@r@end #1{% new \end for the base level
+\def \@romantext {romantext}\def \@tempa {#1}%
+\ifx \@tempa \@romantext \let \@tempa \endromantext
+\else \def \@tempa {\a@l@end {#1}}%
+\fi \@tempa }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@centerline #1{% new line, centered
+\a@@par \centerline {\a@showinput {#1}}%
+\ifarab \putwordb@x {\hss \a@sequence {#1}\hss }\a@put@line
+\fi \test@token }
+
+\def \a@c@spreadline #1{% new line, spread out
+\a@@par \initlineb@x \centerline {\a@showinput {#1}}%
+\ifarab \putwordb@x
+{\spreadtrue \a@sequence {#1}\setbox0 \lastbox \unhbox0 }\a@put@line
+\fi \test@token }
+
+\def \a@c@mbox #1{% put the argument into a box
+\ifarab \putwordb@x {\a@sequence {#1}}\fi
+\a@spacefalse \a@showinput {#1}\test@token }
+
+\def \a@c@spreadbox {% {width}{text} put the text into a box
+\unarab@codes \a@@spreadbox }
+
+\def \a@@spreadbox #1{% {width}{text} get the width
+\def \a@bwidth {#1}\arab@codes \a@spreadbox }
+
+\def \a@spreadbox #1{% {width}{text} get the text
+\ifarab \putwordb@x {\spreadtrue 
+\setspace {3pt plus .3fil}%
+\a@sequence {#1}%
+\setbox0 \lastbox \hbox to \a@bwidth {\unhbox0 }}\fi
+\a@spacefalse \a@showinput {#1}\test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@nospace {% concatenate neighboring items
+\a@spacefalse \test@token }
+
+\let \nospace \relax
+
+\def \a@c@hspace {% horizontal space
+\unarab@codes \a@@hspace }
+
+\def \a@@hspace #1{% get argument
+\a@spacefalse \ifarab \putwordb@x {\hskip #1\relax }\fi
+\arab@codes \test@token }
+
+\def \a@c@pagebreak
+{\a@@par \@ifnextchar [{\a@@pagebreak }{\a@@pagebreak [4]}}
+
+\def \a@@pagebreak [#1]{\pagebreak [#1]\test@token }
+
+\def \a@c@hskip {\afterassignment \a@hskip \dimen0=}
+
+\def \a@hskip {\putwordb@x {\hskip \dimen0 }\test@token }
+
+\def \a@c@vskip {\afterassignment \a@vskip \dimen0=}
+
+\def \a@vskip {\a@@par \vskip \dimen0 \test@token }
+
+\def \a@c@vspace {% vertical space
+\unarab@codes \a@@vspace }
+
+\def \a@@vspace #1{% get argument
+\ifarab \a@@par \vskip #1\relax \fi
+\arab@codes \test@token }
+
+\def \a@c@break {\a@put@line \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% emphasis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@emphasize {% get next token
+\def \next@command {\arab@em}%
+\futurelet \next@token \test@space }
+
+\def \arab@em #1 {% overstrike group
+\def \next@command {\test@special}%
+\ifarab \setbox0 \hbox {\a@sequence {#1}}%
+        \putwordb@x {\vbox {\hrule \kern 1pt \box0}}%
+\fi
+\ifshow {\tt \string \emphasize \ }%
+\if \bgroup \nxp \next@token \a@@verb {{#1}}\else \a@@verb {#1}%
+\fi\fi
+\iftrans \underbar {{\set@transfont \trans@text #1 \end }}%
+\fi \test@token }
+
+%%%%%%%%%%%%%%%%%%% \footnote in an arabic environment %%%%%%%%%%%%%%%
+
+\def \a@c@footnote #1{% Plain TeX arabic footnote
+\rm \parindent \a@parindent \unarab@codes \def \@foot
+{\unskip \strut \egroup \arab@codes \set@arabfont \test@token }%
+\putwordb@x {#1}\a@spacetrue \vfootnote {#1}}
+
+%%%%%%%%%%%%%%%%%% \marginpar in an arabic environment %%%%%%%%%%%%%%%
+
+\def \a@c@marginpar {% for Arabic environments only
+\setbox0 \vtop \bgroup \unarab@codes \a@@marginpar }
+
+\long \def \a@@marginpar #1{% get text of note
+\hsize \marginparwidth \parskip 0pt \raggedright
+\noindent \rm \strut #1\vss \egroup \dp0 \z@
+\setbox\lineb@x \hbox {\unhbox\lineb@x 
+\rlap {\hskip \marginparsep \box0 \hss }}\test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\all@w@ne \settrans
+
+\def \a@c@tracingmacros {\afterassignment \test@token \tracingmacros=}
+
+\def \a@c@test #1{\csname test@#1true\endcsname \test@token }
+
+\def \a@c@untest #1{\csname test@#1false\endcsname \test@token }
+
+\a@spec@def \<{\a@get@ins }
+
+\def \a@get@ins #1>{\test@token #1 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

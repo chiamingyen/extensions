@@ -1,0 +1,65 @@
+README
+------
+
+These are a few LaTeX2e-packages for a variety of tasks:
+
+- collect provides several environment to collect text in a macro
+  or a file for later use.
+
+  Current version: 0.9
+
+
+- metainfo provides a macro for only typesetting specially formatted
+  comments of a document.
+
+  Current version: 0.9.1
+
+
+- optparams provides a small macro for creating macros with multiple
+  optional parameters.
+
+  Current version: 0.9
+
+
+- parcolumns provides an environment for typesetting text in two or
+  more columns in parallel.
+
+  Requires the processkv-package (below).
+
+  Current version: 1.2
+
+
+- processkv provides macros for processing of key-value-lists by
+  calling a user-defined macro for each key-value-pair.
+
+  Requires the keyval-package dated 1999/03/16 or later.
+
+  Current version: 1.0.1
+
+
+- zahl2string provides macros for formatting numbers as german words,
+  i.e. `1' gets formatted as `eins'.
+
+  Current version: 1.2.1
+
+
+Each package consists of an .ins-file containing the driver for
+installation, a .dtx-file containing the macros and documentation and
+a .pdf containing the typeset documentation.
+
+To install, run LaTeX on the .ins-file, then copy the resulting
+.sty-file somewhere LaTeX can find it. To typeset the documentation,
+run LaTeX on the .dtx-file, run MakeIndex using gind.ist as the index
+style file and then run LaTeX again.
+
+
+
+All packages may be distributed and/or modified under the conditions
+of the LaTeX Project Public License (lppl), either version 1.3 of this
+license or (at your option) any later version. The latest version of
+this license is in
+
+   http://www.latex-project.org/lppl.txt
+
+and version 1.3 or later is part of all distributions of LaTeX version
+2003/12/01 or later.

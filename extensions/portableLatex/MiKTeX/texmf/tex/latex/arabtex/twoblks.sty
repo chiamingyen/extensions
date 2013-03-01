@@ -1,0 +1,104 @@
+% twoblocks.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defines the command \twoblocks {#1}{#2}
+% to position two text blocks side by side
+% separated by \colsep horizontal space
+% 17.11.1993
+% 06.06.1994 % do not read the arguments prematurely: catcodes !
+% no warranty whatever
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \twblatcode \undefined \else \expandafter \endinput 
+\fi % load only once
+
+\chardef \twblatcode = \catcode`\@  \catcode`\@ = 11
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newbox \boxa	\newbox \boxb	\newbox \boxc	\newbox \boxd		
+\newdimen \htmin	\newdimen \hta		\newdimen \htb
+\newdimen \pagerest   	\newdimen \splitheight	\newdimen \totalheight	
+\newdimen \colwidth	\newdimen \colsep
+
+\colsep 0.4in % adjust to your preference
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \unpackbox #1{% unwrap minipage to get a \vbox only
+  \setbox0 \vbox {\unvbox #1\global \setbox1 \lastbox }	% get line
+  \setbox0 \hbox {\unhbox1 \unskip \unskip \unpenalty 	% get inner box
+  \global \setbox #1 \lastbox }}	% and forget the rest
+
+\def \a@minipagerestore {% modify tabbing and list spacing
+  \vskip 0pt plus 12pt \emergencystretch 3cm \hbadness 5000 }
+
+\def \depositboxes {% fill page, recursive
+   \nointerlineskip \null \allowbreak	% update page builder parameters
+   \pagerest \pagegoal \advance \pagerest -\pagetotal
+   \advance \pagerest -\maxdepth
+   \advance \pagerest -\baselineskip 	% just to make sure
+   \getheights 			% max total height of \boxa and \boxb
+\ifdim \totalheight > \pagerest % no more space, split?
+   \splitheight \totalheight
+   \advance \splitheight -2\baselineskip 	% try to avoid widows
+   \ifdim \splitheight > \pagerest \splitheight \pagerest 
+   \fi
+   \htmin 2\baselineskip 
+   \ifdim \splitheight > \htmin 	% try to avoid clubs
+	\splitboxes \splitheight	% to \boxc and \boxd, and output
+   \else \vfill \eject			% new page
+   \fi
+   \depositboxes 	% try again
+\else \combineboxes 	% output \boxa and \boxb
+\fi }
+
+\def \adjustbox #1{% set depth to total height, height zero, full width
+  \ifvoid#1 \setbox#1 \null \fi \wd#1 \colwidth
+  \dimen0 \ht#1 \advance \dimen0 \dp#1 \ht#1 \z@ \dp#1 \dimen0 }
+
+\def \getheights {% \ht plus \dp of boxes \boxa and \boxb
+  \hta \ht \boxa \advance \hta \dp \boxa
+  \htb \ht \boxb \advance \htb \dp \boxb
+  \ifdim \htb > \hta \totalheight \htb \else \totalheight \hta \fi }
+
+\def \splitboxes #1{% split off #1 from \boxa and \boxb
+  \splitmaxdepth \z@ \splittopskip \topskip
+  \ifdim #1 > \hta \setbox \boxc \box \boxa
+    \else \setbox \boxc \vsplit \boxa to #1 \fi
+  \ifdim #1 > \htb \setbox \boxd \box \boxb
+    \else \setbox \boxd \vsplit \boxb to #1 \fi
+  \outputboxes \boxc \boxd \vfill \eject }
+
+\def \outputboxes #1#2{% hanging from top of \hbox
+  \adjustbox #1 \adjustbox #2		% height zero, all depth
+  \nointerlineskip
+  \hbox to \textwidth {\noindent \box #1\hfill \box #2}\allowbreak }
+
+\def \combineboxes {% output \boxa and \boxb
+  \outputboxes \boxa \boxb }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \twoblocks {% two aligned paragraphs
+  \bgroup \colwidth \textwidth \advance \colwidth -\colsep 
+  \divide \colwidth 2 \let \@minipagerestore \a@minipagerestore
+  \setbox \boxa \vbox \bgroup \minipage[t]\colwidth 
+  \bgroup \aftergroup \tw@blocks \ignorespaces \let \next }
+
+\def \tw@blocks {% after first block
+  \endminipage \egroup \unpackbox \boxa	% unwrap minipage
+  \setbox \boxb \vbox \bgroup \minipage[t]\colwidth 
+  \bgroup \aftergroup \tw@bl@cks \ignorespaces \let \next }
+
+\def \tw@bl@cks {% after second block
+  \endminipage \egroup \unpackbox \boxb	% unwrap minipage
+  \depositboxes	\egroup }		% split if necessary
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode `\@ = \twblatcode
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

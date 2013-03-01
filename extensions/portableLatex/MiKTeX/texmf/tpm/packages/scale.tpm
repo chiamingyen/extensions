@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/scale"><TPM:Name>scale</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Scale document by sqrt(2) or magstep(2).</TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package to scale a document by sqrt(2) (or by
+      \magstep{2}). This is useful if you are preparing a document on,
+      for example, A5 paper and want to print on A4 paper to achieve a
+      better resolution.</TPM:Description><TPM:RunFiles size="3919">texmf\tex\latex\scale\scale.sty texmf\tpm\packages\scale.tpm</TPM:RunFiles><TPM:DocFiles size="894">texmf\doc\latex\scale\README</TPM:DocFiles><TPM:SourceFiles size="27010">texmf\source\latex\scale\COPYING texmf\source\latex\scale\scale.dtx texmf\source\latex\scale\scale.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>8f85669e2f73efb0a7f1ed1003800467</TPM:MD5></rdf:Description></rdf:RDF>

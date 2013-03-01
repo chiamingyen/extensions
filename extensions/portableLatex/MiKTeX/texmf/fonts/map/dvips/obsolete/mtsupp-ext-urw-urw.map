@@ -1,0 +1,10 @@
+% Thomas Esser, 1999. Public domain.
+%
+% mtsupp-ext-urw-urw.map: map file with basic ps fonts as needed for mathtime
+%    package. Downloads URW fonts with URW names.
+%
+% "Faked" ExtendFont / SlantFont with download. Useful for ps2pk and pdftex.
+ptmbo8y NimbusRomNo9L-Medi ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021004l.pfb
+ptmro8y NimbusRomNo9L-Regu ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021003l.pfb
+tibo NimbusRomNo9L-Medi ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021004l.pfb
+tio NimbusRomNo9L-Regu ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021003l.pfb

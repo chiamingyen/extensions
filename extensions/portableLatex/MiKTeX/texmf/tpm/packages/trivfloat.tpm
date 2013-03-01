@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/trivfloat"><TPM:Name>trivfloat</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Quick float definitions in LaTeX</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The trivfloat package provides a quick method for defining new float types in LaTeX. A single command sets up a new float in the same style as the LaTeX kernel figure and table float types. 
+
+The author is Joseph Wright. The package is Copyright © 2007 Joseph Wright.
+
+</TPM:Description><TPM:RunFiles size="8159">texmf\tex\latex\trivfloat\trivfloat.sty texmf\tpm\packages\trivfloat.tpm</TPM:RunFiles><TPM:DocFiles size="144843">texmf\doc\latex\trivfloat\README texmf\doc\latex\trivfloat\trivfloat.pdf</TPM:DocFiles><TPM:SourceFiles size="7507">texmf\source\trivfloat-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1241527436</TPM:TimePackaged><TPM:MD5>6cbd98f80eb70f6bcd19f91d2519ab85</TPM:MD5></rdf:Description></rdf:RDF>

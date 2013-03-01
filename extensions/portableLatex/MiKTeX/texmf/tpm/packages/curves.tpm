@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/curves"><TPM:Name>curves</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Curves for LaTeX picture environment</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Draws curves in the standard LaTeX picture environment using
+      parabolas between data points with continuous slope at
+      joins. For circles and arcs uses up to 16 parabolas. Also draws
+      symbols or dash patterns along curves. Equivalent to technical
+      pens with compasses and French curves. Curves consist of short
+      secants drawn by overlapping disks or line drawing \specials
+      selected by package options.</TPM:Description><TPM:RunFiles size="18542">texmf\tex\latex\curves\curves.sty texmf\tex\latex\curves\curvesls.sty texmf\tpm\packages\curves.tpm</TPM:RunFiles><TPM:DocFiles size="159182">texmf\doc\latex\curves\curves.pdf texmf\doc\latex\curves\README</TPM:DocFiles><TPM:SourceFiles size="21086">texmf\source\curves-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1251971346</TPM:TimePackaged><TPM:MD5>914d9170ccd20d032375b38b00f09cd3</TPM:MD5></rdf:Description></rdf:RDF>

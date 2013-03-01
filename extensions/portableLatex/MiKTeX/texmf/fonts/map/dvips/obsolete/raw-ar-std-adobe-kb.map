@@ -1,0 +1,21 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% raw-ar-std-adobe-kb.map: map file with basic ps fonts (those available
+%    to the acrobat reader and most printers). Downloads type1 fonts and
+%    assumes Berry names.
+%
+% Useful for ps2pk.
+rpcrb Courier-Bold  <pcrb8a.pfb
+rpcrbo Courier-BoldOblique  <pcrbo8a.pfb
+rpcrr Courier  <pcrr8a.pfb
+rpcrro Courier-Oblique  <pcrro8a.pfb
+rphvb Helvetica-Bold  <phvb8a.pfb
+rphvbo Helvetica-BoldOblique  <phvbo8a.pfb
+rphvr Helvetica  <phvr8a.pfb
+rphvro Helvetica-Oblique  <phvro8a.pfb
+rpsyr Symbol <psyr.pfb
+rptmb Times-Bold  <ptmb8a.pfb
+rptmbi Times-BoldItalic  <ptmbi8a.pfb
+rptmr Times-Roman  <ptmr8a.pfb
+rptmri Times-Italic  <ptmri8a.pfb
+rpzdr ZapfDingbats <pzdr.pfb

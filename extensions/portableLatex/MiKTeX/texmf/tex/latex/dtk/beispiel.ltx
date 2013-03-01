@@ -1,0 +1,41 @@
+\documentclass[07]{dtk}% load class options 07
+%%
+%% Packete/Style-Optionen und anderes Material in der Pr"aambel:
+%%
+\usepackage{booktabs}
+%% 
+%% Das Packet german/ngerman wird automatisch geladen und sollte nicht
+%% explizit angefordert werden. 
+%%
+%% Regel: Es sollten so wenig wie m"oglich zus"atzliche Packete
+%%        angefordert werden, da diese mit anderen Packeten in Konflikt
+%%        geraten k"onnten, die in anderen Artikeln unbedingt
+%%        ben"otigt werden.
+%% Regel: Es sollten nicht unn"otig viele Kommandos oder Umgebungen
+%%        definiert werden (aus demselben Grund). N"otigenfalls
+%%        sollte die Definition im Artikel und nicht in der Pr"aambel
+%%        geschehen. 
+%% Regel: Bei der Produktion der Zeitschrift wird normalerweise das
+%%        Input-Encoding utf8 verwendet, sofern nicht ein Beitrag
+%%        unbedingt etwas anderes erforderlich macht.
+%%        Es darf kein ein anderes Input-Encoding verwendet werden, wenn
+%%	  wie unten gezeigt eine lokale Umschaltung erfolgt.
+%%
+\begin{document}
+%
+% Nun wird nur noch der eigentliche Beitrag geladen. Alles weitere
+% findet in der Datei beispiel.tex statt.
+%
+%% Die Vereinszeitschrift wird mit dem Input-Encoding
+%% utf8 gesetzt. Wenn man eine andere Kodierung bevorzugt,
+%% dann den Textteil in
+%% \bgroup
+%% \inputencoding{...} 
+%% \input{beispiel}
+%% \egroup
+%%
+\input{beispiel}
+%
+%
+\end{document}
+%

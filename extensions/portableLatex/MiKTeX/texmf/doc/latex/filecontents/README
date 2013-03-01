@@ -1,0 +1,49 @@
+            +--------------------------------------------+
+            |                FILECONTENTS                |
+            |                                            |
+            | Improved version of LaTeX2e's filecontents |
+            |       and filecontents* environments       |
+            |                                            |
+            |      By Scott Pakin, scott+fc@pakin.org    |
+            +--------------------------------------------+
+
+
+Description
+-----------
+
+LaTeX2e's filecontents and filecontents* environments enable a LaTeX
+source file to generate external files as it's run through latex.
+However, there are two limitations of these environments: They refuse
+to overwrite existing files; and, they can be used only before the
+\documentclass declaration.  The filecontents package removes these
+limitations, making it possible to overwrite existing files and to use
+filecontents/filecontents* anywhere.
+
+
+Installation
+------------
+
+There's nothing special about building filecontents:
+
+    latex filecontents.ins     <== Generate filecontents.sty
+    latex filecontents.dtx     <== Produce the documentation (filecontents.dvi)
+
+If you're new to this, see
+http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages for more
+information on installing packages.
+
+
+Copyright and license
+---------------------
+
+Copyright (C) 2009 Scott Pakin, scott+fc@pakin.org
+
+This package may be distributed and/or modified under the conditions
+of the LaTeX Project Public License, either version 1.3c of this
+license or (at your option) any later version.  The latest version of
+this license is in:
+
+    http://www.latex-project.org/lppl.txt
+
+and version 1.3c or later is part of all distributions of LaTeX
+version 2008/05/04 or later.

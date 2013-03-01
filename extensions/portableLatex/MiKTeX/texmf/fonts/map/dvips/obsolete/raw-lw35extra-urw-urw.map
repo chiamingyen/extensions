@@ -1,0 +1,28 @@
+% Thomas Esser, 1998, public domain.
+%
+% raw-lw35extra-urw-urw.map: completes acrobat map with fonts available to
+%    most ps printers (LW35 fonts). Downloads URW fonts with URW names.
+%
+% Useful for ps2pk and pdftex.
+rpagd URWGothicL-Demi "StandardEncoding ReEncodeFont" <8a.enc <a010015l.pfb
+rpagdo URWGothicL-DemiObli "StandardEncoding ReEncodeFont" <8a.enc <a010035l.pfb
+rpagk URWGothicL-Book "StandardEncoding ReEncodeFont" <8a.enc <a010013l.pfb
+rpagko URWGothicL-BookObli "StandardEncoding ReEncodeFont" <8a.enc <a010033l.pfb
+rpbkd URWBookmanL-DemiBold "StandardEncoding ReEncodeFont" <8a.enc <b018015l.pfb
+rpbkdi URWBookmanL-DemiBoldItal "StandardEncoding ReEncodeFont" <8a.enc <b018035l.pfb
+rpbkl URWBookmanL-Ligh "StandardEncoding ReEncodeFont" <8a.enc <b018012l.pfb
+rpbkli URWBookmanL-LighItal "StandardEncoding ReEncodeFont" <8a.enc <b018032l.pfb
+rpncb CenturySchL-Bold "StandardEncoding ReEncodeFont" <8a.enc <c059016l.pfb
+rpncbi CenturySchL-BoldItal "StandardEncoding ReEncodeFont" <8a.enc <c059036l.pfb
+rpncr CenturySchL-Roma "StandardEncoding ReEncodeFont" <8a.enc <c059013l.pfb
+rpncri CenturySchL-Ital "StandardEncoding ReEncodeFont" <8a.enc <c059033l.pfb
+rpplb URWPalladioL-Bold "StandardEncoding ReEncodeFont" <8a.enc <p052004l.pfb
+rpplbi URWPalladioL-BoldItal "StandardEncoding ReEncodeFont" <8a.enc <p052024l.pfb
+rpplbu URWPalladioL-BoldItal "-.1763 SlantFont StandardEncoding ReEncodeFont" <8a.enc <p052024l.pfb
+rpplr URWPalladioL-Roma "StandardEncoding ReEncodeFont" <8a.enc <p052003l.pfb
+rpplri URWPalladioL-Ital "StandardEncoding ReEncodeFont" <8a.enc <p052023l.pfb
+rpplro URWPalladioL-Roma ".167 SlantFont StandardEncoding ReEncodeFont" <8a.enc <p052003l.pfb
+rpplrre URWPalladioL-Roma "1.2 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <p052003l.pfb
+rpplrrn URWPalladioL-Roma ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <p052003l.pfb
+rpplru URWPalladioL-Ital "-.1763 SlantFont StandardEncoding ReEncodeFont" <8a.enc <p052023l.pfb
+rpzcmi URWChanceryL-MediItal "StandardEncoding ReEncodeFont" <8a.enc <z003034l.pfb

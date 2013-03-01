@@ -1,0 +1,2397 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% apatch.sty
+% last minute corrections
+% see \a@pdatum and \a@level at the end of the file
+% template: 22.08.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% this is just another *.sty file
+% you do not have to do any manual patching
+% just put this file onto the TEXINPUT path
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chardef \patchatcode = \catcode`\@            \catcode`\@ = 11
+\chardef \patchdqcode = \catcode`\"            \catcode`\" = 12
+
+\def \a@version {3.11} % compare to arabtex::theversion
+
+\ifx \a@version \theversion \else \edef \next {\errmessage 
+{This patch file only works with ArabTeX version \a@version }}
+\next \def \a@patchlevel {-undefined-}
+\xpa \endinput 
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% presently no patches
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% two passes with LaTeX;  see: alatex.sty
+
+%\iffalse			% no patches yet; otherwise: delete !
+\ifx \LaTeX \undefined \else
+\ifx \a@patchlevel \undefined % first patching run
+\let \a@@@document \a@document
+\a@extend \document {\setnone \input {apatch.sty}}
+\else % second pass after loading all modules
+\let \a@document \a@@@document
+\fi\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% patch patterns:
+
+\ifx \a@patchlevel \undefined % load only the first time
+% patches on first pass
+\else
+% patches on second pass
+\fi
+
+\ifx \a@hebr \undefined \else
+%\a@message {Hebrew mode patches}
+\fi
+
+\ifx \LaTeX \undefined \else
+%\a@message {LaTeX mode patches}
+\fi
+%\fi 				% no patches yet; otherwise: delete !
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {22.08.2003}		\def \a@level {-}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aligs.sty
+
+\def \hah@end #1#2*#3#4+#5*#6{% hah, test for ligature
+% c1 m1 * c2 m21 + m22 * c3
+\ifu@gh \ifx #1\a@H 
+	\else \set@act \sk@h@u 
+	\fi
+\else
+\ifurd@ \ifm@lay 
+	\else \set@act \sk@h@s \hah@urd #3% round h?
+	\fi
+	\ifx #1T\else
+	\ifx #3l\test@allah #4#6\else
+	\ifx #1\a@H 
+	\else 	\set@act\sk@h@u 
+		\if\is@end@char #3%
+		\else \set@loww@act \global\a@min 1
+		\fi
+	\fi\fi\fi
+\else
+\ifx #3l\test@allah #4#6\else 
+\ifnum \chr@cls = 1 \set@chr\sk@b \put@tatwil   % 1 YntCbyp
+\else 
+\ifnum \chr@cls = 3 \put@tatwil 		% 3 GHX
+\else \gim@test #6\put@tatwil 
+\fi\fi\fi\fi\fi }
+
+\def \test@allah #1#2{% special ligature
+\ifx #2l\ifnum #1 = \c@shadda \set@chr\sk@l@w
+               % special short form of lam for the Name of God
+\fi\fi \put@tatwil }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtex.sty
+
+\def \setarabfont #1{% define font switching
+        \def \the@arabfont {\tr@ceoff #1\tr@ceon }}
+
+\def \arab@output {\ifx \a@lang \a@arab \else
+\tr@ceoff % switch to Arabic output conventions
+\def@arabchars         % define character macros for Arabic
+\def@arabaccent % define accent macros for Arabic
+\def@arabvoc         % define vowel parsing routines for Arabic
+\def@arabstrut         % define strut for Arabic
+\tr@zdmg        % define standard transliteration
+\global\let \a@write \a@@write \global\let \a@write@hook \relax
+\def \set@arabfont {\the@arabfont }%
+\tr@ceon \let \a@lang \a@arab \fi }
+
+%\setnash
+
+\ifx \a@hebr \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.sty
+
+\def \heb@output {\ifx \a@lang \a@hebr \else
+\tr@ceoff % switch to Hebrew output conventions
+\def@hebchars % define character macros for Hebrew
+\def@hebvoc % define vowel parsing routines for Hebrew
+\def@hebstrut % define strut for Hebrew
+\global\let \a@write \heb@write \global\let \a@write@hook \relax
+%\def \set@arabfont {\the@hebfont }%
+%\def \set@arabfont {\pheb }%
+\def \set@arabfont {\hebfont }%
+\tr@heb	\tr@ceon \global\let \a@lang \a@hebr \fi }
+
+\def \sethebfont #1{% define font switching
+        \def \hebfont {\tr@ceoff #1\tr@ceon }}
+
+\pdef \sethebrew {% switch to hebrew writing
+\all@false \@ssimtrue \yahd@tstrue \heb@output }
+
+\let \setheb \sethebrew	
+
+\ifx \LaTeX \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hefonts2.sty
+
+\def \fdef #1#2#3#4{% define NFSS2 font command
+\pdef #1{\def \pheb {\fontencoding {U}\fontfamily {#2}%
+\fontseries {#3}\fontshape {#4}\selectfont }%
+\sethebfont \pheb }%
+\all@wcmd #1}
+
+\hdef \hc {m}{n}
+\hdef \hp {bx}{n}
+\hdef \Jm {m}{Jm}
+\hdef \jm {m}{jm}
+\hdef \ds {m}{ds}
+\hdef \oj {m}{oj}
+\hdef \ta {m}{ta}
+\hdef \shlmold {m}{so}
+\hdef \shlmscr {m}{sr}
+\hdef \shlmstk {m}{sk}
+\hdef \fr    {m}{fr}
+\hdef \frbx {bx}{fr}
+\hdef \frsl {sl}{fr}
+\hdef \crml    {m}{crml}
+\hdef \crmlsl {sl}{crml}
+
+\sethebfont \hc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % Hebrew
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {27.08.2003}		\def \a@level {a}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \a@hebr \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \LaTeX \undefined 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.tex
+
+\def\smash{\relax % \relax, in case this comes first in \halign
+\ifmmode \xpa\mathpalette \xpa\mathsm@sh \else \xpa\makesm@sh
+\fi }
+
+\def \jm {\sethebfont {\jerusalem}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % Plain 
+
+\hc % default Hebrew font
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % Hebrew
+
+\ifx \a@patchlevel \undefined % load only the first time
+\ifx \LaTeX \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alatex.tex
+
+\UsePackage {alists} % load LaTeX extensions for Arabic lists
+\UsePackage {asect} % load LaTeX extensions for Arabic sections
+\UsePackage {atabg} % load LaTeX extensions for Arabic tabbing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % LaTeX
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {08.09.2003}		\def \a@level {b}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx \a@hebr \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% heparse.sty
+
+\def \add@@shewa {% put shewa on final kaf
+\xpa\case \the\last@con \of
+%{  k R {\add@shewa }}
+{  k {\add@shewa }}
+\endcase }
+
+\let \sv@qameslongum \sv@qamesaleph
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.sty
+
+\pdef \setjudarab {% switch to hebrew writing
+\all@false \@ssimtrue \yahd@tstrue \jud@output }
+
+\all@wcmd \setjudarab
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \jud@output {\ifx \a@lang \a@juda \else
+\heb@output \tr@ceoff % switch to Hebrew output conventions
+\def@judchars % define character macros for Judeo-Arabic
+\tr@zdmg % standard transliteration
+\tr@ceon \global\let \a@lang \a@juda \fi }
+
+\def \a@juda {JUDARAB}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebchrs.sty
+
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \def@judchars {% define character macros for Judeo-Arabic
+\gdef \tc@f {\act@cd\hc@f \@finaltrue }                     % f
+\gdef \tc@C {\act@cd\hc@t \act@mod \j@d@t }                 % _t
+\gdef \tc@D {\act@cd\hc@ss \act@mod \j@d@t \@finaltrue }    % .d
+\gdef \tc@F {\act@cd\hc@d \act@mod \j@d@t }                 % _d
+\gdef \tc@G {\act@cd\hc@j \act@mod \j@d@t }                 % ^g
+\gdef \tc@R {\act@cd\hc@j \act@mod \j@@@d@t }               % .g
+\gdef \tc@T {\act@cd\hc@h \act@mod \j@@d@t }                % T
+\gdef \tc@X {\act@cd\hc@k \act@mod \j@d@t \@finaltrue }     % _h
+\gdef \tc@Z {\act@cd\hc@tt \act@mod \j@d@t }                % .z
+}}% end of dynamic definitions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi %\a@hebr
+
+\ifx \setjudarab \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.sty
+
+\chardef \j@d@t 5       \chardef \j@@d@t 6      \chardef \j@@@d@t 7 	
+
+\def \h@putmod #1{% deposit modifier
+\ifcase #1\relax 
+\or \h@sindot \or \h@shindot \or \h@rdot \or \h@raphe 
+\or \j@dot \or \j@@dot \or \j@@@dot \fi }
+
+\def \the@dots {\the@dot \kern2\h@p \the@dot }
+
+\def \the@gim {\raise \h@p \hbox {\the@dot }%
+\the@dot \raise \h@p \hbox {\the@dot }}
+
+\def \j@dot {\j@put@dia {.5}{1.3}{\the@dot }}
+\def \j@@dot {\j@put@dia {.5}{1.3}{\the@dots }}
+\def \j@@@dot {\j@put@dia {.5}{1.3}{\the@gim}}
+
+\def \j@put@dia #1#2#3{% put diacritic #3 at (#1,#2)
+\setbox0 \hbox to \z@ {\hss #3\hss}\dimen@ #2\a@ht 
+\dimen2 \a@slant\dimen@ \advance\dimen2 #1\a@wd
+\global\setbox\ab@x \hbox
+{\rlap {\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi %\setjudarab
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {17.09.2003}		\def \a@level {c}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% acmd.sty
+
+\let \a@c@emph \a@c@emphasize
+
+\def \arab@em #1{% overstrike group
+\def \next@command {\test@special}%
+\ifarab \setbox0 \hbox {\a@sequence {#1}}%
+        \putwordb@x {\vbox {\hrule \kern 1pt \box0}}%
+\fi
+\ifshow {\tt \string \emphasize \ }%
+\if \bgroup \nxp \next@token \a@@verb {{#1}}\else \a@@verb {#1}%
+\fi\fi
+\iftrans \underbar {{\set@transfont \trans@text #1 \end }}%
+\fi \test@token }
+
+\def \a@c@textbf #1{\a@c@bf #1\rm }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for LyX: spacing.sty
+
+\let \a@c@noun \test@token
+
+\def \a@spacing {\let \a@@restore@spacing \restore@spacing 
+\let \restore@spacing \a@restore@spacing }
+
+\def \a@restore@spacing {\a@par \a@@restore@spacing }
+
+\def \a@c@singlespace {\a@par \a@spacing 
+\def \endsinglespace {\a@par \par }%
+\singlespace \test@token }
+
+\def \a@c@onehalfspace {\a@par \a@spacing \onehalfspace \test@token }
+
+\def \a@c@doublespace {\a@par \a@spacing \doublespace \test@token }
+
+\def \a@c@spacing #1{\a@par \a@spacing \spacing {#1}\test@token }
+
+\xpa\def \csname a@c@singlespace*\endcsname 
+{\a@par \a@spacing 
+\xpa\let \xpa\a@endsinglespace \csname endsinglespace*\endcsname
+\xpa\def \csname endsinglespace*\endcsname 
+{\a@par \a@endsinglespace \vskip -\baselineskip }%
+\csname singlespace*\endcsname \test@token }
+
+\let \a@c@textsf \test@token % these are preliminary
+\let \a@c@textsf \a@c@textbf
+
+\let \a@c@textit \test@token
+\let \a@c@textit \a@c@textbf
+\let \a@c@textit \a@c@emph
+
+\let \a@c@textsl \test@token
+\let \a@c@textsl \a@c@textbf
+
+\let \a@c@texttt \test@token
+\let \a@c@texttt \a@c@textbf
+
+\let \a@c@underbar \test@token
+\let \a@c@underbar \a@c@textbf
+
+\def \a@c@underbar {% get next token
+\def \next@command {\arab@ub }%
+\futurelet \next@token \test@space }
+
+\def \arab@ub #1 {% underbar
+\def \next@command {\test@special}%
+\ifarab \setbox0 \hbox {\a@sequence {#1}}%
+        \putwordb@x {\vtop {\box0 \kern -5pt \hrule }}%
+\fi
+\ifshow {\tt \string \underbar \ }%
+\if \bgroup \nxp \next@token \a@@verb {{#1}}\else \a@@verb {#1}%
+\fi\fi
+\iftrans \underbar {{\set@transfont \trans@text #1 \end }}%
+\fi \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% awrite.sty
+
+\def \arab@testfont {% diagnose font, look for vowels and ayin
+\edef \next {\the\font }%
+\ifx \next \a@font \else
+\ifnum \tracingarab > 0 \a@message{Arabic font \next selected.}\fi
+\global\let \a@font \next \a@testfont \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.sty
+
+\def \heb@testfont {% diagnose font, look for vowels and ayin
+\edef \next {\the\font }%
+\ifx \next \h@font \else
+\ifnum \tracingarab > 0 \a@message {Hebrew font \next selected.}\fi
+\global\let \h@font \next \h@testfont \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabrep.cls
+
+\at@arabtext {%
+	\def\a@l@section{\@dottedtocline{1}{1.0em}{1.8em}}%
+	\def\a@l@subsection{\@dottedtocline{2}{2.8em}{2.1em}}%
+	\def\a@l@subsubsectiom{\@dottedtocline{3}{4.9}{2.8em}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabaux.sty
+
+\def \a@gextend #1#2{% global extend command definition, no pars!
+\xpa\gdef \xpa#1\xpa{#1#2}}
+
+\def \a@extend #1#2{% extend command definition, no pars!
+\xpa\def \xpa#1\xpa{#1#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aparse.sty
+
+\def \syl@@quote@beg #1{% start word with quote: " #1 #2
+\if\is@vowel #1\def \next {\syl@wasla #1}% 	" v k: alif vowel
+%	\if@wasla \v@ctrue \else \add@wasla \togglev@c \fi 
+	\if@wasla \v@ctrue \global\@waslafalse 
+	\else \global\@waslatrue \togglev@c \fi 
+\else \put@con a\togglev@c \add@wasla \put@syl  % alif implied
+	\ifx #1"\def \next {\syl@con }% 	" " k: alif wasla
+     	\else \def \next {\syl@con #1}% 	" k:   alif wasla
+	\fi 
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% asect.sty
+
+\def \a@dottedtocline #1#2#3#4#5{% Level, Indent, Numwidth, Text, Pageno
+% for Arabic mode
+\ifnum #1>\c@tocdepth 
+\else \vskip \z@ plus.2\p@
+	\begin{arabtext}
+%	\tocp@rs {#2}{#3}#4 {\le@ders \thep@geno {#5}}
+	\tocp@rs {#2}{#3}#4 \le@ders \thep@geno {#5}
+	\end{arabtext}
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aboxes.sty
+
+\def \fix@act@box {% fixup position and set tatwil
+\if@high@act \advance\a@disp -\a@dsp \@high@actfalse \fi 
+%\advance\a@min@dp \a@ic \advance\a@disp \a@ic 
+\global\advance\a@min@dp \a@ic \advance\a@disp \a@ic 
+\if@tat \put@tat \@tatfalse \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aligs.sty
+
+\def \aw@endligs #1#2*#3#4*#5{% test for final ligatures
+% c1 m1 * c2 m2 * c3
+\ifcase \act@cls \lam@lig #3#5%                 % 0 l
+\or                                             % 1 YntCbyp
+        \ifnum \act@cd = \a@yah    	\yah@end #1#3#5\else
+        \ifnum \act@cd = \a@yah@h  	\yah@end #1#3#5\else
+        \ifnum \act@cd = \a@yah@p  	\yah@p@end #1#3#5\else
+        \ifnum \act@cd = \a@yah@p@s 	\yah@p@end #1#3#5\else
+        \ifnum \act@cd = \a@nun    	\nun@end #1#3#5\else 
+                                	\bah@end #1%
+        \fi\fi\fi\fi\fi
+\or \sin@lig #1#5%                              % 2 sxSD
+\or \gim@lig #1#3#5%                            % 3 GHXJ
+	\global\a@min 0
+\or \global\@highfalse \@mod@acttrue \put@tatwil % 4 cR
+\or \kaf@end #3#5%                              % 5 kgM 
+\or \fah@end #1%                                % 6 fqv
+\or \ttah@lig #1#5%                             % 7 VZ
+\or \rah@end #1#2*#3#5%                         % 8 rzj \a@r \a@R
+\or                                             % 9 \a@t \a@n
+        \ifnum \act@cd = \a@yah@p@s	\yah@p@end #1#3#5\else
+        \ifnum \act@cd = \a@nun@p 	\nun@end #1#3#5\else 
+                                	\bah@end #1%
+        \fi\fi
+\else \global\@highfalse \@mod@acttrue           % 10 ...
+        \ifnum \act@cd = \a@hah 	\hah@end #1#2*#3#4*#5\else
+        \ifnum \act@cd = \a@h@s 	\hah@urd #3\else 
+        \ifnum \act@cd = \a@mim 	\mim@end #2*#3#5\else
+                \put@tatwil 
+                \ifnum \act@cd = \a@dal \gim@test #5\else
+                \ifnum \act@cd = \a@dal@p \gim@test #5\else
+                \fi\fi
+        \fi\fi\fi
+\fi \aw@lower #5}
+
+\def \act@gim #1{% deposit ligature
+\ifnum \act@cd = \a@khah    \set@act\sk@kh@s \act@mod = 0 
+\else                       \set@act\sk@hh@s \@mod@acttrue     
+%\fi \a@min 1 }
+\fi \global\a@min 1 }
+
+\def \hah@end #1#2*#3#4+#5*#6{% hah, test for ligature
+% c1 m1 * c2 m21 + m22 * c3
+\ifu@gh \ifx #1\a@H 
+	\else \set@act \sk@h@u 
+	\fi
+\else
+\ifurd@ \ifm@lay 
+	\else \set@act \sk@h@s \hah@urd #3% round h?
+	\fi
+	\ifx #1T\else
+%	\ifx #3l\test@allah #4#6\else
+	\ifx #3l\test@allah {#4}{#6}\else
+	\ifx #1\a@H 
+	\else 	\set@act\sk@h@u 
+		\if\is@end@char #3%
+		\else \set@loww@act \global\a@min 1
+		\fi
+	\fi\fi\fi
+\else
+%\ifx #3l\test@allah #4#6\else 
+\ifx #3l\test@allah {#4}{#6}\else 
+\ifnum \chr@cls = 1 \set@chr\sk@b \put@tatwil   % 1 YntCbyp
+\else 
+\ifnum \chr@cls = 3 \put@tatwil 		% 3 GHX
+\else \gim@test #6\put@tatwil 
+\fi\fi\fi\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aoutput.sty
+
+\def \put@ab@x {% deposit line
+\ifhmode \unskip {\endgraf }\penalty \clubpenalty 
+\parindent \z@ \parskip \z@ \else
+\ifnum \a@prevgraf = \z@ \else \penalty \widowpenalty 
+\fi\fi 
+\begingroup \parfillskip 0pt plus 1fill 
+	\leftskip \z@ \rightskip \z@ \noindent 
+	\ifdim \a@leftmargin = \z@ \else \hskip \a@leftmargin \fi
+	\box\a@tempb@x \endgraf 
+%\endgroup \parindent \z@ \parskip \z@ \initlineb@x 
+\endgroup \parindent \z@ \parskip \z@ plus 1pt \initlineb@x 
+\advance \a@prevgraf \@ne	\a@@prevgraf \prevgraf
+\advance \a@@prevgraf \@ne	\prevgraf \a@@prevgraf }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {23.10.2003}		\def \a@level {d}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtex.sty
+
+\newarabfont	% as a side effect an Arabic font default is defined!
+%\setnash
+
+% wg. utfcode.sty und inputenc.sty:
+
+\long\def \test@special #1{% check for special cases
+\if \bgroup \nxp \next@token                    % arabic group
+	\a@@putword \def \next {\arab@group {#1}}\else
+\if \relax \nxp #1%                             % command
+	\if\is@in@set #1\a@accent		% known to scanner
+		\a@@append {#1}\def \next {\get@token }%
+	\else 					% general command
+		\a@@putword \def \next {\test@command #1}%
+	\fi \else
+%\if \sp@ce \nxp \next@token			% RTL space
+%	\a@@putword \def \next {\get@token }\else
+\ifnum `#1 > 127 				% inputenc command
+	\a@@append {#1}\def \next {\get@token}\else
+\ifcat \nxp ~\nxp #1%                           % active character
+	\a@@putword \def \next {\test@command #1}\else
+\if \nxp <\nxp #1\unarab@codes                  % Roman insert
+	\a@@putword \let \next \test@insert \else
+\ifx $#1\unarab@codes                           % Math insert
+	\a@@putword \let \next \test@math 
+\else \a@@append {#1}\def \next {\get@token}%	% normal case
+\fi\fi\fi\fi\fi\fi \next }
+
+{\catcode `\< = \@other           % better make sure
+\gdef \a@ins {% arabic insertion or 'less'
+\ifmmode \global\let \a@less <
+%\else \global\let \a@less \arab@insert \leavevmode
+\else \global\let \a@less \a@@insert \leavevmode
+  \bgroup \arab@codes \set@arabfont \global\@waslafalse \@wasfalse
+\fi \a@less }
+} % catcode < 
+
+\def \a@@insert #1{% check for < >
+\ifx #1>\egroup \unskip \else \xpa \arab@insert \xpa #1\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ascan.sty
+
+{\arab@codes % because of special characters
+
+\gdef \t@b@g #1{% start \ArabTeX scanner
+        \def \next {\sc@word {#1}}\def \sc@char {@}%
+\ifcat a\nxp #1\else                                     % letter
+\apply \set@next \tocase #1\of 
+{      \@{\sc@endscan }                % finished
+        '{\t@rquote }
+        `{\t@lquote }
+        *{\t@star }
+\default {\sc@word {#1}}
+}\endcase 
+\fi \next }
+
+\gdef \t@w@rd #1{% transform input into internal notation
+     \def \next {\sc@word }%
+\ifx #1\@\def \next {\sc@endscan }\else                 % finished
+\ifcat \nxp #1a%
+        \ifx #1a\def \next {\t@aa }\else                % test for aa -> A
+        \ifx #1n\def \next {\t@nn }\else                % test for ng, ny
+                \edef \sc@char {\csname sc@#1\endcsname }% letter
+                \ifx \sc@char \relax \def \sc@char {#1}%  undef letter
+                \fi 
+                \ifs@nd \edef \next {\nxp \t@asp {\sc@char }}\else \sc@put 
+                \fi
+        \fi\fi \else                                    % other character
+\ifcat \nxp #1\relax \def \next {\t@cs #1}\else         % control sequence
+\ifx #1'\def \next {\t@hamza }\else                     % hamza
+	\def \sc@char {#1}%
+\apply \set@next \tocase #1\of 
+{~\@ldtie{\t@tie }
+        .{\t@dot }
+        ,{\t@comma }
+        -{\t@minus }
+        `{\t@ain }
+        "{\t@dquote }
+       :={\t@colon }
+        ^{\t@up }
+        _{\t@down }
+        |{\t@bar }
+        *{\t@shadda }
+\default {\t@w@@rd {#1}}
+}\endcase 
+\fi\fi\fi\fi \next }
+
+} % \arab@codes
+
+\def \t@star {\sc@dep *}
+
+\let \sc@beg \t@b@g 	% apatch only
+\let \sc@word \t@w@rd	% apatch only
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aligs.sty
+
+\def \test@allah #1#2{% special ligature
+\ifx #2l%
+%\ifnum #1 = \c@shadda 
+\set@chr\sk@l@w
+               % special short form of lam for the Name of God
+%\fi
+\fi \put@tatwil }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aparse.sty
+
+\def \set@shadda    {\advance \last@mod \c@shadda }
+
+\def \add@shadda    {\ifcase \last@mod 	% set bit 1
+\set@shadda \or\or \set@shadda \or\or \set@shadda \or\or \set@shadda 
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\ifx \a@hebr \undefined \else
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.sty
+
+\def \heb@output {\ifx \a@lang \a@hebr \else
+\tr@ceoff % switch to Hebrew output conventions
+\def@hebchars % define character macros for Hebrew
+\def@hebvoc % define vowel parsing routines for Hebrew
+\def@hebstrut % define strut for Hebrew
+\global\let \a@write \heb@write \global\let \a@write@hook \relax
+\def \set@arabfont {\the@hebfont }%
+\tr@heb	\tr@ceon \global\let \a@lang \a@hebr \fi }
+
+\def \sethebfont #1{% define font switching
+        \def \the@hebfont {\tr@ceoff #1\tr@ceon }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hefonts2.sty	% apatch.sty only!
+
+\hdef \hc {m}{n}
+\sethebfont \hc
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\def \a@Rtobox #1{% pack the insertion into \Rinsertb@x
+\setbox \Rinsertb@x \vbox {\a@hsize \a@Lwidth 
+\advance \a@hsize -\leftskip \advance \a@hsize -\rightskip
+\a@normpen \widowpenalty \a@normpen \clubpenalty
+\leftskip \z@ \rightskip \z@ 
+\parfillskip \z@ plus 1fil \relax \parskip \z@
+\let \a@@kern \a@kern \let \a@@mkern \a@mkern
+\def \a@kern {\nobreak \a@@kern}\def \a@mkern {\nobreak \a@@mkern}%
+\let \end \relax \spreadtrue \vskip \a@vglue \hbadness 10000
+\putlineb@x {\arab@strut \hskip \a@Llength }\a@spacefalse 
+\test@token #1 \end \unskip \unskip \vskip \a@vglue 
+\hbox {\box\lineb@x \hfill }}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx \a@hebr \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.sty
+
+\gdef \h@putvowel #1{% vowel mark
+\ifx #1\relax \relax \else \def \hadj {0}\def \vadj {0}% 
+\ifnum \act@cd = \hc@P \let\vadj \v@adj \put@b@x{\hc@Pv }\else	% vowel-ayin
+%\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.85}\else  % final kaph
+\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.75}\else  % final kaph
+\ifnum \act@cd = \hc@r  \def \hadj  {.35}\else                  % resh
+\ifnum \act@cd = \hc@d  \def \hadj   {.2}\else                  % daleth
+\ifnum \act@cd = \hc@q  \def \hadj   {.1}\else                  % qoph
+\ifnum \act@cd = \hc@y  \def \hadj   {.1}\else                  % yod
+\ifnum \act@cd = \hc@w  \def \hadj  {.15}\else                  % waw
+\ifnum \act@cd = \hc@si \def \hadj  {-.1}\else                  % sin
+\fi\fi\fi\fi\fi\fi\fi\fi
+\setbox0 \hbox to \a@wd {\hss #1\hss}\dimen@ \vadj\a@ht 
+\advance \dimen@ -2\h@p
+\dimen2 \a@slant\dimen@ \advance\dimen2 \hadj\a@wd
+\global\setbox\ab@x \hbox
+{\rlap {\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }\fi }
+
+\gdef \h@putvowel #1{% vowel mark
+\ifx #1\relax \relax \else \def \hadj {0}\def \vadj {0}% 
+\ifnum \act@cd = \hc@P \let\vadj \v@adj \put@b@x{\hc@Pv }\else	% vowel-ayin
+%\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.85}\else  % final kaph
+\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.75}\else  % final kaph
+\ifnum \act@cd = \hc@r  \def \hadj  {.35}\else                  % resh
+\ifnum \act@cd = \hc@d  \def \hadj   {.2}\else                  % daleth
+\ifnum \act@cd = \hc@q  \def \hadj   {.1}\else                  % qoph
+\ifnum \act@cd = \hc@y  \def \hadj   {.1}\else                  % yod
+\ifnum \act@cd = \hc@w  \def \hadj  {.15}\else                  % waw
+\ifnum \act@cd = \hc@si \def \hadj  {-.1}\else                  % sin
+\fi\fi\fi\fi\fi\fi\fi\fi
+\setbox0 \hbox to \a@wd {\hss #1\hss}\dimen@ \vadj\a@ht 
+\advance \dimen@ -2\h@p
+\dimen2 \a@slant\dimen@ \advance\dimen2 \hadj\a@wd
+\global\setbox\ab@x \hbox
+{\rlap {\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }\fi }
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% utfcode.sty
+
+\ifx \utfatcode \undefined \else
+
+{\catcode `\^ 7 \catcode `\^^M=13
+\gdef \utf@word #1{% transform input into internal notation
+\ifx #1\@ \def \next {\utf@end }\else		% finished
+\ifx #1-\def \next {\utf@minus }\else %
+\ifx #1/\def \next {\sc@back #1}\else %
+\ifnum `#1="D6 \def \next {\utf@dvi }\else %
+\ifnum `#1="D7 \def \next {\utf@dvii }\else %
+\ifnum `#1="D8 \def \next {\utf@dviii }\else %
+\ifnum `#1="D9 \def \next {\utf@dix }\else %
+\ifnum `#1="DA \def \next {\utf@da }\else %
+\ifnum `#1="DB \def \next {\utf@db }\else %
+\ifnum `#1="E2 \def \next {\utf@eii }\else %
+	\def \next {\utf@asci #1}%
+\fi %
+\fi\fi\fi\fi\fi\fi %
+\fi\fi\fi \next }%
+} % catcode 13
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \utf@eii #1#2{% segment E2
+	\u@lb `#1\relax \advance \u@lb -128 
+	\u@lq `#2\relax \advance \u@lq -128 
+	\edef \sc@char {}%
+\ifnum \u@lb = 0 
+\ifnum \u@lq = 12 % ZERO WIDTH NON-JOINER (U+200C)
+%	\edef \sc@char {||}\else
+	\edef \sc@char {\n@xp\a@ba}\else
+\ifnum \u@lq = 13 % ZERO WIDTH JOINER (U+200D)
+	\edef \sc@char {-}\else
+%	\edef \sc@char {\n@xp\a@bb}\else
+\fi\fi\fi \utf@next }
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \utf@dix #1{% segment D9
+	\u@lb `#1\relax \advance \u@lb -"80 
+	\u@lq \u@lb \divide \u@lq 8
+\ifcase \u@lq 		       \edef \sc@char {\ifcase \u@lb
+	B\or   f\or   q\or   k\or   l\or   m\or   n\or   h\or   \fi }%
+\or  \advance \u@lb  -8        \edef \sc@char {\ifcase \u@lb
+	w\or   Y\or   y\or   "aN\or "uN\or "iN\or "a\or  "u\or  \fi }%
+\or  \advance \u@lb -"10       \edef \sc@char {\ifcase \u@lb
+	"i\or  "\n@xp\a@Ze\or ""\or "\n@xp\a@ZE\or 
+	"\n@xp\a@Za\or "\n@xp\a@Zu\or \or \or \fi }%
+\or  \advance \u@lb -"18       \edef \sc@char {}%
+\or  \advance \u@lb -"20       \edef \sc@char {\ifcase \u@lb
+	0\or   1\or   2\or   3\or   4\or   5\or   6\or   7\or   \fi }%
+\or  \advance \u@lb -"28       \edef \sc@char {\ifcase \u@lb
+	8\or           9\or           \a@pc\or       \f@sila\or   
+	\f@sila\or     *\or	\n@xp\a@b\or	\n@xp\a@bq\or	\fi }%
+\or  \advance \u@lb -"30       \edef \sc@char {\ifcase \u@lb
+	"\n@xp\a@a\or  "\or     "\n@xp\a@ZA\or "\n@xp\a@ZU\or          
+%      N"\n@xp\a@Za\or Qa\or          Qw\or          Qw"u\or        \fi }%
+N"\n@xp\a@Za\or N"\n@xp\a@Za A\or N"\n@xp\a@Za w\or N"\n@xp\a@Za w"u\or \fi }%
+\or  \advance \u@lb -"38       \edef \sc@char {\ifcase \u@lb
+%	Qy\or          \n@xp\a@t\or   \n@xp\a@T\or   \n@xp\a@ab\or  
+	N"\n@xp\a@Za Y\or \n@xp\a@t\or   \n@xp\a@T\or   \n@xp\a@ab\or  
+	\n@xp\a@v\or   \n@xp\a@at\or  p\or           \n@xp\a@ac\or  \fi }%
+\fi \utf@next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \utf@db #1{% segment DB
+	\u@lb `#1\relax \advance \u@lb -"80 
+	\u@lq \u@lb \divide \u@lq 8
+\ifcase \u@lq                  \edef \sc@char {\ifcase \u@lb
+	Qh\or          \n@xp\a@h\or   \n@xp\a@B\or  \n@xp\a@j\or  
+	\n@xp\a@aU\or  \n@xp\a@aV\or  \n@xp\a@W\or  \n@xp\a@w\or    \fi }%
+\or  \advance \u@lb  -8        \edef \sc@char {\ifcase \u@lb
+	\n@xp\a@aw\or  \n@xp\a@au\or  \n@xp\a@av\or  \n@xp\a@X\or  
+	Y\or           L\or           \n@xp\a@az\or  \n@xp\a@x\or   \fi }%
+\or  \advance \u@lb -"10       \edef \sc@char {\ifcase \u@lb
+	\n@xp\a@Y\or   \n@xp\a@y\or   E\or           \n@xp\a@ay\or  
+	B\or           \n@xp\a@H\or   \or            \or            \fi }%
+\or  \advance \u@lb -"18       \edef \sc@char {}%
+\or  \advance \u@lb -"20       \edef \sc@char {}%
+\or  \advance \u@lb -"28       \edef \sc@char {\ifcase \u@lb
+	\or           	\or           \or           \or  
+	\or           	\or \n@xp\a@bd\or \n@xp\a@br\or  \fi }%
+\or  \advance \u@lb -"30       \edef \sc@char {\ifcase \u@lb
+	0\or           1\or           2\or           3\or  
+	4\or           5\or           6\or           7\or  \fi }%
+\or  \advance \u@lb -"38       \edef \sc@char {\ifcase \u@lb
+	8\or           9\or           \n@xp\a@aI\or  \n@xp\a@aN\or  
+	\n@xp\a@P\or   \n@xp\a@ai"\n@xp\a@Zi\or 
+	\n@xp\a@ao"\n@xp\a@Zi\or	\n@xp\a@bh-\or		\fi }%
+\fi \utf@next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtoks.sty
+
+\def \a@br {\sk@r   ,25 }  % rah with roof
+\def \a@ba {\sk@W   , 0 }  % ZERO WIDTH NON-JOINER
+\def \a@bb {\sk@spc , 0 }  % ZERO WIDTH JOINER
+\def \a@bb {\sk@N   , 0 }  % ZERO WIDTH JOINER
+\def \a@bd {\sk@d   ,25 }  % dal with roof
+\def \a@bh {\sk@h   ,25 }  % hah with roof
+\def \a@bq {\sk@q@s , 0 }  % qaf without dots
+\def \a@br {\sk@r   ,25 }  % rah with roof
+
+\gdef \sk@Q   {10 ,\a@hamzc ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % hamza char
+\gdef \sk@W   {10 ,\a@break ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % small space 34
+\gdef \sk@Wp   {10 ,\a@break ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % small space 34
+\gdef \sk@N   {10 ,\a@break ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % small space 34
+\gdef \sk@spc {10 ,\a@smspc ,1 ,{{0,0}{0,0}{2,0}{2,0}}} % small space 36
+\gdef \sk@spcn {10 ,\a@smspc ,0 ,{{0,0}{0,0}{2,0}{2,0}}} % small space 36
+\gdef \sk@skip{10 ,\a@skip  ,1 ,{{0,0}{0,0}{2,0}{2,0}}} % small space 37
+\gdef \sk@skipn{10 ,\a@skip  ,0 ,{{0,0}{0,0}{2,0}{2,0}}} % small space 37
+
+\def \a@bc {\sk@@    , 0 }  % empty
+%\def \a@bc {\sk@skipn    , 0 }  % empty
+\def \a@be {\sk@@    , 0 }  % empty
+%\def \a@be {\sk@spc    , 0 }  % empty
+\def \a@bf {\sk@@    , 0 }  % empty
+%\def \a@bf {\sk@spcn    , 0 }  % empty
+\def \a@bg {\sk@@    , 0 }  % empty
+%\def \a@bg {\sk@skip    , 0 }  % empty
+\def \a@bi {\sk@@    , 0 }  % empty
+%\def \a@bi {\sk@Wp    , 0 }  % empty
+\def \a@bj {\sk@@    , 0 }  % empty
+\def \a@bk {\sk@@    , 0 }  % empty
+\def \a@bl {\sk@@    , 0 }  % empty
+\def \a@bm {\sk@@    , 0 }  % empty
+\def \a@bn {\sk@@    , 0 }  % empty
+\def \a@bo {\sk@@    , 0 }  % empty
+\def \a@bp {\sk@@    , 0 }  % empty
+\def \a@bs {\sk@@    , 0 }  % empty
+\def \a@bt {\sk@@    , 0 }  % empty
+\def \a@bu {\sk@@    , 0 }  % empty
+\def \a@bv {\sk@@    , 0 }  % empty
+\def \a@bw {\sk@@    , 0 }  % empty
+\def \a@bx {\sk@@    , 0 }  % empty
+\def \a@by {\sk@@    , 0 }  % empty
+\def \a@bz {\sk@@    , 0 }  % empty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% atrans.sty
+
+\let \tr@@zdmg \tr@zdmg
+
+\iffalse			% inserted in 3.11f
+\def \tr@zdmg {% patches for Uzbek
+\tr@def \a@H {\"a}%
+\tr@def \a@ab {\"e}%	
+}
+\fi				% inserted in 3.11f
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ascan.sty
+
+\def \setcode #1{% switch the input encoding
+\lowercase {\def \sc@code {#1}%
+\ifx \sc@code \sc@oldcode \else
+\begingroup \def \sc@lookup ##1#1##2##3\@@ {\endgroup ##2}%
+\xpa \sc@lookup \sc@table #1\sc@default \@@ \fi }%
+%\let \sc@oldcode \sc@code }
+\global\let \sc@oldcode \sc@code }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aligs.sty
+
+\def \hah@urd #1{% wavy hah
+% c2 
+\if\is@end@char #1\set@act\sk@h 		% isolated round h
+\fi
+\ifx #1\a@h
+\@mod@actfalse 					% no mark below
+\fi
+\ifnum \chr@cls = 1 \set@chr\sk@b               % YntCbyp normal height
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {16.11.2003}		\def \a@level {d+UCS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% witbhs.sty
+
+\if\AND{\isx\bhscode\undefined}{\isx\buckatcode\undefined}\else
+\def \test@@token {\iftest@command \tracingmacros 0 \fi
+\futurelet \next@token \test@space }
+
+\let \test@token \test@@token        % get next token
+
+\xpa\def \xpa\kill@space \space {% gobble LTR space
+\futurelet \next@token \test@space }
+
+\xpa\def \xpa\kill@sp@ce \sp@ce {% gobble RTL space
+\futurelet \next@token \test@space }
+
+\def \test@space {% check for LTR space 
+\if \space \nxp\next@token \xpa\kill@space 
+\else \xpa\test@sp@ce \fi }
+
+\def \test@sp@ce {% check for RTL space
+\if \sp@ce \nxp\next@token \xpa\kill@sp@ce 
+\else \xpa\next@command \fi }
+
+\long\def \test@special #1{% check for special cases
+\ifcat \bgroup \nxp \next@token                    % arabic group
+        \def \next {\arab@group {#1}}\else
+\if\is@in@set #1\a@first                        % normal case
+        \def \next {\test@word #1}\else
+\if \relax \nxp #1%                             % command
+        \def \next {\test@command #1}\else
+\ifcat \nxp ~\nxp #1%                           % active character
+        \def \next {\test@command #1}\else
+\if \nxp <\nxp #1\unarab@codes                  % Roman insert
+        \let \next \test@insert \else
+\ifx $#1\unarab@codes                           % Math insert
+        \let \next \test@math \else
+        \def \next {\test@word #1}%             % normal case
+\fi\fi\fi\fi\fi\fi \next }
+
+{\catcode `\^^a0 12 
+\gdef \test@word #1 {% process next RTL word
+\a@test@word #1^^a0\@@ }
+
+\gdef \a@test@word #1^^a0#2\@@ {% process next RTL word
+\ifarab \putwordb@x {\arab@item #1\@@ }\fi
+\a@spacetrue \a@showinput {#1}%
+\ifx \relax #2\relax \def \next {\test@token }\else
+\def \next {\test@token #2 }\fi 
+\next }
+}% catcode ^^a0
+
+\fi % witbhs
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabaux.sty
+
+\def \tr@ceoff {% suspend temporarily, local, no nesting!
+\edef \tr@ceon {\nxp\tracingmacros \the\tracingmacros \relax }%
+\tracingmacros 0 }
+
+\def \notr@ce {% suspend temporarily, for NFSS only, no nesting!
+\edef \dotr@ce {\nxp\tracingmacros \the\tracingmacros \relax}%
+\tracingmacros 0 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {08.12.2003}		\def \a@level {e}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aboxes.sty
+
+\def \put@tie {% deposit ties between characters
+\setbox0 \hbox {\char \the\act@tie }%
+\setbox2 \hbox {\char \the\act@tie \/}%
+\ifdim \a@disp = \z@ \unhcopy0 
+\else \raise\a@disp \hbox {\unhcopy0 }\fi 
+\global\advance\a@disp \wd2 \global\advance\a@disp -\wd0 }
+
+\def \set@high@act {% prepare raising of actual character
+\global\advance \a@disp \a@dsp \global\@high@acttrue }
+
+\def \set@low@act {% lower actual character
+\global\advance \a@disp -.25ex }
+
+\def \set@loww@act {% lower actual character
+\global\advance \a@disp -.50ex }
+
+\def \set@lowww@act {% lower actual character
+\global\advance \a@disp -.75ex }
+
+\def \fix@act@box {% fixup position and set tatwil
+\if@high@act \global\advance\a@disp -\a@dsp \global\@high@actfalse \fi 
+\global\advance\a@min@dp \a@ic \global\advance\a@disp \a@ic 
+\if@tat \put@tat \@tatfalse \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\ifx \a@patchlevel \undefined % load only the first time
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% atrans.sty
+
+\iffalse
+\def \tr@zdmg {% patches for Uzbek
+\tr@@zdmg 
+\tr@def \a@H {\"a}%
+\tr@def \a@ab {\"e}%	
+}
+\fi
+\let \tr@zdmg \tr@@zdmg % nullify problems in version 3.11d
+
+\gdef \tr@@aword #1{% transcribe rest of word 
+\let \tr@old \tr@act \def \tr@act {#1}%
+\case #1\of
+{       >{\@gobble }
+    \cap {\c@ptrue \tr@aword }
+%  |"^\a@e{\tr@aword }
+      |"^{\tr@aword }
+        -{-\tr@aword }
+%    XlEeQ{\csname tr@@\string #1\endcsname }
+   TXlEeQ{\csname tr@@\string #1\endcsname }
+ \a@a NUW{\setc@p #1\kill@alif }
+        P{\tr@P \tr@aword }
+      aiu{\tr@wasla #1}
+    \a@Ze{\xpa\tr@aword \tr@old }
+\default {\@vocalfalse 
+        \ifcat \nxp #1-#1\else \setc@p #1%
+        \fi \tr@aword }
+}\endcase }
+
+\gdef \tr@@T #1{\@vocalfalse
+\ifx #1|h\let \next \tr@aword \else 
+t\def \next {\tr@aword #1}\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx \a@hebr \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebchrs.sty
+
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \def@judchars {% define character macros for Judeo-Arabic
+\gdef \tc@f {\act@cd\hc@f \@finaltrue }                     % f
+\gdef \tc@C {\act@cd\hc@t \act@mod \j@d@t }                 % _t
+\gdef \tc@D {\act@cd\hc@ss \act@mod \j@d@t \@finaltrue }    % .d
+\gdef \tc@F {\act@cd\hc@d \act@mod \j@d@t }                 % _d
+\gdef \tc@G {\act@cd\hc@j \act@mod \j@d@t }                 % ^g
+\gdef \tc@H {\act@cd \hc@hh }                    	    % .h
+\gdef \tc@R {\act@cd \hc@j }                     	    % .g
+\gdef \tc@T {\act@cd\hc@h \act@mod \j@@d@t }                % T
+\gdef \tc@V {\act@cd \hc@tt }                    	    % .t
+\gdef \tc@X {\act@cd\hc@k \act@mod \j@d@t \@finaltrue }     % _h
+\gdef \tc@Z {\act@cd\hc@tt \act@mod \j@d@t }                % .z
+}}% end of dynamic definitions
+
+\fi % Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {12.02.2004}		\def \a@level {f}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cp1256.sty
+
+\ifx \awinatcode \undefined \else
+
+\def \set@awin {% select the CP 1256 scanner
+\let \sc@beg \awin@beg 		\let \sc@word \awin@word  
+\let \sc@back \sc@@back		\let \sc@endscan \awin@endscan
+\global\let \a@scan \awin@scan   \setawin@codes	
+\awin@catcodes 		\yahdots
+\global \a@paren {}%
+\a@message {input encoding set to Windows CP 1256 conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the CP 1256 encoding
+arabwin\set@awin		cp1256\set@awin	}
+
+\gdef \awin@beg #1{% start CP 1256 scanner
+\h@mzafalse  \iz@fetfalse \yahdots \@ssimfalse
+\novocalize % because of explicit quoting
+\ifx #1"\def \next {\awin@lquote}\else
+\ifx #1^^c7\def \next {\awin@alif}\else
+\def \next {\awin@word #1}\fi\fi \next }
+
+\gdef \awin@lquote {% initial quote
+\def \sc@char {`}\sc@put \awin@beg }
+
+\gdef \awin@dquote {% double quote, intermediate version
+%\def \sc@char {\a@dq}\sc@put \awin@word }
+\def \sc@char {\nxp\a@dq }\sc@put \awin@word }
+
+\gdef \awin@dquote {% right quote
+\def \sc@char {'}\sc@put \awin@word }
+
+\fi % cp1256
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtex.sty
+
+\long\def \test@special #1{% check for special cases
+%\if \bgroup \nxp \next@token                    % arabic group
+\ifcat \bgroup \nxp \next@token                    % arabic group
+	\a@@putword \def \next {\arab@group {#1}}\else
+\if \relax \nxp #1%                             % command
+	\if\is@in@set #1\a@accent		% known to scanner
+		\a@@append {#1}\def \next {\get@token }%
+	\else 					% general command
+		\a@@putword \def \next {\test@command #1}%
+	\fi \else
+%\if \sp@ce \nxp \next@token			% RTL space
+%	\a@@putword \def \next {\get@token }\else
+\ifnum `#1 > 127 				% inputenc command
+	\a@@append {#1}\def \next {\get@token}\else
+\ifcat \nxp ~\nxp #1%                           % active character
+	\a@@putword \def \next {\test@command #1}\else
+\if \nxp <\nxp #1\unarab@codes                  % Roman insert
+	\a@@putword \let \next \test@insert \else
+\ifx $#1\unarab@codes                           % Math insert
+	\a@@putword \let \next \test@math 
+\else \a@@append {#1}\def \next {\get@token}%	% normal case
+\fi\fi\fi\fi\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ascan.sty
+
+{\arab@codes % because of special characters
+
+\gdef \t@b@g #1{% start \ArabTeX scanner
+        \def \next {\sc@word {#1}}\def \sc@char {@}%
+\ifcat a\nxp #1\else                                     % letter
+\apply \set@next \tocase #1\of 
+{      \@{\sc@endscan }                % finished
+        '{\t@rquote }
+        `{\t@lquote }
+        *{\t@star }
+        +{\t@plus }
+        ={\t@equ }
+\default {\sc@word {#1}}
+}\endcase 
+\fi \next }
+
+\gdef \t@w@rd #1{% transform input into internal notation
+     \def \next {\sc@word }%
+\ifx #1\@\def \next {\sc@endscan }\else                 % finished
+\ifcat \nxp #1a%
+        \ifx #1a\def \next {\t@aa }\else                % test for aa -> A
+        \ifx #1n\def \next {\t@nn }\else                % test for ng, ny
+                \edef \sc@char {\csname sc@#1\endcsname }% letter
+                \ifx \sc@char \relax \def \sc@char {#1}%  undef letter
+                \fi 
+                \ifs@nd \edef \next {\nxp \t@asp {\sc@char }}\else \sc@put 
+                \fi
+        \fi\fi \else                                    % other character
+\ifcat \nxp #1\relax \def \next {\t@cs #1}\else         % control sequence
+\ifx #1'\def \next {\t@hamza }\else                     % hamza
+	\def \sc@char {#1}%
+\apply \set@next \tocase #1\of 
+{~\@ldtie{\t@tie }
+        .{\t@dot }
+        ,{\t@comma }
+        -{\t@minus }
+        `{\t@ain }
+        "{\t@dquote }
+        :{\t@colon }
+        ^{\t@up }
+        _{\t@down }
+        |{\t@bar }
+        *{\t@shadda }
+        +{\t@madda }
+        ={\t@sukun }
+\default {\t@w@@rd {#1}}
+}\endcase 
+\fi\fi\fi\fi \next }
+
+} % \arab@codes
+
+\def \t@star {\sc@dep *}
+\def \t@plus {\sc@dep +}
+\def \t@equ  {\sc@dep =}
+
+\let \sc@beg \t@b@g 	% apatch only
+\let \sc@word \t@w@rd	% apatch only
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aparse.sty
+
+\def \a@parse #1>{% parse token sequence into syllables
+\iftest@parse \tracingmacros = 1 
+\iftest@scan \else \a@verb (#1)>\fi\fi
+\csname a@parse@hook\endcsname
+\last@con ={.}\last@mod = 0 \last@voc = 0 \global\@highfalse
+\global \sv@revwd ={}\global \a@revwd ={}\syl@beg #1<<<>%
+\iftest@parse \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@revwd )>\fi }
+
+\def \sv@@I #1{% long i
+\ifx #1N\def \next {\sv@Zi }\else
+\ifk@sh \put@syl \put@con y\add@kasraspec 
+	\put@syl \def \next {\syl@con #1}%
+\else 	\add@kasra \put@syl \def \next {\test@B #1\sv@Ivwl }%
+\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% verses.sty
+
+\ifx \verseatcode \undefined \else
+
+% define some verse dimensions, verses will be centered
+\def \setversedim #1#2{% set length of half-verse, separation
+\a@hvlen #1\relax \a@hvsep #2\relax 
+\ifx \LaTeX \undefined \a@hvind \hsize 
+\else \a@hvind \textwidth \fi
+\advance \a@hvind -\a@hvsep
+\divide \a@hvind 2 \advance \a@hvind -\a@hvlen }
+
+\def \connverses #1#2#3{% first half-verse, connection, second half-verse
+\cond{\ifdim 0pt > \a@hvind }%
+{\spreadbox \a@hvlen {#1}\par \hfill }% first block
+{\noindent \hspace \a@hvind \spreadbox \a@hvlen {#1}}\fi 
+\spreadbox \a@hvsep {#2}% separator
+\spreadbox \a@hvlen {#3}% second block
+\par }
+
+\fi % verses.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% awrite.sty
+
+\def \a@@write #1>{% Arabic output
+\iftest@write \tracingmacros 1 
+\iftest@parse \else \a@verb (#1 )>\fi\fi
+\csname a@write@hook\endcsname
+\ifa@@write \arab@testfont \aw@beg #1>0+0*>0+0*>\fi
+\iftest@write \tracingmacros 0 \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.sty
+
+\ifx \a@hebr \undefined \else
+
+\def \heb@write #1>{% Hebrew output routine
+\iftest@write \tracingmacros = 1 
+\iftest@parse \else \a@verb (#1)>\fi\fi
+\csname a@write@hook\endcsname
+\ifa@@write \heb@testfont \heb@beg #1>0+0*>\fi 
+\iftest@write \tracingmacros = 0 
+\fi }
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {26.02.2004}		\def \a@level {g}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ascan.sty
+
+\def \sc@restore {% restore scanner defaults
+\let \vocalize \v@calize    \let \fullvocalize \fullv@calize  
+\let \sc@beg \t@b@g         \let \sc@word \t@w@rd      
+\let \sc@back \sc@@back     \let \sc@endscan \sc@@endscan
+\global\let \a@scan \a@@scan       \seta@codes 
+\let \arab@codes \a@arab@codes
+\let \unarab@codes \a@unarab@codes }
+
+\def \t@comma #1{% after ,
+\apply \set@char \tocase #1\of 
+{       a{a\nxp \a@H }
+        A{\nxp \a@a \nxp \a@H }
+        c{\ift@rk J\else \nxp \a@c \fi }
+        d{\ifp@sht \nxp \a@aA \else
+          \ifs@nd \nxp \a@D \else \nxp \a@d \fi\fi }
+        e{e\nxp \a@H }
+        g{\nxp \a@L }
+        h{\nxp \a@h }
+%        n{\ifs@nd \nxp \a@an \else \nxp \a@M \fi }
+        n{\ifs@nd \nxp \a@an \else \nxp \a@m \fi }
+        r{\ifp@sht \nxp \a@q \else 
+          \ifs@nd \nxp \a@ar \else \nxp \a@r \fi\fi }
+        s{\ift@rk x\else \nxp \a@s \fi }
+        t{\ifp@sht \nxp \a@v \else 
+          \ifs@nd \nxp \a@at \else \nxp \a@t \fi\fi }
+        z{\ift@rk D\else \nxp \a@z \fi }
+}\endcase \t@tail ,#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% utf8.sty
+
+\ifx \utfatcode \undefined \else
+
+\gdef \set@utfc {% select the UTF-8 scanner
+\global\let \a@scan \utfc@scan   
+\let \sc@beg \utf@beg 
+\let \sc@word \utf@word 
+\global\a@digits = {0123456789}%
+\global\a@first = {ÍÎÏ•’}%
+\catcode `á 11
+\a@message {input encoding set to UTF-8 conventions}}
+
+\fi % utf8.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bhs.sty
+
+\ifx \bhsatcode \undefined \else 
+
+% dynamic definitions for BHS Hebrew coding
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\"=12 \catcode `\&=12 \catcode `\$ 12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setbhs@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@A {a}   \def \sc@B {b}   \def \sc@C {S}   \def \sc@D {d}
+\def \sc@E {e}   \def \sc@F {A}   \def \sc@G {g}   \def \sc@H {h}
+\def \sc@I {i}   \def \sc@J {t}   \def \sc@K {k}   \def \sc@L {l}
+%\def \sc@M {m}   \def \sc@N {n}   \def \sc@O {O}   \def \sc@P {p}
+\def \sc@M {m}   \def \sc@N {n}\def\sc@O{\n@xp\a@o}\def \sc@P {p}
+\def \sc@Q {q}   \def \sc@R {r}   \def \sc@S {s}   \def \sc@T {t}
+%\def \sc@U {u}   \def \sc@V {D}   \def \sc@W {W}   \def \sc@X {X}
+\def \sc@U {u}   \def \sc@V {D}   \def \sc@W {w}   \def \sc@X {X}
+\def \sc@Y {y}   \def \sc@Z {z}   \def \sc@@ {QQ}
+\a@digits = {0123456789}     	\a@paren  = {[]}
+\a@first = {)+(##&$":.,*0123456789}	
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for BHS
+
+{\arab@codes 
+\catcode `\& 12		\catcode `\$ 12
+
+\gdef \bhs@beg #1#2{% start BHS scanner
+\@ssimfalse \def \next {\bhs@word #1#2}%
+\ifx #1\@\def \next {\sc@endscan #2}\else			% finished
+\ifx #2\@\def \next {\bhs@testpara #1#2}\else
+\ifx #2?\def \next {\bhs@testpara #1#2}\else
+\fi\fi\fi \next }
+
+\gdef \bhs@word #1#2{% transform input into internal notation
+     \def \next {\bhs@word #2}%
+\ifx #1\@\def \next {\sc@endscan #2}\else			% finished
+\ifx #1]\def \next {\bhs@word }\else
+\ifx #10\def \next {\bhs@zero #2}\else
+\ifx #17\def \next {\bhs@seven #2}\else
+%
+\if\is@in@set #1\a@digits \def \next {\bhs@word }\else
+\ifx #1?\def \next {\bhs@query #2}\else
+\ifx #1:\def \next {\bhs@colon #2}\else
+\ifx #1|\def \sc@char {|}\sc@put \else
+%
+\ifx #1.\def \sc@char {\nxp \a@Zu }\sc@put \else
+\ifx #1'\def \sc@char {'}\sc@put \else
+\ifx #1)\def \sc@char {Q}\sc@put \else
+\ifx #1+\def \sc@char {C}\sc@put \else
+%
+\ifx #1(\def \sc@char {P}\sc@put \else
+\if #1\a@hash \def \sc@char {\nxp \a@S }\sc@put \else
+\ifx #1&\def \sc@char {\nxp \a@s }\sc@put \else
+\ifx #1$\def \sc@char {x}\sc@put \else
+%
+\ifx #1"\def \sc@char {\nxp \a@E }\sc@put \else
+\ifx #1-\def \sc@char {B}\sc@put \else
+\ifx #1*\def \sc@char {*}\sc@put \else
+\ifcat \nxp #1a\edef \sc@char {\csname sc@#1\endcsname }%
+   	\sc@put
+\fi\fi\fi\fi
+\fi\fi\fi\fi 
+\fi\fi\fi\fi 
+\fi\fi\fi\fi 
+\fi\fi\fi\fi 
+\next }
+} % arabcodes
+
+\fi % bhs.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cp1255.sty
+
+\ifx \hwinatcode \undefined \else 
+
+\def \hwin@catcodes {% assignments for CP 1255
+\countdef \is@m=2       \is@m = 192     \is@n = 64
+\loop \catcode \is@m = 11 \global\lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0 \catcode `\^^a0 12 }
+
+{\hwin@catcodes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \sethwin@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@^^c0 {"\n@xp\a@e}	\def \sc@^^c1 {"\n@xp\a@I} 
+\def \sc@^^c2 {"\n@xp\a@A}	\def \sc@^^c3 {"\n@xp\a@O}
+\def \sc@^^c4 {"i} 		\def \sc@^^c5 {"\n@xp\a@E}  
+\def \sc@^^c6 {"e}  		\def \sc@^^c7 {"a}
+\def \sc@^^c8 {"A}		\def \sc@^^c9 {"\n@xp\a@o}   
+\def \sc@^^ca {L}		\def \sc@^^cb {"u}
+\def \sc@^^cc {"\n@xp\a@Zu}	\def \sc@^^cd {|}   
+\def \sc@^^ce {B}		\def \sc@^^cf {"\n@xp\a@Zo}
+
+\def \sc@^^d0 {K}		\def \sc@^^d1 {"\n@xp\a@Ze}   
+\def \sc@^^d2 {"\n@xp\a@Za}	\def \sc@^^d3 {:}
+\def \sc@^^d4 {"\n@xp\a@Zi}	\def \sc@^^d5 {w-w}   
+\def \sc@^^d6 {wy}		\def \sc@^^d7 {y-y}
+\def \sc@^^d8 {@}  \def \sc@^^d9 {@}   \def \sc@^^da {@}   \def \sc@^^db {@}
+\def \sc@^^dc {@}  \def \sc@^^dd {@}   \def \sc@^^de {@}   \def \sc@^^df {@}
+
+\def \sc@M {M} %\def \sc@N {N}
+\def \sc@^^e0 {Q}  \def \sc@^^e1 {b}   \def \sc@^^e2 {g}   \def \sc@^^e3 {d}
+\def \sc@^^e4 {h}  \def \sc@^^e5 {w}   \def \sc@^^e6 {z}   \def \sc@^^e7 {X}
+\def \sc@^^e8 {C}  \def \sc@^^e9 {y}   \def \sc@^^ea {k}   \def \sc@^^eb {k}
+\def \sc@^^ec {l}  \def \sc@^^ed {m}   \def \sc@^^ee {m}   \def \sc@^^ef {n}
+
+\def \sc@^^f0 {n}  \def \sc@^^f1 {s}   \def \sc@^^f2 {P}   \def \sc@^^f3 {p}
+\def \sc@^^f4 {p}  \def \sc@^^f5 {S}   \def \sc@^^f6 {S}   \def \sc@^^f7 {q}
+\def \sc@^^f8 {r} \def\sc@^^f9{\n@xp\a@S} \def\sc@^^fa {t} \def \sc@^^fb {@}
+\def \sc@^^fc {@}  \def \sc@^^fd {@}   \def \sc@^^fe {@}   \def \sc@^^ff {@}
+\a@digits = {0123456789}
+\a@paren  = {()[]}
+\a@first = {"`^^e6}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fi % cp1255.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx \a@hebr \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hescan.sty
+
+\def \hwin@catcodes {% assignments for CP 1255
+\countdef \is@m=2 	\is@m = 192	\is@n = 64
+\loop \catcode \is@m = 11 \global\lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0 \catcode `\^^a0 12 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% heparse.sty
+
+\def \sv@ay {% Yiddish ay
+\put@syl \put@con \a@h \v@ctrue \add@fatha \put@syl \test@patf }
+                                                            
+\def \sv@ey {% Yiddish ey
+\put@syl \put@con \a@h \put@syl \test@patf }
+                                                            
+\def \sv@oy {% Yiddish oy
+\put@syl \put@con \a@p \put@syl \test@patf }
+                                                            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebchrs.sty
+
+\tc@def \a@h {\act@cd \hc@ey }                          % yod yod
+\tc@def \a@p {\act@cd \hc@oy }                          % waw yod
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % Hebrew
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% verses.sty
+
+\ifx \verseatcode \undefined \else
+
+%\newdimen \a@@hvlen
+\csname newdimen\endcsname \a@@hvlen
+
+% define some verse dimensions, verses will be centered
+\def \setversedim #1#2{% set lengths of half-verse, separation
+\ifx \LaTeX \undefined \a@hvind \hsize 
+\else \a@hvind \textwidth \fi
+\a@hvlen #1\relax \advance \a@hvind -\a@hvlen 
+\ifx [#2\def \next {\set@verseI [}\else
+\a@@hvlen \a@hvlen \def \next {\set@@verse {#2}}\fi \next }
+
+\def \set@verseI [#1]{% optional parameter
+\a@@hvlen #1\relax \set@@verse }
+
+\def \set@@verse #1{% separation
+\advance \a@hvind -\a@@hvlen \a@hvsep #1\relax 
+\advance \a@hvind -\a@hvsep  \divide \a@hvind 2 }
+
+\def \connverses #1#2#3{% first half-verse, connection, second half-verse
+\cond{\ifdim 0pt > \a@hvind }%
+{\spreadbox \a@hvlen {#1}\\ \hfill }% first block
+{\noindent \hskip \a@hvind \relax \spreadbox \a@hvlen {#1}}\fi 
+\spreadbox \a@hvsep {#2}% separator
+\spreadbox \a@@hvlen {#3}% second block
+\tracingmacros 0
+\par }
+
+\def \a@c@halfverses #1#2{% optional parameter?
+%\tracingmacros 1
+\cond{\ifx [#2}{\half@verses {#1}[}%
+{\half@verses {#1}[\hfill]{#2}}\fi }
+
+\def \half@verses #1[#2]#3{% first[mid]second
+\test@token \connverses {#1}{#2}{#3}}
+
+\fi % verses.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% utfcode.sty
+
+\ifx \utfatcode \undefined \else
+
+\def \utf@dvii #1{% segment D7
+	\u@lb `#1\relax \advance \u@lb -128 
+	\u@lq \u@lb \divide \u@lq 8
+\ifcase \u@lq \edef \sc@char 
+	{\ifcase \u@lb
+	K\or "\n@xp\a@Ze\or "\n@xp\a@Za\or :\or "\n@xp\a@Zi\or \or \or \or
+	\fi }%
+\or \advance \u@lb  -8 \edef \sc@char {}%
+\or \advance \u@lb -16 \edef \sc@char 
+	{\ifcase \u@lb
+	Q\or b\or g\or d\or h\or w\or z\or X\or
+	\fi }%
+\or \advance \u@lb -24 \edef \sc@char 
+	{\ifcase \u@lb
+	C\or y\or k\or k\or l\or m\or m\or n\or
+	\fi }%
+\or \advance \u@lb -32 \edef \sc@char 
+	{\ifcase \u@lb
+	n\or s\or P\or p\or p\or S\or S\or q\or
+	\fi }%
+\or \advance \u@lb -40 \edef \sc@char 
+	{\ifcase \u@lb
+	r\or \n@xp\a@S \or t\or \or \or \or \or \or
+	\fi }%
+\or \advance \u@lb -48 \edef \sc@char 
+	{\ifcase \u@lb
+%	w\n@xp\a@U w\or wy\or y\n@xp\a@U y\or '\or 
+	\n@xp\a@w \or \n@xp\a@p \or \n@xp\a@h \or '\or 
+	''\or \or \or \or
+	\fi }%
+\or \advance \u@lb -56 \edef \sc@char 
+	{\ifcase \u@lb
+	\or \or \or \or \or \or \or "|\or
+	\fi }%
+\fi \utf@next }
+
+\fi % utfcode.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% yiddish.sty
+
+\ifx \yidatcode \undefined \else
+
+\def \yid@t #1{% ts ?
+\ifx #1s\def \next {\yid@ts }\else
+\def \sc@char {C}\def \next {\yid@word #1}\sc@put 
+\fi \next }
+
+\def \yid@ts #1{% tsh ?
+\ifx #1h\def \sc@char {C\nxp\a@S}\def \next {\yid@word }\else
+\def \sc@char {S}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\fi % yiddish.sty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {15.03.2004}		\def \a@level {h}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\ifx \a@patchlevel \undefined % first patching run
+
+\csname newtoks\endcsname \a@oldoutput
+\csname newbox\endcsname \a@oldbox
+\csname newbox\endcsname \a@newbox
+\csname newdimen\endcsname \a@prevdepth
+
+\def \a@@Rinsert #1{% RL insertion inside Ltext
+%\tracingmacros 1
+\ifshow \a@@verb {#1}\fi % 	verbating listing
+\ifarab \a@Rinsert {#1}\fi % 	arabic writing 
+\iftrans \set@transfont \trans@text #1 \end \/\fi
+\ifnum \tracingarab > \@ne \message {>}\fi
+\unskip \egroup }
+
+\def \a@Rinsert #1{% put a sequence of RL words into Ltext
+%\leavevmode % go to hmode if not there already
+\ifinner \a@sequence {#1}% inside a \hbox: append
+\else \a@@Rsplit {#1}% splice into the current paragraph
+\fi }
+
+\def \a@box@aparm {% Arabic parameters for vbox
+\let \end \relax \def \next@command {\test@special}\transfalse 
+\def \a@kern {\nobreak\kern.05em } \def \a@mkern {\nobreak\kern-.05em }
+\showfalse \spreadtrue \a@hsize \a@Lwidth
+\advance \a@hsize -\leftskip \advance \a@hsize -\rightskip 
+\leftskip \z@ \rightskip \z@ 
+%\advance \a@hsize 20pt % TENTATIVE
+\def \arab@space {\nobreak\hskip 5pt plus 4pt minus 1pt }%
+\def \tat@skip {0.04ex plus 0.5ex }}
+
+\def \a@box@rparm {% Roman parameters for vbox
+\hbadness 10000 \tolerance 5000
+\parskip \z@ \parfillskip \z@ plus 1fil \relax \vskip \a@vglue }
+
+\def \a@@Rsplit #1{% splice RL words into the current paragraph
+\tracingmacros 0
+\bgroup \global\a@oldoutput = \output 
+$$\global\a@lines \prevgraf \global\a@Lwidth \displaywidth 
+$${\endgraf }%
+\ifinner \a@back@line \else
+\global\output = {\a@newoutput }\eject 
+\fi \vskip -\parskip \prevdepth \a@prevdepth 
+\ifvoid \a@oldbox 
+\else \advance \a@lines -1 \setbox\a@oldbox \hbox 
+{\hskip -\leftskip \unhbox\a@oldbox \unskip \unskip \unpenalty }\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm
+\putlineb@x {\copy\a@oldbox }\a@spacefalse 
+\test@token #1 \end \unskip \unskip 
+\vskip \a@vglue \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+	\global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@lines 
+\ifdim \wd\a@newbox = 0pt \unhbox \tempb@x 
+\else \unhbox \a@newbox 
+\ifdim \wd\tempb@x = 0pt 
+\else \space \ins@skip \unhbox \tempb@x 
+\fi\fi \penalty -9999
+\ifvbox \Rinsertb@x \break \a@Runpack \fi
+\egroup }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \a@back@line {% skip back
+\dimen0 \baselineskip \unskip \unpenalty \setbox0 \lastbox 
+\dimen2 \lastskip \unskip \unskip \unpenalty 
+\global\setbox \a@oldbox \lastbox
+\ifvoid \a@oldbox \else \dimen2 \lastskip \unskip
+\advance\dimen0 -\ht\a@oldbox \fi
+\advance\dimen0 -\dimen2 \global\a@prevdepth \dimen0 \unskip }%
+
+\gdef \a@newoutput {% intermediate output routine
+\global\output = \a@oldoutput 
+%\showbox 255
+\setbox 255 \vbox {\unvbox 255 % put back to MVL
+\a@back@line }\unvbox 255 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi % first run
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {29.04.2004}		\def \a@level {i2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% buck.sty
+
+\ifx \buckatcode \undefined \else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setbuck@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@@ {@}   \def \sc@c {@}   \def \sc@e {@}
+\def \sc@B {@}   \def \sc@C {J}   \def \sc@G {g}   \def \sc@I {Qi}
+\def \sc@J {j}   \def \sc@L {@}   \def \sc@M {@}   \def \sc@O {Qa}
+\def \sc@P {p}   \def \sc@Q {@}   \def \sc@R {@}   \def \sc@U {Qw}
+\def \sc@V {v}   \def \sc@W {Qw}  \def \sc@X {@}   
+
+\sc@def  ' {Q|}  \sc@def  | {QA}  \sc@def  > {Qa}  \sc@def  & {Qw}
+\sc@def  < {Qi}  \sc@def  ## {|}  \def \sc@A {A}   \def \sc@b {b}
+\def \sc@p {T}   \def \sc@t {t}   \def \sc@v {C}   \def \sc@j {G}
+\def \sc@H {H}   \def \sc@x {X}   \def \sc@d {d}   \sc@def  * {F}
+\def \sc@r {r}   \def \sc@z {z}   \def \sc@s {s}   \sc@def  $ {x}
+\def \sc@S {S}   \def \sc@D {D}   \def \sc@T {V}   \def \sc@Z {Z}
+\def \sc@E {P}   \def \sc@g {R}   \sc@def  _ {|B}
+\def \sc@f {f}   \def \sc@q {q}   \def \sc@k {k}   \def \sc@l {l}
+\def \sc@m {m}   \def \sc@n {n}   \def \sc@h {h}   \def \sc@w {w}
+\def \sc@Y {Y}   \def \sc@y {y}   \def \sc@F {"aN} \def \sc@N {"uN}
+\def \sc@K {"iN} \def \sc@a {"a}  \def \sc@u {"u}  \def \sc@i {"i}
+%\sc@def  ~ {@}   \def \sc@o {""}  \sc@def  ` {"\n@xp \a@a}  
+\sc@def  ~ {\n@xp \a@Ze}   \def \sc@o {""}  \sc@def  ` {"\n@xp \a@a}  
+\sc@def  ^ {"'}
+\sc@def  = {"\n@xp \a@ZE }
+
+\a@digits = {0123456789}             \a@paren  = {()[]}
+\a@first = {"`}
+\setbuck@codes@hook
+\globaldefs=0 }
+\global\let \setbuck@codes@hook \relax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\catcode `\[ 1 \catcode `\{ 11
+\gdef \buck@beg #1[% start the TB scanner
+\h@mzafalse  \iz@fetfalse \novocalize \@ssimfalse
+  \def \next [\buck@word #1}%
+\ifx #1\@ \def \next [\sc@endscan }\else                % finished
+\ifx #1{\def \next [\buck@lbrace }\else
+\ifx #1"\def \next [\buck@lquote }\else
+\ifx #1A\def \next [\buck@alif }\else
+\fi\fi\fi\fi \next }
+} % catcodes 1 and 11
+
+{\catcode `\^^M=13 \catcode `\~ 11 %
+\gdef \buck@word #1#2{% transform input into internal notation
+        \def \next {\buck@word #2}%
+\ifx #1\@ \def \next {\sc@endscan #2}\else % finished
+\ifx #1-\def \next {\buck@minus #2}\else %
+\ifx #1"\def \next {\buck@rquote #2}\else %
+\ifx #1y\def \next {\buck@yah #2}\else %
+\if \nxp ^^M\nxp #1\def \next {\buck@par #1#2}\else % active character
+\ifx #1#2\def \next {\buck@two #1}\else %
+        \ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+        \else \def \sc@char {\nxp #1}%
+        \fi %
+        \sc@put %
+\fi\fi\fi\fi\fi\fi \next }%
+} % catcodes 13 and 11
+
+\def \buck@alif #1{% specials?
+\def \next {\buck@word }%
+\if \nxp #1=\def \sc@char {QA}\sc@put \else
+\if \nxp #1@\def \sc@char {"}\sc@put \else
+\if \nxp #1^\def \sc@char {Qa}\sc@put \else
+\if \nxp #1_\def \sc@char {Qi}\sc@put \else
+\def \sc@char {A}\def \next {\buck@word #1}\sc@put 
+\fi\fi \fi\fi \next }
+
+\def \buck@yah #1{% hamza?
+\def \next {\buck@word }%
+\if \nxp #1^\def \sc@char {Qy}\sc@put \else
+\def \sc@char {y}\def \next {\buck@word #1}\sc@put 
+\fi \next }
+
+\def \set@buck {% substitute new scanner
+\let \sc@beg \buck@beg              \let \sc@word \buck@word  
+\let \sc@back \sc@@back             \let \sc@endscan \sc@@endscan
+\global\let \a@scan \a@@scan        \setbuck@codes        
+\let \arab@codes \buck@codes        \let \unarab@codes \unbuck@codes
+\let \test@special \buck@special
+\message {input coding set to Tim Buckwalter's encoding conventions}}
+
+\def \buck@cat {% change catcodes
+\catcode `\# 11  \catcode `\= 11  \catcode `\^ 11  \catcode `\~ 11  
+\catcode `\' 11  \catcode `\| 11  \catcode `\> 11  \catcode `\& 11
+\catcode `\< 11  \catcode `\} 11  \catcode `\* 11  \catcode `\$ 11
+\catcode `\_ 11  \catcode `\~ 11  \catcode `\` 11  \catcode `\{ 11  }
+
+\def \buck@recat {% change catcodes back
+\catcode `\# 6   \catcode `\= 12  \catcode `\^ 7   \catcode `\~ 13  
+\catcode `\' 12  \catcode `\| 12  \catcode `\> 12  \catcode `\& 4
+\catcode `\< 12  \catcode `\} 2   \catcode `\* 12  \catcode `\$ 3
+\catcode `\_ 8   \catcode `\~ 13  \catcode `\` 12  \catcode `\{ 1   }
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aparse.sty
+
+\def \syl@hamzaverb #1{% verbatim hamza, #1 = carrier
+\case #1\of
+{	|{\put@con Q}
+	A{\put@con a\add@madda \@sukfalse }
+	y{\put@con Y\add@hamza \ifqur@n \add@hamzalow \fi }
+	u{\put@con w\add@hamza }
+	i{\put@con a\add@hamza \add@hamzalow }
+\default {\put@con #1\add@hamza }	
+}\endcase \syl@voctest }
+
+\def \syl@quote@voc #1{% continue syllable with quote: " #1 #2
+\case #1\of 
+{	B{\togglev@c \add@sukun \put@syl \syl@con #1}
+	"{\togglev@c \add@sukun \put@syl \syl@beg }
+	|{\syl@@quote@voc }
+	'{\add@hamza \syl@voctest }
+\default {\togglev@c \syl@voctest #1}% vowel: sukun
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.sty
+
+\ifx \a@hebr \undefined \else
+
+\ifx \a@patchlevel \undefined % load only the first time
+\else
+\global\let \@@set@hcls \set@hcls
+
+\gdef \set@hcls {%
+\@@set@hcls
+\global\let \h@putvowel \h@put@@vowel
+}
+
+\fi
+
+\gdef \h@put@@vowel #1{% vowel mark
+\ifx #1\relax \relax \else \def \hadj {0}\def \vadj {0}% 
+\ifnum \act@cd = \hc@P \let\vadj \v@adj \put@b@x{\hc@Pv }\else	% vowel-ayin
+%\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.85}\else  % final kaph
+\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.80}\else  % final kaph
+\ifnum \act@cd = \hc@r  \def \hadj  {.35}\else                  % resh
+\ifnum \act@cd = \hc@d  \def \hadj   {.2}\else                  % daleth
+\ifnum \act@cd = \hc@q  \def \hadj   {.1}\else                  % qoph
+\ifnum \act@cd = \hc@y  \def \hadj   {.1}\else                  % yod
+\ifnum \act@cd = \hc@w  \def \hadj  {.15}\else                  % waw
+\ifnum \act@cd = \hc@si \def \hadj  {-.1}\else                  % sin
+\fi\fi\fi\fi\fi\fi\fi\fi
+\setbox0 \hbox to \a@wd {\hss #1\hss}\dimen@ \vadj\a@ht 
+\advance \dimen@ -1\h@p
+\dimen2 \a@slant\dimen@ \advance\dimen2 \hadj\a@wd
+\global\setbox\ab@x \hbox
+{\rlap {\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }\fi }
+
+\fi % a@hebr
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {17.05.2004}		\def \a@level {j}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\def \a@RL {% RTL insertion inside LRtext
+\ifaRL \else \aRLtrue
+	\let \a@RLpar \par % prepare for normal baselines
+	\edef \a@lslimit {\lineskiplimit \the\lineskiplimit}%
+	\def \par {\a@RLpar \let \par \a@RLpar \a@lslimit \aRLfalse }%
+\fi 
+\ifhmode \lineskiplimit -.9\baselineskip 
+\fi % enforce uniform baselines 
+\bgroup \arab@codes \set@arabfont \@waslafalse \@wasfalse \a@@Rinsert }
+
+\def \a@Rinsert #1{% put a sequence of RL words into Ltext
+\leavevmode % go to hmode if not there already
+\ifinner \a@sequence {#1}% inside a \hbox: append
+\else \a@@Rsplit {#1}% splice into the current paragraph
+\fi }
+
+\def \a@@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \global\a@oldoutput = \output 
+$$\global\a@lines \prevgraf \global\a@Lwidth \displaywidth 
+$${\endgraf }%
+\ifinner \a@back@line \else
+\global\output = {\a@newoutput }\eject 
+\fi \vskip -\parskip \global\prevdepth \a@prevdepth 
+\ifvoid \a@oldbox \else 
+\advance \a@lines -1 \setbox\a@oldbox \hbox 
+{\hskip -\leftskip \unhbox\a@oldbox \unskip \unskip \unpenalty }\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm
+	\putlineb@x {\copy\a@oldbox }\a@spacefalse 
+	\test@token #1 \end \unskip \unskip 
+	\vskip \a@vglue \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+	\global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@lines \unhcopy \a@newbox 
+\ifdim \wd\a@newbox = 0pt \else 
+\ifdim \wd\a@newbox = \parindent \else \space \ins@skip 
+\fi\fi \unhbox \tempb@x \penalty -9999
+\ifvbox \Rinsertb@x \break \a@Runpack \fi
+\egroup }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alatex.sty
+
+\def \a@endx {\if@ignore \@ignorefalse \xpa\ignorespaces \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {24.05.2004}		\def \a@level {k}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtex.sty
+
+\def \all@false {% reset language code to default 
+\k@rdfalse \t@rkfalse \m@ghfalse \urd@false \p@shtfalse 
+\s@ndfalse \m@layfalse \u@ghfalse \k@srafalse \k@shfalse
+\h@mzafalse \@ssimfalse \iz@fetfalse \yahd@tsfalse \k@fsfalse \f@rsnfalse
+\let \vocalize \v@calize    \let \fullvocalize \fullv@calize
+\arab@output \catcode`\<=\active }
+
+\pdef \setuighur {% switch language specific processing
+\let \vocalize \novocalize    \let \fullvocalize \novocalize
+\novocalize \all@false \@ssimfalse \h@mzafalse
+\u@ghtrue \def \a@defaultfont {\setnash }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\def \a@RL {% RTL insertion inside LRtext
+\ifaRL \else \aRLtrue
+	\let \a@RLpar \par % prepare for normal baselines
+	\edef \a@lslimit {\lineskiplimit \the\lineskiplimit}%
+	\def \par {\a@RLpar \let \par \a@RLpar \a@lslimit \aRLfalse }%
+\fi 
+\lineskiplimit -.9\baselineskip % enforce uniform baselines 
+\bgroup \arab@codes \set@arabfont \@waslafalse \@wasfalse \a@@Rinsert }
+
+\def \a@@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \global\a@oldoutput = \output 
+$$\global\a@lines \prevgraf \global\a@Lwidth \displaywidth 
+$${\endgraf }%
+\ifinner \a@back@line \else
+\global\output = {\a@newoutput }\eject 
+\fi \global\prevdepth \a@prevdepth 
+\ifvoid \a@oldbox \else \advance \a@lines -1 
+\setbox\a@oldbox \hbox {\hskip -\leftskip \unhbox\a@oldbox 
+	\unskip \unskip \unpenalty \unpenalty }%
+\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm
+	\putlineb@x {\hbox {\unhcopy\a@oldbox }}\a@spacefalse 
+	\test@token #1 \end \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+	\global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@lines \unhcopy \a@newbox 
+\ifdim \wd\a@newbox = 0pt \else 
+\ifdim \wd\a@newbox = \parindent \else 
+\ifdim \wd\tempb@x = 0pt \else 
+	\space \LRskip 
+\fi\fi\fi \unhbox \tempb@x 
+\ifvbox \Rinsertb@x \break \a@Runpack \fi
+\egroup }
+
+\gdef \a@newoutput {% intermediate output routine
+\global\output = \a@oldoutput 
+%\showbox 255
+\setbox 255 \vbox {\unvbox 255 % put back to MVL
+\a@back@line }\unvbox 255 }
+
+\def \a@Runpack {% unpack all lines from the insertion
+\loop \a@Rgetline \unhbox \tempb@x \unskip \unskip \break
+\ifvbox \Rinsertb@x \repeat \unpenalty \RLskip }
+
+\def \LRskip {\hskip \z@ plus 0.1em }% before RL insertion (right)
+\def \RLskip {\hskip \z@ plus 0.1em }% after RL insertion (left)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@Linsert #1{% splice Ltext into RL paragraph
+\putwordb@x {\RLskip }\a@spacefalse \a@@Linsert {#1}\a@Lunpack 
+\putwordb@x {\LRskip }\a@spacetrue \arab@codes 
+\tracingmacros 0
+\test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {22.06.2004}		\def \a@level {l}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alists.sty
+
+\def \a@c@item
+{\@ifnextchar [{\a@@item }{\@noitemargtrue 
+\expandafter \a@@item \expandafter [\@itemlabel ]}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% awrite.sty
+
+\let \ac@high \relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabrep.cls
+
+\at@arabtext {% switch to Arabic terms
+	\def\labelenumi{\theenumi\nospace-}
+	\def\labelenumiii{\theenumiii\nospace)}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {23.01.2005}		\def \a@level {m}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabext.sty
+
+\ifx \a@@figure \undefined \else
+
+\def \a@@figure {% figure within Arabic environment
+\let \a@endfigure \endfigure \def \endfigure {\a@par \a@endfigure }%
+\a@par \figure }
+
+\def \a@@table {% table within Arabic environment
+\let \a@endtable \endtable \def \endtable {\a@par \a@endtable }%
+\a@par \table }
+
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {06.04.2005}		\def \a@level {n}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+% for use with abidir.sty version 3.12a:
+\csname newcount\endcsname \a@lines
+\csname newdimen\endcsname \a@Lwidth
+
+%\newdimen \a@prevdepth		
+%\newdimen \a@displaywidth     
+%\newcount \a@prevgraf		
+%\newtoks \a@oldoutput
+
+\def \RLskip {\hskip \z@ plus 0.1em }% after RL insertion (right)
+\def \LRskip {\hskip 1em plus 0.1em }% before RL insertion (left)
+
+\def \a@@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \global\a@oldoutput = \output 
+\dimen0 \vsize \advance \dimen0 100pt \pagegoal \dimen0
+$$\global\a@prevgraf \prevgraf \global\a@displaywidth \displaywidth 
+$${\endgraf }%
+\ifinner \a@back@line \else
+\global\output = {\a@newoutput }\eject 
+\fi \global\prevdepth \a@prevdepth 
+\ifvoid \a@oldbox \else \advance \a@prevgraf -1 
+\setbox\a@oldbox \hbox {\hskip -\leftskip \unhbox\a@oldbox 
+	\unskip \unskip \unpenalty \unpenalty }%
+\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm
+	\putlineb@x {\hbox {\unhcopy\a@oldbox }}\a@spacefalse 
+	\test@token #1 \end \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+	\global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@prevgraf \unhcopy \a@newbox 
+\ifdim \wd\a@newbox = 0pt \else 
+\ifdim \wd\a@newbox = \parindent \else 
+\ifdim \wd\tempb@x = 0pt \else 
+	\space \LRskip 
+\fi\fi\fi \unhbox \tempb@x 
+\ifvbox \Rinsertb@x \break \a@Runpack 
+\else \RLskip 
+\fi
+\egroup }
+
+\gdef \a@back@line {% skip back over empty display
+\dimen0 \baselineskip \unskip \unpenalty \setbox0 \lastbox 
+\dimen2 \lastskip \unskip \unskip \unpenalty 
+\global\setbox \a@oldbox \lastbox 	% last line
+\ifvoid \a@oldbox \else \dimen2 \lastskip \unskip
+\advance\dimen0 -\ht\a@oldbox \fi
+\advance\dimen0 -\dimen2 		% compute \prevdepth
+\global\a@prevdepth \dimen0 \unskip }%
+
+\gdef \a@newoutput {% intermediate output routine
+\global\output = \a@oldoutput 
+%\ifnum \tracingmacros = 0 \else \showbox 255 \fi
+\setbox 255 \vbox {\unvbox 255 		% put back into MVL
+\a@back@line }\unvbox 255 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% atrans.sty
+% because of an incompatible change in Plain 3.1415926
+
+\gdef \x@s #1{\oalign{#1\crcr\hidewidth \nsh@ft{34}% accent for _h
+    \vbox to -.2ex {\hbox{\char'25}\vss}\hidewidth}}
+
+\gdef \x@x #1{\oalign{#1\crcr\hidewidth \nsh@ft{29}% accent for .s in Urdu
+    \vbox to.2ex{\hbox{\char'177}\vss}\hidewidth}}
+
+\def \ish@ft #1{\dimen\z@.00#1ex\multiply\dimen\z@\fontdimen1\font
+  \kern.0156\dimen\z@} % positive kern for slant 
+
+\def \rsh@ft #1#2{\ish@ft{#1}#2\nsh@ft{#1}}
+
+\def \nsh@ft#1{\dimen\z@.00#1ex\multiply\dimen\z@\fontdimen1\font
+  \kern-.0156\dimen\z@} % compensate for slant in lowered accents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {25.01.2006}		\def \a@level {o}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% version 3.11i::abidir.sty
+ 
+%\csname newbox\endcsname 	for 	\newbox etc. (inner!)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aligs.sty
+
+\def \hah@end #1#2*#3#4+#5*#6{% hah, test for ligature
+% c1 m1 * c2 m21 + m22 * c3
+\ifu@gh \ifx #1\a@H 
+        \else \set@act \sk@h@u 
+        \fi
+\else
+\ifm@lay  \else
+\ifurd@ \set@act \sk@h@s \hah@urd #3% round h?
+        \ifx #1T\else
+        \ifx #3l\test@allah {#4}{#6}\else
+        \ifx #1\a@H 
+        \else   \set@act\sk@h@u 
+                \if\is@end@char #3%
+                \else \set@loww@act \global\a@min 1
+                \fi
+        \fi\fi\fi
+\else
+\ifx #3l\test@allah {#4}{#6}\else 
+\ifnum \chr@cls = 1 \set@chr\sk@b \put@tatwil   % 1 YntCbyp
+\else 
+\ifnum \chr@cls = 3 \put@tatwil                 % 3 GHX
+\else \gim@test #6\put@tatwil 
+\fi
+\fi\fi\fi\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {08.02.2006}		\def \a@level {p}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\csname newdimen\endcsname \a@displaywidth     
+
+\def \LRskip {\hskip \z@ plus 0.1em }% before RL insertion (left)
+
+\def \a@@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \global\a@oldoutput = \output 
+\dimen0 \vsize \advance \dimen0 100pt \pagegoal \dimen0
+$$\global\a@prevgraf \prevgraf \global\a@displaywidth \displaywidth 
+$${\par }%
+\ifinner \a@back@line \else
+\global\output = {\a@newoutput }\eject 
+\fi \global\prevdepth \a@prevdepth 
+\ifvoid \a@oldbox \else \advance \a@prevgraf -1 
+\setbox\a@oldbox \hbox {\hskip -\leftskip \unhbox\a@oldbox 
+	\unskip \unskip \unpenalty \unpenalty }%
+\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm
+	\putlineb@x {\hbox {\unhcopy\a@oldbox }}\a@spacefalse 
+	\test@token #1 \end \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+	\global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@prevgraf \unhcopy \a@newbox 
+\ifdim \wd\a@newbox = 0pt \else 
+\ifdim \wd\a@newbox = \parindent \else 
+\ifdim \wd\tempb@x = 0pt \else 
+	\space \LRskip 
+\fi\fi\fi \unhbox \tempb@x 
+\ifvbox \Rinsertb@x \break \a@Runpack 
+\else \RLskip 
+\fi
+\egroup }
+
+\def \a@box@aparm {% Arabic parameters for vbox
+\let \end \relax \def \next@command {\test@special}\transfalse 
+\def \a@kern {\nobreak\kern.05em } \def \a@mkern {\nobreak\kern-.05em }
+\showfalse \spreadtrue \a@hsize \a@displaywidth
+\advance \a@hsize -\leftskip \advance \a@hsize -\rightskip 
+\leftskip \z@ \rightskip \z@ 
+%\advance \a@hsize 20pt % TENTATIVE
+\def \arab@space {\nobreak\hskip 5pt plus 4pt minus 1pt }%
+\def \tat@skip {0.04ex plus 0.5ex }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aoutput.sty
+
+\def \put@ab@x {% deposit line
+\ifhmode \unskip {\par }\penalty \clubpenalty 
+\parindent \z@ \parskip \z@ \else
+\ifnum \a@prevgraf = \z@ \else \penalty \widowpenalty 
+\fi\fi 
+\begingroup \parfillskip 0pt plus 1fill 
+	\leftskip \z@ \rightskip \z@ \noindent 
+	\ifdim \a@leftmargin = \z@ \else \hskip \a@leftmargin \fi
+	\box\a@tempb@x \par
+\endgroup \parindent \z@ \parskip \z@ plus 1pt \initlineb@x 
+\advance \a@prevgraf \@ne	\a@@prevgraf \prevgraf
+\advance \a@@prevgraf \@ne	\prevgraf \a@@prevgraf }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% altxext.sty
+
+\ifx \a@olddisp \undefined
+\let \a@olddisp \[	% for lineno.sty
+\ifx \linenumbers \undefined \else 
+	\def \[{\par\nobreak\noindent \a@olddisp}
+	\all@w@ne \linelabel 
+\fi
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for acmd.sty in version 3.11 only!
+
+\def \a@c@smallskip {\a@@par \smallskip \test@token }
+\def \a@c@medskip   {\a@@par \medskip   \test@token }
+\def \a@c@bigskip   {\a@@par \bigskip   \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aparse.sty
+
+{\catcode `\< = \@other           % better make sure
+\gdef \a@parse #1>{% parse token sequence into syllables
+\iftest@parse \tracingmacros = 1 
+\iftest@scan \else \a@verb (#1)>\fi\fi
+\csname a@parse@hook\endcsname
+\last@con ={.}\last@mod = 0 \last@voc = 0 \global\@highfalse
+\global \sv@revwd ={}\global \a@revwd ={}\syl@beg #1<<<>%
+\iftest@parse \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@revwd )>\fi }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {01.03.2006}		\def \a@level {q}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alatex.sty
+
+\ifx \linenumbers \undefined
+\global\let \linenumbers \relax \fi
+\global\let \ifLineNumbers \iffalse
+% CAUTION: must be in \outer context!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\gdef \a@Rinsert #1{% put a sequence of RL words into Ltext
+\leavevmode % go to hmode if not there already
+\ifinner \a@sequence {#1}% inside a \hbox: append
+\else \a@@Rsplit {#1}% splice into the current paragraph
+\fi }
+
+\gdef \a@@Rinsert #1{% RL insertion inside Ltext
+%\tracingmacros 1
+\ifshow \a@@verb {#1}\fi % 	verbating listing
+\ifarab \a@Rinsert {#1}\fi % 	arabic writing 
+\iftrans \set@transfont \trans@text #1 \end \/\fi
+\ifnum \tracingarab > \@ne \message {>}\fi
+\unskip \egroup }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \a@back@line {% skip back over last line
+\ifLineNumbers 					% undo last linenumber
+  \unskip \unkern \unskip \unpenalty \setbox0 \lastbox 
+  \ifvoid0 \else \global \advance \c@linenumber -1 
+  \fi \unkern \unskip 
+\fi \global\setbox \a@oldbox \lastbox 		% grab last text line
+\ifvoid \a@oldbox \prevdepth 0pt		% start of paragraph
+\else \dimen0 \baselineskip \advance\dimen0 -\ht\a@oldbox 
+  \advance\dimen0 -\lastskip \prevdepth \dimen0 % compute \prevdepth
+\fi \unskip }
+
+\gdef \a@@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \global\a@oldoutput = \output 
+\dimen0 \vsize \advance \dimen0 100pt \pagegoal \dimen0
+\everypar {}%
+\par \global\a@prevgraf \prevgraf 
+\ifinner \a@back@line \else
+  \global\output = {\a@newoutput }\break
+\fi 
+\dimen0 \pagegoal \advance \dimen0 -100pt \pagegoal \dimen0
+\ifvoid \a@oldbox \global \a@displaywidth \hsize
+\else \advance \a@prevgraf -1 \vskip -\parskip
+  \global \a@displaywidth \wd \a@oldbox
+  \setbox\a@oldbox \hbox {\hskip -\leftskip \unhbox\a@oldbox 
+	\unskip \unskip \unpenalty \unpenalty }%
+\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm \let \par \endgraf
+  \putlineb@x {\hbox {\unhcopy\a@oldbox }}\a@spacefalse 
+  \test@token #1 \end \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+  \global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@prevgraf \unhcopy \a@newbox 
+\ifdim \wd\a@newbox = 0pt \else 
+\ifdim \wd\a@newbox = \parindent \else 
+\ifdim \wd\tempb@x = 0pt \else \space \LRskip 
+\fi\fi\fi 
+\unhbox \tempb@x 
+\ifvbox \Rinsertb@x \break \a@Runpack \else \RLskip 
+\fi \egroup }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \a@newoutput {% intermediate output routine
+\global\output = \a@oldoutput 
+%\ifnum \tracingmacros = 0 \else \showbox 255 \fi
+%\showbox255
+\setbox 255 \vbox {\unvbox 255 		% put back into MVL
+%\tracingmacros 1
+\a@back@line }\unvbox 255 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \a@Linsert #1{% splice Ltext into RL paragraph
+%\tracingmacros 1
+\putwordb@x {\RLskip }\a@spacefalse \a@@Linsert {#1}\a@Lunpack 
+\putwordb@x {\LRskip }\a@spacetrue \arab@codes 
+%\tracingmacros 0
+\test@token }
+
+\gdef \a@@Linsert #1{% splice Ltext into RL paragraph
+\dimen0 \wd \lineb@x \setbox \Linsertb@x \vbox 
+{\hsize \a@hsize \hangindent -\dimen0 \hangafter -\@ne 
+\tr@ceoff \rm \tr@ceon \rightskip \z@ plus .001fil 
+\vskip \a@vglue \everypar {}\parskip \z@ 
+\dimen2 \fontdimen4\font \fontdimen4\font 0pt % prevent shrinking 
+\noindent \null #1\clubpenalty 0 \widowpenalty 0 \tolerance 10000 
+\endgraf \fontdimen4\font \dimen2 }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabaux.sty
+
+\ifx \a@check@mathfonts \undefined
+\global\let \a@check@mathfonts \check@mathfonts 
+\gdef\check@mathfonts{\tr@ceoff 	% dont trace fonts
+\a@check@mathfonts \tr@ceon }
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aedpatch.sty
+
+\let \ins@skip \relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtex.sty
+
+%\long\def \test@@special #1{% check for special cases
+\long\gdef \test@special #1{% check for special cases
+\ifcat \bgroup \nxp \next@token                 % arabic group
+	\a@@putword \def \next {\arab@group {#1}}\else
+\if \relax \nxp #1%                             % command
+	\if\is@in@set #1\a@accent		% known to scanner
+		\a@@append {#1}\def \next {\get@token }%
+	\else 					% general command
+		\a@@putword \def \next {\test@command #1}%
+	\fi \else
+\if \sp@ce \nxp \next@token			% RTL space
+	\a@@putword \def \next {\get@token }\else
+\ifnum `#1 > 127 				% inputenc command
+	\a@@append {#1}\def \next {\get@token}\else
+\ifcat \nxp ~\nxp #1%                           % active character
+	\a@@putword \def \next {\test@command #1}\else
+\if \nxp <\nxp #1\unarab@codes                  % Roman insert
+	\a@@putword \let \next \test@insert \else
+\ifx $#1\unarab@codes                           % Math insert
+	\a@@putword \let \next \test@math 
+\else \a@@append {#1}\def \next {\get@token}%	% normal case
+\fi\fi\fi\fi\fi\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {16.04.2006}		\def \a@level {r}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+
+\gdef \a@@Rinsert #1{% RL insertion inside Ltext
+%\tracingmacros 1
+\ifshow \a@@verb {#1}\fi % 	verbating listing
+\ifarab \a@Rinsert {#1}\fi % 	arabic writing 
+\iftrans \set@transfont \trans@text #1 \end \/\fi
+\ifnum \tracingarab > \@ne \message {>}\fi
+\RLskip \egroup }
+
+\gdef \a@@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \global\a@oldoutput = \output 
+  \dimen0 \vsize \advance \dimen0 100pt \pagegoal \dimen0
+  \skip0 \lastskip \everypar {}\par \global\a@prevgraf \prevgraf 
+\ifinner \a@back@line \else \global\output = {\a@newoutput }\break
+\fi 
+  \dimen0 \pagegoal \advance \dimen0 -100pt \pagegoal \dimen0
+  \global\prevdepth \a@prevdepth 
+\ifvoid \a@oldbox \global \a@displaywidth \hsize
+\else \advance \a@prevgraf -1 \vskip -\parskip
+  \global \a@displaywidth \wd \a@oldbox
+  \setbox\a@oldbox \hbox {\hskip -\leftskip \unhbox\a@oldbox 
+	\unskip \unskip \unpenalty \unpenalty }%
+\fi
+\setbox\Rinsertb@x \vbox {\a@box@rparm \a@box@aparm \let \par \endgraf
+  \putlineb@x {\hbox {\unhcopy\a@oldbox }}\a@spacefalse 
+  \test@token #1 \end \hbox {\box\lineb@x \hfill }}%
+\a@Rgetline 
+\setbox\tempb@x \hbox {\unhbox \tempb@x \unskip \unpenalty 
+  \global\setbox \a@newbox \lastbox }%
+\noindent \prevgraf \a@prevgraf \unhcopy \a@newbox 
+\ifdim \wd\a@newbox = 0pt \else 
+\ifdim \wd\a@newbox = \parindent \else 
+\ifdim \wd\tempb@x = 0pt \else 
+  \ifdim \skip0 = 0pt \else \hskip \skip0 
+  \fi \LRskip 
+\fi\fi\fi 
+\unhbox \tempb@x 
+\ifvbox \Rinsertb@x \break \a@Runpack 
+\fi \egroup }
+
+\def \a@Runpack {% unpack all lines from the insertion
+\loop \a@Rgetline \unhbox \tempb@x \unskip \unskip \break
+\ifvbox \Rinsertb@x \repeat \unpenalty }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \a@pdatum {02.07.2006}		\def \a@level {s}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input alocal.sty       % local patches!
+% must be idempotent!
+
+\ifx \a@patchlevel \undefined % first patching run
+\a@ident {apatch.sty} 
+	{\a@version\a@level\space last minute patches } {\a@pdatum }
+	\edef \a@patchlevel {\a@version \a@level \space (\a@pdatum )}
+\else \a@message {version \a@patchlevel: second phase of patching}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode`\" = \patchdqcode         \catcode`\@ = \patchatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

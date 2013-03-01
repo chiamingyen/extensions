@@ -1,0 +1,13 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% ar-ext-adobe-bi.map: map file with basic ps fonts (those
+%     available to the acrobat reader and most printers).
+%
+% "Faked" ExtendFont / SlantFont without download. Useful for
+% dvips + gsftopk. Does not work with pdftex and ps2pk.
+pcrr8rn Courier ".85 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc
+psyro Symbol ".167 SlantFont"
+ptmbo8r Times-Bold ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+ptmr8rn Times-Roman ".82 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc
+ptmro8r Times-Roman ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+ptmrr8re Times-Roman "1.2 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc

@@ -1,0 +1,38 @@
+% Thomas Esser, 1998, public domain.
+%
+% lw35extra-urw-kb.map: completes acrobat map with fonts available
+%    to most ps printers (LW35 fonts). Downloads URW fonts with Berry
+%    names.
+%
+% Useful for ps2pk and pdftex.
+pagd8r URWGothicL-Demi "TeXBase1Encoding ReEncodeFont" <8r.enc <uagd8a.pfb
+pagdo8r URWGothicL-DemiObli "TeXBase1Encoding ReEncodeFont" <8r.enc <uagdo8a.pfb
+pagk8r URWGothicL-Book "TeXBase1Encoding ReEncodeFont" <8r.enc <uagk8a.pfb
+pagko8r URWGothicL-BookObli "TeXBase1Encoding ReEncodeFont" <8r.enc <uagko8a.pfb
+pbkd8r URWBookmanL-DemiBold "TeXBase1Encoding ReEncodeFont" <8r.enc <ubkd8a.pfb
+pbkdi8r URWBookmanL-DemiBoldItal "TeXBase1Encoding ReEncodeFont" <8r.enc <ubkdi8a.pfb
+pbkdo8r URWBookmanL-DemiBold ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <ubkd8a.pfb
+pbkl8r URWBookmanL-Ligh "TeXBase1Encoding ReEncodeFont" <8r.enc <ubkl8a.pfb
+pbkli8r URWBookmanL-LighItal "TeXBase1Encoding ReEncodeFont" <8r.enc <ubkli8a.pfb
+pbklo8r URWBookmanL-Ligh ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <ubkl8a.pfb
+phvb8rn NimbusSanL-BoldCond "TeXBase1Encoding ReEncodeFont" <8r.enc <uhvb8ac.pfb
+phvbo8rn NimbusSanL-BoldCondItal-Narrow-BoldOblique "TeXBase1Encoding ReEncodeFont" <8r.enc <uhvbo8ac.pfb
+phvr8rn NimbusSanL-ReguCond "TeXBase1Encoding ReEncodeFont" <8r.enc <uhvr8ac.pfb
+phvro8rn NimbusSanL-ReguCondItal "TeXBase1Encoding ReEncodeFont" <8r.enc <uhvro8ac.pfb
+pncb8r CenturySchL-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc <uncb8a.pfb
+pncbi8r CenturySchL-BoldItal "TeXBase1Encoding ReEncodeFont" <8r.enc <uncbi8a.pfb
+pncbo8r CenturySchL-Bold ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <uncb8a.pfb
+pncr8r CenturySchL-Roma "TeXBase1Encoding ReEncodeFont" <8r.enc <uncr8a.pfb
+pncri8r CenturySchL-Ital "TeXBase1Encoding ReEncodeFont" <8r.enc <uncri8a.pfb
+pncro8r CenturySchL-Roma ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <uncr8a.pfb
+pplb8r URWPalladioL-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc <uplb8a.pfb
+pplbi8r URWPalladioL-BoldItal "TeXBase1Encoding ReEncodeFont" <8r.enc <uplbi8a.pfb
+pplbo8r URWPalladioL-Bold ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <uplb8a.pfb
+pplbu8r URWPalladioL-BoldItal "-.1763 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <uplbi8a.pfb
+pplr8r URWPalladioL-Roma "TeXBase1Encoding ReEncodeFont" <8r.enc <uplr8a.pfb
+pplr8rn URWPalladioL-Roma ".82 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc <uplr8a.pfb
+pplri8r URWPalladioL-Ital "TeXBase1Encoding ReEncodeFont" <8r.enc <uplri8a.pfb
+pplro8r URWPalladioL-Roma ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <uplr8a.pfb
+pplrr8re URWPalladioL-Roma "1.2 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc <uplr8a.pfb
+pplru8r URWPalladioL-Ital "-.1763 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc <uplri8a.pfb
+pzcmi8r URWChanceryL-MediItal "TeXBase1Encoding ReEncodeFont" <8r.enc <uzcmi8a.pfb

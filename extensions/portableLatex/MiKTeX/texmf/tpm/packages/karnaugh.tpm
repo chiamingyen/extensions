@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/karnaugh"><TPM:Name>karnaugh</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Typeset Karnaugh-Veitch-maps.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Macros intended for typesetting Karnaugh-Maps and Veitch-Charts in a
+simple and user-friendly way. Karnaugh-Maps and Veitch-Charts are used
+to display and simplify logic functions "manually". These macros can
+typeset Karnaugh-Maps and Veitch-Charts with up to ten variables
+(=1024 entries).
+</TPM:Description><TPM:RunFiles size="18220">texmf\tex\latex\karnaugh\kvmacros.tex texmf\tpm\packages\karnaugh.tpm</TPM:RunFiles><TPM:DocFiles size="273112">texmf\doc\latex\karnaugh\kvdoc.dvi texmf\doc\latex\karnaugh\kvdoc.ps texmf\doc\latex\karnaugh\kvdoc.tex</TPM:DocFiles><TPM:TimePackaged>1011466707</TPM:TimePackaged><TPM:MD5>91a42f9841d8332ca722a3ee5aaa277b</TPM:MD5></rdf:Description></rdf:RDF>

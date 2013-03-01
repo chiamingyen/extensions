@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/ccfonts"><TPM:Name>ccfonts</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Support for Concrete text and math fonts in LaTeX.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>LaTeX font definition files for the Concrete fonts and a
+      LaTeX package for typesetting documents using Concrete as
+      the default font family. The files support OT1, T1, TS1,
+      and Concrete math including AMS fonts (Ulrik Vieth's concmath).</TPM:Description><TPM:RunFiles size="7719">texmf\tex\latex\ccfonts\ccfonts.sty texmf\tex\latex\ccfonts\t1ccr.fd texmf\tex\latex\ccfonts\ts1ccr.fd texmf\tpm\packages\ccfonts.tpm</TPM:RunFiles><TPM:DocFiles size="4544">texmf\doc\latex\ccfonts\readme</TPM:DocFiles><TPM:SourceFiles size="17238">texmf\source\latex\ccfonts\cc.fdd texmf\source\latex\ccfonts\ccfonts.dtx texmf\source\latex\ccfonts\ccfonts.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>87581343f5ecc6e59cbe59bc1fe7ea84</TPM:MD5></rdf:Description></rdf:RDF>

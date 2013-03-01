@@ -1,0 +1,518 @@
+
+% TUGboat, Vol 17, No1, March 1996
+
+% two-coloumn style
+%% incorporates editing changes by bb; 6 jan 1996
+
+\input tugboat.sty
+
+\input llig
+\input ste
+
+\def\q{\quad}
+\long\def\okkvir#1#2#3{%
+\hbox{\vrule\vbox{\hrule\vskip#1pt\hbox{\hskip#1pt\vbox{%
+\hsize#2cm\parindent=0pt #3%
+}\hskip#1pt}\vskip#1pt\hrule}\vrule}%
+}
+
+
+\font\ugv=ugve
+
+\def\d@anger#1{\medbreak\begingroup\clubpenalty=10000
+\def\par{\endgraf\endgroup\medbreak}%
+\setbox0=\hbox{\ugv #1\kern2mm}%
+\hangindent=\wd0
+\def\slov@{\smash{\lower\baselineskip\hbox{\copy0}}}
+\noindent\hangafter=-2%
+\hbox to0pt{\hskip-\hangindent
+\slov@\hfill}}
+
+\outer\def\slovo{\d@anger}
+\def\enddanger{\endgraf\endgroup}
+
+
+\font\stechak=stechak
+
+
+\title * Croatian Fonts *
+
+\author * Darko \v Zubrini\'c *
+%\address * University of Zagreb \\ FER, Avenija Vukovar 39, Zagreb \\ Croatia *
+\address * University of Zagreb \\ FER, Avenija Vukovar 39 \\ Zagreb, Croatia *
+\netaddress [\network{Internet}] * darko.zubrinic@fer.hr *
+
+\article
+
+
+
+The aim of this note is to inform the interested reader
+about the possibility of obtaining several new fonts: Croatian
+Glagolitic (round -- sometimes called Bulgarian glagolitic,
+angular, Ba\v ska tablet, cursive,
+%% bb -- re the "ba\v{s}ka plate", please see below
+%ligatures, the Baromi\'c broken ligatures, caligraphic),
+ligatures, the Baromi\'c broken ligatures, calligraphic),
+Croatian Cyrillic, ste\'cak ornaments and Croatian wattle patterns.
+They represent a considerable extension of the first version
+of glagolitic fonts I created in 1992 (see [2]).
+
+Having in mind that  Croatian Glagolitic Script has a long history of
+at least 11 centuries (from 9th to 20th), it is not
+surprising that  there exists a large
+%variety of its handwritten and printed versions.  The author has
+%created several major types of this Script.
+variety of handwritten and printed versions.  The author has
+created several major fonts of type using this Script.
+\medskip
+
+%\noindent$\bullet$  The so called ``round type'', together
+\noindent$\bullet$  The so-called ``round type'', together
+with the corresponding numerical values, is the following:
+
+\input ttablo
+
+\noindent In some documents there appear  additional
+%versions of  letters,
+versions of some letters,
+%like e.g.\ the ``spider-like h'' {\obl\char'076}. It is interesting
+e.g.\ the ``spider-like h'' {\obl\char'076}. The
+tops of letters appearing in this font are aligned. The
+``hanging style'' the round galgolitic can be illustrated
+e.g.\ by
+{\obl b3yzzetva}, {\obl svoem}, as it appears on the Kiiv folia
+(the first folio
+is from Croatia, written in region of  Dubrovnik, 11th century;
+ the remaining six are from Czechia, 10th century).
+
+\medskip
+
+%% bb -- to me, ``plate'' often implies a flat dish meant for serving
+%%       food -- these are sometimes ceremonial, and that's why i first
+%%       misunderstood this sentence; i know that is not what is meant here.
+%%       perhaps ``tablet'' or ``plaque'' is close enough in meaning,
+%%       and would not be as confusing.
+\noindent$\bullet$ The font of the Ba\v ska stone tablet
+(carved in nd A.D.\
+1100  on the island of Krk):
+
+\input ttablb
+
+
+The Ba\v ska tablet is one of our most important cultural
+monuments  ($2\times 1$ m${}^2$). The reason is that it was
+written in the Croatian
+%language (with the elements of the Church Slavonic) as early as
+language (with elements of Church Slavonic) as early as
+in the 11th century.  Its text comprises more than $400$
+letters and  contains the earliest
+mention of a Croatian king written in the Croatian
+vernacular: Z''v''nimir'', kral'' hr''vat''sk''\"{\i}
+(Hrvatska $=$ Croatia), i.e.\
+{\it Zvonimir, the Croatian king\/}, or in the
+Glagolitic:
+\setbox0=\hbox{\bassv kral3 \ hr3vxt3sk3y}
+$$
+\okkvir36{\hbox to \wd0{\hss\bassv z3v3nimir3\hss}
+\vskip2mm
+\hbox{\bassv kral3 \ hr3vxt3sk3y}}
+$$
+There are also earlier  monuments from the 9th century that
+mention Croatian kings and dukes, but written in the Latin
+Script and in the Latin
+language.
+
+%The reader will notice that several Latin and(or) Cyrillic
+The reader will notice that several Latin and/or Cyrillic
+letters appear on the table: {\bass O, I, M, N, T, V} ($=$
+%V). This
+V)\null. This
+is only one among numerous proofs of the parallel use of three
+%Scripts (Glagolitic, Latin, Cyrillic) and three languages
+scripts (Glagolitic, Latin, Cyrillic) and three languages
+(Croatian, Church Slavonic and Latin) in Croatia. The
+%three-scriptural and three-language character of the
+three-script and three-language character of the
+Croatian Middle Ages is a unique phenomenon in the history of
+European culture (see [1]).
+
+\medskip
+
+\noindent$\bullet$ Since the 12th century the Glagolitic
+%Script survived only on the Croatian soil. Until that time
+Script has survived only in Croatia. Until that time
+%it existed also in some other regions, like in Bulgaria,
+it existed also in some other regions, e.g.\ Bulgaria,
+Macedonia, Roumania,   Ukraine, when it was replaced by
+%theillic Script. In Croatia there developped the so
+%called {\it angular form\/} of the Glagolitic.
+the Cyrillic Script, and also in Czechia. In Croatia there developed the so-called
+{\it angular form\/} of the Glagolitic.
+
+\input ttabl
+
+\noindent Its  golden period
+falls between  the 12th and the 16th century:
+After that a
+%decline of  this Script ensued, as a result of
+decline of  this script ensued, as a result of
+the penetration of the Ottoman Empire.
+\medskip
+
+
+\noindent$\bullet$ The Croatian Glagolitic has hundreds of interesting
+ligatures.
+ Let us present some of them:
+
+\input ttlis
+
+
+\noindent It is
+striking that a {\it printed\/} Glagolitic book, the Brozi\'c breviary from 1561
+(1081 pages),  has as many as $250$ ligatures.
+
+
+\noindent$\bullet$ A unique
+creation in the history of European printing are the so called
+{\it Baromi\'c broken ligatures\/}. The idea was to add one half of
+a letter (say {\lom A} of {\mgl A}) to another (say {\mgl
+B}), to obtain a broken ligature (\hbox{{\mgl B}{\lom A}} -- ba). Other
+combinations are also possible with
+{\lom D} ({\mgl D}, D),
+{\lom ZZ} ({\mgl ZZ}, \v Z),
+%{\lom L} ({\mgl L}, T),
+{\lom L} ({\mgl L}, L),
+{\lom V} ({\mgl V}, V),
+{\lom T} ({\mgl T}, T).
+Broken ligatures were used in the Baromi\'c Missal, the
+incunabula printed in the Croatian city of Senj in 1494
+(last year we celebrated its $500$th
+anniversary). Only three samples are preserved: one in
+the Saltyko S\v cedrin Library in St.Petersburg (Russia),
+one and the only complete copy in
+the Szeczenyi Library in Budapest (Hungary), and one
+in Croatia on the island of Cres. When looking at the text
+containing Baromi\'c broken ligatures,  one has the impression as if this
+incunabula was handwritten. Few examples: \hbox{{\mgl B}{\lom
+A}{\mgl ROMICH}} (Baromi\'c), \hbox{{\mgl D}{\lom AZZD6}} (rain), \hbox{\mgl
+MO{\lom L}{\mgl I}{\lom TVA}} (prayer).
+
+
+%Hundreds of Croatian Glagolitic monuments, both handwritten and
+Hundreds of Croatian Glagolitic texts, both handwritten and
+printed, the oldest from the 12th century,
+ are held in national museums in more than $20$ European
+countries, and also in the USA.\footnote{I would like to
+take the opportunity to send an appeal to those readers who maybe
+know of any of the Croatian Glagolitic documents
+held in private possession to inform me.}
+
+% The reader living in New York can see the beuatiful
+ The reader living in New York can see the beautiful
+Croatian Missal from around 1410 in the Pierpont Morgan
+Library (reprinted by the Martin Sagner Verlag, Munich, 1976). In
+%the Congress Library in Washington you can see a sample of
+the Library of Congress in Washington you can see a sample of
+the first Croatian incunabula, printed in  1483
+(unfortunately, it is not known where precisely).
+Six copies are in Croatia, two in the Vatican Library, one
+in the National Library in Vienna (Austria) and one  in the
+Saltykov \v S\v cedrin
+Library in St.Petersburg (Russia). It was the first book in
+the history of European printing that was not printed in the
+Latin characters, as well as the first incunabula not printed in the
+Latin language.
+
+Probably the most valuable
+Croatian Glagolitic book is the Missal of Hrvoje (1404), held in
+the Library of Turkish sultans (Topkapi Saray) in Constantinople.
+
+
+
+ It is interesting that a Croat George (Juraj) de Slavonie, or de
+Sorbonne (14/15th century),
+a professor at Sorbonne in
+Paris,
+left us several valuable Glagolitic manuscripts
+written by his hand, held today in
+Municipal Library in Reims (France). One of them contains a prayer
+``Our Father'', on which we would like to illustrate the Croatian
+Glagolitic:
+
+
+\slovo{O}{\mgl cce nass6 izze esi nanebesih6 * sveti se ime
+\tvo e * {\gg\char'005}idi cesars\tv o \tv oe * budi vola \tv oya yako
+nanebesi inaze\ml i * \lower1.33pt\hbox{H}lib nass vsedanni dai
+nam'ga danas i \ot pusti nam' dl'gi nasse *
+\lower1.33pt\hbox{Ya}kozze i mi \ot pusschaem'  dl'ge dlzznikom
+nassim6 * i nevavedi nas' v' napast' * \lower1.33pt\hbox{N}a
+iz'bavinas' od ne{\gg\char'005}iyazni} % \char'005=pr
+
+\medskip
+
+%\noindent$\bullet$ In the 16th and 17th century there began
+%to appear some caligraphic Glagolitic letters in Crotian
+\noindent$\bullet$ In the 16th and 17th century
+some calligraphic Glagolitic letters began to appear in Croatian
+printed books:
+$$
+\gather
+\text{
+{\kal A} (A),
+{\kal V} (V),
+{\kal D} (D),
+{\kal Z} (Z),
+{\kal I} (I),}\\
+\text{
+{\kal K} (K),
+{\kal L} (L),
+{\kal M} (M),
+{\kal N} (N),
+{\kal P} (P),}\\
+\text{
+{\kal R} (R),
+{\kal S} (S),
+{\kal H} (H),
+{\kal CC} (\v C).}
+\endgather
+$$
+\medskip
+
+\noindent$\bullet$ There are thousands of
+{\it cursive\/} Glagolitic
+documents, witnessing above all about the Croatian language
+and its very early use in official documents, and about
+ highly organized civil life
+ in the Middle Ages. Probably the
+%most important is the {\it Vinodole Code\/} from  1288. This
+most important is the {\it Vinodol Code\/} from  1288.
+%% bb -- this is the spelling used above
+  Very important
+is the {\it Istarski razvod\/} from
+the 14th century, written in  the region of Istria in three
+official copies:
+in the Latin and German languages (in Latin Script), and in
+the
+Croatian language (as was expressly stated), using the
+Glagolitic Script. It defined the borders between different
+rulers in Istria.
+Equally important are the city
+statutes of many Croatian cities written in the Glagolitic, the earliest  dating  from
+the 14th century. Here is
+a variant of the cursive Croatian Glagolitic
+ (we provide also the angular type for comparison):
+
+\input ttablokurz
+
+\noindent An example: {\kur Darko Zzubrinich}.
+
+\medskip
+
+\noindent$\bullet$ Croatian Cyrillic (also called Bosan\v
+cica or Bosanica)
+ was quite widespread
+%in Bosnia and  in the Dalmatian part of Croatia. Its developement
+among the Croats in Bosnia and in the Dalmatian part of Croatia.
+Its development
+can be traced from the 12th to 19th century.
+Here it is:
+
+\input ttablhc
+
+
+%\noindent Probably the most beutiful Croatian Cyrillic book
+\noindent Probably the most beautiful Croatian Cyrillic book
+is the Missal of Hval written in 1400-1404, now held in the University
+Library in Bologna (Italy), reprinted in Sarajevo in 1986.
+\medskip
+
+
+\noindent$\bullet$ There
+%exist more that $66,000$ mysterious tombstone monuments, mostly in
+exist more than $66,000$ mysterious tombstone monuments, mostly in
+%Bosnia-Herzegovina and  Croatia, called  {\it ste\'cak\/},
+Bosnia-Herzegovina and  Croatia, called  {\it ste\'cak\/}
+ (13-14th century),
+some of them having short engravings in the
+Croatian Cyrillic Script (e.g.\ ``please do not
+disturb me, I was like you and
+you will be like me''), with  interesting and simple border
+%decorations, like:
+decorations, like these:
+\medskip
+\cvijet
+\smallskip
+\kukagd
+\smallskip
+\dvije8
+\smallskip
+\Oo
+
+\medskip
+\noindent  dancers:
+$$
+\text{\stechak lkkkkkd}
+$$
+human-like figures:
+$$
+\text{\stechak L\q L\q L}
+$$
+birds:
+$$
+\text{\stechak p q}
+$$
+star-like ornaments:
+$$
+\gather
+\text{\stechak 4\q Z}\\
+\text{\stechak a\q b\q 5}\\
+\text{\stechak i\q j\q e\q f}
+\endgather
+$$
+a circle (or a wheel),  a symbol of eternal life:
+$$
+\text{\stechak g\q h\q K}
+$$
+swastika:
+$$
+\text{\stechak s}
+$$
+various crosses:
+$$
+\text{\stechak
+A\q B\q C\q D\q T}
+$$
+The following ornament is frequent:
+$$
+\text{\stechak R P a}\hbox to0pt{\,.\hss}
+$$
+%\noindent These monuments belong to Krstyans, memebers of the Bosnian
+\noindent These monuments belong to Krstyans, members of the Bosnian
+Church, a Christian religious sect about which we still know very
+little.
+
+
+\noindent$\bullet$ Let me finish this article with some of
+the most typical Croatian wattle patterns appearing in
+ our preromanesque churches, built between the  9th and 12th
+ century. From
+ about $300$ preromanesque Croatian
+ churches only  $15$ are well preserved. The most widespread
+ wattle pattern is
+$$
+\text{\pleter 1eeeeeeeeeeeeeeeeee2}
+$$
+\noindent Of course, it is composed of {\pleter 1 e e 2}.
+Somewhat more complex
+patterns are:
+%\centerline{\plet ommp}
+$$
+\gather
+\text{\ple a}\\
+\vbox to1mm{}\\
+\text{\plet srrt}
+\endgather
+$$
+
+%\noindent Additional informations about the Croatian Glagolitic can be
+\noindent Additional information about Croatian Glagolitic can be
+seen at the URL:
+$$
+\text{\tt http://www.tel.fer.hr/hrvatska/Croatia-HCS.html}
+$$
+%(see ``Croatia -- its History, Culture and Science'').
+All  the fonts appearing in this article will be available
+ freely  via the WWW on  the CTAN web.
+%see {\tt  croatian}).
+All ligatures and fonts are defined in the file {\tt llig.tex} of the
+package.
+ The angular glagolitic font is activated by
+{\tt$\backslash$mgl} (a slightly larger version can be obtained using
+{\tt$\backslash$ngl}).
+If one wants to use glagolitic
+ligatures, the definition list in {\tt llig.tex} should be
+consulted. For example, to obtain {\mgl\ml} (ml) one has to write
+{\tt$\backslash$mgl$\backslash$ml}. Other fonts are
+activated in a similar way (they contain no glagolitic
+ligatures): {\tt$\backslash$obl} (round glagolitic,
+{\tt$\backslash$nobl} is a bit larger),
+{\tt$\backslash$bass} (Baska tablet),
+{\tt$\backslash$kur} (cursive),
+{\tt$\backslash$kal} (caligraphic),
+{\tt$\backslash$lom} (Baromich broken ligatures)
+{\tt$\backslash$hc} (Croatian Cyrillic),
+and several wattle
+patterns are activated by
+{\tt$\backslash$ple},
+{\tt$\backslash$plet},
+{\tt$\backslash$pleter}.
+In general, glagolitic letters corresponding to {\it \v c, \v z,
+\v s, \'c (\v s\'c, \v st)} are encoded in \TeX\ ligtables as {\tt cc,
+zz, ss, ch} respectively. More precisely, \hbox{{\mgl cc}} is
+obtained from {\tt$\backslash$mgl cc}.
+Capital letters are obtained by using CC (or Cc) etc.
+Using {\tt cx} you can obtain yet another version of the
+angular \v c: \hbox{{\mgl cx}}.
+The so-called `djerv' is obtained by typing  {\tt j} (or {\tt
+J}) in the
+round glagolitic. In the angular form the following two version of the
+`djerv' can be obtained:
+  {\mgl j} ({\tt j}) and \hbox{{\mgl dd}} ({\tt dd}).
+  `Yat' -- \hbox{\mobl ya}, \hbox{\mgl ya} -- appearing in round and angular
+  glagolitic  can be obtained using {\tt ya} (or {\tt YA,
+  Ya}).
+  Moreover, if `yat' is to be read as `ye' (which is the
+  case when it
+  appears after a consonant), then you can use {\tt ye} as
+  well.
+  The letter `yu' {\mgl yu} is obtained by typing {\tt yu},
+  `izze' ({\obl y}, {\mgl y}) by typing {\tt y}.
+  The same for the Croatian cyrillic. Two versions of
+   very frequently used   {\it Croatian semivowels\/} can be obtained:
+  either  by typing apostrophe {\tt '} (`yerok'; for example
+  in {\mgl bog'} - God) or
+  {\tt6} (`yer'; {\mgl bog6}). Definitions  of semivowels
+  `yer' and `yor' and other letters (like
+{\mobl\char'003,  \char'005}) appearing in some oldest Croatian and Bulgarian --
+  Macedonian  documents written in the round glagolitic
+  can be seen in  metafont files {\tt oblm.mf} and {\tt
+  oblv.mf}, that are inputted  in {\tt obl.mf} - a round glagolitic
+  metafont file.
+
+As you see, an appropriate
+hypenation table is necessary to prevent line breaking
+between  pairs of letters like  {\tt cc, zz, ss, ch, dd,
+ya, ye,} and it has been
+included to the Croatian font package too ({\tt
+glhypehn.tex}). The table also
+incorporates some basic
+hypenation rules of the Croatian language.
+Definition
+names of  many other symbols appearing in various fonts can be seen
+by looking into  source files accompaning  this text.
+
+%In the case you use Croatian fonts, I would deeply appreciate
+%to inform me.
+ If you should use Croatian fonts, I would deeply appreciate
+if you would inform me.
+
+
+
+\medskip
+
+\noindent{\bf References}
+
+
+\item{[1]} Eduard Hercigonja: {\it Tropismena i trojezi\v cna
+kultura hrvatskoga srednjovjekovlja\/} (Three-script and
+three-language culture of the Croatian Middle Ages), Matica
+hrvatska,  Zagreb, 1994 (in Croatian),
+
+\item{[2]} Darko \v Zubrini\'c: {\it The exotic Croatian
+Glagolitic Alphabet\/}, TUGboat, Vol 13, No 4, 1992, p.\
+470--471.
+
+
+\makesignature
+\endarticle
+

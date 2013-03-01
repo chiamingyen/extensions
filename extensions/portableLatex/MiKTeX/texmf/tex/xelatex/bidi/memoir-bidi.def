@@ -1,0 +1,80 @@
+%%
+%% This is file `memoir-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{memoir-bidi.def}[2010/03/01 v0.2 adaptations for memoir class]
+\renewcommand{\keepthetitle}{%
+  \@bsmtitlempty
+  \global\let\thanks\relax
+  \global\let\LTRthanks\relax
+  \global\let\RTLthanks\relax
+  \global\let\and\relax
+  \global\let\andnext\relax
+  \global\let\@thanks\@empty
+  \global\let\@title\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty}
+\renewcommand{\maketitle}{\par
+  \begingroup
+    \@bsmarkseries
+    \def\@makefnmark{\@textsuperscript{%
+       \normalfont\@bsthanksheadpre \tamark \@bsthanksheadpost}}%
+    \long\def\@makefntext##1{\makethanksmark ##1}
+    \if@twocolumn
+      \ifnum \col@number=\@ne
+        \@maketitle
+      \else
+        \twocolumn[\@maketitle]%
+      \fi
+    \else
+      \ifdim\pagetotal>\z@
+        \newpage
+      \fi
+      \global\@topnum\z@
+      \@maketitle
+    \fi
+    \thispagestyle{title}\@thanks
+  \endgroup
+  \@bscontmark  %  \setcounter{footnote}{0}%
+  }
+\renewcommand*{\memRTLleftskip}{\if@RTL\rightskip\else\leftskip\fi}
+\renewcommand*{\memRTLrightskip}{\if@RTL\leftskip\else\rightskip\fi}
+\renewcommand*{\memRTLvleftskip}{\if@RTL\vrightskip\else\vleftskip\fi}
+\renewcommand*{\memRTLvrightskip}{\if@RTL\vleftskip\else\vrightskip\fi}
+\renewcommand*{\memRTLraggedright}{\if@RTL\raggedleft\else\raggedright\fi}
+\renewcommand*{\memRTLraggedleft}{\if@RTL\raggedright\else\raggedleft\fi}
+\renewcommand*{\thesection}{\thechapter\@SepMark\@arabic\c@section}
+\renewcommand*{\thesubsection}{%
+              \thesection\@SepMark\@arabic\c@subsection}
+\renewcommand*{\thesubsubsection}{%
+              \thesubsection\@SepMark\@arabic\c@subsubsection}
+\renewcommand*{\theparagraph}{%
+              \thesubsubsection\@SepMark\@arabic\c@paragraph}
+\renewcommand*{\thesubparagraph}{%
+              \theparagraph\@SepMark\@arabic\c@subparagraph}
+\renewcommand{\setthesection}{\thechapter\@SepMark\Alph{section}}
+\renewcommand{\theequation}{%
+  \ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@equation}
+\renewcommand{\thefigure}{\thechapter\@SepMark\@arabic\c@figure}
+\renewcommand{\thetable}{\thechapter\@SepMark\@arabic\c@table}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `memoir-bidi.def'.

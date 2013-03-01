@@ -1,0 +1,69 @@
+english hyphen.tex
+=usenglish
+=USenglish
+=american
+%usenglishmax ushyphmax.tex
+dumylang dumyhyph.tex
+nohyphenation zerohyph.tex
+%basque loadhyph-eu.tex
+%bulgarian loadhyph-bg.tex
+%coptic loadhyph-cop.tex
+%welsh loadhyph-cy.tex
+%czech loadhyph-cs.tex
+%slovak loadhyph-sk.tex
+german loadhyph-de-1901.tex
+ngerman loadhyph-de-1996.tex
+german-x-2009-06-19 dehypht-x-2009-06-19
+=german-x-latest
+ngerman-x-2009-06-19 dehyphn-x-2009-06-19
+=ngerman-x-latest
+%sgerman-x-2009-06-19 dehyphts-x-2009-06-19
+%=sgerman-x-latest
+%danish loadhyph-da.tex
+%spanish loadhyph-es.tex
+%=espanol
+%catalan loadhyph-ca.tex
+%estonian loadhyph-et.tex
+%finnish loadhyph-fi.tex
+french loadhyph-fr.tex
+=patois
+=francais
+%greek loadhyph-el-polyton.tex
+%=polygreek
+%monogreek loadhyph-el-monoton.tex
+%ancientgreek loadhyph-grc.tex
+%croatian loadhyph-hr.tex
+%hungarian loadhyph-hu.tex
+%=magyar
+%interlingua loadhyph-ia.tex
+%ibycus ibyhyph.tex
+%indonesian loadhyph-id.tex
+%icelandic loadhyph-is.tex
+%italian loadhyph-it.tex
+%latin loadhyph-la.tex
+%mongolian loadhyph-mn-cyrl.tex
+%dutch loadhyph-nl.tex
+%bokmal loadhyph-nb.tex
+%=norwegian
+%=norsk
+%nynorsk loadhyph-nn.tex
+%polish loadhyph-pl.tex
+%portuguese loadhyph-pt.tex
+%=portuges
+%pinyin loadhyph-zh-latn.tex
+%romanian loadhyph-ro.tex
+%russian loadhyph-ru.tex
+%slovenian loadhyph-sl.tex
+%=slovene
+%uppersorbian loadhyph-hsb.tex
+%serbian loadhyph-sr-latn.tex
+%serbianc loadhyph-sr-cyrl.tex
+%swedish loadhyph-sv.tex
+%turkish loadhyph-tr.tex
+%ukenglish loadhyph-en-gb.tex
+=british
+=UKenglish
+%ukrainian loadhyph-uk.tex
+%lithuanian loadhyph-lt.tex
+%farsi loadhyph-fa.tex
+%kurmanji kmrhyph.tex

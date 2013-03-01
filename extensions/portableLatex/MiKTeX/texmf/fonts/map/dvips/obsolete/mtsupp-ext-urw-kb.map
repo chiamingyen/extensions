@@ -1,0 +1,10 @@
+% Thomas Esser, 1999. Public domain.
+%
+% mtsupp-ext-urw-kb.map: map file with basic ps fonts as needed for
+%    mathtime package. Downloads URW fonts with Berry names.
+%
+% "Faked" ExtendFont / SlantFont with download. Useful for ps2pk and pdftex.
+ptmbo8y NimbusRomNo9L-Medi ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <utmb8a.pfb
+ptmro8y NimbusRomNo9L-Regu ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <utmr8a.pfb
+tibo NimbusRomNo9L-Medi ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <utmb8a.pfb
+tio NimbusRomNo9L-Regu ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <utmr8a.pfb

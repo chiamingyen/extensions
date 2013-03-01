@@ -1,0 +1,127 @@
+% This is the file xCJK.tex of the CJK package
+%   for testing the xCJK style file.
+%
+% written by SUN Wenchang <sunwch@hotmail.com>
+%
+% Version 4.8.2 (29-Dec-2008)
+
+% Read xCJK.txt for more details.
+
+\documentclass[12pt]{article}
+\usepackage[bookmarks=true,
+            bookmarksopen=true,
+            dvipdfm]{hyperref}
+
+\usepackage[CJK, overlap]{ruby}
+\usepackage[boldfont]{xCJK}
+\usepackage{CJKulem}
+
+\setmainfont{Times New Roman}
+
+
+% You can specify a different default font for CJK characters.
+\setCJKmainfont{Bitstream Cyberbit}
+
+% You can also specify a font for a certain CJK family.
+\setCJKfamilyfont{SimpChinese}[BoldFont={SimHei},
+                               ItalicFont={FZKaiTi}]{SimSun}
+\setCJKfamilyfont{TChinese}{FZMingTiB}
+\setCJKfamilyfont{Japanese}{MS Gothic}
+\setCJKfamilyfont{Korean}{Batang}
+
+\renewcommand{\rubysep}{-0.3ex}
+
+
+\begin{document}
+
+\begin{CJK*}{UTF8}{song}
+
+
+Samples for using the font specified with \verb|\setCJKmainfont|.
+
+\section{本常问问答集}
+
+本常问问答集~(FAQ list)~是从一些经常被问到的问题及其适当的解答中，以方
+便的形式摘要而出的。\uline{跟上一版不同的是，其编排结构已彻底改变。}
+\textbf{有关新结构的细节，可参考「如何阅读本问答集及了解其编排结构」该
+  项中的说明。}
+
+
+\section{本常問問答集}
+
+本常問問答集~(FAQ list)~是從一些經常被問到的問題及其適當的解答中，以方
+便的形式摘要而出的。\uline{跟上一版不同的是，其編排結構已徹底改變。}
+\textbf{有關新結構的細節，可參考「如何閱讀本問答集及了解其編排結構」該
+  項中的說明。}
+
+
+\section{この}
+
+この~FAQ~リストは、よくある質問とその答を集め、役に立つようにしたもので
+す。\uline{この~FAQ~リストの構造は、以前のものと比べて大幅に変更されて
+  います。}\textbf{\ruby{新}{あたら}しい構造に関しては、「この~FAQ~ の
+  読み方とその構造」の項目を\ruby{参}{さん}\ruby{照}{しょう}して下さい。}
+
+
+\CJKspace
+\section{이}
+
+이 FAQ 은 자주 반복되는 질문과 그에 대한 대답을 간단명료한 양식으로
+모아 엮어졌습니다. \uline{이 FAQ 의 구조는 지난 판에 비하여 획기적으로
+  변경되었습니다.}  \textbf{상세한 것은 “이 FAQ 을 어떻게 읽을
+  것인가” 라는 대목을 참조하시기 바랍니다.}
+
+
+\newpage
+
+
+Samples for using fonts specified with \verb|\setCJKfamilyfont|.
+
+\CJKnospace
+\CJKfamily{SimpChinese}
+\section{本常问问答集}
+
+本常问问答集~(FAQ list)~是从一些经常被问到的问题及其适当的解答中，以方
+便的形式摘要而出的。\uline{跟上一版不同的是，其编排结构已彻底改变。}
+\textbf{有关新结构的细节，可参考「如何阅读本问答集及了解其编排结构」该
+  项中的说明。}\textit{本常问问答集~(FAQ list)~是从一些经常被问到的问题
+  及其适当的解答中，以方便的形式摘要而出的。}
+
+
+\CJKfamily{TChinese}
+\section{本常問問答集}
+
+本常問問答集~(FAQ list)~是從一些經常被問到的問題及其適當的解答中，以方
+便的形式摘要而出的。\uline{跟上一版不同的是，其編排結構已徹底改變。}
+\textbf{有關新結構的細節，可參考「如何閱讀本問答集及了解其編排結構」該
+  項中的說明。}
+
+
+\CJKfamily{Japanese}
+\section{この}
+
+この~FAQ~リストは、よくある質問とその答を集め、役に立つようにしたもので
+す。\uline{この~FAQ~リストの構造は、以前のものと比べて大幅に変更されて
+  います。}\textbf{\ruby{新}{あたら}しい構造に関しては、「この~FAQ~ の
+  読み方とその構造」の項目を\ruby{参}{さん}\ruby{照}{しょう}して下さい。}
+
+
+\CJKspace
+\CJKfamily{Korean}
+\section{이}
+
+이 FAQ 은 자주 반복되는 질문과 그에 대한 대답을 간단명료한 양식으로
+모아 엮어졌습니다. \uline{이 FAQ 의 구조는 지난 판에 비하여 획기적으로
+  변경되었습니다.}  \textbf{상세한 것은 “이 FAQ 을 어떻게 읽을
+  것인가” 라는 대목을 참조하시기 바랍니다.}
+
+\end{CJK*}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/siggraph"><TPM:Name>siggraph</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>Document class for formatting papers according to the
+      specifications for submission to the annual ACM Siggraph
+      conference.</TPM:Description><TPM:RunFiles size="16532">texmf\tex\latex\siggraph\siggraph.cls texmf\tpm\packages\siggraph.tpm</TPM:RunFiles><TPM:DocFiles size="16756">texmf\doc\latex\siggraph\siggraph.dvi</TPM:DocFiles><TPM:SourceFiles size="47167">texmf\source\latex\siggraph\README texmf\source\latex\siggraph\siggraph.dtx texmf\source\latex\siggraph\siggraph.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>69dee965f26c662a29764b00f905b4d4</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aoutput.sty
+% ArabTeX
+% Version 04.06.2000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {aoutput.sty} {3.10 build output lines} {04.06.2000}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newdimen \a@hsize	\newdimen \a@limit	\newdimen \a@leftmargin 	
+\newcount \a@prevgraf	\newcount \a@@prevgraf	\newbox \a@tempb@x
+
+\def \setspace #1{\def \arab@space {\hskip #1\relax }}% redefine ?
+
+\def \arab@space {\space \hskip 0pt plus 0.001fil \relax }
+
+\def \def@arabstrut {\def \arab@strut {\if@vocals 
+%\vrule height2.5ex depth2.0ex width\z@ \relax \else
+\vrule height2ex depth1.5ex width\z@ \relax \else
+%\vrule height3ex depth1.5ex width\z@ \relax \else
+\vrule height2ex depth1.0ex width\z@ \relax \fi }}
+
+\def \a@parparams {% get paragraph dimensions
+\ifnum \parshape = \z@ \a@hsize \hsize 
+\a@leftmargin \z@
+\else \a@hsize \linewidth \a@leftmargin \@totalleftmargin
+\fi 
+\a@leftmargin \z@
+\a@prevgraf \z@ \spreadfalse }
+
+\def \a@resetpar {% called by \a@par
+\a@prevgraf \z@ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% control variables for the "arabtext" environment:
+% 
+% \the\arabtext@hook: executed when entering the environment
+% 
+% \ifa@vmode: Arabic paragraph closed?
+% 
+% \ifa@space: deposit a space?
+% 
+% \ifspread: fill line by spreading the words?
+% 
+% \ifarab: ignore Arabic script output?
+% 
+% \a@parindent: skip at beginning of first line of paragraph
+% \a@parindent: saved value from Roman mode
+% 
+% \a@parskip: saved value from Roman mode
+% 
+% \the\a@@everypar: token list, executed when starting a paragraph
+% 
+% \a@oldhmode: saved value from outside
+% 
+% \a@short@line: finish last line, close paragraph
+% 
+% \a@put@line: deposit current line buffer, continue paragraph
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TeX/LaTeX parameters influencing the shape of a paragraph:
+% 
+% \hsize, \leftskip, \rightskip, \parindent, \parskip
+% \parshape, \hangindent, \hangafter, \linewidth, \@totalleftmargin
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% internal control:
+% 
+% \a@hsize = length of line buffer including \leftskip, \rightskip
+% \a@limit = maximal Arabic text length
+% 
+% \a@vmodetrue : linebuffer undefined, \a@hsize valid
+% \a@vmodefalse: linebuffer valid, \a@limit valid, \a@@everypar used
+% 
+%%%%%%%%%%%%%%%%%%%%%%% output routines %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \putwordb@x #1{% deposit a word
+\ifa@vmode \arab@indent \fi 
+\setbox \wordb@x \hbox {#1}\put@word }
+
+\def \arab@indent {% like \indent for Arabic
+\ifa@vmode \putlineb@x {\hskip \a@parindent }\the\a@@everypar
+\else \setbox \wordb@x \hbox {\hskip \a@parindent }\add@word \fi }
+
+\def \arab@noindent {% like \noindent for Arabic
+\ifa@vmode \initlineb@x \the\a@@everypar \fi }
+
+\def \leavea@vmode {% like \leavevmode for Arabic
+\ifa@vmode \arab@indent \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \initlineb@x {% make an empty Arabic line
+\putlineb@x {\arab@strut }\a@spacefalse }
+
+\def \putlineb@x #1{% open the line box
+\a@vmodefalse \a@limit \a@hsize 
+\advance \a@limit -\leftskip \advance \a@limit -\rightskip
+\setbox \lineb@x \hbox {#1}\a@spacefalse }
+
+\def \add@word {% add word to line without space
+\putlineb@x {\unhbox \wordb@x \unhbox \lineb@x }}
+
+\def \addt@line {% add word to line unconditionally, spacing ?
+\ifa@space \putlineb@x
+   {\unhcopy \wordb@x \arab@space \unhcopy \lineb@x }%
+\else \add@word \fi }
+
+\def \put@word {% add word to line, spacing, break line if necessary
+\setbox \a@tempb@x \hbox
+{\unhcopy \wordb@x \ifa@space \arab@space \fi \unhcopy \lineb@x }%
+\ifdim \a@limit < \wd\lineb@x \put@line \add@word \else 
+\ifdim \a@limit < \wd\a@tempb@x \put@line \add@word \else 
+\setbox \lineb@x \box \a@tempb@x
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \put@line {% output the line, adjusted
+\ifarab \setbox\a@tempb@x \hbox to \a@hsize 
+	{\hskip \rightskip \arab@strut
+	\charsubdefmax \m@ne \unhbox \lineb@x \hskip \leftskip }%
+	\put@ab@x 
+\fi \ifnum \tracingarab > 1 \message {|}\fi }
+
+\def \short@line{% put line without adjustment, close line
+\ifarab \ifdim \wd\lineb@x = \z@ \else
+\ifspread \dimen0 \a@limit \divide \dimen0 8
+	\dimen2 \a@limit \advance \dimen2 -\wd\lineb@x
+	\setbox\a@tempb@x \hbox to \a@hsize 
+	{\hskip \rightskip 
+	\loop \hskip \parfillskip \advance \dimen2 -\dimen0
+	\ifdim \dimen2 > \z@ \repeat 
+	\arab@strut \charsubdefmax \m@ne 
+	\unhbox \lineb@x \hskip \leftskip }%
+\else \setbox\a@tempb@x \hbox to \a@hsize 
+	{\hskip \rightskip \hskip \parfillskip 
+	\arab@strut \charsubdefmax \m@ne 
+	\unhbox \lineb@x \hskip \leftskip }%
+\fi \put@ab@x 
+\fi\fi
+\ifnum \tracingarab > 1 \message {/}\fi }
+
+\def \put@ab@x {% deposit line
+\ifhmode \unskip {\endgraf }\penalty \clubpenalty 
+\parindent \z@ \parskip \z@ \else
+\ifnum \a@prevgraf = \z@ \else \penalty \widowpenalty 
+\fi\fi 
+\begingroup \parfillskip 0pt plus 1fill 
+	\leftskip \z@ \rightskip \z@ \noindent 
+	\ifdim \a@leftmargin = \z@ \else \hskip \a@leftmargin \fi
+	\box\a@tempb@x \endgraf 
+\endgroup \parindent \z@ \parskip \z@ \initlineb@x 
+\advance \a@prevgraf \@ne	\a@@prevgraf \prevgraf
+\advance \a@@prevgraf \@ne	\prevgraf \a@@prevgraf }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \a@par@hook \relax % reserved
+
+\def \testoutput {% show output box
+\showboxbreadth = \maxdimen     \showboxdepth = 6
+\message {"testoutput" activated.}
+\tracingoutput = 1 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

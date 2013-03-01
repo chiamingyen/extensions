@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% arabtex.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtex.tex
+% version 3.10a
+% this is the Plain TeX driver module for the ArabTeX macro package
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally              EMail:  lagallyk@acm.org
+%     Institut fuer Formale
+%       Methoden der Informatik  TEL:    +49-711-7816-392
+%     Universitaet Stuttgart     FAX:    +49-711-7816-370
+%     Universitaetsstrasse 38
+%     D-70569 Stuttgart          INFO: arabtex@informatik.uni-stuttgart.de
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   % This program can be redistributed and/or modified under the terms
+   % of the LaTeX Project Public License distributed from CTAN
+   % archives in directory macros/latex/base/lppl.txt; either
+   % version 1 of the License, or (at your option) any later version.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input this file at the beginning of an ArabTeX input file running 
+% under Plain TeX. This is an adaptation by Tom Koornwinder of 
+% Jan Lodder's file arab.plain.tex, again modified by Klaus Lagally
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\message { Plain TeX setup for ArabTeX, 26.04.2003}
+
+\ifx \LaTeX \undefined \else
+\errmessage {^^JThis loader does not work with LaTeX! 
+	^^JUse Plain TeX instead.^^J}
+\expandafter \endinput 
+\fi
+
+\def \makeatletter {\catcode `\@ = 11 }
+\def \makeatother  {\catcode `\@ = 12 }
+
+\let \typeout \message		\let \protect \relax
+\let \em \it
+
+\font \xnash	=xnsh14       
+\font \nash	=xnsh14       
+\font \tennash	=xnsh14       % add fonts as needed.
+\font \nashx	=xnsh14       
+\font \nashxi	=xnsh14 scaled \magstephalf
+\font \nashxii	=xnsh14 scaled \magstep1
+\font \nashxiv	=xnsh14 scaled \magstep2
+\font \nashxvii	=xnsh14 scaled \magstep3
+\font \nashxx	=xnsh14 scaled \magstep4
+\font \nashxxv	=xnsh14 scaled \magstep5
+
+\font \xnashbf	=xnsh14bf       
+\font \nashbf	=xnsh14bf       
+\font \tennashbf=xnsh14bf       % bold face fonts 
+\font \nashbx	=xnsh14bf       
+\font \nashbxi	=xnsh14bf scaled \magstephalf
+\font \nashbxii	=xnsh14bf scaled \magstep1
+\font \nashbxiv	=xnsh14bf scaled \magstep2
+\font \nashbxvii=xnsh14bf scaled \magstep3
+\font \nashbxx	=xnsh14bf scaled \magstep4
+\font \nashbxxv	=xnsh14bf scaled \magstep5
+
+\font \yorn	=yarborn % simple ornaments by Y. Haralambous
+
+\def \pnash {\tennash }			\def \pnashbf {\tennashbf }
+\def \nash {\protect\pnash }		\def \nashbf {\protect\pnashbf }
+
+\def \strut {\vrule height 2ex depth .8ex width 0pt}
+
+\makeatletter
+
+\newif \if@ignore % ignore spaces after environment?
+\newif \if@endpe
+
+\def \begin #1{% small version without checks
+\begingroup
+ \long \def \end ##1{% local version for \end{arabtext} and \end \end
+   \ifx ##1\par \endarabtext \endgroup
+   \else \csname end\string ##1\endcsname \endgroup \fi 
+   \if@ignore \global\@ignorefalse \expandafter \ignorespaces \fi }%
+\csname #1\endcsname }
+
+\expandafter \def \csname end\string\end\endcsname{% for \end \end
+\endgroup \end }
+
+{\catcode `\"=\active % simulate german.sty
+\gdef "#1{\ifx #1s\ss \else \"#1\fi }% umlaut and sharp s
+}
+
+\newdimen \marginparwidth \marginparwidth 72pt  % adjust as required !
+\newdimen \marginparsep \marginparsep 10pt      % adjust as required !
+
+\long \def \marginpar #1{% Plain TeX version
+	\dimen0 \baselineskip
+\setbox0 \vtop to \dimen0
+	{\hsize \marginparwidth \parskip 0pt \raggedright
+	\noindent \strut #1\vss }%
+\setbox0 \hbox to \hsize
+	{\hskip \hsize \hskip \marginparsep \box0 \hss }%
+\ifhmode \skip0 \lastskip \hskip 0pt \strut 
+	\vadjust {\box0 \vskip -\dimen0 }%
+	\ifdim \skip0 = 0pt \else \expandafter \ignorespaces \fi
+\else \dimen2 \prevdepth \nointerlineskip \box0 
+	\vskip -\dimen0 \prevdepth \dimen2
+\fi }
+
+\def \verb #1{% simple verbatim routine
+\def \endverb ##1#1{\a@@verb {##1}}\endverb }
+
+\def \\{\hfill \break } % utilities
+
+\def \newpage {\vfill \eject }
+
+\def \today {\number\day.\number\month.\number\year }
+
+\let \@@input \input
+\def \input #1 {\@@input #1 }
+\def \UsePackage #1{\input {#1.sty}}
+
+\let \document \relax	\let \enddocument \end
+\let \a@enddocument \end
+
+\input arabtex.sty % here goes
+\a@ident {arabtex.tex} {3.11 Plain TeX loader for ArabTeX} {26.04.2003}
+
+\def \end {% report the configuration
+{\arab@stat \newlinechar `$ \wlog {\arabtexconfig $}}\a@enddocument }
+
+\makeatother
+\setarab
+
+\tracingstats=1
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

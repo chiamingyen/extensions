@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/lcg"><TPM:Name>lcg</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Generate random integers.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The lcg package generates random numbers (integers) via a
+       linear congruential generator (Schrage's method).  The random
+       numbers are written to a counter.  The keyval package is used
+       to set values for the range, a seed, and the name of the
+       counter.</TPM:Description><TPM:RunFiles size="8710">texmf\tex\latex\lcg\lcg.sty texmf\tpm\packages\lcg.tpm</TPM:RunFiles><TPM:DocFiles size="26292">texmf\doc\latex\lcg\lcg.dvi</TPM:DocFiles><TPM:SourceFiles size="6390">texmf\source\lcg-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1221210281</TPM:TimePackaged><TPM:MD5>33b2ddc7f4ef7e1c4b90fd7b7faf8b55</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,197 @@
+============================================================
+                 The LaTeX package eurosans
+                        version 3.1
+============================================================
+                                              Walter Schmidt
+                                         w.a.schmidt@gmx.net
+                                                  2004-01-26
+
+Usage
+-----
+The LaTeX package eurosans.sty provides a convenient LaTeX
+interface for the free Adobe Euro symbol fonts in Type 1
+(PostScript) format.  Loading of the package
+
+  \usepackage{eurosans}
+  
+provides a new command
+
+  \euro
+  
+which typesets an Euro symbol.  The weight (medium or
+boldface), shape (upright or oblique) and width (regular or
+condensed) varies according to the font currently selected.
+The symbol blends well with most typefaces, except for
+typewriter fonts.  The medium/upright/regular variant meets
+the official design by the EC.
+
+The Euro fonts can be scaled, in order to match the other
+fonts in the document, by loading the package with the
+option [scaled=...].  For instance, to use the Euro fonts at
+90% of their natural size:
+
+  \usepackage[scaled=0.9]{eurosans}
+
+The eurosans package requires the package keyval.sty, which
+is part of the "graphics" bundle and should be available
+with any decent LaTeX system.
+
+
+
+The font family eurosans
+------------------------
+The command \euro switches to a particular font family named
+"eurosans", which is set up with the encoding "U" only.
+
+NFSS classification:
+
+  series   shapes      PostScript FontName
+  --------------------------------------------------------
+  m        n,it,sl     EuroSans-Regular, EuroSans-Italic
+  b,bx     n,it,sl     EuroSans-Bold, EuroSans-BoldItalic
+  mc       n,it,sl     EuroMono-Regular, EuroMono-Italic
+  sbc,bc   n,it,sl     EuroMono-Bold, EuroMono-BoldItalic         
+
+(The EuroMono typefaces are actually condensed versions of
+EuroSans.)
+
+
+
+Obtaning and installing the Euro Fonts
+--------------------------------------
+(1) Install the font metrics (.tfm files), to be found in
+the CTAN directory fonts/euro/tfm.
+ 
+
+(2) Install a font map file for dvips, pdfTeX etc, to be found
+in the CTAN directory fonts/euro/dvips:
+
+zpeu.map is for use with dvips and pdfTeX on PC or Unix
+  platform, it requires renaming of the fonts according to 
+  the Karl-Berry scheme.
+  
+zpeu-origname.map: dito, but you need not rename the fonts;
+
+zpeu-mac.map is for use on the Mac platform
+
+A font map file and the .tfm files for the Euro fonts may
+already be provided in your TeX system, so that you need not
+install them manually; please, consult its documentation!
+
+
+(3) Due to legal reasons, the actual Type1 fonts (.pfb and
+.afm files) are _not_ distributed from CTAN.  They can be
+obtained for free from Adobe:
+
+  http://www.adobe.com/type/eurofont.html
+  
+a) PC, Unix
+  
+You will receive a self-extracting archive "eurofont.exe" for
+DOS/Win, which can be unpacked using Info-Zip's "unzip"
+program, too.  The archive file can also be downloaded
+immediately:
+
+  ftp://ftp.adobe.com/pub/adobe/type/win/all/eurofont.exe
+  ftp://ftp-pac.adobe.com/pub/adobe/type/win/all/eurofont.exe
+  
+b) Mac
+  
+The LWFN-Fonts and the Screenfonts for Apple Macintosh
+Computers can be downloaded immediately as:
+
+ ftp://ftp.adobe.com/pub/adobe/type/mac/all/eurofont.sea.hqx
+  
+You need Aladdin's StuffIt Expander to remove the binhex
+encoding of the self-extracting archive.
+
+
+(4) 
+
+a) PC, Unix
+
+Move the .pfb and .afm files from the archive to a suitable
+directory of your TeX system.  When using the map file
+"zpeu.map", you also have to rename the files as follows:
+
+  _1______.PFB  ->  zpeurs.pfb
+  _1B_____.PFB  ->  zpeubs.pfb
+  _1I_____.PFB  ->  zpeuris.pfb
+  _1BI____.PFB  ->  zpeubis.pfb
+  _2______.PFB  ->  zpeurt.pfb
+  _2B_____.PFB  ->  zpeubt.pfb
+  _2I_____.PFB  ->  zpeurit.pfb
+  _2BI____.PFB  ->  zpeubit.pfb
+  _3______.PFB  ->  zpeur.pfb
+  _3B_____.PFB  ->  zpeub.pfb
+  _3I_____.PFB  ->  zpeuri.pfb
+  _3BI____.PFB  ->  zpeubi.pfb
+
+...and ditto for the .AFM files!
+
+When using the map file "zpeu-origname.map", you need NOT
+rename the files; however, on Unix you should make sure that
+the names are lower case.
+
+b) Mac
+
+If you are using the LWFN fonts for Macs just copy them into
+your Fonts folder in the System folder.
+
+See the manual of your TeX distribution.for how to use the 
+screen fonts in your dvi viewer.
+
+For OzTeX make a new config file or add the new fonts to an
+existing config file like this:
+
+  zpeurs  EuroSanReg  "Euro Sans"  nil
+
+and so on for the other fonts.
+
+
+
+Known problems
+--------------
+With dvips prior to version 5.83, partial font downloading
+fails with an error message such as:
+
+  File ... ended before all chars have been found
+  We scan 0 Chars from 226
+  Last seen token was '/Euro'
+
+Partial font downloading can be turned off by calling dvips
+with the option -j0 or by specifying j0 in the dvips
+configuration file.
+
+This bug has been fixed with dvips version 5.83.
+
+
+
+History
+-------
+v3.1 2004-01-26
+  - fixed implementation of the option "scaled";
+  - changed \euro macro to use symbol #128 with the 
+    proper glyph name "Euro";
+  - added installation instructions for Mac
+    (credits to Martin Buchmann)
+  
+v3.0 2002-01-09
+  optional scaling 
+  
+v2.1 2000-06-15
+  the EuroMono fonts are used for the condensed series
+  
+v2.0 1999-07-21
+  changed the font names acording to "Karl Berry" scheme
+  
+v1.0 1999-01-19
+  \euro is now robust; 
+  documentation update
+
+v0.9 1998-11-09 
+  first public version
+
+
+-- finis
+

@@ -1,0 +1,580 @@
+
+% Croatian Wattle Pattern, 1994,
+% darko.zubrinic@etf.hr
+
+% o mmmm p (slozzeni pleter, jednostruki)
+
+mode_setup;
+ font_size 10pt#;
+ u#:=.8pt#; font_quad= 24u#;
+            font_normal_space= 9u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 2u#;
+ em#:=10pt#; cap#:=7pt#;
+ thin#:=2/3pt#; thick#:=.9*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=round 1.1*1/10em;
+
+
+beginchar("m",5em#,5cap#,0); "drugi pleter";
+pickup pencircle scaled .6thick;
+db:=.08w; %.09w
+r:=.2db;
+rr:=r+db;
+kut:=-35;
+kutt:=10;
+x1=x2=0; x9=.5w-r; x8=x9-1.5db; x10=x7=.5w;
+x5=w-curve_sidebar;
+x6=x5-1.8db; %1.9
+x4=x6; % -.15w;
+x3=x4-db*cosd kut;
+y2-.5h=.5h-y1=1.2*.5db/cosd kut;
+y3=y5=-.1db; y4=y6=db; y8=y9=.5h; y10=.5h-r; y7=y10-rr;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+transform t; t=identity reflectedabout ((.5w,0),(.5w,h));
+addto currentpicture also currentpicture transformed t;
+
+%brisanje na krugu
+path p; p= z6{dir(90+1.3kutt)}..
+tension1.5..{left}z7..{up}z8--z9{down}..{right}z10..{dir(-90+kutt)}z5--cycle;
+%path q; q=p transformed t;
+
+erase fill p;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+%brisanje na lijevom kraku
+path pp; pp= z7{right}..tension1.5..{dir(-90+1.3kutt)}z6;
+path p; p= subpath (.2,1) of pp; 
+%draw p;
+path ss; ss=z5{dir(90+kutt)}..{left}z10;
+path q; q=subpath (0,.55) of ss;
+%draw q;
+path ar; ar=z6--z5; %draw r;
+path ok; ok=  point 0 of p{left} & p & ar & q.. cycle;
+path okk; okk= ok reflectedabout ((.5w,0),(.5w,h));
+erase fill okk;
+draw q reflectedabout ((.5w,0),(.5w,h));
+draw p reflectedabout ((.5w,0),(.5w,h));
+
+%brisanje dolje
+path p; p= z1{dir(kut)}..{right}z3;
+path pp; pp= subpath (.45,1) of p; %.5
+path q; q= z4{left}..{dir(180+kut)}z2;
+path qq; qq= subpath (0,.4) of q;
+path qr; qr= pp & z3--z4 & qq--cycle;
+%pickup pencircle scaled .3thick;
+erase fill qr;
+draw pp; draw qq;
+
+%brisanje desno
+%pickup pencircle scaled .3thick;
+path zpp; zpp = subpath (0,.45) of p reflectedabout ((.5w,0),(.5w,h));
+path zqq; zqq = subpath (.4,1) of q reflectedabout ((.5w,0),(.5w,h));
+z.1=z1 reflectedabout ((.5w,0),(.5w,h));
+z.2=z2 reflectedabout ((.5w,0),(.5w,h));
+path zqr; zqr = zqq & z.2--z.1 & zpp --cycle;
+erase fill zqr;
+draw zpp; draw zqq;
+
+%brisanje na lijevom rubu
+path qu; qu= q reflectedabout ((0,.5h),(w,.5h));
+numeric t,u; (t,u)= qu intersectiontimes q;
+%pickup pencircle scaled .3thick;
+path quu; quu= subpath (t,1) of qu;
+undraw quu;
+undraw quu;
+%pickup pencircle scaled .1thick;
+draw point t of qu; draw  z1;
+
+transform s; s=identity rotatedaround ((.5w,.5h),180);
+addto currentpicture also currentpicture transformed s;
+endchar;
+
+
+beginchar("o",5em#,5cap#,0); "drugi pleter, lijevi";
+pickup pencircle scaled .6thick;
+db:=.08w; %.09w
+r:=.2db;
+rr:=r+db;
+kut:=-35;
+kutt:=10;
+x1=x2=0; x9=.5w-r; x8=x9-1.5db; x10=x7=.5w;
+x5=w-curve_sidebar;
+x6=x5-1.8db; %1.9
+x4=x6; % -.15w;
+x3=x4-db*cosd kut;
+y2-.5h=.5h-y1=1.2*.5db/cosd kut;
+y3=y5=-.1db; y4=y6=db; y8=y9=.5h; y10=.5h-r; y7=y10-rr;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+transform t; t=identity reflectedabout ((.5w,0),(.5w,h));
+addto currentpicture also currentpicture transformed t;
+
+%brisanje na krugu
+path p; p= z6{dir(90+1.3kutt)}..
+tension1.5..{left}z7..{up}z8--z9{down}..{right}z10..{down}z5--cycle;
+%path q; q=p transformed t;
+
+erase fill p;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+%brisanje na lijevom kraku
+path pp; pp= z7{right}..tension1.5..{dir(-90+1.3kutt)}z6;
+path p; p= subpath (.2,1) of pp; 
+%draw p;
+path ss; ss=z5{dir(90+kutt)}..{left}z10;
+path q; q=subpath (0,.55) of ss;
+%draw q;
+path ar; ar=z6--z5; %draw r;
+path ok; ok=  point 0 of p{left} & p & ar & q.. cycle;
+path okk; okk= ok reflectedabout ((.5w,0),(.5w,h));
+erase fill okk;
+draw q reflectedabout ((.5w,0),(.5w,h));
+draw p reflectedabout ((.5w,0),(.5w,h));
+
+%brisanje dolje
+path p; p= z1{dir(kut)}..{right}z3;
+path pp; pp= subpath (.45,1) of p; %.5
+path q; q= z4{left}..{dir(180+kut)}z2;
+path qq; qq= subpath (0,.4) of q;
+path qr; qr= pp & z3--z4 & qq--cycle;
+%pickup pencircle scaled .3thick;
+erase fill qr;
+draw pp; draw qq;
+
+%brisanje desno
+%pickup pencircle scaled .3thick;
+path zpp; zpp = subpath (0,.45) of p reflectedabout ((.5w,0),(.5w,h));
+path zqq; zqq = subpath (.4,1) of q reflectedabout ((.5w,0),(.5w,h));
+z.1=z1 reflectedabout ((.5w,0),(.5w,h));
+z.2=z2 reflectedabout ((.5w,0),(.5w,h));
+path zqr; zqr = zqq & z.2--z.1 & zpp --cycle;
+erase fill zqr;
+draw zpp; draw zqq;
+
+%brisanje na lijevom rubu
+path qu; qu= q reflectedabout ((0,.5h),(w,.5h));
+numeric t,u; (t,u)= qu intersectiontimes q;
+%pickup pencircle scaled .3thick;
+path quu; quu= subpath (t,1) of qu;
+undraw quu;
+undraw quu;
+%pickup pencircle scaled .1thick;
+draw point t of qu; %draw  z1;
+
+transform s; s=identity rotatedaround ((.5w,.5h),180);
+addto currentpicture also currentpicture transformed s;
+
+kr:=.2h;
+z11=(x1,y1-kr);
+z22=(x2,y2+kr);
+z11-z33=(z22-z33) rotated (-2kut);
+erase fill z11--z22--z33--cycle;
+undrawdot z1; undrawdot z2;
+
+%z.11=(w,y11); %ZA DESNI KRAJ
+%z.22=(w,y22);
+%z.33=(w-x33,y33);
+%erase fill z.11--z.22--z.33--cycle;
+%undrawdot (w,y1); undrawdot (w,y2);
+
+path pa; pa = z11 -- z33;
+numeric s, v; (s,v)= p intersectiontimes pa;
+numeric t, v; (t,v)= q intersectiontimes pa;
+z$1= point s of p; z$2= point t of q;
+z$11=(x$1,h-y$1);
+z$22=(x$2,h-y$2);
+%draw z$1--z$2;
+%draw z$11--z$22;
+kut1:= angle direction s of p;
+kut2:= angle direction t of q;
+draw  z$11{dir(180-kut1)}..tension1.1..{dir kut1}z$1;
+draw  z$2{dir kut2}..{dir(180-kut2)}z$22;
+picture lijevi_pleter; lijevi_pleter= currentpicture;
+
+endchar;
+
+beginchar("p",5em#,5cap#,0); "drugi pleter, desni";
+pickup pencircle scaled .6thick;
+transform zrcal; zrcal = identity rotatedabout ((.5w,.5h),180);
+addto currentpicture also lijevi_pleter transformed zrcal;
+endchar;
+
+
+%%%%%%%%%%%%% (slozzeni troplet) srrrrrt
+
+
+beginchar("r",5em#,5cap#,0); "drugi troplet";
+pickup pencircle scaled .6thick;
+db:=.08w; %.09w
+r:=.2db;
+rr:=r+db;
+kut:=-35;
+kutt:=10;
+x1=x2=0; x9=.5w-r; x8=x9-1.5db; x10=x7=.5w;
+x5=w-curve_sidebar;
+x6=x5-1.8db; %1.9
+x4=x6; % -.15w;
+x3=x4-db*cosd kut;
+y2-.5h=.5h-y1=1.2*.5db/cosd kut;
+y3=y5=-.1db; y4=y6=db; y8=y9=.5h; y10=.5h-r; y7=y10-rr;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+z1$=1/3[z1,z2]; % troplet
+z2$=2/3[z1,z2];
+z3$=1/3[z3,z4];
+z4$=2/3[z3,z4];
+z5$=1/3[z5,z6];
+z6$=2/3[z5,z6];
+z10$=1/3[z10,z7];
+z7$=2/3[z10,z7];
+z9$=1/3[z9,z8];
+z8$=2/3[z9,z8];
+pickup pencircle scaled .3thick;
+draw z1${dir(kut)}..{right}z3$--z5${dir(90+kutt)}..tension 1.1..
+{left}z10$..{up}z9$; %1.166
+draw z2${dir(kut)}..{right}z4$--z6${dir(90+1.1kutt)}..tension1.2..
+{left}z7$..{up}z8$;  %1.333
+
+transform t; t=identity reflectedabout ((.5w,0),(.5w,h));
+addto currentpicture also currentpicture transformed t;
+
+%brisanje na krugu
+path p; p= z6{dir(90+1.3kutt)}..
+tension1.5..{left}z7..{up}z8--z9{down}..{right}z10..{dir(-90+kutt)}z5--cycle;
+erase fill p;
+
+pickup pencircle scaled .6thick;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+pickup pencircle scaled .3thick;
+draw z1${dir(kut)}..{right}z3$--z5${dir(90+kutt)}..tension1.1..
+{left}z10$..{up}z9$;
+draw z2${dir(kut)}..{right}z4$--z6${dir(90+1.1kutt)}..tension1.2..
+{left}z7$..{up}z8$;
+pickup pencircle scaled .6thick;
+
+%brisanje na lijevom kraku
+path pp; pp= z7{right}..tension1.5..{dir(-90+1.3kutt)}z6;
+path p; p= subpath (.2,1) of pp;
+path ss; ss=z5{dir(90+kutt)}..{left}z10;
+path q; q=subpath (0,.55) of ss;
+path ar; ar=z6--z5; %draw r;
+path ok; ok=  point 0 of p{left} & p & ar & q.. cycle;
+path okk; okk= ok reflectedabout ((.5w,0),(.5w,h));
+erase fill okk;
+draw q reflectedabout ((.5w,0),(.5w,h));
+draw p reflectedabout ((.5w,0),(.5w,h));
+
+pickup pencircle scaled .3thick;
+%brisanje na lijevom kraku
+path pp$; pp$= z7${right}..tension1.2..
+{dir(-90+1.1kutt)}z6$;
+path p$; p$= subpath (.2,1) of pp$;
+path ss$; ss$=z5${dir(90+kutt)}..tension1.1..{left}z10$;
+path q$; q$=subpath (0,.7) of ss$; %.55
+draw q$ reflectedabout ((.5w,0),(.5w,h));
+draw p$ reflectedabout ((.5w,0),(.5w,h));
+
+pickup pencircle scaled .6thick;
+%brisanje dolje
+path p; p= z1{dir(kut)}..{right}z3;
+path pp; pp= subpath (.45,1) of p; %.5
+path q; q= z4{left}..{dir(180+kut)}z2;
+path qq; qq= subpath (0,.4) of q;
+path qr; qr= pp & z3--z4 & qq--cycle;
+erase fill qr;
+draw pp; draw qq;
+
+pickup pencircle scaled .3thick;
+path p$; p$= z1${dir(kut)}..{right}z3$;
+path pp$; pp$= subpath (.45,1) of p$; %.5
+path q$; q$= z4${left}..{dir(180+kut)}z2$;
+path qq$; qq$= subpath (0,.45) of q$;
+draw pp$; draw qq$;
+
+%brisanje desno
+pickup pencircle scaled .6thick;
+path zpp; zpp = subpath (0,.45) of p reflectedabout ((.5w,0),(.5w,h));
+path zqq; zqq = subpath (.4,1) of q reflectedabout ((.5w,0),(.5w,h));
+z.1=z1 reflectedabout ((.5w,0),(.5w,h));
+z.2=z2 reflectedabout ((.5w,0),(.5w,h));
+path zqr; zqr = zqq & z.2--z.1 & zpp --cycle;
+erase fill zqr;
+draw zpp; draw zqq;
+
+pickup pencircle scaled .3thick;
+path zpp$; zpp$ = subpath (0,.5) of p$ reflectedabout ((.5w,0),(.5w,h));
+path zqq$; zqq$ = subpath (.45,1) of q$ reflectedabout ((.5w,0),(.5w,h));
+draw zpp$; draw zqq$;
+pickup pencircle scaled .6thick;
+
+%brisanje na lijevom rubu
+path qu; qu= q reflectedabout ((0,.5h),(w,.5h));
+numeric t,u; (t,u)= qu intersectiontimes q;
+%pickup pencircle scaled .6thick;
+path quu; quu= subpath (t,1) of qu;
+undraw quu;
+undraw quu;
+%pickup pencircle scaled .6thick;
+draw point t of qu; draw  z1;
+
+pickup pencircle scaled .3thick;
+path qu$; qu$= q$ reflectedabout ((0,.5h),(w,.5h));
+numeric t$,u$; (t$,u$)= qu$ intersectiontimes q;
+path quu$; quu$= subpath (t$,1) of qu$;
+undraw quu$;
+undraw quu$;
+draw point t$ of qu$; draw  point 1 of quu$;
+
+path pu$; pu$= p$ reflectedabout ((0,.5h),(w,.5h));
+numeric t$,u$; (t$,u$)= pu$ intersectiontimes q;
+path puu$; puu$= subpath (0,t$) of pu$;
+undraw puu$;
+undraw puu$;
+draw point t$ of pu$; draw  point 0 of puu$;
+
+numeric u,v; (u,v) = p$ intersectiontimes qu;
+path p$$; p$$ = subpath (0,u) of p$; draw p$$; draw p$$;
+numeric uu,vv; (uu,vv) = q$ intersectiontimes qu;
+path q$$; q$$ = subpath (uu,1) of q$; draw q$$; draw q$$;
+
+transform s; s=identity rotatedaround ((.5w,.5h),180);
+addto currentpicture also currentpicture transformed s;
+endchar;
+
+
+
+beginchar("s",5em#,5cap#,0); "drugi troplet, lijevi";
+pickup pencircle scaled .6thick;
+db:=.08w; %.09w
+r:=.2db;
+rr:=r+db;
+kut:=-35;
+kutt:=10;
+x1=x2=0; x9=.5w-r; x8=x9-1.5db; x10=x7=.5w;
+x5=w-curve_sidebar;
+x6=x5-1.8db; %1.9
+x4=x6; % -.15w;
+x3=x4-db*cosd kut;
+y2-.5h=.5h-y1=1.2*.5db/cosd kut;
+y3=y5=-.1db; y4=y6=db; y8=y9=.5h; y10=.5h-r; y7=y10-rr;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+z1$=1/3[z1,z2]; % troplet
+z2$=2/3[z1,z2];
+z3$=1/3[z3,z4];
+z4$=2/3[z3,z4];
+z5$=1/3[z5,z6];
+z6$=2/3[z5,z6];
+z10$=1/3[z10,z7];
+z7$=2/3[z10,z7];
+z9$=1/3[z9,z8];
+z8$=2/3[z9,z8];
+
+pickup pencircle scaled .3thick;
+draw z1${dir(kut)}..{right}z3$--z5${dir(90+kutt)}..tension 1.1..
+{left}z10$..{up}z9$; %1.166
+draw z2${dir(kut)}..{right}z4$--z6${dir(90+1.1kutt)}..tension1.2..
+{left}z7$..{up}z8$;  %1.333
+
+transform t; t=identity reflectedabout ((.5w,0),(.5w,h));
+addto currentpicture also currentpicture transformed t;
+
+%brisanje na krugu
+path p; p= z6{dir(90+1.3kutt)}..
+tension1.5..{left}z7..{up}z8--z9{down}..{right}z10..{dir(-90+kutt)}z5--cycle;
+erase fill p;
+
+pickup pencircle scaled .6thick;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+
+pickup pencircle scaled .3thick;
+draw z1${dir(kut)}..{right}z3$--z5${dir(90+kutt)}..tension1.1..
+{left}z10$..{up}z9$;
+draw z2${dir(kut)}..{right}z4$--z6${dir(90+1.1kutt)}..tension1.2..
+{left}z7$..{up}z8$;
+pickup pencircle scaled .6thick;
+
+%brisanje na lijevom kraku
+path pp; pp= z7{right}..tension1.5..{dir(-90+1.3kutt)}z6;
+path p; p= subpath (.2,1) of pp; 
+path ss; ss=z5{dir(90+kutt)}..{left}z10;
+path q; q=subpath (0,.55) of ss;
+path ar; ar=z6--z5; %draw r;
+path ok; ok=  point 0 of p{left} & p & ar & q.. cycle;
+path okk; okk= ok reflectedabout ((.5w,0),(.5w,h));
+erase fill okk;
+draw q reflectedabout ((.5w,0),(.5w,h));
+draw p reflectedabout ((.5w,0),(.5w,h));
+
+pickup pencircle scaled .3thick;
+%brisanje na lijevom kraku
+path pp$; pp$= z7${right}..tension1.2..
+{dir(-90+1.1kutt)}z6$;
+path p$; p$= subpath (.2,1) of pp$;
+path ss$; ss$=z5${dir(90+kutt)}..tension1.1..{left}z10$;
+path q$; q$=subpath (0,.7) of ss$; %.55
+draw q$ reflectedabout ((.5w,0),(.5w,h));
+draw p$ reflectedabout ((.5w,0),(.5w,h));
+
+pickup pencircle scaled .6thick;
+%brisanje dolje
+path p; p= z1{dir(kut)}..{right}z3;
+path pp; pp= subpath (.45,1) of p; %.5
+path q; q= z4{left}..{dir(180+kut)}z2;
+path qq; qq= subpath (0,.4) of q;
+path qr; qr= pp & z3--z4 & qq--cycle;
+erase fill qr;
+draw pp; draw qq;
+
+pickup pencircle scaled .3thick;
+path p$; p$= z1${dir(kut)}..{right}z3$;
+path pp$; pp$= subpath (.45,1) of p$; %.5
+path q$; q$= z4${left}..{dir(180+kut)}z2$;
+path qq$; qq$= subpath (0,.45) of q$;
+draw pp$; draw qq$;
+
+%brisanje desno
+pickup pencircle scaled .6thick;
+path zpp; zpp = subpath (0,.45) of p reflectedabout ((.5w,0),(.5w,h));
+path zqq; zqq = subpath (.4,1) of q reflectedabout ((.5w,0),(.5w,h));
+z.1=z1 reflectedabout ((.5w,0),(.5w,h));
+z.2=z2 reflectedabout ((.5w,0),(.5w,h));
+path zqr; zqr = zqq & z.2--z.1 & zpp --cycle;
+erase fill zqr;
+draw zpp; draw zqq;
+
+pickup pencircle scaled .3thick;
+path zpp$; zpp$ = subpath (0,.5) of p$ reflectedabout ((.5w,0),(.5w,h));
+path zqq$; zqq$ = subpath (.45,1) of q$ reflectedabout ((.5w,0),(.5w,h));
+draw zpp$; draw zqq$;
+pickup pencircle scaled .6thick;
+
+%brisanje na lijevom rubu
+path qu; qu= q reflectedabout ((0,.5h),(w,.5h));
+numeric t,u; (t,u)= qu intersectiontimes q;
+path quu; quu= subpath (t,1) of qu;
+undraw quu;
+undraw quu;
+draw point t of qu; draw  z1;
+
+
+path qu$; qu$= q$ reflectedabout ((0,.5h),(w,.5h));
+numeric t$,u$; (t$,u$)= qu$ intersectiontimes q;
+path quu$; quu$= subpath (t$,1) of qu$;
+undraw quu$;
+undraw quu$;
+draw point t$ of qu$; draw  point 1 of quu$;
+
+pickup pencircle scaled .3thick;
+path pu$; pu$= p$ reflectedabout ((0,.5h),(w,.5h));
+numeric t$,u$; (t$,u$)= pu$ intersectiontimes q;
+path puu$; puu$= subpath (0,t$) of pu$;
+undraw puu$;
+undraw puu$;
+draw point t$ of pu$; draw  point 0 of puu$;
+
+numeric u,v; (u,v) = p$ intersectiontimes qu;
+path p$$; p$$ = subpath (0,u) of p$; draw p$$; draw p$$;
+numeric uu,vv; (uu,vv) = q$ intersectiontimes qu;
+path q$$; q$$ = subpath (uu,1) of q$; draw q$$; draw q$$;
+
+transform s; s=identity rotatedaround ((.5w,.5h),180);
+addto currentpicture also currentpicture transformed s;
+
+
+kr:=.2h;
+z11=(x1,y1-kr);
+z22=(x2,y2+kr);
+z11-z33=(z22-z33) rotated (-2kut);
+erase fill z11--z22--z33--cycle;
+undrawdot z1; undrawdot z2;
+
+path pa; pa = z11 -- z33;
+numeric s, v; (s,v)= p intersectiontimes pa;
+numeric t, v; (t,v)= q intersectiontimes pa;
+z$1= point s of p; z$2= point t of q;
+z$11=(x$1,h-y$1);
+z$22=(x$2,h-y$2);
+%draw z$1--z$2;
+%draw z$11--z$22;
+kut1:= angle direction s of p;
+kut2:= angle direction t of q;
+pickup pencircle scaled .6thick;
+draw  z$11{dir(180-kut1)}..tension1.1..{dir kut1}z$1;
+draw  z$2{dir kut2}..{dir(180-kut2)}z$22;
+
+pickup pencircle scaled .3thick;
+numeric s, v; (s,v)= p$ intersectiontimes pa;
+numeric t, v; (t,v)= q$ intersectiontimes pa;
+kut$1=angle direction s of p$;
+kut$2=angle direction t of q$;
+z$$1=point s of p$;
+z$$2=point t of q$;
+
+kutu$1=180-kut$1;
+kutu$2=180-kut$2;
+z$$u1=z$$1 reflectedabout ((0,.5h),(w,.5h));
+z$$u2=z$$2 reflectedabout ((0,.5h),(w,.5h));
+
+draw z$$u1{dir(kutu$1)}..{dir(kut$1)}z$$1;
+draw z$$2{dir(kut$2)}..{dir(kutu$2)}z$$u2;
+
+pickup pencircle scaled thick;
+undraw z1; undraw z2; undraw point 0 of p$; undraw point 1 of q$;
+
+picture lijevi_pleter; lijevi_pleter= currentpicture;
+endchar;
+
+
+
+beginchar("t",5em#,5cap#,0); "drugi troplet, desni";
+pickup pencircle scaled .6thick;
+transform zrcal; zrcal = identity rotatedabout ((.5w,.5h),180);
+addto currentpicture also lijevi_pleter transformed zrcal;
+endchar;
+
+
+
+
+end.
+
+beginchar("n",5*em#,5*cap#,0); "temeljni pleter";
+pickup pencircle scaled .5thick;
+db:=.08w; %.09w
+r:=.2db;
+rr:=r+db;
+kut:=-35;
+kutt:=10;
+x1=x2=0; x9=.5w-r; x8=x9-1.2db; x10=x7=.5w;
+x5=w-curve_sidebar;
+x6=x5-1.8db; %1.9
+x4=x6; % -.15w;
+x3=x4-db*cosd kut;
+y2-.5h=.5h-y1=1.2*.5db/cosd kut;
+y3=y5=0; y4=y6=db; y8=y9=.5h; y10=.5h-r; y7=y10-rr;
+draw z1{dir(kut)}..{right}z3--z5{dir(90+kutt)}..{left}z10..{up}z9;
+draw z2{dir(kut)}..{right}z4--z6{dir(90+1.3kutt)}..tension1.5..{left}z7..{up}z8;
+transform t; t=identity reflectedabout ((.5w,0),(.5w,h));
+addto currentpicture also currentpicture transformed t;
+transform s; s=identity rotatedaround ((.5w,.5h),180);
+addto currentpicture also currentpicture transformed s;
+endchar;
+
+
+
+
+
+
+end.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/overpic"><TPM:Name>overpic</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Combine LaTeX commands over included graphics.</TPM:Title><TPM:Version></TPM:Version><TPM:TargetSystem></TPM:TargetSystem><TPM:Description>The overpic environment is a cross between the LaTeX picture
+      environment and the \includegraphics command of graphicx. The resulting picture
+      environment has the same dimensions as the included eps
+      graphic. LaTeX commands can be placed on the graphic at
+      defined positions. A grid for orientation is available.</TPM:Description><TPM:RunFiles size="4412">texmf\tex\latex\overpic\overpic.sty texmf\tpm\packages\overpic.tpm</TPM:RunFiles><TPM:DocFiles size="680329">texmf\doc\latex\overpic\opic-abs.pdf texmf\doc\latex\overpic\opic-rel.pdf texmf\doc\latex\overpic\overpic-readme-de.pdf texmf\doc\latex\overpic\overpic-readme.pdf texmf\doc\latex\overpic\README texmf\doc\latex\overpic\README.de</TPM:DocFiles><TPM:SourceFiles size="3170">texmf\source\overpic-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1284472045</TPM:TimePackaged><TPM:MD5>2993fd936eb2297d7f31d0b7b30b116e</TPM:MD5></rdf:Description></rdf:RDF>

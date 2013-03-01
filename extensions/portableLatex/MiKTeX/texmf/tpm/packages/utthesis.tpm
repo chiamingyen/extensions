@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/utthesis"><TPM:Name>utthesis</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>LaTeX package for preparation of a thesis that meets the
+      requirements of the Graduate School of the University of
+      TeXas at Austin.</TPM:Description><TPM:RunFiles size="26216">texmf\tex\latex\utthesis\utthesis.sty texmf\tpm\packages\utthesis.tpm</TPM:RunFiles><TPM:DocFiles size="172174">texmf\doc\latex\utthesis\icde-11.ps.gz texmf\doc\latex\utthesis\prairie.tar.gz texmf\doc\latex\utthesis\tr94-16.ps.gz texmf\doc\latex\utthesis\utthesis.doc</TPM:DocFiles><TPM:TimePackaged>991340658</TPM:TimePackaged><TPM:MD5>24489ddc8d5d9cbb400be41900e97767</TPM:MD5></rdf:Description></rdf:RDF>

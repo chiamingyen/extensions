@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/beamerposter"><TPM:Name>beamerposter</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>The beamerposter package is an extension of the LaTeX beamer and the
+a0poster classes in order to create custom sized LaTeX posters, e.g. a
+double DIN-A0 size LaTeX poster in landscape or portrait
+orientation. Furthermore it is possible to scale the poster fonts to
+your needs.
+</TPM:Description><TPM:RunFiles size="9039">texmf\tex\latex\beamerposter\beamerposter.sty texmf\tpm\packages\beamerposter.tpm</TPM:RunFiles><TPM:DocFiles size="866">texmf\doc\latex\beamerposter\README</TPM:DocFiles><TPM:SourceFiles size="1278">texmf\source\beamerposter-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1221210281</TPM:TimePackaged><TPM:MD5>9bdebf497463c2dc25569a63aa399dc5</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/float"><TPM:Name>float</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Improved interface for floating objects.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Improves the interface for defining floating objects such as figures
+and tables. Introduces the boxed float and the ruled float. You can
+define your own floats and improve the behaviour of the old ones. Also
+incorporates the H option of the superseded here package. You can
+select this as automatic default with \floatplacement{figure}{H}.
+</TPM:Description><TPM:RunFiles size="6916">texmf\tex\latex\float\float.sty</TPM:RunFiles><TPM:DocFiles size="48225">texmf\doc\latex\float\float.dvi texmf\doc\latex\float\README</TPM:DocFiles><TPM:SourceFiles size="39197">texmf\source\latex\float\float.dtx texmf\source\latex\float\float.ins</TPM:SourceFiles><TPM:TimePackaged>1005678253</TPM:TimePackaged><TPM:MD5>c6bd7633349dc70756eba86cd58f2b23</TPM:MD5></rdf:Description></rdf:RDF>

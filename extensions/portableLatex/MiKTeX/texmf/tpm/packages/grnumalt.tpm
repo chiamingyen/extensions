@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/grnumalt"><TPM:Name>grnumalt</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package which implements a numbering system used in ancient
+      Athens, producing the `Athenian' numeral for any positive
+      arabic numeral. The package can be used as a means to provide
+      alternative counters.</TPM:Description><TPM:RunFiles size="4647">texmf\tex\latex\grnumalt\grnumalt.sty texmf\tpm\packages\grnumalt.tpm</TPM:RunFiles><TPM:DocFiles size="10676">texmf\doc\latex\grnumalt\grnumalt.dvi</TPM:DocFiles><TPM:SourceFiles size="10502">texmf\source\latex\grnumalt\grnumalt.dtx texmf\source\latex\grnumalt\grnumalt.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>e64b17fdc76d383a92033e0b470c3214</TPM:MD5></rdf:Description></rdf:RDF>

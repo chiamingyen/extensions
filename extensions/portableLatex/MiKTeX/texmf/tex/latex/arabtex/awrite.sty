@@ -1,0 +1,397 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% awrite.sty
+% ArabTeX
+% basic contextual analysis
+% called in HMODE
+% Version 05.06.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {awrite.sty} {3.11 build output word } {05.06.2003}
+
+\UsePackage {xarbsymb}        % character definitions
+\UsePackage {arabskel}        % skeleton definitions
+\UsePackage {xarbskel}
+\UsePackage {aboxes}          % deposit output boxes
+
+\UsePackage {arabtoks}        % token definitions
+\UsePackage {arabchrs}        % character macros
+
+% ACT = 1. char
+\newcount \act@cd       \newcount \act@cls      \newcount \act@mod
+\newcount \act@con      \newcount \act@tie      
+
+% CHR = 2. char
+\newcount \chr@cd       \newcount \chr@cls      \newcount \chr@mod      
+\newcount \chr@con      \newcount \chr@tie      
+
+% SKL = 3. char
+\newcount \skl@cd       \newcount \skl@cls      \newcount \skl@mod      
+\newcount \skl@con      
+
+\newcount \red@mod      \newcount \a@shp        
+\newcount \a@max        \newcount \a@min
+
+\newif \if@con          \newif \if@mod@act      \newif \if@high@act     
+\newif \if@mod@chr      \newif \if@tat          \newif \if@tatl         
+\newif \if@updia        \newif \if@lodia	\newif \ifa@sk          
+\newif \ifa@min         \newif \ifa@max         
+
+\newdimen \a@min@dp     \newdimen \a@dx         \newdimen \a@dy   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif \ifa@@write      \a@@writetrue
+
+\def \a@@write #1>{% Arabic output
+\iftest@write \tracingmacros 1 
+\iftest@parse \else \a@verb (#1 )>\fi\fi
+\a@write@hook
+\ifa@@write \arab@testfont \aw@beg #1>0+0*>0+0*>\fi
+\iftest@write \tracingmacros 0 \fi }
+
+\let \a@write \a@@write                \let \a@write@hook \relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%em# := 25.4dx#;        %ex# := 8dy#;
+
+{\catcode `p=12 \catcode `t=12 % see TeXbook, Appendix D
+\csname expandafter\endcsname \gdef 
+\csname getfactor\endcsname #1pt{#1}}
+
+\def \arab@testfont {% diagnose font, look for vowels and ayin
+\edef \next {\the\font }%
+\ifx \next \a@font \else
+\iftest@font \a@message{Arabic font \next selected.}\fi
+\global\let \a@font \next \a@testfont \fi }
+
+\def \a@testfont {% diagnose font, set params
+\xdef \a@slant {\xpa\getfactor \the\fontdimen1\font }%
+\dimen@ 128\fontdimen7\font % assumes \fontdimen7 < 128 pt
+\divide \dimen@ \fontdimen6\font \multiply \dimen@ 512
+\xdef \a@skew {\xpa\getfactor \the\dimen@}}
+
+\def \a@norm {% start a new character group
+\global\@highfalse \global\a@min@dp \z@ \global\a@min \z@ 
+\global\a@max \z@ \a@disp \z@ \@high@actfalse \global\a@sktrue }
+
+\def \aw@init {% start word, get font parameters
+\a@norm \leavevmode \a@dx .04em \a@dy .125ex }
+
+\def \a@skew {0}        \def \a@slant {0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \aw@beg #1#2*#3#4*#5{% start output
+% c m * c m * c
+	\aw@init
+	\test@chr #1\def \next {\aw@end #1#2*#3#4*#5}%
+\ifx #1-\test@chr #3\chr@fam #3%
+	\def \next {\aw@mid #3#4*#5}%
+	\ifx #3>\ac@other #1#2*#3#4*#5<%
+	\fi \else
+\ifcat -\nxp #1\a@shift \test@chr #3%
+	\@confalse \ac@other #1#2*#3#4*#5<\else 
+\fi\fi \next }
+
+\def \aw@beg #1#2*#3#4*#5{% start output
+% c m * c m * c
+\ifx #1>\let \next \relax \else
+	\aw@init
+	\test@chr #1\def \next {\aw@end #1#2*#3#4*#5}%
+\ifx #1-\test@chr #3\chr@fam #3%
+	\def \next {\aw@mid #3#4*#5}%
+	\ifx #3>\ac@other #1#2*#3#4*#5<%
+	\fi \else
+\ifcat -\nxp #1\a@shift \test@chr #3%
+	\@confalse \ac@other #1#2*#3#4*#5<\else 
+\fi\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \aw@end #1#2*#3#4*#5{% character is not joined to the left
+% c m * c m * c
+% ACT, CHR defined
+\ifx #1>\let \next \relax \else
+\if \AND{\isx #3|}{\is@end@char #5}\def \next {\aw@end #1#2*#5}%
+\else \def \next {\aw@end #3#4*#5}%
+		\a@shift \test@chr #3%
+		\if \AND{\iscat -{\nxp #3}}%
+			{\NOT {\is@end@char #5}}\@contrue 
+		\fi
+	\ifnum \act@cd = \a@alif \def \next {\alif@lig #2*#3#4*#5}\else   
+	\ifcat \nxp ~\nxp #1\else 
+	\ifx #1-\chr@fam #3\else 
+%	\ifcat -\nxp #1\ac@other #1#2*#3#4*#5<\else 
+	\ifcat -\nxp #1\@confalse \ac@other #1#2*#3#4*#5<\else 
+		\ifnum \act@cd = \a@hamzc \@confalse \else
+		\ifnum \act@cd = \a@break \@confalse \else
+			\if@con \chr@fam #3%
+			\fi
+			\ifu@gh \@mod@acttrue
+				\ifnum \act@cd = \a@qaf \set@act\sk@q@s 
+				\fi
+			\else	\aw@endligs #1#2*#3#4*#5%
+			\fi
+		\fi\fi
+        	\a@kern 
+		\ifnum \act@cd  = \a@waw \under@cut #2*\else 
+		\ifnum \act@cls = \rah@cls \under@cut #2*\else 
+		\ifnum \act@cd  = \a@hah \a@kern
+		\fi\fi\fi
+		\put@end #2*#3#4*#5<%
+	\fi\fi\fi\fi
+\fi\fi \next }
+
+\def \alif@lig #1*#2#3*#4{% alif, test for ligature
+% m * c m * c
+\a@kern 
+\chr@fam #2\global\@highfalse
+\ifx #2l\def \next {\lam@alif #1*#3*#4}\else
+	\gim@test #4%  closed gim?
+	\kaf@test #2%  kaf-alif ?
+	\aw@lower #4%
+        \put@end #1*#2#3*#4<%
+\fi \next }
+
+\def \lam@alif #1*#2*#3#4*#5{% ligature lam-alif
+% m * m * c m * c
+\global\@highfalse \a@shift \test@chr #3\chr@fam #3%
+\gim@test #5%  closed gim?
+\ifu@gh \else \kaf@test #3\fi %  kaf-lam ?
+\set@act\sk@l@a
+\if@con \lig@end #1*#2*\def \next {\aw@mid #3#4*#5}%
+  \else \lig@iso #1*#2*\def \next {\aw@end #3#4*#5}%
+\fi \next }
+
+\def \lig@iso #1*#2*{% isolated shape                        % m1 * m2 *
+\put@lig@skel 0\a@f@iso #1*#2*\a@norm } 
+
+\def \lig@end #1*#2*{% final shape                           % m1 * m2 *
+\put@lig@skel 1\a@f@end #1*#2*} 
+
+\def \aw@lower #1{% adjust vertical position
+% uses ACT, CHR, and #1
+\ifligs 
+\ifnum \chr@cd = \a@hah
+	\ifx #1l\set@lowww@act \fi
+\fi
+\ifnum \chr@cls = 3 % gim etc
+	\a@test {#1}\xxpa \unp@ck@skl \skl@skel \relax 
+%	\ifnum \skl@cls = 0 \set@lowww@act \fi
+	\ifnum \skl@cls = 1 \set@lowww@act \fi
+	\ifnum \skl@cls = 2 \set@lowww@act \fi
+	\ifnum \skl@cls = 5 \set@lowww@act \fi
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \aw@mid #1#2*#3#4*#5{% character is joined to the left
+% c m * c m * c
+% ACT, CHR defined
+\ifx #1>\let \next \relax \else
+\if \AND{\isx #3|}{\is@end@char #5}\def \next {\aw@mid #1#2*#5}\else
+\ifx #1-\test@chr #3\chr@fam #3\def \next {\aw@mid #3#4*#5}\else 
+	\a@shift \test@chr #3\chr@fam #3%
+\ifcat -\nxp #1\ac@other #1#2*#3#4*#5<%
+\else 	\if \AND{\iscat -{\nxp #3}}%
+		{\NOT {\is@end@char #5}}\@contrue 
+	\fi
+	\ifu@gh \else
+        	\aw@midligs #1#2*#3#5%
+	\fi
+        \put@mid #2*#3#4*#5<%
+        \if@con \else % initial shape
+        \ifnum \act@cls = \kaf@cls % kaf etc.
+		\xpa\if \xpa\is@in@list \chr@skel \sk@a \sk@l >\a@kern 
+		\else \unkern \a@mkern
+		\fi
+        \fi\fi
+\fi\fi\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \test@updia #1+#2*{% test for upper diacritic                
+% m21 + m22 *
+\@updiafalse        \@lodiafalse
+\global\red@mod   #1 \relax
+\ifnum #1 > 9 \global\advance \red@mod -10 \fi
+\ifcase \red@mod 
+   \relax\or      \@updiatrue\or \@updiatrue\or \@updiatrue\or
+   \@updiatrue\or \@lodiatrue\or
+\fi
+\ifcase #2\relax 
+   \relax\or      \@updiatrue\or \@updiatrue\or \@lodiatrue\or
+   \@updiatrue\or \@updiatrue\or \@lodiatrue\or \@updiatrue\or
+   \@updiatrue\or \@updiatrue\or \@updiatrue\or \@lodiatrue\or
+   \@updiatrue\or
+\fi }
+
+\def \is@updia #1*{00% is there an upper diacritic ?
+\test@updia #1*\if@updia \else \xpa \setiffalse \fi }
+
+\def \is@lodia #1*{00% is there a lower diacritic ?
+\test@updia #1*\if@lodia \else \xpa \setiffalse \fi }
+
+\def \under@cut #1*{% if no upper diacritic                % m2 *
+\ifdim \a@dp > .5ex \else % \if\is@updia #1*\else 
+\unkern \a@mkern \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \put@end #1*#2<{% deposit non-joining character, set new state
+% m * c m * c <
+\if@con \ac@end #1*\def \next {\aw@mid #2}%
+ \else  \ac@iso #1*\def \next {\aw@end #2}%
+\fi }
+
+\def \put@mid #1*#2<{% deposit joining character, set new state
+% m * c m * c <
+\if@con \ac@mid #1*\def \next {\aw@mid #2}%
+ \else  \ac@beg #1*\def \next {\aw@end #2}%
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \ac@high #1{\raise.5ex\hbox{#1}}
+\def \ac@high #1{% raise punctuation
+\ifu@gh #1\else \raise.5ex\hbox{#1}\fi }
+
+% define CS names for special punctuation
+
+{\catcode`\$ 12 \gdef \a@dlr {$}	% $
+\catcode `\# 12 \gdef \a@hsh {#}	% #
+\catcode `\% 12 \gdef \a@pct {%}}	% %
+{\catcode`\^ 12 \gdef \a@up  {^}	% ^
+\catcode `\_ 12 \gdef \a@dn  {_}	% _
+\catcode `\& 12 \gdef \a@amp {&}	% &
+\catcode `\A 12 \gdef \a@dq  {A}	% "
+\catcode `\B 12 \gdef \f@sila {B}	% ,
+\catcode `\C 12 \gdef \h@phen {C}	% -
+\catcode `\D 12 \gdef \a@bar {D}	% |
+\catcode `\E 12 \gdef \a@qt  {E}	% '
+\catcode `\F 12 \gdef \a@bsl {F}	% \
+\catcode `\G 12 \gdef \a@lbc {G}	% {
+\catcode `\H 12 \gdef \a@rbc {H}	% }
+\catcode `\I 12 \gdef \a@ell {I}	% ...
+\catcode `\J 12 \gdef \a@div {J}	% :-
+\catcode `\K 12 \gdef \a@lab {K}	% <
+\catcode `\L 12 \gdef \a@rab {L}	% >
+\catcode `\M 12 \gdef \a@end {M}	% --
+\catcode `\N 12 \gdef \a@emd {N}	% ---
+\catcode `\O 12 \gdef \a@lq  {O}	% `
+\catcode `\P 12 \gdef \a@rq  {P}	% '
+
+\gdef \ac@other #1#2*#3<{% special punctuation mark                        
+% c * c m * c
+\case #1\of
+{	){\ac@high {(}} 
+	({\ac@high {)}} 
+	]{\ac@high {[}} 
+	[{\ac@high {]}} 
+	`{\a@kern \ac@high {\char \a@lquotes }} 
+	'{\ac@high {\char \a@rquotes }\a@kern }
+	^{{\tt ^}} 
+	_{{\tt _}}
+	&{{\tt \char`\&}}
+	A{{\tt "}}
+	B{{\rm \bf ,}}
+	C{\ac@high {-}}
+	D{{\tt \char`\|}}
+	E{{\tt \char'015}}
+	F{{\tt \char`\\}}
+	G{{\tt \char`\}}}
+	H{{\tt \char`\{}}
+	I{{\bf $\cdots$}}
+	J{{\bf $\div$}}
+	K{{\tt \char`\>}}
+	L{{\tt \char`\<}}
+	M{{\rm \bf \char'173}}
+	N{{\rm \bf \char'174}}
+	O{{\rm \bf `}}
+	P{{\rm \bf '}}
+%	|{\char \a@break }
+	|{}
+	4{\ac@high {\iff@rsn \char \a@f@iv \else 4\fi }\a@kern }
+	5{\ac@high {\iff@rsn \char \a@f@v \else 5\fi }\a@kern }
+	6{\ac@high {\iff@rsn \char \a@f@vi \else 6\fi }\a@kern }
+\default {\ac@high {#1}\a@kern }
+}\endcase 
+\if@con \def \next {\aw@mid #3}%
+ \else  \def \next {\aw@end #3}%
+\fi }
+%\def \next {\aw@end #3}}
+}% catcodes 12
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \ac@iso #1*{% isolated shape                        % m *
+\put@skel 0\a@f@iso #1*\a@norm } 
+
+\def \ac@end #1*{% final shape                           % m *
+\put@skel 1\a@f@end #1*} 
+
+\def \ac@mid #1*{% medial shape                          % m *
+\put@skel 2\a@f@mid #1*} 
+
+\def \ac@beg #1*{% initial shape                         % m *
+\put@skel 3\a@f@beg #1*\a@norm } 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@shift {% go to next position
+% ACT := CHR
+\let \act@skel \chr@skel \act@mod \chr@mod \get@act
+\act@tie \chr@tie 
+\let \if@mod@act \if@mod@chr \@mod@chrfalse }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \test@chr #1{% get attributes of next character 
+% set CHR := SKL := <#1>
+\a@test #1\chr@tie 0 
+\let \chr@skel \skl@skel \chr@mod \skl@mod \get@chr 
+\ifnum \chr@con = 0 \@confalse \else \@contrue \fi }
+
+\def \a@test #1{% get character attributes
+% set SKL := <#1>
+\set@skl \sk@def \skl@mod 0 
+\ifcat \nxp #1a%
+   \xpa \ifx \csname tc@\string #1\endcsname \relax 
+        \else \unp@ck@tc {#1}%
+        \fi \else
+\if \nxp #1\relax \unp@ck@cs {#1}\else
+\ifx #1-\set@skl \sk@B \else
+\ifx #1|\set@skl \sk@spc \else
+\fi\fi\fi\fi }
+
+\def \a@test #1{% get character attributes
+% set SKL := <#1>
+	\skl@mod 0 
+\ifcat \nxp #1a%
+   \xpa \ifx \csname tc@\string #1\endcsname \relax 
+		\set@skl \sk@def 
+        \else \unp@ck@tc {#1}%
+        \fi \else
+\if \nxp #1\relax \unp@ck@cs {#1}\else
+\ifx #1-\set@skl \sk@B \else
+\ifx #1|\set@skl \sk@spc \else
+	\set@skl \sk@def 
+\fi\fi\fi\fi }
+
+\def \unp@ck@cs #1{% evaluate token routine
+\xpa\unp@ck@token #1\relax }
+
+\def \unp@ck@tc #1{% evaluate letter description
+\xxpa\unp@ck@token \csname tc@\string #1\endcsname \relax }
+
+\def \unp@ck@token #1,#2\relax {% unpack letter description
+\def \skl@skel {#1}\skl@mod #2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

@@ -1,0 +1,183 @@
+
+thick:=1.6thick;
+
+
+
+
+
+beginchar(".",.4em#,cap#,0); "The symbol .";
+pickup pencircle scaled thick ;
+z1=(.5w,.5thick);   % z2=(.3w,0); z3=(.3w,.1w); z4=(.2w,.1w);
+drawdot z1;
+%fill z1--z2--z3--z4--cycle;
+endchar;
+
+
+
+
+
+beginchar(",",.4em#,cap#,0); "The symbol ,";
+pickup pencircle scaled thick ;
+z1=(.3w,0); z2=(.3w+.8thick,0);
+z3=(.3w+.8thick,.1w+.8thick); z4=(.3w,.1w+.8thick);
+fill z1--z2--z3--z4--cycle;
+z5=(.3w,-.3w); z6=.5[z1,z2];
+fill z6--z2{down}..{dir70}z5{dir70}..{up}z6..cycle;
+picture zarez; zarez=currentpicture;
+endchar;
+
+
+
+beginchar(";",.4em#,cap#,0); "The symbol ;";
+pickup pencircle scaled thick ;
+transform t; t=identity;
+addto currentpicture also zarez transformed t;
+z3=(.3w+.8thick,.1w+.8thick); z4=(.3w,.1w+.8thick);
+z7=.5[z3,z4]+(0,.2h);
+drawdot z7;
+endchar;
+
+
+beginchar("`",.4em#,cap#,0); "The symbol `";
+transform t;
+t=identity shifted (0,h);
+transform s; s=identity reflectedabout ((.5w,0),(.5w,h));
+transform u;
+u= (identity transformed t) transformed s; % kompozicija funkcija
+addto currentpicture also zarez transformed u;
+endchar;
+
+
+
+
+beginchar("'",.4em#,cap#,0); "The symbol '";
+transform t;
+t=identity shifted (0,h);
+addto currentpicture also zarez transformed t;
+endchar;
+
+
+
+
+beginchar("!",.4em#,cap#,0); "The symbol !";
+h:=4/3h;
+smoothing:=2;
+pickup pencircle scaled thick ;
+z1=(.5w,.5thick); z2=(.5w,.3h); z3=(.5w,h);
+penpos2(.4thick,0); penpos3(thick,0);
+drawdot z1;
+penstroke z2e--z3e;
+endchar;
+
+
+beginchar("?",.8em#,cap#,0); "The symbol ?";
+h:=4/3h;
+pickup pencircle scaled thick ;
+penpos5(.6thick,150);
+penpos4(.8thick,90); penpos3(.8thick,0);
+penpos2(.7thick,-20); penpos1(.6thick,0);
+z0=(.5w,.5thick);
+x1=x2=x4=.5w;
+y4=h;
+y1=.25h;
+y2=.4h;
+y4-y5=y4-y3=.2h;
+x5=w-x3=curve_sidebar;
+penstroke z1e--z2e{up}..z3e{up}..{left}z4e..z5e{dir(180+60)};
+drawdot z0;
+endchar;
+
+
+
+beginchar(":",.4em#,cap#,0); "The symbol :";
+pickup pencircle scaled thick ;
+x1=x2=.5w; y1=.5thick; y2=.7h;
+drawdot z1;
+drawdot z2;
+endchar;
+
+
+beginchar("-",.5em#,cap#,0); "The symbol -";
+pickup pencircle scaled .5thick ;
+x1=w-x2=curve_sidebar; y1= y2=.5h;
+draw z1-- z2;
+endchar;
+
+
+beginchar(oct"173",.8em#,cap#,0); "The symbol --";
+pickup pencircle scaled .4thick ;
+x1=w-x2=curve_sidebar; y1= y2=.5h;
+draw z1-- z2;
+picture crtica; crtica=currentpicture;
+endchar;
+
+
+
+beginchar("+",.8em#,cap#,0); "The symbol +";
+a:=.5w; b:=.5h;
+transform t; transform s;
+t:=identity rotatedaround ((a,b),90);
+s:= identity;
+addto currentpicture also  crtica transformed  t;
+addto currentpicture also  crtica transformed  s;
+endchar;
+
+
+
+beginchar("=",.8em#,cap#,0); "The symbol =";
+transform t; transform s;
+t=identity shifted (0,.1h);
+s=identity shifted (0,-.1h);
+addto currentpicture also crtica transformed t;
+addto currentpicture also crtica transformed s;
+endchar;
+
+
+
+beginchar("(",.5em#,cap#,0); "The symbol (";
+x1=x3=w-curve_sidebar;
+y1=-.3h; y3=h+.3h;
+y2=.5(y1+y3);
+x2=curve_sidebar;
+ penpos3(.1thick,-30); penpos2(.8thick,0);
+ penpos1(.1thick,30);
+penstroke z1e{curl1}..z2e..{curl1}z3e;
+picture lijevaz; lijevaz=currentpicture;
+endchar;
+
+
+
+beginchar(")",.5em#,cap#,0); "The symbol )";
+transform t;
+t=  identity reflectedabout ((.5w,0),(.5w,h));
+addto currentpicture also lijevaz transformed t;
+endchar;
+
+
+
+
+beginchar("*",.6em#,cap#,0); "Kvadraticc *";
+%pickup pencircle scaled .2thick;
+.5w-x1=x2-.5w=thick; y1=y2=.5h;
+.5h-y3=y4-.5h=thick; x3=x4=.5w;
+fill z1--z3--z2--z4--cycle;
+endchar;
+
+
+
+
+
+
+%beginchar(oct"174",.9em#,cap#,0); "The symbol ---";
+%pickup pencircle scaled .7thick ;
+%%h:=3/4h;
+%x1=w-x2=curve_sidebar; y1= y2=.5h;
+%draw z1-- z2;
+%endchar;
+
+
+
+
+
+
+

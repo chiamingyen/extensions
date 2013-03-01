@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% hebtex.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.tex
+% version 3.11
+% Plain TeX loader for ArabTeX, Hebrew mode
+% 08.09.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally              EMail:  lagallyk@acm.org
+%     Institut fuer Formale
+%       Methoden der Informatik  TEL:    +49-711-7816-392
+%     Universitaet Stuttgart     FAX:    +49-711-7816-370
+%     Universitaetsstrasse 38
+%     D-70569 Stuttgart          INFO: arabtex@informatik.uni-stuttgart.de
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or (at your option) any later version.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input this file at the beginning of an ArabTeX input file running 
+% under Plain TeX. This is an adaptation by Tom Koornwinder of 
+% Jan Lodder's file arab.plain.tex, again modified by Klaus Lagally
+% and modified again to switch to Hebrew mode
+% 16.09.2001
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\message { Plain TeX Hebrew setup for ArabTeX }
+
+\input arabtex.tex 	% load the ArabTeX package
+
+\makeatletter 
+\a@ident {hebtex.tex} {3.11 Plain TeX Hebrew loader for ArabTeX} {08.09.2003}
+
+%\def \pheb {\hebfont }
+
+\iffalse
+\input hebtex.sty	% load the Hebrew extension
+\input apatch.sty	% load any patches
+\input hepatch.sty	% load any patches
+\fi
+
+% commands for font selection:
+
+\font \hclassic = hclassic \relax	% fix em and ex
+		\fontdimen5\hclassic =.8\fontdimen2\hclassic
+		\fontdimen6\hclassic =3\fontdimen5\hclassic
+\font \hcaption = hcaption \relax	% fix em and ex
+		\fontdimen5\hcaption =.8\fontdimen2\hcaption
+		\fontdimen6\hcaption =3\fontdimen5\hcaption
+		\fontdimen1\hcaption =.2pt \relax
+						
+\def \hc {\sethebfont {\hclassic}}
+\def \hp {\sethebfont {\hcaption}}
+
+\all@wcmd \hc	\all@wcmd \hp		% allow these in Hebrew context
+
+\font \jerusalem = jerusalem \relax	
+\font \Jerusalem = Jerusalem \relax	
+\font \OldJaffa = OldJaffa \relax	
+\font \DeadSea = DeadSea \relax	
+\font \TelAviv = TelAviv \relax	
+
+\def \jm {\sethebfont {\jerusalem}}
+\def \Jm {\sethebfont {\Jerusalem}}
+\def \oj {\sethebfont {\OldJaffa}}
+\def \ds {\sethebfont {\DeadSea}}
+\def \ta {\sethebfont {\TelAviv}}	% add others as required
+
+\all@wcmd \ds	\all@wcmd \oj	\all@wcmd \jm	\all@wcmd \ta	\all@wcmd \Jm	
+
+\font \smold = shlm_old \relax	
+		\fontdimen5\font =\fontdimen2\font 
+\def \shlmold {\sethebfont {\smold}}
+
+\font \smscr = shlm_scr \relax	
+		\fontdimen5\font =\fontdimen2\font 
+\def \shlmscr {\sethebfont {\smscr}}
+
+\font \smstk = shlm_stk \relax	
+		\fontdimen5\font =\fontdimen2\font 
+\def \shlmstk {\sethebfont {smstk}}
+
+\all@wcmd \shlmold 	\all@wcmd \shlmscr 	\all@wcmd \shlmstk 
+
+\def \fr   {\sethebfont {fr}}
+\def \frbx {\sethebfont {frbx}}
+\def \frsl {\sethebfont {frsl}}
+
+\all@wcmd \fr  		\all@wcmd \frbx		\all@wcmd \frsl
+
+\def \crml {\sethebfont {crml10}% fix ex
+		\fontdimen5\font =\fontdimen2\font } 
+\def \crmlsl {\sethebfont {crmlsl10}% fix ex
+		\fontdimen5\font =\fontdimen2\font }
+
+\all@wcmd \crml		\all@wcmd \crmlsl
+%\makeatother
+
+\input hebtex.sty	% load the Hebrew extension
+\input apatch.sty	% load any patches
+\input hepatch.sty	% load any patches
+
+\hc 		% define a default Hebrew font		choose one !
+%\jm 		% define a default Hebrew font
+%\ds 		% define a default Hebrew font
+%\ta 		% define a default Hebrew font
+%\oj 		% define a default Hebrew font
+%\hp 		% define a default Hebrew font
+%\shlmold 	% define a default Hebrew font
+%\shlmscr 	% define a default Hebrew font
+%\shlmstk 	% define a default Hebrew font
+%\fr  		% define a default Hebrew font
+%\frbx		% define a default Hebrew font
+%\frsl		% define a default Hebrew font
+%\crml		% define a default Hebrew font
+%\crmlsl	% define a default Hebrew font
+
+\sethebrew		% switch to Hebrew mode
+\makeatother
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

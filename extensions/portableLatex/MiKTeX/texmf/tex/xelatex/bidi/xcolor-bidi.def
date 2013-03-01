@@ -1,0 +1,127 @@
+%%
+%% This is file `xcolor-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{xcolor-bidi.def}[2010/03/01 v0.1 adaptations for xcolor package]
+\long\def\color@b@x#1#2#3%
+ {\leavevmode\if@RTL\beginL\fi
+  \setbox\z@\hbox{\kern\fboxsep{\set@color\if@RTL\beginR\fi#3\if@RTL\endR\fi}\kern\fboxsep}%
+  \dimen@\ht\z@\advance\dimen@\fboxsep\ht\z@\dimen@
+  \dimen@\dp\z@\advance\dimen@\fboxsep\dp\z@\dimen@
+  {#1{#2\color@block{\wd\z@}{\ht\z@}{\dp\z@}\box\z@}}\if@RTL\endL\fi}
+\DeclareRobustCommand\color
+ {\ifhmode\if@RTL\beginL\aftergroup\endR\fi\fi\@ifnextchar[\@undeclaredcolor\@declaredcolor}
+\def\@undeclaredcolor[#1]#2%
+ {\begingroup
+  \let\@@cls\@empty
+  \XC@getmodclr12{#1}{#2}{}%
+   {\ifblendcolors
+      \ifx\colorblend\@empty\else
+        \edef\@@mix{\expandafter\@gobble\colorblend}\@tempswafalse
+        \XC@coremodel\@@mod\@@clr\@xcolor@{}{}\@@mod\@@clr
+      \fi
+    \fi
+    \ifconvertcolorsU
+      \edef\@@tmp{\XC@tgt@mod{\@@mod}}%
+      \convertcolorspec\@@mod\@@clr\@@tmp\@@clr \let\@@mod\@@tmp
+    \fi
+    \ifmaskcolors
+      \convertcolorspec\@@mod\@@clr\XC@mmod\@@clr
+      \let\@@mod\XC@mmod
+      \XC@inflate\@@mod\XC@mclr\@@clr\@@tmp
+      \expandafter\XC@mul\@@tmp,\@@clr
+    \fi
+    \edef\@@tmp{\noexpand\XC@undeclaredcolor{\@@mod}{\@@clr}}%
+    \expandafter\endgroup\@@tmp}}
+\def\@declaredcolor#1%
+ {\XC@edef\XC@@tmp{#1}\XC@@tstfalse
+  \ifcase\XC@type\XC@@tmp\relax \XC@@tsttrue\or \relax\else
+    \ifblendcolors\XC@@tsttrue\fi \ifmaskcolors\XC@@tsttrue\fi
+    \ifconvertcolorsU\XC@@tsttrue\fi
+  \fi
+  \ifXC@@tst
+    \expandafter\XC@declaredcolor\else
+    \expandafter\XC@declaredc@lor\fi}
+\def\XC@undeclaredcolor#1#2%
+ {\@ifundefinedmodel{#1}%
+   {\c@lor@error{model `#1'}}%
+   {\@nameuse{color@#1}\current@color{#2}%
+    \edef\XC@current@color{\noexpand\xcolor@{}{\current@color}{#1}{#2}}%
+    \XC@display}\ifhmode\if@RTL\beginR\aftergroup\endL\fi\fi}
+\def\XC@declaredc@lor
+ {\XC@let@Nc\XC@current@color{\string\color@\XC@@tmp}%
+  \edef\current@color{\XC@current@color}%
+  \XC@display\ifhmode\if@RTL\beginR\aftergroup\endL\fi\fi}
+\DeclareRobustCommand\bidicolor
+ {\@ifnextchar[\@bidiundeclaredcolor\@bidideclaredcolor}
+\def\@bidiundeclaredcolor[#1]#2%
+ {\begingroup
+  \let\@@cls\@empty
+  \XC@getmodclr12{#1}{#2}{}%
+   {\ifblendcolors
+      \ifx\colorblend\@empty\else
+        \edef\@@mix{\expandafter\@gobble\colorblend}\@tempswafalse
+        \XC@coremodel\@@mod\@@clr\@xcolor@{}{}\@@mod\@@clr
+      \fi
+    \fi
+    \ifconvertcolorsU
+      \edef\@@tmp{\XC@tgt@mod{\@@mod}}%
+      \convertcolorspec\@@mod\@@clr\@@tmp\@@clr \let\@@mod\@@tmp
+    \fi
+    \ifmaskcolors
+      \convertcolorspec\@@mod\@@clr\XC@mmod\@@clr
+      \let\@@mod\XC@mmod
+      \XC@inflate\@@mod\XC@mclr\@@clr\@@tmp
+      \expandafter\XC@mul\@@tmp,\@@clr
+    \fi
+    \edef\@@tmp{\noexpand\XC@bidiundeclaredcolor{\@@mod}{\@@clr}}%
+    \expandafter\endgroup\@@tmp}}
+\def\XC@bidiundeclaredcolor#1#2%
+ {\@ifundefinedmodel{#1}%
+   {\c@lor@error{model `#1'}}%
+   {\@nameuse{color@#1}\current@color{#2}%
+    \edef\XC@current@color{\noexpand\xcolor@{}{\current@color}{#1}{#2}}%
+    \XC@display}}
+\def\@bidideclaredcolor#1%
+ {\XC@edef\XC@@tmp{#1}\XC@@tstfalse
+  \ifcase\XC@type\XC@@tmp\relax \XC@@tsttrue\or \relax\else
+    \ifblendcolors\XC@@tsttrue\fi \ifmaskcolors\XC@@tsttrue\fi
+    \ifconvertcolorsU\XC@@tsttrue\fi
+  \fi
+  \ifXC@@tst
+    \expandafter\XC@bidideclaredcolor\else
+    \expandafter\XC@bidideclaredc@lor\fi}
+\def\XC@bidideclaredcolor
+ {\XC@split\XC@@tmp
+  \edef\@@tmp{\noexpand\@bidiundeclaredcolor[\@@mod]{\@@clr}}%
+  \expandafter\endgroup\@@tmp}
+\def\XC@bidideclaredc@lor
+ {\XC@let@Nc\XC@current@color{\string\color@\XC@@tmp}%
+  \edef\current@color{\XC@current@color}%
+  \XC@display}
+\def\color@box#1#2{\color@b@x\relax{\bidicolor#1{#2}}}
+\def\color@fbox#1#2#3#{\protect\color@fb@x{#1}{#2}{#3}}
+\def\color@fb@x#1#2#3#4%
+ {\color@b@x{\fboxsep\z@\bidicolor#1{#2}\XC@fbox}%
+   {\@ifxempty{#3}{\bidicolor#1}{\bidicolor#3}{#4}}}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `xcolor-bidi.def'.

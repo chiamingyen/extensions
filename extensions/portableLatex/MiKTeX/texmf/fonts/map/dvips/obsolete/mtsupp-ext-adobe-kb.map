@@ -1,0 +1,10 @@
+% Thomas Esser, 1999. Public domain.
+%
+% mtsupp-ext-adobe-kb.map: map file with basic ps fonts as needed
+%    for mathtime package. Downloads Adobe fonts with Berry names.
+%
+% "Faked" ExtendFont / SlantFont with download. Useful for ps2pk and pdftex.
+ptmbo8y Times-Bold ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmb8a.pfb
+ptmro8y Times-Roman ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmr8a.pfb
+tibo Times-Bold ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmb8a.pfb
+tio Times-Roman ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmr8a.pfb

@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% raw.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% raw.sty
+% package for activating most special characters for OCR work
+% and switching off most special processing
+% the characters " < > cannot presently be handled correctly
+% activate special processing by \setraw
+% revert to the normal mode by \unsetraw
+% 04.03.1996
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \rawatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \rawatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {raw.sty} {0.91 special characters} {04.03.1996}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \setraw {% activate special characters
+\a@paren  = {}	\a@digits = {}	\a@first  = {.'`~,|:}	
+\catcode `\^ 12	\catcode `\_ 12
+\catcode `\$ 12	\catcode `\# 12	\catcode `\& 12
+\catcode `\% 12	\catcode `\- 11	\catcode `\= 11 }
+
+\def \unsetraw {% undo changes
+\a@digits = {0123456789}     	\a@paren  = {()[]}
+\a@first  = {.^_-'`~,|"=:}	% default, scanner dependent
+\catcode `\^ 7	\catcode `\_ 8
+\catcode `\$ 3	\catcode `\# 6	\catcode `\& 4
+\catcode `\% 14	\catcode `\- 12	\catcode `\= 12 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode `\@ = \rawatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

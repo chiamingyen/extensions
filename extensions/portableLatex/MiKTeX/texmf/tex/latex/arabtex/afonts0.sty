@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% afonts0.sty
+% ArabTeX
+% load Naskh14 for old LateX
+% 16.11.95
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally 
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {afonts0.sty} {3.04 define Naskh font for old LaTeX} {16.11.1995}
+
+% OLD FONT SELECTION
+% load all necessary fonts
+
+\newfont {\tennash }{nash14}
+\newfont {\elvnnash}{nash14 scaled 1095}
+\newfont {\twlvnash}{nash14 \@magscale1}
+\newfont {\frtnnash}{nash14 \@magscale2}
+\newfont {\svtnnash}{nash14 \@magscale3}
+\newfont {\twtynash}{nash14 \@magscale4}
+\newfont {\twfvnash}{nash14 \@magscale5}
+
+\newfont {\tennashbf }{nash14bf}
+\newfont {\elvnnashbf}{nash14bf scaled 1095}
+\newfont {\twlvnashbf}{nash14bf \@magscale1}
+\newfont {\frtnnashbf}{nash14bf \@magscale2}
+\newfont {\svtnnashbf}{nash14bf \@magscale3}
+\newfont {\twtynashbf}{nash14bf \@magscale4}
+\newfont {\twfvnashbf}{nash14bf \@magscale5}
+
+% add the \pnash command to the size changing hooks
+ 
+\@addfontinfo \@vpt    {\def\pnash {\tennash}}
+\@addfontinfo \@viipt  {\def\pnash {\tennash}}
+\@addfontinfo \@viiipt {\def\pnash {\tennash}}
+\@addfontinfo \@ixpt   {\def\pnash {\tennash}}
+\@addfontinfo \@xpt    {\def\pnash {\tennash}}
+\@addfontinfo \@xipt   {\def\pnash {\elvnnash}}
+\@addfontinfo \@xiipt  {\def\pnash {\twlvnash}}
+\@addfontinfo \@xivpt  {\def\pnash {\frtnnash}}
+\@addfontinfo \@xviipt {\def\pnash {\svtnnash}}
+\@addfontinfo \@xxpt   {\def\pnash {\twtynash}}
+\@addfontinfo \@xxvpt  {\def\pnash {\twfvnash}}
+
+\@addfontinfo \@vpt    {\def\pnashbf {\tennashbf}}
+\@addfontinfo \@viipt  {\def\pnashbf {\tennashbf}}
+\@addfontinfo \@viiipt {\def\pnashbf {\tennashbf}}
+\@addfontinfo \@ixpt   {\def\pnashbf {\tennashbf}}
+\@addfontinfo \@xpt    {\def\pnashbf {\tennashbf}}
+\@addfontinfo \@xipt   {\def\pnashbf {\elvnnashbf}}
+\@addfontinfo \@xiipt  {\def\pnashbf {\twlvnashbf}}
+\@addfontinfo \@xivpt  {\def\pnashbf {\frtnnashbf}}
+\@addfontinfo \@xviipt {\def\pnashbf {\svtnnashbf}}
+\@addfontinfo \@xxpt   {\def\pnashbf {\twtynashbf}}
+\@addfontinfo \@xxvpt  {\def\pnashbf {\twfvnashbf}}
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

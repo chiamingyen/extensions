@@ -1,0 +1,28 @@
+% Thomas Esser, 1998, public domain.
+%
+% raw-lw35extra-adobe-kb.map: completes acrobat.map with fonts available to
+%    most ps printers (LW35 fonts). Downloads Adobe fonts with Berry names.
+%
+% Useful for ps2pk and pdftex.
+rpagd AvantGarde-Demi  <pagd8a.pfb
+rpagdo AvantGarde-DemiOblique  <pagdo8a.pfb
+rpagk AvantGarde-Book  <pagk8a.pfb
+rpagko AvantGarde-BookOblique  <pagko8a.pfb
+rpbkd Bookman-Demi  <pbkd8a.pfb
+rpbkdi Bookman-DemiItalic  <pbkdi8a.pfb
+rpbkl Bookman-Light  <pbkl8a.pfb
+rpbkli Bookman-LightItalic  <pbkli8a.pfb
+rpncb NewCenturySchlbk-Bold  <pncb8a.pfb
+rpncbi NewCenturySchlbk-BoldItalic  <pncbi8a.pfb
+rpncr NewCenturySchlbk-Roman  <pncr8a.pfb
+rpncri NewCenturySchlbk-Italic  <pncri8a.pfb
+rpplb Palatino-Bold  <pplb8a.pfb
+rpplbi Palatino-BoldItalic  <pplbi8a.pfb
+rpplbu Palatino-BoldItalic "-.1763 SlantFont" <pplbi8a.pfb
+rpplr Palatino-Roman  <pplr8a.pfb
+rpplri Palatino-Italic  <pplri8a.pfb
+rpplro Palatino-Roman ".167 SlantFont" <pplr8a.pfb
+rpplrre Palatino-Roman "1.2 ExtendFont" <pplr8a.pfb
+rpplrrn Palatino-Roman ".82 ExtendFont" <pplr8a.pfb
+rpplru Palatino-Italic "-.1763 SlantFont" <pplri8a.pfb
+rpzcmi ZapfChancery-MediumItalic  <pzcmi8a.pfb

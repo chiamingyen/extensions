@@ -1,0 +1,19 @@
+The following files are copyright 1994 Peter Williams and released
+under the LPPL as explained in the comments beginning each file:
+INSTALL
+Makefile
+README
+doc_Makefile
+harvard.bib
+harvard.sty
+harvard.tex
+and the derived file harvard.pdf.
+
+The following files are copyright Thorsten Schnier and released
+under the LPPL as explained in the comments beginning each file:
+harvard.perl
+
+For details of copyrights and licensing for other files, see
+the comments included in each.
+
+This file added by Clea F. Rees 2009/01/30.

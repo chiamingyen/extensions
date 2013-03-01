@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/inversepath"><TPM:Name>inversepath</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Calculate inverse file paths</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The package calculates inverse relative paths. Such things may be useful, for example, when writing an auxiliary file to a different directory. 
+
+The author is Will Robertson. The package is Copyright © 2007 Will Robertson.
+
+</TPM:Description><TPM:RunFiles size="3566">texmf\tex\latex\inversepath\inversepath.sty texmf\tpm\packages\inversepath.tpm</TPM:RunFiles><TPM:DocFiles size="80948">texmf\doc\latex\inversepath\inversepath.pdf texmf\doc\latex\inversepath\README</TPM:DocFiles><TPM:SourceFiles size="4621">texmf\source\inversepath-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1218224724</TPM:TimePackaged><TPM:MD5>703790d61c41989d9c68a66382a0b587</TPM:MD5></rdf:Description></rdf:RDF>

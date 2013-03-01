@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabchrs.sty
+% ArabTeX
+% dynamic letter token definitions for Arabic
+% Version 11.07.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {arabchrs.sty} {3.07 letter token definitions } {11.07.1998}
+
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \def@arabchars {% define character macros for Arabic
+% dynamic letter token definitions for Arabic
+% pattern: skeleton, modifier
+\gdef \tc@@ {\sk@@   , 0 }  % illegal
+\gdef \tc@a {\sk@a   , 0 }  % alif
+\gdef \tc@b {\sk@b   , 4 }  % bah
+\gdef \tc@c {\sk@hh  , 7 }  % gim with hamza
+\gdef \tc@d {\sk@d   , 0 }  % dal
+\gdef \tc@e {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@f {\sk@f@s , 1 }  % fah
+\gdef \tc@g {\sk@g@s , 0 }  % gaf with bar
+\gdef \tc@h {\sk@h   , 0 }  % hah
+\gdef \tc@i {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@j {\sk@r   , 3 }  % zhah
+\gdef \tc@k {\sk@k   , 0 }  % kaf
+\gdef \tc@l {\sk@l   , 0 }  % lam
+\gdef \tc@m {\sk@m   , 0 }  % mim
+\gdef \tc@n {\sk@n   , 1 }  % nun
+\gdef \tc@o {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@p {\sk@b   , 6 }  % pah
+\gdef \tc@q {\sk@q   , 2 }  % qaf
+\gdef \tc@r {\sk@r   , 0 }  % rah
+\gdef \tc@s {\sk@s   , 0 }  % sin
+\gdef \tc@t {\sk@b   , 2 }  % tah
+\gdef \tc@u {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@v {\sk@f@s , 3 }  % vah
+\gdef \tc@w {\sk@w   , 0 }  % waw
+\gdef \tc@x {\sk@s   , 3 }  % shin
+\gdef \tc@y {\sk@y   , 5 }  % yah
+\gdef \tc@z {\sk@r   , 1 }  % zay
+%
+\gdef \tc@A {\sk@a   , 0 }  % alif also
+\gdef \tc@B {\sk@B   , 0 }  % tatwil
+\gdef \tc@C {\sk@b   , 3 }  % thah
+\gdef \tc@D {\sk@ss  , 1 }  % ddad
+\gdef \tc@E {\sk@y@p , 5 }  % yah bari
+\gdef \tc@F {\sk@d   , 1 }  % dhal
+\gdef \tc@G {\sk@hh  , 4 }  % gim
+\gdef \tc@H {\sk@hh  , 0 }  % hhah
+\gdef \tc@I {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@J {\sk@hh  , 6 }  % tchah
+\gdef \tc@K {\sk@k   , 3 }  % kaf-i-nun
+\gdef \tc@L {\sk@y@h , 0 }  % yah with stroke
+\gdef \tc@M {\sk@n   , 6 }  % nya (Malay)
+\gdef \tc@N {\sk@W   , 0 }  % small space
+\gdef \tc@O {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@P {\sk@ain , 0 }  % `ain
+\gdef \tc@Q {\sk@Q   , 0 }  % hamza
+\gdef \tc@R {\sk@ain , 1 }  % ghain
+\gdef \tc@S {\sk@ss  , 0 }  % ssad
+\gdef \tc@T {\sk@h@m , 2 }  % tah marbuta
+\gdef \tc@U {\sk@@   , 0 }  % reserved for vowel
+\gdef \tc@V {\sk@tt  , 0 }  % ttah
+\gdef \tc@W {\sk@W   , 0 }  % small space
+\gdef \tc@X {\sk@kh  , 1 }  % khah
+\gdef \tc@Y {\sk@y   , 0 }  % alif maqsura
+\gdef \tc@Z {\sk@tt  , 1 }  % zzah
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}}% end of dynamic letter token definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

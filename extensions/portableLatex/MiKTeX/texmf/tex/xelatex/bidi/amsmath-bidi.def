@@ -1,0 +1,50 @@
+%%
+%% This is file `amsmath-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{amsmath-bidi.def}[2010/03/01 v0.2 adaptations for amsmath package]
+\renewenvironment{equation}{%
+  \incr@eqnum
+  \mathdisplay@push
+  \st@rredfalse \global\@eqnswtrue
+  \beginL\mathdisplay{equation}%
+}{%
+  \endmathdisplay{equation}\endL%
+  \mathdisplay@pop
+  \ignorespacesafterend
+}
+
+\renewcommand{\numberwithin}[3][\arabic]{%
+  \@ifundefined{c@#2}{\@nocounterr{#2}}{%
+    \@ifundefined{c@#3}{\@nocnterr{#3}}{%
+      \@addtoreset{#2}{#3}%
+      \@xp\xdef\csname the#2\endcsname{%
+        \@xp\@nx\csname the#3\endcsname \@SepMark\@nx#1{#2}}}}%
+}
+\def\tagform@#1{\maketag@@@{\if@RTL\beginR\fi(\ignorespaces#1\unskip\@@italiccorr)\if@RTL\endR\fi}}
+\renewcommand{\eqref}[1]{\beginL\textup{\tagform@{\ref{#1}}}\endL}
+\let\@@text=\text
+\def\text#1{\@@text{\if@RTL\beginR\fi#1\if@RTL\endR\fi}}
+\DeclareRobustCommand{\[}{\begin{equation*}}
+\DeclareRobustCommand{\]}{\end{equation*}}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `amsmath-bidi.def'.

@@ -1,0 +1,110 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage[francais]{babel}
+\usepackage{epsf}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+%
+% Fichier de defaut de l'Observatoire
+% ===================================
+\institut{obs}
+%
+% telefax, entete officielle
+% ==========================
+% champ Concerne, ligne d'E-Mail
+% ==============================
+%
+\begin{telefax}{+41-22-320 29 27}{Universit\'e de Gen\`eve\\
+                                Aux personnes concern\'ees}
+\psobs
+\location{Dr~D.~M\'egevand\\Ing\'enieur \TeX nicien}
+\name{Denis M\'egevand}
+
+\username{megevand}
+\bitnet{cgeuge54}
+\internetobs
+
+\conc{Style T\'el\'efax pour \LaTeX}
+
+\marge{5mm}
+\opening{Chers coll\`egues}
+
+J'ai modifi\'e le style \verb+LETTRE+ pour qu'il puisse cr\'eer une ent\^ete
+plus adapt\'ee aux besoins du t\'el\'efax, et r\'epondre \`a vos attentes. 
+
+L'ent\^ete est form\'ee ainsi que vous pouvez le voir ci-dessus d'un embl\`eme 
+simplifi\'e de l'Observatoire, que vous pouvez bien sur modifier par la commande 
+\verb+\address+. 
+
+A sa droite se trouve le mot {\CMD T~\'E~L~\'E~F~A~X}, et au dessous une ligne 
+toujours pr\'esente contenant par d\'efaut le num\'eros de t\'el\'ecommunications 
+standard de l'Observatoire.
+Vous pouvez modifier ces num\'eros par les commandes habituelles \verb+\telephone+, 
+\verb+\fax+, \verb+\telex+. Vous noterez la disparition du num\'ero du telex de 
+l'Observatoire, qui a \'et\'e retir\'e \`a la version 2.05.
+
+Au dessous se trouve un champ en \'evidence contenant les informations propres
+au t\'el\'efax: 
+\begin{description}
+\item[Destinataire]Ce champ provient de la commande \verb+\begin{telefax}+ qui
+remplace le \verb+\begin+\-\verb+{letter}+, mais qui contient deux param\`etres 
+au lieu  d'un seul. Le premier est le num\'ero de t\'el\'efax, et le second est 
+le param\`etre classique de \verb+\begin{letter}+, contenant le nom et l'adresse.
+Pour le t\'el\'efax que vous \^etes en train de lire, la commande est 
+\verb+\begin{telefax}{+{\ttfamily+}\verb+41-22-755-3983}{Obser+\-%
+\verb+vatoire de Gen\`eve\\+\-\verb+Aux personnes concern\'ees}+.
+\item[Exp\'editeur]Ce champ provient de \verb+\location+, ou, si cette commande
+n'existe pas, de \verb+\name+ qui est obligatoire.
+\item[Nombre de pages]Ce param\`etre est calcul\'e automatiquement, mais oblige
+l'utilisateur \`a \LaTeX\ er son document une deuxi\`eme fois pour r\'esoudre
+la valeur correctement. Un message le signale \`a la fin de la compilation. La
+commande \verb+\addpages{n}+ permet \`a \LaTeX de tenir compte de n pages 
+suppl\'ementaires. {\bfseries Note}: \`A cause du calcul des pages, on ne peut pas
+mettre plusieurs t\'el\'efax dans un m\^eme fichier.
+\item[Remarque]Une ligne de remarque \`a l'intention du destinataire est 
+plac\'ee en dessous, lui indiquant que faire en cas de mauvaise reception.
+Cette ligne est en gros caract\`eres, et de ce fait comprise m\^eme si elle
+est mal transmise.
+\end{description}
+
+En r\'esum\'e, les commandes utiles, sp\'ecifiques ou diff\'erement interpr\'et\'ees 
+sont \verb+\begin+\-\verb+{telefax}+\-\verb+{num\'ero}+\-\verb+{nom\\+\-\verb+adresse}+, 
+\verb+\end{telefax}+, \verb+\location+ et \verb+\addpages{n}+. Les autres commandes 
+sont utilis\'ees comme pour une lettre.
+
+De plus, la version 1.64 du 20.12.89 a apport\'e les quelques modifications suivantes:
+\begin{description}
+\item[Ent\^ete]On peut dessiner un embl\`eme officiel de l'Observatoire, avec 
+l'\'ecusson de Gen\`eve comme ici,
+
+\epsfbox[-55 0 55 55]{ecusson55.ps}
+
+en utilisant la
+commande \verb+\psobs+. Pour les t\'el\'efax, cet embl\`eme est \'egalement 
+simplifi\'e. Cette commande n'est valable que si l'on travaille avec une
+imprimante {\scshape PostScript}.
+\item[e-mail]La ligne d'e-mail est s\'epar\'ee du corps de la lettre par un
+trait horizontal.
+\item[Marge]La marge peut \^etre modifi\'ee par la commande \verb+\marge{dimension}+, 
+par d\'efaut on a \verb+\marge{15mm}+, ce qui la laisse comme avant.
+\end{description}
+
+J'aimerais conna\^{\i}tre vos r\'eactions, et avoir vos avis sur les traductions
+des termes du t\'el\'efax. Cette version, num\'erot\'ee 1.70, est devenue version 
+2.00 lorsque les traductions ont \'et\'e approuv\'ees, et le style stabilis\'e.
+
+\closing{Meilleures salutations}
+
+\end{telefax}
+\vfill
+\end{document}

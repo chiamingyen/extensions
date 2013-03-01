@@ -1,0 +1,239 @@
+%%
+%% This is file `extbook-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{extbook-bidi.def}[2010/03/01 v0.1 adaptations for extbook class]
+  \if@titlepage
+  \renewcommand\maketitle{\begin{titlepage}%
+  \let\footnotesize\small
+  \let\footnoterule\relax
+  \let \footnote \thanks
+  \let \LTRfootnote \LTRthanks
+  \let \RTLfootnote \RTLthanks
+  \null\vfil
+  \vskip 60\p@
+  \begin{center}%
+    {\LARGE \@title \par}%
+    \vskip 3em%
+    {\large
+     \lineskip .75em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+      \vskip 1.5em%
+    {\large \@date \par}%       % Set date in \large size.
+  \end{center}\par
+  \@thanks
+  \vfil\null
+  \end{titlepage}%
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\LTRthanks\relax
+  \global\let\RTLthanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\else
+\renewcommand\maketitle{\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+    \long\def\@makefntext##1{\parindent 1em\noindent
+            \hb@xt@1.8em{%
+                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+    \if@twocolumn
+      \ifnum \col@number=\@ne
+        \@maketitle
+      \else
+        \twocolumn[\@maketitle]%
+      \fi
+    \else
+      \newpage
+      \global\@topnum\z@   % Prevents figures from going at top of page.
+      \@maketitle
+    \fi
+    \thispagestyle{plain}\@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\LTRthanks\relax
+  \global\let\RTLthanks\relax
+  \global\let\maketitle\relax
+  \global\let\@maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+  \let \LTRfootnote \LTRthanks
+  \let \RTLfootnote \RTLthanks
+    {\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\fi
+\renewcommand*\l@part[2]{%
+  \ifnum \c@tocdepth >-2\relax
+    \addpenalty{-\@highpenalty}%
+    \addvspace{2.25em \@plus\p@}%
+    \begingroup
+      \parindent \z@ \if@RTL\leftskip\else\rightskip\fi \@pnumwidth
+      \parfillskip -\@pnumwidth
+      {\leavevmode
+       \large \bfseries #1\hfil \hb@xt@\@pnumwidth{\hss #2}}\par
+       \nobreak
+         \global\@nobreaktrue
+         \everypar{\global\@nobreakfalse\everypar{}}%
+    \endgroup
+  \fi}
+\renewcommand\theequation
+  {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@equation}
+\renewcommand \thefigure
+     {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@figure}
+\renewcommand \thetable
+     {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@table}
+\renewcommand \thechapter {\@arabic\c@chapter}
+\renewcommand \thesection {\thechapter\@SepMark\@arabic\c@section}
+\renewcommand\thesubsection   {\thesection\@SepMark\@arabic\c@subsection}
+\renewcommand\thesubsubsection{\thesubsection \@SepMark\@arabic\c@subsubsection}
+\renewcommand\theparagraph    {\thesubsubsection\@SepMark\@arabic\c@paragraph}
+\renewcommand\thesubparagraph {\theparagraph\@SepMark\@arabic\c@subparagraph}
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \if@RTL\raggedleft\else\raggedright\fi \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \if@RTL\raggedleft\else\raggedright\fi
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\renewenvironment{thebibliography}[1]
+     {\chapter*{\bibname}%
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \rightmargin\labelwidth
+            \advance\rightmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\renewcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \@mainmatterfalse}
+\if@twoside
+  \def\ps@headings{%
+      \let\@oddfoot\@empty\let\@evenfoot\@empty
+      \def\@evenhead{\sl\if@RTLmain\beginR\fi\rightmark\if@RTLmain\endR\fi\hfil\thepage}%
+      \def\@oddhead{\sl\thepage\hfil\if@RTLmain\beginR\fi\leftmark\if@RTLmain\endR\fi}%
+      \let\@mkboth\markboth
+    \def\chaptermark##1{%
+      \markboth {\MakeUppercase{%
+ \if@RTLmain\beginR\fi\@chapapp\ \thechapter.\,\,\if@RTLmain\endR\fi%
+        \ifnum \c@secnumdepth >\m@ne
+          \if@mainmatter
+           \if@RTLmain\beginR\fi##1\if@RTLmain\endR\fi
+          \fi
+        \fi
+        }}{}}%
+    \def\ps@plain{\ps@empty
+\def\@oddfoot{\hfil\thepage\hfil}%
+\let\@evenfoot\@oddfoot
+}
+    \def\sectionmark##1{%
+      \markright {\MakeUppercase{%
+\if@RTLmain\beginR\fi\thesection\if@RTLmain\endR\fi\,
+        \ifnum \c@secnumdepth >\z@
+          \if@RTLmain\beginR\fi##1\if@RTLmain\endR\fi \ %
+        \fi
+        }}}}
+\else
+  \def\ps@headings{%
+    \let\@oddfoot\@empty
+    \def\@oddhead{\sl\thepage\hfil\if@RTLmain\beginR\fi\rightmark\if@RTLmain\endR\fi}%
+    \let\@mkboth\markboth
+    \def\chaptermark##1{%
+      \markright {\MakeUppercase{%
+       \if@RTLmain\beginR\fi\@chapapp\ \thechapter. \if@RTLmain\endR\fi %
+        \ifnum \c@secnumdepth >\m@ne
+          \if@mainmatter
+            \if@RTLmain\beginR\fi##1\if@RTLmain\endR\fi
+          \fi
+        \fi
+        }}}}
+
+\fi
+\pagestyle{headings}
+\def\@idxitem{\par\hangindent -40\p@}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `extbook-bidi.def'.

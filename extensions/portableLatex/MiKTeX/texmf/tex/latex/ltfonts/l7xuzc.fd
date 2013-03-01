@@ -1,0 +1,19 @@
+%Filename: l7xuzc.fd
+%Created by: tex makelt
+%Created using fontinst v1.929
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{l7xuzc.fd}
+   [2006/09/05 Fontinst v1.929 font definitions for L7x/uzc.]
+
+\DeclareFontFamily{L7x}{uzc}{}
+
+\DeclareFontShape{L7x}{uzc}{m}{it}{
+   <-> l7x-uzcmi
+}{}
+
+\DeclareFontShape{L7x}{uzc}{m}{sl}{<->ssub * uzc/m/it}{}
+\DeclareFontShape{L7x}{uzc}{b}{sl}{<->ssub * uzc/m/it}{}
+\DeclareFontShape{L7x}{uzc}{b}{it}{<->ssub * uzc/m/it}{}
+\endinput

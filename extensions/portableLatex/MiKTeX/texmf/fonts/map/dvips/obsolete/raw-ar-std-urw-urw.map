@@ -1,0 +1,21 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% raw-ar-std-urw-urw.map: map file with basic ps fonts (those available
+%    to the acrobat reader and most printers). Downloads type1 fonts and
+%    assumes URW names.
+%
+% Useful for ps2pk.
+rpcrb NimbusMonL-Bold "StandardEncoding ReEncodeFont" <8a.enc <n022004l.pfb
+rpcrbo NimbusMonL-BoldObli "StandardEncoding ReEncodeFont" <8a.enc <n022024l.pfb
+rpcrr NimbusMonL-Regu "StandardEncoding ReEncodeFont" <8a.enc <n022003l.pfb
+rpcrro NimbusMonL-ReguObli "StandardEncoding ReEncodeFont" <8a.enc <n022023l.pfb
+rphvb NimbusSanL-Bold "StandardEncoding ReEncodeFont" <8a.enc <n019004l.pfb
+rphvbo NimbusSanL-BoldItal "StandardEncoding ReEncodeFont" <8a.enc <n019024l.pfb
+rphvr NimbusSanL-Regu "StandardEncoding ReEncodeFont" <8a.enc <n019003l.pfb
+rphvro NimbusSanL-ReguItal "StandardEncoding ReEncodeFont" <8a.enc <n019023l.pfb
+rpsyr StandardSymL <s050000l.pfb
+rptmb NimbusRomNo9L-Medi "StandardEncoding ReEncodeFont" <8a.enc <n021004l.pfb
+rptmbi NimbusRomNo9L-MediItal "StandardEncoding ReEncodeFont" <8a.enc <n021024l.pfb
+rptmr NimbusRomNo9L-Regu "StandardEncoding ReEncodeFont" <8a.enc <n021003l.pfb
+rptmri NimbusRomNo9L-ReguItal "StandardEncoding ReEncodeFont" <8a.enc <n021023l.pfb
+rpzdr Dingbats <d050000l.pfb

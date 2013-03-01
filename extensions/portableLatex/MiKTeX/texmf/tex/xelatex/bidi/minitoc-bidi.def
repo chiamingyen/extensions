@@ -1,0 +1,63 @@
+%%
+%% This is file `minitoc-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{minitoc-bidi.def}[2010/03/01 v0.1 adaptations for minitoc package]
+\def\@undottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth\relax \else
+  \vskip \z@ plus.2\p@
+  {\if@RTL\rightskip\else\leftskip\fi #2\relax \if@RTL\leftskip\else\rightskip\fi \@tocrmarg \parfillskip -\if@RTL\leftskip\else\rightskip\fi
+   \parindent #2\relax\@afterindenttrue
+   \interlinepenalty\@M
+   \leavevmode
+   \@tempdima #3\relax \advance\if@RTL\rightskip\else\leftskip\fi \@tempdima \hbox{}%
+   \hskip -\if@RTL\rightskip\else\leftskip\fi
+    #4\nobreak\hfill \nobreak
+           \null\par}%
+  \fi}
+\def\@Undottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth\relax \else
+    \vskip \z@ \@plus.2\p@
+    {\if@RTL\rightskip\else\leftskip\fi #2\relax \if@RTL\leftskip\else\rightskip\fi \@tocrmarg \parfillskip -\if@RTL\leftskip\else\rightskip\fi
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\if@RTL\rightskip\else\leftskip\fi \@tempdima \null\nobreak\hskip -\if@RTL\rightskip\else\leftskip\fi
+     {\coffeefont #4}\nobreak \nobreak\null
+    \par}%
+  \fi}
+\def\@Undottedtoclinep#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth\relax \else
+    \vskip \z@ \@plus.2\p@
+    {\if@RTL\rightskip\else\leftskip\fi #2\relax \if@RTL\leftskip\else\rightskip\fi \@tocrmarg \parfillskip -\if@RTL\leftskip\else\rightskip\fi
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\if@RTL\rightskip\else\leftskip\fi \@tempdima \null\nobreak\hskip -\if@RTL\rightskip\else\leftskip\fi
+     {#4}\nobreak \hfill \nobreak\null
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+    \par}%
+  \fi}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `minitoc-bidi.def'.

@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% gedalin.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% gedalin.sty
+% Scanner for Michael Gedalin's special Hebrew encoding
+% to activate it, say "\setcode {gedalin}"
+% presupposes the packages "arabtex.sty" and "hebtex.sty"
+% 10.09.2001
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \gedatcode \undefined \else \xpa \endinput \fi
+
+\chardef \gedatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {gedalin.sty} 
+{3.10 scanner for Michael Gedalin's Hebrew encoding} {10.09.2001}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setged@codes {\seta@codes % activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\def \sc@a {\n@xp\a@S}	\def \sc@b {n} 		\def \sc@c {b} 
+\def \sc@d {g}		\def \sc@e {q}   	\def \sc@f {k}   
+\def \sc@g {P}   	\def \sc@h {y}		\def \sc@i {\n@xp\a@N} 
+\def \sc@j {X} 		\def \sc@k {l} 		\def \sc@l {\n@xp\a@K}
+\def \sc@m {S}   	\def \sc@n {m}   	\def \sc@o {\n@xp\a@M}   
+\def \sc@p {p}		\def \sc@q {/}	 	\def \sc@r {r}   
+\def \sc@s {d}   	\def \sc@t {Q}		\def \sc@u {w}   
+\def \sc@v {h}   	\def \sc@w {,}   	\def \sc@x {s}
+\def \sc@y {C}   	\def \sc@z {z}	  
+%
+\a@digits = {0123456789}	\a@paren  = {()[]}	\a@first = {;,.}
+%\iffalse
+\tc@def \a@M {\act@cd \hc@mf }				% mem sofit
+\tc@def \a@N {\act@cd \hc@nf }				% nun sofit
+\tc@def \a@K {\act@cd \hc@kf }				% kaf sofit
+\tc@def \a@P {\act@cd \hc@ff }				% peh sofit
+\tc@def \a@Z {\act@cd \hc@sf }				% tsadeh sofit
+%\fi
+\globaldefs=0 
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \ged@scan #1>{% modified scanner call: token sequence -> \a@tokens
+\iftest@scan \ifshow \else \lowercase {\a@verb #1>}\fi 
+\tracingmacros = 1 \fi
+\global\def \a@rest {}\global\a@tokens = {}%
+\novocalize \sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 \xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+\def \ged@word #1#2{% transform input into internal notation
+\@ssimfalse \def \next {\ged@word #2}%
+\ifx #1\@ \let \next \relax \else
+\ifcat \nxp #1\relax \def \next {\ged@cs #1#2}\else	% control sequence
+	\ifx #1-\def \sc@char {B}\sc@put \else
+	\ifx #1/\def \sc@char {.}\sc@put \else
+	\ifx #1`\def \sc@char {;}\sc@put \else
+	\ifx #1w\def \sc@char {,}\sc@put \else
+	\ifx #1q\def \sc@char {/}\sc@put \else
+	\ifx #1|\def \sc@char {\nxp \a@U}\sc@put \else
+	\ifx #1;\def \sc@char {\nxp \a@P \nxp \a@U}\sc@put \else
+	\ifx #1,\def \sc@char {t\nxp \a@U}\sc@put \else
+	\ifx #1.\def \sc@char {\nxp \a@Z \nxp \a@U}\sc@put \else
+	\ifcat \noexpand #1-\def \sc@char {#1}\sc@put \else
+	\ifcat \noexpand #1a\edef \sc@char {\csname sc@#1\endcsname }\else 
+		\def \sc@char {#1}%
+	\fi \sc@put 
+\fi\fi\fi\fi\fi\fi
+\fi\fi\fi\fi\fi\fi \next }
+
+\def \g@d@cs #1#2{% test word end
+\def \sc@char {#1}\sc@put 
+\ifx #2\@ \def \next {\sc@endscan #2}\else
+\ifcat -\nxp #2 \def \next {\ged@word #2}\else
+\def \next {\sc@back #2}\fi \fi \next }
+
+\def \ged@cs #1#2{% control sequence within a word; push back?
+\xpa \ifx #1\closegeresh \def \next {\g@d@cs {\nxp \lq }#2}\else 
+\xpa \ifx #1\closequote \def \next {\g@d@cs {`}#2}\else 
+	\def \next {\sc@back #1#2}%
+\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \ged@select {% select the new scanner
+%\heb@catcodes			% inside hebtex.sty; to make sure
+\let \sc@beg \ged@word 		\let \sc@word \ged@word  
+\let \sc@back \sc@@back		\let \sc@endscan \sc@@endscan
+\setged@codes			\global\let \a@scan \ged@scan
+\let \h@put@end \h@put@mid
+\a@message {input encoding set to Michael Gedalin's Hebrew encoding}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the encoding
+gedalin\ged@select }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for Michael Gedalin's Hebrew encoding installed.}
+\setcode{gedalin}
+
+\catcode `\@ = \gedatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

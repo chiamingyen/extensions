@@ -1,0 +1,232 @@
+% -*-latex-*-
+% Document name: /u/sy/beebe/tex/epsf/new/tepsf2.ltx
+% Creator: Nelson H. F. Beebe [beebe@math.utah.edu]
+% Creation Date: Sat Jul 23 14:51:49 2005
+
+\ifx \documentclass \undefined % LaTeX 2.09
+    \documentstyle{article}
+    \input {epsf.sty}
+\else % LaTeX 2e
+    \documentclass{article}
+    \usepackage{epsf}
+\fi
+
+\newcommand{\bs}{\char`\\}
+
+\newcommand {\heading} [1] {\centerline{\bf #1}}
+
+\newcommand {\myfont}
+{
+    \baselineskip = 9.6pt
+    \font \rm = cmr8 at 8pt
+    \rm
+}
+
+\newcommand {\noise}
+{%
+    Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah
+    blah blah blah blah blah. Blah blah blah blah blah blah
+}
+
+\newcommand{\ARROWPICTURE}{%
+    \makebox[0pt][r]{$\Rightarrow$}%
+    \PLAINPICTURE
+    \makebox[0pt][l]{$\Leftarrow$}%
+}
+
+\newcommand{\PLAINPICTURE}{%
+    \epsffile{tepsf.eps}%
+}
+
+\setlength{\parindent}	{2em}
+
+\setlength{\parskip}	{2ex plus 0.5ex minus 0.5ex}
+
+\setlength{\topmargin}	{0pt}
+
+\setlength{\headheight}	{0pt}
+
+\setlength{\headsep}	{0pt}
+
+\setlength{\leftmargin}	{0pt}
+
+\setlength{\textheight}	{9in}
+
+\setlength{\textwidth}	{12.5cm}
+
+\begin{document}
+
+\myfont
+
+\heading{Test of {\tt \bs epsfbox} with {\tt \bs centerline}}
+
+\noise
+
+This figure should be centered:
+
+\centerline{\PLAINPICTURE{}}
+
+\noise
+
+This figure should be left-adjusted:
+
+\centerline{\PLAINPICTURE{}\hfill}
+
+\noise
+
+This figure should be right-adjusted:
+
+\centerline{\hfill \PLAINPICTURE{}}
+
+\noise
+
+This figure should be centered with abutting arrows on the baseline:
+
+\centerline{$\Rightarrow$\PLAINPICTURE{}$\Leftarrow$}
+
+\noise
+
+This figure should be left-adjusted with abutting arrows on the
+baseline, the leftmost of which is in the left margin on the baseline:
+
+\centerline{\hbox to 0pt{\hss$\Rightarrow$}\PLAINPICTURE{}$\Leftarrow$ \hfill}
+
+\noise
+
+This figure should be right-adjusted with abutting arrows on the
+baseline, the rightmost of which is in the right margin on the
+baseline:
+
+\centerline{\hfill $\Rightarrow$\PLAINPICTURE{}\hbox to 0pt{$\Leftarrow$ \hss}}
+
+\noise
+
+%% ---------------------------------------------------------------------
+
+\newpage
+
+\heading{Test of {\tt \bs epsfbox} with {\tt center} environment}
+
+\noise
+
+This figure should be centered:
+
+\begin{center}
+    \PLAINPICTURE{}
+\end{center}
+
+\noise
+
+This figure should be left-adjusted:
+
+\begin{flushleft}
+    \PLAINPICTURE{}
+\end{flushleft}
+
+\noise
+
+This figure should be right-adjusted:
+
+\begin{flushright}
+    \PLAINPICTURE{}
+\end{flushright}
+
+\noise
+
+This figure should be centered with abutting arrows on the baseline:
+
+\begin{center}
+    \ARROWPICTURE{}
+\end{center}
+
+\noise
+
+This figure should be left-adjusted with abutting arrows on the
+baseline, the leftmost of which is in the left margin on the
+baseline:%
+
+\begin{flushleft}
+    \ARROWPICTURE{}
+\end{flushleft}
+
+\noise
+
+This figure should be right-adjusted with abutting arrows on the
+baseline, the rightmost of which is in the right margin on the
+baseline:
+
+\begin{flushright}
+    \ARROWPICTURE{}
+\end{flushright}
+
+\noise
+
+%% ---------------------------------------------------------------------
+
+\newpage
+
+\heading{Test of {\tt \bs epsfbox} with {\tt center} environment}
+\heading{with}
+\heading{{\tt \bs epsfframetrue} and {\tt \bs epsfshowfalse} and 
+         {\tt \bs epsfshowfilenametrue}}
+
+\epsfframetrue
+\epsfshowfalse
+\epsfshowfilenametrue
+\epsfverbosetrue
+
+\noise
+
+This figure should be centered:
+
+\begin{center}
+    \PLAINPICTURE{}
+\end{center}
+
+\noise
+
+This figure should be left-adjusted:
+
+\begin{flushleft}
+    \PLAINPICTURE{}
+\end{flushleft}
+
+\noise
+
+This figure should be right-adjusted:
+
+\begin{flushright}
+    \PLAINPICTURE{}
+\end{flushright}
+
+\noise
+
+This figure should be centered with abutting arrows on the baseline:
+
+\begin{center}
+    \ARROWPICTURE{}
+\end{center}
+
+\noise
+
+This figure should be left-adjusted with abutting arrows on the
+baseline, the leftmost of which is in the left margin on the
+baseline:%
+
+\begin{flushleft}
+    \ARROWPICTURE{}
+\end{flushleft}
+
+\noise
+
+This figure should be right-adjusted with abutting arrows on the
+baseline, the rightmost of which is in the right margin on the
+baseline:
+
+\begin{flushright}
+    \ARROWPICTURE{}
+\end{flushright}
+
+\noise
+
+\end{document}

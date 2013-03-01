@@ -1,0 +1,70 @@
+
+% Croatian Cyrillic, 1995, darko.zubrinic@etf.hr
+
+
+mode_setup;
+ u#:=4/3*.8pt#; font_quad= 30u#;
+            font_normal_space= 10u#; %umjesto 8
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 1u#;
+ em#:=4/3*10pt#; cap#:=4/3*7pt#;
+ thin#:=2/3pt#; thick#:=1.15*5/6pt#;
+ o#:=4/3*1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:= round 1.1*1/10em;
+input crocyrv  % velika slova
+
+mode_setup;
+u#:=3/4u#;
+em#:=3/4em#; cap#:=3/4cap#;
+        thick#:=1/1.15thick#;
+o#:=3/4o#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+%curve_sidebar:=3/4curve_sidebar;
+
+input crocyrm
+
+input glz  % znakovi
+
+
+
+
+
+ligtable "c": "c" =: oct"013",  "h" =: oct"011";
+ligtable "s": "s" =: oct"014"; %umjesto sh
+ligtable "z": "h" =: oct"015",   "z" =: oct"015", "x" =: oct"035"; % "o" kern -.5u#,
+             % "u" kern -.5u#;
+ligtable "d": "d" =: oct"034"; % "d" =: oct"012";
+ligtable  "y": "u" =: oct"031", "e" =: oct"032", "a" =: oct"033";
+ligtable "-": "-" =: oct"173";
+%ligtable "e": "i" kern -.5u#;
+%ligtable "f": "o" kern -u#, "u" kern -u#, "i" kern -.5u#, "g" kern-.5u#;
+%ligtable "i": "f" kern -.5u#;
+%ligtable "r": "k" kern -.5u#;
+%ligtable "n": "a" kern -.5u#;
+%ligtable "j": "a" kern -.5u#;
+
+u#:=4/3u#;
+
+
+ligtable "C": "c" =: oct"023", "C" =: oct"023", "h" =: oct"021", "H" =: oct"021";
+ligtable "S": "s" =: oct"024", "S" =: oct"024"; %umjesto sh
+ligtable "Z": "Z" =: oct"025",
+              "z" =: oct"025", "x" =: oct"000", "X" =: oct"000"; % "o" kern -.5u#,
+             % "u" kern -.5u#;
+ligtable "D": "d" =: oct"043", "D" =: oct"043"; % "d" =: oct"012";
+ligtable  "Y": "u" =: oct"001", "U" =: oct"001",
+               "e" =: oct"002", "E" =: oct"002",
+               "a" =: oct"003", "A" =: oct"003";
+%ligtable "-": "-" =: oct"173";
+%ligtable "e": "i" kern -.5u#;
+%ligtable "f": "o" kern -u#, "u" kern -u#, "i" kern -.5u#, "g" kern-.5u#;
+%ligtable "i": "f" kern -.5u#;
+%ligtable "r": "k" kern -.5u#;
+%ligtable "n": "a" kern -.5u#;
+%ligtable "j": "a" kern -.5u#;
+
+
+end.

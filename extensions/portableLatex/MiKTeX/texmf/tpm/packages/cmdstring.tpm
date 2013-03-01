@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/cmdstring"><TPM:Name>cmdstring</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Get command name reliably</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Extracts the letters of a command’s name (e.g., foo for command \foo), in a reliable way. 
+
+The author is Josselin Noirel.
+</TPM:Description><TPM:RunFiles size="1849">texmf\tex\latex\cmdstring\cmdstring.sty texmf\tpm\packages\cmdstring.tpm</TPM:RunFiles><TPM:DocFiles size="358707">texmf\doc\latex\cmdstring\cmdstring.pdf texmf\doc\latex\cmdstring\README</TPM:DocFiles><TPM:SourceFiles size="1652">texmf\source\cmdstring-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1178961026</TPM:TimePackaged><TPM:MD5>7872d9374e6bb3f18774e4ae8e4f6c4e</TPM:MD5></rdf:Description></rdf:RDF>

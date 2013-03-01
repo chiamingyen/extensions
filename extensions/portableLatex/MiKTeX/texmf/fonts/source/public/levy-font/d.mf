@@ -1,0 +1,98 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma: readfrom("gen_sigma") fi
+     
+def dims = 8.5u#,asc_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  top y1r=vround(if not monowidth:.95 fi x_height+oo); x1r=.5w; %top of loop
+  x5r=.5w; bot y5r=-oo;                                 %bottom of ditto
+  lft x3r=w-rt x7r=hround(.75u); y3r=y7r=.5[y1r,y5r];   %left and right bulge
+  filldraw stroke gr_arc.e(1,2,3)(vair,stem,.5otilt)    %three quadrants of loop
+    & gr_arc.e(3,4,5)(vair,stem,.5otilt) & gr_arc.e(5,6,7)(vair,stem,.5otilt);
+     
+  %we now draw the hook z8..z9..z10.  It must satisfy the following constraints:
+  %its outer contour is symmetric with respect to some axis containing z9l;
+  %one end is known, the width there is thin_stem, and the width at z10
+  %is, ideally, stem.  (But since we may have to change that we call it Stem.)
+  z8l=z1l; numeric thin_stem, med_stem; thin_stem=.7[hair,Stem];
+  %the aperture, measured perpendicular to the axis, equals Stem
+  numeric apert; apert=2Stem+thin_stem-currentbreadth;  %apert=length(z10l-z8l);
+  numeric left_goal; lft left_goal=vround(lft x3r+.5u); %leftmost tangent known
+  numeric top_goal; top top_goal=h+oo;                  %highest tangent known
+     
+  %if by taking Stem=stem we got apert > top_goal-y1l, the problem might
+  %not have a solution with a horizontal tangent; in that case the
+  %constraint is on apert:
+  if 2stem+.7[hair,stem]-currentbreadth>top_goal-y8l: apert=top_goal-y8l;
+  else: Stem=stem; fi
+     
+  %we first estimate the slope of the axis by imagining that, in the vicinity
+  %of z9l, the hook looks like a semicircle of diameter apert/2.
+  %(this value is empiric, but reasonable because the tension is high)
+  z0l=(left_goal+.25apert,top_goal-.25apert);           %center of semicircle
+  numeric axis; axis=angle(z0l-z8l)+angle(length(z0l-z8l)+-+.5apert,.5apert);
+  z9l=z0l+(.25apert,0)rotated(axis); z10l=z8l+(0,-apert)rotated(axis);
+     
+  %we now iterate, correcting z9l until the tangencies are satisfied
+  path hook; numeric left_real; numeric top_real;
+  forever:
+     
+    hook:=z8l{dir(axis)}..tension 1.5..z9l..tension 1.5..{-dir(axis)}z10l;
+    if directiontime up of hook=-1:
+      left_error:=0; message "hook has no vertical tangent!";
+    else: left_error:=xpart directionpoint up of hook-left_goal; fi
+    if directiontime right of hook=-1:
+      top_error:=0; message "hook has no horizontal tangent!";
+    else: top_error:=ypart directionpoint right of hook-top_goal; fi
+     
+%message "top_error:"; show top_error; message "left_error:"; show left_error;
+     
+    exitif (abs(left_error)<.05) and (abs(top_error)<.05);
+    x9l:=x9l-left_error; y9l:=y9l-top_error;
+    axis:=angle(z9l-z8l)+angle(length(z9l-z8l)+-+.5apert,.5apert);
+    x10l:=x8l+apert*sind axis; y10l:=y8l-apert*cosd axis;
+  endfor
+     
+  pos8(thin_stem,axis-90); pos10(Stem,axis+90); pos9(.3[hair,Stem],axis+180);
+  filldraw stroke
+    z7e{z7'e}..{dir axis}z8e..tension 1.5..z9e..tension 1.5..{-dir axis}z10e;
+enddef;
+     
+cmchar "Lowercase delta";
+beginchar("d",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by delta";
+begindoublechar(oct"004",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

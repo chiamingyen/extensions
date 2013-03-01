@@ -1,0 +1,46 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage[german,francais]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+%
+% Fichier de defaut de l'Observatoire
+% ===================================
+\institut{obs}
+%
+% telefax, entete officielle
+% ==========================
+% langue allemande, ligne d'E-Mail
+% ================================
+%
+\begin{telefax}{+41-22-320 29 27}{Genfer Universit\"at\\
+                                Die anbetroffene Personen}
+\psobs
+\location{Dr~D.~M\'egevand
+	\\\TeX niker}
+\name{Denis M\'egevand}
+
+\allemand
+
+\username{megevand}
+\bitnet{cgeuge54}
+\internet{obs.unige.ch}
+
+\opening{Liebe Kollegen}
+
+Hier ist ein Beispiel der neuen fax Schreibweise f\"ur \LaTeX.
+
+\closing{Mit freundlichen Gr\"ussen}
+
+\end{telefax}
+\end{document}

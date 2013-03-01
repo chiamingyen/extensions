@@ -1,0 +1,76 @@
+%%
+%% This is file `mh2scr.enc',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mtfonts.fdd  (with options: `mh2screnc')
+%% 
+%% Copyright 1996 1997 Frank Mittelbach and David Carlisle.
+%%
+%% Development of this package was commissioned by Y&Y Inc.
+%% http://www.yandy.com
+%% This package may be distributed under the terms of the LaTeX Project Public
+%% License, as described in lppl.txt in the base LaTeX distribution.
+%% Either version 1.0 or, at your option, any later version.
+%%
+ %
+ % Encoding file to reencode MathematicalPi-Two font by Adobe so that
+ % its script alphabet is in a sensible position
+ % and thus can be used with \DeclareMathAlphabet
+ %
+ % Usage:
+ %
+ % generate tfm
+ %
+ %     afm2tfm mh2_____ -T mh2scr.enc mh2scr
+ %
+ % add mapping line to dvips config file:
+ %
+ %     mh2 MathematicalPi-Two <mh2_____.pfa
+ %     mh2scr MathematicalPi-Two "mh2scrEncoding ReEncodeFont" <mh2scr.enc <mh2_____.pfa
+ %
+ %
+ %
+/mh2scrEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+ %'10x
+ /space  /H5101   /H5102   /H5103   /H5104   /H5105   /H5106   /H5107
+ /H5108  /H5109   /H5110   /H5111   /H5112   /H5113   /H5114   /H5115
+ /H5116  /H5117   /H5118   /H5119   /H5120   /H5121   /H5122   /H5123
+ /H5124  /H5125   /H5126   /.notdef /.notdef /.notdef /.notdef /.notdef
+ %
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+ %'20
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+ %'30
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+] def
+
+%% 
+%%
+%% End of file `mh2scr.enc'.

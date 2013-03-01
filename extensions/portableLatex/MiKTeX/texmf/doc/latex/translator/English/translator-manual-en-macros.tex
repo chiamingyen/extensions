@@ -1,0 +1,182 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the documentation file for more details.
+
+\providecommand\href[2]{\texttt{#1}}
+
+\colorlet{examplefill}{yellow!80!black}
+\definecolor{graphicbackground}{rgb}{0.96,0.96,0.8}
+\definecolor{codebackground}{rgb}{0.8,0.8,1}
+
+\newenvironment{translatormanualentry}{\list{}{\leftmargin=2em\itemindent-\leftmargin\def\makelabel##1{\hss##1}}}{\endlist}
+\newcommand\translatormanualentryheadline[1]{\itemsep=0pt\parskip=0pt\item\strut#1\par\topsep=0pt}
+\newcommand\translatormanualbody{\parskip3pt}
+
+
+\newenvironment{command}[1]{
+  \begin{translatormanualentry}
+    \extractcommand#1\@@
+    \translatormanualbody
+}
+{
+  \end{translatormanualentry}
+}
+
+\def\extractcommand#1#2\@@{%
+  \translatormanualentryheadline{\declare{\texttt{\string#1}}#2}%
+  \removeats{#1}%
+  \index{\strippedat @\protect\myprintocmmand{\strippedat}}}
+
+
+\renewenvironment{environment}[1]{
+  \begin{translatormanualentry}
+    \extractenvironement#1\@@
+    \translatormanualbody
+}
+{
+  \end{translatormanualentry}
+}
+
+\def\extractenvironement#1#2\@@{%
+  \translatormanualentryheadline{{\ttfamily\char`\\begin\char`\{\declare{#1}\char`\}}#2}%
+  \translatormanualentryheadline{{\ttfamily\ \ }\meta{environment contents}}%
+  \translatormanualentryheadline{{\ttfamily\char`\\end\char`\{\declare{#1}\char`\}}}%
+  \index{#1@\protect\texttt{#1} environment}%
+  \index{Environments!#1@\protect\texttt{#1}}}
+
+
+
+\newenvironment{package}[1]{
+  \begin{translatormanualentry}
+    \translatormanualentryheadline{{\ttfamily\char`\\usepackage\opt{[\meta{options}]}\char`\{\declare{#1}\char`\}}}
+    \index{#1@\protect\texttt{#1} package}%
+    \index{Packages and files!#1@\protect\texttt{#1}}%
+    \translatormanualbody
+}
+{
+  \end{translatormanualentry}
+}
+
+
+
+\newenvironment{filedescription}[1]{
+  \begin{translatormanualentry}
+    \translatormanualentryheadline{File {\ttfamily\declare{#1}}}%
+    \index{#1@\protect\texttt{#1} file}%
+    \index{Packages and files!#1@\protect\texttt{#1}}%
+    \translatormanualbody
+}
+{
+  \end{translatormanualentry}
+}
+
+
+\newenvironment{packageoption}[1]{
+  \begin{translatormanualentry}
+    \translatormanualentryheadline{{\ttfamily\char`\\usepackage[\declare{#1}]\char`\{translator\char`\}}}
+    \index{#1@\protect\texttt{#1} package option}%
+    \index{Package options for \textsc{translator}!#1@\protect\texttt{#1}}%
+    \translatormanualbody
+}
+{
+  \end{translatormanualentry}
+}
+
+
+
+\newcommand\opt[1]{{\color{black!50!green}#1}}
+\newcommand\ooarg[1]{{\ttfamily[}\meta{#1}{\ttfamily]}}
+
+\def\opt{\afterassignment\translatormanualopt\let\next=}
+\def\translatormanualopt{\ifx\next\bgroup\bgroup\color{black!50!green}\else{\color{black!50!green}\next}\fi}
+
+
+
+\def\beamer{\textsc{beamer}}
+\def\pdf{\textsc{pdf}}
+\def\translatorname{\textsc{translator}}
+\def\tikzname{Ti\emph{k}Z}
+\def\pstricks{\textsc{pstricks}}
+\def\prosper{\textsc{prosper}}
+\def\seminar{\textsc{seminar}}
+\def\texpower{\textsc{texpower}}
+\def\foils{\textsc{foils}}
+
+{
+  \makeatletter
+  \global\let\myempty=\@empty
+  \global\let\mygobble=\@gobble
+  \catcode`\@=12
+  \gdef\getridofats#1@#2\relax{%
+    \def\getridtest{#2}%
+    \ifx\getridtest\myempty%
+      \expandafter\def\expandafter\strippedat\expandafter{\strippedat#1}
+    \else%
+      \expandafter\def\expandafter\strippedat\expandafter{\strippedat#1\protect\printanat}
+      \getridofats#2\relax%
+    \fi%
+  }
+
+  \gdef\removeats#1{%
+    \let\strippedat\myempty%
+    \edef\strippedtext{\stripcommand#1}%
+    \expandafter\getridofats\strippedtext @\relax%
+  }
+  
+  \gdef\stripcommand#1{\expandafter\mygobble\string#1}
+}
+
+\def\printanat{\char`\@}
+
+\def\declare{\afterassignment\translatormanualdeclare\let\next=}
+\def\translatormanualdeclare{\ifx\next\bgroup\bgroup\color{red!75!black}\else{\color{red!75!black}\next}\fi}
+
+\def\example{\par\smallskip\noindent\textit{Example: }}
+
+\def\itemoption#1{\item \declare{\texttt{#1}}%
+  \indexoption{#1}%
+}
+
+\def\indexoption#1{%
+  \index{#1@\protect\texttt{#1} option}%
+  \index{Options!#1@\protect\texttt{#1}}%
+}
+
+\let\textoken=\command
+\let\endtextoken=\endcommand
+
+\def\myprintocmmand#1{\texttt{\char`\\#1}}
+
+\makeatletter
+\def\index@prologue{\section*{Index}\addcontentsline{toc}{section}{Index}
+  This index only contains automatically generated entries, sorry. A good
+  index should also contain carefully selected keywords. 
+  \bigskip
+}
+\c@IndexColumns=2
+  \def\theindex{\@restonecoltrue
+    \columnseprule \z@  \columnsep 35\p@
+    \twocolumn[\index@prologue]%
+       \parindent -30pt
+       \columnsep 15pt
+       \parskip 0pt plus 1pt
+       \leftskip 30pt
+       \rightskip 0pt plus 2cm
+       \small
+       \def\@idxitem{\par}%
+    \let\item\@idxitem \ignorespaces}
+  \def\endtheindex{\onecolumn}
+\def\noindexing{\let\index=\@gobble}
+
+\makeatother
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "beameruserguide"
+%%% End: 

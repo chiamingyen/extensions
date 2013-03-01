@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Unash.fd
+%
+% 31.08.93 1.0 created file when added support for NFSS2 (br)
+% 04.04.1997 ranges fixed (KL)
+% 17.09.1997 smaller sizes allowed
+% 31.03.1998 test for xnsh14: does not work
+% 12.07.1998 cleanup
+% 23.05.1999 name "unash.fd"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Bernd Raichle and Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the font description of font `nash'
+%   fontencoding: U
+%   fontfamily:   nash
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% make sure, that it is used with NFSS2 only
+%
+\ifx\DeclareFontShape\undefined
+  \message{Something is wrong -- %
+           this file can only be used with LaTeX2e and NFSS2!!!}
+\expandafter\endinput\fi
+
+\ProvidesFile{unash.fd}[1999/05/23 3.08 ArabTeX Naskh font definitions]
+
+\DeclareFontFamily{U}{nash}{}%
+
+\DeclareFontShape{U}{nash}{m}{n}{%
+   <-6> sfixed * [7.2] nash14
+   <6-10> s * [1.44] nash14
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [1.44] nash14
+}{}
+
+\DeclareFontShape{U}{nash}{bx}{n}{%
+   <-6> sfixed * [7.2] nash14bf
+   <6-10> s * [1.44] nash14bf
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [1.44] nash14bf
+}{}
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

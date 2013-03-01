@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/listings"><TPM:Name>listings</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Typeset source code listings using LaTeX.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Typeset programming code within LaTeX.  The source code is read
+directly by TeX. Keywords, comments and strings can be typeset using
+different styles, e.g., default is bold for keywords, italic for
+comments and no special style for strings. Includes support for
+hyperref.
+</TPM:Description><TPM:RunFiles size="439388">texmf\tex\latex\listings\listings.cfg texmf\tex\latex\listings\listings.sty texmf\tex\latex\listings\lstdoc.sty texmf\tex\latex\listings\lstlang1.sty texmf\tex\latex\listings\lstlang2.sty texmf\tex\latex\listings\lstlang3.sty texmf\tex\latex\listings\lstmisc.sty</TPM:RunFiles><TPM:DocFiles size="716565">texmf\doc\latex\listings\listings.pdf texmf\doc\latex\listings\README</TPM:DocFiles><TPM:SourceFiles size="225920">texmf\source\listings-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1173819082</TPM:TimePackaged><TPM:MD5>85b36516d0596e96277cd3fd4d75d3bb</TPM:MD5></rdf:Description></rdf:RDF>

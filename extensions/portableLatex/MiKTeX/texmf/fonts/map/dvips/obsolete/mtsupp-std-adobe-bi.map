@@ -1,0 +1,32 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% mtsupp-std-adobe-bi.map: support for MathTime 1.1 and
+%    MathTime Plus fonts.
+%
+% Useful for dvips and gsftopk.
+cob Courier-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+cobo Courier-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+com Courier "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+coo Courier-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+hv Helvetica "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+hvb Helvetica-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+hvbo Helvetica-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+hvo Helvetica-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+pcrb8y Courier-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+pcrbo8y Courier-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+pcrr8y Courier "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+pcrro8y Courier-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+phvb8y Helvetica-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+phvbo8y Helvetica-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+phvr8y Helvetica "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+phvro8y Helvetica-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+ptmb8y Times-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+ptmbi8y Times-BoldItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+ptmr8y Times-Roman "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+ptmri8y Times-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+sy Symbol
+tib Times-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+tibi Times-BoldItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+tii Times-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+tir Times-Roman "TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+zd ZapfDingbats

@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1257">
+<title>general</title>
+<base href="http://www.vtex.lt/tex/littex/index.html">
+</head>
+<body>
+
+TeX'inių šriftų (<em>.vf ir .tfm</em>) gamybai patogiausia naudoti <strong>fontinst</strong> paketą.
+Jo aprašymas turėtų būti <strong>/texmf/doc/fontinst</strong> kataloge.
+<hr>
+<em>Padarom pvz. <u>lmr</u> ir <u>urw</u> šeimoms, kai turim PostScript'inius šriftus (.afm ir .pfb).</em>
+
+<dl>
+<dt>lmr:</dt>
+<dd>
+/texmf/doc/lt/fontinst/lm/makelt.tex<br/>
+/texmf/doc/lt/fontinst/lm/makelt.tex
+</dd>
+<dt>urw:</dt>
+<dd>
+/texmf/doc/lt/fontinst/urwvn/makelt.tex<br/>
+/texmf/doc/lt/fontinst/urwvn/makelt.tex
+</dd>
+</dl>
+
+Vykdom programas:
+<ol>
+<li>tex -fmt=tex -progname=fontinst makelt.tex</li>
+<li>tex -fmt=tex -progname=fontinst makeltmap.tex</li>
+<li>chmod 755 pltotf-script.sh</li>
+<li>./pltotf-script.sh</li>
+<li>*.fd, *.tfm nukopijuojam į paieškines direktorijas</li>
+<li>Failus *.dvips ir *.dvipdfm nukopijuojam į atitinkamas direktorijas ir 
+pakeičiam išplėtimą į .map</li>
+<li>mktexlsr</li>
+<li>updmap --enable Map <em>mapfile</em> iš dvips šakos</li>
+</ol>
+<hr>
+</body>
+</html>

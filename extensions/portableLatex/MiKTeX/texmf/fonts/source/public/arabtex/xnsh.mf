@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% xnsh.mf %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Extended ArabTeX NASKH Font
+% collect all characters
+% 31.03.98
+% 16.07.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%     16.07.1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% abort if cm base is loaded
+if unknown xnshbase: endinput fi;
+
+mode_setup;
+
+% font parameters
+em# := fs#;
+ex# := 8dy#;
+font_slant 0;
+font_normal_space .3em#;
+font_normal_stretch .5em#;
+font_normal_shrink 0;
+font_x_height ex#;
+font_quad em#;
+font_extra_space 0;
+font_coding_scheme "ArabTeX Naskh extended";
+
+font_setup;
+
+input xnshchar;
+
+input xnshlig;
+
+input xnshdia;
+
+input xnshdig;
+
+input xnshspec;
+
+endinput;
+%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%

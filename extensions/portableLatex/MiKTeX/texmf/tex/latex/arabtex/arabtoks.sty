@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabtoks.sty
+% ArabTeX
+% extra \CS token definitions for Arabic
+% Version 17.07.1999
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {arabtoks.sty} {3.09 ArabTeX CS token definitions } {17.07.1999}
+
+% extra \CS token definitions for Arabic
+% pattern: skeleton, modifier
+\def \a@a {\sk@@    , 1 }  % reserved for vowel
+\def \a@b {\sk@b    , 0 }  % bah without dot
+\def \a@c {\sk@hh   , 3 }  % gim with three dots
+\def \a@d {\sk@d    , 8 }  % dal with ttah
+\def \a@e {\sk@@    , 2 }  % reserved for vowel
+\def \a@f {\sk@f@s  , 0 }  % fah without dot
+\def \a@g {\sk@g@p  , 0 }  % gaf with loop
+\def \a@h {\sk@h@s  ,11 }  % urdu hah
+\def \a@i {\sk@@    , 3 }  % reserved for vowel
+\def \a@j {\sk@h@s  , 2 }  % urdu hah with 2 dots ..
+\def \a@k {\sk@k@s  , 0 }  % kaf without mark
+\def \a@l {\sk@l    ,12 }  % kurdish lam
+\def \a@m {\sk@n@p  , 1 }  % nun with loop, 1 dot above 
+\def \a@n {\sk@n    , 0 }  % nun without dot
+\def \a@o {\sk@@    , 4 }  % reserved for vowel
+\def \a@p {\sk@ain  , 3 }  % `ain with three dots
+\def \a@q {\sk@r@p  , 0 }  % rah with loop
+\def \a@r {\sk@r    , 8 }  % rah with ttah
+\def \a@s {\sk@s    ,10 }  % sin with two dots
+\def \a@t {\sk@b    , 8 }  % tah with ttah
+\def \a@u {\sk@@    , 5 }  % reserved for vowel
+\def \a@v {\sk@b@p  , 2 }  % tah with loop
+\def \a@w {\sk@w    ,19 }  % waw with damma (Uighur)
+\def \a@x {\sk@w    , 1 }  % waw with dot (Malay)
+\def \a@y {\sk@y    , 6 }  % yah with three dots below
+\def \a@z {\sk@r@s  , 0 }  % Pashto rah with two dots
+
+\def \a@A {\sk@@    , 6 }  % reserved for vowel
+\def \a@B {\sk@h@s  , 7 }  % wavy hah with hamza
+\def \a@C {\sk@hh   , 2 }  % hhah with two dots above
+\def \a@D {\sk@d    , 4 }  % dal with dot below
+\def \a@E {\sk@y    ,14 }  % kurdish yah
+\def \a@F {\sk@f@s  , 4 }  % fah with dot below
+\def \a@G {\sk@hh   ,15 }  % hhah with two vert dots above
+\def \a@H {\sk@h@m  , 0 }  % hah marbuta !
+\def \a@I {\sk@@    , 7 }  % reserved for vowel
+\def \a@J {\sk@g@ps , 0 }  % gaf with ring and bar
+\def \a@K {\sk@k@s  , 1 }  % kaf with dot
+\def \a@L {\sk@k    , 1 }  % kaf with dot and mark
+\def \a@M {\sk@g@s  , 3 }  % gaf with 3 dots above
+\def \a@N {\sk@n@p  , 0 }  % nun with loop
+\def \a@O {\sk@@    , 8 }  % reserved for vowel
+\def \a@P {\sk@ain  ,10 }  % ghain wit 1 dot above, 1 below
+\def \a@Q {\sk@f@s  , 1 }  % fah with one dot above
+\def \a@R {\sk@r    ,13 }  % kurdish rah
+\def \a@S {\sk@s    , 2 }  % sin with two dots
+\def \a@T {\sk@b    ,15 }  % tah with two vert. dots above
+\def \a@V {\sk@f@s  , 6 }  % fah with three dots below
+\def \a@U {\sk@@    , 9 }  % reserved for vowel
+\def \a@W {\sk@w    ,12 }  % kurdish waw with dot
+\def \a@X {\sk@w    , 3 }  % waw with three dots
+\def \a@Y {\sk@y    , 9 }  % yah with two vert. dots below
+\def \a@Z {\sk@s    ,15 }  % sin with two dots vertical
+
+\def \a@aa {\sk@a   , 0 }  % alif as consonant (Uighur)
+\def \a@ab {\sk@b   , 9 }  % bah with 2 dots below :
+\def \a@ac {\sk@b   ,17 }  % bah with 4 dots above ::
+\def \a@ad {\sk@d   , 2 }  % dal with 2 dots above ..
+\def \a@ae {\sk@d   ,16 }  % dal with 3 dots above v
+\def \a@af {\sk@d   , 5 }  % dal with 2 dots below ..
+\def \a@ag {\sk@hh  , 5 }  % gim with 2 dots below ..
+\def \a@ah {\sk@hh  , 9 }  % gim with 2 dots below :
+%\def \a@ai {\sk@free, 0 }  % unassigned
+\def \a@ai {\sk@Q   , 0 }  % isolated hamza}
+\def \a@aj {\sk@hh  ,18 }  % gim with 4 dots below ::
+\def \a@ak {\sk@g@s , 9 }  % gaf with 2 dots below :
+\def \a@al {\sk@g@s , 2 }  % gaf with 2 dots above ..
+\def \a@am {\sk@n   , 3 }  % nun with 3 dots ^
+\def \a@an {\sk@n   , 8 }  % nun with small ttah 
+%\def \a@ao {\sk@free, 0 }  % unassigned
+\def \a@ao {\sk@m@si, 0 }  % Sindhi final mim
+\def \a@ap {\sk@b   ,18 }  % bah with 4 dots below ::
+\def \a@aq {\sk@f@s ,17 }  % fah with 4 dots ::
+\def \a@ar {\sk@r   ,17 }  % rah with 4 dots ::
+\def \a@as {\sk@y@ps, 0 }  % yah bari with ring
+\def \a@at {\sk@b   ,16 }  % bah with 3 dots above v
+%\def \a@au {\sk@free, 0 }  % unassigned
+\def \a@au {\sk@free, 0 }  % unassigned
+\def \a@au {\sk@w   ,25 }  % waw with roof
+\def \a@av {\sk@w   , 2 }  % waw with 2 dots
+\def \a@aw {\sk@w   ,20 }  % waw with alif (Uighur)
+\def \a@ax {\sk@k@w , 0 }  % wide kAf
+\def \a@ay {\sk@y@p , 7 }  % yah bari with hamza
+\def \a@az {\sk@y   ,12 }  % alif maqsura with bow
+
+\def \a@aA {\sk@d@p , 0 }  % dal with loop
+\def \a@aB {\sk@d   ,21 }  % dal with ttah and dot below
+\def \a@aC {\sk@d   , 3 }  % dal with 3 dots above 
+\def \a@aD {\sk@d   ,17 }  % dal with 4 dots above ::
+\def \a@aE {\sk@hh  ,23 }  % gim with 1 dot above, 3 below 
+\def \a@aF {\sk@r   ,12 }  % rah with bow
+\def \a@aG {\sk@r   , 4 }  % rah with dot below
+\def \a@aH {\sk@r   , 2 }  % rah with 2 dots ..
+\def \a@aI {\sk@s   ,24 }  % sin with 3 dots above, 1 below
+\def \a@aJ {\sk@s   , 6 }  % sin with 3 dots below v
+\def \a@aK {\sk@s   ,22 }  % sin with 3 dots above, 3 below
+\def \a@aL {\sk@ss  , 5 }  % ssad with 2 dots below
+\def \a@aM {\sk@ss  , 3 }  % ssad with 3 dots above
+\def \a@aN {\sk@ss  ,10 }  % ssad with 1 dot above, 1 below
+\def \a@aO {\sk@tt  , 3 }  % ttah with 3 dots above
+\def \a@aP {\sk@f@s ,10 }  % fah with 1 dot above, 1 below
+\def \a@aQ {\sk@q@s , 1 }  % qaf with 1 dot above 
+\def \a@aR {\sk@q@s , 3 }  % qaf with 3 dots above 
+\def \a@aS {\sk@k   , 6 }  % kaf with 3 dots below
+\def \a@aT {\sk@g@s , 5 }  % gaf with 2 dots below ..
+\def \a@aU {\sk@w@r , 0 }  % waw with ring
+\def \a@aV {\sk@w@b , 0 }  % waw with bar
+\def \a@aW {\sk@l   , 1 }  % lam with 1 dot above
+\def \a@aX {\sk@l   , 3 }  % lam with 3 dots above
+\def \a@aY {\sk@l   , 6 }  % lam with 3 dots below
+\def \a@aZ {\sk@n   ,10 }  % nun with 1 dot above, 1 below
+
+\def \a@Za {\sk@@   ,10 }  % reserved for vowel
+\def \a@Ze {\sk@@   ,11 }  % reserved for vowel
+\def \a@Zi {\sk@@   ,12 }  % reserved for vowel
+\def \a@Zo {\sk@@   ,13 }  % reserved for vowel
+\def \a@Zu {\sk@@   ,14 }  % reserved for vowel
+\def \a@Zz {\sktt   , 1 }  % zzah with variant transliteration
+\def \a@ZZ {\sk@@   , 0 }  % illegal
+
+\def \a@ZA {\sk@@   ,15 }  % reserved for vowel
+\def \a@ZE {\sk@@   ,16 }  % reserved for vowel
+\def \a@ZI {\sk@@   ,17 }  % reserved for vowel
+\def \a@ZO {\sk@@   ,18 }  % reserved for vowel
+\def \a@ZU {\sk@@   ,19 }  % reserved for vowel
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

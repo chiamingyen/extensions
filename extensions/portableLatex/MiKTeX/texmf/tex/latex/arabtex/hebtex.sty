@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.sty
+% ArabTeX
+% Modifications for Hebrew mode
+% 12.06.2000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \sethebrew \undefined \else \xpa \endinput \fi
+
+\ifx \ArabTeX \undefined 
+\ifx \NeedsTeXFormat \undefined \input arabtex.sty 
+\else \usepackage {arabtex}\fi \fi
+
+\let \h@wlog \wlog	\def \wlog #1{\relax }
+
+\a@ident {hebtex.sty} {3.10 modifications for Hebrew mode} {12.06.2000}
+
+\newif \ifhedc@de 
+
+\ifx \LaTeX \undefined \else 
+	\let \h@document \document
+	\def \document {\h@document \sethebrew \hedc@detrue }
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \hebtext \arabtext	   \let \endhebtext \endarabtext
+\let \hebtex  \arabtext	   \let \endhebtex  \endarabtext % catch typo
+\let \hebfalse \arabfalse  \let \hebtrue \arabtrue
+
+\pdef \sethebrew {% switch to hebrew writing
+\all@false \@ssimtrue \yahd@tstrue \heb@output 
+\def \a@defaultfont {\hc }\setarabfont \a@normalfont \hc }
+
+\let \setheb \sethebrew	
+
+\def \set@hebfont {\setarabfont \heb@font }
+
+\def \heb@font {\protect \pheb }
+\def \a@defaultfont {\protect \pheb }
+
+\def \sethebfont #1{\def \pheb {\hebfont }\font \hebfont =#1\relax}
+
+\all@wcmd \sethebrew \all@wcmd \setheb \all@wcmd \sethebfont \all@wif \heb
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \heb@output {\ifx \a@lang \a@hebr \else
+\tr@ceoff % switch to Hebrew output conventions
+\def@hebchars % define character macros for Hebrew
+\def@hebvoc % define vowel parsing routines for Hebrew
+\def@hebstrut % define strut for Hebrew
+\global\let \a@write \heb@write \global\let \a@write@hook \relax
+\tr@heb	\tr@ceon \global\let \a@lang \a@hebr \fi }
+
+\def \a@hebr {HEBREW}  
+\let \tr@heb \relax % if hetrans.sty is not loaded
+
+\def \def@hebstrut {\def \arab@strut 
+%{\vrule height2.8ex depth0.7ex width0pt \relax }}
+{\vrule height1.9ex depth0.7ex width0pt \relax }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\UsePackage {hecmd}
+\UsePackage {hescan}
+\UsePackage {heparse}
+\UsePackage {hewrite}
+\UsePackage {hetrans}
+\ifx \LaTeX \undefined \else \UsePackage {hefonts}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\UsePackage {hepatch}	% must be at the end !!
+
+%\hc
+
+\let \wlog \h@wlog
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

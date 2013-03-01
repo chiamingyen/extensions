@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/isorot"><TPM:Name>isorot</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Rotation of document elements.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The isorot package is for rotation of document elements. It is a
+      combination of the lscape package
+      and an extension of the rotating
+      package. It is designed for use with the iso class but may be used with any normal
+      class.</TPM:Description><TPM:RunFiles size="7972">texmf\tex\latex\isorot\isorot.sty texmf\tpm\packages\isorot.tpm</TPM:RunFiles><TPM:DocFiles size="243703">texmf\doc\latex\isorot\README texmf\doc\latex\isorot\rotman.dvi texmf\doc\latex\isorot\rotman.pdf texmf\doc\latex\isorot\rotman.tex</TPM:DocFiles><TPM:SourceFiles size="50122">texmf\source\latex\isorot\isorot.dtx texmf\source\latex\isorot\isorot.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>6737d51b416388bf305e6d20b3ea9ea1</TPM:MD5></rdf:Description></rdf:RDF>

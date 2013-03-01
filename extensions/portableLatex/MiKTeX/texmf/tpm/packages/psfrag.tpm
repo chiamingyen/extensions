@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/psfrag"><TPM:Name>psfrag</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>Allows LaTeX constructions (equations, picture environments,
+      etc.) to be precisely superimposed over Encapsulated PostScript
+      figures, using your own favorite drawing tool to create an EPS
+      figure and placing simple text ``tags'' where each replacement
+      is to be placed, with PSfrag automatically removing these
+      tags from the figure and replacing them with a user specified
+      LaTeX construction, properly aligned, scaled, and/or rotated.</TPM:Description><TPM:RunFiles size="14112">texmf\dvips\psfrag\psfrag.pro texmf\tex\latex\psfrag\psfrag.sty texmf\tpm\packages\psfrag.tpm</TPM:RunFiles><TPM:DocFiles size="161951">texmf\doc\latex\psfrag\example.eps texmf\doc\latex\psfrag\pfgguide.dvi texmf\doc\latex\psfrag\pfgguide.ps.gz texmf\doc\latex\psfrag\pfgguide.tex texmf\doc\latex\psfrag\testfig.eps</TPM:DocFiles><TPM:SourceFiles size="50865">texmf\source\latex\psfrag\00readme.txt texmf\source\latex\psfrag\announce.txt texmf\source\latex\psfrag\pfgguide.pfg texmf\source\latex\psfrag\psfrag.dtx texmf\source\latex\psfrag\psfrag.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>7c9aad7ab191ebff239f71d2499812d6</TPM:MD5></rdf:Description></rdf:RDF>

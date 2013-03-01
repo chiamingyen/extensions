@@ -1,0 +1,225 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% isiri.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% isiri.sty
+% Scanner for ISIRI 3342 Code 
+% to install it, include it as a LaTeX package or style option "isiri"
+% with Plain TeX, say "\input isiri.sty"
+% to activate it, say "\setcode {isiri3342}" or "\setcode {isiri}"
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \isiriatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \isiriatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {isiri.sty} {3.11 ISIRI 3342 input encoding } {26.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \isiri@catcodes {% assignments for ISIRI 3342
+\countdef \is@m=2	\countdef \is@n=4       
+\is@m = 160        \is@n = 32
+\loop \ifnum \catcode \is@m = 11 \else \catcode \is@m = 11 \fi
+\global\lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0 \catcode `\^ 7 \catcode `\^^a0 12 }
+
+{\isiri@catcodes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setisi@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@^^a0 {@}  \def \sc@^^a1 {||}  \def \sc@^^a2 {-}   \def \sc@^^a3 {!}
+\def \sc@^^a4 {\a@dlr}                 \def \sc@^^a5 {\a@pct}   
+\def \sc@^^a6 {\a@amp}                 \def \sc@^^a7 {\a@qt}
+\def \sc@^^a8 {(}  \def \sc@^^a9 {)}   \def \sc@^^aa {*}   \def \sc@^^ab {+}
+\def \sc@^^ac {,}  \def \sc@^^ad {-}   \def \sc@^^ae {.}   \def \sc@^^af {/}
+
+\def \sc@^^b0 {0}  \def \sc@^^b1 {1}   \def \sc@^^b2 {2}   \def \sc@^^b3 {3}
+\def \sc@^^b4 {4}  \def \sc@^^b5 {5}   \def \sc@^^b6 {6}   \def \sc@^^b7 {7}
+\def \sc@^^b8 {8}  \def \sc@^^b9 {9}   \def \sc@^^ba {:}   \def \sc@^^bb {;}
+\def \sc@^^bc {\a@lab}                 \def \sc@^^bd {=}   
+\def \sc@^^be {\a@rab}                 \def \sc@^^bf {?}
+
+\def \sc@^^c0 {QA} \def \sc@^^c1 {A}   \def \sc@^^c2 {Q|}  \def \sc@^^c3 {b}
+\def \sc@^^c4 {p}  \def \sc@^^c5 {t}   \def \sc@^^c6 {C}   \def \sc@^^c7 {G}
+\def \sc@^^c8 {J}  \def \sc@^^c9 {H}   \def \sc@^^ca {X}   \def \sc@^^cb {d}
+\def \sc@^^cc {F}  \def \sc@^^cd {r}   \def \sc@^^ce {z}   \def \sc@^^cf {j}
+
+\def \sc@^^d0 {s}  \def \sc@^^d1 {x}   \def \sc@^^d2 {S}   \def \sc@^^d3 {D}
+\def \sc@^^d4 {V}  \def \sc@^^d5 {Z}   \def \sc@^^d6 {P}   \def \sc@^^d7 {R}
+\def \sc@^^d8 {f}  \def \sc@^^d9 {q}   \def \sc@^^da {\n@xp \a@k}   
+\def \sc@^^db {g}
+\def \sc@^^dc {l}  \def \sc@^^dd {m}   \def \sc@^^de {n}   \def \sc@^^df {w}
+
+\def \sc@^^e0 {h}  \def \sc@^^e1 {Y}   \def \sc@^^e2 {[}   \def \sc@^^e3 {]}
+\def \sc@^^e4 {\a@lbc}                 \def \sc@^^e5 {\a@rbc}   
+\def \sc@^^e6 {'}  \def \sc@^^e7 {`}
+\def \sc@^^e8 {*}  \def \sc@^^e9 {B}   
+\def \sc@^^ea {\a@bar}                 \def \sc@^^eb {\a@bsl}
+\def \sc@^^ec {@}  \def \sc@^^ed {@}   \def \sc@^^ee {@}   \def \sc@^^ef {@}
+
+\def \sc@^^f0 {"a} \def \sc@^^f1 {"i}  \def \sc@^^f2 {"u}  \def \sc@^^f3 {"aN}
+\def \sc@^^f4 {"iN}\def \sc@^^f5 {"uN} \def \sc@^^f6 {@}   \def \sc@^^f7 {""}
+\def \sc@^^f8 {Qa} \def \sc@^^f9 {Qw}  \def \sc@^^fa {Qi}  \def \sc@^^fb {QY}
+\def \sc@^^fc {T}  \def \sc@^^fd {k}   \def \sc@^^fe {y}   \def \sc@^^ff {E}
+\a@digits = {0123456789^^b0^^b1^^b2^^b3^^b4^^b5^^b6^^b7^^b8^^b9}     	
+\a@paren  = {()[]^^a8^^a9^^e2^^e3}
+\a@first = {"`^^e6}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \isi@scan #1>{% standard scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase{\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\catcode `\^ 7
+\gdef \isi@beg #1#2{% start ISIRI 3342 scanner
+\h@mzafalse  \iz@fetfalse \yahdots \novocalize % because of explicit quoting
+	\@ssimfalse
+\case #1\of 
+{      \@{\sc@endscan #2}                % finished
+     ^^c1{\isi@alif@beg #2} 
+     ^^e6{\isi@lquote #2}
+\default {\isi@word #1#2}
+}\endcase }
+
+{\catcode `\^^M=13 \endlinechar = -1
+\gdef \isi@word #1#2{% transform input into internal notation
+\ifx #1\@ \def \next {\sc@endscan #2}\else % finished
+\if \nxp ^^M\nxp #1\def \next {\isi@par #1#2}% active character
+\else \def \next {\isi@w@rd #1#2}%
+\fi\fi \next }%
+} % catcode 13
+
+\gdef \isi@w@rd #1#2{% special cases
+\case #1\of 
+{   	  #2{\isi@word #1-#2}
+	   -{\isi@minus #2} 
+	^^a0{\sc@back #2} 
+	^^ad{\isi@minus #2} 
+	^^c1{\isi@alif #2} 
+	^^c2{\isi@hamza #2}
+	^^df{\isi@waw #2} 
+	^^e0{\isi@hah #2} 
+	^^e1{\isi@Yah #2} 
+	^^e7{\isi@rquote #2} 
+	^^fe{\isi@yah #2} 
+\default {\isi@@word #1#2}
+}\endcase }
+
+\gdef \isi@@word #1#2{% default branch
+\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+\else \def \sc@char {\nxp #1}%
+\fi \sc@put 
+\ifx #2^^f6\def \next {\isi@word #1}% shadda
+\else \def \next {\isi@word #2}%
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \isi@alif@beg #1{% alif 
+\ifx #1^^a2\def \next {\isi@alif@P }\else
+\def \next {\isi@word #1}\def \sc@char {a}\sc@put 
+\fi \next }
+
+\gdef \isi@alif #1{% alif 
+\ifx #1^^a2\def \next {\isi@alif@P }\else
+\def \next {\isi@word #1}\def \sc@char {A}\sc@put 
+\fi \next }
+
+\gdef \isi@alif@P #1{% alif PCN hamza ? 
+\ifx #1^^c2\def \sc@char {Qa}\def \next {\isi@word }\else
+\def \sc@char {A-}\def \next {\isi@word #1}%
+\fi \sc@put \next }
+
+\gdef \isi@waw #1{% waw
+\ifx #1^^a2\def \next {\isi@waw@P }\else
+\def \next {\isi@word #1}\def \sc@char {w}\sc@put 
+\fi \next }
+
+\gdef \isi@waw@P #1{% waw PCN hamza ? 
+\ifx #1^^c2\def \sc@char {Qw}\def \next {\isi@word }\else
+\def \sc@char {w-}\def \next {\isi@word #1}%
+\fi \sc@put \next }
+
+\gdef \isi@yah #1{% yah
+\ifx #1^^a2\def \next {\isi@yah@P }\else
+\def \next {\isi@word #1}\def \sc@char {y}\sc@put 
+\fi \next }
+
+\gdef \isi@Yah #1{% Yah
+\ifx #1^^a2\def \next {\isi@yah@P }\else
+\def \next {\isi@word #1}\def \sc@char {Y}\sc@put 
+\fi \next }
+
+\gdef \isi@yah@P #1{% yah PCN hamza ? 
+\ifx #1^^c2\def \sc@char {QY}\def \next {\isi@word }\else
+\def \sc@char {y-}\def \next {\isi@word #1}%
+\fi \sc@put \next }
+
+\gdef \isi@hah #1{% hah
+\ifx #1^^a2\def \next {\isi@hah@P }\else
+\def \next {\isi@word #1}\def \sc@char {h}\sc@put 
+\fi \next }
+
+\gdef \isi@hah@P #1{% hah PCN hamza ? 
+\ifx #1^^c2\def \sc@char {Qh}\def \next {\isi@word }\else
+\def \sc@char {h-}\def \next {\isi@word #1}%
+\fi \sc@put \next }
+
+\gdef \isi@hamza #1{% hamza
+\ifx #1^^a2\def \sc@char {QY}\def \next {\isi@word }%
+\else \def \sc@char {Q|}\def \next {\isi@word #1}%
+\fi \sc@put \next }
+
+\gdef \isi@minus {% hyphen between words
+\def \sc@char {-}\sc@put \isi@beg }
+
+\gdef \isi@lquote {% left quote
+\def \sc@char {`}\sc@put \isi@beg }
+
+\gdef \isi@rquote {% right quote
+\def \sc@char {'}\sc@put \isi@word }
+
+\gdef \isi@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\ #1\@ \@@ }
+
+\gdef \isi@endscan \@@ {\global\let \a@scan \isi@scan }
+}% catcode ^
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+} % \isiri@catcodes
+
+\def \set@isiri {% select the ISIRI 3342 scanner
+\let \sc@beg \isi@beg 		\let \sc@word \isi@word  
+\let \sc@back \sc@@back		\let \sc@endscan \isi@endscan
+\global\let \a@scan \isi@scan   \setisi@codes	
+\isiri@catcodes 		\yahdots
+\a@message {input encoding set to ISIRI 3342 conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the ASMO449 encoding
+isiri\set@isiri		isiri3342\set@isiri	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for code ISIRI 3342 installed.}
+
+\catcode `\@ = \isiriatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

@@ -1,0 +1,458 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%\magnification=\magstep1
+\def\midspace#1{}
+\def\caption#1{}
+
+\input greekmacros
+
+\greekdelims
+
+\def\plus{\math{}+{}\math}
+\font\man=logo10 at 10true pt % font used for special symbols (old version)
+  \def\MF{{\man META}\-{\man FONT}}%
+% macros for verbatim scanning
+\newskip\ttglue \ttglue=.5em plus.25em minus.15em
+\chardef\other=12
+\def\ttverbatim{\begingroup
+  \catcode`\\=\other
+  \catcode`\{=\other
+  \catcode`\}=\other
+  \catcode`\$=\other
+  \catcode`\&=\other
+  \catcode`\#=\other
+  \catcode`\%=\other
+  \catcode`\~=\other
+  \catcode`\_=\other
+  \catcode`\^=\other
+  \obeyspaces \obeylines \tt}
+ 
+\outer\def\begintt{$$\let\par=\endgraf \ttverbatim \parskip=\z@
+  \catcode`\|=0 \rightskip-5pc \ttfinish}
+{\catcode`\|=0 |catcode`|\=\other % | is temporary escape character
+  |obeylines % end of line is active
+  |gdef|ttfinish#1^^M#2\endtt{#1|vbox{#2}|endgroup$$}}
+
+\catcode`\|=\active
+{\obeylines \gdef|{\ttverbatim \spaceskip\ttglue \let^^M=\  \let|=\endgroup}}
+
+%\documentstyle{amsppt}
+%\nologo
+%
+%\topmatter
+%\title Typesetting Greek \endtitle
+%\author Silvio Levy \endauthor
+%\affil Princeton University \endaffil
+%\address{Fine Hall, Washington Road, Princeton, NJ, 08544}
+%\abstract{
+%We discuss the design, creation and use of a family of Greek fonts for
+%\TeX.  The fonts can be used for modern or classical
+%Greek, by themselves or in combination with the Computer Modern family
+%of fonts.  A short historical introduction is followed by a discussion
+%of special topics, including the handling of accents and breathings,
+%hyphenation, and the two varieties of sigma.
+%}
+%\endtopmatter
+%\document
+%
+
+\font\eightpoint=cmr8
+\font\twelverm=cmr10 at 12pt
+\def\heading#1\endheading{\bigskip\centerline{\twelverm#1}\medskip}
+
+%formatting conventions for proceedings
+\catcode`@=11
+\font\titlefont=cmr17
+\font\namefont=cmcsc10 scaled \magstep1
+\font\twelvebd=cmbx10 scaled \magstep1
+\font\twelverm=cmr10 scaled \magstep1
+\font\sixrm=cmr6
+\vsize=43pc
+\hsize=29pc
+\parindent=16pt
+\nopagenumbers
+\normalbaselines
+\footline={\hss\sixrm\folio\hss}
+\def\makefootline{\baselineskip3pc\line{\the\footline}}
+\def\plainoutput{\shipout\vbox{\makeheadline\pagebody\makefootline}%
+  \advancepageno
+  \vsize=45pc
+  \ifnum\outputpenalty>-\@MM \else\dosupereject\fi}
+\def\makeheadline{\vbox to\z@{\vskip-22.5\p@
+  \line{\vbox to8.5\p@{}\ifnum\count0=1
+         \else\ifodd\count0
+                \hfill\the\doctitle\ignorespaces
+             \else \the\authorname\hfill\fi\fi}\vss}\nointerlineskip}
+
+\newtoks\doctitle  \newtoks\authorname
+
+\doctitle={Typesetting Greek}
+\authorname={Silvio Levy}
+\catcode`@=12 % at signs are no longer letters
+\tenrm
+\begingroup
+\titlefont
+\the\doctitle
+\vskip 3pc
+\namefont\the\authorname
+\tenrm
+\vskip 1pc
+{\obeylines
+Mathematics Department
+Princeton University
+Princeton, NJ, 08544
+}
+\vskip 3pc
+\line{\hfill\twelvebd ABSTRACT\hfill}
+\vskip 3pc
+\leftskip 4pc \rightskip 4pc
+We discuss the design, creation and use of a family of Greek fonts for
+\TeX.  The fonts can be used for modern or classical
+Greek, by themselves or in combination with the Computer Modern family
+of fonts.  A short historical introduction is followed by a discussion
+of special topics, including the handling of accents and breathings,
+hyphenation, and the two varieties of sigma.
+\par
+\endgroup
+\vskip 3pc
+
+\heading A Bit of History \endheading
+
+During the first four centuries after the introduction of the printing
+press in Europe, the printing of Greek was hampered by the relative
+inadequacy of existing types, at least in comparison with the quality
+and variety of the best roman fonts.  This was partly a consequence
+of the antiquity of the language and its consequent evolution in both
+writing and pronunciation: not only did the letterforms change over time,
+but they came to be adorned with a multitude of diacritical marks, a
+legacy of zealous scribes and grammarians anxious to preserve the
+pristine state of the language that lent them their prestige.
+
+In the early days we find that the few printers that attempted to cut
+Greek type generally ignored all this complexity, either disregarding
+the diacritics or casting them separately and setting them
+above each line of text.  Some texts were printed in
+lowercase only; others would make do with roman capitals like `A' and
+even some lowercase roman glyphs, like `v' for `$n$'.  (See figures
+1--12 in [Brit.~Mus.~1927], an excellent historical survey.)
+
+In 1495 Aldus Manutius introduced cursive greeks.
+They became a resounding success, as they reproduced the florid
+and idiosyncratic handwriting of the day, full of abbreviations
+and ligatures.  The inordinate number of ligatures is in fact the
+most striking feature of such fonts: for example, Fell's ``Great
+Primer Greek'' [Morison 1967, p.~102] has sorts for many
+four-letter words and prefixes.
+
+Although skilfully typeset books using cursive fonts are undeniably
+beautiful (see [Brit.~Mus.~1927], figure 29), the use of so many
+ligatures was a nightmare for compositor and reader alike, since
+in some cases the component letters are virtually unidentifiable.
+Gradually the fonts were scaled down in size, but the practice
+of imitating handwriting remained until the end of the eighteenth
+century, when Bodoni, G\"oschen and Didot paved the way back to a
+more sober course.
+
+Still problems remained.  Porson's greek [Mosley 1960], first used
+in 1826 and destined to become the standard of the English-speaking
+world, continues the illogical tradition of mixing upright capitals
+with slanted minuscules; in particular the blending of Greek and roman
+text leads to poor results (figure 1).  Didot's design was somewhat
+more felicitous, and became standard in Italy, France and Greece itself
+(figure 2), but the type is narrow and irregular, bearing, according
+to Scholderer [Brit.~Mus.~1927, p.~14], the `malign mark' of Bodoni's
+greeks (which were admittedly not a match for his inspired romans).
+\midspace{1.1truein}
+\caption{\eightpoint Figure 1}
+
+\midspace{1.2truein}
+\caption{\eightpoint Figure 2}
+
+(Incidentally, the different treatment of capitals established itself
+in mathematical typesetting.  In English books, Greek capitals are the
+only math letters that are not slanted; in French and German books
+they conform with the rest.  The Computer Modern Greek faces are
+based on Porson.  They are, of course, meant for math; when used
+for text, as in [Wonneberger 1987], the results fall short of
+the perfection achievable with \TeX.)
+
+It was not until the beginning of this century that really
+well-designed Greek types became available, including Scholderer's
+`New Hellenic' type (figure 3), based on a pre-Aldine model,
+and the Monotype font shown in figure 4, a much improved version
+of Didot's design and perhaps the typeface most favored for
+high-quality printing in Greece during the last few decades.
+\midspace{1.1truein}
+\caption{\eightpoint Figure 3}
+
+\midspace{1.3truein}
+\caption{\eightpoint Figure 4}
+
+\heading Requirements \endheading
+
+My main motivation in designing a family of Greek fonts is the
+preparation of a Modern Greek--English dictionary.  This in itself
+makes the design more exacting: the fonts should not only look good
+individually and in combination, but also blend well with Computer
+Modern fonts; there should be at least three main styles, different
+enough that no special effort to distinguish between them is required,
+even in small point size; and the typing should be as painless as
+possible on a standard (English) keyboard.
+This last condition is, of course, open to interpretation, but I
+define it to mean that each grapheme (letter, accent, etc.)~should
+require as few keystrokes as possible---generally one, but
+occasionally more, like accents in English.
+
+In esthetic terms there are a lot of details to work out, but the
+foundation has been laid.  I follow loosely the type shown in figure 4,
+which shares several features with the Computer Modern roman:
+sharp contrast between thicks and thins, similar letter widths,
+and a wealth of texture and detail.  (This is not surprising since
+the `modern' family of fonts goes back to Bodoni and Didot.)
+But it also has distinguishing features, which recapture some of the
+beauty of cursive writing: its strokes are more fluid, and there
+is no left-right symmetry (compare a roman `o' with a greek `$o$').
+
+Modern Greek has traditionally been typeset with the diacritic
+apparatus of ancient Greek, which is very rich: it contains two accents,
+the acute $'$ and the grave $`$, that can go over any vowel, plus one,
+the circumflex $~$, that can go over the vowels $ahiuw$; two so-called
+breathings $<>$, one of which goes over every vowel or diphthong
+in initial position; the diaeresis $"$, that can go over $i$ and $u$;
+and the iota subscript $|$, that can go under $ahw$.  An accent
+plus a breathing, or an accent plus the dieresis, can coexist;
+furthermore any accent, breathing or accent-breathing combination
+can share a vowel with an iota subscript.  Here, for example,
+are the 24 possible varieties of lowercase $a$:
+\display
+\hbox{$a 'a `a ~a <a <'a <`a <~a >a >'a >`a >~a
+a| 'a| `a| ~a| <a| <'a| <`a| <~a| >a| >'a| >`a| >~a|$}
+\display
+
+In the last several decades the tendency has been to get rid of these
+complications, and now the ``official'' system in use in Greece includes
+only one accent and the dieresis, without breathings or iota subscripts.
+Even though I work primarily with modern Greek, however, I thought
+it short-sighted not to include the whole apparatus, having in mind
+both classicists and those traditionalists who
+still prefer the three-accent system, as do some publishing houses.
+
+It was clear right away that these diacritics should be implemented as
+ligatures, not as \TeX\ accents, because in \TeX\ words that include
+accents cannot be hyphenated.  This implied that 128 font
+positions were not enough.   Fortunately \TeX\ and \MF\ are
+well equipped to handle 256-position fonts, though most device
+drivers are not (see the section `Other Problems').
+
+Following the one-keystroke-per-grapheme rule, then, one can conjure
+up the last alpha in the display above by typing |>~a|{\tt\char`\|},
+which accesses a four-character ligature.  The remaining conventions
+for diacritics are: |'| and |`| for the acute and grave, respectively;
+|"| for the dieresis; and |<| for the rough breathing.  (If you're
+wondering how to produce quotation marks, or $((e>isagwgik'a))$,
+it's by typing |((| and |))|.)
+
+\heading The Font Layout \endheading
+
+A further complication has to do with the letter sigma.  According to
+Knuth [1980], the letter `s' is in a class by itself in terms of
+complexity of design; its Greek counterpart is similarly difficult, though
+for different reasons.  A sigma in initial or medial position in the word
+is written $c$, but in final position it is written $s$.  Since the
+alternation is entirely conditioned, it seemed a pity to require different
+characters in the \TeX\ file to represent the two varieties of sigma.
+
+The first solution I tried made no assumptions on the font.  It
+consisted in making `s' an active character, which checked the next
+token and printed $c$ if it was a letter, $s$ otherwise.  There were
+two drawbacks to this procedure: the letter `s' could not be used
+in control sequences, and the check was expensive.  (It also didn't
+work when the next token was a control sequence that expanded to one
+or more letters.)
+
+A better idea is to save one position in the font for an
+invisible dummy character.  All punctuation marks (and the space)
+are made active; they expand to the dummy end-of-word character,
+plus the punctuation character.  An `s' by itself prints as $c$,
+while an `s' in ligature with the dummy---which is to say, at the end
+of a word---prints as $s$.  All other letters yield themselves when
+in ligature with the dummy.  This is still not ideal for two reasons:
+\TeX\ is always ``obeying spaces,'' and words separated by something
+other than punctuation or spaces (say |\par|) count as one.  (But
+this might be the only practicable solution for the Hebrew alphabet,
+which has five chameleon letters.)
+
+The solution I chose avoids the drawbacks above, at the expense of
+several positions in the font.  Namely, the font contains each of
+the possible combinations $sa$, $sb$, \dots, $sw$, which are
+automatically accessed as ligatures when the word contains `s'
+followed by a letter.
+
+\pageinsert
+{
+\font\twelverm=cmr10 scaled \magstep1
+\font\twelvei=cmmi10 scaled \magstep1\skewchar\twelvei='177
+\font\twelvesy=cmsy10 scaled \magstep1\skewchar\twelvesy='60
+\font\twelvebf=cmbx10 scaled \magstep1
+\font\twelvett=cmtt10 scaled \magstep1\hyphenchar\twelvett=-1
+\font\twelvesl=cmsl10 scaled \magstep1
+\font\twelveit=cmti10 scaled \magstep1
+
+\def\twelvepoint{\def\rm{\fam0\twelverm}%
+  \textfont0=\twelverm
+  \textfont1=\twelvei
+  \textfont2=\twelvesy
+  \textfont3=\tenex
+  \def\it{\fam\itfam\twelveit}%
+  \textfont\itfam=\twelveit
+  \def\sl{\fam\slfam\twelvesl}%
+  \textfont\slfam=\twelvesl
+  \def\bf{\fam\bffam\twelvebf}%
+  \textfont\bffam=\twelvebf \scriptfont\bffam=\sevenbf
+   \scriptscriptfont\bffam=\fivebf
+  \def\tt{\fam\ttfam\twelvett}%
+  \textfont\ttfam=\twelvett
+  \tt \ttglue=.5em plus.25em minus.15em
+  \normalbaselineskip=14.5pt
+  \setbox\strutbox=\hbox{\vrule height10.5pt depth4pt width0pt}%
+  \normalbaselines\rm}
+
+\twelvepoint
+\font\my=grreg10 scaled \magstep1
+\centerline{
+\def\:{\char\count255\global\advance\count255 by 1}
+\count255='0
+\vbox{
+\hbox{\hbox to 40pt{\it\hfill0\/\hfill}%
+\hbox to 40pt{\it\hfill1\/\hfill}%
+\hbox to 40pt{\it\hfill2\/\hfill}%
+\hbox to 40pt{\it\hfill3\/\hfill}%
+\hbox to 40pt{\it\hfill4\/\hfill}%
+\hbox to 40pt{\it\hfill5\/\hfill}%
+\hbox to 40pt{\it\hfill6\/\hfill}%
+\hbox to 40pt{\it\hfill7\/\hfill}}
+\vskip 4pt
+\hrule
+\def\^{\vrule height 10.5pt depth 4.5pt}
+\halign{\hbox to 0pt{\hskip -24pt {\rm\'{}\kern-.2em\it#}\hfill}&\^
+\hbox to 40pt{\my\hfill#\hfill\^}&
+&\hbox to 40pt{\my\hfill#\hfill\^}\cr
+00&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+01&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+02&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+03&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+04&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+05&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+06&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+07&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+10&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+11&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+12&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+13&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+14&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+15&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+16&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+17&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+20&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+21&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+22&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+23&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+24&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+25&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+26&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+27&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+30&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+31&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+32&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+33&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+34&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+35&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+36&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}
+37&\:&\:&\:&\:&\:&\:&\:&\:\cr\noalign{\hrule}}}
+}
+}
+\endinsert
+
+With all the s\plus letter combinations and all the vowels with
+diacritics, it turns out that not even 256 characters are enough.
+Since I couldn't push the font size any further, I decided to
+eliminate some of the vowel\plus diacritic combinations.  The obvious
+candidates were the combinations of breathings with grave accent,
+which can only occur in a restricted number of monosyllables, and
+thus can be typeset as accents, because no hyphenation is required
+anyway.  So I made the characters |<| and |>| active.  Depending on
+whether or not the next character is $`$, these active characters
+expand to an |\accent| or to a |\char|, the latter meant to form
+a ligature with what comes next.  (Actually, things are not quite
+so simple.  A breathing or accent over a capital vowel is
+traditionally written before the letter, so the |\accent| control
+sequence is only emitted if the following character is lowercase.)
+
+The complete layout of the fonts is shown on the next page.  There
+are a few unfilled positions, two of which I'm saving for the digamma,
+whose design I haven't yet tackled.
+
+\heading Other Problems \endheading
+
+In order to write continuous text, I had to prepare a modern Greek
+hyphenation table, which I'm currently testing. 
+The hyphenation of modern Greek follows closely that of ancient Greek,
+which is straightforward (that is, described by a fairly short set of
+rules) because Greek had originally a phonetic script---one letter
+for each phoneme and vice versa.  This conservatism means that
+hyphenation does not necessarily occur between syllables, as in
+the word $stau-r'os$ `cross', now pronounced
+[sta\'{}vros]; but this apparently doesn't bother anyone.
+
+One difficulty, however, cannot be resolved by means of mechanical
+rules: the digraphs $mp$, $nt$ and $gk$ are sometimes pronounced as
+nasal\plus voiced stop, sometimes as voiced stop alone, depending on
+the word (also sometimes on the speaker).  In the first case, the group
+can be split, but in the second, one should hyphenate before the group.
+This problem seems to be solvable only by trial and error.
+
+The last problem I want to discuss is that of device drivers.
+We have been using various |dvi|-to-PostScript drivers in Princeton,
+and I found that none of them would work with
+256-character fonts, even though both \TeX\ and PostScript are
+designed to handle such fonts.  I was, however, able to adapt Nelson
+Beebe's excellent driver |dvialw| [Beebe 1987] after making only
+three changes, because the program is well written and well documented.
+I exhort all those who write |dvi| drivers to include 256-character
+fonts in their design, since they will certainly become more necessary
+as \TeX\ extends its reach around the world.
+
+\heading Bibliography \endheading
+
+\def\\{\smallskip\hangindent=\parindent\hangafter=1\noindent\ignorespaces}
+\\
+Nelson H. F. Beebe, Public domain \TeX\ DVI driver family,
+{\it TUGboat}, {\bf 8}:1 (1987), 41--42.
+\\
+British Museum, {\it Greek Printing Types}, London, British Museum, 1927.
+\\
+Donald E. Knuth, The Letter S, {\it The Mathematical Intelligencer},
+{\bf 2} (1980), 114--122.
+\\
+Stanley Morison, {\it John Fell: the University Press and the `Fell'
+Types}, Oxford, Clarendon Press, 1967.
+\\
+J. M. Mosley, Porson's Greek Types, {\it Penrose Annual}, {\bf 54} (1960),
+36--40.
+\\
+Reinhard Wonneberger, Typesetting `Normaltext', {\it TUGboat},
+{\bf 8}:1 (1987), 63--72.
+\end

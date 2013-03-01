@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arabext.sty
+% ArabTeX
+% 21.08.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% patches for arabtex.sty etc
+% for use with arabart.cls
+% ArabTeX 3.11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {arabext.sty} {3.11 patches for use with arabart.cls} {21.08.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@ignorespaces {\test@token }
+
+\def \a@c@ref {\unarab@codes \a@@ref }
+
+\def \a@@ref #1{\putwordb@x {\ref {#1}}\arab@codes \test@token }
+
+\def \a@c@cite {\unarab@codes \a@@cite }
+
+\def \a@@cite #1{\putwordb@x {\rm \cite {#1}}\arab@codes \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \arabdef #1{% define command valid for Arabic environment only
+\begingroup \escapechar -1
+\xdef \reserved@a {\xpa \nxp \csname a@\string #1\endcsname }\endgroup
+\toks@ \xpa {\xpa \let \xpa #1\reserved@a }\allowarab #1%
+\xpa \at@arabtext \xpa {\the\toks@ }\xpa \def \reserved@a }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@table {\unarab@codes \a@@table }
+
+\def \a@@table [#1]{% table within Arabic environment
+\let \a@endtable \endtable \def \endtable {\a@par \a@endtable }%
+\table [#1]%
+\arab@tail }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@figure {\unarab@codes \a@@figure }
+
+\def \a@@figure [#1]{% figure within Arabic environment
+\let \a@endfigure \endfigure \def \endfigure {\a@par \a@endfigure }%
+\figure [#1]%
+\arab@tail }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\all@w@ne \label
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@endtabular {\a@@endtabular \advance \parfillskip \rightskip 
+\rightskip \leftskip \leftskip \parfillskip \parfillskip \z@ \par }
+
+\def \a@c@hline {% \\ missing
+\errmessage{table row not terminated: \string\\ inserted; proceed.}%
+\test@token \\ \hline }
+
+\def \a@c@tabular {\unarab@codes \let \@mkpream \a@mkpream 
+\let \a@@endtabular \endtabular \let \endtabular \a@endtabular
+\a@@par \leavevmode \tabular }
+
+\def \a@c@array {\unarab@codes 
+\let \a@@endtabular \endarray \let \endarray \a@endtabular
+\a@@par \leavevmode \array }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \a@@mkpream \@mkpream
+	 
+\def \a@c@a@RL {\test@token }
+
+\def \a@c@protect {\test@token }
+
+\def \a@mkpream #1{\a@@mkpream {#1}\let \@@sharp \relax \let \a@END \relax
+\edef \@sharp {\protect\a@SEQ \@@sharp \a@END }%
+\edef \@preamble {\@preamble}%
+\def \@@sharp {\@sharp }\let \@sharp \relax
+\edef \@preamble {\@preamble}}
+
+\def \a@SEQ {% put a sequence of words into a \hbox
+\begingroup \transfalse \showfalse 
+\arab@codes \set@arabfont \@waslafalse \@wasfalse
+\def \next@command {\test@special}\let \a@put@line \break@line
+\def \a@last@line {\let \next \a@NL }\let \put@word \addt@line
+\initlineb@x \test@token }
+
+\def \a@c@a@END {\box\lineb@x \endgroup }
+
+\def \a@NL {\box\lineb@x \endgroup \\}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

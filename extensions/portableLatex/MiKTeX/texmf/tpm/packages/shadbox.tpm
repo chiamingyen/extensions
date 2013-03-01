@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/shadbox"><TPM:Name>shadbox</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A tool to shade the background of any box -- text, figure,
+      table etc. -- using Plain (\La)TeX.</TPM:Description><TPM:RunFiles size="5274">texmf\tex\latex\shadbox\shadbox.sty texmf\tex\latex\shadbox\shadbox1.sty texmf\tpm\packages\shadbox.tpm</TPM:RunFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>e60264ce73daa0787fe9ce4d3af9670d</TPM:MD5></rdf:Description></rdf:RDF>

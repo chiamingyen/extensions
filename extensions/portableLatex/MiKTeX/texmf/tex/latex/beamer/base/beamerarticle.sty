@@ -1,0 +1,41 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\providecommand\beamer@version{3.00}
+
+\RequirePackage{beamerbasercs}
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/base/beamerarticle.sty,v 1.6 2007/01/28 20:48:20 tantau Exp $
+
+\DeclareOption{noxcolor}{\PassOptionsToPackage{noxcolor}{beamerbasearticle}}
+\DeclareOption{notheorems}{\PassOptionsToPackage{notheorems}{beamerbasearticle}}
+\DeclareOption{noamsthm}{\PassOptionsToPackage{noamsthm}{beamerbasearticle}}
+\DeclareOption{envcountsect}{\PassOptionsToPackage{envcountsect}{beamerbasearticle}}
+\DeclareOption{activeospeccharacters}{\PassOptionsToPackage{activeospeccharacters}{beamerbasearticle}}
+
+\ProcessOptions
+
+\RequirePackage{beamerbasemodes}
+% Setup modes and check for article option
+
+\def\beamer@slide#1#2{\expandafter\gdef\csname beamer@slide#1\endcsname{#2}}
+\beamer@inpresentationfalse
+
+\ifx\beamer@currentmode\@undefined
+  \def\beamer@currentmode{article}
+\fi
+  
+\mode<all>
+
+\RequirePackage{beamerbasearticle}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: ../examples/beamerexample1.tex
+%%% End: 

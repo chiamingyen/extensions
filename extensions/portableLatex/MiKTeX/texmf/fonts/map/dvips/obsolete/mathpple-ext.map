@@ -1,0 +1,7 @@
+% mathpple-ext.map: extra euler entries used by the mathppl
+%   package.
+%
+% Thomas Esser, 1999. public domain.
+%
+eurmo10 EURM10 ".167 SlantFont" <eurm10.pfb
+eurbo10 EURB10 ".167 SlantFont" <eurb10.pfb

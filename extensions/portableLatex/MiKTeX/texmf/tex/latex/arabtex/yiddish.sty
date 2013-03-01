@@ -1,0 +1,195 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% hescan.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% yiddish.sty
+% experimental scanner for Yiddish ASCII files
+% to activate it, say "\setcode {yiddish}
+% 14.06.2000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \yidatcode \undefined \else \xpa \endinput \fi
+
+\chardef \yidatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {yiddish.sty} 
+{3.10 scanner for YIVO Yiddish encoding} {14.06.2000}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setyid@codes {\seta@codes % activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@a {Q"a}	\def \sc@b {b}	
+\def \sc@c {@}	\def \sc@d {d}
+\def \sc@e {P}	\def \sc@f {f\n@xp\a@Zo}	
+\def \sc@g {g}	\def \sc@h {h}
+\def \sc@i {y}	\def \sc@j {@}	
+\def \sc@k {q}	\def \sc@l {l}
+\def \sc@m {m}	\def \sc@n {n}	
+\def \sc@o {Q"A}\def \sc@p {\n@xp\a@f}
+\def \sc@q {@}	\def \sc@r {r}	
+\def \sc@s {s}	\def \sc@t {t}
+\def \sc@u {w}	\def \sc@v {\n@xp\a@w}
+\def \sc@w {w}	\def \sc@x {@}
+\def \sc@y {y}	\def \sc@z {z}
+%
+\xpa \def \csname sc@`\endcsname {Q}
+\a@digits = {0123456789}	\a@paren  = {()[]}	\a@first = {}
+\globaldefs=0 
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Hebrew: oldcode and pccode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yid@scan #1>{% modified scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase {\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\@ssimfalse
+\novocalize \lowercase {\sc@beg #1\@ \@@ }% transform
+\iftest@scan \tracingmacros = 0 \xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \yid@beg #1{% start \ArabTeX scanner
+	\def \next {\yid@word #1}%
+\case #1\of
+{iu 	{\def \sc@char {Q}\sc@put }%
+a 	{\def \next {\y@d@a}}%
+e 	{\def \next {\y@d@e}}%
+o 	{\def \next {\y@d@o}}%
+\default{\def \sc@char {@}}%
+}\endcase \next }
+
+\def \yid@word #1{% transform input into internal notation
+%	\def \next {\yid@word }%
+\ifx #1\@ \def \next {\sc@endscan }\else
+\ifcat \nxp #1\relax \def \next {\yid@cs #1}\else	% control sequence
+\apply \yid@next \tocase #1\of
+{	a{\yid@a }%
+	e{\yid@e }%
+	y{\yid@y }%
+	o{\yid@o }%
+	k{\yid@k }%
+	t{\yid@t }%
+	s{\yid@s }%
+	z{\yid@z }%
+	-{\yid@B }%
+\default {\yid@@word #1}%
+}\endcase 
+\fi\fi \next }
+
+\def \yid@next #1{\def \next {#1}}
+
+\def \yid@@word #1{% transform input into internal notation
+\case #1\of
+{	`{\def \sc@char {Q}}%
+	"{\def \sc@char {\a@dq}}%
+\default {\ifcat \noexpand #1a\edef \sc@char {\csname sc@#1\endcsname }%
+	  \else \def \sc@char {#1}\fi}%
+}\endcase 
+\sc@put \yid@word }%
+
+\def \y@d@cs #1#2{% test word end
+\def \sc@char {#1}\sc@put 
+\ifx #2\@ \def \next {\sc@endscan #2}\else
+\ifcat -\nxp #2 \def \next {\yid@word #2}\else
+\def \next {\sc@back #2}\fi \fi \next }
+
+\def \yid@cs #1#2{% control sequence within a word; push back?
+\xpa \ifx #1\closegeresh \def \next {\y@d@cs {\nxp \lq }#2}\else 
+\xpa \ifx #1\closequote \def \next {\y@d@cs {`}#2}\else 
+	\def \next {\sc@back #1#2}%
+\fi\fi \next }
+
+\def \yid@endscan \@@ {\global\let \a@scan \yid@scan }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \y@d@a #1{% `ay ?
+\ifx #1y\def \sc@char {Q"\nxp\a@ZA}\def \next {\yid@word }\else
+\def \sc@char {Q"a}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \y@d@e #1{% `ey ?
+\ifx #1y\def \sc@char {Q"\nxp\a@ZE}\def \next {\yid@word }\else
+\def \sc@char {P}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \y@d@o #1{% `oy ?
+\ifx #1y\def \sc@char {Q"\nxp\a@ZO}\def \next {\yid@word }\else
+\def \sc@char {Q"A}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yid@a #1{% ay ?
+\ifx #1y\def \sc@char {"\nxp\a@ZA}\def \next {\yid@word }\else
+\def \sc@char {Q"a}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@e #1{% ey ?
+\ifx #1y\def \sc@char {"\nxp\a@ZE}\def \next {\yid@word }\else
+\def \sc@char {P}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@y #1{% yi ?
+\ifx #1i\def \sc@char {yy"i}\def \next {\yid@word }\else
+\def \sc@char {y}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@o #1{% oy ?
+\ifx #1y\def \sc@char {"\nxp\a@ZO}\def \next {\yid@word }\else
+\def \sc@char {Q"A}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@k #1{% kh ?
+\ifx #1h\def \sc@char {k}\def \next {\yid@word }\else
+\def \sc@char {q}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@t #1{% ts ?
+\ifx #1s\def \sc@char {S}\def \next {\yid@word }\else
+\def \sc@char {C}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@s #1{% sh ?
+\ifx #1h\def \sc@char {\nxp\a@S}\def \next {\yid@word }\else
+\def \sc@char {s}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@z #1{% zh ?
+\ifx #1h\def \sc@char {z\nxp\a@S}\def \next {\yid@word }\else
+\def \sc@char {z}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+\def \yid@B #1{% -- ?
+\ifx #1-\def \sc@char {\a@end}\def \next {\yid@word }\else
+\def \sc@char {B}\def \next {\yid@word #1}%
+\fi \sc@put \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yid@select {% select the new scanner
+\heb@catcodes			% inside hebtex.sty; to make sure
+\let \sc@beg \yid@beg 		\let \sc@word \yid@word  
+\let \sc@back \sc@@back		\let \sc@endscan \yid@endscan
+\setyid@codes			\global\let \a@scan \yid@scan
+\a@message {input encoding set to YIVO Yiddish conventions}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the Hebrew encodings
+yiddish\yid@select }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for YIVO Yiddish installed.}
+
+\catcode `\@ = \yidatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

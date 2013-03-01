@@ -1,0 +1,171 @@
+%%
+%% This is file `multicol-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{multicol-bidi.def}[2010/03/01 v0.1 adaptations for multicol package]
+\def\revprocess@cols#1#2{\count@\doublecol@number\relax
+\advance\count@ by -2
+     \loop #2%
+     \ifnum\count@>#1\relax
+     \advance\count@-\tw@
+   \repeat}
+\def\page@sofar{%
+   \process@cols\mult@rightbox
+       {\ifvoid\count@
+          \setbox\count@\hbox to\hsize{}%
+        \else
+          \wd\count@\hsize
+        \fi}%
+   \count@\col@number \advance\count@\m@ne
+   \mult@info\z@
+    {Column spec: \the\full@width\space = indent
+                  + columns + sep =\MessageBreak
+        \the\multicol@leftmargin\space
+        + \the\col@number\space
+        x \the\hsize\space
+        + \the\count@\space
+        x \the\columnsep
+     }%
+\ifvmode\else\errmessage{Multicol Error}\fi
+   \nointerlineskip
+   \setbox\z@\hbox{p}\global\dimen\tw@\dp\z@
+   \moveright\multicol@leftmargin
+   \if@RTL\hbox to\full@width{%
+    \ifdim\dp\mult@rightbox>\dimen\tw@
+       \global\dimen\tw@\dp\mult@rightbox \fi
+    \box\mult@rightbox
+    \llap{\phantom p}%
+     \revprocess@cols\mult@gfirstbox{%
+       \ifdim\dp\count@>\dimen\tw@
+         \global\dimen\tw@\dp\count@ \fi
+       \hss{\columnseprulecolor\vrule
+              \@width\columnseprule}\hss\box\count@}%
+}\else%
+    \hbox to\full@width{%
+     \process@cols\mult@gfirstbox{%
+       \ifdim\dp\count@>\dimen\tw@
+         \global\dimen\tw@\dp\count@ \fi
+       \box\count@
+       \hss{\columnseprulecolor\vrule
+              \@width\columnseprule}\hss}%
+     \ifdim\dp\mult@rightbox>\dimen\tw@
+       \global\dimen\tw@\dp\mult@rightbox \fi
+     \box\mult@rightbox
+     \rlap{\phantom p}%
+    }\fi%
+ \kern-\dimen\tw@
+ \ifdim\dimen\tw@ = \mc@gridwarn
+   \PackageWarning{multicol}%
+     {Very deep columns!\MessageBreak
+      Grid alignment might be broken}%
+ \fi
+}
+\def\right@footnote{%
+  \hbox to \textwidth
+  {\beginR \vbox{\kern -3\p@
+   \hrule width .4\columnwidth \kern2.6\p@}\hfil\endR}}
+\long\def\@footnotetext#1{%
+    \begingroup
+    \setbox\footins
+    \vbox{\if@RTL@footnote\@RTLtrue\else\@RTLfalse\fi\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\textwidth \@parboxrestore
+    \bidi@footnotetext@dir{#1}%
+    \protected@edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces\if@RTL@footnote#1\else\rmfamily#1\fi\strut}}%
+     \bidi@footnotetext@after
+    \insert\footins{\unvbox\footins}%
+    \endgroup}
+\long\def\@RTLfootnotetext#1{%
+    \begingroup
+    \setbox\footins
+    \vbox{\@RTLtrue\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\textwidth \@parboxrestore
+    \bidi@footnotetext@dir{#1}%
+    \protected@edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces #1\strut}}%
+     \bidi@footnotetext@after
+    \insert\footins{\unvbox\footins}%
+    \endgroup}
+\long\def\@LTRfootnotetext#1{%
+    \begingroup
+    \setbox\footins
+    \vbox{\@RTLfalse\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\textwidth \@parboxrestore
+    \bidi@footnotetext@dir{#1}%
+    \protected@edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces\rmfamily #1\strut}}%
+     \bidi@footnotetext@after
+    \insert\footins{\unvbox\footins}%
+    \endgroup}
+\long\def\@mpRTLfootnotetext#1{%
+  \global\setbox\@mpfootins\vbox{\@RTLtrue%
+    \unvbox\@mpfootins
+    \reset@font\footnotesize
+    \hsize\textwidth
+    \@parboxrestore
+    \protected@edef\@currentlabel
+         {\csname p@mpfootnote\endcsname\@thefnmark}%
+    \color@begingroup
+     \bidi@footnotetext@dir{#1}
+    \ifnum\c@mpfootnote=1\if@RTL\global\let\bidi@footnoterule\right@footnote\else\global\let\bidi@footnoterule\left@footnote\fi\fi
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces#1\@finalstrut\strutbox}%
+    \color@endgroup}}
+\long\def\@mpLTRfootnotetext#1{%
+  \global\setbox\@mpfootins\vbox{\@RTLfalse%
+    \unvbox\@mpfootins
+    \reset@font\footnotesize
+    \hsize\textwidth
+    \@parboxrestore
+    \protected@edef\@currentlabel
+         {\csname p@mpfootnote\endcsname\@thefnmark}%
+    \color@begingroup
+     \bidi@footnotetext@dir{#1}
+    \ifnum\c@mpfootnote=1\if@RTL\global\let\bidi@footnoterule\right@footnote\else\global\let\bidi@footnoterule\left@footnote\fi\fi
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces\rmfamily#1\@finalstrut\strutbox}%
+    \color@endgroup}}
+\long\def\@mpfootnotetext#1{%
+  \global\setbox\@mpfootins\vbox{\if@RTL@footnote\@RTLtrue\else\@RTLfalse\fi%
+    \unvbox\@mpfootins
+    \reset@font\footnotesize
+    \hsize\textwidth
+    \@parboxrestore
+    \protected@edef\@currentlabel
+         {\csname p@mpfootnote\endcsname\@thefnmark}%
+    \color@begingroup
+     \bidi@footnotetext@dir{#1}
+    \ifnum\c@mpfootnote=1\if@RTL\global\let\bidi@footnoterule\right@footnote\else\global\let\bidi@footnoterule\left@footnote\fi\fi
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces\if@RTL@footnote#1\else\rmfamily#1\fi\@finalstrut\strutbox}%
+    \color@endgroup}}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `multicol-bidi.def'.

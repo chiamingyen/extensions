@@ -1,0 +1,410 @@
+% Copyright 2002-2006 Sigitas Tolu\v{s}is
+% All rights reserved.
+%
+% This file is part of the fontinst system version 1.9.
+% -----------------------------------------------------
+%
+% It may be distributed under the terms of the LaTeX Project Public
+% License, as described in lppl.txt in the base LaTeX distribution.
+% Either version 1.0 or, at your option, any later version.
+%
+%
+% 2006/09/05 v0.2
+
+\relax
+
+\metrics
+
+\needsfontinstversion{1.800}
+
+\setcommand\cedillatopaccent#1#2#3{
+   \push
+      \moveup{\add{\max{0}{\sub{\depth{#2}}{\depth{dieresis}}}}{\max{0}{\sub{\height{#1}}{\int{xheight}}}}}
+      \movert{\add{\sub{\scale{\width{#1}}{#3}}{\scale{\width{#2}}{500}}}
+         {\scale{\sub{\height{#1}}{\int{xheight}}}{\int{italicslant}}}}
+      \glyph{#2}{1000}
+   \pop
+   \glyph{#1}{1000}
+}
+
+\setcommand\topaccent#1#2#3{
+   \push
+      \moveup{\max{0}{\sub{\height{#1}}{\int{xheight}}}}
+      \movert{\add{\sub{\scale{\width{#1}}{#3}}{\scale{\width{#2}}{500}}}
+         {\scale{\sub{\height{#1}}{\int{xheight}}}{\int{italicslant}}}}
+      \glyph{#2}{1000}
+   \pop
+   \glyph{#1}{1000}
+}
+
+\setcommand\botaccent#1#2#3{
+   \push
+      \movert{\sub{\scale{\width{#1}}{#3}}{\scale{\width{#2}}{500}}}
+      \glyph{#2}{1000}
+   \pop
+   \glyph{#1}{1000}
+}
+
+\comment{\section{Glyphs}}
+
+\setglyph{dotlessj}
+   \glyph{j}{1000}
+   \resetheight{\int{xheight}}
+   \comment{The reason \texttt{dotlessj} \emph{can} be faked using a 
+     \texttt{j} is that it is not a distinct character. Unlike 
+     \texttt{dotlessi}, which is in Turkish a letter distinct from 
+     \texttt{i}, the only thing \texttt{dotlessj} is ever used for is 
+     as the base glyph for accented j's.}
+\endsetglyph
+\setleftrightkerning{dotlessj}{j}{1000}
+
+\setglyph{compwordmark}
+   \glyphrule{0}{\int{xheight}}
+\endsetglyph
+\setint{compwordmark-spacing}{0}
+
+\ifisglyph{fi}\then\else
+  \setglyph{fi}
+     \glyph{f}{1000}
+     \movert{\kerning{f}{i}}
+     \glyph{i}{1000}
+  \endsetglyph
+\fi
+
+\ifisglyph{ff}\then\else
+  \setglyph{ff}
+     \glyph{f}{1000}
+     \movert{\kerning{f}{f}}
+     \glyph{f}{1000}
+  \endsetglyph
+\fi
+
+\ifisglyph{fl}\then\else
+  \setglyph{fl}
+     \glyph{f}{1000}
+     \movert{\kerning{f}{l}}
+     \glyph{l}{1000}
+  \endsetglyph
+\fi
+
+\ifisglyph{ffi}\then\else
+  \setglyph{ffi}
+     \glyph{f}{1000}
+     \movert{\kerning{f}{f}}
+     \glyph{fi}{1000}
+  \endsetglyph
+\fi
+
+\ifisglyph{ffl}\then\else
+  \setglyph{ffl}
+     \glyph{f}{1000}
+     \movert{\kerning{f}{f}}
+     \glyph{fl}{1000}
+  \endsetglyph
+\fi
+
+\ifisglyph{Aogonek}\then\else
+  \setleftrightkerning{Aogonek}{A}{1000}
+  \setglyph{Aogonek}
+     \botaccent{A}{ogonek}{900}
+  \endsetglyph
+\fi
+
+\ifisglyph{Iogonek}\then\else
+  \setleftrightkerning{Iogonek}{I}{1000}
+  \setglyph{Iogonek}
+     \botaccent{I}{ogonek}{650}
+  \endsetglyph
+\fi
+
+\ifisglyph{Amacron}\then\else
+  \setleftrightkerning{Amacron}{A}{1000}
+  \setglyph{Amacron}
+     \topaccent{A}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Cacute}\then\else
+  \setleftrightkerning{Cacute}{C}{1000}
+  \setglyph{Cacute}
+     \topaccent{C}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Eogonek}\then\else
+  \setleftrightkerning{Eogonek}{E}{1000}
+  \setglyph{Eogonek}
+     \botaccent{E}{ogonek}{850}
+  \endsetglyph
+\fi
+
+\ifisglyph{Emacron}\then\else
+  \setleftrightkerning{Emacron}{E}{1000}
+  \setglyph{Emacron}
+     \topaccent{E}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Ccaron}\then\else
+  \setleftrightkerning{Ccaron}{C}{1000}
+  \setglyph{Ccaron}
+     \topaccent{C}{caron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Zacute}\then\else
+  \setleftrightkerning{Zacute}{Z}{1000}
+  \setglyph{Zacute}
+     \topaccent{Z}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Edotaccent}\then\else
+  \setleftrightkerning{Edotaccent}{E}{1000}
+  \setglyph{Edotaccent}
+     \topaccent{E}{dotaccent}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Imacron}\then\else
+  \setleftrightkerning{Imacron}{I}{1000}
+  \setglyph{Imacron}
+     \topaccent{I}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Nacute}\then\else
+  \setleftrightkerning{Nacute}{N}{1000}
+  \setglyph{Nacute}
+     \topaccent{N}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Omacron}\then\else
+  \setleftrightkerning{Omacron}{O}{1000}
+  \setglyph{Omacron}
+     \topaccent{O}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Uogonek}\then\else
+  \setleftrightkerning{Uogonek}{U}{1000}
+  \setglyph{Uogonek}
+     \botaccent{U}{ogonek}{650}
+  \endsetglyph
+\fi
+
+\ifisglyph{Sacute}\then\else
+  \setleftrightkerning{Sacute}{S}{1000}
+  \setglyph{Sacute}
+     \topaccent{S}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Umacron}\then\else
+  \setleftrightkerning{Umacron}{U}{1000}
+  \setglyph{Umacron}
+     \topaccent{U}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Zdotaccent}\then\else
+  \setleftrightkerning{Zdotaccent}{Z}{1000}
+  \setglyph{Zdotaccent}
+     \topaccent{Z}{dotaccent}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{aogonek}\then\else
+  \setglyph{aogonek}
+     \botaccent{a}{ogonek}{850}
+  \endsetglyph
+\fi
+
+\ifisglyph{iogonek}\then\else
+  \setglyph{iogonek}
+     \botaccent{i}{ogonek}{650}
+  \endsetglyph
+\fi
+
+\ifisglyph{amacron}\then\else
+  \setglyph{amacron}
+     \topaccent{a}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{cacute}\then\else
+  \setglyph{cacute}
+     \topaccent{c}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{eogonek}\then\else
+  \setglyph{eogonek}
+     \botaccent{e}{ogonek}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{emacron}\then\else
+  \setglyph{emacron}
+     \topaccent{e}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{ccaron}\then\else
+  \setglyph{ccaron}
+     \topaccent{c}{caron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{zacute}\then\else
+  \setglyph{zacute}
+     \topaccent{z}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{edotaccent}\then\else
+  \setglyph{edotaccent}
+     \topaccent{e}{dotaccent}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{imacron}\then\else
+  \setglyph{imacron}
+     \topaccent{dotlessi}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{nacute}\then\else
+  \setglyph{nacute}
+     \topaccent{n}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{omacron}\then\else
+  \setglyph{omacron}
+     \topaccent{o}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{uogonek}\then\else
+  \setglyph{uogonek}
+     \botaccent{u}{ogonek}{650}
+  \endsetglyph
+\fi
+
+\ifisglyph{sacute}\then\else
+  \setglyph{sacute}
+     \topaccent{s}{acute}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{umacron}\then\else
+  \setglyph{umacron}
+     \topaccent{u}{macron}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{zdotaccent}\then\else
+  \setglyph{zdotaccent}
+     \topaccent{z}{dotaccent}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Rcommaaccent}\then\else
+  \setleftrightkerning{Rcommaaccent}{R}{1000}
+  \setglyph{Rcommaaccent}
+    \botaccent{R}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Gcommaaccent}\then\else
+  \setleftrightkerning{Gcommaaccent}{G}{1000}
+  \setglyph{Gcommaaccent}
+     \botaccent{G}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Kcommaaccent}\then\else
+  \setleftrightkerning{Kcommaaccent}{K}{1000}
+  \setglyph{Kcommaaccent}
+     \botaccent{K}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Lcommaaccent}\then\else
+  \setleftrightkerning{Lcommaaccent}{L}{1000}
+  \setglyph{Lcommaaccent}
+     \botaccent{L}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{Ncommaaccent}\then\else
+  \setleftrightkerning{Ncommaaccent}{N}{1000}
+  \setglyph{Ncommaaccent}
+     \botaccent{N}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{rcommaaccent}\then\else
+  \setleftrightkerning{rcommaaccent}{r}{1000}
+  \setglyph{rcommaaccent}
+     \botaccent{r}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{gcommaaccent}\then\else
+  \setleftrightkerning{gcommaaccent}{g}{1000}
+  \setglyph{gcommaaccent}
+     \cedillatopaccent{g}{quoteleft}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{kcommaaccent}\then\else
+  \setleftrightkerning{kcommaaccent}{k}{1000}
+  \setglyph{kcommaaccent}
+     \botaccent{k}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{lcommaaccent}\then\else
+  \setleftrightkerning{lcommaaccent}{l}{1000}
+  \setglyph{lcommaaccent}
+     \botaccent{l}{cedilla}{500}
+  \endsetglyph
+\fi
+
+\ifisglyph{ncommaaccent}\then\else
+  \setleftrightkerning{ncommaaccent}{n}{1000}
+  \setglyph{ncommaaccent}
+     \botaccent{n}{commaaccent}{500}
+  \endsetglyph
+\fi
+
+\begincomment
+\section{Adjusting depth of accents}
+We copy the \verb|\zerodepth| stuff from \texttt{latin.mtx}:
+\endcomment
+
+\setcommand\zerodepth#1{
+  \ifisglyph{#1}\then
+   \resetglyph{#1}
+        \glyph{#1}{1000}
+        \resetdepth{0}
+   \endresetglyph
+  \fi
+}
+\zerodepth{acute}
+\zerodepth{grave}
+\zerodepth{caron}
+\zerodepth{breve}
+\zerodepth{macron}
+\zerodepth{ring}
+\zerodepth{circumflex}
+\zerodepth{dotaccent}
+\zerodepth{tilde}
+\zerodepth{dieresis}
+
+\endmetrics
+
+\end{document}

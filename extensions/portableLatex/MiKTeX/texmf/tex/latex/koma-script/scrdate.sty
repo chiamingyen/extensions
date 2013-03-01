@@ -1,0 +1,168 @@
+%%
+%% This is file `scrdate.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% scrtime.dtx  (with options: `scrdate')
+%% scrlogo.dtx  (with options: `logo')
+%% 
+%% Copyright (c) 1994-2009
+%% Markus Kohm and any individual authors listed elsewhere in this file.
+%% 
+%% This file was generated from file(s) of the KOMA-Script bundle.
+%% ---------------------------------------------------------------
+%% 
+%% It may be distributed under the conditions of the
+%% LaTeX Project Public License in the version distributed together
+%% with KOMA-Script, see file `lppl.txt' or `lppl-de.txt'.
+%% 
+%% This file may only be distributed together with a copy of the
+%% KOMA-Script bundle.  You may however distribute the
+%% KOMA-Script bundle without all such generated files.  See also
+%% `lppl.txt' or `lppl-de.txt' for additional information.
+%% 
+%% The list of files belonging to KOMA-Script distribution is given in
+%% the file `manifest.txt'.  See also `lppl.txt' or `lppl-de.txt' for
+%% additional information.
+%% 
+%% If this file is a beta version, you may not be allowed to distribute
+%% it.  Look at the comments below to see if this is the case.
+%% 
+%% English and German manuals are part of KOMA-Script bundle.
+%% ----------------------------------------------------------
+%% 
+%% See `README'.
+%% 
+%% The KOMA-Script bundle (but maybe not this file) was based upon the
+%% LaTeX 2.09 Script family created by Frank Neukam 1993 and the LaTeX2e
+%% standard classes created by The LaTeX3 Project 1994-1996.  You may
+%% find a complete unmodified copy of LaTeX2e at
+%% <http://www.ctan.org/pub/tex-archive/macros/latex/base/>.
+%% 
+%%% From File: scrtime.dtx
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{scrdate}
+                [2009/01/01 v1.1p LaTeX2e KOMA-Script
+                 package]
+\newcommand\todaysname{%
+  \begingroup%
+  \@tempcnta=\year
+  \@tempcntb=1 % 1. Januar 1980 war ein Dienstag
+  \ifnum\@tempcnta<1980 unknown\else%
+    \advance\@tempcnta by-1980%
+    \@whilenum\@tempcnta>3\do%
+    {\advance\@tempcntb by5\advance\@tempcnta by-4}%
+    \ifnum\@tempcnta=0%
+      \ifnum\month>2\advance \@tempcntb by1\fi%
+    \else%
+      \advance\@tempcntb by\@tempcnta%
+      \advance\@tempcntb by1
+    \fi%
+    \ifcase\month\or\or\advance\@tempcntb3%  Jan =  28 + 3
+                    \or\advance\@tempcntb3% +Feb =  56 + 3
+                    \or\advance\@tempcntb6% +Mar =  84 + 6
+                    \or\advance\@tempcntb1% +Apr = 119 + 1
+                    \or\advance\@tempcntb4% +May = 147 + 4
+                    \or\advance\@tempcntb6% +Jun = 175 + 6
+                    \or\advance\@tempcntb2% +Jul = 210 + 2
+                    \or\advance\@tempcntb5% +Aug = 238 + 5
+                    \or%                    +Sep = 273 + 0
+                    \or\advance\@tempcntb3% +Oct = 301 + 3
+                    \or\advance\@tempcntb5% +Nov = 329 + 5
+    \fi%
+    \advance\@tempcntb by\day%
+    \advance\@tempcntb by-1% die Zaehlung beginnt bei 0
+    \@whilenum\@tempcntb>6\do%
+    {\advance\@tempcntb by-7}%
+    \@dayname{\@tempcntb}%
+  \fi\endgroup}
+\newcommand\nameday[1]{\renewcommand\todaysname{#1}}
+\newcommand*\scrdate@languagenamewarning{
+  \PackageWarningNoLine{scrdate}
+    {\string\languagename\space not
+     defined, using \string\language.\MessageBreak
+     This may result in use of wrong language!\MessageBreak
+     You should use a compatible language
+     package\MessageBreak
+     (e.g. `Babel', `german', `french', ...)}
+  \let\scrdate@languagenamewarning\relax}
+\newcommand\newdaylanguage[8]{%
+  \begingroup\expandafter\expandafter\expandafter\endgroup
+  \expandafter\ifx\csname l@#1\endcsname\relax
+    \PackageWarningNoLine{scrdate}{Language #1\space not defined.\MessageBreak
+                                  \protect\dayname@#1\space skipped!}
+  \else
+    \@namedef{dayname@#1}##1{%
+      \begingroup%
+        \@tempcnta ##1%
+        \ifcase\@tempcnta%
+          #2\or #3\or #4\or #5\or #6\or #7\or #8\fi\endgroup%
+    }
+    \AtBeginDocument{
+      \begingroup\expandafter\expandafter\expandafter\endgroup
+      \expandafter\ifx\csname date#1\endcsname\relax
+        \PackageWarningNoLine{scrdate}
+                             {\protect\date#1\space not defined.\MessageBreak
+                              \protect\todaysname maybe can't use
+                              \protect\dayname@#1!}
+      \else
+        \expandafter\let\csname D@date#1\expandafter\endcsname
+                        \csname date#1\endcsname
+        \@namedef{date#1}{%
+          \expandafter\let\expandafter\@dayname\csname dayname@#1\endcsname
+          \@nameuse{D@date#1}}%
+        \@ifundefined{languagename}{
+          \scrdate@languagenamewarning
+          \ifnum\language=\@nameuse{l@#1}
+            \@nameuse{date#1}
+          \fi}{
+          \@ifundefined{date\languagename}
+            {}
+            {\@nameuse{date\languagename}}
+        }
+      \fi
+    }
+  \fi
+}
+\newdaylanguage{german}{Montag}{Dienstag}{Mittwoch}
+               {Donnerstag}{Freitag}{Samstag}{Sonntag}
+\newdaylanguage{ngerman}{Montag}{Dienstag}{Mittwoch}
+               {Donnerstag}{Freitag}{Samstag}{Sonntag}
+\newdaylanguage{english}{Monday}{Tuesday}{Wednesday}
+               {Thursday}{Friday}{Saturday}{Sunday}
+\newdaylanguage{USenglish}{Monday}{Tuesday}{Wednesday}
+               {Thursday}{Friday}{Saturday}{Sunday}
+\newdaylanguage{french}{Lundi}{Mardi}{Mercredi}
+               {Jeudi}{Vendredi}{Samedi}{Dimanche}
+\newdaylanguage{italian}{Luned\`\i}{Marted\`\i}{Mercoled\`\i}
+               {Gioved\`\i}{Venerd\`\i}{Sabato}{Domenica}
+\newdaylanguage{spanish}{Lunes}{Martes}{Mi\'ercoles}
+               {Jueves}{Viernes}{S\'abado}{Domingo}
+\newdaylanguage{croatian}{Ponedjeljak}{Utorak}{Srijeda}
+               {\v{C}etvrtak}{Petak}{Subota}{Nedjelja}
+\newdaylanguage{dutch}{Maandag}{Dinsdag}{Woensdag}
+               {Donderdag}{Vrijdag}{Zaterdag}{Zondag}
+\newdaylanguage{finnish}{Maanantai}{Tiistai}{Keskiviikko}
+               {Torstai}{Perjantai}{Lauantai}{Sunnuntai}
+\newdaylanguage{norsk}{Mandag}{Tirsdag}{Onsdag}
+               {Torsdag}{Fredag}{L\o{}rdag}{S\o{}ndag}
+\def\@dayname#1{%
+  \begingroup%
+    \@tempcnta #1%
+    \ifcase\@tempcnta%
+      Monday\or Tuesday\or Wednesday\or Thursday\or
+      Friday\or Saturday\or Sunday\fi\endgroup%
+}
+\InputIfFileExists{scrdate.cfg}
+           {\typeout{*************************************^^J%
+                     * Local config file scrdate.cfg used^^J%
+                     *************************************}}
+           {}
+%%% From File: scrlogo.dtx
+\@ifundefined{KOMAScript}{%
+  \DeclareRobustCommand{\KOMAScript}{\textsf{K\kern.05em O\kern.05em%
+      M\kern.05em A\kern.1em-\kern.1em Script}}}{}
+\endinput
+%%
+%% End of file `scrdate.sty'.

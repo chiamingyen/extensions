@@ -1,0 +1,91 @@
+%%  Time-stamp: "dtk.dtx        2006-08-11 18:18:53 CET Mittwoch  RN/HjG/hv"
+%%
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%^^A $Id: dtk.dtx,v 1.9b 2006/08/11 21:03:42 hv Exp hv $
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Purpose:
+%%      LaTeX Class and Styles for ``Die TeXnische Komoedie''.
+%%
+%% Documentation:
+%%      The documentation  can be  generated  from  the original file
+%%      dtk.dtx with the doc style/package. LaTeX the file dtk.tex to
+%%      get the full documentation in DVI format.
+%%
+%%
+%% Author: Gerd Neugebauer
+%%         Mainzer Str. 8
+%%         56321 Rhens (Germany)
+%% Mail:   gene@gerd-neugebauer.de
+%%
+%% Copyright (C) 1995-1996 Gerd Neugebauer
+%% Copyright (C) 1997-2006 DANTE, Deutschsprachige
+%%                           Anwendervereinigung TeX e.V.
+%%
+%%  dtk.dtx is distributed in the hope that it  will  be useful, but
+%%  WITHOUT  ANY  WARRANTY.    No   author  or  distributor  accepts
+%%  responsibility to anyone for the consequences of using it or for
+%%  whether it serves any particular purpose or works at all, unless
+%%  he says so in writing.
+%%
+%%  Everyone is granted permission to  copy, modify and redistribute
+%%  dtk.dtx,  provided  this copyright notice is preserved  and  any
+%%  modifications are indicated.
+%%
+%%
+%%  This package is still under development and may be replaced with
+%%  a new version which provides enhanced functionality.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% This is file `Letter.ist',
+%%
+%% The idea is from Ingo Kloeckl, Latex2e:
+%% Herbert Voss 000726
+%%
+%% This is a MAKEINDEX style file which should be used to
+%% generate the formatted change history for use with the doc
+%% package. The TeX commands used below are defined in
+%% doc.sty.  The commands for MAKEINDEX like `level'
+%% `item_x1' are described in `` Makeindex, A General
+%% Purpose, Formatter-Independent Index Processor'' by
+%% Pehong Chen.
+%%
+headings_flag       1           % headings yes
+heading_prefix   "{\\SectionFont "%
+heading_suffix   "}\n"          % newline
+quote                '"'
+%%level                '>'
+preamble
+  "\\begin{theindex}\n"
+item_1
+  "\\par\\leavevmode\\hangindent10pt\\makebox[10pt][l]{--}"
+item_01
+  "\\par\\leavevmode\\hangindent10pt\\makebox[10pt][l]{--}"
+item_x1
+  "\\par\\leavevmode\\hangindent10pt\\makebox[10pt][l]{--}"
+item_2
+  "\\par\\leavevmode\\hangindent20pt\\makebox[20pt][l]{-- -- }"
+item_12
+  "\\par\\leavevmode\\hangindent20pt\\makebox[20pt][l]{-- -- }"
+item_x2
+  "\\par\\leavevmode\\hangindent20pt\\makebox[20pt][l]{-- -- }"
+%%
+%%
+%% End of file `Letter.ist'.

@@ -1,0 +1,35 @@
+% Thomas Esser, 2000, public domain.
+%
+% mt-plus.map: map file entries for the (commercial) mathtime plus fonts.
+% These fonts can be ordered from Y&Y: http.//www.yandy.com.
+%
+MTEXB MTEXB <mtexb.pfb
+MTEXH MTEXH <mtexh.pfb
+MTGU MTGU <mtgu.pfb
+MTGUB MTGUB <mtgub.pfb
+MTLS MTLS <mtls.pfb
+MTLSB MTLSB <mtlsb.pfb
+MTMS MTMS <mtms.pfb
+MTMSB MTMSB <mtmsb.pfb
+MTSYB MTSYB <mtsyb.pfb
+MTSYH MTSYH <mtsyh.pfb
+MTSYN MTSYN <mtsyn.pfb
+RMTMIB RMTMIB <rmtmib.pfb
+RMTMIH RMTMIH <rmtmih.pfb
+RMTMUB RMTMUB <rmtmub.pfb
+RMTMUH RMTMUH <rmtmuh.pfb
+mtexb MTEXB <mtexb.pfb
+mtexh MTEXH <mtexh.pfb
+mtgu MTGU <mtgu.pfb
+mtgub MTGUB <mtgub.pfb
+mtls MTLS <mtls.pfb
+mtlsb MTLSB <mtlsb.pfb
+mtms MTMS <mtms.pfb
+mtmsb MTMSB <mtmsb.pfb
+mtsyb MTSYB <mtsyb.pfb
+mtsyh MTSYH <mtsyh.pfb
+mtsyn MTSYN <mtsyn.pfb
+rmtmib RMTMIB <rmtmib.pfb
+rmtmih RMTMIH <rmtmih.pfb
+rmtmub RMTMUB <rmtmub.pfb
+rmtmuh RMTMUH <rmtmuh.pfb

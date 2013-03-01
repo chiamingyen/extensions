@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%% nashdia.mf %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NASH Font
+% 14.03.92
+% 03.11.96
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if unknown nashbase: input nashbase fi;
+
+%%%%%%%%%%%%%% diacritics %%%%%%%%%%%%%%%%%
+
+diachar(damma, 4, 5);
+z1 = z.l; x2 = 3dx; y2 = y.r; x3 = x.r; y3 = 2dy;
+draw z1{dir 30}..z2{left}..z3{dir -45};
+endchar;
+
+diachar(fatha, 4, 2.5);
+draw z.l--z.r;
+endchar;
+
+diachar(sukun, 4, 4);
+%draw (.5w, y.l)..(.5w, y.r)..cycle;
+%draw (.5w, y.r){dir -35}..(.5w, y.l){left}..{dir 35}(.5w, y.r);
+%draw (.5w, y.r){dir -45}..(.5w, y.l){left}..{dir 45}(.5w, y.r);
+draw (.5w, y.r){dir -45}..(.5w, y.l){left}..{dir 30}(.5w, y.r);
+endchar;
+
+diachar(dammatan, 5, 5);
+x4 = x.l; x5 = x1 = dx; y4 = y5 = 3dy; y1 = y.l;
+x2 - x.l = 3dx; y2 = y.r; x3 = x.r; y3 = 2dy;
+draw z1{dir 30}..z2{left}..z3{dir -45};
+draw z4..z5..z1{down};
+endchar;
+
+diachar(fathatan, 4, 4.5);
+x1 = x.r; x2 = x.l; y1 = y.r - 2dy; y2 = y.l + 2dy;
+draw z.l--z1; draw z2--z.r;
+endchar;
+
+diachar(hamza, 4, 5);
+x1 = x.r; x2 = x.l; x3 = x.r -  dx;
+y1 = 2dy; y2 = 2.5dy; y3 = y.r - .5dy;
+draw z.l--z1;
+draw z3{left}..z2..z1{z1-z.l};
+endchar;
+
+diachar(shadda, 5, 3);
+z5 - z3 = z3 - z1 = z4 - z2 = whatever * (4dx, dy);
+z5 = z.r; x1 = x.l; y2 = y.l; x2 = .5[x1, x3];
+draw z1{down}..z2..z3{up}; draw z3{down}..z4..z5{up};
+endchar;
+
+diachar(quran_alif, 2, 5);
+x1 = x.l; x2 = .5[x.l, x.r];
+y1 = y.r; y2 = y.l;
+draw z1--z2;
+endchar;
+
+diachar(wasla, 6, 2);
+x1 - .4w = x2 - .7w = x4 - .7w = x5 = dx; x3 = x.r + dx;
+%x1 = .4w; x2 = x4 = .7w; x3 = x.r;
+y1 = y3 = h/2; y2 = y.l; y4 = y5 = y.r;
+draw z5..z1..z2..z3..z4..z1;
+endchar;
+
+diachar(madda, 6, 1.5);
+%x.r - x2 = x1 - x.l = .25(x.r - x.l);
+%y1 = y.r; y2 = y.l;
+%draw z.l..z1..z2..z.r;
+x.r - x2 = x1 - x.l = .1(x.r - x.l);
+y1 = y.r + dy; y3 = y2 = y.l; x3 = x.r; 
+draw z.l--z1..z2..z3;
+endchar;
+
+diachar(ttah_dia, 4, 5);
+z1 = z.l; x2 = x4 = dx; y2 = dy; y4 = y.r; x3 = x.r; y3 = 2dy;
+draw z1{dir 45}..z2..z3..z1{left}; draw z2..z4;
+endchar;
+
+arabchar(one_dot_up, 0, 2, 4, -2);
+one_dot(1);
+endchar;
+
+arabchar(two_dots_up, 0, 5, 4, -2);
+two_dots(1);
+endchar;
+
+arabchar(three_dots_up, 0, 5, 7, -2);
+three_dots(1);
+endchar;
+
+arabchar(two_dots_down, 0, 5, 2, 0);
+two_dots(1);
+endchar;
+
+arabchar(three_dots_down, 0, 5, 2, 3);
+three_dots_low(1);
+endchar;
+
+diachar(bow_dia, 4, 2);
+draw (x.l,y.r)..(.5w, y.l)..z.r;
+endchar;
+
+diachar(e_dia, 4, 2.5);
+draw z.l--(x.r,y.l);
+endchar;
+
+diachar(h_dia, 4, 5);
+x1 = x2 = x3 = .5w;
+y1 = y.r; y2 = y.l; y3 = .2[y2,y1];
+draw z1{z.l-z1}..z2{right}..z3{left};
+endchar;
+
+%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%
+
+

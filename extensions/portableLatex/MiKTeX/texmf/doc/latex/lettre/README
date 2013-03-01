@@ -1,0 +1,37 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+% E-Mail: Denis.Megevand@obs.unige.ch
+% Ftp site: obsftp.unige.ch:/pub/tex/macros
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+author:		Denis M\'egevand
+version:	`ls LAST_VERSION_IS_*`
+date:		`cat LAST_VERSION_IS_*`
+
+New features and bug corrections are described in the release notes.
+
+The documentation (only available in french) is provided as two dvi file, which
+input several files and calls several postscript files to obtain the complete 
+manual with the examples. letdoc1 use EC fonts, letdoc2 use CM fonts.
+
+A Postscript version of the manual is also provided. 
+----------------
+Installation
+============
+Installation is very simple, the only sensitive files are lettre.cls
+and default.ins which are to be put in the macro path, usually hidden behind 
+the environment variable $TEXINPUTS.
+----------------
+Usage
+=====
+Print, then follow the documentation. The examples give real letter
+and telefax examples that are compiled with the style. Try to compile
+them to check the package against your LaTeX installation.
+----------------
+

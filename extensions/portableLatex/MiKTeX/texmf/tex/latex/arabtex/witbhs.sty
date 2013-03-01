@@ -1,0 +1,209 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% witbhs.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% witbhs.sty
+% Scanner for a variant of the encoding used in the machine-readable
+% Biblia Hebraica Stuttgartensia
+% to install it, include it as a LaTeX package or style option "witbhs"
+% with Plain TeX, say "\input witbhs.sty"
+% to activate it, say "\setcode {witbhs}
+% 14.09.2001
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% about the encoding contact: arian@th.vu.nl
+% Dr Arian J.C.Verheij
+% NWO / VU, Dpt. Biblical Studies & CS
+% De Boelelaan 1105, kr. 14A-38
+% NL 1081 HV Amsterdam
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \bhsatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \bhsatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {witbhs.sty} {3.10 read WITBHS Hebrew encoding} {14.09.2001}
+
+\UsePackage {bhslabel} % process BHS labels
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for WITBHS Hebrew coding
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\"=12 \catcode `\>=11 \catcode `\&=12 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setwitbhs@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@A {a}   \def \sc@B {b}   \def \sc@C {x}   \def \sc@D {d}
+\def \sc@E {e} \def\sc@F{\n@xp\a@s} \def\sc@G{g}   \def \sc@H {h}
+\def \sc@I {i}   \def \sc@J {y}   \def \sc@K {k}   \def \sc@L {l}
+\def \sc@M {m}  \def \sc@N {n} \def\sc@O{\n@xp\a@o}\def \sc@P {p}
+\def \sc@Q {q}   \def \sc@R {r}   \def \sc@S {s}   \def \sc@T {t}
+\def \sc@U {u}   \def \sc@V {C}   \def \sc@W {w}   \def \sc@X {X}
+\def \sc@Y {S}   \def \sc@Z {z}   \def \sc@@ {A}
+\a@digits = {0123456789}     	\a@paren  = {[]}
+\a@first = {>+<##&$":.,*0123456789}	
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for WITBHS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\arab@codes \catcode `\> 11
+
+\gdef \witbhs@beg #1#2{% start WITBHS scanner
+\@ssimfalse \def \next {\witbhs@word #1#2}%
+\ifx #1\@\def \next {\sc@endscan #2}\else			% finished
+\ifx #2\@\def \next {\witbhs@testpara #1#2}\else
+\ifx #2?\def \next {\witbhs@testpara #1#2}\else
+\fi\fi\fi \next }
+
+\gdef \witbhs@word #1#2{% transform input into internal notation
+\case #1\of
+{      \@{\sc@endscan #2}
+	]{\witbhs@word }
+	/{\witbhs@word #2}
+	0{\witbhs@zero #2}
+	7{\witbhs@seven #2}
+ 12345689{\witbhs@word }
+	?{\witbhs@query #2}
+	:{\witbhs@colon #2}
+%	O{\witbhs@O #2}
+	W{\witbhs@W #2}
+	*{\witbhs@star #2}
+%       #2{\witbhs@word #1|#2}
+\default {\witbhs@rest #1#2}
+}\endcase }
+
+\gdef \witbhs@rest #1#2{% transform input into internal notation
+     \def \next {\sc@put \witbhs@word #2}%
+\case #1\of 
+{	.{\def \sc@char {\nxp \a@Zu }}
+	|{\def \sc@char {\nxp \a@U }}
+	'{\def \sc@char {'}}
+	>{\def \sc@char {Q}}
+	+{\def \sc@char {N}}	% phantom carrier
+	${\def \sc@char {M}}	% phantom carrier
+	={\def \sc@char {-}}	% medial form at end
+	<{\def \sc@char {P}}
+	&{\def \sc@char {\nxp \a@s }}
+	;{\def \sc@char {\nxp \a@E }}
+	-{\def \sc@char {B}}
+\default {\ifcat \nxp #1\relax \def \next {\sc@back #1{#2}}\else
+	\if \nxp #1\a@hash \def \sc@char {\nxp \a@S }\else
+	\ifcat \nxp #1a\edef \sc@char {\csname sc@#1\endcsname }%
+	\fi\fi\fi }
+}\endcase \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \witbhs@star {% qere / qetiv
+\def \sc@char {*}\sc@put \witbhs@word }
+
+\gdef \witbhs@colon #1{% shwa or chatef
+\def \next {\witbhs@word }%
+\ifx #1A\def \sc@char {\nxp \a@A }\else
+\ifx #1@\def \sc@char {\nxp \a@O }\else
+\ifx #1E\def \sc@char {\nxp \a@I }\else
+\def \sc@char {\nxp \a@e }\def \next {\witbhs@word #1}%
+\fi\fi\fi \sc@put \next }
+
+\iffalse
+\gdef \witbhs@O {% cholem or cholem waw
+\def \sc@char {\nxp \a@o }\sc@put \witbhs@word }
+\fi
+
+\gdef \witbhs@W #1{% waw or shureq
+\def \sc@char {w}\def \next {\witbhs@word #1}%
+\ifx #1.\def \sc@char {U}\def \next {\witbhs@word }%
+\fi \sc@put \next }
+
+\gdef \witbhs@seven #1{% meteg
+\def \next {\witbhs@word }%
+\ifx #15\def \sc@char {|}\sc@put \else
+\if\is@in@set #1\a@digits \else \def \next {\witbhs@word #1}%
+\fi\fi \next }
+
+\gdef \witbhs@zero #1{% sop pasuq and pasuq
+\def \next {\witbhs@word }%
+\ifx #10\def \sc@char {:}\sc@put \else
+%\ifx #15\def \sc@char {K}\sc@put \else
+\ifx #15\def \next {\witbhs@pasuq }\else
+\if\is@in@set #1\a@digits \else \def \next {\witbhs@word #1}%
+\fi\fi\fi \next }
+
+}% \arab@codes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \witbhs@testpara #1#2{% single initial P ?
+\ifx #1P\def \next {\witbhs@para #1#2}%
+\else \def \next {\witbhs@word #1#2}%
+\fi \next }
+
+\def \a@c@witbhspara {% small paragraph mark
+\putwordb@x {\small \heb@font \heb@testfont
+\act@cd '164 \advance \act@cd \heb@dsp 
+\space \char \act@cd \space }\test@token }
+
+\def \a@c@pasuq {% verse division
+\putwordb@x {\small $\!|\!$}\test@token }
+
+\def \witbhs@para P#1\@ \@@ {% prepare paragraph mark
+\sc@back \witbhspara #1\@ \@@ }
+
+\def \witbhs@pasuq #1\@ \@@ {% prepare verse division
+\sc@back \pasuq #1\@ \@@ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \witbhs@query #1\@ \@@ {% new line, push back the rest
+\ifnum \bhsmode = 1 \sc@back \\#1\@ \@@ \else % finish line
+\ifnum \bhsmode = 2 \sc@back \|#1\@ \@@ \else % stretch line
+			\sc@back #1\@ \@@     % start next word
+\fi\fi }
+
+\newcount \bhsmode	\bhsmode 0
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@witbhs {% substitute the BHS scanner
+\let \sc@beg \witbhs@beg 	\let \sc@word \witbhs@word  
+\let \sc@back \sc@@back         \let \sc@endscan \sc@@endscan
+\let \a@scan \a@@scan           \setwitbhs@codes	
+\let \arab@codes \wit@arab@codes
+\let \unarab@codes \wit@unarab@codes
+\a@message {input encoding set to WITBHS conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the BHS encoding
+witbhs\set@witbhs }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \wit@arab@codes {% save and set special characters
+\csname originalTeX\endcsname
+\chardef \spc@de = \catcode`\ 	\catcode`\  = 10
+\chardef \dqc@de = \catcode`\"	\catcode`\" = \@other 		
+\chardef \lsc@de = \catcode`\<	\catcode`\< = \@other 
+\chardef \gtc@de = \catcode`\>	\catcode`\> = 11
+\chardef \atc@de = \catcode`\@	\catcode`\@ = 11
+\chardef \hsc@de = \catcode`\#	\catcode`\# = \@other 
+\chardef \amc@de = \catcode`\&	\catcode`\& = \@other 
+\arab@charsubdefmax \charsubdefmax \charsubdefmax \m@ne }
+
+\def \wit@unarab@codes {% reset catcodes
+\catcode`\  = \spc@de \catcode`\< = \lsc@de \catcode`\" = \dqc@de 
+\catcode`\#  = \hsc@de \catcode`\>  = \gtc@de \catcode`\@  = \atc@de 
+\catcode`\&  = \amc@de 
+\charsubdefmax \arab@charsubdefmax }
+
+{\catcode`\# = \@other \gdef \a@hash {#}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for WITBHS encoding installed.}
+
+\catcode `\@ = \bhsatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

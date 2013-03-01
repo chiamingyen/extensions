@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/comprehensive"><TPM:Name>Comprehensive LaTeX Symbol List</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Samples of thousands of symbols that are accessible from LaTeX.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>This is a major update to the Comprehensive LaTeX Symbol List.  Not
+only does it contain hundreds of new symbols, but the symbol tables
+have been reordered into a more logical structure; the document begins
+with a "frequently requested symbols" list; and there is a new, Latin
+1 quick reference table.  The result is that LaTeX symbols should be
+easier to find than ever before.
+</TPM:Description><TPM:RunFiles size="1355">texmf\tpm\packages\comprehensive.tpm</TPM:RunFiles><TPM:DocFiles size="8749506">texmf\doc\info\symbols\comprehensive\README texmf\doc\info\symbols\comprehensive\symbols-a4.pdf texmf\doc\info\symbols\comprehensive\symbols-letter.pdf texmf\doc\info\symbols\comprehensive\SYMLIST</TPM:DocFiles><TPM:SourceFiles size="109820">texmf\source\comprehensive-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1199619899</TPM:TimePackaged><TPM:MD5>0c3d29ceb35289ff58b14e425d7ddd58</TPM:MD5></rdf:Description></rdf:RDF>

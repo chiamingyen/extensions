@@ -1,0 +1,32 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% mtsupp-std-adobe-kb.map: support for MathTime 1.1 and
+%    MathTime Plus fonts.
+%
+% Useful for ps2pk.
+cob Courier-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrb8a.pfb
+cobo Courier-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrbo8a.pfb
+com Courier "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrr8a.pfb
+coo Courier-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrro8a.pfb
+hv Helvetica "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvr8a.pfb
+hvb Helvetica-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvb8a.pfb
+hvbo Helvetica-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvbo8a.pfb
+hvo Helvetica-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvro8a.pfb
+pcrb8y Courier-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrb8a.pfb
+pcrbo8y Courier-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrbo8a.pfb
+pcrr8y Courier "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrr8a.pfb
+pcrro8y Courier-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <pcrro8a.pfb
+phvb8y Helvetica-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvb8a.pfb
+phvbo8y Helvetica-BoldOblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvbo8a.pfb
+phvr8y Helvetica "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvr8a.pfb
+phvro8y Helvetica-Oblique "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <phvro8a.pfb
+ptmb8y Times-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmb8a.pfb
+ptmbi8y Times-BoldItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmbi8a.pfb
+ptmr8y Times-Roman "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmr8a.pfb
+ptmri8y Times-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmri8a.pfb
+sy Symbol <psyr.pfb
+tib Times-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmb8a.pfb
+tibi Times-BoldItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmbi8a.pfb
+tii Times-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmri8a.pfb
+tir Times-Roman "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <ptmr8a.pfb
+zd ZapfDingbats <pzdr.pfb

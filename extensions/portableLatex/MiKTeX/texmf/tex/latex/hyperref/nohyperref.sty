@@ -1,0 +1,69 @@
+%%
+%% This is file `nohyperref.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% hyperref.dtx  (with options: `nohyperref')
+%% 
+%% File: hyperref.dtx Copyright 1995-2001 Sebastian Rahtz,
+%% with portions written by David Carlisle and Heiko Oberdiek,
+%% 2001-2010 Heiko Oberdiek.
+%%
+%% This file is part of the `Hyperref Bundle'.
+%% -------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the `Hyperref Bundle' is
+%% given in the file `manifest.txt'.
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{nohyperref}
+  [2010/01/16 v6.80c
+  Dummy hyperref (SR)]
+\let\hyper@@anchor\@gobble
+\def\hyper@link#1#2#3{#3}%
+\let\hyper@anchorstart\@gobble
+\let\hyper@anchorend\@empty
+\let\hyper@linkstart\@gobbletwo
+\let\hyper@linkend\@empty
+\def\hyper@linkurl#1#2{#1}%
+\def\hyper@linkfile#1#2#3{#1}%
+\def\hyper@link@[#1]#2#3{}%
+\let\PDF@SetupDoc\@empty
+\let\PDF@FinishDoc\@empty
+\def\nohyperpage#1{#1}
+\def\Acrobatmenu#1#2{\leavevmode#2}
+\let\pdfstringdefDisableCommands\@gobbletwo
+\let\texorpdfstring\@firstoftwo
+\let\pdfbookmark\@undefined
+\newcommand\pdfbookmark[3][]{}
+\let\phantomsection\@empty
+\let\hypersetup\@gobble
+\let\hyperbaseurl\@gobble
+\let\href\@gobble
+\let\hyperdef\@gobbletwo
+\let\hyperlink\@gobble
+\let\hypertarget\@gobble
+\def\hyperref{%
+  \@ifnextchar[\@gobbleopt{\expandafter\@gobbletwo\@gobble}%
+}
+\long\def\@gobbleopt[#1]{}
+\let\hyperpage\@empty
+\let\NoHy@OrgRef\ref
+\def\ref{%
+  \@ifstar\NoHy@OrgRef\NoHy@OrgRef
+}
+\let\NoHy@OrgPageRef\pageref
+\def\pageref{%
+  \@ifstar\NoHy@OrgPageRef\NoHy@OrgPageRef
+}
+\endinput
+%%
+%% End of file `nohyperref.sty'.

@@ -1,0 +1,11 @@
+%1 = %PFM$
+%2 = $TEXMF$fonts/type1/public/luxi/
+
+@LuxiMono = ul9r8a %2,1
+@LuxiMono-8r = ul9r8r %2,1,r="8r",b="ul9r8a"
+@LuxiMono-Bold = ul9b8a %2,1
+@LuxiMono-Bold-8r = ul9b8r %2,1,r="8r",b="ul9b8a"
+@LuxiMono-Oblique = ul9ro8a %2,1
+@LuxiMono-Oblique-8r = ul9ro8r %2,1,r="8r",b="ul9ro8a"
+@LuxiMono-BoldOblique = ul9bo8a %2,1
+@LuxiMono-BoldOblique-8r = ul9bo8r %2,1,r="8r",b="ul9bo8a"

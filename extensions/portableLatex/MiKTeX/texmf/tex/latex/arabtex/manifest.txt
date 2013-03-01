@@ -1,0 +1,80 @@
+ArabTeX, version 3.10, directory TEXINPUT, September 16, 2001
+
+ 3.09.00  19.50       9320           0  abidir.sty
+17.07.99  18.51       2093           0  abjad.sty
+ 4.06.00  13.48      17259           0  aboxes.sty
+ 1.11.98  16.52        928           0  acjk.sty
+ 5.04.00  17.35      11330           0  acmd.sty
+ 1.11.98  17.16       3478           0  aconfig.sty
+11.04.99  17.39       7250           0  aedpatch.sty
+ 1.11.98  17.03       1722           0  afonts.sty
+ 1.11.98  17.03       2348           0  afonts0.sty
+ 1.11.98  17.04       1851           0  afonts1.sty
+19.10.99  15.19       1964           0  afonts2.sty
+28.05.00  23.41       9025           0  alatex.sty
+ 4.06.00  16.16      21063           0  aligs.sty
+ 1.11.98  18.42       7079           0  alists.sty
+ 9.09.01  17.11       7776           0  amac.sty
+ 4.06.00   3.29       6072           0  aoutput.sty
+ 1.05.00  18.40      33467           0  aparse.sty
+16.09.01  13.18       2834           0  apatch.sty
+ 1.11.98  17.03       1165           0  arababel.sty
+ 9.05.97  14.05        802           0  arabart.cls
+ 9.05.97  14.05       1049           0  arabbook.cls
+ 1.11.98  17.00       3041           0  arabchrs.sty
+ 1.11.98  18.42       4505           0  arabext.sty
+14.09.01  13.51      26510           0  arabrep.cls
+ 4.06.00  16.38       9136           0  arabskel.sty
+ 1.11.98  18.42       8917           0  arabsymb.sty
+16.09.01  13.11      26773           0  arabtex.sty
+16.09.01  13.10       4576           0  arabtex.tex
+17.07.99  21.23       6772           0  arabtoks.sty
+ 1.11.98  18.42       3214           0  arabwin.sty
+13.09.01  16.16      15334           0  ascan.sty
+21.04.00  20.52      10857           0  asect.sty
+ 9.05.97  14.07       1222           0  asize10.clo
+ 9.05.97  14.07       1222           0  asize11.clo
+ 9.05.97  14.07       1222           0  asize12.clo
+ 8.05.00   0.45       4425           0  asmo449.sty
+ 1.11.98  18.43       4677           0  atabg.sty
+10.09.01   2.40      18080           0  atrans.sty
+10.09.01   2.33      12425           0  awrite.sty
+ 8.05.00   0.49       7441           0  bhs.sty
+ 1.12.98  12.56       4631           0  bhslabel.sty
+21.11.95  12.47       1984           0  captions.def
+ 8.05.00   0.39       7622           0  cp1256.sty
+ 4.11.98  14.25        172           0  etrans.sty
+10.09.01   2.04       4480           0  gedalin.sty
+17.06.00  19.14       5057           0  hebchrs.sty
+12.06.00  18.41       1715           0  hebsymb.sty
+12.06.00  14.54       2747           0  hebtex.sty
+16.09.01  13.10       3733           0  hebtex.tex
+ 7.05.00  13.40       7789           0  hecmd.sty
+ 1.11.98  18.23       1723           0  hefonts.sty
+ 1.11.98  18.23       1499           0  hefonts0.sty
+ 1.11.98  18.23       1256           0  hefonts1.sty
+12.06.00  13.19       1879           0  hefonts2.sty
+14.06.00  20.17       8481           0  heparse.sty
+13.04.00  17.39       1289           0  hepatch.sty
+21.08.00  19.27       8818           0  hescan.sty
+ 8.05.00   1.00       3494           0  hetrans.sty
+10.09.01   1.43      20413           0  hewrite.sty
+ 8.05.00   0.40       6599           0  hmac.sty
+ 8.05.00   0.40       8338           0  isiri.sty
+ 8.05.00   0.40        919           0  iso88596.sty
+ 1.11.98  18.44       3594           0  latexext.sty
+16.09.01  18.35          0           0  manifest.txt
+ 4.11.98  14.25        165           0  nashbf.sty
+ 1.11.98  18.44       1531           0  raw.sty
+ 1.11.98  18.45       4200           0  twoblks.sty
+13.06.00  18.05       3678           0  uheb.fd
+23.05.99  12.38       1495           0  unash.fd
+13.06.00  14.44       1351           0  utf8.sty
+13.06.00  16.08      11198           0  utfcode.sty
+22.04.00  13.14       2113           0  Uxnsh.fd
+ 1.11.98  18.45       2652           0  verses.sty
+14.09.01  15.13       7481           0  witbhs.sty
+ 4.06.00  19.43       7260           0  xarbskel.sty
+ 1.11.98  16.55       9655           0  xarbsymb.sty
+
+        80 Datei(en)     481235 Byte belegt

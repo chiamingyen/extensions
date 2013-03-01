@@ -1,0 +1,108 @@
+%%
+%% This is file `array-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{array-bidi.def}[2010/03/01 v0.1 adaptations for array package]
+\def\@testpach{\@chclass
+ \ifnum \@lastchclass=6 \@ne \@chnum \@ne \else
+  \ifnum \@lastchclass=7 5 \else
+   \ifnum \@lastchclass=8 \tw@ \else
+    \ifnum \@lastchclass=9 \thr@@
+   \else \z@
+   \ifnum \@lastchclass = 10 \else
+   \edef\@nextchar{\expandafter\string\@nextchar}%
+   \@chnum
+   \if \@nextchar c\z@ \else
+    \if \@nextchar \if@RTLtab r\else l\fi\@ne \else
+     \if \@nextchar \if@RTLtab l\else r\fi\tw@ \else
+   \z@ \@chclass
+   \if\@nextchar |\@ne \else
+    \if \@nextchar !6 \else
+     \if \@nextchar @7 \else
+      \if \@nextchar <8 \else
+       \if \@nextchar >9 \else
+  10
+  \@chnum
+  \if \@nextchar m\thr@@\else
+   \if \@nextchar p4 \else
+    \if \@nextchar b5 \else
+   \z@ \@chclass \z@ \@preamerr \z@ \fi \fi \fi \fi
+   \fi \fi  \fi  \fi  \fi  \fi  \fi \fi \fi \fi \fi \fi}
+\def\tabular{\gdef\@halignto{}\@tabular}
+\def\@tabular{\if@RTL\global\@RTLtabtrue\fi%
+ \leavevmode
+ \hbox\bgroup \if@RTLtab\beginR \fi
+   $%
+   \@tabularinit
+   \@array
+}
+\renewcommand\@array[2][c]{%
+   \@tempdima \ht \strutbox
+   \advance \@tempdima by\extrarowheight
+   \setbox \@arstrutbox \hbox{%
+     \vrule \@height \arraystretch \@tempdima
+            \@depth  \arraystretch \dp \strutbox
+            \@width  \z@
+   }%
+   \begingroup
+     \@mkpream{#2}%
+     \xdef\@preamble{%
+       \noexpand \ialign \@halignto
+       \bgroup \@arstrut \@preamble
+         \tabskip \z@ \cr
+     }%
+   \endgroup
+   \@arrayleft
+   \if #1t\vtop \else \if#1b\vbox \else \vcenter \fi \fi
+   \bgroup
+     \@arrayinit
+     \if@RTLtab\hbox\bgroup\beginR\vbox\bgroup\fi
+       \@preamble
+         % indent
+}
+%% environment body goes here
+\def\endtabular{%
+         \crcr
+       \egroup % \bgroup from \@preamble
+     \if@RTLtab\egroup\endR\egroup\fi % \vbox\hbox
+   \egroup
+   \gdef\@preamble{}%
+   $\if@RTLtab\endR\fi%
+ \egroup % original \hbox
+\global\@RTLtabfalse}
+\def\@tabularinit{%
+   \col@sep\tabcolsep
+   \let \d@llarbegin \begingroup
+   \let \d@llarend \endgroup
+}
+\def\@arrayinit{%
+   \let \@sharp ##
+   \let \protect \relax
+   \lineskip \z@
+   \baselineskip \z@
+   \m@th
+   \let \\ \@arraycr
+   \let \tabularnewline \\%
+   \let \par \@empty
+}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `array-bidi.def'.

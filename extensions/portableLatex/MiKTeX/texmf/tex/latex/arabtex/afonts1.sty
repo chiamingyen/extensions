@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% afonts1.sty
+% ArabTeX
+% load Naskh14 for NFSS1
+% 16.11.95
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally and Bernd Raichle
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {afonts1.sty} {3.04 define Naskh font for NFSS1} {16.11.1995}
+
+\chardef \fntatcode = \catcode`\@            \catcode`\@ = 11
+\chardef \fntlscode = \catcode`\<            \catcode`\< = 12
+
+% NEW FONT SELECTION -- Version 1
+
+% define \pnash to use the `nash' family, `m'edium series, `n'ormal shape.
+
+\def\pnash{\family{nash}\series{m}\shape{n}\selectfont}
+\def\pnashbf{\family{nash}\series{bx}\shape{n}\selectfont}
+
+% setup the font definition table
+% (`1' at the beginning of a fontname: size not available, print
+% warning to inform the user)
+
+\new@fontshape{nash}{m}{n}{%
+      <5>1nash14%
+      <6>1nash14%
+      <7>1nash14%
+      <8>1nash14%
+      <9>1nash14%
+      <10>nash14 at14.4pt%
+      <11>nash14 at15.77441pt%
+      <12>nash14 at17.28pt%
+      <14>nash14 at20.736pt%
+      <17>nash14 at24.8832pt%
+      <20>1nash14 at29.85984pt%
+      <25>1nash14 at35.831808pt}{}
+
+\new@fontshape{nash}{bx}{n}{%
+      <5>1nash14bf%
+      <6>1nash14bf%
+      <7>1nash14bf%
+      <8>1nash14bf%
+      <9>1nash14bf%
+      <10>nash14bf at14.4pt%
+      <11>nash14bf at15.77441pt%
+      <12>nash14bf at17.28pt%
+      <14>nash14bf at20.736pt%
+      <17>nash14bf at24.8832pt%
+      <20>nash14bf at29.85984pt%
+      <25>nash14bf at35.831808pt}{}
+
+\extra@def{nash}{}{}
+
+\catcode`\@ = \fntatcode        \catcode`\< = \fntlscode                   
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

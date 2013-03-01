@@ -1,0 +1,252 @@
+%%
+%% This is file `hyperref-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{hyperref-bidi.def}[2010/03/01 v0.2 adaptations for hyperref package]
+\AtBeginDocument{%
+\def\contentsline#1#2#3#4{%
+  \ifx\\#4\\%
+    \csname l@#1\endcsname{#2}{#3}%
+  \else
+    \ifcase\Hy@linktoc % none
+      \csname l@#1\endcsname{#2}{#3}%
+    \or % section
+      \csname l@#1\endcsname{%
+        \beginL\hyper@linkstart{link}{#4}{\if@RTL\beginR\fi#2\if@RTL\endR\fi}\hyper@linkend\endL
+      }{#3}%
+    \or % page
+      \csname l@#1\endcsname{{#2}}{%
+        \beginL\hyper@linkstart{link}{#4}{#3}\hyper@linkend\endL
+      }%
+    \else % all
+      \csname l@#1\endcsname{%
+        \beginL\hyper@linkstart{link}{#4}{\if@RTL\beginR\fi#2\if@RTL\endR\fi}\hyper@linkend\endL
+      }{%
+        \beginL\hyper@linkstart{link}{#4}{#3}\hyper@linkend\endL
+      }%
+    \fi
+  \fi
+}
+\ifHy@hyperfootnotes
+   \let\H@@footnotetext\@footnotetext
+   \let\HRTL@@RTLfootnotetext\@RTLfootnotetext
+   \let\HLTR@@LTRfootnotetext\@LTRfootnotetext
+    \def\@xfootnotenext[#1]{%
+    \begingroup
+      \csname c@\@mpfn\endcsname #1\relax
+      \unrestored@protected@xdef\@thefnmark{\thempfn}%
+    \endgroup
+    \ifx\@footnotetext\@mpfootnotetext
+      \expandafter\H@@mpfootnotetext
+    \else
+      \expandafter\H@@footnotetext
+    \fi
+  }%
+    \def\@xRTLfootnotenext[#1]{%
+    \begingroup
+      \csname c@\@mpfn\endcsname #1\relax
+      \unrestored@protected@xdef\@thefnmark{\thempfn}%
+    \endgroup
+    \ifx\@RTLfootnotetext\@mpRTLfootnotetext
+      \expandafter\HRTL@@mpRTLfootnotetext
+    \else
+      \expandafter\HRTL@@RTLfootnotetext
+    \fi
+  }%
+    \def\@xLTRfootnotenext[#1]{%
+    \begingroup
+      \csname c@\@mpfn\endcsname #1\relax
+      \unrestored@protected@xdef\@thefnmark{\thempfn}%
+    \endgroup
+    \ifx\@LTRfootnotetext\@mpLTRfootnotetext
+      \expandafter\HLTR@@mpLTRfootnotetext
+    \else
+      \expandafter\HLTR@@LTRfootnotetext
+    \fi
+  }%
+    \def\@xfootnotemark[#1]{%
+    \begingroup
+      \c@footnote #1\relax
+      \unrestored@protected@xdef\@thefnmark{\thefootnote}%
+    \endgroup
+    \H@@footnotemark
+  }%
+  \let\H@@mpfootnotetext\@mpfootnotetext
+  \let\HRTL@@mpRTLfootnotetext\@mpRTLfootnotetext
+  \let\HLTR@@mpLTRfootnotetext\@mpLTRfootnotetext
+    \long\def\@mpfootnotetext#1{%
+    \H@@mpfootnotetext{%
+      \ifHy@nesting
+        \hyper@@anchor{\Hy@footnote@currentHref}{#1}%
+      \else
+        \Hy@raisedlink{%
+          \hyper@@anchor{\Hy@footnote@currentHref}{\relax}%
+        }#1%
+      \fi
+    }%
+  }%
+  \long\def\@mpRTLfootnotetext#1{%
+    \HRTL@@mpRTLfootnotetext{%
+      \ifHy@nesting
+        \hyper@@anchor{\Hy@footnote@currentHref}{#1}%
+      \else
+        \Hy@raisedlink{%
+          \hyper@@anchor{\Hy@footnote@currentHref}{\relax}%
+        }#1%
+      \fi
+    }%
+  }%
+    \long\def\@mpLTRfootnotetext#1{%
+    \HLTR@@mpLTRfootnotetext{%
+      \ifHy@nesting
+        \hyper@@anchor{\Hy@footnote@currentHref}{#1}%
+      \else
+        \Hy@raisedlink{%
+          \hyper@@anchor{\Hy@footnote@currentHref}{\relax}%
+        }#1%
+      \fi
+    }%
+  }%
+    \long\def\@footnotetext#1{%
+    \H@@footnotetext{%
+      \ifHy@nesting
+        \hyper@@anchor{\Hy@footnote@currentHref}{#1}%
+      \else
+        \Hy@raisedlink{%
+          \hyper@@anchor{\Hy@footnote@currentHref}{\relax}%
+        }%
+        \let\@currentHlabel\Hy@footnote@currentHlabel
+        \let\@currentHref\Hy@footnote@currentHref
+        \let\@currentlabelname\@empty
+        #1%
+      \fi
+    }%
+  }%
+    \long\def\@RTLfootnotetext#1{%
+    \HRTL@@RTLfootnotetext{%
+      \ifHy@nesting
+        \hyper@@anchor{\Hy@footnote@currentHref}{#1}%
+      \else
+        \Hy@raisedlink{%
+          \hyper@@anchor{\Hy@footnote@currentHref}{\relax}%
+        }%
+        \let\@currentHlabel\Hy@footnote@currentHlabel
+        \let\@currentHref\Hy@footnote@currentHref
+        \let\@currentlabelname\@empty
+        #1%
+      \fi
+    }%
+  }%
+    \long\def\@LTRfootnotetext#1{%
+    \HLTR@@LTRfootnotetext{%
+      \ifHy@nesting
+        \hyper@@anchor{\Hy@footnote@currentHref}{#1}%
+      \else
+        \Hy@raisedlink{%
+          \hyper@@anchor{\Hy@footnote@currentHref}{\relax}%
+        }%
+        \let\@currentHlabel\Hy@footnote@currentHlabel
+        \let\@currentHref\Hy@footnote@currentHref
+        \let\@currentlabelname\@empty
+        #1%
+      \fi
+    }%
+  }%
+  \def\@footnotemark{%
+    \leavevmode
+    \ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+    \stepcounter{Hfootnote}%
+    \global\let\Hy@saved@currentHlabel\@currentHlabel
+    \global\let\Hy@saved@currentHref\@currentHref
+    \hyper@makecurrent{Hfootnote}%
+    \global\let\Hy@footnote@currentHlabel\@currentHlabel
+    \global\let\Hy@footnote@currentHref\@currentHref
+    \global\let\@currentHlabel\Hy@saved@currentHlabel
+    \global\let\@currentHref\Hy@saved@currentHref
+    \beginL\hyper@linkstart{link}{\Hy@footnote@currentHref}%
+    \@makefnmark
+    \hyper@linkend\endL
+    \ifhmode\spacefactor\@x@sf\fi
+    \relax
+  }%
+  \let\maketitle\HyOrg@maketitle
+  \def\maketitle{%
+    \let\Hy@saved@footnotemark\@footnotemark
+    \let\Hy@saved@footnotetext\@footnotetext
+    \let\HyRTL@saved@RTLfootnotetext\@RTLfootnotetext
+    \let\HyLTR@saved@LTRfootnotetext\@LTRfootnotetext
+    \let\@footnotemark\H@@footnotemark
+    \let\@footnotetext\H@@footnotetext
+    \let\@RTLfootnotetext\HRTL@@RTLfootnotetext
+    \let\@LTRfootnotetext\HLTR@@LTRfootnotetext
+    \@ifnextchar[\Hy@maketitle@optarg{% ]
+      \HyOrg@maketitle
+      \Hy@maketitle@end
+    }%
+  }%
+  \def\Hy@maketitle@optarg[#1]{%
+    \HyOrg@maketitle[{#1}]%
+    \Hy@maketitle@end
+  }%
+  \def\Hy@maketitle@end{%
+    \ifx\@footnotemark\H@@footnotemark
+      \let\@footnotemark\Hy@saved@footnotemark
+    \fi
+    \ifx\@footnotetext\H@@footnotetext
+      \let\@footnotetext\Hy@saved@footnotetext
+    \fi
+    \ifx\@RTLfootnotetext\HRTL@@RTLfootnotetext
+      \let\@RTLfootnotetext\HyRTL@saved@RTLfootnotetext
+    \fi
+    \ifx\@LTRfootnotetext\HLTR@@LTRfootnotetext
+      \let\@LTRfootnotetext\HyLTR@saved@LTRfootnotetext
+    \fi
+  }%
+  \def\realfootnote{%
+    \@ifnextchar[\@xfootnote{%
+      \stepcounter{\@mpfn}%
+      \protected@xdef\@thefnmark{\thempfn}%
+      \H@@footnotemark\H@@footnotetext
+    }%
+  }%
+\fi
+\def\hyper@link#1#2#3{%
+  \beginL\hyper@linkstart{#1}{#2}\if@RTL\beginR\fi#3\if@RTL\endR\fi\hyper@linkend\endL
+}
+\let\origin@href=\href
+\renewcommand\href[2]{\beginL\origin@href{#1}{\if@RTL\beginR\fi#2\if@RTL\endR\fi}\endL}
+\let\origin@url=\url
+\renewcommand\url[1]{\beginL\origin@url{#1}\endL}%
+\def\hyper@natlinkstart#1{%
+  \Hy@backout{#1}%
+  \beginL\hyper@linkstart{cite}{cite.#1}\if@RTL\beginR\fi%
+  \def\hyper@nat@current{#1}%
+}
+\def\hyper@natlinkend{%
+  \if@RTL\endR\fi\hyper@linkend\endL
+}
+\def\hyper@natlinkbreak#1#2{%
+  \if@RTL\endR\fi\hyper@linkend\endL#1\beginL\hyper@linkstart{cite}{cite.#2}\if@RTL\beginR\fi%
+}%
+}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `hyperref-bidi.def'.

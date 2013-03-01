@@ -1,0 +1,32 @@
+%% xydummy.tex from $Id: xydummy.doc,v 3.3 1996/12/19 03:31:56 krisrose Exp $
+%%
+%% Xy-pic ``Dummy'' option.
+%% Copyright (c) 1993-1996 Kristoffer H. Rose <krisrose@brics.dk>
+%%
+%% This file is part of the Xy-pic package for graphs and diagrams in TeX.
+%% See the companion README and INSTALL files for further information.
+%% Copyright (c) 1991-1996 Kristoffer H. Rose <krisrose@brics.dk>
+%%
+%% The Xy-pic package is free software; you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by the
+%% Free Software Foundation; either version 2 of the License, or (at your
+%% option) any later version.
+%%
+%% The Xy-pic package is distributed in the hope that it will be useful, but
+%% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+%% or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+%% for more details.
+%%
+%% You should have received a copy of the GNU General Public License along
+%% with this package; if not, write to the Free Software Foundation, Inc.,
+%% 675 Mass Ave, Cambridge, MA 02139, USA.
+%%
+\ifx\xyloaded\undefined \input xy \fi
+\xyprovide{dummy}{Dummy option}{\stripRCS$Revision: 3.3 $}%
+ {Kristoffer H.~Rose}{krisrose@brics.dk}%
+ {BRICS/Computer Science, University of Aarhus, Ny Munkegade, building 540,
+ DK--8000 Aarhus~C}
+\xynew@{count}\xydummyrequires@@
+\xyeveryrequest{dummy}{\global\advance\xydummyrequires@@\@ne
+ \W@{The `dummy' option was used \the\xydummyrequires@@\space times!}}
+\xyendinput

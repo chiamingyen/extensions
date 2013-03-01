@@ -1,0 +1,291 @@
+%%
+%% This is file `dtklogos.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% dtk.dtx  (with options: `logos')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from dtklogos.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file dtk.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%  Time-stamp: "dtk.dtx        2006-08-11 18:18:53 CET Mittwoch  RN/HjG/hv"
+%%
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%^^A $Id: dtk.dtx,v 1.9b 2006/08/11 21:03:42 hv Exp hv $
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Purpose:
+%%      LaTeX Class and Styles for ``Die TeXnische Komoedie''.
+%%
+%% Documentation:
+%%      The documentation  can be  generated  from  the original file
+%%      dtk.dtx with the doc style/package. LaTeX the file dtk.tex to
+%%      get the full documentation in DVI format.
+%%
+%%
+%% Author: Gerd Neugebauer
+%%         Mainzer Str. 8
+%%         56321 Rhens (Germany)
+%% Mail:   gene@gerd-neugebauer.de
+%%
+%% Copyright (C) 1995-1996 Gerd Neugebauer
+%% Copyright (C) 1997-2006 DANTE, Deutschsprachige
+%%                           Anwendervereinigung TeX e.V.
+%%
+%%  dtk.dtx is distributed in the hope that it  will  be useful, but
+%%  WITHOUT  ANY  WARRANTY.    No   author  or  distributor  accepts
+%%  responsibility to anyone for the consequences of using it or for
+%%  whether it serves any particular purpose or works at all, unless
+%%  he says so in writing.
+%%
+%%  Everyone is granted permission to  copy, modify and redistribute
+%%  dtk.dtx,  provided  this copyright notice is preserved  and  any
+%%  modifications are indicated.
+%%
+%%
+%%  This package is still under development and may be replaced with
+%%  a new version which provides enhanced functionality.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\DTKrcs$#1: #2 #3${#2}
+\def\filename{dtk.dtx}
+\xdef\fileversion{\DTKrcs$Revision: 1.10 $}
+\xdef\filedate{\DTKrcs$Date: 2007/08/28 18:17:42 $}
+\let\docversion=\fileversion
+\let\docdate=\filedate
+\ProvidesPackage{dtklogos}[\filedate\space\fileversion\space  gene]
+\newif\ifOldLaTeX
+\@ifundefined{documentclass}{\OldLaTeXtrue}{\OldLaTeXfalse}
+\ifOldLaTeX
+\expandafter\ifx\csname selectfont\endcsname\relax
+  \newcommand{\logo@sm@ller}{\relax
+    \expandafter\logo@sm@ll@r\expandafter{\the\fam}}
+  \newcommand{\logo@sm@ll@r}[1]{%
+    % \ifx\@currsize\tiny \tiny\fi
+    \ifx\@currsize\scriptsize \tiny\fi
+    \ifx\@currsize\footnotesize \tiny\fi
+    \ifx\@currsize\small \scriptsize\fi
+    \ifx\@currsize\normalsize \scriptsize\fi
+    \ifx\@currsize\large \footnotesize\fi
+    \ifx\@currsize\Large \normalsize\fi
+    \ifx\@currsize\LARGE \large\fi
+    \ifx\@currsize\huge \Large\fi
+    \ifx\@currsize\Huge \huge\fi
+    \ifcase#1\relax\rm\or\mit\or\cal\or\tenex % not sure about the tenex
+        \or\it\or\sl\or\bf\or\tt\or\sf\or\sc\or\ly\fi}
+\else
+  \newcommand{\logo@sm@ller}{%
+    \relax\@nomath\logo@smaller
+    \ifx\f@size\@vpt \else
+      \ifx\f@size\@vipt  \fontsize\@vpt{6pt}\fi
+      \ifx\f@size\@viipt \fontsize\@vpt{6pt}\fi
+      \ifx\f@size\@viiipt \fontsize\@vipt{7pt}\fi
+      \ifx\f@size\@ixpt \fontsize\@vipt{7pt}\fi
+      \ifx\f@size\@xpt \fontsize\@viipt{8pt}\fi
+      \ifx\f@size\@xipt \fontsize\@viiipt{9.5pt}\fi
+      \ifx\f@size\@xiipt \fontsize\@viiipt{9.5pt}\fi
+      \ifx\f@size\@xivpt \fontsize\@xpt{12pt}\fi
+      \ifx\f@size\@xviipt \fontsize\@xiipt{14pt}\fi
+      \ifx\f@size\@xxpt \fontsize\@xivpt{18pt}\fi
+      \ifx\f@size\@xxvpt \fontsize\@xxpt{25pt}\fi
+      \selectfont
+    \fi}
+  \@ifundefined{fontsize}{\let\fontsize=\size}{}
+\fi
+\newcommand{\logo@smaller}{\protect\logo@sm@ller}
+\fi
+\renewcommand\TeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX%
+  \spacefactor1000 }
+\providecommand\AmS{%
+  \(\cal A\)\kern-.1667em\lower.5ex\hbox
+  {\(\cal M\)}\kern-.125em{\(\cal S\)}}
+\providecommand\AMS{\AmS}
+\providecommand{\XeTeX}{X\kern-.1em\lower.5ex\hbox{\reflectbox{E}}\kern-.15em\TeX}
+\providecommand\AmSLaTeX{\AmS-\LaTeX}
+\providecommand\AMSLaTeX{\AmSLaTeX}
+\providecommand\AmSTeX{%
+  $\cal A$\kern-.1667em\lower.5ex\hbox{$\cal M$}%
+  \kern-.125em$\cal S$-\TeX}
+\providecommand\AMSTEX{\AmSTeX}
+\providecommand\AMSTeX{\AmSTeX}
+\ifOldLaTeX
+  \newcommand{\BibTeX}{\protect\pBibTeX}
+  \newcommand{\pBibTeX}{B\kern-.05em%
+    \hbox{\logo@smaller I\kern-.025emB}\kern-.08em%
+    \-\TeX}
+\else
+  \DeclareRobustCommand{\BibTeX}{B\kern-.05em%
+    \hbox{$\m@th$% %% force math size calculations
+          \csname S@\f@size\endcsname
+          \fontsize\sf@size\z@
+          \math@fontsfalse\selectfont
+          I\kern-.025emB}%
+    \kern-.08em%
+    \-\TeX}
+\fi
+\providecommand\BIBTeX{\BibTeX}
+\providecommand\BIBTEX{\BibTeX}
+\providecommand\LAMSTeX{%
+  L\raise.42ex\hbox{\kern-.3em\the\scriptfont2 A}%
+  \kern-.2em\lower.376ex\hbox{\the\textfont2 M}%
+  \kern-.125em {\the\textfont2 S}-\TeX}
+\providecommand\LamSTeX{\LAMSTeX}
+\providecommand\LAmSTeX{\LAMSTeX}
+\providecommand\LaTeX{%
+  L\kern-.36em\raise.3ex\hbox{\sc a}\kern-.15em\TeX}
+\providecommand\LATEX{\LaTeX}
+\ifOldLaTeX
+  \newcommand\LaTeXTeX{(\kern-.15emL\kern-.36em\raise.3ex\hbox{\sc
+      a}\kern-.3em)\kern-.15em\TeX}%
+\else
+  \DeclareRobustCommand{\LaTeXTeX}{(\kern-.15emL\kern-.36em%
+    {\sbox\z@ T%
+      \vbox to\ht0{\hbox{$\m@th$%
+          \csname S@\f@size\endcsname
+          \fontsize\sf@size\z@
+          \math@fontsfalse\selectfont
+          A}%
+        \vss}%
+      }\kern-.2em)%
+    \kern-.15em%
+    \TeX}
+\fi
+\ifOldLaTeX
+  \ifx\manfnt\@undefined
+    \font\manfnt=logo10
+  \fi
+  \ifx\manfntsl\@undefined
+    \font\manfntsl=logosl10
+  \fi
+  \newcommand\MF{\begingroup
+    \ifdim\fontdimen1\font>0pt \let\manfnt=\manfntsl \fi
+    {\manfnt META}\-{\manfnt FONT}\endgroup\spacefactor1000 }%
+  \newcommand\MP{\begingroup
+    \ifdim\fontdimen1\font>0pt \let\manfnt=\manfntsl \fi
+    {\manfnt META}\-{\manfnt POST}\endgroup\spacefactor1000 }%
+\else
+  \DeclareFontFamily{U}{logo}{}
+  \DeclareFontShape{U}{logo}{m}{n}{
+    <8> <9> gen * logo
+    <10> <10.95> <12> <14.4> <17.28> <20.74> <24.88> logo10
+    }{}
+  \DeclareFontShape{U}{logo}{m}{it}{
+    <8> <9> gen * logosl
+    <10> <10.95> <12> <14.4> <17.28> <20.74> <24.88> logosl10
+    }{}
+  \DeclareFontShape{U}{logo}{m}{sl}{
+    <-> ssub * logo/m/it
+    }{}
+  \DeclareFontShape{U}{logo}{sbc}{n}{
+    <8> <9> sub * logo/m/n
+    <10> <10.95> <12> <14.4> <17.28> <20.74> <24.88> logobf10
+    }{}
+  \DeclareFontShape{U}{logo}{b}{n}{
+    <8> <9> sub * logo/m/n
+    <10> <10.95> <12> <14.4> <17.28> <20.74> <24.88> logod10
+    }{}
+  \DeclareFontShape{U}{logo}{bx}{n}{
+    <-> ssub * logo/b/n
+    }{}
+  \DeclareRobustCommand\logofamily{%
+    \not@math@alphabet\logofamily\relax
+    \fontencoding{U}\fontfamily{logo}\selectfont}
+  \DeclareTextFontCommand{\textlogo}{\logofamily}
+  \newcommand\MF{\mbox{\textlogo{META}}\-\mbox{\textlogo{FONT}}\@}
+  \newcommand\MP{\mbox{\textlogo{META}}\-\mbox{\textlogo{POST}}\@}
+\fi
+\providecommand\METAFONT{\MF}
+\providecommand\METAPOST{\MP}
+\providecommand\SLITEX{%
+    S\kern-.065em L\kern-.18em\raise.32ex\hbox{i}%
+    \kern-.03em\TeX}
+\providecommand\SLiTeX{\SLITEX}
+\providecommand\SliTeX{\SLITEX}
+\providecommand\SLITeX{\SLITEX}
+\providecommand\NTS{\mbox{\mathsurround=0pt
+    \(\cal N\mkern -4mu\lower .5ex\hbox{$\cal T$}\mkern -2mu S\)}}
+\providecommand\MakeIndex{\textit{Make\-Index}}
+\providecommand\emTeX{{em\TeX}}
+\providecommand\PubliCTeX{PubliC\TeX}
+\providecommand\TeXXeT{%
+    \TeX--X\kern-.125em\lower.5ex\hbox{E}\kern-.1667emT}
+\providecommand\TeXeT{%
+    \TeX-X\kern-.125em\lower.5ex\hbox{E}\kern-.1667emT}
+\providecommand\WinEdt{\mbox{\textsf{WinEdt}}}%
+\providecommand\WinEdtKK{\mbox{\textsf{WinEdt2k}}}%
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\providecommand*{\exTeX}{%
+  \textrm{% das Logo grundsätzlich serifenbehaftet
+    \ensuremath{\textstyle\varepsilon_{\kern-0.15em\mathcal{X}}}%
+    \kern-.15em\TeX
+  }%
+}
+  \providecommand\eV{e.V\kern-.18em\@ifnextchar.{}{.}}
+\providecommand\dante{DANTE \eV}
+\providecommand\Dante{DANTE,
+  Deutschsprachige Anwendervereinigung \TeX~\eV}
+\providecommand\DTK{Die \TeX\-ni\-sche Ko\-m{\"o}\-die}
+\providecommand\LaTeXe{%
+  \LaTeX{}\kern.05em2$_{\textstyle\varepsilon}$}
+\providecommand\PS{Post\-Script}
+\providecommand\PiC{P\kern-.12em\lower.5ex\hbox{I}\kern-.075emC}
+\providecommand\PiCTeX{\PiC\kern-.11em\TeX}
+\providecommand\TUG{\TeX{} Users Group}
+\providecommand\TUGboat{\textsl{TUGboat}}
+\let\TUB\TUGboat
+\providecommand\TTN{\textsl{\TeX{} and TUG NEWS}}
+\providecommand\NFSS{\textsf{NFSS}}
+\providecommand\NTS{\leavevmode
+  \hbox{$\cal N\kern-0.35em\lower0.5ex\hbox{$\cal T$}\kern-0.2emS$}}
+\providecommand\eTeX{{\leavevmode\hbox{$\varepsilon$}-\TeX}}
+\providecommand*{\ExTeX}{% RN 2005-01-15
+  \textrm{% das Logo grundsätzlich serifenbehaftet
+    \ensuremath{\textstyle\varepsilon_{\kern-0.15em\mathcal{X}}}%
+    \kern-.15em\TeX
+  }%
+}
+\IfFileExists{ot1dante.fd}% RN 2005-01-15
+{%
+  \providecommand*\DANTE[1][]{%
+    \begingroup
+      \usefont{OT1}{dante}{m}{n}\selectfont DANTE%
+    \endgroup
+  }
+}
+{\providecommand*\DANTE[1][]{DANTE}}
+\providecommand*\ConTeXt{Con\TeX t}
+\providecommand*\conTeXt{con\TeX t}
+\providecommand\Thanh{H\`an Th\^e\protect\llap{\raise 0.5ex\hbox{\'{\relax}}} Th\`anh}
+\providecommand*\MiKTeX{MiK\TeX}
+\providecommand*\MikTeX\MiKTeX
+\endinput
+%%
+%% End of file `dtklogos.sty'.

@@ -1,0 +1,211 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alists.sty
+% called by altxext.sty
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% chapter = al-fa.slu
+% tableofcontents = al-mu.htawayAtu
+% listoffigures = qA'imaTu al-.suwaru
+% listoftables = qA'imaTu al-^gadAwilu
+% listofpictures = qA'imaTu al-rusUmu
+% index = al-fihrisu (al-fihristu)
+% bibliography = al-marA^gi`u
+% references = al-ma.sAdiru
+% abstract = al-mula_h_ha.su
+% appendix = al-mul.haqu
+% attachments = al-murfaqAtu
+% number = al-raqmu
+
+\a@ident {alists.sty} {3.11 inverted list macros} {26.04.2003}
+
+\iffalse %%%%%%%%%%%%%%%%%%% LaTeX 2.09 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\center{\trivlist \centering\item[]}
+
+%\let\endcenter=\endtrivlist
+
+\def\centering{\let\\=\@centercr\rightskip\@flushglue\leftskip\@flushglue
+\parindent\z@\parfillskip\z@}
+
+%\let\enddescription\endlist
+
+\def\flushleft{\trivlist \raggedright\item[]}
+
+\def\raggedright
+{\let\\=\@centercr\@rightskip\@flushglue \rightskip\@rightskip
+  \leftskip\z@  \parindent\z@}
+
+\let\endflushleft=\endtrivlist
+ 
+\def\flushright{\trivlist \raggedleft\item[]}
+
+\def\raggedleft
+{\let\\=\@centercr\rightskip\z@\leftskip\@flushglue
+  \parindent\z@ \parfillskip\z@}
+
+\let\endflushright=\endtrivlist
+ 
+\def\@centercr{\ifhmode \unskip\else \@badcrerr\fi
+       \par\@ifstar{\penalty \@M\@xcentercr}{\@xcentercr}}
+ 
+\def\@xcentercr{\addvspace{-\parskip}\@ifnextchar
+    [{\@icentercr}{\ignorespaces}}
+ 
+\def\@icentercr[#1]{\vskip #1\ignorespaces}
+ 
+\fi %%%%%%%%%%%%%%%%%%% LaTeX 2.09 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@itemize
+{\ifnum \@itemdepth >3 \@toodeep
+\else \advance \@itemdepth \@ne
+	\edef \@itemitem {labelitem\romannumeral \the \@itemdepth }%
+	\a@@list {\csname \@itemitem \endcsname }%
+	{\def \makelabel ##1{\hbox to 1sp {##1\hss }\hfil }}%
+\fi \test@token }
+
+\def \a@c@enumerate
+{\ifnum \@enumdepth >3 \@toodeep
+\else \advance \@enumdepth \@ne
+	\edef \@enumctr {enum\romannumeral \the \@enumdepth }%
+	\a@@list {\csname label\@enumctr \endcsname }%
+	{\usecounter {\@enumctr }%
+	\def \makelabel ##1%
+		{\edef \a@@tmp {##1}\hbox to 1sp 
+		{\expandafter \<\a@@tmp >\hss }\hfil }}%
+\fi \test@token }
+
+\def \a@c@description {\a@@list {}%
+{\labelwidth\z@ \itemindent-\leftmargin \let\makelabel\descriptionlabel}%
+\def \enddescription {\endlist }\test@token}
+
+\def \a@c@trivlist {\a@trivlist \test@token }
+
+\def \a@trivlist
+{\parsep \a@parskip \@nmbrlistfalse \a@@trivlist
+\labelwidth \z@ \leftmargin \z@ \itemindent \z@
+\let \@itemlabel \@empty \def \makelabel ##1{##1}}
+
+\def \a@c@center {%
+\let\endcenter \a@@endtrivlist
+\a@trivlist \a@@centering \a@@item[]}
+
+\def \a@c@flushright {%
+\let\endflushright \a@@endtrivlist
+\a@trivlist \a@@raggedright \a@@item[]}
+
+\def \a@c@flushleft {%
+\let\endflushleft \a@@endtrivlist
+\a@trivlist \a@@raggedleft \a@@item[]}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@@raggedright
+{\let \a@last@line \put@line
+\rightskip \@flushglue \@rightskip \@flushglue \leftskip \z@
+\a@parindent \z@ \spreadfalse }
+
+\def \a@@raggedleft
+{\let \a@last@line \put@line
+\rightskip \z@ \leftskip \@flushglue
+\parfillskip \z@ \a@parindent \z@ \spreadfalse }
+
+\def \a@@centering
+{\let \a@last@line \put@line
+\rightskip \@flushglue \leftskip \@flushglue
+\a@parindent \z@ \spreadfalse \parfillskip \z@ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\a@centercr {% end of line
+%{\ifhmode \unskip\else \@badcrerr\fi
+%\par
+\a@last@line
+\@ifstar{\penalty \@M\@xcentercr}{\@xcentercr}}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@@list #1#2{%
+\ifnum \@listdepth >5\relax \@toodeep
+       \else \global \advance \@listdepth \@ne \fi
+\rightmargin \z@ \listparindent \z@ \itemindent \z@
+\csname @list\romannumeral \the \@listdepth \endcsname
+\def \@itemlabel {#1}\let \makelabel \a@@mklab \@nmbrlistfalse #2\relax
+\a@@trivlist \a@parskip \parsep \a@parindent \listparindent
+\advance \a@hsize -\leftmargin \advance \a@hsize -\rightmargin 
+\advance \@totalleftmargin \leftmargin \advance \a@leftmargin \rightmargin
+\ignorespaces }
+
+\def \a@@trivlist
+{\@topsepadd \topsep 
+\if@noskipsec \leavea@vmode \fi % \a@@everypar
+\ifa@vmode \advance \@topsepadd \partopsep \fi \a@@par
+\if@inlabel \@noparitemtrue \@noparlisttrue
+            \else \@noparlistfalse \@topsep \@topsepadd \fi
+\advance \@topsep \a@parskip \leftskip \z@ \rightskip \@rightskip
+\parfillskip \@flushglue
+%\@setpar {\if@newlist \else {\@@par }\fi }% ??
+\let \endtrivlist \a@@endtrivlist
+\global \@newlisttrue \@outerparskip \a@parskip }
+
+\def \a@@mklab #1{#1\hfil }
+
+\def \a@@endtrivlist
+{\if@inlabel \putwordb@x {}\fi % \a@@everypar
+\if@newlist \@noitemerr \fi
+\a@@par
+\if@noparlist \else
+\ifdim \lastskip >\z@
+	\@tempskipa \lastskip \vskip -\lastskip
+	\advance \@tempskipa \a@parskip
+	\advance \@tempskipa -\@outerparskip
+	\vskip \@tempskipa 
+\fi \@endparenv 
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@@item [#1]{% for arabic lists running from right to left
+\if@noparitem \a@@donoparitem \else 
+	\if@inlabel \putwordb@x {\arab@space }\a@@par \fi
+	\a@@par 
+	\if@newlist \if@nobreak \@nbitem \else 
+		\addpenalty \@beginparpenalty
+		\addvspace \@topsep \addvspace {-\a@parskip }\fi
+	\else \addpenalty \@itempenalty \addvspace \itemsep
+	\fi \global \@inlabeltrue
+\fi
+\a@@everypar {\global \@minipagefalse \global \@newlistfalse
+	\if@inlabel \global \@inlabelfalse \a@spacefalse
+		\putwordb@x {\box \@labels \hskip -\a@parindent }%
+	\fi \a@@everypar {}}%
+\global \@nobreakfalse
+\if@noitemarg \@noitemargfalse
+	\if@nmbrlist \refstepcounter {\@listctr }\fi
+\fi
+\setbox \@tempboxa \hbox {\makelabel {#1}}%
+\global \setbox \@labels \hbox
+        {\hskip \labelsep
+        \ifdim \wd \@tempboxa >\labelwidth \box \@tempboxa
+               \else \hbox to\labelwidth {\unhbox \@tempboxa }\fi
+        \hskip \itemindent \hskip -\labelwidth \hskip -\labelsep
+        \unhbox \@labels }%
+%\test@token }
+\arab@tail }
+
+\def \a@@donoparitem
+{\@noparitemfalse \global \setbox \@labels \hbox
+	{\hskip \leftmargin \unhbox \@labels \hskip -\leftmargin }%
+\if@minipage \else
+	\@tempskipa \lastskip \vskip -\lastskip
+	\advance \@tempskipa \@outerparskip 
+	\advance \@tempskipa -\a@parskip \vskip \@tempskipa
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

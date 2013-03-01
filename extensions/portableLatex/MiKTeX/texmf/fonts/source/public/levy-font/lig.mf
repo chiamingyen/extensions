@@ -1,0 +1,105 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+diaer=oct"042"; % double quote
+ligtable "-": "-" =: oct"000";  % en-dash
+ligtable oct"000": "-" =: oct"177";     % em-dash
+ligtable "(":  "(" =: oct"173"; % open quotes
+ligtable ")":  ")" =: oct"175"; % close quotes
+ligtable "<":
+        "~" =: oct"100", "'" =: oct"126", "`" =: oct"103",
+        "a" =: oct"201", "e" =: oct"341", "h" =: oct"231", "r" =: oct"373",
+        "o" =: oct"345", "w" =: oct"261", "i" =: oct"311", "u" =: oct"315";
+ligtable ">":
+        "~" =: oct"134", "'" =: oct"136", "`" =: oct"137",
+        "a" =: oct"202", "e" =: oct"342", "h" =: oct"232", "r" =: oct"374",
+        "o" =: oct"346", "w" =: oct"262", "i" =: oct"312", "u" =: oct"316";
+ligtable diaer: "~" =: oct"040", "'" =: oct"043", "`" =: oct"044",
+        "i" =: oct"360", "u" =: oct"364";
+ligtable oct"044":      % diaeresis and grave
+        "i" =: oct"361", "u" =: oct"365";
+ligtable oct"043":      % diaeresis and acute
+        "i" =: oct"362", "u" =: oct"366";
+ligtable oct"040":      % diaeresis and circumflex
+        "i" =: oct"363", "u" =: oct"367";
+ligtable "`": diaer =: oct"044",
+        "a" =: oct"200", "h" =: oct"230", "w" =: oct"260",
+        "e" =: oct"340", "o" =: oct"344", "i" =: oct"310", "u" =: oct"314";
+ligtable "'": diaer =: oct"043", "'" =: oct"035",
+        "a" =: oct"210", "h" =: oct"240", "w" =: oct"270",
+        "e" =: oct"350", "o" =: oct"354", "i" =: oct"320", "u" =: oct"324";
+ligtable oct"126":      % rough breathing and acute
+        "a" =: oct"211", "h" =: oct"241", "w" =: oct"271",
+        "e" =: oct"351", "o" =: oct"355", "i" =: oct"321", "u" =: oct"325";
+ligtable oct"136":      % smooth breathing and acute
+        "a" =: oct"212", "h" =: oct"242", "w" =: oct"272",
+        "e" =: oct"352", "o" =: oct"356", "i" =: oct"322", "u" =: oct"326";
+ligtable "~": diaer =: oct"040",
+        "a" =: oct"220", "h" =: oct"250", "w" =: oct"300",
+        "i" =: oct"330", "u" =: oct"334";
+ligtable oct"100":      % rough breathing and circumflex
+        "a" =: oct"221", "h" =: oct"251", "w" =: oct"301",
+        "i" =: oct"331", "u" =: oct"335";
+ligtable oct"134":      % smooth breathing and circumflex
+        "a" =: oct"222", "h" =: oct"252", "w" =: oct"302",
+        "i" =: oct"332", "u" =: oct"336";
+ligtable "a": "|" =: oct"370";          %iota subscripts
+ligtable "h": "|" =: oct"371";
+ligtable "w": "|" =: oct"372";
+ligtable oct"200": "|" =: oct"204"; ligtable oct"201": "|" =: oct"205";
+ligtable oct"202": "|" =: oct"206"; ligtable oct"203": "|" =: oct"207";
+ligtable oct"210": "|" =: oct"214"; ligtable oct"211": "|" =: oct"215";
+ligtable oct"212": "|" =: oct"216"; ligtable oct"213": "|" =: oct"217";
+ligtable oct"220": "|" =: oct"224"; ligtable oct"221": "|" =: oct"225";
+ligtable oct"222": "|" =: oct"226"; ligtable oct"223": "|" =: oct"227";
+ligtable oct"230": "|" =: oct"234"; ligtable oct"231": "|" =: oct"235";
+ligtable oct"232": "|" =: oct"236"; ligtable oct"233": "|" =: oct"237";
+ligtable oct"240": "|" =: oct"244"; ligtable oct"241": "|" =: oct"245";
+ligtable oct"242": "|" =: oct"246"; ligtable oct"243": "|" =: oct"247";
+ligtable oct"250": "|" =: oct"254"; ligtable oct"251": "|" =: oct"255";
+ligtable oct"252": "|" =: oct"256"; ligtable oct"253": "|" =: oct"257";
+ligtable oct"260": "|" =: oct"264"; ligtable oct"261": "|" =: oct"265";
+ligtable oct"262": "|" =: oct"266"; ligtable oct"263": "|" =: oct"267";
+ligtable oct"270": "|" =: oct"274"; ligtable oct"271": "|" =: oct"275";
+ligtable oct"272": "|" =: oct"276"; ligtable oct"273": "|" =: oct"277";
+ligtable oct"300": "|" =: oct"304"; ligtable oct"301": "|" =: oct"305";
+ligtable oct"302": "|" =: oct"306"; ligtable oct"303": "|" =: oct"307";
+     
+ligtable "s": "a" =: oct"001", "b" =: oct"002",
+"d" =: oct"004", "e" =: oct"005", "f" =: oct"006", "g" =: oct"007",
+"h" =: oct"010", "i" =: oct"011", "j" =: oct"012", "k" =: oct"013",
+"l" =: oct"014", "m" =: oct"015", "n" =: oct"016", "o" =: oct"017",
+"p" =: oct"020", "q" =: oct"021", "r" =: oct"022", "s" =: oct"023",
+"t" =: oct"024", "u" =: oct"025", "w" =: oct"027",
+"x" =: oct"030", "y" =: oct"031", "z" =: oct"032", "`" =: oct"375",
+"'" =: oct"376", "~" =: oct"377";
+     
+ligtable oct"375": "a" =: oct"203", "h" =: oct"233", "w" =: oct"263",
+  "e" =: oct"343", "i" =: oct"313", "o" =: oct"347", "u" =: oct"317";
+ligtable oct"376": "a" =: oct"213", "h" =: oct"243", "w" =: oct"273",
+  "e" =: oct"353", "i" =: oct"323", "o" =: oct"357", "u" =: oct"327",
+  "'" =: oct"003";
+ligtable oct"377": "a" =: oct"223", "h" =: oct"253", "w" =: oct"303",
+  "i" =: oct"333", "u" =: oct"337";

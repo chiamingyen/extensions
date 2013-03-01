@@ -1,0 +1,1020 @@
+%(c) 1990,91 by Joel M. Hoffman
+
+%base for hclassic and hcaption.  Version 0.9.
+%The files hclassic.mf and hcaption.mf call this file.
+%updated 5/15/91 by JMH
+
+%This is my first MF attempt, so a lot of this may seem silly.  If so,
+%please let me know.  Some letters still contain bugs:  _ayin_, _shin_,
+%and perhaps a few others.  Also, the _mem_ looks terrible.  As of yet,
+%there are no numbers, and very litle punctuation --- only a period, comma,
+%exclamation mark and a hyphen.
+%
+%In addition to the 26 normal and final letters, I have included a
+%aleph-lamed ligature (seldom used), and a non-descending _ayin_ for use
+%with vowels.  There is also a full-complement of vowels, and a general
+%purpose dot (for use in _shin_ vs. _sin_, among others).  The files
+%dots.tex and vowels.tex contain macros for using the vowels.
+%
+%Use of this material in a commercial venture of any sort requires
+%permission from me.  Otherwise, you are free to use this for any
+%legal, non-destructive purpose.  If you find this font useful, a
+%contribution to charity will be most appreciated.
+%
+%Because of the bugs and the lack of punctuation, I have numbered this
+%version 0.9.  If you fix the bugs or have time to add the necessary
+%punctuation, please let me know!
+%
+%Send comments or complaints to:
+%
+%BITNET:      hoffman@nyuacf.BITNET  <-- this will change soon
+%CompuServe:  72700,402 -or- 72700.402@compuserve.com
+%  new : joel@wam.umd.edu (Joel M. Hoffman)
+
+%SNAIL:       Joel M. Hoffman
+%             19 Hillcrest Lane
+%             Rye, NY 10580
+%             U.S.A.                            
+
+
+beginchar("-",.7let_width#,let_height#,0); "hyphen";
+
+af(0,0);
+baselinepen;
+top lft z1=(0,h);
+top rt z2 =(w,h);
+draw z1---z2;
+labels(1,2);
+showit;
+endchar;
+
+
+beginchar(",",2dot#,2dot#,dot#); "Comma";
+
+af(0,0)
+dotpen;
+top rt z1 = (w,h);
+bot lft z2 = (0,-d);
+draw z1 --- z2;
+labels(1,2);
+showit;
+endchar;
+
+
+beginchar(":",1.4squaredot#,let_height#,0); "Colon";
+
+af(0,0);
+squarepen;
+top rt z1 = (w/2,1.4squaredot);
+bot lft z2 = (w/2,0);
+draw z1---z2;
+top rt z3 = (w/2,h);
+bot lft z4 = (w/2,h-1.4squaredot);
+draw z3---z4;
+labels(1,2,3,4);
+showit;
+endchar;
+
+
+beginchar("!",1.4squaredot#,let_height#,0); "Exclamation mark";
+
+af(0,0);
+squarepen;
+top rt z1 = (w/2,1.4squaredot);
+bot lft z2 = (w/2,0);
+draw z1---z2;
+z3=(w/2,3/5h);
+z4=(w/2,h+1.4squaredot);
+draw z3---z4;
+labels(1,2,3,4);
+showit;
+endchar;
+
+
+beginchar(".",1.4squaredot#,1.4squaredot#,0); "Period";
+
+af(0,0);
+squarepen;
+top rt z1 = (w/2,h);
+bot lft z2 = (w/2,0);
+draw z1---z2;
+labels (1,2);
+showit;
+endchar;
+
+
+beginchar(142,let_width#,let_height#,0); "The letter Mem";
+
+af(0,0);
+x1=.7w;y1r=h;
+penpos1(thick,90);
+x2r=w;y2=h/2;
+penpos2(thin,0);
+z3=(.8w,baselinewidth/2);
+penpos3(baselinewidth,-90); %up to here is the right part
+x4=.7w;y4l=y1l;
+penpos4(thin,90);
+%penstroke z3e...{up}z2e{up}...z1e...z4e;
+thinpen;
+%z5=(.3w,.8(y1-thin));
+z5=(2serif_width,.9(y1-thin));
+lft z6=(0,0);
+penpos5(thin,135);penpos6(thin,180);
+penstroke z3e...{up}z2e{up}...z1e...z5;%...{down}z6;
+draw z4r{left}... z5 ... {down}z6;
+z7=(.25w,baselinewidth/2);
+fudge:=.05w;
+baseline(z7,z3+(fudge,0));
+%and now for the upper-left bit
+pickup pencircle xscaled thin yscaled thick;
+z8=(serif_width,h-thick/2);
+bot rt z9=(x5+thin,y5-thin);
+%draw z8--z9;
+top_serif(8,10);
+bottom_serif(8,11);
+labels(1,2,3,4,5,6,7,8,9,10,11);
+showit;
+endchar;
+
+
+
+beginchar(124,.85let_width#,let_height#+asc_height#,0);
+"The ligature aleph-lamed";
+
+af(0,0);
+%adopted from the aleph:
+pickup pencircle xscaled thin yscaled thick;
+lft z1=(0,let_height-thick/2);
+z0=(thin/2,h-3serif_height);%this has to match a thin line later
+z2=(0,y1-serif_height/3);
+bot z3 = (w,serif_height/3);
+bot z4 = (w,0);
+pickup pencircle xscaled thin yscaled (thick/cosd(angle(z3-z2)));
+%draw z0{down}... z2{z3-z2}...{z3-z2}z3...z4;
+draw z1 ... z2{z3-z2}...{z3-z2}z3...z4;
+z7=(4/5w,y1);
+z8=(4/5w,y7-serif_height/3);
+z8-z9=whatever*(z2-z3);
+x9=w;
+z10=(x9,y9-serif_height);
+hairlinepen;
+z6-z5=whatever*(z3-z2) rotated 90;
+z6= 3/4[z8,z9];
+z5=whatever[z3,z2];
+draw z5---z6;
+pickup pencircle xscaled thin yscaled (thick/cosd(angle(z3-z2)));
+draw z7...z8{z9-z8}...{z9-z8}z9...z10;
+%and now the lamed-like serif, from the letter lamed
+thinpen;
+z11=(thin/2,h);
+z12=(1.5serif_width,h-serif_height);
+draw z11...z12...z0{down}...z2;
+labels(1,2,3,4,5,6,7,8,9,10,11,12);
+showit;
+endchar;
+
+
+
+beginchar(123,let_width#,let_height#,0);
+"The letter Ayin (for use with vowels)";
+%n.b.: use this ayin when a vowel appears under it.
+
+af(0,0);
+z1=(0,-d+thick/2);
+z3=(.66w,thick/2);
+z5=(x3+((w-thin/2)-x3)/1.8,h/1.8);
+any_curve(1.3,thick,thin,1,2,3,4,5);
+fill fullcircle scaled thick shifted z1;
+pickup pencircle scaled (thick*2);	%cheat in the next step.
+mycutoff((0,y1r-sind(angle(z3-z1))*thick/2),90+baseline_tilt);
+z6=(w-w/3.5,h-thick/2);
+alittle:=.05h;
+z8=(w,y6-alittle);
+z10=z5;
+any_curve(2,thin,thick,10,9,8,7,6);
+top_serif(6,11);
+thinpen;
+z12=whatever[z1,z3];
+(y14-y12)=(x12-x14)*(y5-y3)/(x5-x3); %i.e.,(y14-y12)/(x14-x12)=-(y5-y3)/(x5-x3)
+y14=2/3h;x14=.14w;
+z16=(2serif_width,h-thick/2-head_tilt);
+any_curve(1,thin,thin,16,15,14,13,12);
+pickup pencircle xscaled thin yscaled thick;
+z17=(serif_width,y16+head_tilt);
+z18=(x16+serif_width,y16-head_tilt);
+draw z17--z18;
+top_serif(17,19);
+bottom_serif(18,20);
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20);% Wow!  20.
+showit;
+endchar;
+
+
+
+beginchar(136,let_width#,let_height#,0); "The letter Tet";
+
+af(0,0);
+%first, make somthing like a zion
+nw:=w/3.5;
+thinpen;
+z1=(nw/2,0);
+z2=(nw/2,h-thick/2-head_tilt);
+%draw z1---z2; that would be a zion
+pickup pencircle xscaled thin yscaled thick;
+lft z3 = (0,y2+head_tilt);
+rt z4 = (nw,y2-head_tilt);
+draw z3 -- z4;
+top_serif(3,5);
+bottom_serif(4,6);
+%now we've got a zion
+thinpen;
+z7=(thin/2,.66h);
+z8=(thin/2,thick/2);
+draw z8---z7---z2;
+z9=(0,y8);
+z12=(w-thin/2,h/2);
+general_left_curve(.9tightness,tightness/2,thick,thick,thin,thin,9,10,11,12);
+z13=z12;
+z14=(.78w,h-thick/2);
+z15=(.38w,.45h); %z15=(.35w,.5h); <--- old values
+penpos13(thin,0);
+penpos14(thick,90);%thick
+penpos15(thin,angle(z15-z14)-90);
+z16r=.2[z15r,z14r];
+z16l=.2[z15l,z14l];
+z16=.5[z16l,z16r];
+%z16=.5[z15,z14];
+%penpos16(thin/2,angle(z15-z14)-90);
+penstroke z13e{up}...{left}z14e...{z15-z16}z16e{z15-z15}---z15e;
+%penstroke z13e{up}...{left}z14e{z15-z15}---z15e;
+fill fullcircle scaled thin shifted z15;
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+showit;
+endchar;
+
+
+
+
+
+beginchar(8,vowel_stroke#,0,vowel_depth#+vowel_height#); "The mark Meteg";
+
+vowel_af;
+vowelpen;
+top z1 = (w/2,-vowel_depth);
+bot z2 = (w/2,-vowel_depth-vowel_height);
+draw z1--z2;
+labels(1,2);
+showit;
+endchar;
+
+beginchar(9,vowel_width#,0,vowel_depth#+vowel_height#); "The vowel tzere";
+
+vowel_af;
+dotpen;
+top lft z1 = (0,-vowel_depth);
+top rt z2 = (w,-vowel_depth);
+dotat(z1);
+dotat(z2);
+labels(1,2);
+showit;
+endchar;
+
+beginchar(0,0,0,0); "General purpose dot";
+
+negate_af;
+dotpen;
+z1=(0,0);
+dotat(z1);
+labels(1);
+showit;
+endchar;
+
+
+
+beginchar(7,dot#,0,vowel_depth#+vowel_height#); "The vowel Shva";
+
+vowel_af;
+dotpen;
+top z1 = (w/2,-vowel_depth);
+bot z2 = (w/2,-d);
+dotat(z1);
+dotat(z2);
+labels(1,2);
+showit;
+endchar;
+
+
+
+beginchar(6,vowel_width#,0,vowel_depth#+(1.5*vowel_height#));
+"The vowel Kamatz Katan";
+
+vowel_af;
+vowelpen;
+top lft z1 = (0,-vowel_depth);
+top rt z2 = (w,-vowel_depth);
+draw z1---z2;
+z3=(w/2,-vowel_depth-(1.5*vowel_height)+dot/2);
+fill fullcircle scaled dot shifted z3;
+hairlinepen;
+draw z3---.5[z1,z2];
+labels(1,2,3);
+showit;
+endchar;
+
+beginchar(5,vowel_width#,0,vowel_depth#+dot#); "The vowel chiriq";
+
+vowel_af;
+dotpen;
+bot z1 = (w/2,-d);
+dotat(z1);
+labels(1);
+showit;
+endchar;
+
+
+beginchar(4,vowel_width#,0,vowel_depth#+1.5vowel_height#); "The vowel Qibutz";
+
+vowel_af;
+dotpen;
+top lft z1 = (0,-vowel_depth);
+bot rt z2 = (w,-d);
+z3=.5[z1,z2];
+dotat(z1);
+dotat(z2);
+dotat(z3);
+labels(1,2,3);
+showit;
+endchar;
+
+
+beginchar(3,vowel_width#,0,vowel_depth#+vowel_height#); "The vowel Segol";
+
+vowel_af;
+dotpen;
+top lft z1 = (0,-vowel_depth);
+top rt z2 = (w,-vowel_depth);
+bot z3 = (w/2,-vowel_depth-vowel_height);
+dotat(z1);
+dotat(z2);
+dotat(z3);
+labels(1,2,3);
+showit;
+endchar;
+
+
+beginchar(2,vowel_width#,0,vowel_depth#+vowel_height#); "The vowel Kamatz";
+
+vowel_af;
+vowelpen;
+top lft z1 = (0,-vowel_depth);
+top rt z2 = (w,-vowel_depth);
+draw z1---z2;
+z3=(w/2,-vowel_depth-vowel_height+dot/2);
+fill fullcircle scaled dot shifted z3;
+hairlinepen;
+draw z3---.5[z1,z2];
+labels(1,2,3);
+showit;
+endchar;
+
+beginchar(1,vowel_width#,0,vowel_depth#+vowel_stroke#); "The vowel Patach";
+
+vowel_af;
+vowelpen;
+bot lft z1 = (0,-d);
+bot rt z2 = (w,-d);
+draw z1---z2;
+labels(1,2);
+showit;
+endchar;
+
+
+
+
+beginchar(149,let_width#,let_height#,desc_height#); "The final letter Tzadi";
+
+af(0,0);
+%first, make a final nun:
+nw:=w/3.5;
+z1=(serif_width,h-thick/2);
+z3=(nw,h-thick/2);
+z5=(nw/1.5,.8h);
+any_curve(2,thin,thick,5,4,3,2,1);
+fudge:=.05nw;
+z6=(nw-fudge,y3);
+z8=z5;
+z10=(nw/2,.6h);
+any_curve(1.2,thin,thin,10,9,8,7,6);
+thinpen;
+z11=(nw/2,-desc_height);
+draw z10---z11;
+top_serif(1,0);
+z12=whatever[z10,z11];
+y12=.3h;
+z14=(x13-serif_width,y13+head_tilt);
+z15=(x13+serif_width,y13-head_tilt);
+x15=w-serif_width;
+y14=h-thick/2;
+thinpen;
+draw z12---z13;
+pickup pencircle xscaled thin yscaled thick;
+draw z14---z15;
+bottom_serif(15,16);
+top_serif(14,17);
+labels(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17);
+showit;
+endchar;
+
+
+beginchar(147,let_width#,let_height#,desc_height#); "The final letter Feh";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z4=(w-thin/2,-d);
+top_serif(1,0);
+%this is from the letter pe
+right_curve(1,2,3,4);
+z6=z1;
+z8=(0,h/2);
+z10=(w/2-thick/2,h/2);
+any_curve(1.5,thin,thick,6,7,8,9,10);
+fill fullcircle scaled thick shifted z10;
+x12=0;
+y11=h/2;
+chupchik(11,12,70);
+labels(0,1,2,3,4,6,7,8,9,10,11,12);
+showit;
+endchar;
+
+
+
+
+
+beginchar(146,let_width#,let_height#,.3let_height#); "The letter Ayin";
+%n.b.:  This is a descending ayin, for use when there's no vowel
+%under it!
+
+af(0,0);
+z1=(0,-d);
+z3=(.66w,thick/2);
+z5=(x3+((w-thin/2)-x3)/1.8,h/1.8);
+any_curve(1.3,thick,thin,1,2,3,4,5);
+fill fullcircle scaled thick shifted z1;
+pickup pencircle scaled (thick*1.5);	%cheat in the next step.
+mycutoff((0,y1r-sind(angle(z3-z1))*thick/2),180);
+z6=(w-w/3.5,h-thick/2);
+alittle:=.05h;
+z8=(w,y6-alittle);
+z10=z5;
+any_curve(2,thin,thick,10,9,8,7,6);
+top_serif(6,11);
+thinpen;
+z12=whatever[z1,z3];
+(y14-y12)=(x12-x14)*(y5-y3)/(x5-x3); %i.e.,(y14-y12)/(x14-x12)=-(y5-y3)/(x5-x3)
+y14=2/3h;x14=.14w;
+z16=(2serif_width,h-thick/2-head_tilt);
+any_curve(1,thin,thin,16,15,14,13,12);
+pickup pencircle xscaled thin yscaled thick;
+z17=(serif_width,y16+head_tilt);
+z18=(x16+serif_width,y16-head_tilt);
+draw z17--z18;
+top_serif(17,19);
+bottom_serif(18,20);
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20);% Wow!  20.
+showit;
+endchar;
+
+
+
+
+beginchar(153,1.1let_width#,let_height#,0); "The letter Shin";
+
+af(0,0);
+z1=(.1w,baselinewidth/2);
+z3=(.7w,baselinewidth/2);
+z5=(x3+((w-thin/2)-x3)/1.8,h/1.8);
+any_curve(1,thick,thin,1,2,3,4,5);
+z6=(w-2*sss*serif_width,h-thick/2);
+alittle:=.05h;
+z8=(w,y6-alittle);
+z10=z5;
+any_curve(2,thin,thick,10,9,8,7,6);
+top_serif(6,11);
+thinpen;
+z12=(x1,0);
+z14=(thin/2,2/3h);
+z16=(2*sss*serif_width,h-thick/2-head_tilt);
+any_curve(1,thin,thin,16,15,14,13,12);
+pickup pencircle xscaled thin yscaled thick;
+z17=(sss*serif_width,y16+head_tilt);
+z18=(x16+sss*serif_width,y16-head_tilt);
+draw z17--z18;
+top_serif(17,19);
+bottom_serif(18,20);
+z21=((x16+x6)/2,y16);
+(y21-y22)=(y5-y3)/(x5-x3)*(x21-x22);
+z22=whatever[z1,z3];
+hairlinepen;
+draw z21---z22;
+z23=(x21-sss*serif_width,y21+head_tilt);
+z24=(x21+sss*serif_width,y21-head_tilt);
+pickup pencircle xscaled thin yscaled thick;
+draw z23--z24;
+top_serif(23,25);
+bottom_serif(24,26);
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26);
+showit;
+endchar;
+
+
+beginchar(151,let_width#,let_height#,desc_height#); "The letter Koof";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z2=(tightness*w,h-thick/2);
+z3=(w-thin/2,tightness*y2);
+z4=(w-thin/2,h/3);
+z6=(.33w,0);
+penpos1(thick,90);
+penpos2(thick,90);
+penpos3(thin,0);
+penpos6(thin,angle(z4-z6)-90);
+z5=tightness[z6,z4];
+penpos5(thin,angle(z4-z6)-90);
+penstroke z6e{z4-z6}...{z4-z6}z5e...z3e{up}...z2e{left}...{left}z1e;
+top_serif(1,0);
+thinpen;
+z7=(serif_width,(3/5)*h);
+z8=(serif_width,-d);
+draw z7---z8;
+fill fullcircle scaled thin shifted z6;
+labels(0,1,2,3,4,5,6,7,8);   
+showit;
+endchar;
+
+
+
+
+beginchar(145,let_width#,let_height#,0); "The letter Samech";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+penpos1(thick,90);
+z2=(tightness*w,y1);
+penpos2(thick,90);
+z3=(w-thin/2,h/2);
+penpos3(thin,0);
+z4=(.55w,thick/2);
+penpos4(thick,-90);
+penstroke z4e{right}...{up}z3e{up}...z2e{left}...{left}z1e;
+top_serif(1,0);
+z5=(x4,thick/2);
+z7=(thin/2,thick/2);
+z9=(thin/2,.8y1);
+any_curve(1,thin,thick,9,8,7,6,5);
+thinpen;
+draw z9---z1;
+labels(0,1,2,3,4,5,6,7,8,9);
+showit;
+endchar;
+
+
+
+beginchar(141,let_width#,let_height#,0); "The final letter Mem";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z4=(w-thin/2,0);
+right_curve(1,2,3,4);
+top_serif(1,0);
+z5=(w-thin/2,thick/2);
+z7=(thin/2,thick/2);			% This is for a rounded lower-left
+z9=(thin/2,.8y1);			% corner.  A right angle is better (?)
+%any_curve(1,thin,thick,9,8,7,6,5); 	% <--
+pickup penrazor scaled thick rotated 90;
+draw z5---(0,thick/2);
+pickup penrazor scaled thin rotated 0;
+draw z7---z9;
+thinpen;
+draw z9---z1;
+labels(0,1,2,3,4,5,6,7,8,9,10);
+showit;
+endchar;
+
+
+
+
+beginchar(143,let_width#/3.5,let_height#,desc_height#); "The final letter Nun";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z3=(w,h-thick/2);
+z5=(w/1.5,.8h);				% this isn't quite a yud.
+any_curve(2,thin,thick,5,4,3,2,1);	%now we've got a yud. (almost)
+fudge:=.05w;
+z6=(w-fudge,y3);
+z8=z5;
+z10=(w/2,.6h);
+any_curve(1.2,thin,thin,10,9,8,7,6);
+thinpen;
+z11=(w/2,-desc_height);
+draw z10---z11;
+top_serif(1,0);
+labels(0,1,2,3,4,5,6,7,8,9,10);
+showit;
+endchar;
+
+
+
+beginchar(144,let_width#/2.2,let_height#,0); "The letter Nun";
+
+af(0,0);
+z1=(.2w+serif_width,h-thick/2);
+z4=(w-thin/2,h/2);
+general_right_curve(tightness/2.2,tightness,thick,thick,thin,thin,1,2,3,4);
+top_serif(1,0);
+z5=(w/2,baselinewidth/2);
+z8=z4;
+general_left_curve(tightness/2.2,tightness,
+	baselinewidth,baselinewidth,thin,thin,5,6,7,8);
+baseline((0,baselinewidth/2),(.75w,baselinewidth/2));
+labels(0,1,2,3,4,5,6,7,8);
+showit;
+endchar;
+
+
+
+
+beginchar(154,.9let_width#+overshoot#,let_height#,0); "The letter Taf";
+
+af(0,0);
+z1=(overshoot,h-thick/2);
+z4=(w-thin/2,0);
+right_curve(1,2,3,4);
+roundoff_bottom(4);
+top_serif(1,0);
+%thinpen;
+%z5=(2.5*overshoot,h-baselinewidth/2);
+%z6=(2*overshoot,baselinewidth/2);
+%draw z5{dir -110}...{dir -80}z6;
+%baseline((x6-1.5overshoot,y6),(x6+overshoot,y6));
+z11=(2.5*overshoot,h-thick/2);	%this is taken from the Aleph, q.v.
+z15=(x11,thick/2);
+x13l=0;
+x13r=thin;
+y13l=y13r=.6h;
+z13=.5[z13l,z13r];
+penpos11(thin,angle(z13-z11)+90);
+penpos15(thick,angle(z15-z13)+90);
+z14=.3[z13,z15];
+penstroke z11e{z13-z11}...z13e...{z15-z13}z15e;
+fill fullcircle scaled thick shifted z15;
+z16=(0,baselinewidth/2);
+baseline(z16,(x15,baselinewidth/2));
+labels(0,1,2,3,4,5,6,11,12,13,14,15,16);
+showit;
+endchar;
+
+beginchar(140,.9let_width#,let_height#+asc_height#,0); "The letter Lamed";
+
+af(0,0);
+z1=(w/2,let_height-thick/2);
+z4=(w-thin/2,0);	%we'll erase some of this later
+right_curve(1,2,3,4);
+z5=(x4,let_height/2);
+thinpen;
+erase draw z4--z5;
+showit;
+z6=(w/3,0);
+z8=z5;
+z10=(x4,.75let_height);
+any_curve(1,thin,thin,6,7,8,9,10);
+%and now for the ascender.
+z11=(thin/2,h);
+z12=(2serif_width,h-serif_height); 	%the lamed has it's own serif, though.
+z13=(thin/2,h-3serif_height);
+z14=(thin/2,y1+asc_height/2);
+draw z11...z12...z13{down}...{down}z14;
+showit;
+z15=(x14,y1+.75asc_height);
+z17=(thin/2,y1);
+z19=(4/5w,y1);
+any_curve(1,thick,thin,19,18,17,16,15);
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,17,18,19);
+fill fullcircle scaled ((thick+thin)/2) shifted z6;
+showit;
+endchar;
+
+
+
+beginchar(138,let_width#,let_height#,desc_height#); "The final letter Chaf";
+
+af(0,0);
+thickpen;
+top z1 = (serif_width,let_height);
+top rt z2 = (let_width,let_height);
+draw z1---z2;
+mycutoff(z1,180);
+top_serif(1,0);
+thinpen;
+rt z3=(w-overshoot,h-thick/2);
+rt z4=(w-overshoot,-d);
+draw z3--z4;
+labels(0,1,2,3,4);
+showit;
+endchar;
+
+
+beginchar(135,let_width#,let_height#,0); "The letter Chet";
+
+af(0,0);
+thickpen;
+top z1 = (serif_width,let_height);
+top rt z2 = (w,h);
+draw z1 --- z2;
+mycutoff(z1,180);
+top_serif(1,0);
+thinpen;
+rt z3 = (w-overshoot,h-thick/2);
+rt z4 = (w-overshoot,0);
+draw z3--z4;
+z5=(serif_width,h-thick/2);
+z6=(serif_width,0);
+draw z5--z6;
+labels(1,2,3,4,5,6);
+showit;
+endchar;
+
+beginchar (137,let_width#/3.5,let_height#,0); "The letter Yud";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z3=(w,h-thick/2);
+z5=(w/2,h/2);
+any_curve(2.2,thin,thick,5,4,3,2,1);
+top_serif(1,0);
+labels(0,1,2,3,4,5);
+showit;
+endchar;
+
+
+beginchar (134,let_width#/3.5,let_height#,0); "The letter Zion";
+
+af(0,0);
+thinpen;
+z1=(w/2,0);
+z2=(w/2,h-thick/2-head_tilt);
+draw z1--z2;
+pickup pencircle xscaled thin yscaled thick;
+lft z3 = (0,y2+head_tilt);
+rt z4 = (w,y2-head_tilt);
+draw z3 -- z4;
+top_serif(3,5);
+bottom_serif(4,6);
+labels(1,2,3,4,5,6);
+showit;
+endchar;
+
+
+beginchar(130,let_width#/2.2,let_height#,0); "The letter Gimel";
+
+af(serif_width#,0);
+z1=(serif_width,h-thick/2);
+z4=((.85w)-thin/2,baselinewidth);
+top_serif(1,0);
+right_curve(1,2,3,4);
+thinpen;
+bot rt z5 = (w,0);
+draw z5--z4;
+baselinepen;
+z6=(-serif_width/2,baselinewidth/2);
+top rt z7 = z4;
+baseline(z6,z7);
+labels(0,1,2,3,4,5,6,7);
+showit;
+endchar;
+
+
+beginchar(148,let_width#,let_height#,0); "The letter Pe";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+penpos1(thick,90);
+z2=(tightness*w,y1);
+penpos2(thick,90);
+z3=(w-thin/2,h/2);
+penpos3(thin,0);
+z4=(tightness*w,baselinewidth/2);
+penpos4(baselinewidth,-90);
+z5=(serif_width,baselinewidth/2);
+penpos5(baselinewidth,-90);
+penstroke z5e{right}...{right}z4e...{up}z3e{up}...z2e{left}...{left}z1e;
+top_serif(1,0);
+baseline((0,baselinewidth/2),(w/2,baselinewidth/2));
+showit;
+%so far, we've got a kaf.
+z6=z1;
+z8=(0,h/2);
+z10=(w/2-thick/2,h/2);
+any_curve(1.5,thin,thick,6,7,8,9,10);
+fill fullcircle scaled thick shifted z10;
+%and now for the chupchik:
+x12=0;
+y11=h/2;
+chupchik(11,12,70);
+labels(0,1,2,3,4,5,6,7,8,9,10,11);
+showit;
+endchar;
+
+
+
+beginchar(139,let_width#,let_height#,0); "The letter Kaf";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+penpos1(thick,90);
+z2=(tightness*w,y1);
+penpos2(thick,90);
+z3=(w-thin/2,h/2);
+penpos3(thin,0);
+z4=(tightness*w,baselinewidth/2);
+penpos4(baselinewidth,-90);
+z5=(serif_width,baselinewidth/2);
+penpos5(baselinewidth,-90);
+penstroke z5e{right}...{right}z4e...{up}z3e{up}...z2e{left}...{left}z1e;
+top_serif(1,0);
+baseline((0,baselinewidth/2),(w/2,baselinewidth/2));
+labels(0,1,2,3,4,5);
+showit;
+endchar;
+
+
+
+
+
+
+
+
+beginchar(128,let_width#,let_height#,0); "The letter Aleph";
+
+af(0,0);
+pickup pencircle xscaled thin yscaled thick; % this pen is only approx. right
+lft z1 = (0,h-thick/2);
+z2 = (0,y1-serif_height/3);
+bot z3 = (w,serif_height/3);
+bot z4 = (w,0);
+pickup pencircle xscaled thin yscaled (thick/cosd(angle(z3-z2)));
+draw z1 ... z2{z3-z2}...{z3-z2}z3...z4;%corrected z3-z3
+z7 = (4/5w,y1);			%now we make the upper right squiggle.
+z8 = (4/5w,y7-serif_height/3);
+z8-z9 = whatever*(z2-z3);	% || to the big fat line
+x9 = w;
+%z9 = (w,4/5h+serif_height);
+z10 = (x9,y9-serif_height/3);
+hairlinepen;			%and z6 the upper right part.
+z6-z5=whatever*(z3-z2) rotated 90;%the line is perp. to the fat line.
+z6 = 3/4[z8,z9];		%And put z6 somewhere on that squiggle.
+z5 = whatever[z3,z2];		%z5 is somewhere on the big fat line.
+draw z5---z6;
+pickup pencircle xscaled thin yscaled (thick/cosd(angle(z3-z2)));
+draw z7 ... z8{z9-z8}...{z9-z8}z9...z10;
+pickup pencircle xscaled thin yscaled thick rotated angle(z3-z2);
+z11 = .2[z2,z3];		%we're in the home stretch.
+z15 = (x11,thick/2);
+x13l = 0;			%Try to figure out a third point for the curve
+x13r = thin;			%A thin line.
+y13l=y13r=.55h;			%touching the left edge 
+z13=.5[z13l,z13r];		%Just like the macro for penpos.
+penpos11 (thin,angle(z13-z11)+90);
+penpos15 (thick,angle(z15-z13)+90);
+z14=.3[z13,z15];
+penstroke z11e{z13-z11}...z13e...{z15-z13}z15e;
+fill fullcircle scaled thick shifted z15;
+showit;
+z16=(0,baselinewidth/2);
+baseline(z16,(x15,baselinewidth/2));
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+showit;
+endchar;
+
+beginchar(150,let_width#,let_height#,0); "The letter Tzadi";
+
+af(0,thick#/2);
+z1=(0,baselinewidth/2);
+z2=(w/2,baselinewidth/2);
+z4=(w,baselinewidth/2);
+z6=(w/3,h/1.8);
+any_curve(1,baselinewidth,thin,2,3,4,5,6);
+baseline(z1,(w/(1.5),baselinewidth/2));
+hairlinepen;
+z7=whatever[z6,z4];
+x7=w/2;
+z8=(w-overshoot*2,h-thick/2);
+draw z7--z8;
+thickpen;
+%it looks better sticking out a bit, but we have to set adjust_fit (af) above
+z9=(w,h-thick/2); %z9=(w-thick/2,h-thick/2); <--- old version
+draw z8--z9;
+mycutoff((x8-cosd(angle(z8-z7))*hairline,y8),angle(z8-z7)+90);
+z10=(serif_width,let_height-thick/2);
+showit;
+x13=x6+thin/2;	%can't reuse z6 becuase z6l and z6r are already (mis)set.
+y13=y6-thin/2;
+right_curve(10,11,12,13);
+showit;
+top_serif(10,14);
+labels(1,2,3,4,5,6,7,8,9,10,11,12,13,14);
+showit;
+endchar;
+
+
+
+
+beginchar(133,let_width#/3,let_height#,0); "The letter Vav";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z4=(w-thin/2,0);
+general_right_curve(tightness/2,tightness,thick,thick,thin,thin,1,2,3,4);
+roundoff_bottom(4);
+top_serif(1,0);
+labels(0,1,2,3,4);
+showit;
+endchar;
+
+
+
+beginchar(131,let_width#,let_height#,0); "The letter Daled";
+
+af(0,0);
+thickpen;
+top z1 = (serif_width,h);
+top rt z2 = (w,h);
+draw z1 --- z2;		%Draw the top line
+mycutoff(z1,180);		%mycutoff left part so we can make serif.
+top_serif(1,0);
+thinpen;
+rt z3 = (w-overshoot,h-thick/2);
+rt z4 = (w-overshoot,0);
+draw z3--z4;
+labels(0,1,2,3,4);
+showit;
+endchar;
+
+
+beginchar(132,let_width#,let_height#,0); "The letter Heh";
+
+af(0,0);
+thickpen;
+top z1 = (serif_width,h);
+top rt z2 = (w,h);
+draw z1 --- z2;		%Draw the top line
+mycutoff(z1,180);		%cutoff left part so we can make serif.
+top_serif(1,0);
+thinpen;
+rt z3 = (w-overshoot,h-thick/2);
+rt z4 = (w-overshoot,0);
+draw z3--z4;		%Up to here we have a daled
+z5=(serif_width,.55h);
+z6=(serif_width,0);
+draw z5--z6;		%Now we've drawn the stem.
+labels(1,2,3,4,5,6);
+showit;
+endchar;
+
+
+beginchar(129,let_width#,let_height#,0); "The letter Bet";
+
+af(0,0);
+z1=(serif_width,let_height-thick/2);
+z4=(let_width-thin/2-overshoot,baselinewidth/2);
+right_curve(1,2,3,4);
+roundoff_bottom(4);
+top_serif(1,0);
+baseline((0,baselinewidth/2),(let_width,baselinewidth/2));
+labels(1,2,3,4);
+showit;
+endchar;
+
+
+
+
+beginchar(152,let_width#,let_height#,0); "The letter Resh";
+
+af(0,0);
+z1=(serif_width,h-thick/2);
+z4=(w-thin/2,0);
+right_curve(1,2,3,4);
+roundoff_bottom(4);
+top_serif(1,0);
+labels(0,1,2,3,4);
+showit;
+endchar;
+
+
+
+font_normal_space 30u#;
+font_normal_stretch 10u#;
+font_normal_shrink 20u#;
+
+end; % KL 25.05.9

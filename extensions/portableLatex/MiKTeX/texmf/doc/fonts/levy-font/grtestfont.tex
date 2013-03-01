@@ -1,0 +1,259 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+% This file is supposed to provide a testbed for font evaluation.
+     
+\tracinglostchars=0
+\tolerance=1000
+\raggedbottom
+\nopagenumbers
+\parindent=0pt
+\newlinechar=`@
+\input greekmacros
+     
+\newcount\m \newcount\n \newcount\p \newdimen\dim
+\chardef\other=12
+     
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+\def\hours{\n=\time \divide\n 60
+  \m=-\n \multiply\m 60 \advance\m \time
+  \twodigits\n\twodigits\m}
+\def\twodigits#1{\ifnum #1<10 0\fi \number#1}
+     
+{\catcode`\|=0 \catcode`\\=\other
+|gdef|help{|message{%
+\init switches to another font;@%
+\end or \bye finishes the run;@%
+\table prints the font layout in tabular format;@%
+\text prints a sample text, assuming TeX text font conventions;@%
+\sample combines \table and \text;@%
+\mixture mixes a background character with a series of others;@%
+\alternation interleaves a background character with a series;@%
+\alphabet prints all lowercase letters within a given background;@%
+\alphabets does one \alphabet for each lowercase background letter;@%
+\ALPHABET prints all uppercase letters within a given background;@%
+\ALPHABETs does one \ALPHABET for each uppercase background letter;@%
+\accents prints all lowercase vowels with accents and breathings;@%
+\series prints a series of letters withing a given background;@%
+\lowers prints a comprehensive test of lowercase;@%
+\uppers prints a comprehensive test of uppercase;@%
+\digits prints a comprehensive test of numerals;@%
+\math prints a comprehensive test of TeX math italic;@%
+\names prints a text that mixes upper and lower case;@%
+\punct prints a punctuation test;@%
+\bigtest combines many of the above routines;@%
+\help repeats this message;@%
+and you can use ordinary TeX commands (e.g., to \input a file).}}}
+     
+\def\setbaselineskip{\setbox0=\hbox{\n=0
+\loop\char\n \ifnum \n<255 \advance\n 1 \repeat}
+\baselineskip=6pt \advance\baselineskip\ht0 \advance\baselineskip\dp0 }
+     
+\def\setchar#1{{\escapechar-1\message{\string#1 character = }%
+  \def\do##1{\catcode`##1=\other}\dospecials
+  \read-1 to\next
+  \expandafter\finsetchar\next\next#1}}
+\def\finsetchar#1#2\next#3{\global\chardef#3=`#1
+  \ifnum #3=`\# \global\chardef#3=#2 \fi}
+\def\promptthree{\setchar\background
+  \setchar\starting \setchar\ending}
+     
+\def\init{\message{@Name of the font to test = }
+  \read-1 to\fontname
+  \font\testfont=\fontname
+  \headline={\sevenrm Test of \fontname\unskip\ on \today\ at \hours\hfil
+    Page \folio}
+  \testfont \setbaselineskip
+  \ifdim\fontdimen6\testfont<10pt \rightskip=0pt plus 20pt
+  \else\rightskip=0pt plus 2em \fi
+  \spaceskip=\fontdimen2\testfont % space between words (\raggedright)
+  \xspaceskip=\fontdimen2\testfont \advance\xspaceskip by\fontdimen7\testfont
+  \message{Now type a test command (\string\help\space for help):}}
+     
+\def\mixture{\promptthree \domix\mixpattern}
+\def\alternation{\promptthree \domix\altpattern}
+\def\mixpattern{\0\1\0\0\1\1\0\0\0\1\1\1\0\1}
+\def\altpattern{\0\1\0\1\0\1\0\1\0\1\0\1\0\1\0\1\0}
+\def\domix#1{\par\chardef\0=\background \n=\starting
+  \until\ifnum\n=\ending\do\chardef\1=\n #1\par\n=\count\n \repeat}
+     
+\count`w=`a\count`a=`b\count`b=`g\count`g=`d\count`d=`e\count`e=`z
+\count`z=`h\count`h=`j\count`j=`i\count`i=`k\count`k=`l\count`l=`m
+\count`m=`n\count`n=`x\count`x=`o\count`o=`p\count`p=`r\count`r=`c
+\count`c=`t\count`t=`u\count`u=`f\count`f=`q\count`q=`y\count`y=`w
+\count`W=`A\count`A=`B\count`B=`G\count`G=`D\count`D=`E\count`E=`Z
+\count`Z=`H\count`H=`J\count`J=`I\count`I=`K\count`K=`L\count`L=`M
+\count`M=`N\count`N=`X\count`X=`O\count`O=`P\count`P=`R\count`R=`S
+\count`S=`T\count`T=`U\count`U=`F\count`F=`Q\count`Q=`Y\count`Y=`W
+\count`0=`1\count`1=`2\count`2=`3\count`3=`4\count`4=`5
+\count`5=`6\count`6=`7\count`7=`8\count`8=`9\count`9=`0
+     
+\long\def\until#1\do#2\repeat{\def\body{#2}\def\cond{#1}\etareti}
+\def\etareti{\cond\let\next=\relax\else\let\next=\etareti\fi\body\next}
+     
+\def\alphabet{\setchar\background \dosseries{`a}{`w}}
+\def\ALPHABET{\setchar\background \doseries{`A}{`W}}
+\def\series{\promptthree \doseries\starting\ending}
+\def\doseries#1#2{\def\!{\discretionary{\background}{\background}{\background}}
+  \!\n=#1\until\ifnum\n=#2\do\char\n\!\n=\count\n \repeat\par}
+\def\dosseries#1#2{\def\!{\discretionary{\background}{\background}{\background}}
+  \!\n=#1\until\ifnum\n=#2\do\char\n\!\n=\count\n \repeat s\par}
+     
+\def\lowers{\docomprehensive hs{`a}{`w}}
+\def\uppers{\docomprehensive HO{`A}{`W}}
+\def\digits{\docomprehensive H0{`0}{`9}}
+\def\docomprehensive#1#2#3#4{\par\n=#3
+  \until\ifnum\n=#4\do\line{\altr#1\hfil\altr#2}\n=\count\n\repeat}
+\def\altr#1{\setbox0=\hbox{#1}\setbox2=\hbox{#1\char\n}%
+  \dim=.5\hsize \advance\dim-\wd0 \divide\dim\wd2 \multiply\dim\wd2
+  \xleaders\box2\hskip\dim\box0}
+\def\alphabets{\m=`a\until\ifnum\m=`w
+  \do\chardef\background=\m{\dosseries{`a}{`w}}\m=\count\m \repeat}
+\def\ALPHABETS{\m=`A\until\ifnum\m=`W
+  \do\chardef\background=\m{\doseries{`A}{`W}}\m=\count\m \repeat}
+     
+\def\separator{\vfil\penalty-100\vfilneg
+  \medskip\leaders\hrule height.4pt\vskip.4pt\medskip}
+     
+\def\bigtest{%
+\sample\vfil\break
+\accents\separator
+\names\separator
+\punct\separator
+\alphabets\separator
+\lowers\separator
+\uppers\separator
+\digits}
+     
+\def\math{\message{(Sorry, that's not here yet.)}}
+     
+\def\oct#1{\hbox{\tenrm\'{}\kern-.2em\tenit#1\/\kern.05em}} % octal constant
+\def\hex#1{\hbox{\tenrm\H{}\tentt#1}} % hexadecimal constant
+\def\setdigs#1"#2{\gdef\h{#2}% \h=hex prefix; \0\1=corresponding octal
+ \m=\n \divide\m by 64 \xdef\0{\the\m}%
+ \multiply\m by-64 \advance\m by\n \divide\m by 8 \xdef\1{\the\m}}
+\def\testrow{\setbox0=\hbox{\penalty 1\def\\{\char"\h}%
+ \\0\\1\\2\\3\\4\\5\\6\\7\\8\\9\\A\\B\\C\\D\\E\\F%
+ \global\p=\lastpenalty}} % \p=1 if none of the characters exist
+\def\oddline{\cr
+  \noalign{\nointerlineskip}
+  \multispan{19}\hrulefill&
+  \setbox0=\hbox{\lower 2.3pt\hbox{\hex{\h x}}}\smash{\box0}\cr
+  \noalign{\nointerlineskip}}
+\newif\ifskipping
+\def\evenline{\loop\skippingfalse
+ \ifnum\n<256 \m=\n \divide\m 16 \chardef\next=\m
+ \expandafter\setdigs\meaning\next \testrow
+ \ifnum\p=1 \skippingtrue \fi\fi
+ \ifskipping \global\advance\n 16 \repeat
+ \ifnum\n=256 \let\next=\endchart\else\let\next=\morechart\fi
+ \next}
+\def\morechart{\cr\noalign{\hrule}
+ \chartline \oddline \m=\1 \advance\m 1 \xdef\1{\the\m}
+ \chartline \evenline}
+\def\chartline{&\oct{\0\1x}&&\:&&\:&&\:&&\:&&\:&&\:&&\:&&\:&&}
+\def\chartstrut{\lower4.5pt\vbox to14pt{}}
+\def\table{$$\global\n=0
+  \halign to\hsize\bgroup
+    \chartstrut##\tabskip0pt plus10pt&
+    &\hfil##\hfil&\vrule##\cr
+    \lower6.5pt\null
+    &&&\oct0&&\oct1&&\oct2&&\oct3&&\oct4&&\oct5&&\oct6&&\oct7&\evenline}
+\def\endchart{\cr\noalign{\hrule}
+  \raise11.5pt\null&&&\hex 8&&\hex 9&&\hex A&&\hex B&
+  &\hex C&&\hex D&&\hex E&&\hex F&\cr\egroup$$\par}
+\def\:{\setbox0=\hbox{\char\n}%
+  \ifdim\ht0>7.5pt\reposition
+  \else\ifdim\dp0>2.5pt\reposition\fi\fi
+  \box0\global\advance\n 1 }
+\def\reposition{\setbox0=\vbox{\kern2pt\box0}\dim=\dp0
+  \advance\dim 2pt \dp0=\dim}
+\def\centerlargechars{
+  \def\reposition{\setbox0=\hbox{$\vcenter{\kern2pt\box0\kern2pt}$}}}
+     
+\begingreek
+     
+\def\accents{\longseries a\shortseries e\longseries h\mediumseries i
+\shortseries o\mediumseries u\longseries w \rseries}
+\def\longseries#1{#1 `#1 '#1 ~#1 #1| `#1| '#1| ~#1| <#1 <`#1 <'#1 <~#1 <#1|
+  <`#1| <'#1| <~#1| >#1 >`#1 >'#1 >~#1 >#1| >`#1| >'#1| >~#1| \par}
+\def\shortseries#1{#1 `#1 '#1 <#1 <`#1 <'#1 >#1 >`#1 >'#1 \par}
+\def\mediumseries#1{#1 `#1 '#1 ~#1 %
+  <#1 <`#1 <'#1 <~#1 >#1 >`#1 >'#1 >~#1 "#1 "`#1 "'#1 "~#1 \par}
+\def\rseries{r <r >r\par}
+\def\names{ >Afrod'ith Beatr'ikh Gi'wrgos Dhm'htrhs E>ugen'ia
+   Zw'h <Hrakl~hs Je'ofilos >Iw'anna K'wstas Louk~as
+   Mar'ia N'ikh Xanjo'ula O>id'ipous Pl'atwn Rox'anh S'ilbio
+   Thl'emaqos <Upat'ia F'ilippos Qar'a Yuq'h >Wrig'enhs\par}
+\def\punct{{\hyphenpenalty=10000\par\dopunct{ka'i}\dopunct{t~hs}\dopunct{<'ena}
+  \dopunct{<ELLAS}\par}}
+\def\dopunct#1{#1, #1: #1; ''#1'' #1? #1! ((#1)) (#1) [#1] #1* #1.\par}
+     
+\def\from#1{{\sevenrm\unskip\nobreak\hfil\penalty50\hskip2em\hbox{}
+  \nobreak\hfil (From #1)\parfillskip=0pt\finalhyphendemerits=0 \par}}
+     
+\def\text{{\advance\baselineskip-4pt
+\setbox0=\hbox{abcdefghijklmnopqrstuvwxyz}
+\ifdim\hsize\gt2\wd0 \ifdim 15pc\gt2\wd0 \hsize=15pc \else \hsize=2\wd0 \fi\fi
+T`h stigm`h to'uth ni'wjw p'oso bar'u ''nai t`o
+must'hrio t~hs xomol'oghshs.  <Ws t'wra, kane`is
+d`en x'erei p~ws p'erasa t`a du`o qr'onia mou
+st`o <'Agion >'Oros.  O<i f'iloi mou jarro~un p`ws
+p~hga n`a d~w buzantin`a kon'ismata >`h >ap`o
+mustikop'ajeia n`a z'hsw mi`a perasm'enh >epoq'h.
+Ka`i t'wra, n'a, ntr'epomai n`a mil'hsw.
+     
+P~ws n`a t`o p~w?  Jumo~umai <'ena >anoixi'atiko
+deilin'o, po`u kat'ebaina t`on Ta"'ugeto, mi`a xafnik`h
+j'uella m`e k'uklwse kont`a sto'us Pentaulo'us.  T'oso
+fober`os >anemoc'ifounas, po`u >'epesa katag~hs gi`a n`a m`hn
+gkremist~w.  O<i >astrap`es m'' >'exwsan <olo~uje ki >'ekleisa
+t`a m'atia m`hn tuflwj~w, ka`i kat'aqama, p'istoma, per'imena.
+<'Olo t`o pan'uyhlo boun`o >'etreme, ka`i du`o >'elata d'ipla mou
+tsak'isthkan >ap'' t`h m'esh ka`i br'onthxan q'amou.
+>'Eniwja t`o jei'afi to~u kerauno~u st`on >a'era, ka`i xafnik`a
+x'espase <h mp'ora, >'epesen <o >'anemos, ka`i qontr'es, jerm`es
+st'ales broq`h qt'uphsan t`a dentr`a ka`i t`o q~wma.
+T`o jum'ari, <h jro'umpa, t`o fask'omhlo, t`o flisko'uni,
+qtuphm'ena >ap'' t`o ner'o, t'inaxan t`is murwdi'es tous
+ki <'olh <h g~hs m'urise.
+\from{Kazantzakis' ``Symposium''}
+     
+\medskip
+>All'' >ako'usontai, >e'anper e>~u dok~h|s l'egein.  t'ode d'e sou
+>enen'ohsa <'ama l'egontos, ka`i pr`os >emaut`on skop~w; e>i
+<'oti m'alist'a me E>uj'ufrwn did'axeien, <ws o<i jeo`i <'apantes
+t`on toio~uton j'anaton <hgo~untai >'adikon e>~inai, t'i m~allon >eg`w
+mem'ajhka par'' E>uj'ufronos, t'i pot'' >est`in t`o <'osi'on te ka`i
+t`o >an'osion? jeomis`es m`en g`ar to~uto t`o >'ergon, <ws >'eoiken,
+e>'ih >'an; >all`a g`ar o>u to'utw| >ef'anh >'arti <wrism'ena t`o
+<'osion ka`i m'h; t`o g`ar jeomis`es >`on ka`i jeofil`es >ef'anh.
+<wste to'utou m`en >af'ihm'i se, >~w E>uj'ufron; e>i bo'ulei, p'antes
+a>ut`o <hge'isjwn jeo`i >'adikon ka`i p'antes miso'untwn.  >all''
+>~ara to~uto n~un >epanorj'wmeja >en t~w| l'ogw|, <ws <`o m`en >`an
+p'antes o<i jeo`i mis~wsin, >an'osi'on >estin, <`o d'' >`an fil~wsin,
+<'osion; <`o d'' >`an o<i m`en fil~wsin, o<i d`e mis~wsin, o>ud'etera
+>`h amf'otera? >~ar'' o<'utw bo'ulei <hm~in <wr'isjai n~un per`i to~u
+<os'iou ka`i to~u >anos'iou?
+\from{Plato's ``Euthyphro''}
+     
+}}
+     
+\def\sample{\text\table}
+     
+\init

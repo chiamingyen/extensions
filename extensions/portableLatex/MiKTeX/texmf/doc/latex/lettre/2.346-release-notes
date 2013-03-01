@@ -1,0 +1,176 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+Sous LaTeX (2e) :
+-----------------
+v2.346: Correction d'une erreur de typographie en anglais et en allemand. 
+	(Problème signalé par Peter Münster)
+	Correction d'un bug dans le positionnement de la marque de notes de
+	bas de page. (Problème signalé par Yvon Henel). 
+	Ajout d'une entête pour référence sur le site latexfr 
+	(http://savannah.gnu.org/latexfr). (Proposition de Mickael Profeta)
+v2.345: Correction d'un bug empêchant le calcul du nombre de pages d'un fax.
+	Bug lié à une correction antérieure de la manière d'ouvrir le document.
+	(Problème signalé par Elisabeth Teichmann)
+v2.344: Modifications mineures dans la ligne de référence et la ligne d'objet
+	pour plus de souplesse. Utilisation de l'option twoside pour commencer
+	les lettres sur une page impaire dans ce cas-là seulement (modifications
+	proposées par Jean-Marie Chrétien) 
+	Correction de problèmes liés à la compatibilité avec babel.  (Problèmes
+	relatés par Guy Durrieu, Olivier Castany et Peter Münster. Merci aussi
+	à Daniel Flipo pour ses remarques et solutions.)
+v2.343: Correction d'un bug dans la lecture du fichier auxiliaire introduit 
+	avec 2.342. (Problème rapporté par Jean-Marie Chrétien)
+v2.342:	Correction d'un bug dans le traitement des commandes \label et \ref. 
+	La nouvelle version utilise un fichier auxiliaire supplémentaire (.etq)
+	pour enregistrer l'information sur les étiquettes, qui est traitée de
+	manière asynchrone au document contrairement aux autres commandes
+	utilisant le fichier auxiliaire. (Problème rapporté par Serge Nazarian)
+v2.341:	Correction dans la date en français pour les 1er du mois. (Remarque et
+	correction proposée par Claude Pache)
+v2.34 :	Chaque lettre ou telefax commence maintenant sur une page impaire, pour
+	pouvoir imprimer un fichier en contenant plusieurs sur une imprimante
+	recto-verso.
+v2.333: Correction du test du package babel qui ne marchait plus. Traitement 
+	des listes itemize en mode frenchb tenant compte de la marge de la lettre.
+v2.332: La classe demande le package graphicx.
+	Ajout d'un fichier LICENSE et mise en conformité des autres fichiers.
+	(Remarques de Stéphane Bortzmeyer)
+	Modifications dans la documentation: appel aux polices spéciales de 
+	la doc ou des entêtes selon les schémas de familles de fontes, 
+	corrections dans l'index. Modification de la doc pour créer un dvi
+	utilisant les polices EC (letdoc1) et un dvi utilisant les polices 
+	CM (letdoc2). La nouvelle doc utilise babel à la place de french. 
+v2.331: Correction de la définition de \FAXSTR qui ne permettait pas de passer
+	des caractères accentués en codage T1 avec un TeX V3. (Signalé par 
+	Christophe Labouisse, correction suggérée par Denis Roegel) 
+v2.33 : Définition des défauts des paramètres dimensionnant les entêtes dans 
+	la classe, permettant de simplifier les fichiers d'instituts pour 
+	les cas simples. (Proposition de Gilles Simond)
+	Nouveau langage `romand' défini, défaut français corrigé pour les 
+	chaînes comme `Objet' et `P.j.' (Après diverses discussions)
+	\Vref et \Nref définis comme synonymes de \vref et \nref, pour éviter 
+	des conflits avec le package `varioref'(Mis en évidence par Stéphane 
+	Didailler).
+	Mécanisme de sauvetage de la date d'origine d'une lettre. Activé par 
+	l'option de classe `origdate'
+v2.325:	Amélioration du contrôle des signatures.
+v2.324:	Adaptation des marques de notes pour LaTeX 2e. (Bug signalé par 
+	Françoise Gelis)
+	Réglage des paramètres de tension de page pour de meilleures coupures.
+v2.323:	Correction d'un bug (signalé par Alain Palamara) empêchant le calcul 
+	de la longueur de page de s'effectuer correctement dans certains cas. 
+v2.322:	Correction d'un bug empêchant de charger des options de style en mode
+	compatibilité.
+v2.321:	Nouvelle commande permettant de définir une ligne personnalisée au 
+	lieu de la ligne d'E-Mail en bas de page. (Proposition d'Eric Picheral)
+	Police différenciée pour la chaîne de téléfax.
+v2.32 : Le fichier d'institut par defaut s'appelle maintenant default.ins. 
+	Dans la distribution, c'est un fichier BIDON. Il doit être remplacé 
+	par un autre fichier pour présenter un institut valable par défaut. 
+	A l'Observatoire de Genève, nous l'avons remplacé par un lien sur le 
+	fichier obs.ins (également présent dans la distribution... en tant
+	qu'exemple !!!)
+v2.31 :	Correction d'un bug empêchant d'utiliser les packages de PSNFSS ou
+	d'autres polices par défaut.
+	Commande supplémentaire permettant d'introduire l'adresse E-Mail sous
+	l'adresse dans l'entête. (Proposition de Philippe Esperet) 
+	Le caractère @ est maintenant considéré comme un caractère pendant 
+	la lecture du fichier d'institut, de manière à pouvoir redéfinir les 
+	paramètres de positionnement d'entête, et utiliser les \if@detail et 
+	\if@letter dans ce fichier.
+	Paramètre d'indentation de la salutation initiale \openingindent. 
+	(Proposition de Daniel Taupin)
+v2.30 :	L'entête de la lettre devient configurable : les éléments
+	sont positionnés par des variables définies dans le fichier
+	de style. Les valeurs par défaut sont chargées à partir du 
+	fichier obs.ins, mais peuvent être redéfinies dans un fichier 
+	d'institut. 
+	Introduction d'un mécanisme permettant de régler la 
+	tension de la lettre, c'est-à-dire de modifier les blancs 
+	élastiques entre les différents éléments de la lettre, de
+	manière à éviter d'avoir une dernière page avec très peu 
+	de matière. (Proposition d'Yves Soulet) 
+	Révision complète de la documentation; 
+	Documentation HTML a disposition:
+		URL=http://obswww.unige.ch/~megevand/tex/letdoc2.30.html.
+v2.22 :	Valeur du langage par défaut (francais) modifiable par des 
+	options de la classe (anglais, allemand, americain).
+	Les commandes de langage testent la présence des packages 
+	french (francais americain anglais) et babel (francais 
+	allemand americain anglais), et enclenchent les commandes 
+	adéquates. (Proposition de Bernard Gaulle)
+v2.21 :	Les commandes de polices \rm, \sl, \it, \sc, \bf, \sf, \tt sont 
+	redéfinies proprement avec la commande \DeclareOldFontCommand.
+	Correction de quelques chaînes de caractères en allemand. (Proposition
+	de Gerhard Bosch) Mise systématique des chaînes fixes dans des macros.
+	Le flag \langue a été renommé \sigflag, car il n'agissait 
+	que sur la position des signatures. 
+v2.20 :	La commande de police seule \tt est redéfinie pour compatibilité 
+	avec french. Réglages de la mise en page.
+v2.18 :	Portage à LaTeX 2e. Tout semble marcher à première vue. Seule 
+	l'utilisation du style french semble poser un problème.
+	Les commande \sl, \it, \sc, \bf, \sf, \tt sont redéfinies pour 
+	y pallier momentanément.
+
+Sous LaTeX 2.09 :
+----------------
+!!! La version LaTeX 2.09 n'est plus développée au delà de v2.18 !!!
+====================================================================
+v2.18 :	Correction d'un bug qui plantait si un paragraphe commençait par un
+	nombre dans le corps de la lettre. Séparation des défauts de l'Obs,
+	situés maintenant dans le fichier obs.ins.
+v2.17 :	Nouvelle commande \mencl pour annoncer que les annexes sont 
+	mentionnées dans le corps de la lettre. Utilise une nouvelle
+	chaîne \mentionname. Remise à jour de la documentation.
+v2.16 :	Mise à jour des noms des variables pour homogénéiser :
+		\indentedwidth 		-> \ssigwidth 
+		\longindentation 	-> \ssigindent 
+		\sigwidth 		-> \msigwidth 
+	Remise à jour de la documentation pour les révisions 2.15 et 2.16
+v2.15 :	L'espacement vertical entre le texte et la ou les signatures est
+	contrôlé par la variable \sigspace, les espacements autour du
+	champ <<Sujet>> sont contrôlés par la variable \openingspace.
+v2.14 :	La commande \makelabels accepte un argument facultatif définissant la
+	première étiquette de la page à imprimer. (Proposition de Jean-Noel
+	Candau)
+	Des messages d'avertissements plus homogènes et des messages 
+	informatifs pouvant être allumes ou éteints par les commandes \infos 
+	(défaut) et \noinfos sont donnés.
+v2.13 :	Le numéro de fax est placé sous le numéro de téléphone dans l'entête 
+	des lettres. Ceci est conforme à la nouvelle disposition du papier à 
+	entête de l'Observatoire. La doc, le châblon et les exemples de lettres
+	sont modifiés en conséquence.
+v2.12 :	Repositionnement du trait de pliage 5mm plus haut. Élargissement de la
+	zone destinataire des lettres à 80mm. Meilleure répartition des champs
+	de la ligne auxiliaire.
+v2.11 :	Repositionnement de l'entête des téléfax, trop basse. Suppression des
+	messages de overfull hbox lors de la mise en page de l'entête et de 
+	l'embase.
+v2.10 :	Refonte complète du style, entête de lettres en mode picture, 
+	commande \institut pour lire un fichier de défaut, Refonte complète 
+	de la doc et des exemples.
+	Étant donné le nombre et la profondeur des changements, un script
+	permet d'analyser un fichier source, aussi bien ancien que nouveau
+	et de vérifier que la syntaxe et correcte. Il donne des avertissements
+	et des messages d'erreurs lorsque les commandes utilisées ne sont pas
+	correctement placées, ou qu'elles sont obsolètes.
+
+	On l'appelle par la commande suivante :
+
+		nlc < file.tex [>correct.tex]
+
+	La sortie corrigée doit être modifiée à la main en tenant compte 
+	des remarques introduites.
+v2.05 :	Mise à jour des adresses de l'Observatoire, séparation plus claire 
+	des commandes générales et des commandes institutionnelles.
+v2.04 :	Suppression des blancs parasites, consolidation, homogénéisation.
+v2.03 :	Correction d'un bug arrivant lorsque \nolieu et \nodate 
+	étaient utilisés simultanément.

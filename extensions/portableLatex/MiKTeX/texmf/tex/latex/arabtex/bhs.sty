@@ -1,0 +1,213 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% bhs.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bhs.sty
+% Scanner for the CCAT encoding used in the machine-readable
+% Biblia Hebraica Stuttgardiana
+% to install it, include it as a LaTeX package or style option "bhs"
+% with Plain TeX, say "\input bhs.sty"
+% to activate it, say "\setcode {bhs}
+% 26.07.1999
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \bhsatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \bhsatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {bhs.sty} {3.09 read BHS Hebrew encoding} {26.07.1999}
+
+\UsePackage {bhslabel} % process BHS labels
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for BHS Hebrew coding
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\"=12 \catcode `\&=12 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setbhs@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@A {a}   \def \sc@B {b}   \def \sc@C {S}   \def \sc@D {d}
+\def \sc@E {e}   \def \sc@F {A}   \def \sc@G {g}   \def \sc@H {h}
+\def \sc@I {i}   \def \sc@J {t}   \def \sc@K {k}   \def \sc@L {l}
+%\def \sc@M {m}   \def \sc@N {n}   \def \sc@O {O}   \def \sc@P {p}
+\def \sc@M {m}   \def \sc@N {n}\def\sc@O{\n@xp\a@o}\def \sc@P {p}
+\def \sc@Q {q}   \def \sc@R {r}   \def \sc@S {s}   \def \sc@T {t}
+%\def \sc@U {u}   \def \sc@V {D}   \def \sc@W {W}   \def \sc@X {X}
+\def \sc@U {u}   \def \sc@V {D}   \def \sc@W {w}   \def \sc@X {X}
+\def \sc@Y {y}   \def \sc@Z {z}   \def \sc@@ {QQ}
+\a@digits = {0123456789}     	\a@paren  = {[]}
+\a@first = {)+(##&$":.,*0123456789}	
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for BHS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\arab@codes 
+\catcode `\& 12
+
+\gdef \bhs@beg #1#2{% start BHS scanner
+\@ssimfalse \def \next {\bhs@word #1#2}%
+\ifx #1\@\def \next {\sc@endscan #2}\else			% finished
+\ifx #2\@\def \next {\bhs@testpara #1#2}\else
+\ifx #2?\def \next {\bhs@testpara #1#2}\else
+%\ifx #1W\def \next {\bhs@begW #2}\else
+%\fi
+\fi\fi\fi \next }
+
+\gdef \bhs@word #1#2{% transform input into internal notation
+     \def \next {\bhs@word #2}%
+\ifx #1\@\def \next {\sc@endscan #2}\else			% finished
+\ifx #1]\def \next {\bhs@word }\else
+\ifx #10\def \next {\bhs@zero #2}\else
+\ifx #17\def \next {\bhs@seven #2}\else
+\if\is@in@set #1\a@digits \def \next {\bhs@word }\else
+%
+\ifx #1?\def \next {\bhs@query #2}\else
+\ifx #1:\def \next {\bhs@colon #2}\else
+%\ifx #1O\def \next {\bhs@O #2}\else
+%\ifx #1W\def \next {\bhs@W #2}\else
+\ifx #1|\def \sc@char {|}\sc@put \else
+%\ifx #1#2\def \next {\bhs@word #1|#2}\else
+%
+%\ifx #1.\sc@put \else
+\ifx #1.\def \sc@char {\nxp \a@Zu }\sc@put \else
+\ifx #1'\def \sc@char {'}\sc@put \else
+\ifx #1)\def \sc@char {Q}\sc@put \else
+\ifx #1+\def \sc@char {C}\sc@put \else
+%
+\ifx #1(\def \sc@char {P}\sc@put \else
+\if #1\a@hash \def \sc@char {\nxp \a@S }\sc@put \else
+\ifx #1&\def \sc@char {\nxp \a@s }\sc@put \else
+\ifx #1$\def \sc@char {x}\sc@put \else
+%
+\ifx #1"\def \sc@char {\nxp \a@E }\sc@put \else
+\ifx #1-\def \sc@char {B}\sc@put \else
+\ifx #1*\def \sc@char {*}\sc@put \else
+\ifcat \nxp #1a\edef \sc@char {\csname sc@#1\endcsname }%
+   	\sc@put
+\fi\fi\fi\fi
+\fi\fi\fi\fi 
+\fi\fi\fi\fi 
+%
+%\fi
+%\fi
+\fi\fi\fi\fi 
+%\fi
+\fi\fi\fi\fi 
+\next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \bhs@colon #1{% shwa or chatef
+\def \next {\bhs@word }%
+\ifx #1A\def \sc@char {\nxp \a@A }\else
+\ifx #1F\def \sc@char {\nxp \a@O }\else
+\ifx #1E\def \sc@char {\nxp \a@I }\else
+\def \sc@char {\nxp \a@e }\def \next {\bhs@word #1}%
+\fi\fi\fi \sc@put \next }
+
+\gdef \bhs@O #1#2{% cholem or cholem waw
+\if\is@in@set #1\a@digits \def \next {\bhs@word #1#2O}\else
+	\ifx #1W\def \sc@char {O}\def \next {\bhs@word #2}%
+	\else \def \sc@char {\nxp \a@o }\def \next {\bhs@word #1#2}%
+	\fi \sc@put 
+\fi \next }
+
+\iffalse
+\gdef \bhs@W #1{% waw or shureq
+\def \sc@char {w}\def \next {\bhs@word #1}%
+\sc@put \next }
+
+\gdef \bhs@begW #1{% initial waw
+\ifx #1.\def \sc@char {ww}\def \next {\bhs@word }%
+\else \def \sc@char {w}\def \next {\bhs@word #1}%
+\fi \sc@put \next }
+\fi
+
+\gdef \bhs@seven #1{% meteg
+\def \next {\bhs@word }%
+\ifx #15\def \sc@char {|}\sc@put \else
+\if\is@in@set #1\a@digits \else \def \next {\bhs@word #1}%
+\fi\fi \next }
+
+\gdef \bhs@zero #1{% sop pasuq and pasuq
+\ifx #10\def \sc@char {:}\sc@put \def \next {\bhs@word }\else
+%\ifx #15\def \sc@char {K}\sc@put \def \next {\bhs@word }\else
+\ifx #15\def \next {\bhs@pasuq }\else
+\if\is@in@set #1\a@digits \def \next {\bhs@word }\else 
+	\def \next {\bhs@word #1}%
+\fi\fi\fi \next }
+
+}% \arab@codes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \bhs@testpara #1#2{% single initial P ?
+\ifx #1P\def \next {\bhs@para #1#2}%
+\else \def \next {\bhs@word #1#2}%
+\fi \next }
+
+\def \a@c@bhspara {% small paragraph mark
+\putwordb@x {\small \heb@font \heb@testfont
+\act@cd '164 \advance \act@cd \heb@dsp 
+\space \char \act@cd \space }\test@token }
+
+\def \a@c@pasuq {% verse division
+\putwordb@x {\small $\!|\!$}\test@token }
+
+\def \bhs@para P#1\@ \@@ {% prepare paragraph mark
+\sc@back \bhspara #1\@ \@@ }
+
+\def \bhs@pasuq #1\@ \@@ {% prepare verse division
+\sc@back \pasuq #1\@ \@@ }
+
+\newcount \bhsmode	\bhsmode 0
+
+\def \bhs@query #1\@ \@@ {% new line, push back the rest
+\ifnum \bhsmode = 1 \sc@back \\#1\@ \@@ \else % finish line
+\ifnum \bhsmode = 2 \sc@back \|#1\@ \@@ \else % stretch line
+			\sc@back #1\@ \@@     % next word
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@bhs {% substitute the BHS scanner
+\let \sc@beg \bhs@beg 	\let \sc@word \bhs@word  
+\let \sc@back \sc@@back	\let \sc@endscan \sc@@endscan
+\let \a@scan \a@@scan   \setbhs@codes	
+\let \arab@codes \bhs@arab@codes
+\let \unarab@codes \bhs@unarab@codes
+\a@message {input encoding set to BHS conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the BHS encoding
+bhs\set@bhs }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \bhs@arab@codes {% save and set special characters
+\csname originalTeX\endcsname
+\chardef \spc@de = \catcode`\ 	\catcode`\  = 10
+\chardef \dqc@de = \catcode`\"	\catcode`\" = \@other 		
+\chardef \lsc@de = \catcode`\<	\catcode`\< = \@other 
+\chardef \hsc@de = \catcode`\#	\catcode`\# = \@other 
+\chardef \amc@de = \catcode`\&	\catcode`\& = \@other 
+\arab@charsubdefmax \charsubdefmax \charsubdefmax \m@ne }
+
+\def \bhs@unarab@codes {% reset catcodes
+\catcode`\  = \spc@de \catcode`\< = \lsc@de \catcode`\" = \dqc@de 
+\catcode`\# = \hsc@de \catcode`\& = \amc@de 
+\charsubdefmax \arab@charsubdefmax }
+
+{\catcode`\# = \@other \gdef \a@hash {#}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for BHS encoding installed.}
+
+\catcode `\@ = \bhsatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

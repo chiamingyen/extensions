@@ -1,0 +1,51 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 8.5u#,x_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = -.25,0 enddef;
+     
+def gen_letter=
+  pickup fine.nib;
+  pi_bar;                                                       %bar
+  pos4(hair,0); y4=y2; lft x4l-(x1-.5hair)=rt x3-rt x4r;        %attachment
+  pos5(hair,0); y5=.5x_height; x5=x4;                           %midstems
+  x6=x4+1.5u; bot y6l=-oo; pos6(stem,90); alpha_tail(6,7);      %stem
+  filldraw stroke z7e...z6e{left}...z5e---z4e;
+enddef;
+     
+cmchar "Lowercase tau";
+beginchar("t",dims);
+this_letter; penlabels(1,2,3,6,7,8); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by tau";
+begindoublechar(oct"024",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

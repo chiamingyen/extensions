@@ -1,0 +1,61 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 10u#,x_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter=
+ pickup fine.nib;
+ x1-.5stem=hround .75u; y1-.5stem=-o;                   %lower left
+ z1+z3=(w,h); z2=.5[z1,z3];                             %upper right and middle
+ z1'=(z3-z1) if monowidth: xscaled 1/2 fi;              %slope at 1 and 3
+ pos1(stem,angle z1'+90); pos2(.6[hair,stem],angle z1'+90);
+ pos3(stem,angle z1'+90);
+ filldraw double_circ_stroke z1e{z1'}..z2e..{z1'}z3e;   %diagonal stroke
+ z4=if monowidth: z1 else: 1/4[z1,z3] fi; z4+z7=z3+z1;  %handle attachments
+ z4'=if monowidth: z1' else: (z3-z1) xscaled .25 fi;    %slope at 4 and 7
+ pos4(hair,angle z4'-90); pos7(hair,angle z4'+90);
+ pos5(vstem,90); top y5r=h+o; pos6(vstem,180); z6l=z5l;
+ lft x6r=hround(x1-.5stem-.25u);
+ filldraw circ_stroke z6e{up}...z5e{right}...z4e{-z4'};         %left handle
+ pos8(.5[vstem,stem],-90); bot y8r=-o; rt x9r=hround(x3+.5stem+.25u);
+ pos9(.5[vstem,stem],0); z9l=z8l;
+ filldraw circ_stroke z9e{down}...z8e{left}...z7e{z4'}; %right handle
+enddef;
+     
+cmchar "Lowercase kappa";
+beginchar("k",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by kappa";
+begindoublechar(oct"013",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

@@ -1,0 +1,81 @@
+
+% Cursive Croatian Glagolitic, 1994, darko.zubrinic@etf.hr
+
+
+
+mode_setup;
+ u#:=4/3*.8pt#; font_quad= 30u#;
+            font_normal_space= 10u#; %umjesto 8
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 1u#;
+ em#:=4/3*10pt#; cap#:=4/3*7pt#;
+ thin#:=2/3pt#; thick#:=1.15*5/6pt#;
+ o#:=4/3*1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:= round 1.1*1/10em;
+currenttransform := identity slanted 1/4;
+
+input kurzivv  % velika slova
+
+
+
+mode_setup;
+u#:=3/4u#;
+em#:=3/4em#; cap#:=3/4cap#;
+        thick#:=1/1.15thick#;
+o#:=3/4o#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+%curve_sidebar:=3/4curve_sidebar;
+
+currenttransform := identity slanted 1/4;
+
+input kurzivm  % mala slova
+
+
+input glz  % znakovi
+
+
+
+
+
+ligtable "c": "c" =: oct"013",  "h" =: oct"011";
+ligtable "s": "s" =: oct"014"; %umjesto sh
+ligtable "z": "h" =: oct"015",   "z" =: oct"015"; % "o" kern -.5u#,
+             % "u" kern -.5u#;
+ligtable "y": "a" =: oct"176", "e" =: oct"176", "u" =: oct"177";
+%ligtable "l": "l" =: oct"017";
+ligtable "-": "-" =: oct"173";
+%ligtable "e": "i" kern -.5u#;
+%ligtable "f": "o" kern -u#, "u" kern -u#, "i" kern -.5u#, "g" kern-.5u#;
+%ligtable "i": "f" kern -.5u#;
+%ligtable "r": "k" kern -.5u#;
+%ligtable "n": "a" kern -.5u#;
+%ligtable "y": "a" kern -.5u#;
+
+u#:=4/3u#;
+
+
+
+ligtable "C": "c" =: oct"023", "C" =: oct "023", "H" =:
+                     oct"021", "h" =: oct"021";
+ligtable "S": "S" =: oct"024",  "s" =: oct"024";
+ligtable "Z": "h" =: oct"025", "Z" =: oct"025", "z"=: oct"025",
+              "H" =: oct"025"; % "O" kern -.5u#,
+              %"u" kern -.5u#;
+
+ligtable "Y": "a" =: oct"136", "A" =: oct"136", "e" =: oct"136",
+              "E" =: oct"136", "u" =: oct"137", "U" =: oct"137";
+
+%ligtable "L": "l" =: oct"027", "L" =: oct"027";
+%ligtable "E": "I" kern -.5u#;
+%ligtable "F": "O" kern -u#, "U" kern -u#, "I" kern -.5u#, "G" kern-.5u#;
+%ligtable "I": "F" kern -.5u#;
+%ligtable "R": "K" kern -.5u#;
+%ligtable "N": "A" kern -.5u#;
+
+
+
+end.
+

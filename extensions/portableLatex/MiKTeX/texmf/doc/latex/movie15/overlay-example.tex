@@ -1,0 +1,47 @@
+% Copyright 2006 Alexander Grahn
+%
+% This material is subject to the LaTeX Project Public License. See
+%    http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
+% for the details of that license.
+%
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{movie15}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some hints on using movie15 with /presentation/ packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1. Options `autopause' and `autoresume' should be set, as this prevents the
+%    movie from being rewound when passing from one overlay to the next.
+
+% 2. Within presentations, \movieref's must be put on the /same/ overlay as
+%    their target.
+
+% 3. If the /same/ media file is to be inserted at multiple locations within a
+%    presentation, all instances must be given unique labels using the `label'
+%    option, even if no \movieref's are associated with the included media.
+
+\begin{document}
+\begin{frame}
+  \begin{itemize}
+    \item<+-> 1st overlay
+    \item<+-> 2nd overlay
+      \begin{center}
+      \includemovie[
+        poster,
+        autopause, autoresume,
+        text={\parbox{0.35\linewidth}{\tiny
+          http://www.linux-video.net/\\Samples/Mpeg1/AlienSong.mpg%
+        }},
+        playerid=AAPL_QuickTime,
+        url
+      ]{0.4\linewidth}{0.3\linewidth}{%
+        http://www.linux-video.net/Samples/Mpeg1/AlienSong.mpg%
+      }
+      \end{center}
+    \item<+-> 3rd overlay
+    \item<+-> 4th overlay
+  \end{itemize}
+\end{frame}
+\end{document}

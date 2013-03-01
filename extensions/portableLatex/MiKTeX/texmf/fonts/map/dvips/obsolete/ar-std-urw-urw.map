@@ -1,0 +1,21 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% ar-std-urw-urw.map: map file with basic ps fonts (those available
+%    to the acrobat reader and most printers). Downloads type1 fonts and
+%    assumes URW names.
+%
+% Useful for ps2pk.
+pcrb8r NimbusMonL-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc <n022004l.pfb
+pcrbo8r NimbusMonL-BoldObli "TeXBase1Encoding ReEncodeFont" <8r.enc <n022024l.pfb
+pcrr8r NimbusMonL-Regu "TeXBase1Encoding ReEncodeFont" <8r.enc <n022003l.pfb
+pcrro8r NimbusMonL-ReguObli "TeXBase1Encoding ReEncodeFont" <8r.enc <n022023l.pfb
+phvb8r NimbusSanL-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc <n019004l.pfb
+phvbo8r NimbusSanL-BoldItal "TeXBase1Encoding ReEncodeFont" <8r.enc <n019024l.pfb
+phvr8r NimbusSanL-Regu "TeXBase1Encoding ReEncodeFont" <8r.enc <n019003l.pfb
+phvro8r NimbusSanL-ReguItal "TeXBase1Encoding ReEncodeFont" <8r.enc <n019023l.pfb
+psyr StandardSymL <s050000l.pfb
+ptmb8r NimbusRomNo9L-Medi "TeXBase1Encoding ReEncodeFont" <8r.enc <n021004l.pfb
+ptmbi8r NimbusRomNo9L-MediItal "TeXBase1Encoding ReEncodeFont" <8r.enc <n021024l.pfb
+ptmr8r NimbusRomNo9L-Regu "TeXBase1Encoding ReEncodeFont" <8r.enc <n021003l.pfb
+ptmri8r NimbusRomNo9L-ReguItal "TeXBase1Encoding ReEncodeFont" <8r.enc <n021023l.pfb
+pzdr Dingbats <d050000l.pfb

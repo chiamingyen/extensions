@@ -1,0 +1,34 @@
+%%
+%% This is file `listings-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{listings-bidi.def}[2010/03/01 v0.2 adaptations for listings package]
+\long\def\@makecaption#1#2{%
+ \vskip 10pt%
+ \setbox\@tempboxa\hbox{#1: #2}%
+ \ifdim \wd\@tempboxa >\hsize \if@RTLmain\beginR\fi#1: #2\par%
+ \else \hbox
+to\hsize{\if@RTLmain\beginR\fi\hfil\box\@tempboxa\hfil%
+\if@RTLmain\endR\fi}%
+ \fi}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `listings-bidi.def'.

@@ -1,0 +1,28 @@
+% Thomas Esser, 1998, public domain.
+%
+% raw-lw35extra-adobe-bi.map: completes acrobat.map with fonts available
+%    to most ps printers (LW35 fonts).
+%
+% Useful for dvips, gsftopk. Does not work for ps2pk and psftex.
+rpagd AvantGarde-Demi
+rpagdo AvantGarde-DemiOblique
+rpagk AvantGarde-Book
+rpagko AvantGarde-BookOblique
+rpbkd Bookman-Demi
+rpbkdi Bookman-DemiItalic
+rpbkl Bookman-Light
+rpbkli Bookman-LightItalic
+rpncb NewCenturySchlbk-Bold
+rpncbi NewCenturySchlbk-BoldItalic
+rpncr NewCenturySchlbk-Roman
+rpncri NewCenturySchlbk-Italic
+rpplb Palatino-Bold
+rpplbi Palatino-BoldItalic
+rpplbu Palatino-BoldItalic "-.1763 SlantFont"
+rpplr Palatino-Roman
+rpplri Palatino-Italic
+rpplro Palatino-Roman ".167 SlantFont"
+rpplrre Palatino-Roman "1.2 ExtendFont"
+rpplrrn Palatino-Roman ".82 ExtendFont"
+rpplru Palatino-Italic "-.1763 SlantFont"
+rpzcmi ZapfChancery-MediumItalic

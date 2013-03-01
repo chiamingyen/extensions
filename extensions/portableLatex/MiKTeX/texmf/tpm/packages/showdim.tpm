@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/showdim"><TPM:Name>showdim</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package for LaTeX providing a number of commands for
+      printing the value of a TeX dimension. For example,
+      \tenthpt{\baselineskip} yields the current value of
+      \baselineskip rounded to the nearest tenth of a point.</TPM:Description><TPM:RunFiles size="3616">texmf\tex\latex\showdim\showdim.sty texmf\tpm\packages\showdim.tpm</TPM:RunFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>a3a1dba3f9b1e85cfb05621a8c50dd81</TPM:MD5></rdf:Description></rdf:RDF>

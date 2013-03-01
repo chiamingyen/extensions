@@ -1,0 +1,73 @@
+This is the file xCJK.txt of the CJK macro package ver. 4.8.2
+(29-Dec-2008).
+
+xCJK.sty
+--------
+
+This file provides support for the CJK package with XeLaTeX:
+
+  . Use the CJK package to deal with CJK characters, especially for
+    spaces and punctuation, while the font selection is left to XeLaTeX.
+
+  . Specify different default fonts for CJK and other characters,
+    respectively.
+
+Usage:
+
+    \documentclass{...}
+    ...
+    \usepackage[<options>]{xCJK}
+    ...
+    \begin{document}
+    ...
+    \begin{CJK*}{UTF8}{...}
+    ...
+    \end{CJK*}
+    ...
+    \end{document}
+
+  Available values for <options> are
+
+    boldfont     simulate bold fonts for CJK characters
+    italicfont   simulate italic fonts for CJK characters
+
+  To make `italicfont' work you need XeTeX version 0.997 or newer.
+
+
+xCJK.sty provides three basic macros for font selection:
+
+  \setCJKmainfont[<font features>]{<font name>}
+    Set a default font for CJK characters.
+
+  \setCJKfamilyfont{<family name>}[<font features>]{<font name>}
+    Declare a CJK family and select a font for it. Switching font families
+    can be done as usual with \CJKfamily.
+
+  \setCJKmonofont[<font features>]{<font name>}
+    Declare a CJK font to be used in verbatim environments.
+
+Note that \setCJKmainfont takes precedence over \setmainfont (which is
+defined in the standard `fontspec' package for XeLaTeX).
+
+For a full description of the parameters <font features> and <font name>
+please read the documentation of the `fontspec' package; an example input
+file is examples/xCJK.tex .
+
+
+Remarks:
+
+  . To make the xCJK package work the following two commands must be called:
+
+      \XeTeXinputencoding "bytes"
+      \XeTeXdefaultencoding "bytes"
+
+    xCJK.sty automatically does this (using the \AtBeginDocument hook) but
+    other packages might override it.
+
+  . <font name> must be in English.
+
+  . If you use the `verbatim' package you should call \CJKverbatim to make
+    the verbatim environment select the CJK font as specified with
+    \setCJKmonofont automatically (\CJKverbatim redefines \verbatim@font).
+
+---End of xCJK.txt---

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/yplan"><TPM:Name>yplan</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Daily planner type calendar.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Prints two six-monthly vertrical-type daily planner (i.e.,
+      months along the top, days downwards), with each 6-month period
+      fitting onto a single A4 (or US letter) sheet. Updated
+      annually. Support for English, French, German, Spanish and
+      Portuguese.</TPM:Description><TPM:RunFiles size="8847">texmf\tex\latex\yplan\yplan.sty texmf\tpm\packages\yplan.tpm</TPM:RunFiles><TPM:DocFiles size="64749">texmf\doc\latex\yplan\yplan00.doc texmf\doc\latex\yplan\yplan00a.dvi texmf\doc\latex\yplan\yplan00a.tex texmf\doc\latex\yplan\yplan00b.dvi texmf\doc\latex\yplan\yplan00b.tex texmf\doc\latex\yplan\yplan99.doc texmf\doc\latex\yplan\yplan99a.dvi texmf\doc\latex\yplan\yplan99a.tex texmf\doc\latex\yplan\yplan99b.dvi texmf\doc\latex\yplan\yplan99b.tex</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>74ceaa28b0a8c47841a8730cd04e4af8</TPM:MD5></rdf:Description></rdf:RDF>

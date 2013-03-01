@@ -1,0 +1,11 @@
+% Thomas Esser, 2002, public domain.
+
+% Usage: dvips -Pbuiltin35 ...
+% Purpose: set up dvips to consider the base 35 laserwriter fonts as
+%          build in of your ps interpreter or printer.
+
+% This file can be used to change the behaviour of dvips if the default
+% is to download the "base 35" as type 1 with your document. The default
+% behaviour of dvips can be set by the updmap tool.
+
+p +builtin35.map

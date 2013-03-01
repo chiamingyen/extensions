@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aconfig.sty
+% determine the configuration for ArabTeX
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\a@ident {aconfig.sty}{3.11 get ArabTeX configuration } {26.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%% check environment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@@Plain      {Plain}     \def \a@@LaTeX      {LaTeX}	
+\def \a@@LaTeXiizix {LaTeX2.09}	\def \a@@LaTeXiie   {LaTeX2e}
+\def \a@@EDMAC      {EDMAC}	\def \a@@EDMACiii   {EDMAC3.00}	
+\def \a@@EDMACiiixv {EDMAC3.15}	
+\def \a@config {aconfig} \def \a@sty {sty}
+
+\def \UsePackage #1{\input {#1.sty}}
+
+\ifx \undefined \LaTeX \let \a@@env \a@@Plain 
+	\wlog {Plain TeX detected }\let \a@@var \a@@Plain 
+	\newcount \@listdepth \@listdepth \z@
+	\newdimen \linewidth \linewidth \hsize
+\else \let \a@@env \a@@LaTeX 
+\ifx \undefined \NeedsTeXFormat 
+	\wlog {LaTeX 2.09 detected }\let \a@@var \a@@LaTeXiizix 
+\else	\wlog {LaTeX2e detected }\let \a@@var \a@@LaTeXiie
+	\listfiles
+	\ifx \undefined \xpt \def \UsePackage {\usepackage }
+	\fi
+\fi\fi
+
+\ifx \edmacloaded \relax \let \a@@env \a@@EDMAC
+\ifx \end@lemmas \undefined
+	\wlog {EDMAC 3.00 detected }\let \a@@var \a@@EDMACiii 	
+\else	\wlog {EDMAC 3.15 or later detected }\let \a@@var \a@@EDMACiiixv	
+\fi\fi
+
+\ifx \undefined \originalTeX \else
+	\wlog {BABEL detected}\def \a@babel {BABEL}%
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%% module reporting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcount \a@moduledate	\newcount \a@maindate	\a@maindate 0	
+\def \arabtexconfig {$ArabTeX configuration:$}%
+
+\def \a@LaTeXdate #1#2#3#4#5#6#7#8{% fixed Y2k problem !!
+#1#2#3#4/#5#6/#7#8}% standard format
+
+\def \a@getstem #1.#2\relax {\def \a@stem {#1}\def \a@ext {#2}}
+
+\def \a@geteight #1#2#3#4#5#6#7#8#9\relax % pad to 8 characters
+{\def \a@eight {#1#2#3#4#5#6#7#8}\xpa \a@getpad \a@eight\space..\relax }
+
+\def \a@getpad #1.#2.#3\relax {\def \a@pad {#2}}
+
+\def \a@newdate #1.#2.#3.#4\@{\a@moduledate 0#3\relax
+\ifnum \a@moduledate < 100 \advance \a@moduledate 1900 
+\message {^^J*** fix date (\a@@date ) of module \a@@module ! ***^^J^^J}%
+\ifnum \a@moduledate < 1990 \advance \a@moduledate 100 
+\fi\fi
+\multiply \a@moduledate 100 \advance \a@moduledate 0#2
+\multiply \a@moduledate 100 \advance \a@moduledate 0#1 }
+
+\def \a@report {% identify actual run
+\typeout {Arabic processor `ArabTeX' [\number\a@maindate \space
+patch level \a@patchlevel ]}}
+
+\def \a@ident #1#2#3{% report loaded modules
+\def \a@@module {#1}\edef \a@@date {#3}%
+\xpa\a@newdate \a@@date ...\@ % format date of module
+\ifnum \a@moduledate > \a@maindate \a@maindate \a@moduledate \fi 
+\edef \a@descr {\xpa \a@LaTeXdate \the\a@moduledate \space\space #2}
+\a@getstem #1\relax
+\ifx \a@@var \a@@LaTeXiie 
+	\ifx \a@stem \a@config \else 
+	\ifx \a@ext \a@sty \ProvidesPackage {\a@stem }[\a@descr ]%
+	\fi
+	\fi
+\else \message {#2} \message {(#3)} 
+\fi 
+\xpa \a@geteight \a@stem.\space\space\space\space\space\space\relax
+\edef \arabtexconfig {\arabtexconfig $\a@pad #1 \space\a@descr }}
+
+\a@ident {aconfig.sty}{3.08 get ArabTeX configuration } {01.11.1998}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

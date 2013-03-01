@@ -1,0 +1,121 @@
+%%
+%% This is file `lithuanian.ldf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% lithuanian.dtx  (with options: `code')
+%% This is a generated file.
+%%
+%% Copyright 1989-2008 Johannes L. Braams and any individual authors
+%% listed elsewhere in this file.  All rights reserved.
+%%
+%% This file was generated from file(s) of the Babel system.
+%% ---------------------------------------------------------
+%%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%
+%% This work has the LPPL maintenance status "maintained".
+%%
+%% The Current Maintainer of this work is Johannes Braams.
+%%
+%% This file may only be distributed together with a copy of the Babel
+%% system. You may however distribute the Babel system without
+%% such generated files.
+%%
+%% The list of all files belonging to the Babel distribution is
+%% given in the file `manifest.bbl'. See also `legal.bbl for additional
+%% information.
+%%
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+%% File `lithuanian.dtx'
+%% Babel package for LaTeX version 2e
+%% Copyright (C) 1989 - 2008
+%%           by Johannes Braams, TeXniek
+%% Lithuanian Language Definition File
+%% Copyright (C) 2006 - 2008
+%%           by Sigitas Tolusis 
+%% Please report errors to: Sigitas Tolusis (preferably)
+%%                          sigitas at vtex dot lt
+%%                          J.L. Braams
+%%                          babel at braams dot xs4all dot nl
+%%
+\ProvidesLanguage{lithuanian}
+        [2006/09/20 v0.5 Lithuanian support from the babel system]
+\LdfInit{lithuanian}{captionslithuanian}
+\ifx\undefined\l@lithuanian
+  \@nopatterns{Lithuanian}
+  \adddialect\l@lithuanian0\fi
+\def\lithuanianhyphenmins{22}
+\addto\captionslithuanian{%
+  \def\prefacename{Pratarm\.e}%
+  \def\refname{Literat\=ura}%
+  \def\abstractname{Santrauka}%
+  \def\bibname{Literat\=ura}%
+  \def\chaptername{skyrius}%
+  \def\appendixname{Priedas}%
+  \def\contentsname{Turinys}%
+  \def\listfigurename{Iliustracij\k{u} s\k{a}ra\v{s}as}%
+  \def\listtablename{Lenteli\k{u} s\k{a}ra\v{s}as}%
+  \def\indexname{Rodykl\.e}%
+  \def\figurename{pav.}%
+  \def\tablename{lentel\protect\.e}%
+  \def\partname{Dalis}%
+  \def\enclname{\k{I}d\.eta}%
+  \def\ccname{Kopijos}%
+  \def\headtoname{}%
+  \def\pagename{puslapis}%
+  \def\seename{\v{z}i\=ur\.ek}%% \v{z}.r.
+  \def\alsoname{taip pat}%% ten pat, tas pat
+  }
+\def\datelithuanian{%
+  \def\today{\number\year~m.~\ifcase\month\or
+    sausio\or vasario\or kovo\or baland\v{z}io\or
+    gegu\v{z}\.es\or bir\v{z}elio\or
+    liepos\or rugpj\=u\v{c}io\or rugs\.ejo\or
+    spalio\or lapkri\v{c}io\or gruod\v{z}io\fi~\number\day~d.}%
+    }
+\def\ltencoding{L7x}
+\def\ltfamily{lmr}
+\addto\extraslithuanian{%
+  \expandafter\ifx\csname XeTeXrevision\endcsname\relax
+    \babel@save\f@encoding\fontencoding{\ltencoding}%
+    \expandafter\ifx\csname\ltencoding+\f@family\endcsname\relax
+      \babel@save\f@family\fontfamily{\ltfamily}%
+    \fi
+    \selectfont
+  \fi
+  \babel@save\fnum@figure
+  \def\fnum@figure{\thefigure\nobreakspace\figurename}%
+  \babel@save\fnum@table
+  \def\fnum@table{\thetable\nobreakspace\tablename}%
+  }
+\addto\noextraslithuanian{}
+\ldf@finish{lithuanian}
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\endinput
+%%
+%% End of file `lithuanian.ldf'.

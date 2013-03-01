@@ -1,0 +1,28 @@
+%%
+%% This is file `europs.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% europs.dtx  (with options: `style')
+%% 
+%% Copyright 1998 Joern Clausen
+%% 
+\ProvidesPackage{europs}
+     [1999/01/16 v1.2 Euro Currency Symbol PostScript]
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{ifthen}
+\providecommand{\EURtm}{{\fontencoding{U}\fontfamily{zpeu}\selectfont E}}
+\providecommand{\EURhv}{{\fontencoding{U}\fontfamily{zpeus}\selectfont E}}
+\providecommand{\EURcr}{{\fontencoding{U}\fontfamily{zpeut}\selectfont E}}
+\providecommand{\EUR}{%
+  \ifthenelse{\equal{\f@family}{\rmdefault}}%
+  {\EURtm}%
+  {\ifthenelse{\equal{\f@family}{\ttdefault}}%
+      {\EURcr}%
+      {\EURhv}}%
+    }
+\providecommand{\EURofc}{{\usefont{U}{zpeus}{m}{n} E}}
+\endinput
+%%
+%% End of file `europs.sty'.

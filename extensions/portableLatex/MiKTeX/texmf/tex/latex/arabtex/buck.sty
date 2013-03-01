@@ -1,0 +1,229 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% buck.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% buck.sty
+% Scanner for Tim Buckwalter's encoding
+% to install it, include it as a LaTeX style option "buck"
+% with Plain TeX, say "\input buck.sty"
+% to activate it, say "\setcode {buck}
+% 27.10.97
+% 04.02.98
+% 28.07.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \buckatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \buckatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {buck.sty} {0.95 Tim Buckwalter's input encoding } {28.07.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\xpa\def \csname sc@\string }\endcsname {Qy}  % hamza on yah
+
+\xpa\def \csname sc@\string {\endcsname {-""}   % medial alif waSla
+
+\def \sc@def #1#2{\xpa\def\csname sc@\string #1\endcsname {#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setbuck@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@@ {@}   \def \sc@c {@}   \def \sc@e {@}
+\def \sc@B {@}	 \def \sc@C {@}   \def \sc@G {@}   \def \sc@I {@}
+\def \sc@J {@}	 \def \sc@L {@}	  \def \sc@M {@}   \def \sc@O {@}
+\def \sc@P {@}   \def \sc@Q {@}   \def \sc@R {@}   \def \sc@U {@}
+\def \sc@V {@}   \def \sc@W {@}   \def \sc@X {@}   
+
+\sc@def  ' {Q|}  \sc@def  | {QA}  \sc@def  > {Qa}  \sc@def  & {Qw}
+\sc@def  < {Qi}  \sc@def  ## {|}   \def \sc@A {A}   \def \sc@b {b}
+\def \sc@p {T}   \def \sc@t {t}   \def \sc@v {C}   \def \sc@j {G}
+\def \sc@H {H}   \def \sc@x {X}   \def \sc@d {d}   \sc@def  * {F}
+\def \sc@r {r}   \def \sc@z {z}   \def \sc@s {s}   \sc@def  $ {x}
+\def \sc@S {S}   \def \sc@D {D}   \def \sc@T {V}   \def \sc@Z {Z}
+\def \sc@E {P}   \def \sc@g {R}	  \sc@def  _ {B}
+\def \sc@f {f}   \def \sc@q {q}   \def \sc@k {k}   \def \sc@l {l}
+\def \sc@m {m}   \def \sc@n {n}   \def \sc@h {h}   \def \sc@w {w}
+\def \sc@Y {Y}   \def \sc@y {y}   \def \sc@F {"aN} \def \sc@N {"uN}
+\def \sc@K {"iN} \def \sc@a {"a}  \def \sc@u {"u}  \def \sc@i {"i}
+\sc@def  ~ {\n@xp \a@Ze}   \def \sc@o {""}  \sc@def  ` {"\n@xp \a@a}  
+
+\a@digits = {0123456789}     	\a@paren  = {()[]}
+\a@first = {"`}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long \def \buck@special #1{% check for special cases
+\if \is@in@set #1\a@first				% normal case
+	\def \next {\test@word #1}\else
+\if \relax \nxp #1%				% command
+	\def \next {\test@command #1}\else
+        \def \next {\test@word #1}%		% normal case
+\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif \ifk@sra
+\def \lowkasra {\k@sratrue }	\def \hikasra {\k@srafalse }
+
+\def \a@putkasra #1{% modification at kasra			% m1
+\ifcase #1\put@kasra	\or 
+\ifqur@n \put@kasra \else \put@fatha \fi \put@shadda 		\or
+\put@ihamza \put@kasra	\or \put@fatha \put@hamza \put@shadda 	\or
+\put@madda \put@kasra	\or \put@hamzalo \put@kasra  		\or
+\fi }
+
+\def \a@putkasratan #1{% modification at kasratan		% m1
+\ifcase #1\put@kasratan	  \or 
+\ifqur@n \put@kasratan \else \put@fathatan \fi \put@shadda 	\or
+\put@ihamza \put@kasratan \or \put@fathatan \put@hamza \put@shadda \or
+\put@madda \put@kasratan  \or \put@hamzalo \put@kasratan 	   \or
+\fi }
+
+\def \put@ihamza {% hamza at <i> depending on carrier
+\ifh@mza \ifnum \act@cd = \a@alif@iso     \put@hamzalo \else
+	\ifnum \act@cd = \a@alif@end     \put@hamzalo \else
+	\ifnum \act@cd = \a@lam@alif@iso \put@hamzalo \else
+	\ifnum \act@cd = \a@lam@alif@end \put@hamzalo \else
+	   \put@hamza
+	\fi\fi\fi\fi
+\else \put@hamza \fi }
+
+\def \syl@hamzaverb #1{% verbatim hamza, #1 = carrier
+   \put@con #1\def \next {\syl@voctest }%
+\ifx #1|\put@con Q\else
+\ifx #1A\put@con a\add@madda \@sukfalse \else
+   \add@hamza
+\ifx #1y\put@con Y%
+\ifqur@n \add@hamzalow \fi \else
+\ifx #1u\put@con w\else
+\ifx #1i\put@con a\add@hamzalow \else
+\fi\fi\fi\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \buck@cat {% change catcodes
+\catcode `\# 11	
+\catcode `\' 11	\catcode `\| 11	\catcode `\> 11	\catcode `\& 11
+\catcode `\< 11	\catcode `\} 11	\catcode `\* 11	\catcode `\$ 11
+\catcode `\_ 11	\catcode `\~ 11	\catcode `\` 11	\catcode `\{ 11	}
+
+\def \buck@recat {% change catcodes back
+\catcode `\# 6
+\catcode `\' 12	\catcode `\| 12	\catcode `\> 12	\catcode `\& 4
+\catcode `\< 12	\catcode `\2 11	\catcode `\* 12	\catcode `\$ 3
+\catcode `\_ 8	\catcode `\~ 13	\catcode `\` 12	\catcode `\{ 1	}
+
+\def \buck@codes {% save and set special characters
+\a@arabcodes \buck@cat }
+
+\def \unbuck@codes {% reset catcodes
+\a@unarabcodes \buck@recat }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\xpa \def \csname a@c@end\string{arabtext\string}\endcsname {\end{arabtext} }
+
+{\catcode `\[ 1	\catcode `\] 2	\catcode `\{ 11	\catcode `\} 11
+\gdef \a@c@end {arabtext}[\end[arabtext]]
+]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \TB({\bgroup \def \a@c@end {\end }\buck@cat \T@B}% prepare reading
+
+\def \T@B #1){\protect \a@ins #1>\egroup }% now read the argument
+
+\def \<{\bgroup \def \a@c@end {\end }\buck@cat \T@@B}% prepare reading
+
+\def \T@@B #1\>{\protect \a@ins #1>\egroup }% now read the argument
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\catcode `\[ 1 \catcode `\{ 11
+\gdef \buck@beg #1[% start the TB scanner
+\h@mzafalse  \iz@fetfalse \novocalize % because of explicit quoting
+\@ssimfalse
+  \def \next [\buck@word #1}%
+\ifx #1\@ \def \next [\sc@endscan }\else		% finished
+\ifx #1{\def \next [\buck@lbrace }\else
+\ifx #1"\def \next [\buck@lquote }\else
+\fi\fi\fi \next }
+} % catcodes 1 and 11
+
+{\catcode `\^^M=13 \catcode `\~ 11 %
+\gdef \buck@word #1#2{% transform input into internal notation
+	\def \next {\buck@word #2}%
+\ifx #1\@ \def \next {\sc@endscan #2}\else % finished
+\ifx #1-\def \next {\buck@minus #2}\else %
+\ifx #1"\def \next {\buck@rquote #2}\else %
+\if \nxp ^^M\nxp #1\def \next {\buck@par #1#2}\else % active character
+\ifx #1#2\def \next {\buck@two #1}\else %
+%	\ifx #2~\def \next {\buck@word #1}\else %
+%	\fi %
+	\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+	\else \def \sc@char {\nxp #1}%
+	\fi %
+	\sc@put %
+\fi\fi\fi\fi\fi \next }%
+} % catcodes 13 and 11
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\catcode `\# 11 \catcode `\& 6
+\gdef \buck@two &1{% double character
+\def \next {\buck@word -&1}\edef \sc@char {\csname sc@&1\endcsname}%
+\ifx &1#\def \next {\buck@word &1}\fi
+\sc@put \next }}
+
+\def \buck@minus {% hyphen between words
+\def \sc@char {-}\sc@put \buck@beg }
+
+\def \buck@lquote {% left quote
+\def \sc@char {`}\sc@put \buck@beg }
+
+\def \buck@rquote {% right quote
+\def \sc@char {'}\sc@put \buck@word }
+
+\def \buck@lbrace {% initial left brace: alif wasla
+\def \sc@char {""}\sc@put \buck@word }
+
+\def \buck@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\ #1\@ \@@ }
+
+\def \buck@endscan \@@ {\global\let \a@scan \a@@scan }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@buck {buck} 		\let \buck@setcode \setcode
+\let \a@arabcodes \arab@codes	\let \a@unarabcodes \unarab@codes
+
+\def \set@buck {% substitute new scanner
+\let \sc@beg \buck@beg 		\let \sc@word \buck@word  
+\let \sc@back \sc@@back		\let \sc@endscan \sc@@endscan
+\let \a@scan \a@@scan   	\setbuck@codes	
+\let \arab@codes \buck@codes	\let \unarab@codes \unbuck@codes
+\let \test@special \buck@special
+\message {input coding set to Tim Buckwalter's encoding conventions}}
+
+\def \setcode #1{\def \next {#1}% switch input coding
+\ifx \next \a@buck \set@buck \else
+	\buck@setcode {#1}
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\message {scanner for Tim Buckwalter's encoding installed.}
+
+\catcode `\@ = \buckatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

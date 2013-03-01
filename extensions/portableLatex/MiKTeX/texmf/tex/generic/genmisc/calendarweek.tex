@@ -1,0 +1,35 @@
+%% calendarweek.tex
+%% 2006 (C) Taco Hoekwater, public domain
+%%
+%%  Usage:
+%%   \calendarweek{30}{12}{2006}
+%%
+%% Watch out: Dec 29 can be week 1 of the next year; and Jan 3 can be
+%% week 53 of the previous year.
+
+\def\Expr#1{\the\numexpr #1\relax}
+
+\def\Modulonumber#1#2{\Expr{#2-((((#2+(#1/2))/#1)-1)*#1)}}
+\def\Divisionnumber#1#2{\Expr{(2*#2-#1)/(2*#1)}}
+
+\def\Mod#1#2{\Modulonumber{\Expr{#2}}{\Expr{#1}}}
+\def\Div#1#2{\Divisionnumber{\Expr{#2}}{\Expr{#1}}}
+
+\def\Jday#1#2#3%
+    {\Expr{#1+\Div{((153*(\Expr{#2+(12*(\Div{14-#2}{12}))-3}))+2)}
+     {5}+365*(\Expr{#3+4800-(\Div{14-#2}{12})})+
+      (\Div{\Expr{#3+4800-(\Div{14-#2}{12})}}{4})-
+      (\Div{\Expr{#3+4800-(\Div{14-#2}{12})}}{100})+
+      (\Div{\Expr{#3+4800-(\Div{14-#2}{12})}}{400})-32045 }}
+
+\def\cwhlp#1#2#3%
+    {\Expr{\Mod {\Mod {\Mod {\Expr
+     {\Jday{#1}{#2}{#3}+31741-\Mod{\Jday{#1}{#2}{#3}}{7}}}%
+     {146097}}{36524}}{1461}}}
+
+\def\calendarweek#1#2#3%
+  {\Expr{\Expr{\Div{\Expr{\Mod{\cwhlp{#1}{#2}{#3}-
+	\Expr{\Div{\cwhlp{#1}{#2}{#3}}{1460}}}{365}+
+         \Expr{\Div{\cwhlp{#1}{#2}{#3}}{1460}}}}{7} +1}}}
+
+\endinput

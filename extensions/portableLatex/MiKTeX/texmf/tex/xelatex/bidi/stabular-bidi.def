@@ -1,0 +1,52 @@
+%%
+%% This is file `stabular-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{stabular-bidi.def}[2010/03/01 v0.1 adaptations for stabular package]
+\def\@stabular{\if@RTL\global\@RTLtabtrue\fi
+   \leavevmode \bgroup \if@RTLtab\beginR \fi
+   \let\@acol\@tabacol
+   \let\@classz\@tabclassz
+   \let\@classiv\@tabclassiv \let\\\@tabularcr\@stabarray}
+\def\endstabular{\crcr\egroup\if@RTLtab\egroup\endR\egroup\fi
+                 \egroup \if@RTLtab\endR\fi\egroup
+                 \global\@RTLtabfalse}
+\expandafter \let \csname endstabular*\endcsname = \endstabular
+\def\@sarray[#1]#2{%
+  \bgroup
+  \setbox\@arstrutbox\hbox{%
+    \vrule \@height\arraystretch\ht\strutbox
+           \@depth\arraystretch \dp\strutbox
+           \@width\z@}%
+  \@mkpream{#2}%
+  \edef\@preamble{%
+    \ialign \noexpand\@halignto
+      \bgroup \@arstrut \@preamble \tabskip\z@skip \cr}%
+  \let\@startpbox\@@startpbox \let\@endpbox\@@endpbox
+  \let\tabularnewline\\%
+    \let\@sharp##%
+    \set@typeset@protect
+    \lineskip\z@skip\baselineskip\z@skip
+  \if@RTLtab\hbox\bgroup\beginR\vbox\bgroup\fi
+    \@preamble}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `stabular-bidi.def'.

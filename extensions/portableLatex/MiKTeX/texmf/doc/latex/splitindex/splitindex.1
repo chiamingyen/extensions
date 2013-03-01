@@ -1,0 +1,64 @@
+.TH SPLITINDEX "1" "November 2002" "splitindex 0.2a" "User Commands"
+.SH NAME
+splitindex \- manual page for splitindex 0.2a
+.SH SYNOPSIS
+.B splitindex.pl
+[\fIOPTION\fR]... \fIRAWINDEXFILE \fR[\fIMAKEINDEXOPTION\fR]...
+.PP
+.B splitindex
+[\fIOPTION\fR]... \fIRAWINDEXFILE \fR[\fIMAKEINDEXOPTION\fR]...
+.PP
+.B java splitindex
+[\fIOPTION\fR]... \fIRAWINDEXFILE \fR[\fIMAKEINDEXOPTION\fR]...
+.PP
+.B tex splitindex
+.SH DESCRIPTION
+splitindex 0.2a
+Copyright (c) 2002 Markus Kohm <kohm@gmx.de>
+.PP
+Split a single raw index file into multiple raw index files.
+.PP
+Example: splitindex.pl foo.idx.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+show this help and terminate
+.TP
+\fB\-m\fR, \fB\-\-makeindex\fR PROGNAME
+call PROGNAME instead of default `makeindex'.
+.TP
+\fB\-i\fR, \fB\-\-identify\fR EXPRESSION
+use regular EXPRESSION to match entries
+(see also option \fB\-\-resultis\fR and \fB\-\-suffixis\fR).
+Default is `^(\e\eindexentry)\e[([^]]*)\e](.*)$'.
+.TP
+\fB\-r\fR, \fB\-\-resultis\fR PATTERN
+create line to be written from PATTERN after matching
+lines (see also option \fB\-\-identify\fR).
+Default is `$1$3'.
+.TP
+\fB\-s\fR, \fB\-\-suffixis\fR PATTERN
+create suffix to be used from PATTERN after matching
+lines (see also option \fB\-\-identify\fR).
+Default is `-$2'.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+be more verbose
+(can be used multiple to increase verbosity)
+.TP
+\fB\-\-version\fR
+show version and terminate
+.SH COPYRIGHT
+Copyright \(co 2002 Markus Kohm <kohm@gmx.de>
+.SH "SEE ALSO"
+The full documentation for
+.B splitindex
+is maintained as a LaTeX manual.  If the
+.B texdoc
+and
+.B splitindex
+programs are properly installed at your site, the command
+.IP
+.B texdoc splitidx
+.PP
+should give you access to the complete manual.

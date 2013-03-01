@@ -1,0 +1,76 @@
+% chapter = al-fa.slu
+% chapter = al-bAbu
+% section = al-fa.slu
+% section = al-bandu
+% section = al-qismu
+% paragraph = al-fa.slu
+% paragraph = al-bandu
+% paragraph = al-mAddaTu
+% overview = al-nna.zraTu
+% abbreviations = al-mula_h_ha.su
+% heading = al-`unwAnu
+% heading = al-maqAdaTu
+% tableofcontents = al-mu.htawayAtu
+% tableofcontents = al-ma.dmUnu
+% listoffigures = qA'imaTu al-.suwaru
+% listoftables = qA'imaTu al-^gadAwilu
+% listofpictures = qA'imaTu al-rusUmu
+% index = al-fihrisu (al-fihristu)
+% bibliography = al-marA^gi`u
+% references = al-ma.sAdiru
+% abstract = al-mula_h_ha.su
+% abstract = al-^s^samlu
+% appendix = al-mul.haqu
+% attachments = al-murfaqAtu
+% number = al-raqmu
+% number = al-`adadu
+% title = al-`unwAnu
+% table = al-^gadwalu
+% picture = al-.s.sUraTu
+% picture = al-rrasmu
+% page = al-.s.saf.haTu
+% column = al-`amUdu
+% introduction = al-tta.h.dIru
+% introduction = al-muqaddamaTu
+% introduction = al-ttaw.sIlu
+% introduction = al-'id_hAlu
+% list = al-qA'imaTu
+% note = al-mal.hU.zaTu
+% note = al-mulA.ha.zaTu
+% entry = al-nnafdaTu
+
+% first page = a.s-.saf.haTu al-'Ul_A
+% previous page = a.s-.saf.haTu qablu
+% next page = a.s-.saf.haTu ba`du
+% next page = a.s-.saf.haTu at-tAlI
+% last page = a.s-.saf.haTu al-'A_hiraTu
+% contents = mu_htaw_A
+% part = al-^guz'u
+% part = al-qismu
+% see also = 'un.zur 'aydaN
+% drawing = ar-rasmu
+
+
+\def\captionsenglish{%
+\def\prefacename{Preface}%
+\def\refname{References}%
+\def\abstractname{Abstract}%
+\def\bibname{Bibliography}%
+\def\chaptername{Chapter}%
+\def\appendixname{Appendix}%
+\def\contentsname{Contents}%
+\def\listfigurename{List of Figures}%
+\def\listtablename{List of Tables}%
+\def\indexname{Index}%
+\def\figurename{Figure}%
+\def\tablename{Table}%
+\def\partname{Part}%
+\def\enclname{encl}%
+\def\ccname{cc}%
+\def\headtoname{To}%
+\def\pagename{Page}%
+\def\seename{see}%
+\def\alsoname{see also}}
+
+\let\captionsUSenglish=\captionsenglish
+

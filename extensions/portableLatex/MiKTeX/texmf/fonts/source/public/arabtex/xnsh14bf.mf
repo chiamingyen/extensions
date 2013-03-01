@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% xnsh14bf.mf %%%%%%%%%%%%%%%%%%%%%%%
+% Extended Nash font at 14 pt, bold
+% 31.03.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if unknown xnshbase: input xnshbase fi
+
+font_identifier "XNASKHBF";
+
+font_size 14.4pt#;
+
+fs# := 14.4pt#;
+
+% grid units
+fs# = 25.4dx#;
+fs# = 25.4dy#;
+
+% diacritics distance
+dia_d := 2;
+
+% normal pen
+px# := 2.4dy#; py# := 0.6dx#;
+
+pen_angle := 50;
+
+diag_angle = pen_angle - angle(px#,py#);
+
+% dot pen
+dp# := 2.2dy#; ap := 50;
+
+% dot distances
+dpx := 1.5; dpy := 3;
+
+% small pen for diacritics
+spx# := 1.5dx#;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+input xnsh
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+end.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

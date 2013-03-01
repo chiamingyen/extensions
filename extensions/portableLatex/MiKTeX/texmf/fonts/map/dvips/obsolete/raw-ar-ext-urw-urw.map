@@ -1,0 +1,16 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% raw-ar-ext-urw-urw.map: map file with basic ps fonts (those available
+%    to the acrobat reader and most printers). Downloads type1 fonts and
+%    assumes URW names.
+%
+% "Faked" ExtendFont / SlantFont with download. Useful for ps2pk and pdftex.
+rphvbrn NimbusSanL-Bold ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <n019004l.pfb
+rphvbon NimbusSanL-BoldItal ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <n019024l.pfb
+rphvrrn NimbusSanL-Regu ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <n019003l.pfb
+rphvron NimbusSanL-ReguItal ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <n019023l.pfb
+rpsyro StandardSymL ".167 SlantFont" <s050000l.pfb
+rptmbo NimbusRomNo9L-Medi ".167 SlantFont StandardEncoding ReEncodeFont" <8a.enc <n021004l.pfb
+rptmrrn NimbusRomNo9L-Regu ".82 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <n021003l.pfb
+rptmro NimbusRomNo9L-Regu ".167 SlantFont StandardEncoding ReEncodeFont" <8a.enc <n021003l.pfb
+rptmrre NimbusRomNo9L-Regu "1.2 ExtendFont StandardEncoding ReEncodeFont" <8a.enc <n021003l.pfb

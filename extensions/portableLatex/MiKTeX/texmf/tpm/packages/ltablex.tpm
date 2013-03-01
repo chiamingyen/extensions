@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/ltablex"><TPM:Name>ltablex</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>Modifies the tabularx environment to combine the features
+      of the tabularx package (auto-sized columns in a fixed width
+      table) with those of the longtable package (multi-page tables).</TPM:Description><TPM:RunFiles size="6774">texmf\tex\latex\ltablex\ltablex.sty texmf\tpm\packages\ltablex.tpm</TPM:RunFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>56abb279fa9cd5e30b43f387a625b432</TPM:MD5></rdf:Description></rdf:RDF>

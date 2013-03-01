@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/pst-qtree"><TPM:Name>pst-qtree</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Simple syntax for trees</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The package provides a qtree-like front end for PSTricks. 
+
+The authors are David Chiang and Daniel Gildea. The package is Copyright © 2002 David Chiang.
+</TPM:Description><TPM:RunFiles size="5428">texmf\tex\generic\pst-qtree\pst-qtree.tex texmf\tex\latex\pst-qtree\pst-qtree.sty texmf\tpm\packages\pst-qtree.tpm</TPM:RunFiles><TPM:DocFiles size="35859">texmf\doc\latex\pst-qtree\CHANGES texmf\doc\latex\pst-qtree\LICENSE texmf\doc\latex\pst-qtree\pst-qtree-manual.pdf</TPM:DocFiles><TPM:SourceFiles size="2453">texmf\source\pst-qtree-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1177093603</TPM:TimePackaged><TPM:MD5>5e6158832badb1e713b5c55a507a94ad</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,2293 @@
+% $Id: csquotes.sty,v 4.4c 2009/09/23 18:54:12 lehman stable $
+
+% Copyright (c) 2003-2009 Philipp Lehman.
+%
+% Permission is granted to copy, distribute and/or modify this
+% software under the terms of the LaTeX Project Public License
+% (LPPL), version 1.3.
+%
+% The LPPL maintenance status of this software is
+% 'author-maintained'.
+%
+% This software is provided 'as is', without warranty of any kind,
+% either expressed or implied, including, but not limited to, the
+% implied warranties of merchantability and fitness for a
+% particular purpose.
+
+\def\csq@rcsid$#1: #2 #3 #4 #5${#4 v#3}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{csquotes}
+[\csq@rcsid $Id: csquotes.sty,v 4.4c 2009/09/23 18:54:12 lehman stable $
+ context-sensitive quotations]
+
+%% Compatibility and requirements
+
+\RequirePackage{etoolbox}
+\RequirePackage{keyval}
+
+\@ifpackagelater{etoolbox}{2008/06/28}
+  {}
+  {\PackageError{csquotes}
+     {Outdated 'etoolbox' package}
+     {Upgrade to etoolbox v1.7 (2008/06/28) or later.\MessageBreak
+      I found: '\csuse{ver@etoolbox.sty}'.\MessageBreak
+      This is a fatal error. I'm aborting now.}%
+   \endinput}
+
+\@ifpackageloaded{inputenc}
+  {}
+  {\AtEndPreamble{%
+     \@ifpackageloaded{inputenc}
+       {\csq@warn@loadfirst{inputenc}}
+       {}}}
+
+\@ifpackageloaded{inputenx}
+  {}
+  {\AtEndPreamble{%
+     \@ifpackageloaded{inputenx}
+       {\csq@warn@loadfirst{inputenx}}
+       {}}}
+
+\@ifpackageloaded{ucs}
+  {\let\csq@ifucs\@firstoftwo}
+  {\let\csq@ifucs\@secondoftwo
+   \AtEndPreamble{%
+     \@ifpackageloaded{ucs}
+       {\let\csq@ifucs\@firstoftwo}
+       {}}}
+
+\AtEndPreamble{%
+  \@ifpackageloaded{biblatex}
+    {\@ifpackagelater{biblatex}{2009/05/30}
+       {}
+       {\csq@error
+          {Outdated 'biblatex' package}
+          {Upgrade to biblatex v0.8d (2009/05/30) or later.\MessageBreak
+           I found: '\csuse{ver@biblatex.sty}'}}}
+    {}}
+
+%% Category codes
+
+\def\csq@docatcodes{\do\~\do\&\do\:\do\"\do\<\do\>}
+\def\do#1{\noexpand\do\noexpand#1{\the\catcode`#1}}
+\edef\csq@docatcodes{\csq@docatcodes}
+
+\catcode`\~=\active
+\catcode`\&=3
+\@makeother\:
+\@makeother\"
+\@makeother\<
+\@makeother\>
+
+%% General things
+
+\newif\ifcsq@block
+\newif\ifcsq@quiet
+\newif\ifcsq@active
+
+\newcount\csq@reset
+\newcount\csq@gtype
+\newcount\csq@glevel
+\newcount\csq@qlevel
+\newcount\csq@maxlvl
+\newcount\csq@tshold
+
+\providecommand{\@gobblethree}[3]{}
+\providecommand{\@gobblefive}[5]{}
+
+% {<item>}{<list>}{<separator>}
+
+\def\csq@addto@list#1{%
+  \expandafter\csq@addto@list@i\csname\string#1\endcsname}
+\def\csq@addto@list@i#1#2#3{%
+  \begingroup
+  \@tempswatrue
+  \def#3##1{\ifnum`#1=`##1\relax\@tempswafalse\fi}#2%
+  \expandafter\endgroup\if@tempswa
+    \appto#2{#3#1}%
+  \fi}
+
+% {<macro>}
+
+\def\csq@everypar#1{%
+  \let\csq@theeverypar#1%
+  \ifx\csq@theeverypar\@empty
+  \else
+    \csq@everypar@i
+  \fi}
+
+\def\csq@everypar@i{%
+  \leavevmode
+  \let\csq@new@everypar\everypar
+  \csq@ltx@everypar=\expandafter{\the\everypar}%
+  \csq@new@everypar={\the\csq@ltx@everypar\csq@theeverypar}%
+  \let\everypar\csq@ltx@everypar
+  \let\csq@everypar@i\relax}
+
+\newtoks\csq@ltx@everypar
+
+% Miscellaneous tests
+
+\newcommand*{\ifblockquote}{%
+  \ifcsq@block
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@ifsafeactives{%
+  \ifx\if@safe@actives\iftrue
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@iftypeset{%
+  \ifx\protect\@typeset@protect
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@ifstrings{%
+  \ifx\protect\string
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@ifmmode{%
+  \ifmmode
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@ifnested{%
+  \ifcsq@block
+    \expandafter\@firstoftwo
+  \else
+    \ifnum\csq@qlevel>\z@
+      \expandafter\expandafter
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\expandafter
+      \expandafter\@secondoftwo
+    \fi
+  \fi}
+
+% Parsers for UTF-8
+
+\def\csq@string#1{\csq@string@i#1&}
+\def\csq@string@i#1#2&{%
+  \string#1\ifblank{#2}{}{\csq@string@i#2&}}
+
+\def\csq@number#1{\csq@number@i#1&}
+\def\csq@number@i#1#2&{%
+  \number`#1 \ifblank{#2}{}{.\csq@number@i#2&}}
+
+\def\csq@utfprint#1{u8:\csq@utfprint@i#1&}
+\def\csq@utfprint@i#1#2&{%
+  \number`#1 \ifblank{#2}{}{:\csq@utfprint@i#2&}}
+
+% Grouping control
+
+\protected\def\csq@bqgroup{%
+  \bgroup\leavevmode
+  \csq@glevel\currentgrouplevel
+  \csq@gtype\currentgrouptype}
+
+\protected\def\csq@eqgroup{%
+  \ifnum\csq@gtype=\currentgrouptype
+    \ifnum\csq@glevel=\currentgrouplevel
+    \else
+      \csq@err@glevel
+    \fi
+  \else
+    \csq@err@gtype
+  \fi
+  \egroup}
+
+\AtEndDocument{%
+  \ifnum\csq@qlevel>\z@
+    \csq@err@gleft
+  \fi}
+
+%% User feedback
+
+\protected\def\csq@error#1#2{%
+  \PackageError{csquotes}{#1}{#2.}}
+
+\protected\def\csq@warning@loose#1#2#3{%
+  \PackageWarning{csquotes}{#1}}
+\protected\def\csq@warning@strict#1#2#3{%
+  \PackageError{csquotes}{#2}{#3.}}
+\let\csq@warning\csq@warning@loose
+
+\protected\def\csq@info#1{%
+  \ifcsq@quiet
+  \else
+    \PackageInfo{csquotes}{#1\csq@noline}%
+  \fi}
+
+\let\csq@noline\@gobble
+\AtEndOfPackage{\let\csq@noline\@empty}
+
+% Errors
+
+\protected\def\csq@errormark{%
+  \rule[0.25ex]{1.25ex}{1.25ex}}
+
+\protected\def\csq@eqerror{%
+  \csq@eqgroup
+  \csq@errormark}
+
+\protected\def\csq@mismatch{%
+  \csq@errormark
+  \csq@err@mismatch}
+
+\protected\def\csq@err@mismatch#1{%
+  \csq@error
+    {Unbalanced groups or invalid nesting}
+    {#1}}
+
+\protected\def\csq@err@mmode#1{%
+  \csq@error
+    {'\string#1' invalid in math mode}
+    {This command may not be used in math mode}}
+
+\protected\def\csq@err@undef#1{%
+  \csq@error
+    {'\string#1' not defined}
+    {This command or environment environment appears to
+     be\MessageBreak undefined}}
+
+\protected\def\csq@err@opt#1{%
+  \csq@error
+    {Option '#1' invalid}
+    {The option you have supplied is invalid. See the csquotes
+     manual\MessageBreak for valid option keys and their
+     possible values}}
+
+\protected\def\csq@err@glevel{%
+  \csq@mismatch{%
+    I have detected a group level mismatch. Verify that all
+    groups\MessageBreak and all active quotes are properly
+    balanced and nested. If you\MessageBreak continue, I
+    will write a summary of all previously opened
+    groups\MessageBreak to the transcript file}%
+  \showgroups}
+
+\protected\def\csq@err@gtype{%
+  \csq@mismatch{%
+    I have detected a group type mismatch. Verify that all
+    groups\MessageBreak and all active quotes are properly
+    balanced and nested. If you\MessageBreak continue, I
+    will write a summary of all previously opened
+    groups\MessageBreak to the transcript file}%
+  \showgroups}
+
+\protected\def\csq@err@gleft{%
+  \csq@err@mismatch{%
+    Still \the\csq@qlevel\space quote\ifnum\csq@qlevel>\@ne s\fi
+    \space open. If you continue, I will write a summary\MessageBreak
+    of all previously opened groups to the transcript file}%
+  \showgroups}
+
+\protected\def\csq@err@alloc{%
+  \csq@error
+    {Invalid argument}
+    {One of the arguments you have supplied is already allocated
+     as\MessageBreak active quote or delimiter}}
+
+\protected\def\csq@err@char{%
+  \csq@error
+    {Invalid argument}
+    {Only single characters with category code 12 or 13 may
+     be\MessageBreak allocated as active quotes. Numbers,
+     punctuation marks, and\MessageBreak characters which
+     are part of the LaTeX syntax or reserved\MessageBreak
+     for a specific purpose are invalid}}
+
+\protected\def\csq@err@utf{%
+  \csq@error
+    {Invalid argument}
+    {Only valid UTF-8 sequences representing a single
+     character\MessageBreak may be allocated as active quotes}}
+
+\protected\def\csq@err@nbquote{%
+  \csq@mismatch{%
+    You have nested a block quotation. Block quotation
+    commands\MessageBreak may only be used on quotation level 0}}%
+
+\protected\def\csq@err@patch#1{%
+  \csq@error
+    {Patching #1 failed}
+    {This is an internal issue typically caused by a
+     conflict\MessageBreak between csquotes and some
+     other package. Modifying\MessageBreak the package
+     loading order may fix the problem}}
+
+\protected\def\csq@err@ucs{%
+  \csq@error
+    {ucs package not supported}
+    {The ucs package is not supported. If you want to use
+     UTF-8\MessageBreak encoded active quotes, try
+     '\string\usepackage[utf8]{inputenc}'.\MessageBreak
+     If you continue now, I will reject all UTF-8 encoded
+     arguments\MessageBreak as invalid}}
+
+% Warnings
+
+\protected\def\csq@warn@loadfirst#1{%
+  \csq@warning
+    {Load '#1' before 'csquotes'}
+    {'#1' package loaded too late}
+    {Always load '#1' before 'csquotes'}}
+
+\protected\def\csq@warn@nobabel#1{%
+  \csq@warning
+    {The 'babel' package is not available.\MessageBreak #1}
+    {#1}
+    {Load the 'babel' package to use this feature}}
+
+\protected\def\csq@warn@nostyle#1{%
+  \csq@warning
+    {No style for language '#1'.\MessageBreak
+     Using fallback style}
+    {No style for language '#1'}
+    {Define a style or alias for this language first}}
+
+\protected\def\csq@warn@location#1{%
+  \csq@warning
+    {'\string#1' invalid at this point.\MessageBreak
+     Ignoring command}
+    {'\string#1' invalid at this point}
+    {This command may not be used at this particular
+     point.\MessageBreak See the manual of the 'csquotes'
+     package for details}}
+
+\protected\def\csq@warn@sfcodes#1{%
+  \csq@warning
+    {No space factor codes for '#1' encoding.\MessageBreak
+     Punctuation tracker may fail}
+    {Punctuation tracker may fail at this point}
+    {No space factor codes for '#1' encoding.
+     See \string\DeclareQuoteGlyph\MessageBreak
+     in the 'csquotes' manual for details}}
+
+\protected\def\csq@warn@legacy#1#2{%
+  \csq@warning
+    {'\string#1' is deprecated.\MessageBreak
+     Using '\string#2' instead}
+    {'\string#1' is deprecated}
+    {Please use '\string#2' instead}%
+  \let#1#2#2}
+
+%% Outer quotations
+
+\protected\def\csq@oqmark{%
+  \csq@bqgroup
+  \ifnum\csq@qlevel>\z@
+    \csq@mismatch{%
+      Level 1 quote invalid at this point.
+      The current level is \the\csq@qlevel}%
+    \advance\csq@qlevel\@ne
+    \let\csq@oqmark\csq@eqerror
+  \else
+    \csq@qlevel\@ne
+    \let\csq@oqmark\csq@qclose
+    \expandafter\csq@qopen
+  \fi}
+
+%% Inner quotations
+
+\protected\def\csq@iqmark{%
+  \csq@bqgroup
+  \ifnum\csq@qlevel>\@ne
+    \csq@mismatch{%
+      Level 2 quote invalid at this point.
+      The current level is \the\csq@qlevel}%
+    \advance\csq@qlevel\@ne
+    \let\csq@iqmark\csq@eqerror
+  \else
+    \csq@qlevel\tw@
+    \let\csq@iqmark\csq@qclose
+    \expandafter\csq@qopen
+  \fi}
+
+%% Nestable quotations
+
+\protected\def\csq@oqopen{%
+  \csq@bqgroup
+  \csq@oqopen@i}
+
+\def\csq@oqopen@i{%
+  \advance\csq@qlevel\@ne
+  \csq@qopen}
+
+\protected\def\csq@iqopen{%
+  \csq@bqgroup
+  \csq@iqopen@i}
+
+\def\csq@iqopen@i{%
+  \ifnum\csq@qlevel=\z@
+    \advance\csq@qlevel\tw@
+  \else
+    \advance\csq@qlevel\@ne
+  \fi
+  \csq@qopen}
+
+%% Opening marks
+
+\def\csq@qopen{%
+  \ifnum\csq@qlevel>\csq@maxlvl
+    \csq@mismatch{%
+      Level \the\csq@qlevel\space quote invalid at this point.
+      The maximum level is \the\csq@maxlvl}%
+  \else
+    \csq@resetstyle
+    \csq@init
+    \csq@addkern@open
+    \ifodd\csq@qlevel
+      \let\csq@kernchar@i\csq@thequote@oopen
+      \csq@thequote@oopen
+    \else
+      \let\csq@kernchar@i\csq@thequote@iopen
+      \csq@thequote@iopen
+    \fi
+    \csq@setmarker@open
+    \expandafter\csq@fixkern
+  \fi}
+
+%% Closing marks
+
+\protected\def\csq@qclose{%
+  \ifnum\csq@qlevel=\z@
+    \csq@mismatch{%
+      Cannot close any quote. The current level is 0}%
+  \else
+    \ifnum\csq@qlevel>\csq@maxlvl
+      \csq@eqerror
+    \else
+      \expandafter\expandafter
+      \expandafter\csq@qclose@i
+    \fi
+  \fi}
+
+\def\csq@qclose@i{%
+  \ifdim\lastkern=\csq@omitmarker
+    \csq@eqgroup
+  \else
+    \csq@addkern@close
+    \ifodd\csq@qlevel
+      \csq@thequote@oclose
+      \let\csq@kernchar@i\csq@thequote@oclose
+    \else
+      \csq@thequote@iclose
+      \let\csq@kernchar@i\csq@thequote@iclose
+    \fi
+    \csq@setmarker@close
+    \expandafter\csq@eqgroup
+      \expandafter\def
+      \expandafter\csq@kernchar@i
+      \expandafter{\csq@kernchar@i}%
+    \expandafter\csq@fixkern
+  \fi}
+
+%% Style initialization
+
+\def\csq@init{%
+  \csq@setsfcodes
+  \ifodd\csq@qlevel
+    \csq@thequote@oinit
+    \csq@everypar\csq@thequote@omiddle
+  \else
+    \csq@thequote@iinit
+    \csq@everypar\csq@thequote@imiddle
+  \fi
+  \csq@init@kern{open}{o}{i}%
+  \csq@init@kern{close}{i}{o}}
+
+\def\csq@init@kern#1#2#3{%
+  \begingroup
+  \settowidth{\@tempdima}{%
+    \csuse{csq@thequote@#2#1}%
+    \csuse{csq@thequote@#3#1}}%
+  \settowidth{\@tempdimb}{%
+    \csuse{csq@thequote@#2#1}\unkern
+    \csuse{csq@thequote@#3#1}}%
+  \ifdim\@tempdima=\@tempdimb
+    \let\csq@tempa\endgroup
+  \else
+    \edef\csq@tempa{\endgroup
+      \csdef{csq@thekern@#1}{%
+        \the\dimexpr\@tempdima-\@tempdimb\relax}}%
+  \fi
+  \csq@tempa}
+
+\appto\@parboxrestore{%
+  \let\csq@bquote@i\csq@bquote@iii
+  \csq@qlevel\z@
+  \csq@blockfalse}
+
+%% Restore kerning
+
+\def\csq@fixkern{%
+  \expandafter\expandafter\expandafter
+  \expandafter\expandafter\expandafter
+  \expandafter\csq@fixkern@i}
+
+\def\csq@fixkern@i{%
+  \futurelet\csq@kernchar@ii\csq@fixkern@ii}
+
+\def\csq@fixkern@ii{%
+  \ifcat a\noexpand\csq@kernchar@ii
+    \expandafter\csq@fixkern@iii
+  \else
+    \ifcat 1\noexpand\csq@kernchar@ii
+      \expandafter\expandafter
+      \expandafter\csq@fixkern@iii
+    \fi
+  \fi}
+
+\def\csq@fixkern@iii{%
+  \begingroup
+  \settowidth{\@tempdima}{%
+    \csq@kernchar@i\csq@kernchar@ii}%
+  \settowidth{\@tempdimb}{%
+    \csq@kernchar@i\relax\csq@kernchar@ii}%
+  \ifdim\@tempdima=\@tempdimb
+  \else
+    \addtolength{\@tempdima}{-\@tempdimb}%
+    \penalty\@M\hskip\@tempdima\relax
+  \fi
+  \endgroup}
+
+%% Detect and kern adjoining quotes
+
+\def\csq@kernmarker{13sp}
+\def\csq@omitmarker{17sp}
+\let\csq@themarker\csq@kernmarker
+\def\csq@thekern@open{\csq@thequote@kern}
+\def\csq@thekern@close{\csq@thequote@kern}
+\def\csq@thequote@kern{0.1em}
+
+\def\csq@setmarker@open{%
+  \penalty\@M
+  \hskip-\csq@themarker\relax
+  \hskip\csq@themarker\relax}
+
+\def\csq@setmarker@close{%
+  \kern-\csq@themarker\relax
+  \kern\csq@themarker\relax}
+
+\def\csq@addkern@open{%
+  \ifdim\lastskip=\csq@kernmarker
+    \unskip\unskip\unpenalty
+    \unkern % EC fix
+    \ifdim\csq@thekern@open=\z@
+    \else
+      \penalty\@M\hskip\csq@thekern@open\relax
+    \fi
+  \fi}
+
+\def\csq@addkern@close{%
+  \ifdim\lastkern=\csq@kernmarker
+    \unkern\unkern
+    \ifdim\csq@thekern@close=\z@
+    \else
+      \penalty\@M\hskip\csq@thekern@close\relax
+    \fi
+  \fi}
+
+%% Punctuation
+
+% 1001       apostrophe (biblatex only)
+% 1002       abbreviation dot (biblatex only)
+% 1003/1250  comma
+% 1004/1500  semicolon
+% 1005/2000  colon
+% 1006/3000  period
+% 1007/3001  exclamation mark
+% 1008/3002  question mark
+% 1009       suppress punctuation (biblatex only)
+
+\mathchardef\csq@sf@comma=1003
+\mathchardef\csq@sf@semicolon=1004
+\mathchardef\csq@sf@colon=1005
+\mathchardef\csq@sf@period=1006
+\mathchardef\csq@sf@exclam=1007
+\mathchardef\csq@sf@question=1008
+\mathchardef\csq@sf@threshold@low=1002
+\mathchardef\csq@sf@threshold@term=1005
+\mathchardef\csq@sf@threshold@high=1009
+
+\def\csq@setsfcodes{%
+  \ifcsdef{csq@sfcodes@\f@encoding}
+    {\csuse{csq@sfcodes@\f@encoding}}
+    {\csq@warn@sfcodes\f@encoding}%
+  \sfcode`\)=\z@
+  \sfcode`\]=\z@
+  \ifnum\sfcode`\.>2000
+    \csq@setencodes
+  \else
+    \csq@setfrcodes
+  \fi
+  \let\frenchspacing\csq@setfrcodes
+  \let\nonfrenchspacing\csq@setencodes}
+
+\def\csq@setfrcodes{%
+  \ifnum\sfcode`\A=\@m
+  \else
+    \csq@setazcodes
+  \fi
+  \sfcode`\,=1003
+  \sfcode`\;=1004
+  \sfcode`\:=1005
+  \sfcode`\.=1006
+  \sfcode`\!=1007
+  \sfcode`\?=1008
+}
+
+\def\csq@setencodes{%
+  \sfcode`\,=1250
+  \sfcode`\;=1500
+  \sfcode`\:=2000
+  \sfcode`\.=3000
+  \sfcode`\!=3001
+  \sfcode`\?=3002
+}
+
+\begingroup
+\let\csq@setazcodes\@empty
+\def\csq@tempa{%
+  \xdef\csq@setazcodes{\csq@setazcodes\sfcode\the\@tempcnta=\@m}
+  \ifnum\@tempcnta<\@tempcntb
+    \advance\@tempcnta\@ne
+    \expandafter\csq@tempa
+  \fi}
+\@tempcnta`\A
+\@tempcntb`\Z
+\csq@tempa
+\ifnum\inputlineno=\m@ne\else
+  \@tempcnta"80
+  \@tempcntb"9C
+  \csq@tempa
+  \@tempcnta"C0
+  \@tempcntb"DF
+  \csq@tempa
+\fi
+\endgroup
+
+\csdef{csq@sfactor@1250}{1003}
+\csdef{csq@sfactor@1500}{1004}
+\csdef{csq@sfactor@2000}{1005}
+\csdef{csq@sfactor@3000}{1006}
+\csdef{csq@sfactor@3001}{1007}
+\csdef{csq@sfactor@3002}{1008}
+
+\def\csq@spacefactor{%
+  \ifhmode
+    \ifcsdef{csq@sfactor@\the\spacefactor}
+      {\csuse{csq@sfactor@\the\spacefactor}}
+      {\the\spacefactor}%
+  \else
+    1000%
+  \fi}
+
+\newcommand*{\ifquotecomma}{%
+  \ifnum\csq@spacefactor=\csq@sf@comma
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquotesemicolon}{%
+  \ifnum\csq@spacefactor=\csq@sf@semicolon
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquotecolon}{%
+  \ifnum\csq@spacefactor=\csq@sf@colon
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquoteperiod}{%
+  \ifnum\csq@spacefactor=\csq@sf@period
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquoteexclam}{%
+  \ifnum\csq@spacefactor=\csq@sf@exclam
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquotequestion}{%
+  \ifnum\csq@spacefactor=\csq@sf@question
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquotepunct}{%
+  \ifnum\csq@spacefactor>\csq@sf@threshold@low
+    \ifnum\csq@spacefactor<\csq@sf@threshold@high
+      \expandafter\expandafter
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\expandafter
+      \expandafter\@secondoftwo
+    \fi
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\newcommand*{\ifquoteterm}{%
+  \ifnum\csq@spacefactor>\csq@sf@threshold@term
+    \ifnum\csq@spacefactor<\csq@sf@threshold@high
+      \expandafter\expandafter
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\expandafter
+      \expandafter\@secondoftwo
+    \fi
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+%% Babel interface
+
+\def\csq@setstyle#1{%
+  \begingroup
+  \let\if@safe@actives\iftrue
+  \ifcsdef{csq@qstyle@#1}
+    {\edef\csq@tempa{\endgroup
+       \def\noexpand\csq@currentstyle{#1}%
+       \noexpand\csuse{csq@qstyle@#1}}%
+     \csq@tempa}
+    {\csq@warning
+       {Quote style '#1' not defined.\MessageBreak Ignoring command}
+       {Quote style '#1' not defined}
+       {Define the style or alias first}
+     \endgroup}}
+
+\def\csq@resetstyle{%
+  \ifnum\csq@reset=\@ne
+    \ifx\csq@currentstyle\languagename
+    \else
+      \ifcsundef{csq@qstyle@\languagename}
+        {\csq@warn@nostyle\languagename
+         \csq@setstyle{fallback}}
+        {\csq@setstyle{\languagename}}%
+    \fi
+  \fi}
+
+\def\csq@savelang{%
+  \ifdef\csq@mainlang
+    {}
+    {\edef\csq@mainlang{\languagename}}}
+
+\def\csq@resetlang{%
+  \ifdef\csq@mainlang
+    {\csuse{otherlanguage*}{\csq@mainlang}}
+    {}}
+
+% \lowercase: workaround for page headers of book.cls et al.
+
+\def\csq@lang#1{%
+  \csq@savelang
+  \lowercase{\csuse{otherlanguage*}{#1}}}
+
+\def\csq@nolang#1{%
+  \begingroup
+    \lowercase{\def\csq@tempa{#1}}%
+    \csq@warn@nobabel{Cannot switch to language '\csq@tempa'}%
+  \endgroup}
+
+\def\csq@hyph#1{%
+  \csq@savelang
+  \lowercase{\csq@hyphenrules{#1}}}
+
+\def\csq@nohyph#1{%
+  \begingroup
+    \lowercase{\def\csq@tempa{#1}}%
+    \csq@warn@nobabel{No hyphenation rules for '\csq@tempa'}%
+  \endgroup}
+
+\def\csq@hyphenrules#1{%
+  \language\csname l@#1\endcsname\relax
+  \ifcsundef{#1hyphenmins}
+    {\csq@sethyphenmins\tw@\thr@@}
+    {\expandafter\expandafter\expandafter\csq@sethyphenmins
+       \csname#1hyphenmins\endcsname}}
+
+\def\csq@sethyphenmins#1#2{%
+  \lefthyphenmin#1\relax
+  \righthyphenmin#2\relax}
+
+\appto\csq@mkbabel{%
+  \appto\@parboxrestore{\csq@resetlang}%
+  \ifundef\l@usenglish
+    {\ifundef\l@USenglish
+       {}
+       {\let\l@usenglish\l@USenglish}}
+    {}%
+  \ifundef\l@ukenglish
+    {\ifundef\l@UKenglish
+       {}
+       {\let\l@ukenglish\l@UKenglish}}
+    {}%
+  \ifcase\csq@reset
+  \or
+  \or
+    \csq@info{Enabling multilingual support}%
+    \csq@reset\@ne
+  \else
+    \csq@info{Adjusting default style}%
+    \ifcsundef{csq@qstyle@\bbl@main@language}
+      {\csq@warn@nostyle\bbl@main@language
+       \DeclareQuoteAlias{fallback}{default}}
+      {\DeclareQuoteAlias{\bbl@main@language}{default}}%
+  \fi}
+
+\appto\csq@mknobabel{%
+  \ifcase\csq@reset
+  \or
+    \csq@warn@nobabel{Cannot enable multilingual support}%
+  \or
+  \or
+    \csq@warn@nobabel{Cannot adjust default style}%
+  \fi
+  \csq@reset\z@
+  \def\csq@resetqstyle{%
+    \csq@warn@nobabel{Cannot enable multilingual support}}%
+  \let\csq@lang\csq@nolang
+  \let\csq@hyph\csq@nohyph}
+
+%% Markup with control sequences
+
+% Argument parsers
+
+% {<macro>}[<arg1>][<arg2>] =>
+%  <macro>{\mkcitation}{<arg1>}{<arg2>}
+
+\def\csq@getcargs#1{%
+  \@ifnextchar[%]
+    {\csq@getcargs@i{#1}}
+    {\csq@getcargs@i{#1}[]}}
+
+\long\def\csq@getcargs@i#1[#2]{%
+  \@ifnextchar[%]
+    {\csq@getcargs@ii{#1}{#2}}
+    {\csq@getcargs@ii{#1}{#2}[]}}
+
+\long\def\csq@getcargs@ii#1#2[#3]{%
+  #1{\mkcitation}{#2}{#3}}
+
+% {<macro>}[<arg1>][<arg2>]{<arg3>}[<arg4>] =>
+%  <macro>{\mkccitation}{\csq@cite[<arg1>][<arg2>]{<arg3>}}{<arg4>}
+
+\def\csq@getccargs#1{%
+  \@ifnextchar[%]
+    {\csq@getccargs@i{#1}{}}
+    {\csq@getccargs@ii{#1}{}}}
+
+\long\def\csq@getccargs@i#1#2[#3]{%
+  \@ifnextchar[%]
+    {\csq@getccargs@i{#1}{#2[{#3}]}}
+    {\csq@getccargs@ii{#1}{#2[{#3}]}}}
+
+\long\def\csq@getccargs@ii#1#2#3{%
+  \@ifnextchar[%]
+    {\csq@getccargs@iii{#1}{#2}{#3}}
+    {\csq@getccargs@iii{#1}{#2}{#3}[]}}
+
+\long\def\csq@getccargs@iii#1#2#3[#4]{%
+  #1{\mkccitation}{\csq@cite#2{#3}}{#4}}
+
+% Plain quotes
+
+\newrobustcmd*{\enquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\enquote}
+    {\@ifstar
+      {\csq@quote@ii{}}
+      {\csq@quote@i{}}}}
+
+\long\def\csq@quote@i#1#2{%
+  \csq@bqgroup #1\csq@oqopen@i #2\csq@qclose}
+\long\def\csq@quote@ii#1#2{%
+  \csq@bqgroup #1\csq@iqopen@i #2\csq@qclose}
+
+% Plain quotes + babel
+
+\newrobustcmd*{\foreignquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\foreignquote}
+    {\@ifstar\csq@fquote@ii\csq@fquote@i}}
+
+\def\csq@fquote@i#1{\csq@quote@i{\csq@lang{#1}}}
+\def\csq@fquote@ii#1{\csq@quote@ii{\csq@lang{#1}}}
+
+\newrobustcmd*{\hyphenquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\hyphenquote}
+    {\@ifstar\csq@hquote@ii\csq@hquote@i}}
+
+\def\csq@hquote@i#1{\csq@quote@i{\csq@hyph{#1}}}
+\def\csq@hquote@ii#1{\csq@quote@ii{\csq@hyph{#1}}}
+
+% PDF strings
+
+\long\def\csq@pdf@quote#1{%
+  \if#1*\relax
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+    {\csq@pdf@quote@ii}
+    {\csq@pdf@quote@i{#1}}}
+
+\long\def\csq@pdf@quote@i#1{%
+  \csq@pdf@ooqmark #1\csq@pdf@coqmark}
+\long\def\csq@pdf@quote@ii#1{%
+  \csq@pdf@oiqmark #1\csq@pdf@ciqmark}
+
+\long\def\csq@pdf@fquote#1{%
+  \if#1*\relax
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+    {\expandafter\csq@pdf@quote@ii\@gobble}
+    {\csq@pdf@quote@i}}
+
+\appto\csq@mkhyperref{%
+  \let\enquote\csq@pdf@quote
+  \let\foreignquote\csq@pdf@fquote
+  \let\hyphenquote\csq@pdf@fquote}
+
+% Text quotes
+
+\newrobustcmd*{\textquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\textquote}
+    {\@ifstar
+       {\csq@getcargs{\csq@tquote{\csq@iqopen@i}}}
+       {\csq@getcargs{\csq@tquote{\csq@oqopen@i}}}}}
+
+% {<init><macro>}{<hook>}{<cite>}{<punct>}{<text>}
+
+\long\def\csq@tquote#1#2#3#4#5{%
+  \csq@bqgroup
+    \def\csq@tempa{%
+      \mkpretextpunct{#4}%
+      \csq@qclose
+      \mkmidtextpunct{#4}}%
+    \ifblank{#3}
+      {}
+      {\appto\csq@tempa{#2{#3}}}%
+    #1\quotetext#5\endquotetext
+  \csq@tempa\mkfintextpunct{#4}}
+
+% Text quotes + babel
+
+\newrobustcmd*{\foreigntextquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\foreigntextquote}
+    {\@ifstar\csq@ftquote@ii\csq@ftquote@i}}
+
+\def\csq@ftquote@i#1{%
+  \csq@getcargs{\csq@tquote{\csq@lang{#1}\csq@oqopen@i}}}
+\def\csq@ftquote@ii#1{%
+  \csq@getcargs{\csq@tquote{\csq@lang{#1}\csq@iqopen@i}}}
+
+\newrobustcmd*{\hyphentextquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\hyphentextquote}
+    {\@ifstar\csq@htquote@ii\csq@htquote@i}}
+
+\def\csq@htquote@i#1{%
+  \csq@getcargs{\csq@tquote{\csq@hyph{#1}\csq@oqopen@i}}}
+\def\csq@htquote@ii#1{%
+  \csq@getcargs{\csq@tquote{\csq@hyph{#1}\csq@iqopen@i}}}
+
+% Integrated text quotes
+
+\newrobustcmd*{\textcquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\textcquote}
+    {\@ifstar
+       {\csq@getccargs{\csq@tquote{\csq@iqopen@i}}}
+       {\csq@getccargs{\csq@tquote{\csq@oqopen@i}}}}}
+
+% Integrated text quotes + babel
+
+\newrobustcmd*{\foreigntextcquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\foreigntextcquote}
+    {\@ifstar\csq@ftcquote@ii\csq@ftcquote@i}}
+
+\def\csq@ftcquote@i#1{%
+  \csq@getccargs{\csq@tquote{\csq@lang{#1}\csq@oqopen@i}}}
+\def\csq@ftcquote@ii#1{%
+  \csq@getccargs{\csq@tquote{\csq@lang{#1}\csq@iqopen@i}}}
+
+\newrobustcmd*{\hyphentextcquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\hyphentextcquote}
+    {\@ifstar\csq@htcquote@ii\csq@htcquote@i}}
+
+\def\csq@htcquote@i#1{%
+  \csq@getccargs{\csq@tquote{\csq@hyph{#1}\csq@oqopen@i}}}
+\def\csq@htcquote@ii#1{%
+  \csq@getccargs{\csq@tquote{\csq@hyph{#1}\csq@iqopen@i}}}
+
+% PDF strings
+
+\appto\csq@mkhyperref{%
+  \def\textquote{\pdfstringdefWarn\textquote}%
+  \def\foreigntextquote{\pdfstringdefWarn\foreigntextquote}%
+  \def\hyphentextquote{\pdfstringdefWarn\hyphentextquote}%
+  \def\textcquote{\pdfstringdefWarn\textcquote}%
+  \def\foreigntextcquote{\pdfstringdefWarn\foreigntextcquote}%
+  \def\hyphentextcquote{\pdfstringdefWarn\hyphentextcquote}}
+
+% Block quotes
+
+\newrobustcmd*{\blockquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\blockquote}
+    {\csq@getcargs{\csq@bquote{}}}}
+
+\def\csq@bquote{%
+  \csq@ifnested
+    {\csq@err@nbquote\@gobblefive}
+    {\ifinner
+       \expandafter\csq@bquote@iii
+     \else
+       \expandafter\csq@bquote@i
+     \fi}}
+
+% {<init>}{<hook>}{<cite>}{<punct>}{<text>}
+
+\long\def\csq@bquote@i#1#2#3#4#5{%
+  \begingroup
+  \@blockquote@prehook
+  \@fileswfalse
+  \csq@blockfalse
+  \let\csq@newline\newline
+  \setbox\@tempboxa=\vbox{%
+    \def\par{\aftergroup\csq@blocktrue\@par}%
+    \def\newline{\aftergroup\csq@blocktrue
+      \let\newline\csq@newline\newline}%
+    \parfillskip\z@ \@plus 1fil\relax
+    \parindent\z@
+    \vrule \@height1\baselineskip \@width\z@ #1#5}%
+  \ifdim\ht\@tempboxa>\csq@tshold\baselineskip
+    \csq@blocktrue
+  \fi
+  \ifcsq@block
+    \aftergroup\@firstoftwo
+  \else
+    \aftergroup\@secondoftwo
+  \fi
+  \@blockquote@posthook
+  \endgroup
+  \csq@bquote@ii\csq@bquote@iii{#1}{#2}{#3}{#4}{#5}}
+
+\let\csq@nbgobble\@firstofone
+
+\newcommand*{\@blockquote@prehook}{%
+  \def\@elt##1{\global\value{##1}\the\value{##1}\relax}%
+  \edef\csq@tempa{\cl@@ckpt}%
+  \let\@elt\relax
+  \let\csq@nbgobble\@gobble
+  \let\csq@bquote\@gobblefive
+  \let\csq@error\@gobbletwo
+  \let\csq@warning\@gobblethree
+  \let\csq@info\@gobble
+  \let\label\@gobble
+  \let\index\@gobble
+  \let\glossary\@gobble}
+
+\newcommand*{\@blockquote@posthook}{%
+  \csq@tempa}
+
+\long\def\csq@bquote@ii#1#2#3#4#5{%
+  \begin{\csq@blockenvironment}%
+    \csq@blocktrue
+    \begingroup#1%
+      \csq@setsfcodes
+      \quoteblock
+        #5%
+      \mkpreblockpunct{#4}%
+      \endquoteblock
+      \mkmidblockpunct{#4}%
+    \endgroup
+    \ifblank{#3}
+      {}
+      {#2{#3}}%
+    \mkfinblockpunct{#4}%
+  \end{\csq@blockenvironment}}
+
+\long\def\csq@bquote@iii#1#2#3#4#5{%
+  \csq@bqgroup
+    \def\csq@tempa{%
+      \mkpreblockpunct{#4}%
+      \csq@qclose
+      \mkmidblockpunct{#4}}%
+    \ifblank{#3}
+      {}
+      {\appto\csq@tempa{#2{#3}}}%
+    #1\csq@oqopen@i\quotetext#5\endquotetext
+  \csq@tempa\mkfinblockpunct{#4}}
+
+\newrobustcmd*{\BlockquoteDisable}{\gappto\@blockquote@prehook}
+
+% Block quotes + babel
+
+\newrobustcmd*{\foreignblockquote}[1]{%
+  \csq@ifmmode
+    {\csq@err@mmode\foreignblockquote}
+    {\csq@getcargs{\csq@bquote{\csq@lang{#1}}}}}
+
+\newrobustcmd*{\hyphenblockquote}[1]{%
+  \csq@ifmmode
+    {\csq@err@mmode\hyphenblockquote}
+    {\csq@getcargs{\csq@bquote{\csq@hyph{#1}}}}}
+
+% Integrated block quotes
+
+\newrobustcmd*{\blockcquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\blockcquote}
+    {\csq@getccargs{\csq@bquote{}}}}
+
+% Integrated block quotes + babel
+
+\newrobustcmd*{\foreignblockcquote}[1]{%
+  \csq@ifmmode
+    {\csq@err@mmode\foreignblockcquote}
+    {\csq@getccargs{\csq@bquote{\csq@lang{#1}}}}}
+
+\newrobustcmd*{\hyphenblockcquote}[1]{%
+  \csq@ifmmode
+    {\csq@err@mmode\hyphenblockcquote}
+    {\csq@getccargs{\csq@bquote{\csq@hyph{#1}}}}}
+
+% PDF strings
+
+\appto\csq@mkhyperref{%
+  \def\blockquote{\pdfstringdefWarn\blockquote}%
+  \def\foreignblockquote{\pdfstringdefWarn\foreignblockquote}%
+  \def\hyphenblockquote{\pdfstringdefWarn\hyphenblockquote}%
+  \def\blockcquote{\pdfstringdefWarn\blockcquote}%
+  \def\foreignblockcquote{\pdfstringdefWarn\foreignblockcquote}%
+  \def\hyphenblockcquote{\pdfstringdefWarn\hyphenblockcquote}}
+
+% Display quotes
+
+\newenvironment*{displayquote}
+  {\csq@getcargs{\csq@dquote{}}}
+  {\csq@edquote}
+
+% {<init>}{<hook>}{<cite>}{<punct>}
+
+\def\csq@dquote#1#2#3#4{%
+  \ifblank{#3}
+    {\let\csq@tempb\@empty}
+    {\def\csq@tempb{#2{#3}}}%
+  \def\csq@tempc{#4}%
+  \csq@bdquote{#1}}
+
+\def\csq@bdquote#1{%
+  \csuse{\csq@blockenvironment}%
+  \csq@blocktrue
+  \begingroup#1%
+  \csq@setsfcodes
+  \quoteblock}
+
+\def\csq@edquote{%
+  \ifdim\lastskip>\z@\unskip\fi
+  \expandafter\mkpredisppunct
+  \expandafter{\csq@tempc}%
+  \endquoteblock
+  \expandafter\mkmiddisppunct
+  \expandafter{\csq@tempc}%
+  \endgroup
+  \csq@tempb
+  \expandafter\mkfindisppunct
+  \expandafter{\csq@tempc}%
+  \csuse{end\csq@blockenvironment}}
+
+% Display quotes + babel
+
+\newenvironment*{foreigndisplayquote}[1]
+  {\csq@getcargs{\csq@dquote{\csq@lang{#1}}}}
+  {\csq@edquote}
+
+\newenvironment*{hyphendisplayquote}[1]
+  {\csq@getcargs{\csq@dquote{\csq@hyph{#1}}}}
+  {\csq@edquote}
+
+% Integrated display quotes
+
+\newenvironment*{displaycquote}
+  {\csq@getccargs{\csq@dcquote{}}}
+  {\csq@edquote}
+
+% {<init>}{<hook>}{<cite>}{<punct>}
+
+\def\csq@dcquote#1#2#3#4{%
+  \def\csq@tempb{#2{#3}}%
+  \def\csq@tempc{#4}%
+  \csq@bdquote{#1}}
+
+% Integrated display quotes + babel
+
+\newenvironment*{foreigndisplaycquote}[1]
+  {\csq@getccargs{\csq@dcquote{\csq@lang{#1}}}}
+  {\csq@edquote}
+
+\newenvironment*{hyphendisplaycquote}[1]
+  {\csq@getccargs{\csq@dcquote{\csq@hyph{#1}}}}
+  {\csq@edquote}
+
+% Hooks
+
+\newcommand*{\mkcitation}[1]{\space(#1)}
+\newcommand*{\mkccitation}[1]{\space#1}
+
+\newcommand*{\mkpretextpunct}[1]{}
+\newcommand*{\mkmidtextpunct}[1]{}
+\newcommand*{\mkfintextpunct}[1]{#1}
+\newcommand*{\mkpreblockpunct}[1]{}
+\newcommand*{\mkmidblockpunct}[1]{}
+\newcommand*{\mkfinblockpunct}[1]{#1}
+\newcommand*{\mkpredisppunct}[1]{}
+\newcommand*{\mkmiddisppunct}[1]{}
+\newcommand*{\mkfindisppunct}[1]{#1}
+
+\newenvironment*{quotetext}{}{}
+\newenvironment*{quoteblock}{}{}
+
+% Legacy commands
+
+\newrobustcmd*{\cquote}{%
+  \csq@warn@legacy\cquote\textcquote}
+\newrobustcmd*{\foreigncquote}{%
+  \csq@warn@legacy\foreigncquote\foreigntextcquote}
+\newrobustcmd*{\hyphencquote}{%
+  \csq@warn@legacy\hyphencquote\hyphentextcquote}
+
+%% Markup with active characters
+
+\let\csq@dospecials\@empty
+\let\csq@doutfspecials\@empty
+
+\def\csq@do@dospecial#1#2{%
+  \ifnum\catcode`#1=\active
+    \csq@info{Redefining character \string#1}%
+    \csq@letspecial{#1}{csq@special@\number`#1}%
+  \else
+    \csq@info{Making character \string#1 active}%
+    \csq@letspecial{#1}{csq@special@\number`#1}%
+    \catcode`#1=\active
+  \fi}
+
+\def\csq@do@undospecial#1#2{%
+  \ifnum#2=\active
+    \csq@info{Resetting character \string#1}%
+    \csq@letspecial{#1}{csq@saved@\number`#1}%
+  \else
+    \csq@info{Resetting catcode of \string#1}%
+    \catcode`#1=#2\relax
+  \fi}
+
+\def\csq@do@verbspecial#1#2{%
+  \csq@info{Redefining character \string#1}%
+  \ifnum`#1<128\relax
+    \csq@edefspecial{#1}{\string#1}%
+  \else
+    \csq@letspecial{#1}{csq@saved@\number`#1}%
+  \fi}
+
+\def\csq@do@doutfspecial#1{%
+  \csq@info{Redefining character \csq@utfprint{#1}}%
+  \csletcs{u8:\csq@string{#1}}{csq@special@\csq@number{#1}}}
+
+\def\csq@do@undoutfspecial#1{%
+  \csq@info{Resetting character \csq@utfprint{#1}}%
+  \csletcs{u8:\csq@string{#1}}{csq@saved@\csq@number{#1}}}
+
+\def\csq@do@delspecial#1#2{%
+  \csq@info{Deallocating character \string#1}%
+  \csundef{csq@special@\number`#1}%
+  \csundef{csq@saved@\number`#1}%
+  \csundef{csq@string@\number`#1}%
+  \csundef{csq@textdef@\number`#1}%
+  \csundef{csq@xtxtdef@\number`#1}%
+  \csundef{csq@pdfdef@\number`#1}}
+
+\def\csq@do@delutfspecial#1{%
+  \csq@info{Deallocating character \csq@utfprint{#1}}%
+  \csundef{csq@special@\csq@number{#1}}%
+  \csundef{csq@saved@\csq@number{#1}}%
+  \csundef{csq@string@\csq@number{#1}}%
+  \csundef{csq@textdef@\csq@number{#1}}%
+  \csundef{csq@xtxtdef@\csq@number{#1}}%
+  \csundef{csq@pdfdef@\csq@number{#1}}}
+
+\def\csq@mkenable{%
+  \let\do\csq@do@dospecial
+  \csq@dospecials
+  \let\do\csq@do@doutfspecial
+  \csq@doutfspecials
+  \let\do\noexpand
+  \csq@activetrue}
+
+\def\csq@mkdisable{%
+  \ifcsq@active
+    \let\do\csq@do@undospecial
+    \csq@dospecials
+    \let\do\csq@do@undoutfspecial
+    \csq@doutfspecials
+    \let\do\noexpand
+    \csq@activefalse
+  \fi}
+
+\def\csq@mkverbatim{%
+  \ifcsq@active
+    \let\do\csq@do@verbspecial
+    \csq@dospecials
+    \let\do\csq@do@undoutfspecial
+    \csq@doutfspecials
+    \let\do\noexpand
+  \fi}
+
+\def\csq@mkdelete{%
+  \csq@mkdisable
+  \let\do\csq@do@delspecial
+  \csq@dospecials
+  \let\do\csq@do@delutfspecial
+  \csq@doutfspecials
+  \let\do\noexpand
+  \let\csq@dospecials\@empty
+  \let\csq@doutfspecials\@empty
+  \let\csq@mkpdfstrings\@empty}
+
+\let\csq@mkpdfstrings\@empty
+\appto\csq@mkhyperref{\csq@mkpdfstrings}
+
+\ifdef\inpenc@prehook % inputenc 2006/05/05 v1.1b
+  {\AtBeginDocument{%
+     \addto@hook\inpenc@prehook{%
+        \csq@info{Input encoding change}%
+        \csq@mkdelete}}}
+  {}
+
+% Regular specials
+
+% {<char>}{<textdef>}{<pdfdef1>}{<pdfdef2>}
+
+\def\csq@addspecial#1#2#3#4{%
+  \csq@validate{#1}
+    {\csq@addspecial@i@s{#1}{\csqQQ}{#2}{#3}{#4}}
+    {\csq@addspecial@i@u{#1}{\csqQQ}{#2}{#3}{#4}}}
+
+% {<char>}{<macro>}{<textdef>}{<pdfdef1>}{<pdfdef2>}
+
+\def\csq@addspecial@i@s#1#2#3#4#5{%
+  \csq@info{Allocating character \string#1}%
+  \csedef{csq@special@\number`#1}{\noexpand#2{\number`#1}}%
+  \ifnum\catcode`#1=\active
+    \cslet{csq@saved@\number`#1}{#1}%
+  \else
+    \csdef{csq@saved@\number`#1}{#1}%
+  \fi
+  \csedef{csq@string@\number`#1}{\string#1}%
+  \csdef{csq@textdef@\number`#1}{#3}%
+  \ifblank{#5}
+    {\csdef{csq@pdfdef@\number`#1}{#4}}
+    {\appto\csq@mkpdfstrings{\csq@defpspecial{#1}{#4}{#5}}}%
+  \eappto\csq@dospecials{\noexpand\do{\string#1}{\the\catcode`#1}}%
+  \ifnum`#1<128\relax
+    \csq@addto@list{#1}{\dospecials}{\do}%
+    \csq@addto@list{#1}{\@sanitize}{\@makeother}%
+  \fi}
+
+% {<char>}{<macro>}{<textdef>}{<pdfdef1>}{<pdfdef2>}
+
+\def\csq@addspecial@i@u#1#2#3#4#5{%
+  \csq@info{Allocating character \csq@utfprint{#1}}%
+  \csedef{csq@special@\csq@number{#1}}{%
+    \noexpand#2{\csq@number{#1}}}%
+  \ifcsundef{u8:\csq@string{#1}}
+    {\csq@error
+       {\csq@utfprint{#1} not supported by inputenc}
+       {This UTF-8 sequence does not seem to be supported by the
+        inputenc\MessageBreak package}%
+     \csdef{csq@saved@\csq@number{#1}}{}}
+    {\csletcs{csq@saved@\csq@number{#1}}{u8:\csq@string{#1}}}%
+  \csedef{csq@string@\csq@number{#1}}{\csq@string{#1}}%
+  \csdef{csq@textdef@\csq@number{#1}}{#3}%
+  \ifblank{#5}
+    {\csdef{csq@pdfdef@\csq@number{#1}}{#4}}
+    {\appto\csq@mkpdfstrings{\csq@defupspecial{#1}{#4}{#5}}}%
+  \eappto\csq@doutfspecials{\noexpand\do{\csq@string{#1}}}}
+
+% Block specials
+
+% {<char1>}{<delim>}{<char2>}{<textdef>}
+
+\def\csq@addbspecial#1#2#3#4{%
+  \csq@validate{#1}
+    {\csq@addbspecial@i@s{#1}{#2}{#3}{#4}}
+    {\csq@addbspecial@i@u{#1}{#2}{#3}{#4}}}
+
+\def\csq@addbspecial@i@s#1#2#3#4{%
+  \begingroup
+  \def\csq@tempa{\endgroup\csq@addspecial@i@s{#1}{\csqBQ}{}}%
+  \eappto\csq@tempa{%
+    {\expandafter\noexpand\csname csq@saved@\number`#1\endcsname
+     \noexpand\pdfstringdefWarn{\string#1}}{}}%
+  \csq@tempa
+  \csq@validate{#2}
+    {\csq@addbspecial@ii@s{\number`#1}{#2}{#3}{#4}}
+    {\csq@addbspecial@ii@u{\number`#1}{#2}{#3}{#4}}}
+
+\def\csq@addbspecial@i@u#1#2#3#4{%
+  \begingroup
+  \def\csq@tempa{\endgroup\csq@addspecial@i@u{#1}{\csqBQ}{}}%
+  \eappto\csq@tempa{%
+    {\expandafter\noexpand\csname csq@saved@\csq@number{#1}\endcsname
+     \noexpand\pdfstringdefWarn{\csq@utfprint{#1}}}{}}%
+  \csq@tempa
+  \csq@validate{#2}
+    {\csq@addbspecial@ii@s{\csq@number{#1}}{#2}{#3}{#4}}
+    {\csq@addbspecial@ii@u{\csq@number{#1}}{#2}{#3}{#4}}}
+
+\def\csq@addbspecial@ii@s#1#2#3#4{%
+  \csq@addspecial@i@s{#2}{\csqBQsep}{}{}{}%
+  \begingroup
+  \let\csq@tempa\@empty
+  \def\csq@tempb{{#1}}%
+  \uccode`\~=`#2\relax
+  \uppercase{\appto\csq@tempb{{~}}}%
+  \appto\csq@tempb{{#3}{#4}}%
+  \csq@validate{#3}
+    {\expandafter\def\expandafter\csq@tempa
+     \expandafter{\expandafter\csq@addbspecial@iii@s\csq@tempb}}
+    {\expandafter\def\expandafter\csq@tempa
+     \expandafter{\expandafter\csq@addbspecial@iii@u\csq@tempb}}%
+  \expandafter\endgroup\csq@tempa}
+
+\def\csq@addbspecial@ii@u#1#2#3#4{%
+  \csq@addspecial@i@u{#2}{\csqBQsep}{}{}{}%
+  \csq@validate{#3}
+    {\csq@addbspecial@iii@s{#1}{#2}{#3}{#4}}
+    {\csq@addbspecial@iii@u{#1}{#2}{#3}{#4}}}
+
+\def\csq@addbspecial@iii@s#1#2#3#4{%
+  \csq@addspecial@i@s{#3}{\csqBQend}{}{}{}%
+  \begingroup
+  \def\csq@tempa{{#1}{#2}}%
+  \uccode`\~=`#3\relax
+  \uppercase{\appto\csq@tempa{~}}%
+  \appto\csq@tempa{{#4}}%
+  \expandafter\endgroup
+  \expandafter\csq@addbspecial@iv\csq@tempa}
+
+\def\csq@addbspecial@iii@u#1#2#3#4{%
+  \csq@addspecial@i@u{#3}{\csqBQend}{}{}{}%
+  \csq@addbspecial@iv{#1}{#2}{#3}{#4}}
+
+\def\csq@addbspecial@iv#1#2#3#4{%
+  \expandafter\csq@defbspecial
+  \expandafter{\csname csq@textdef@#1\endcsname}{#2}{#3}{#4}%
+  \expandafter\csq@defxbspecial
+  \expandafter{\csname csq@xtxtdef@#1\endcsname}{#4}}
+
+% Specials
+
+\newcommand*{\csqQQ}[1]{%
+  \csq@ifsafeactives
+    {\csuse{csq@string@#1}}
+    {\csq@iftypeset
+       {\csq@ifmmode
+          {\csuse{csq@saved@#1}}
+          {\csuse{csq@textdef@#1}}}
+       {\csq@ifstrings
+          {\csuse{csq@string@#1}}
+          {\noexpand\csqQQ{#1}}}}}
+
+\newcommand*{\csqBQ}[1]{%
+  \csq@ifsafeactives
+    {\csuse{csq@string@#1}}
+    {\csq@iftypeset
+       {\csq@ifmmode
+          {\csuse{csq@saved@#1}}
+          {\csq@ifnested
+             {\csq@err@nbquote}
+             {\csq@nbgobble{\csuse{csq@textdef@#1}}}}}
+       {\csq@ifstrings
+          {\csuse{csq@string@#1}}
+          {\noexpand\csqBQbeg{#1}}}}}
+
+\newcommand*{\csqBQbeg}[1]{%
+  \csq@ifsafeactives
+    {\csuse{csq@string@#1}}
+    {\csq@iftypeset
+       {\csq@ifmmode
+          {\csuse{csq@saved@#1}}
+          {\csq@ifnested
+             {\csq@err@nbquote}
+             {\csq@nbgobble{\csuse{csq@xtxtdef@#1}}}}}
+       {\csq@ifstrings
+          {\csuse{csq@string@#1}}
+          {\noexpand\csqBQbeg{#1}}}}}
+
+\newcommand*{\csqBQsep}[1]{%
+  \csq@ifsafeactives
+    {\csuse{csq@string@#1}}
+    {\csq@iftypeset
+       {\csuse{csq@saved@#1}}
+       {\csq@ifstrings
+          {\csuse{csq@string@#1}}
+          {\noexpand\csqBQsep{#1}}}}}
+
+\newcommand*{\csqBQend}[1]{%
+  \csq@ifsafeactives
+    {\csuse{csq@string@#1}}
+    {\csq@iftypeset
+       {\csuse{csq@saved@#1}}
+       {\csq@ifstrings
+          {\csuse{csq@string@#1}}
+          {\noexpand\csqBQend{#1}}}}}
+
+\appto\csq@mkhyperref{%
+  \def\csqQQ#1{\csuse{csq@pdfdef@#1}}%
+  \def\csqBQ#1{\csuse{csq@pdfdef@#1}}%
+  \def\csqBQbeg#1{\csuse{csq@pdfdef@#1}}%
+  \def\csqBQsep#1{\csuse{csq@saved@#1}}%
+  \def\csqBQend#1{\csuse{csq@saved@#1}}}
+
+% Define specials
+
+% {<char>}{<def>}
+
+\def\csq@edefspecial#1#2{%
+  \begingroup
+  \uccode`\~=`#1\relax
+  \uppercase{\endgroup\edef~}{#2}}
+
+% {<char>}{<csname>}
+
+\def\csq@letspecial#1#2{%
+  \begingroup
+  \uccode`\~=`#1\relax
+  \uppercase{\def\csq@tempa{\endgroup\let~}}%
+  \expandafter\csq@tempa\csname#2\endcsname}
+
+% {<macro>}{<delim>}{<char2>}{<def>}
+
+\def\csq@defbspecial#1#2#3#4{%
+  \long\def#1##1#3{\csq@bspecial@i{##1}{#2}{#4}}}
+
+% {<text>}{<delim>}{<macro>}
+
+\long\def\csq@bspecial@i#1#2#3{%
+  \long\def\csq@bspecial@ii##1#2##2&{%
+    \ifblank{##2}
+      {#3{}{}{#1}}
+      {\csq@bspecial@iii#1&}}%
+  \long\def\csq@bspecial@iii##1#2##2&{%
+    #3{##2}{}{##1}}%
+  \csq@bspecial@ii#1#2&}
+
+% {<macro>}{<def>}
+
+\def\csq@defxbspecial#1#2{%
+  \long\def#1##1\csqBQend##2{\csq@xbspecial@i{##1}{#2}}}
+
+% {<text>}{<macro>}
+
+\long\def\csq@xbspecial@i#1#2{%
+  \long\def\csq@xbspecial@ii##1\csqBQsep##2&{%
+    \ifblank{##2}
+      {#2{}{}{#1}}
+      {\csq@xbspecial@iii#1&}}%
+  \long\def\csq@xbspecial@iii##1\csqBQsep##2##3&{%
+    #2{##3}{}{##1}}%
+  \csq@xbspecial@ii#1\csqBQsep&}
+
+% {<char>}{<pdfomark>}{<pdfcmark>}
+
+\def\csq@defpspecial#1#2#3{%
+  \begingroup
+  \uccode`\~=`#1\relax
+  \uppercase{\endgroup\def~##1~}{#2##1#3}}
+
+% {<char>}{<pdfomark>}{<pdfcmark>}
+
+\def\csq@defupspecial#1#2#3{%
+  \expandafter\def\csname u8:\csq@string{#1}\endcsname##1#1{#2##1#3}}
+
+% Validate user input
+
+% {<char>}{<macro>}{<utfmacro>}
+
+\def\csq@validate#1#2#3{%
+  \csq@ifutfchar{#1}
+    {\csq@ifvalidutf{#1}
+       {\ifcsundef{csq@special@\csq@number{#1}}
+           {#3}
+           {\csq@err@alloc}}
+       {\csq@err@utf}}
+    {\csq@ifvalidchar{#1}
+       {\ifcsundef{csq@special@\number`#1}
+          {#2}
+          {\csq@err@alloc}}
+       {\csq@err@char}}}
+
+% {<char>}{<true>}{<false>}
+
+\def\csq@ifutfchar#1{%
+  \ifundef\@inpenc@undefined
+    {\@secondoftwo}
+    {\csq@ifutfenc}%
+  {\csq@ifsingle{#1}
+     {\ifnum`#1<128\relax
+        \expandafter\@secondoftwo
+      \else
+        \csq@err@utf
+        \expandafter\@gobbletwo
+      \fi}
+     {\@firstoftwo}}
+  {\csq@ifsingle{#1}
+     {\@secondoftwo}
+     {\csq@err@char
+      \@gobbletwo}}}
+
+\ifundef\inputencodingname % inputenc 2006/05/05 v1.1b
+  {\def\csq@ifutfenc{%
+     \csq@ifucs
+       {\csq@err@ucs\@secondoftwo}
+       {\begingroup
+        \def\@inpenc@undefined@##1{\def\csq@tempa{##1}}%
+        \@inpenc@undefined
+        \ifdefstring\csq@tempa{utf8}
+	  {\aftergroup\@firstoftwo}
+	  {\aftergroup\@secondoftwo}%
+        \endgroup}}}
+  {\def\csq@ifutfenc{%
+     \csq@ifucs
+       {\csq@err@ucs\@secondoftwo}
+       {\ifdefstring\inputencodingname{utf8}}}}
+
+% {<char>}{<true>}{<false>}
+
+\long\def\csq@ifsingle#1{%
+  \ifblank{#1}
+    {\@secondoftwo}
+    {\expandafter\csq@ifsingle@i
+     \string#1&&\@secondoftwo\@firstoftwo:}}
+\long\def\csq@ifsingle@i#1#2#3&#4#5#6:{#5}
+
+% {<char>}{<true>}{<false>}
+
+\def\csq@ifvalidchar#1{%
+  \begingroup
+  \@tempswafalse
+  \ifnum\active=\catcode`#1\relax
+    \@tempswatrue
+  \else\ifnum12=\catcode`#1\relax
+    \@tempswatrue
+  \fi\fi
+  \if@tempswa
+    \csq@ifvalidchar@i{#1}%
+  \fi
+  \if@tempswa
+    \aftergroup\@firstoftwo
+  \else
+    \aftergroup\@secondoftwo
+  \fi
+  \endgroup}
+
+\def\csq@ifvalidchar@i#1{%
+  \def\break\fi##1\relax{\fi\@tempswafalse}%
+  \def\do##1{\ifnum`##1=`#1\relax\break\fi}%
+  \csq@resrvdchars\relax}
+
+\def\csq@resrvdchars{%
+  \do\[\do\]\do\*\do\@\do\~\do\-\do\`\do\'\do\.\do\,\do\;\do\:%
+  \do\!\do\?\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
+
+% {<char>}{<true>}{<false>}
+
+\def\csq@ifvalidutf#1{%
+  \ifblank{#1}{\@secondoftwo}{\csq@ifvalidutf@i#1&}}
+
+\def\csq@ifvalidutf@i#1#2&{%
+  \ifblank{#2}
+    {\@secondoftwo}% 0x00-0x7F handled elsewhere
+    {\csq@ifutfstart{#1}{\csq@ifvalidutf@ii#2&}{\@secondoftwo}}}
+
+\def\csq@ifvalidutf@ii#1#2&{%
+  \csq@ifutfnext{#1}
+    {\ifblank{#2}{\@firstoftwo}{\csq@ifvalidutf@ii#2&}}
+    {\@secondoftwo}}
+
+% 0xC0-0xFD, 0x80-0xBF, 0x80-0xBF, ...
+
+\def\csq@ifutfstart#1{%
+  \ifnum`#1>191\relax
+    \ifnum`#1<254\relax
+      \expandafter\expandafter
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\expandafter
+      \expandafter\@secondoftwo
+    \fi
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@ifutfnext#1{%
+  \ifnum`#1>127\relax
+    \ifnum`#1<192\relax
+      \expandafter\expandafter
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\expandafter
+      \expandafter\@secondoftwo
+    \fi
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+\def\csq@isvalid#1#2#3{#2}
+
+% User interface
+
+\newrobustcmd*{\MakeOuterQuote}[1]{%
+  \csq@addspecial{#1}{\csq@oqmark}
+    {\csq@pdf@ooqmark}{\csq@pdf@coqmark}}
+
+\newrobustcmd*{\MakeInnerQuote}[1]{%
+  \csq@addspecial{#1}{\csq@iqmark}
+    {\csq@pdf@oiqmark}{\csq@pdf@ciqmark}}
+
+\newrobustcmd*{\MakeAutoQuote}{%
+  \@ifstar
+    {\csq@mkaquote\csq@iqopen}
+    {\csq@mkaquote\csq@oqopen}}
+\def\csq@mkaquote#1#2#3{%
+  \csq@addspecial{#2}{#1}{\csq@pdf@ooqmark}{}%
+  \csq@addspecial{#3}{\csq@qclose}{\csq@pdf@coqmark}{}}
+
+\newrobustcmd*{\MakeForeignQuote}{%
+  \@ifstar
+    {\csq@mkfquote\csq@iqopen@i}
+    {\csq@mkfquote\csq@oqopen@i}}
+\def\csq@mkfquote#1#2#3#4{%
+  \csq@addspecial{#3}
+    {\csq@bqgroup\csq@lang{#2}#1}
+    {\csq@pdf@ooqmark}{}%
+  \csq@addspecial{#4}{\csq@qclose}{\csq@pdf@coqmark}{}}
+
+\newrobustcmd*{\MakeHyphenQuote}{%
+  \@ifstar
+    {\csq@mkhquote\csq@iqopen@i}
+    {\csq@mkhquote\csq@oqopen@i}}
+\def\csq@mkhquote#1#2#3#4{%
+  \csq@addspecial{#3}
+    {\csq@bqgroup\csq@hyph{#2}#1}
+    {\csq@pdf@ooqmark}{}%
+  \csq@addspecial{#4}{\csq@qclose}{\csq@pdf@coqmark}{}}
+
+\newrobustcmd*{\MakeBlockQuote}[3]{%
+  \csq@addbspecial{#1}{#2}{#3}{\csq@bquote{}{\mkcitation}}}
+
+\newrobustcmd*{\MakeForeignBlockQuote}[4]{%
+  \csq@addbspecial{#2}{#3}{#4}%
+    {\csq@bquote{\csq@lang{#1}}{\mkcitation}}}
+
+\newrobustcmd*{\MakeHyphenBlockQuote}[4]{%
+  \csq@addbspecial{#2}{#3}{#4}%
+    {\csq@bquote{\csq@hyph{#1}}{\mkcitation}}}
+
+\newrobustcmd*{\EnableQuotes}{}
+\newrobustcmd*{\DisableQuotes}{}
+\newrobustcmd*{\VerbatimQuotes}{}
+\newrobustcmd*{\DeleteQuotes}{\csq@mkdelete}
+
+\AtBeginDocument{%
+  \protected\def\EnableQuotes{\csq@mkenable}%
+  \protected\def\DisableQuotes{\csq@mkdisable}%
+  \protected\def\VerbatimQuotes{\csq@mkverbatim}}
+
+% Author interface
+
+\newrobustcmd*{\@enablequotes}{%
+  \csq@quiettrue
+  \csq@mkenable
+  \csq@quietfalse}
+\newrobustcmd*{\@disablequotes}{%
+  \csq@quiettrue
+  \csq@mkdisable
+  \csq@quietfalse}
+\newrobustcmd*{\@verbatimquotes}{%
+  \csq@quiettrue
+  \csq@mkverbatim
+  \csq@quietfalse}
+\newrobustcmd*{\@deletequotes}{%
+  \csq@quiettrue
+  \csq@mkdelete
+  \csq@quietfalse}
+
+% Legacy
+
+\newrobustcmd*{\RestoreQuotes}{%
+  \csq@warn@legacy\RestoreQuotes\EnableQuotes}
+\newrobustcmd*{\@restorequotes}{\@enablequotes}
+
+%% Switch quote styles manually
+
+\newrobustcmd*{\setquotestyle}{%
+  \@ifstar
+    {\csq@resetqstyle}
+    {\@ifnextchar[%]
+       {\csq@setqstyle}
+       {\csq@setqstyle[]}}}
+
+\def\csq@setqstyle[#1]#2{%
+  \ifnum\csq@reset=\@ne
+    \csq@info{Disabling multilingual support}%
+    \csq@reset\z@
+  \fi
+  \ifblank{#1}
+    {\csq@setstyle{#2}}
+    {\csq@setstyle{#2/#1}}}
+
+\def\csq@resetqstyle{%
+  \csq@info{Enabling multilingual support}%
+  \csq@reset\@ne}
+
+%% Define quote styles
+
+\newrobustcmd*{\DeclareQuoteStyle}[2][]{%
+  \begingroup
+  \let\if@safe@actives\iftrue
+  \ifblank{#1}
+    {\edef\csq@tempa{#2}}
+    {\edef\csq@tempa{#2/#1}}%
+  \ifcsundef{csq@qstyle@\csq@tempa}
+    {}
+    {\csq@info{Redefining quotation style '\csq@tempa'}}%
+  \@ifnextchar[%]
+    {\csq@declareqstyle@i}
+    {\csq@declareqstyle@i[]}}
+
+\def\csq@declareqstyle@i[#1]{%
+  \csgdef{csq@qstyle@\csq@tempa}{%
+    \def\csq@thequote@oinit{%
+      \let\csq@themarker\csq@kernmarker#1}}%
+  \@ifnextchar[%]
+    {\csq@declareqstyle@ii}
+    {\csq@declareqstyle@ii[]}}
+
+\def\csq@declareqstyle@ii[#1]#2{%
+  \csgappto{csq@qstyle@\csq@tempa}{%
+    \def\csq@thequote@iinit{#1}%
+    \def\csq@thequote@oopen{#2}}%
+  \@ifnextchar[%]
+    {\csq@declareqstyle@iii}
+    {\csq@declareqstyle@iii[]}}
+
+\def\csq@declareqstyle@iii[#1]#2{%
+  \csgappto{csq@qstyle@\csq@tempa}{%
+    \def\csq@thequote@omiddle{#1}%
+    \def\csq@thequote@oclose{#2}}%
+  \@ifnextchar[%]
+    {\csq@declareqstyle@iv}
+    {\csq@declareqstyle@iv[]}}
+
+\def\csq@declareqstyle@iv[#1]#2{%
+  \ifblank{#1}
+    {\def\csq@thequote@kern{\z@}}
+    {\def\csq@thequote@kern{#1}}%
+  \csxappto{csq@qstyle@\csq@tempa}{%
+    \def\noexpand\csq@thequote@kern{\csq@thequote@kern}}%
+  \csgappto{csq@qstyle@\csq@tempa}{%
+    \def\csq@thequote@iopen{#2}}%
+  \@ifnextchar[%]
+    {\csq@declareqstyle@v}
+    {\csq@declareqstyle@v[]}}
+
+\def\csq@declareqstyle@v[#1]#2{%
+  \csgappto{csq@qstyle@\csq@tempa}{%
+    \def\csq@thequote@imiddle{#1}%
+    \def\csq@thequote@iclose{#2}}%
+  \endgroup}
+
+\@onlypreamble\DeclareQuoteStyle
+
+%% Define quote aliases
+
+\newrobustcmd*{\DeclareQuoteAlias}[3][]{%
+  \begingroup
+  \let\if@safe@actives\iftrue
+  \ifblank{#1}
+    {\edef\csq@tempa{#2}}
+    {\edef\csq@tempa{#2/#1}}%
+  \ifcsundef{csq@qstyle@\csq@tempa}
+    {\csq@error
+       {Quote style not defined}
+       {Define the style or alias '\csq@tempa' first}}
+    {\ifcsundef{csq@qstyle@#3}
+       {}
+       {\csq@info{Redefining alias '#3' -> '\csq@tempa'}}%
+     \csxdef{csq@qstyle@#3}{%
+       \noexpand\csuse{csq@qstyle@\csq@tempa}}}%
+  \endgroup}
+
+\@onlypreamble\DeclareQuoteAlias
+
+%% Define quotes for PDF strings
+
+\newrobustcmd*{\DeclarePlainStyle}[4]{%
+  \def\csq@pdf@ooqmark{#1}%
+  \def\csq@pdf@coqmark{#2}%
+  \def\csq@pdf@oiqmark{#3}%
+  \def\csq@pdf@ciqmark{#4}}
+
+\@onlypreamble\DeclarePlainStyle
+
+%% Define package options
+
+\newrobustcmd*{\DeclareQuoteOption}[1]{%
+  \define@key{csq}{#1}{\DeclareQuoteAlias[##1]{#1}{#1}}}
+
+\AtEndOfPackage{%
+  \protected\def\DeclareQuoteOption#1{%
+    \csq@warn@location\DeclareQuoteOption}}
+
+%% Space factor codes
+
+\newrobustcmd*{\DeclareQuoteGlyph}[2]{%
+  \csxappto{csq@sfcodes@#1}{\sfcode\detokenize{#2}=\z@}}
+
+%% Set defaults
+
+\newrobustcmd*{\SetBlockThreshold}[1]{%
+  \csq@tshold=#1\relax}
+
+\newrobustcmd*{\SetBlockEnvironment}[1]{%
+  \ifcsundef{#1}
+    {\csq@err@undef{#1}}
+    {\def\csq@blockenvironment{#1}}}
+
+\newrobustcmd*{\SetCiteCommand}[1]{%
+  \ifundef#1%
+    {\csq@err@undef{#1}}
+    {\def\csq@cite{#1}}}
+
+% Legacy commands
+
+\newrobustcmd*{\setblockthreshold}{%
+  \csq@warn@legacy\setblockthreshold\SetBlockThreshold}
+\newrobustcmd*{\setblockenvironment}{%
+  \csq@warn@legacy\setblockenvironment\SetBlockEnvironment}
+
+%% Internal interface for biblatex
+
+\newcommand*{\@quotelevel}{}
+\let\@quotelevel\csq@qlevel
+
+\newrobustcmd*{\@setquotesfcodes}{%
+  \csq@setsfcodes}
+
+\newcommand*{\@ifquotemarker}{%
+  \ifdim\lastskip=\csq@kernmarker\relax
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
+%% Author interface to auto quotes
+
+\newrobustcmd*{\openautoquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\openautoquote}
+    {\csq@oqopen}}
+
+\newrobustcmd*{\closeautoquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\closeautoquote}
+    {\csq@qclose}}
+
+\newrobustcmd*{\openinnerquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\openinnerquote}
+    {\csq@iqopen}}
+
+\newrobustcmd*{\closeinnerquote}{%
+  \csq@ifmmode
+    {\csq@err@mmode\closeinnerquote}
+    {\csq@qclose}}
+
+\appto\csq@mkhyperref{%
+  \def\openautoquote{\csq@pdf@ooqmark}%
+  \def\closeautoquote{\csq@pdf@coqmark}%
+  \def\openinnerquote{\csq@pdf@oiqmark}%
+  \def\closeinnerquote{\csq@pdf@ciqmark}}
+
+%% Author interface to internal marks 
+
+\newrobustcmd*{\initoquote}{%
+  \csq@resetstyle
+  \csq@qlevel\@ne
+  \csq@init}
+
+\newrobustcmd*{\initiquote}{%
+  \csq@resetstyle
+  \csq@qlevel\tw@
+  \csq@init}
+
+\newrobustcmd*{\textooquote}{%
+  \csq@resetstyle
+  \csq@addkern@open
+  \let\csq@kernchar@i\csq@thequote@oopen
+  \csq@thequote@oopen
+  \csq@setmarker@open
+  \csq@fixkern}
+
+\newrobustcmd*{\textmoquote}{%
+  \csq@resetstyle
+  \csq@thequote@omiddle}
+
+\newrobustcmd*{\textcoquote}{%
+  \ifdim\lastkern=\csq@omitmarker
+  \else
+    \csq@resetstyle
+    \csq@addkern@close
+    \csq@thequote@oclose
+    \let\csq@kernchar@i\csq@thequote@oclose
+    \csq@setmarker@close
+    \expandafter\csq@fixkern
+  \fi}
+
+\newrobustcmd*{\textoiquote}{%
+  \csq@resetstyle
+  \csq@addkern@open
+  \let\csq@kernchar@i\csq@thequote@iopen
+  \csq@thequote@iopen
+  \csq@setmarker@open
+  \csq@fixkern}
+
+\newrobustcmd*{\textmiquote}{%
+  \csq@resetstyle
+  \csq@thequote@imiddle}
+
+\newrobustcmd*{\textciquote}{%
+  \ifdim\lastkern=\csq@omitmarker
+  \else
+    \csq@resetstyle
+    \csq@addkern@close
+    \csq@thequote@iclose
+    \let\csq@kernchar@i\csq@thequote@iclose
+    \csq@setmarker@close
+    \expandafter\csq@fixkern
+  \fi}
+
+%% Auxiliary commands for some styles
+
+% French
+
+\newrobustcmd*{\initfrenchquotes}{%
+  \let\csq@themarker\csq@omitmarker}
+
+\newrobustcmd*{\mkfrenchopenquote}[1]{%
+  \leavevmode#1\penalty\@M\@frenchquotespace}
+
+\newrobustcmd*{\mkfrenchclosequote}[1]{%
+  \leavevmode\penalty\@M\@frenchquotespace#1}
+
+\newcommand*{\@frenchquotespace}{%
+  \hskip 0.8\fontdimen2\font
+   plus  0.3\fontdimen3\font
+   minus 0.3\fontdimen4\font}
+
+% German
+
+\newrobustcmd*{\fixligatures}{%
+  \ifhmode
+    \ifnum\spacefactor>3000
+      \relax
+    \else
+      \ifnum\spacefactor=1007
+        \relax
+      \else
+        \ifnum\spacefactor=1008
+          \relax
+        \fi
+      \fi
+    \fi
+  \fi}
+
+% Special styles
+
+\DeclareQuoteStyle{debug}
+  {\textbf{[\the\csq@qlevel]}}
+  [\textbf{[\the\csq@qlevel]}]
+  {\textbf{[\the\csq@qlevel]}}
+  {\textbf{[\the\csq@qlevel]}}
+  [\textbf{[\the\csq@qlevel]}]
+  {\textbf{[\the\csq@qlevel]}}
+
+\DeclareQuoteStyle{fallback}
+  {\textbf{?}}
+  {\textbf{?}}
+  {\textbf{?}}
+  {\textbf{?}}
+
+%% Package options
+
+\newrobustcmd*{\ExecuteQuoteOptions}{\setkeys{csq}}
+\@onlypreamble\ExecuteQuoteOptions
+
+% Core options
+
+\define@key{csq}{strict}[true]{%
+  \ifcsundef{csq@opt@strict@#1}
+    {\csq@err@opt{strict=#1}}
+    {\csuse{csq@opt@strict@#1}}}
+\def\csq@opt@strict@true{%
+  \csq@info{Enabling strict warnings}%
+  \let\csq@warning\csq@warning@strict}
+\def\csq@opt@strict@false{%
+  \csq@info{Disabling strict warnings}%
+  \let\csq@warning\csq@warning@loose}
+
+\define@key{csq}{babel}[true]{%
+  \ifcsundef{csq@opt@babel@#1}
+    {\csq@err@opt{babel=#1}}
+    {\csuse{csq@opt@babel@#1}}}
+\def\csq@opt@babel@false{%
+  \csq@info{Disabling multilingual support}%
+  \csq@reset\z@}
+\def\csq@opt@babel@true{%
+  \csq@info{Enabling multilingual support}%
+  \csq@reset\@ne}
+\def\csq@opt@babel@try{%
+  \csq@reset\tw@}
+\def\csq@opt@babel@once{%
+  \csq@reset\thr@@}
+\def\csq@opt@babel@tryonce{%
+  \csq@reset4\relax}
+
+\define@key{csq}{maxlevel}{%
+  \ifnum#1<2
+    \csq@err@opt{babel=#1}%
+  \else
+    \csq@maxlvl#1\relax
+  \fi}
+
+\define@key{csq}{style}{%
+  \csq@opt@babel@false
+  \DeclareQuoteAlias{#1}{default}}
+
+%% Initial setup
+
+% Provide 'quote' environment
+
+\ifundef\quote
+  {\csq@info{%
+     The 'quote' environment appears to be undefined.\MessageBreak
+     I'm defining a typical 'quote' environment now}
+   \def\quote{%
+     \list{}{\rightmargin\leftmargin}%
+     \item\relax}
+   \def\endquote{\endlist}}
+  {}
+
+% Deferred last minute setup
+
+\AtEndPreamble{%
+  \providecommand*{\ifstringblank}{\ifblank}%
+  \@ifpackageloaded{babel}
+    {\csq@mkbabel}
+    {\csq@mknobabel}%
+  \undef\csq@mkbabel
+  \undef\csq@mknobabel
+  \@ifpackageloaded{hyperref}
+    {\expandafter\pdfstringdefDisableCommands
+     \expandafter{\csq@mkhyperref}}
+    {}%
+  \undef\csq@mkhyperref
+  \appto\@noligs{\@verbatimquotes}%
+  \@ifpackageloaded{verbatim}
+    {\addto@hook\every@verbatim{\@verbatimquotes}}
+    {}%
+  \@ifpackageloaded{fancyvrb}
+    {\appto\FV@CatCodes{\@verbatimquotes}}
+    {}%
+  \@ifpackageloaded{endnotes}
+    {\BlockquoteDisable{%
+       \renewcommand{\endnote}[2][]{%
+         \ifblank{#1}
+           {\endnotemark\relax}
+           {\endnotemark[#1]}}%
+       \renewcommand{\endnotetext}[2][]{}%
+       \let\addtoendnotes\@gobble}}
+    {}%
+  \ifdef\collect@body % amsmath
+    {\pretocmd\collect@body{\@disablequotes}
+       {}
+       {\csq@err@patch{'amsmath' package}}}
+    {}}
+
+\AtBeginDocument{%
+  \csq@setstyle{default}%
+  \csq@mkenable}
+
+% Restore catcodes
+
+\def\do#1#2{\catcode`#1=#2\relax}
+\csq@docatcodes
+\undef\csq@docatcodes
+\let\do\noexpand
+
+% Load predefined styles
+
+\input{csquotes.def}
+
+% Load configuration file
+
+\csq@info{Trying to load configuration file 'csquotes.cfg'..}
+\InputIfFileExists{csquotes.cfg}
+  {\csq@info{... configuration file loaded successfully}}
+  {\csq@info{... configuration file not used}}
+
+% Process options
+
+\DeclareOption*{%
+  \begingroup
+  \edef\csq@tempa{\endgroup
+    \noexpand\setkeys{csq}{\CurrentOption}}%
+  \csq@tempa}
+\ProcessOptions*
+
+\endinput

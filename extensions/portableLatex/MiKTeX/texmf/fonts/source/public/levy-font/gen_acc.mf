@@ -1,0 +1,238 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+%This file contains some code from Computer Modern's accent.mf.
+%It defines all Greek diacritic marks.
+     
+gen_acc:=1;
+     
+def separator=max(1,vround(1/20x_height)) enddef;
+     
+def grave(expr center) =
+if serifs: x22-x21=1/4w; x21-.5stem=hround(center-2/3(x22-x21)-.5stem);
+else: lft x21l=hround (1/4w-.5stem); rt x22r=hround(center+.25u+.5vair); fi
+generate_grave; penlabels(21,22);
+enddef;
+     
+def acute(expr center) =
+if serifs: x21-x22=1/4w; x21+.5stem=hround(center+2/3(x21-x22)+.5stem);
+else: rt x21r=hround (3/4w+.5stem); lft x22l=hround(center-.25u-.5vair); fi
+generate_grave; penlabels(21,22);
+enddef;
+     
+vardef search(expr xyzzy) =
+pair p;ypart(p)=y22l;p-(x22,xyzzy)=whatever*((z21-(x22,xyzzy))rotated 90);
+length(p-(x22,xyzzy))>.5(hair-currentbreadth) enddef;
+     
+vardef generate_grave=
+if serifs: pickup crisp.nib;
+  y21+.5stem=h+eps; bot y22l=max(.8[h,x_height],x_height+o+separator);
+  y22=solve search(y21,y22l); x22l=xpart(p); z22r=2z22-z22l;
+  pos21(stem,angle(z22r-z22l));
+  filldraw circ_stroke z21e--z22e;  % diagonal
+else: pickup fine.nib; pos21(stem,0); pos22(vair,0);
+  top y21=h; bot y22=vround .8[h,x_height];
+  filldraw stroke z21e--z22e; % diagonal
+fi
+enddef;
+     
+def circumflex(expr center)=
+generate_circumflex(center,false);      %variable `squeeze'
+enddef;
+     
+def generate_circumflex(expr center,squeeze)=
+numeric mid_width; mid_width=if squeeze:.1 else: .5 fi [vair,stem];
+if serifs:
+pickup fine.nib; pos21(hround(mid_width-eps),180); pos22(vair,90);
+ pos23(mid_width,90); pos24(vair,90); pos25(hround(mid_width-eps),180);
+ lft x21r=w-rt x25l=hround (center-w/3); x22-x21=x23-x22=x24-x23=x25-x24;
+ bot y21=bot y24l=vround(.75[x_height,h]-vair);
+ top y22r=top y25=h; y23=.5[y22,y24];
+ filldraw stroke z21e{up}...z22e{right}..z23e..{right}z24e...{up}z25e; % stroke
+else:
+ pos21(vair,-180); pos23(vair,0); y21=y23;
+ lft x21r=hround(center-w/3); rt x23r=hround(center+w/3);
+ bot y23=vround max(x_height+o+separator,
+   if squeeze: 2/3 else: 1/3 fi [x_height,h]-.5mid_width);
+ x22=center; pos22(mid_width,90); top y22r=h;
+ filldraw stroke z21e{up}...z22e...{down}z23e;
+fi
+enddef;
+     
+vardef diaeresis(expr center)=
+  generate_diaeresis(center,dot_size,dot_size+1/8w,h,x_height+separator);
+enddef;
+     
+vardef diaeresis_acute(expr center)=
+  if serifs: x21-x22=1/4w; x21+.5stem=hround(center+5/6(x21-x22)+.5stem);
+  else: rt x21r=hround (3/4w+.5stem); lft x22l=hround(center-.5vair); fi
+  generate_grave; penlabels(21,22);
+  generate_diaeresis(center,.9dot_size,-1,.5[h,x_height],x_height+separator);
+enddef;
+     
+vardef diaeresis_grave(expr center)=
+  if serifs: x22-x21=1/4w; x21-.5stem=hround(center-5/6(x22-x21)-.5stem);
+  else: lft x21l=hround (1/4w-.5stem); rt x22r=hround(center+.5vair); fi
+  generate_grave; penlabels(21,22);
+  generate_diaeresis(center,.9dot_size,-1,.5[h,x_height],x_height+separator);
+enddef;
+     
+vardef diaeresis_circumflex(expr center)=
+  generate_circumflex(center,true);
+  numeric sp_bottom, sp_top;
+  sp_top=vround(.15[bot y21l,x_height]); sp_top+sp_bottom=bot y21l+x_height;
+  generate_diaeresis(center,5/8dot_size,5/8dot_size+1/4w,sp_top,sp_bottom);
+enddef;
+     
+vardef generate_diaeresis(expr center,target_dot_diam,sep,eff_h,base)=
+pickup tiny.nib; numeric dot_diam;
+dot_diam:=max(tiny.breadth,hround(target_dot_diam));
+pos31(dot_diam,0); pos32(dot_diam,90); x31=x32; top y32r=vround(eff_h);
+if bot y32l<base: y32l:=min(y32r-eps,base+.5currentbreadth); fi
+y31=.5[y32l,y32r];
+pos33(dot_diam,0); penpos34(y32r-y32l,90); y33=y34=y31; x33=x34;
+if sep>0 : center=.5[x31,x33]; x33-x31=sep;
+else:
+  y35l=y35r=.5[y31,y32]; z35l=whatever[z21l,z22l]; z35r=whatever[z21r,z22r];
+  rt x31r=hround((min(x35l,x35r)-.5currentbreadth)-.05w);
+  lft x33l=hround((max(x35l,x35r)+.5currentbreadth)+.05w);
+fi
+dot(31,32); dot(33,34);
+penlabels(31,32,33,34,35);
+enddef;
+     
+def rough(suffix $,@)(expr dot_size,depth,shear) =
+ pickup fine.nib; pos$(dot_size,90);
+ if square_dots: pos$'(dot_size,180); z$'=z$; dot($',$);  % squarish dot
+  comma_join_:=max(fine.breadth,floor .7dot_size);
+  comma_bot_:=max(fine.breadth,floor .5dot_size);
+  pos@0(comma_join_,180); pos@1(comma_join_,180);
+  pos@2(comma_bot_,180); y@0=y$; y@1=y$l; y@2=y@1+dot_size-depth;
+  x@0r=x@1r=x$'r; lft x@2r=good.x(x$-eps);
+  filldraw stroke z@0e--z@1e..z@2e;  % tail
+ else: pos@1(vair,90); pos@2(vair,180); pos@3(vair,-90);
+  z@1r=z$r; lft x@2r=hround(x$-.5depth+.5shear);
+  x@3+.5vair=x$+.5dot_size+shear;
+  y@2=.5[y@1,y@3]; bot y@3r=vround(top y@1r-depth);
+  y_:=ypart((z@1{left}...z@2{down}...z@3)
+   intersectiontimes (z$l{left}..{right}z$r)); if y_<0: y_:=1; fi
+  filldraw z$r{right}..subpath (0,y_) of (z$l{left}..{right}z$r)--cycle; % dot
+  filldraw stroke z@1e{left}...z@2e{down}...{right}z@3e; fi  % tail
+ penlabels(@1,@2,@3); enddef;
+     
+def smooth(suffix $,@)(expr dot_size,depth,shear) =
+ pickup fine.nib; pos$(dot_size,90);
+ if square_dots: pos$'(dot_size,0); z$'=z$; dot($',$);  % squarish dot
+  comma_join_:=max(fine.breadth,floor .7dot_size);
+  comma_bot_:=max(fine.breadth,floor .5dot_size);
+  pos@0(comma_join_,0); pos@1(comma_join_,0);
+  pos@2(comma_bot_,0); y@0=y$; y@1=y$l; y@2=y@1+dot_size-depth;
+  x@0r=x@1r=x$'r; rt x@2r=good.x(x$-eps);
+  filldraw stroke z@0e--z@1e..z@2e;  % tail
+ else: pos@1(vair,90); pos@2(vair,0); pos@3(vair,-90);
+  z@1r=z$r; rt x@2r=hround(x$+.5depth+.5shear);
+  x@3-.5vair=hround(x$-.5dot_size+shear);
+  y@2=.5[y@1,y@3]; bot y@3r=vround(top y@1r-depth);
+  y_:=ypart((z@1{right}...z@2{down}...z@3)
+   intersectiontimes (z$l{right}..{left}z$r)); if y_<0: y_:=1; fi
+  filldraw z$r{left}..subpath (0,y_) of (z$l{right}..{left}z$r)--cycle; % dot
+  filldraw stroke z@1e{right}...z@2e{down}...{left}z@3e; fi  % tail
+ penlabels(@1,@2,@3); enddef;
+     
+vardef spirit(expr center) text type=
+numeric sp_bottom, sp_height;
+sp_bottom=h-sp_height=max(.8[h,x_height],x_height+o+separator);
+numeric dot_diam#; dot_diam# = 3/4dot_size#;
+define_whole_blacker_pixels(dot_diam);
+dot_diam:=max(fine.breadth,min(dot_diam,floor(2/3sp_height)));
+x31 if1type0:-else:+fi.5dot_diam=hround(center if1type0:-else:+fi.5dot_diam);
+y31+.5dot_diam=h;
+if1type0:smooth else:rough fi (31,a,dot_diam,sp_height,0);
+penlabels(31);
+enddef;
+     
+vardef spirit_acute(expr center) text type =
+numeric sp_bottom, sp_height;
+sp_bottom=h-sp_height=max(.8[h,x_height],x_height+o+separator);
+numeric dot_diam#; dot_diam# = 3/4dot_size#;
+define_whole_blacker_pixels(dot_diam);
+dot_diam:=max(fine.breadth,min(dot_diam,floor(2/3sp_height)));
+if serifs: x21-x22=1/6w;
+ x21+.5stem=hround(center+.25u+.5vair+(x21-x22)+.5stem); %lft x22r ~ center+.25u
+else: rt x21r=hround (4/5w+.5stem); lft x22l=hround(center+.25u); fi
+generate_grave; penlabels(21,22);
+if 1type0: %spirit and accent separated by .5u (rough) or .25u (smooth)
+ x31=hround(lft x22 if serifs:r-.5sp_height else:l-.5dot_diam fi -.25u);
+else: x31+.5dot_diam=hround(lft x22 if serifs:r else: l fi -.5u); fi
+y31+.5dot_diam=h;
+if1type0:smooth else:rough fi (31,a,dot_diam,sp_height,0);
+enddef;
+     
+vardef spirit_grave(expr center) text type =
+numeric sp_bottom, sp_height;
+sp_bottom=h-sp_height=max(.8[h,x_height],x_height+o+separator);
+numeric dot_diam#; dot_diam# = 3/4dot_size#;
+define_whole_blacker_pixels(dot_diam);
+dot_diam:=max(fine.breadth,min(dot_diam,floor(2/3sp_height)));
+if serifs: x22-x21=1/6w; x21-.5stem=hround(center+.25u);
+else: rt x22r=hround (4/5w+.5stem); lft x21l=hround(center+.25u); fi
+generate_grave; penlabels(21,22);
+if 1type0: %spirit and accent separated by .5u (rough) or .25u (smooth)
+ x31=hround(lft x21l-.5 if serifs:sp_height else:dot_diam fi -.25u);
+else: x31+.5dot_diam=hround(lft x21l-.5u); fi
+y31+.5dot_diam=h;
+if1type0:smooth else:rough fi (31,a,dot_diam,sp_height,0);
+enddef;
+     
+vardef spirit_circumflex(expr center) text type=
+generate_circumflex(center,true);       %variable `squeeze'
+numeric sp_bottom, sp_height, sp_top, box_top;
+box_top=bot if serifs: y21l else: y22l fi;
+sp_top=sp_bottom+sp_height=vround(.15[box_top,x_height]);
+sp_top+sp_bottom=box_top+x_height;
+numeric dot_diam#; dot_diam# = 5/8dot_size#;
+define_whole_blacker_pixels(dot_diam);
+pickup fine.nib;
+dot_diam:=max(fine.breadth,min(dot_diam,floor(2/3sp_height-eps)));
+x31 if1type0:-else:+fi.5dot_diam=hround(center if1type0:-else:+fi.5dot_diam);
+y31+.5dot_diam=vround(sp_top);
+if1type0:smooth else:rough fi (31,a,dot_diam,sp_height,0);
+penlabels(31);
+enddef;
+     
+def iota_sub(expr pos_stem) =
+if known pic.iota:
+  addto currentpicture also pic.iota shifted (hround(pos_stem),0);
+else:
+  picture temp_picture; temp_picture=currentpicture; clearit;
+  pickup fine.nib;
+  x51=0; pos51(stem,180); top y51=vround(-o-2separator);
+  x52=x51; pos52(stem,180); bot y52=-iota_dp;
+  filldraw circ_stroke z52e--z51e;
+  if not working_hard : picture pic.iota; pic.iota=currentpicture; fi
+  currentpicture:=currentpicture shifted (hround(pos_stem),0);
+  addto currentpicture also temp_picture;
+fi;
+enddef;

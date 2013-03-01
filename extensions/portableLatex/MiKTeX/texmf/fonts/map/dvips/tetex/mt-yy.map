@@ -1,0 +1,17 @@
+% Thomas Esser, 2000, public domain.
+%
+% mt-yy.map: map file entries for the (commercial) mathtime fonts.
+% These fonts can be ordered from Y&Y: http.//www.yandy.com.  To use the
+% commercial fonts instead of their free "bellek" replacements, don't use
+% this map file, but mt-belleek.map instead. If your system supports the
+% updmap utility (e.g. teTeX-2.0 / TeX Live 8 or later), you can switch
+% to mt-belleek.map by running:
+%      updmap --disable mt-yy.map
+%      updmap --enable Map mt-belleek.map
+%
+MTEX MTEX <mtex.pfb
+MTSY MTSY <mtsy.pfb
+RMTMI RMTMI <rmtmi.pfb
+mtex MTEX <mtex.pfb
+mtsy MTSY <mtsy.pfb
+rmtmi RMTMI <rmtmi.pfb

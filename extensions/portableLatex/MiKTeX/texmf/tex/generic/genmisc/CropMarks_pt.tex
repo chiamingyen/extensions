@@ -1,0 +1,391 @@
+% Self-documenting file
+
+\ifx  \Comment \Undefined
+      \long \def \Comment #1\EndComment {}
+\else
+      \ifx  \EndComment \Undefined
+            \def \EndComment
+                {\message {Error: \noexpand \EndComment encountered
+                                without preceding \noexpand \Comment}}
+      \else %%% both defined; let's hope they're the right definitions!
+      \fi
+\fi
+
+%%% Author:  Philip Taylor (RHBNC) <P.Taylor@Rhul.Ac.Uk>
+%%% Cropmarks.TeX V1.4 Copyright (C) Philip Taylor, MCMLXXXXII
+
+\Comment % The Licence
+
+ Unlimited copying and redistribution of this file
+ is permitted so long as the file is not modified
+ in any way.
+
+ Modifications may be made for private purposes (though
+ this is discouraged, as it could result in documents
+ typesetting differently on different systems) but if
+ such modifications are re-distributed, the modified
+ file must not be capable of being confused with the
+ original.  In particular, this means
+
+(a) the filename (the portion before the extension, if any)
+    must not match either of the sequences :
+
+        CROPMARKS
+        CROP-MARKS
+
+   regardless of case, and
+
+(b) the file must contain conditions identical to these,
+ except that the modifier/distributor may, if he or she
+ wishes, augment the list of proscribed filenames.
+
+\EndComment
+
+%%% Usage:
+
+%%% \input cropmarks
+%%% \topcropmark = <dimen> [plus <dimen>] [minus <dimen>]
+%%% \bottomcropmark = <dimen> [plus <dimen>] [minus <dimen>]
+%%% \leftcropmark = <dimen> [plus <dimen>] [minus <dimen>]
+%%% \rightcropmark = <dimen> [plus <dimen>] [minus <dimen>]
+%%% \lrcropmarkstrue ;;; iff you want alternating left and right cropmarks only
+%%% \rvcropmarkstrue ;;; iff you want recto and verso specified independently
+%%%                     (in which case the first four variables are two-valued
+%%%                      as \recto<var> and \verso<var>).
+
+%%% Square brackets indicate optional items, and the <dimen>s are
+%%% respectively (and all measured w.r.t. the origin, which is the
+%%% top left corner of the notional, rather than physical page; the
+%%% exact origin will need to be determined by inspection)
+
+%%%     The distance to the centre of the cross;
+%%%     The distance which the cross extends beyond the page limits;
+%%%     The distance which the cross extends within the page limits.
+
+%%% Any or all can be zero <unit>s.  For conventional (exo-) cropmarks, the
+%%% `plus' component indicates the length of the mark, and the `minus' component
+%%% should be omitted or zero.  For inverted (endo-) cropmarks, the `plus'
+%%% component should be omitted or zero, and the `minus' component indicates the
+%%% length of the mark.  If `plus' or `minus' components are negative, this
+%%% has the effect of a `white cropmark' extending in the reverse direction
+%%% for the specified distance; this may be used to achieve non-touching marks.
+%%% The first and only mandatory component may be also negative, to cope with
+%%% pathological origins.
+
+%
+%%% A test which will allow us to be read regardless of the \catcode of `@'
+%
+
+\newif \ifatletter
+\ifcat @A\atlettertrue \else \catcode `\@ = 11 \atletterfalse \fi
+
+\ifx \c@tcodeminus \undefined \else \message {Warning: previous
+meaning of \string \c@tcodeminus \space lost} \fi \edef
+\c@tcodeminus {\the \catcode `\-} \catcode `\- = 12
+
+%
+\message {CROPMARKS.TEX V1.4 Copyright (C) 05-Mar-1992 13:43:28
+Philip Taylor}
+%
+
+%
+%%% Miscellaneous variables
+%
+\newif    \iflrcropmarks            \lrcropmarksfalse
+\newif    \ifrvcropmarks                \rvcropmarksfalse
+\newdimen \cropmarkwidth            \cropmarkwidth = 0.4 pt
+\newdimen \t@pshift
+\newdimen \b@ttomshift
+\newdimen \l@ftshift
+\newskip  \topcropmark
+\newskip  \leftcropmark
+\newskip  \rightcropmark
+\newskip  \bottomcropmark
+\newskip  \rectotopcropmark
+\newskip  \rectoleftcropmark
+\newskip  \rectorightcropmark
+\newskip  \rectobottomcropmark
+\newskip  \versotopcropmark
+\newskip  \versoleftcropmark
+\newskip  \versorightcropmark
+\newskip  \versobottomcropmark
+\newskip  \m@rkskip
+\newskip  \m@rkplus
+\newskip  \m@rkminus
+\newbox   \p@gebox
+\newbox   \cr@pmarkbox
+\newbox   \topcr@pmarkbox
+\newbox   \bottomcr@pmarkbox
+%
+%%% Extraordinary arcanery, to parse <skip>s into <dimen>s; any better ways ?
+%
+\begingroup
+\catcode `\P = 12 \catcode `\L = 12 \catcode `\U = 12 \catcode `\S =
+12 \catcode `\M = 12 \catcode `\I = 12 \catcode `\N = 12 \catcode
+`\T = 12 \globaldefs = 1 \lowercase
+{%
+\def \p@rseskip #1%
+    {\expandafter \p@rs@skip \the #1 PLUS 0.0PT MINUS 0.0PT \@ndparse #1 }
+\def \p@rs@skip #1 PLUS #2 MINUS #3\@ndparse #4
+    {%
+     \m@rkskip  = #1%
+     \m@rkplus  = #2%
+     \m@rkminus = #3%
+     \ifdim \m@rkminus = 0.0 pt
+        \expandafter \p@rs@sk@p \the \m@rkskip MINUS 0.0PT \@ndparse
+     \fi
+    }%
+\def \p@rs@sk@p #1MINUS #2\@ndparse {\m@rkskip = #1 \m@rkminus = #2 }
+}
+\endgroup
+%
+%%% Take control of \shipout, to force it to add cropmarks
+%
+\let \ship@ut = \shipout
+\def \shipout {\futurelet \b@x \whichb@x}
+\def \whichb@x
+    {%
+     \ifx   \b@x \vbox
+        \def \n@xt {\setbox \p@gebox = }%
+            \afterassignment \Shipout
+     \else  \ifx    \b@x \hbox
+            \def \n@xt {\setbox \p@gebox = }%
+                \afterassignment \Shipout
+        \else   \ifx    \b@x \box
+                \def \n@xt {\setbox \p@gebox = }%
+                \afterassignment \Ship@ut
+            \else   \ifx    \b@x \copy
+                    \def \n@xt {\setbox \p@gebox = }%
+                    \afterassignment \Ship@ut
+                \else
+                    \def \n@xt {\ship@ut}%
+                    \message {Sorry, can't understand
+                            what follows \shipout}%
+                \fi
+            \fi
+        \fi
+     \fi
+     \n@xt
+    }
+\def \Shipout {\aftergroup \Ship@ut}
+\def \Ship@ut
+    {%
+         \ifrvcropmarks
+                \ifodd \pageno
+                        \topcropmark = \rectotopcropmark
+                        \bottomcropmark = \rectobottomcropmark
+                        \leftcropmark = \rectoleftcropmark
+                        \rightcropmark = \rectorightcropmark
+                \else
+                        \topcropmark = \versotopcropmark
+                        \bottomcropmark = \versobottomcropmark
+                        \leftcropmark = \versoleftcropmark
+                        \rightcropmark = \versorightcropmark
+                \fi
+         \fi
+     \setbox \topcr@pmarkbox =
+     \hbox   \bgroup
+         \p@rseskip \leftcropmark
+         \iflrcropmarks
+            \ifodd \count 0
+            \let \next = \phantom
+            \else
+            \let \next = \relax
+            \fi
+         \else
+            \let \next = \relax
+         \fi
+         \next {\ifdim  \m@rkminus < 0 pt
+                                \begingroup
+                                \advance \m@rkplus by \m@rkminus
+                    \vrule height \cropmarkwidth
+                                       depth 0 pt width \m@rkplus
+                                \kern -\m@rkminus
+                                \endgroup
+                        \else
+                    \vrule height \cropmarkwidth
+                                        depth 0 pt width \m@rkplus
+                        \fi
+                    \begingroup
+                    \p@rseskip \topcropmark
+                    \vrule  height \m@rkplus
+                        depth \m@rkminus
+                        width \cropmarkwidth
+                    \endgroup
+                        \ifdim  \m@rkplus < 0 pt
+                                \begingroup
+                                \advance \m@rkminus by \m@rkplus
+                    \rlap {\kern -\m@rkplus
+                                       \vrule height \cropmarkwidth
+                          depth 0 pt width \m@rkminus}%
+                                \endgroup
+                        \else
+                    \rlap {\vrule height \cropmarkwidth
+                          depth 0 pt width \m@rkminus}%
+                        \fi
+               }%
+         \hskip \m@rkskip
+         \p@rseskip \rightcropmark
+         \hskip \m@rkskip
+         \iflrcropmarks
+            \ifodd \count 0
+            \let \next = \relax
+            \else
+            \let \next = \phantom
+            \fi
+         \else
+            \let \next = \relax
+         \fi
+         \next {\ifdim  \m@rkplus < 0 pt
+                                \begingroup
+                                \advance \m@rkminus by \m@rkplus
+                    \llap {\vrule   height \cropmarkwidth
+                    depth 0 pt width \m@rkminus
+                                        \kern -\m@rkplus
+                                      }%
+                                \endgroup
+                        \else
+                    \llap {\vrule   height \cropmarkwidth
+                    depth 0 pt width \m@rkminus
+                                      }%
+                        \fi
+                                \begingroup
+                \p@rseskip \topcropmark
+                \vrule  height \m@rkplus
+                        depth \m@rkminus
+                    width \cropmarkwidth
+                \endgroup
+                        \ifdim  \m@rkminus < 0 pt
+                                \begingroup
+                                \advance \m@rkplus by \m@rkminus
+                                \kern -\m@rkminus
+                    \vrule height \cropmarkwidth
+                                depth 0 pt width \m@rkplus
+                                \endgroup
+                        \else
+                    \vrule height \cropmarkwidth
+                                       depth 0 pt width \m@rkplus
+                        \fi
+               }%%%%%%%% end of parameter to \next
+         \egroup%%%%%%%% end of \bgroup ... \egroup to \setbox ...
+     \ht \topcr@pmarkbox = 0 pt
+     \dp \topcr@pmarkbox = 0 pt
+     \wd \topcr@pmarkbox = \wd \p@gebox
+     \setbox \bottomcr@pmarkbox =
+     \hbox   \bgroup
+         \p@rseskip \leftcropmark
+         \iflrcropmarks
+            \ifodd \count 0
+            \let \next = \phantom
+            \else
+            \let \next = \relax
+            \fi
+         \else
+            \let \next = \relax
+         \fi
+         \next {\ifdim  \m@rkminus < 0 pt
+                                \begingroup
+                                \advance \m@rkplus by \m@rkminus
+                    \vrule height \cropmarkwidth
+                                       depth 0 pt width \m@rkplus
+                                \kern -\m@rkminus
+                                \endgroup
+                        \else
+                    \vrule height \cropmarkwidth
+                                        depth 0 pt width \m@rkplus
+                        \fi
+                    \begingroup
+                    \p@rseskip \bottomcropmark
+                    \vrule  height \m@rkminus
+                        depth \m@rkplus
+                        width \cropmarkwidth
+                    \endgroup
+                        \ifdim  \m@rkplus < 0 pt
+                                \begingroup
+                                \advance \m@rkminus by \m@rkplus
+                    \rlap {\kern -\m@rkplus
+                                       \vrule height \cropmarkwidth
+                          depth 0 pt width \m@rkminus}%
+                                \endgroup
+                        \else
+                    \rlap {\vrule height \cropmarkwidth
+                          depth 0 pt width \m@rkminus}%
+                        \fi
+               }%
+         \hskip \m@rkskip
+         \p@rseskip \rightcropmark
+         \hskip \m@rkskip
+         \iflrcropmarks
+            \ifodd \count 0
+            \let \next = \relax
+            \else
+            \let \next = \phantom
+            \fi
+         \else
+            \let \next = \relax
+         \fi
+         \next {\ifdim  \m@rkplus < 0 pt
+                                \begingroup
+                                \advance \m@rkminus by \m@rkplus
+                    \llap {\vrule   height \cropmarkwidth
+                    depth 0 pt width \m@rkminus
+                                        \kern -\m@rkplus
+                                      }%
+                                \endgroup
+                        \else
+                    \llap {\vrule   height \cropmarkwidth
+                    depth 0 pt width \m@rkminus
+                                      }%
+                        \fi
+                                \begingroup
+                \p@rseskip \bottomcropmark
+                \vrule  height \m@rkminus
+                        depth \m@rkplus
+                    width \cropmarkwidth
+                \endgroup
+                        \ifdim  \m@rkminus < 0 pt
+                                \begingroup
+                                \advance \m@rkplus by \m@rkminus
+                                \kern -\m@rkminus
+                    \vrule height \cropmarkwidth
+                                depth 0 pt width \m@rkplus
+                                \endgroup
+                        \else
+                    \vrule height \cropmarkwidth
+                                       depth 0 pt width \m@rkplus
+                        \fi
+               }%%%%%%%% end of parameter to \next
+         \egroup%%%%%%%% end of \bgroup ... \egroup to \setbox ...
+     \ht \bottomcr@pmarkbox = 0 pt
+     \dp \bottomcr@pmarkbox = 0 pt
+     \wd \bottomcr@pmarkbox = \wd \p@gebox
+     \setbox \cr@pmarkbox = \vbox
+        \bgroup
+        \offinterlineskip
+        \p@rseskip \leftcropmark    \l@ftshift = \m@rkskip
+        \p@rseskip \topcropmark     \t@pshift = \m@rkskip
+        \p@rseskip \bottomcropmark  \b@ttomshift = \m@rkskip
+        \advance \l@ftshift by \m@rkplus
+        \advance \l@ftshift by \cropmarkwidth
+        \vskip -\t@pshift
+            \moveleft \l@ftshift \box \topcr@pmarkbox
+        \vskip +\t@pshift
+        \vskip +\b@ttomshift
+            \moveleft \l@ftshift \box \bottomcr@pmarkbox
+        \vskip -\b@ttomshift
+        \egroup
+     \setbox \p@gebox = \vbox
+        {\offinterlineskip
+         \box \cr@pmarkbox
+         \box \p@gebox}%
+     \ship@ut \box \p@gebox
+    }
+%
+%%% Restore \catcode of `-' & `@'
+%
+
+\catcode `\- = \c@tcodeminus
+\let \c@tcodeminus = \undefined
+\ifatletter \else \catcode `\@ = 12 \fi
+
+%%% All done

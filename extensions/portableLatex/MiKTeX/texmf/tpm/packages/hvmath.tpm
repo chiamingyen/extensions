@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/hvmath"><TPM:Name>hvmath</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Support for using the Micropress HV-Math fonts (Helvetica Maths).</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Typeset math in a style that suits the Adobe Helvetica
+      text fonts. Math fonts for use with Helvetica are generally
+      otherwise not available, and a free, bitmapped version of
+      HV-Math can be downloaded from Micropress. Commercial versions
+      of the HT-Math fonts are available from Micropress.</TPM:Description><TPM:RunFiles size="7157">texmf\tex\latex\hvmath\hvmaths.sty texmf\tpm\packages\hvmath.tpm</TPM:RunFiles><TPM:DocFiles size="2247">texmf\doc\latex\hvmath\hvmaths.txt</TPM:DocFiles><TPM:SourceFiles size="13166">texmf\source\latex\hvmath\hvmaths.dtx texmf\source\latex\hvmath\hvmaths.ins</TPM:SourceFiles><TPM:TimePackaged>991340658</TPM:TimePackaged><TPM:MD5>e5f607327c7defb210d4e857024bad27</TPM:MD5></rdf:Description></rdf:RDF>

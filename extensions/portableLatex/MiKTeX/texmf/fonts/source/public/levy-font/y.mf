@@ -1,0 +1,60 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 10.5u#,asc_height#,desc_depth# enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  lft x2r=w-rt x6r=.75u; y2r=y6r=.6x_height;            %left and right bulges
+  x4r=.5[x2r,x6r]; bot y4r=-oo;                         %bottom
+  numeric tilt; tilt:=min(2*otilt,.5);
+  filldraw stroke gr_arc.e(4,5,6)(vair,stem,tilt) ;
+  filldraw stroke gr_arc.e(2,3,4)(vair,.4[vair,stem],tilt) ;
+  y7+.5hair=x_height+o; x7+.5hair=hround(rt x6r-.75u);          %right tip
+  pos7(hair,angle ((z6-z7) xscaled 2)+90);
+  filldraw circ_stroke z7e...{-z6'e}z6e;
+  y1+.5stem=x_height+o; x1-.5stem=hround(lft x2r+.5u);  %left tip
+  pos1(stem,angle((z2-z1) xscaled 2)-90);
+  filldraw circ_stroke z1e...{z2'e}z2e;
+  pos10(stem,0); pos9(hair,0); pos8(stem,0);            %vertical stroke
+  y10-.5stem=-d-o; y9=.25x_height; y8+.5stem=h+o; x10=x9=x8=x4;
+  filldraw double_circ_stroke z10e..z9e{up}..z8e;
+enddef;
+     
+cmchar "Lowercase psi";
+beginchar("y",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by psi";
+begindoublechar(oct"031",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

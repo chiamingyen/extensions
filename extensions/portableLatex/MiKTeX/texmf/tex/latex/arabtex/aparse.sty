@@ -1,0 +1,1123 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aparse.sty
+% ArabTeX
+% Parser 26.05.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {aparse.sty} {3.11 get syllables } {26.05.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \def@arabvoc {% define vowel parsing routines for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% short vowels %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@a {\sv@@a }% short a
+\def \sv@e {\sv@@e }% short e
+\def \sv@i {\sv@@i }% short i
+\def \sv@o {\sv@@o }% short o
+\def \sv@u {\sv@@u }% short u
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% long vowels, plene %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@A {\sv@@A }% long a
+\def \sv@E {\sv@@E }% long e
+\def \sv@I {\sv@@I }% long i
+\def \sv@O {\sv@@O }% long o
+\def \sv@U {\sv@@U }% long u
+\def \sv@Y {\sv@Ytest }% alif maqsura or tooth
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% long vowels, defective %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\sv@def \a@a {\sv@a@a }% defective long a = Qur'an alif
+\sv@def \a@e {\sv@a@e }% explicit sukun
+\sv@def \a@i {\sv@a@i }% defective long i
+\sv@def \a@o {\sv@U   }% special short u
+\sv@def \a@u {\sv@a@u }% defective long u
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% special vowels %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%\sv@def \a@A {\sv@a }% Turkish "a
+\sv@def \a@A {\sv@a@A }% Turkish "a
+\sv@def \a@E {\sv@a@E }% Kurdish ^e
+\sv@def \a@I {\sv@i }% Turkish "i
+\sv@def \a@O {\sv@a@O }% Kurdish and Turkish "o
+%\sv@def \a@U {\sv@u }% Turkish "u
+\sv@def \a@U {\sv@a@U }% Turkish "u
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% extra vowels %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\sv@def \a@Za {\sv@Za }% Kashmiri .a
+\sv@def \a@Ze {\sv@Ze }% explicit shadda
+\sv@def \a@Zi {\sv@Zi }% Sindhi -IN
+\sv@def \a@Zo {\sv@Zo }% Kashmiri .o
+\sv@def \a@Zu {\sv@Zu }% Kashmiri .u
+
+\sv@def \a@ZA {\sv@ZA }% Kashmiri .A
+\sv@def \a@ZE {\sv@ZE }% explicit madda
+\sv@def \a@ZI {\sv@ZI }% Kashmiri .y
+\sv@def \a@ZO {\sv@ZO }% Kashmiri .O
+\sv@def \a@ZU {\sv@ZU }% Kashmiri .U
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% hamza handling %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@hamzabeg {\syl@@hamzabeg }% initial hamza
+
+\def \syl@hamza {\syl@@hamza }% non-initial hamza, context #1'
+
+\def \syl@test@voc {\syl@@test@voc }% vowel or sukun ?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% miscellaneous %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \check@high {\check@@high }% long form for tooth ?
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% static definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \sv@def #1{% define \sv@#1 
+\xpa \def \csname sv@\string #1\endcsname }
+
+\newtoks \a@revwd       
+\newtoks \sv@revwd       \newtoks \last@con
+\newcount \last@mod     \newcount \last@voc
+\newif \ifsyl@wdend	\newif \ifm@dda
+
+\def \a@parse #1>{% parse token sequence into syllables
+\iftest@parse \tracingmacros = 1 
+\iftest@scan \else \a@verb (#1)>\fi\fi
+\last@con ={.}\last@mod = 0 \last@voc = 0 \global\@highfalse
+\global \sv@revwd ={}\global \a@revwd ={}\syl@beg #1<<<>%
+\iftest@parse \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@revwd )>\fi }
+
+\def \test@wdend #1#2#3{% test for end of word: k #1 #2 #3
+\case #1\of
+{      N<{\syl@wdendtrue }
+       |"{\test@wdend #2#3<}
+\default {\if\is@shortvowel #1\test@wdend #2#3<\else
+	\ifcat -\nxp #1\syl@wdendtrue \else \syl@wdendfalse
+	\fi\fi	}
+}\endcase }
+
+\def \isat@wdend #1#2#3{00% at end of word?
+\test@wdend #1#2#3\ifsyl@wdend \else \xpa \setiffalse \fi }
+
+\def \is@vowel #1{% test for all vowels
+\is@in@list #1aeiouAEIOUY%
+\a@a \a@e \a@i \a@o \a@u 
+\a@A \a@E \a@I \a@O \a@U 
+\a@Za \a@Ze \a@Zi \a@Zo \a@Zu 
+\a@ZA \a@ZE \a@ZI \a@ZO \a@ZU >} 
+
+\def \is@shortvowel #1{% test for short vowels
+\is@in@list #1aeiou\a@a >}
+
+\def \syl@end #1>{% kill the rest
+\relax }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start of word %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@beg #1{% start new word
+\global\@highfalse
+\case #1\of
+{	<{\syl@end }
+	Q{\syl@hamzabeg }
+	^{\syl@hamzabeg A}
+	B{\syl@tatwilbeg }
+	"{\syl@quote@beg }
+	|{\syl@bar }
+	Y{\syl@con Y}
+    \cap {\syl@beg }
+\default {\syl@@beg #1}
+}\endcase }
+
+\def \syl@@beg #1{% start new word
+\ifcat -\nxp #1\def \next {\syl@spec #1}\else 	
+\if\is@vowel #1\def \next {\syl@wasla #1}% check for wasla
+  \else \def \next {\syl@con #1}% start syllable
+\fi\fi \next }
+
+\def \syl@bar #1{% check for || as "|
+\case #1\of
+{	|{\syl@quote@beg #1}
+	B{\syl@con |B}
+\default {\put@con W\v@cfalse \@sukfalse\syl@voctest #1}
+}\endcase }
+
+\def \syl@wasla #1{% start word with vowel without hamza
+\put@con a\def \next {\syl@voc #1}% prepare for vowel
+\ifx \a@lang \a@hebr % Hebrew mode
+	\ifx #1U\put@con W\else % Hebrew: no carrier, shureq follows
+	\ifx #1A\add@fathaspec % Hebrew: qames
+\fi\fi\fi
+\ifx #1E\put@con E\put@syl \def \next {\syl@con }\else
+\ifx #1\a@ZA \add@kh@hamzl \put@syl \def \next {\syl@con }\else
+\ifx #1A\ifiz@fet \add@madda \put@syl \def \next {\syl@con }\else 
+		\def \next {\syl@voctest }% 
+        \fi \else 	
+\ifiz@fet \else	% wasla only in Arabic ?
+\ifh@mza \if\is@shortvowel #1%
+        \if@wasla \add@wasla \put@syl \def \next {\syl@con }% next syllable
+        \fi\fi
+\fi\fi\fi\fi\fi \next }
+
+\def \syl@wasla #1{% start word with vowel without hamza
+\def \next {\syl@voc #1}% prepare for vowel
+\ifu@gh \put@con Y\add@hamza\else \put@con a%
+\ifx \a@lang \a@hebr % Hebrew mode
+	\ifx #1U\put@con W\else % Hebrew: no carrier, shureq follows
+	\ifx #1A\add@fathaspec % Hebrew: qames
+\fi\fi\fi
+\ifx #1E\put@con E\put@syl \def \next {\syl@con }\else
+\ifx #1\a@ZA \add@kh@hamzl \put@syl \def \next {\syl@con }\else
+\ifx #1A\ifiz@fet \add@madda \put@syl \def \next {\syl@con }\else 
+		\def \next {\syl@voctest }% 
+        \fi \else 	
+\ifiz@fet \else	% wasla only in Arabic ?
+\ifh@mza \if\is@shortvowel #1%
+        \if@wasla \add@wasla \put@syl \def \next {\syl@con }% next syllable
+        \fi\fi
+\fi\fi\fi\fi\fi\fi \next }
+
+\def \syl@tatwilbeg #1{% start word with tatwIl: -- #1
+	\put@con B%
+\if\is@vowel #1\def \next {\syl@voc #1}% harakat on tatwil
+\else \put@syl \def \next {\syl@con #1}% join
+\fi \next }
+
+\def \syl@spec #1#2{% deposit special character
+\ifx #1<\let \next \syl@end
+\else \put@spec #1% deposit character
+	\ifx #1-\def \next {\syl@con #2}\else	% create joining form
+	\ifx #2<\let \next \syl@end \else 	% isolated character
+		\def \next {\syl@beg #2}% 	% start new word
+	\fi\fi
+\fi \next }
+
+\def \sv@syl #1#2#3{% explicit syllable
+\put@con #1\last@mod 0#2\last@voc 0#3\@highfalse \put@syl \syl@con }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% start of syllable %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@con #1{% start a new syllable
+\case #1\of
+{	<{\syl@end }% not done
+	Q{\syl@hamza } % no Hamza
+	B{\put@con B\put@syl \syl@con }
+	W{\put@con w\syl@Wspec }% no ending wA or w-
+	"{\syl@quote@con }
+	|{\syl@bar@con }
+    \cap {\syl@con }
+ \sv@syl {\sv@syl }
+\default {\syl@@con #1}
+}\endcase }
+
+\def \syl@@con #1#2{% start a new syllable
+	\def \next {\syl@voctest #2}%
+\ifx #2\cap \def \next {\syl@@con #1}\else
+\ifx #1-\ifx #2<\def \next {\syl@spec #1#2}% joining form
+	\else \def \next {\syl@beg #2}% ignore hyphen, tie
+	\fi \else       
+\ifcat -\nxp #1\def \next {\syl@spec #1#2}\else % special character
+\ifx #2-\def \next {\syl@assim #1}% assimilate?
+\else \put@con #1% deposit consonant
+        \ifx #1#2\if@ssim \add@shadda 
+		\def \next {\syl@shadd@voctest #2}%
+        \fi\fi
+	\ifiz@fet\ifx #1X\ifx #2w\put@syl 
+        	\def \next {\syl@con #2}% waw-e-ma`dul
+	\fi\fi\fi
+\fi\fi\fi\fi \next }
+
+\def \syl@bar@con #1{% |
+\case #1\of
+{	|{\syl@quote@con #1}
+	B{\syl@tatwil }
+\default {\put@con |\@sukfalse \syl@voctest #1}
+}\endcase }
+
+\def \syl@tatwil #1{% test for 2 tatwils
+\put@con B%
+\ifx #1B\add@shadda \def \next {\syl@voctest }%
+\else \def \next {\syl@voctest #1}%
+\fi \next }
+
+\def\syl@shadd@voctest #1#2{% hyphen after shadda ? context #1#1 #2
+\ifx #2-\def \next {\syl@hyphen #1}\else 
+	\def \next {\syl@voctest #2}%
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% hyphen %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@hyphen #1#2#3{% hyphen after consonant,           	 #1 - #2 #3
+\ifx #2<\add@sukun \put@syl \def \next {\syl@con -#2#3}\else 	% k - ||
+\ifx #3<\def \next {\syl@contie #1#2#3}\else			% k - x ||
+\ifx #3N\def \next {\syl@contie #1#2#3}\else			% k - x N
+\ifcat -\nxp #3\def \next {\syl@contie #1#2#3}\else		% k - x -
+\ifx #1l\def \next {\syl@art #2#3}\else 			% l - #2 #3
+\ifx #1\a@H \put@syl \put@spec W\def \next {\syl@beg #2#3}\else	% H - x
+\ifiz@fet \def \next {\syl@voctest #2#3}% 			Persian suffix
+\else	\add@sukun \put@syl \def \next {\syl@beg #2#3}%    	start new word
+\fi\fi\fi\fi\fi\fi\fi \next }
+
+\def \syl@art #1#2#3{% article, (a)l-#1#2#3
+	\def \next {\syl@beg #1#2#3}% ought to test for sun letter !
+\ifx #1#2% no sukun before double (sun) letter
+	\ifx #1Q\add@sukun \else
+	\ifx #2#3\def \next {\syl@beg #2#3}% special case l-ll
+	\fi \fi
+\else \add@sukun % moon letter
+\fi \put@syl \next }
+
+\def \syl@assim #1#2{% test for assimilation #1 - #2
+\ifx #2\cap \def \next {\syl@assim #1}\else
+	\put@con #1\def \next {\syl@hyphen #1#2}% #1 - #2
+\if@ssim\ifx #1#2% ought to test for sun letter !
+	\put@con l\def\next {\syl@art #1#2}% substitute l - #1 #2
+        \fi 
+\fi\fi \next }
+
+\def \syl@contie #1#2#3{% connecting vowel, #1 - #2#3
+	\def \next {\syl@voctest #2#3}%
+\ifiz@fet \sv@test@izafet #1#2#3%
+\fi \next }
+
+\def \syl@voctie #1#2#3{% hyphen after vowel, #1 - #2 #3
+	\def \next {\put@syl \syl@con -#2#3}%	close syllable
+\ifiz@fet\ifx #3<\sv@test@izafet #1#2#3\else
+	\ifcat -\nxp #3\sv@test@izafet #1#2#3\else
+	\ifx #1a\put@con \a@H % supply final silent H
+		\def \next {\syl@hyphen \a@H #2#3}\else
+	\ifx #1e\put@con \a@H % supply final silent H
+		\def \next {\syl@hyphen \a@H #2#3}%
+	\fi\fi\fi\fi
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% special cases for Persian %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@hahtie #1#2#3{% connecting vowel, H - #2#3
+   \def \next {\syl@hah #2#3}%
+\case #2\of
+{      IE{}
+\default {\sv@test@izafet #1#2#3}
+}\endcase \next }
+
+\def \syl@hah{% H at the end, ha-ye hawwaz-e ma.hfi
+\put@syl \put@spec W\syl@beg }
+
+\def \sv@izafet #1#2{% #1 - i/e/_i
+\case #1\of
+{  I\a@H{\add@hamza }
+      AU{\put@syl \put@con y}
+}\endcase
+\ifx #2\a@i \add@kasraspec \else \add@kasra % long izafet ?
+\fi \put@syl \syl@con }
+
+\def \sv@wahdat #1#2{% #1 - I/E
+\case #1\of
+{  I\a@H{\put@syl \put@spec W\put@con a}
+      AU{\put@syl \put@con Y\add@hamza }
+}\endcase
+\ifx #2I\add@kasra \fi
+\put@syl \put@con y\put@syl \syl@con }
+
+\def \sv@test@izafet #1#2#3{% special cases for -e, -i, -_e, -_i, -I, -E
+\case #2\of
+{	e{\def \next {\sv@izafet #1e#3}}
+i\a@i\a@E{\def \next {\sv@izafet #1i#3}}
+	y{\def \next {\sv@izafet #1e}}
+	I{\def \next {\sv@wahdat #1I#3}}
+	E{\def \next {\sv@wahdat #1E#3}}
+}\endcase }
+
+\def \syl@endvoc #1{% test for H
+	\def \next {\syl@con #1}%
+\ifiz@fet \ifx #1\a@H \put@con \a@H
+	\def \next {\syl@@endvoc }%
+\fi\fi \next }
+
+\def \syl@@endvoc #1#2{% char after H
+\case #1\of
+{	-{\syl@hahtie \a@H #2}
+	Q{\add@hamza \syl@voc }
+	<{\put@syl \syl@end #2}
+	"{\put@syl \syl@quote@beg #2}
+	|{\put@syl \syl@bar #2}
+\default {\put@syl 
+	  \ifcat -\nxp #1\def \next {\syl@spec #1#2}\else 
+		\def \next {\syl@beg #1#2}% start a new word
+	  \fi \next }
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% quoting %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@quote@beg #1#2{% start word with quote: " #1 #2
+\case #1\of
+{	'{\put@con Q\syl@voctest #2}
+	Q{\put@con Q\syl@voctest }
+	|{\put@spec W\syl@beg #2}% start new word
+\default {\syl@@quote@beg #1#2}
+}\endcase }
+
+\def \syl@@quote@beg #1{% start word with quote: " #1 #2
+\if\is@vowel #1\def \next {\syl@wasla #1}% 	" v k: alif vowel
+%	\if@wasla \v@ctrue \else \add@wasla \togglev@c \fi 
+	\if@wasla \v@ctrue \@waslafalse \else \@waslatrue \togglev@c \fi 
+\else \put@con a\togglev@c \add@wasla \put@syl  % alif implied
+	\ifx #1"\def \next {\syl@con }% 	" " k: alif wasla
+     	\else \def \next {\syl@con #1}% 	" k:   alif wasla
+	\fi 
+\fi \next }
+
+\def \syl@quote@con #1#2{% start syllable with quote: " #1 #2
+\case #1\of
+{	'{\put@con Q\syl@voctest #2}
+	Q{\put@con Q\syl@voctest }
+	|{\put@con W\syl@voctest #2}
+\default {\togglev@c \syl@con #2}
+}\endcase }
+
+% original version of logic:
+\def \syl@quote@voc #1#2{% continue syllable with quote: " #1 #2
+\case #1\of 
+{	B{\togglev@c \add@sukun \put@syl \syl@con #1#2}
+	"{\togglev@c \add@sukun \put@syl \syl@beg #2}
+	|{\syl@@quote@voc #2}
+	'{\add@hamza \syl@voctest #2}
+	Q{\add@hamza \syl@voctest }
+\default {\togglev@c \syl@voctest #1#2}% vowel: sukun
+}\endcase }
+
+% patches for Arnoud Vrolijk:
+% make "' sukun hamza instead of hamza modifier
+\def \syl@quote@voc #1{% continue syllable with quote: " #1 #2
+\case #1\of 
+{	B{\togglev@c \add@sukun \put@syl \syl@con #1}
+	"{\togglev@c \add@sukun \put@syl \syl@beg }
+	|{\syl@@quote@voc }
+\default {\togglev@c \syl@voctest #1}% vowel: sukun
+}\endcase }
+
+\def \syl@@quote@voc #1{% continue syllable with quote: "| #1 #2
+	\put@syl \put@spec W%
+\if\is@vowel #1\def \next {\syl@wasla #1}% vowel: wasla
+\else \def \next {\syl@con #1}% consonant
+\fi \next }
+
+\def \togglev@c {% toggle diacritic
+\ifv@c  \v@cfalse  \else \v@ctrue  \fi % toggle vowel indicator
+\if@suk \@sukfalse \else \@suktrue \fi % toggle sukun, wasla 
+}
+
+\def \voc@suk {% normalize vowels and sukun
+\let \ifv@c \if@vocals \let \if@suk \if@sukun }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% vowel or end of syllable %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@@test@voc #1{% vowel or sukun ? 	variant in Hebrew!
+\if\is@vowel #1\def \next {\syl@voc #1}% test for vowel
+\else \def \next {\syl@con #1}%
+	\ifurd@ \ifx #1h\else \add@sukun \fi 
+	\else \add@sukun 
+	\fi \put@syl 
+\fi \next }
+
+\def \syl@voctest #1{% continue open syllable: K #1 
+\case #1\of
+{	"{\syl@quote@voc }
+	^{\m@ddatrue \syl@voctest }
+	|{\syl@bar@voc }
+	B{\syl@tatwil@voc }
+    \cap {\syl@voctest }
+\default {\syl@test@voc #1}
+}\endcase }
+
+\def \syl@bar@voc #1{% K | #1
+\ifx #1|\def \next {\syl@quote@voc |}\else 
+\ifx #1"\def \next {\syl@test@quote }\else 
+\if\is@vowel #1\def \next {\syl@test@voc #1|}\else
+	\def \next {\syl@test@voc |#1}% no bar
+\fi\fi\fi \next }
+
+\def \syl@tatwil@voc #1{% K B #1
+\if\is@vowel #1\def \next {\syl@test@voc #1B}\else 
+	\def \next {\syl@test@voc B#1}% no vowel
+\fi \next }
+
+\def \syl@test@quote #1{% K |" #1
+\if\is@vowel #1\def \next {\syl@quote@voc #1|}\else
+	\put@syl \put@con |\def \next {\syl@quote@voc "#1}%
+\fi \next }
+
+\iffalse % deleted for efficiency; for documentation only !
+% and also for compatibility with the Hebrew mode !!
+\def \syl@voc #1{% test for vowel
+\case #1\of
+{	<{\syl@end }% this cannot happen! or can it?
+	-{\syl@voc }% ignore hyphen here
+   a \a@A{\sv@@a }% short a, Turkish "a
+   e	 {\sv@@e }% short e
+   i \a@I{\sv@@i }% short i, Turkish "i
+   o	 {\sv@@o }% short o
+   u \a@U{\sv@@u }% short u, Turkish "u
+   A	 {\sv@@A }% long a
+   E	 {\sv@@E }% long e
+   I	 {\sv@@I }% long i
+   O	 {\sv@@O }% long o
+   U \a@o{\sv@@U }% long u, special short u
+   Y	 {\sv@Ytest }% alif maqsura or tooth
+    \a@a {\sv@a@a }% Qur'an alif
+    \a@e {\sv@a@e }% frei
+    \a@i {\sv@a@i }% defective long i
+    \a@u {\sv@a@u }% defective long u
+    \a@E {\sv@a@E }% kurdish ^e
+    \a@O {\sv@a@O }% Kurdish and Turkish "o
+   \a@Za {\sv@Za }% Kashmiri .A
+   \a@Ze {\sv@Ze }% Kashmiri .a
+   \a@Zi {\sv@Zi }% Sindhi -IN
+   \a@Zo {\sv@Zo }% Kashmiri u'
+   \a@Zu {\sv@Zu }% Kashmiri U'
+\default {\csname sv@\string #1\endcsname}% switch on vowel
+}\endcase }
+\fi
+
+\def \syl@voc #1{% test for vowel, also for Hebrew mode
+\case #1\of
+{	<{\syl@end }% this cannot happen! or can it?
+	-{\syl@voc }% ignore hyphen here
+\default {\csname sv@\string #1\endcsname}% switch on vowel
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% auxiliary vowel routines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \test@B #1#2{% tatweel or ligature break
+\case #1\of
+{      |B{\put@con #1\put@syl #2}
+\default {#2#1}% deposit vowel carrier
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% short vowels %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@a #1{% short a
+\ifk@rd \put@syl \def \next {\test@B #1\sv@a@Hvwl }\else
+\def \next {\sv@aInt #1}\fi \next }
+
+\def \sv@@a #1{% short a
+\ifu@gh \put@syl \put@con a\put@syl \def \next {\syl@con #1}\else
+\ifk@rd \put@syl \def \next {\test@B #1\sv@a@Hvwl }\else
+	\def \next {\sv@aInt #1}%
+\fi\fi \next }
+
+\def \sv@a@Hvwl {% kurdish aH carrier
+\put@con \a@H \put@syl \syl@endvoc }
+
+\def \sv@aInt #1{% short a
+\ifx #1N\def \next {\syl@Nspec }% tanwin alif
+\else \add@fatha \put@syl \def \next {\sv@@aInt #1}% 
+\fi \next }
+
+\def \sv@@aInt #1{% short a
+\case #1\of
+{	e{\ifurd@ \put@con E\else \put@con Y\add@hamza 
+	  \fi \put@syl \syl@con }\else
+       ou{\put@con w\put@syl \syl@con }\else
+	i{\put@con y\put@syl \syl@con }\else
+\default {\syl@endvoc #1}% test for H
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@e {% short e
+\ifk@rd \xpa \sv@a \else 
+\ift@rk \xxpa \sv@a \else \xxpa \sv@eInt \fi\fi }
+
+\def \sv@@e {% short e
+\ifk@rd \def \next {\sv@a }\else
+\ift@rk \def \next {\sv@a }\else
+\ifu@gh \put@syl \put@con \a@Y \put@syl \def \next {\syl@con }\else
+\def \next {\sv@eInt }\fi\fi\fi \next }
+
+\def \sv@eInt #1{% zwarakay in Pashto, otherwise short a
+\ifk@sh \put@syl \put@con \a@E \put@syl \def \next {\syl@con #1}%
+\else \def \next {\syl@endvoc #1}% test for H
+	\ifp@sht \add@zwarakay \put@syl
+		\ifx #1e\def \next {\syl@con }\put@con Y\add@hamza \put@syl 
+		\fi
+	\else \add@kasra \put@syl
+		\ifiz@fet % provisions for the preposition be-
+		\if\is@vowel #1\def \next {\syl@beg #1}% 
+		\fi\fi
+	\fi
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@i #1{% short i
+\case #1\of
+{	y{\sv@@I }% iy -> I
+	N{\add@kasratan \put@syl \syl@ignore }% tanwin yah
+	-{\add@kasra \syl@voctie i}
+\default {\add@kasra \put@syl \syl@con #1}% next syllable
+}\endcase }
+
+\def \sv@@i {% short i
+\ifu@gh \put@syl \put@con Y\put@syl \xpa \syl@con 
+\else \xpa \sv@@iInt \fi }
+
+\def \sv@@iInt #1{% short i
+\case #1\of
+{	y{\sv@@I }% iy -> I
+	N{\add@kasratan \put@syl \syl@ignore }% tanwin yah
+	-{\add@kasra \syl@voctie i}
+\default {\add@kasra \put@syl \syl@con #1}% next syllable
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@o #1{% ammad in Pashto, otherwise short u
+\ifk@sh \put@syl \put@con \a@W \put@syl 
+		\def \next {\syl@con #1}\else
+\ifk@rd \put@syl \def \next {\test@B #1\sv@a@Wvwl }\else 
+	\def \next {\sv@oInt #1}%
+\fi\fi \next }
+
+\def \sv@@o #1{% ammad in Pashto, otherwise short u
+\ifk@sh \put@syl \put@con \a@W \put@syl 
+		\def \next {\syl@con #1}\else
+\ifu@gh \put@syl \put@con w\put@syl 
+		\def \next {\syl@con #1}\else
+\ifk@rd \put@syl \def \next {\test@B #1\sv@a@Wvwl }\else 
+	\def \next {\sv@oInt #1}%
+\fi\fi\fi \next }
+
+\def \sv@a@Wvwl {% kurdish O carrier
+\put@con \a@W \put@syl \syl@con }
+
+\def \sv@oInt #1{% ammad in Pashto, otherwise short u
+\ifp@sht \add@ammad \else \add@damma 
+\fi \put@syl 
+\ifx #1i\put@con y\put@syl \def \next {\syl@con }\else
+	\def \next {\syl@endvoc #1}% test for H
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@u {% short u
+\ifk@rd \put@syl \xpa \sv@ukurd \else \xpa \sv@uInt \fi }
+
+\def \sv@@u {% short u
+\ifk@rd \put@syl \def \next {\sv@ukurd }\else 
+\ifu@gh \put@syl \put@con \a@w \put@syl \def \next {\syl@con }\else 
+\def \next {\sv@uInt }\fi\fi \next } 
+
+\def \sv@ukurd #1{% short u, for Kurdish
+\ifx #1Q\def \next {\syl@hamza }\else
+\def \next {\test@B #1\sv@wvwl }\fi \next }
+
+\def \sv@wvwl {% w carrier
+\put@con w\put@syl \syl@con }
+
+\def \sv@uInt #1{% short u, otherwise
+\case #1\of
+{	w{\sv@UInt }% uw -> U
+	N{\add@dammatan \put@syl \syl@ignore }% tanwin waw
+\default {\add@damma \put@syl \syl@con #1}% next syllable
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% long vowels %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@A #1{% long A
+\ifk@rd \else \add@fatha \fi
+\put@syl \test@B #1\sv@Avwl }
+
+\def \sv@Avwl #1{% long A vowel
+	\put@con a% may also serve as consonant, carry vowels
+	\ifm@dda \add@madda \m@ddafalse \fi
+\ifx #1-\def \next {\syl@voctie A}\else
+	\def \next {\syl@voctest #1}\@sukfalse % next syllable
+\fi \next }
+
+\def \sv@Aa #1{% long a + a ? whence ??
+\case #1\of
+{      |B{\put@con #1\put@syl \put@con a%
+	  \ifm@dda \add@madda \m@ddafalse 
+	  \fi \put@syl \syl@con }
+	-{\ifm@dda \add@madda \m@ddafalse 
+	  \fi \syl@voctie A}
+	a{\ifm@dda \add@madda \m@ddafalse 
+	  \fi \sv@AaN }
+	"{\ifm@dda \add@madda \m@ddafalse 
+	  \fi \v@ctrue \@suktrue \sv@Aa }
+\default {\ifm@dda \add@madda \m@ddafalse 
+	  \fi \put@syl \syl@con #1}% next syllable
+}\endcase }
+
+\def \sv@AaN #1{% long a + aN ?
+	\def \next {\syl@con a#1}% next syllable
+\ifx #1N\def \next {\syl@aN}\else \put@syl
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@E {% long e
+\ift@rk \xpa \sv@I \else \xpa \sv@EInt \fi }
+
+\def \sv@EInt #1{% long E
+\ifk@sh \put@syl \put@con E\put@syl \def \next {\syl@con #1}%
+\else	\def \next {\test@B #1\sv@Evwl }%
+	\ifp@sht \add@zwarakay \else
+	\ifiz@fet \else \add@kasra
+	\fi\fi 	\put@syl 
+\fi \next }
+
+\def \sv@Evwl #1{% long E vowel
+\ifx #1e\put@con L\def \next {\syl@con }\else 	% ey
+	\def \next {\syl@con #1}% next syllable
+\ifp@sht \put@con \a@Y \else 
+\ifurd@ \put@con E\else 
+	\put@con y%
+\fi\fi\fi \put@syl \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@I #1{% long i
+\ifk@sh \put@syl \put@con y\add@kasraspec \put@syl 
+		\def \next {\syl@con #1}\else 
+	\add@kasra \put@syl \def \next {\test@B #1\sv@Ivwl }%
+\fi \next }
+
+\def \sv@Ivwl #1{% long i carrier
+	\put@con y\ifm@dda \add@madda \m@ddafalse \fi	% -I becomes -iy, 
+\case #1\of
+{	y{\@sukfalse \add@shadda \syl@voctest}		% -Iy becomes -iyy
+	-{\syl@voctie I}
+\default {\@sukfalse \syl@voctest #1}% next syllable
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@O #1{% long o
+\ifp@sht \add@ammad \else
+\ifiz@fet \else \add@damma 
+\fi\fi \put@syl \test@B #1\sv@Ovwl }
+
+\def \sv@Ovwl {% long o carrier
+\put@con w\put@syl \syl@con }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@@U #1{% long u
+\ifk@sh \put@syl \put@con w\add@ammad \put@syl 
+		\def \next {\syl@con #1}\else
+\ifk@rd \put@syl \def \next {\test@B #1\sv@wwvwl }\else	
+	\def \next {\sv@UInt #1}%
+\fi\fi \next }
+
+\def \sv@wwvwl {% kurdish double w carrier
+\put@con w\put@syl \put@con w\put@syl \syl@con }
+
+\def \sv@UInt #1{% long u
+\add@damma \put@syl \test@B #1\sv@Uvwl }
+
+\def \sv@Uvwl #1{% long u carrier
+	\put@con w\ifm@dda \add@madda \m@ddafalse \fi	% -U becomes -uw
+\case #1\of
+{	w{\@sukfalse\add@shadda \syl@voctest}		% -Uw becomes -uww
+	-{\syl@voctie U} 				% not -U-
+	A{\put@syl \put@con a\put@syl \syl@con }	% not -UA
+\default {\sv@@Uvwl #1}
+}\endcase }
+
+\def \sv@@Uvwl #1{% long u carrier
+\ifiz@fet\ifx #1Q\def \next {\sv@UQ}\else		% not -U'
+		\def \next {\syl@voctest #1}\@sukfalse 	% next syllable
+	 \fi 
+\else 	 \def \next {\syl@voctest #1}\@sukfalse 	% next syllable
+\fi \next }
+
+\def \sv@UQ #1#2#3#4{% UQU#2#3#4, U' in Farsi
+\if\isat@wdend #2#3#4\add@hamza % final hamza on waw ?
+	\ifx #2-\def \next {\syl@hyphen Q#3#4}% ezafe ?
+	\else \def \next {\syl@voctest #2#3#4}% vowel ?
+	\fi
+\else \put@syl \def \next {\syl@hamza U#2#3#4}% next syllable
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@Ytest #1{% is alif maqsura vowel or consonant?
+\case #1\of
+{	"{\put@syl \syl@con Y#1}
+      < B{\sv@YInt #1}
+\default {\ifcat -\nxp #1\def \next {\sv@YInt #1}%
+	  \else \put@syl \def \next {\syl@con Y#1}%
+	  \fi \next }
+}\endcase }
+
+\def \sv@YInt #1{% alif maqsura is vowel
+\add@fatha \put@syl \test@B #1\sv@Yvwl }
+
+\def \sv@Yvwl {% put alif maqsura 
+\put@con Y\ifqur@n \add@fathaspec \fi \put@syl \syl@con }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% special vowels %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@a@a #1{% Qur'an alif
+	\add@fathaspec \put@syl 
+\case #1\of
+{   \a@H {\put@con \a@H\put@syl \syl@con }%
+	U{\put@con w\put@syl \syl@con }%
+	Y{\put@con Y\put@syl \syl@con }%
+	I{\put@con y\put@syl \syl@con }%
+\default {\syl@con #1}%
+}\endcase }
+
+\def \sv@a@e {% explicit sukun
+\add@sukun \put@syl \syl@con }
+
+\def \sv@a@i {% defective long i
+\add@kasraspec \put@syl \syl@con }
+
+\def \sv@a@u {% defective long u
+\add@ammad \put@syl \syl@con }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \sv@a@A {% Uighuric and Turkish
+\ifu@gh \put@syl \put@con \a@H \put@syl \xpa \syl@con
+\else \xpa \sv@a \fi }
+
+\def \sv@a@E #1{% kurdish ^e
+\ifk@rd \put@syl \def \next {\test@B #1\sv@a@Evwl }\else
+\add@kasraspec \put@syl \def \next {\syl@con #1}\fi \next }
+
+\def \sv@a@Evwl {% kurdish E carrier
+\put@con \a@E \put@syl \syl@con }
+
+\def \sv@a@O #1{% Kurdish and Turkish "o
+\put@syl 
+\ifk@rd \def \next {\test@B #1\sv@wa@Evwl }\else 
+\def \next {\test@B #1\sv@wvwl }\fi \next }
+
+\def \sv@a@O #1{% Kurdish and Turkish "o
+\put@syl 
+\ifu@gh \put@con \a@W \put@syl \def \next {\syl@con #1}\else 
+\ifk@rd \def \next {\test@B #1\sv@wa@Evwl }\else 
+\def \next {\test@B #1\sv@wvwl }\fi\fi \next }
+
+\def \sv@wa@Evwl {% kurdish W E carrier
+\put@con w\put@syl \put@con \a@E \put@syl \syl@con }
+
+\def \sv@a@U {% Uighuric and Turkish
+\ifu@gh \put@syl \put@con \a@aw \put@syl \xpa \syl@con
+\else \xpa \sv@u \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \sv@Za {% Kashmiri .a
+\add@kh@hamza \put@syl \syl@con }
+
+\def \sv@Ze {% explicit shadda
+%\add@shadda \put@syl \syl@con }
+%\add@shadda \syl@voctest }
+\voc@suk \add@shadda \syl@voctest }
+
+\def \sv@Zi {% Sindhi -IN
+\add@bars \put@syl \syl@con }
+
+\def \sv@Zo {% Kashmiri .o
+\put@syl \put@con \a@aU \put@syl \syl@con }
+
+\def \sv@Zu {% Kashmiri .u
+\add@kl@hamza \put@syl \syl@con }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \sv@ZA {% Kashmiri .A
+\put@syl \put@con A%
+\add@kh@hamzl \put@syl \syl@con }
+
+\def \sv@ZE {% explicit madda
+\add@madda \put@syl \syl@con }
+
+\def \sv@ZI {% Kashmiri .y
+\put@syl \put@con \a@as \syl@voctest }
+
+\def \sv@ZO {% Kashmiri .O
+\put@syl \put@con \a@aU \put@syl \put@con A\add@fatha \put@syl \syl@con }
+
+\def \sv@ZU {% Kashmiri .U
+\add@kl@hamzl \put@syl \syl@con }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Nunation %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \syl@Nspec {% tanwin fatha
+\ifh@mza \ifaN@alif \def \next {\syl@aN@alif }%
+	\else \def \next {\syl@aN }%
+	\fi 
+\else \add@fathatan \put@syl \def \next {\syl@ignore }%
+\fi \next }
+
+\def \syl@aN #1{% tanwin fatha on actual character, alif required ?
+	\add@fathatan \put@syl \def \next {\syl@ignore #1}%
+\ifcat -\nxp #1%
+	\xpa\if \xpa\is@in@list \the\last@con YTaB>\else
+		\put@con a\put@syl 	% deposit alif
+	\fi
+\fi \next }
+
+\def \syl@aN@alif #1{% tanwin fatha at the end, alif required ?
+\ifcat -\nxp #1\def \next {\syl@ignore #1}%
+	\xpa\if \xpa\is@in@list \the\last@con YTaB>\else
+		\ifv@c \put@syl \v@ctrue \else \put@syl 
+		\fi \put@con a% 		% deposit alif
+	\fi
+\else	\def \next {\syl@ignore }%
+	\ifv@c \put@syl \v@ctrue \else \put@syl 
+	\fi \put@con #1% 		% deposit character
+\fi \add@fathatan \put@syl \next }
+
+\def \syl@Wspec #1{% final w with silent alif ?
+\case #1\of
+{	-{\syl@Wspec }% ignore hyphen
+	u{\add@damma \put@syl 
+	  \put@con a\put@syl \syl@con }%	% ending w-u
+\default {\add@sukun \put@syl 
+	  \put@con a\put@syl \syl@con }%	% ending w
+}\endcase }
+
+\def \syl@ignore #1{% kill the rest after Tanwin except U, A, a, y, and Y
+\case #1\of
+{	-{\syl@ignore }
+	U{\put@con w\put@syl \syl@ignore }
+       aA{\put@con a\put@syl \syl@ignore }
+	Y{\put@con Y\put@syl \syl@ignore }
+	y{\put@con y\put@syl \syl@ignore }
+\default {\let \next \syl@ignore 
+	  \ifcat -\nxp #1\def \next {\syl@con #1}% 	% tie
+	  \fi \next }
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Hamza %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newif \if@ay
+
+\def \syl@@hamzabeg #1#2{% initial hamza
+\ifk@rd \ifx #2i\def \next {\syl@con }\put@con a% alif
+	\add@hamza \add@hamzalow \put@syl 
+	\else \put@con Y\add@hamza \def \next {\syl@voctest #2}%
+	\fi \else
+\ifh@mza \def \next {\syl@beghamza #1#2}\else
+	\def \next {\syl@hamzaverb #1#2}% verbatim mode
+\fi\fi \next }
+
+\def \syl@@hamzabeg #1#2{% initial hamza
+\ifk@rd \ifx #2i\def \next {\syl@con }\put@con a% alif
+	\add@hamza \add@hamzalow \put@syl 
+	\else \put@con Y\add@hamza \def \next {\syl@voctest #2}%
+	\fi \else
+\ifu@gh \put@con Y\add@hamza \def \next {\syl@voctest #2}\else 
+\ifh@mza \def \next {\syl@beghamza #1#2}\else
+	\def \next {\syl@hamzaverb #1#2}% verbatim mode
+\fi\fi\fi \next }
+
+\def \syl@@hamza #1{% non-initial hamza, context #1'
+\ifx #1-\def \next {\syl@hamzabeg #1}\else 
+\ifh@mza \def \next {\syl@arabhamza #1}\else
+	\def \next {\syl@hamzaverb #1}% verbatim mode
+\fi\fi \next }
+
+\def \syl@hamzaverb #1{% verbatim hamza, #1 = carrier
+\case #1\of
+{	|{\put@con Q}
+	A{\put@con a\add@madda \@sukfalse }
+	y{\put@con Y\add@hamza }
+	u{\put@con w\add@hamza }
+	i{\put@con a\add@hamza \add@hamzalow }
+\default {\put@con #1\add@hamza }	
+}\endcase \syl@voctest }
+
+\def \syl@beghamza #1#2{% start word with hamza, context '#2
+\ifx #2"\def \next {\syl@beghamza #1}\togglev@c % toggle vowel
+\else \def \next {\syl@@beghamza #2}%
+\fi \next }
+
+\def \syl@@beghamza #1{% start word with hamza, context '#1
+\put@con a\def \next {\syl@con }% alif
+\case #1\of
+{	A{\add@madda }
+    \a@a {\add@fathaspec }
+    a\a@A{\add@hamza \add@fatha }
+i\a@i\a@I{\add@hamza \add@kasra \add@hamzalow }
+ou\a@O\a@U{\add@hamza \add@damma }
+   eE\a@E{\add@hamza \ifp@sht \add@zwarakay \else \add@kasra \fi }
+    I\a@e{\add@hamza \add@kasra \add@hamzalow \put@syl \put@con y}
+OU\a@o\a@p\a@w{\add@hamza \add@damma \put@syl \put@con w}
+\default {\add@hamza \add@sukun \def \next {\syl@con #1}}
+}\endcase
+\put@syl \next }
+
+\def \syl@arabhamza #1#2#3{% non-initial hamza, context #1'#2#3
+\case #2\of
+{	"{\togglev@c \syl@hamza #1#3}	% toggle vowel
+	|{\syl@hamza #1#3} 		% ignore bar
+   AIUYEO{\syl@hamzamid #1#2#3#3} 	% arabic rules
+\default {\syl@@arabhamza #1#2#3}	% test for final position
+}\endcase }
+
+\def \syl@@arabhamza #1#2#3#4{% non-initial hamza, context #1'#2#3#4
+	\def \next {\syl@hamzamid #1#2#3#3#4}%
+\if\isat@wdend #2#3#4% test for hamza as last consonant
+\ifiz@fet \else \def \next {\syl@hamzaend #1#2#3#4}%
+\fi\fi \next }
+
+\def \syl@hamzamid #1#2#3{% test for #1 a y ; obsolete?
+	\@ayfalse 
+\ifx #2a\ifx #3y\@aytrue 
+\fi\fi \syl@@hamzamid #1#2#3}
+
+\def \syl@@hamzamid #1#2#3{% intermediate hamza, context #1'#2#3
+	\def \next {\syl@voctest #2}%
+\ifx #1I\ifqur@n \put@con B\else \put@con Y\fi \add@hamza \else
+\if\is@in@list #1iy>\put@con Y\add@hamza \else
+\if\is@in@list #2iIE>\put@con Y\add@hamza
+	\ifqur@n \add@hamzalow \fi \else
+\if\is@in@list #1uo>\put@con w\add@hamza \else
+\if\is@in@list #2uo>\put@con w\add@hamza \else
+\if\is@in@list #2UO>%
+	\ifqur@n \put@Q #1\else \put@con w\add@hamza \fi \else
+\if\is@in@list #1AUO>\put@Q #1\else
+\if\is@in@list #2A>\put@con a\add@madda 
+	\put@syl \def \next {\syl@con }\else
+\if\is@in@list #2\a@a>\put@con a\add@fathaspec
+	\put@syl \def \next {\syl@con }\else
+\ifx #1a\put@con a\add@hamza \else
+\ifx #2a\ifqur@n \put@Q #1\else \put@con a\add@hamza \fi \else
+	\put@Q #1% deposit Hamza
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+\ifx #2Q\def \next {\syl@doublehamza }%
+\fi \next }
+
+\def \syl@hamzaend #1{% final hamza, context #1'
+\case #1\of
+{	i{\put@con Y\add@hamza \syl@voctest }
+	u{\put@con w\add@hamza \syl@voctest }
+	a{\put@con a\add@hamza \syl@voctest }
+\default {\syl@@hamzaend #1}
+}\endcase }
+
+\def \syl@@hamzaend #1#2#3{% final hamza, context #1'#2#3
+\put@con Q\def \next {\syl@voctest #2#3}% deposit Hamza
+\ifx #2a\ifx #3N\def \next {\syl@hamza@Nspec #1}%
+\fi\fi \next }
+
+\def \syl@hamza@Nspec #1#2{% #1'aN , put alif ?
+\ifx #1A\else
+\ifx #1U\else
+\if\is@end@char #1\else
+	\ifqur@n \put@con B\else \put@con Y\fi \add@hamza
+\fi\fi\fi
+	\add@fathatan \put@syl
+\ifx #1A\else
+	\ifx #2Y\put@con Y% put alif maqsoura
+	\else \put@con a% put alif
+	\fi 
+	\put@syl
+\fi \syl@ignore #2}
+
+\def \syl@doublehamza #1{% double Hamza
+\add@shadda \syl@voctest }
+
+\def \put@Q #1{% deposit isolated hamza after #1
+\ifqur@n \if\is@end@char #1\put@con Q\else \put@con B\add@hamza \fi 
+\else\put@con Q%
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% deposit characters %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \check@@high #1{%				% long form for tooth ?
+\if\is@in@list #1YntCbyp>%			% YntCbyp : toggle
+	\if@high \global\@highfalse \else \global\@hightrue 
+	\fi \else 
+\if\is@in@list #1sxSD>\global\@hightrue \else 	% sxSD    : force high
+	\global\@highfalse			% otherwise : force low
+\fi\fi }
+
+\def \put@con #1{% start syllable
+\last@con ={#1}}
+
+\def \put@syl {% deposit syllable
+\if@high \advance \last@mod \c@high \fi
+\xpa \check@high \the\last@con
+\let \ifv@c \if@vocals \let \if@suk \if@sukun
+\def \rev@wd {\the\last@con \the\last@mod +\the\last@voc *}\put@rev@wd
+\global \@waslatrue }
+
+\def \put@spec #1{% deposit special character
+\last@con={#1}\def \rev@wd {#10+0*}\put@rev@wd
+\global \@waslafalse }
+
+\def \put@rev@wd {% deposit output item				% no group!
+\edef \temp {\global \nxp\a@revwd {\rev@wd \the\a@revwd }%	% \temp
+\global \nxp\sv@revwd {\the\sv@revwd \rev@wd }}\temp 
+\last@mod = 0 \last@voc = 0 }
+
+%%%%%%%%%%%%%%%%%%%%%% deposit .harakAt %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\def \add@shadda    {\advance \last@mod \c@shadda }
+\def \add@hamza     {\advance \last@mod \c@hamza }
+\def \add@hamzalow  {\advance \last@mod \c@hamzalow }
+\def \add@madda     {\advance \last@mod \c@madda }
+
+\def \add@wasla     {\if@suk \last@voc \c@wasla \fi }
+\def \add@sukun     {\if@suk \last@voc \c@sukun \fi }
+\def \add@fatha     {\ifv@c \last@voc \c@fatha 	\fi }
+\def \add@kasra     {\ifv@c \last@voc \c@kasra 	\fi }
+\def \add@damma     {\ifv@c \last@voc \c@damma 	\fi }
+\def \add@zwarakay  {\ifv@c \last@voc \c@zwarakay \fi }
+\def \add@fathatan  {\ifv@c \last@voc \c@fathatan \fi }
+\def \add@kasratan  {\ifv@c \last@voc \c@kasratan \fi }
+\def \add@dammatan  {\ifv@c \last@voc \c@dammatan \fi }
+\def \add@fathaspec {\ifv@c \last@voc \c@fathaspec \fi }
+\def \add@kasraspec {\ifv@c \last@voc \c@kasraspec \fi }
+\def \add@ammad     {\ifv@c \last@voc \c@ammad 	  \fi }
+\def \add@bars      {\ifv@c \last@voc \c@bars     \fi }
+\def \add@kh@hamza  {\ifv@c \last@voc \c@kh@hamza \fi }
+\def \add@kl@hamza  {\ifv@c \last@voc \c@kl@hamza \fi }
+\def \add@kh@hamzl  {\ifv@c \last@voc \c@kh@hamzl \fi }
+\def \add@kl@hamzl  {\ifv@c \last@voc \c@kl@hamzl \fi }
+
+%%%%%%%%%%%%%%%%%%%%% output code constants %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\chardef \c@shadda   = 1     \chardef \c@hamza    = 2
+\chardef \c@hamzalow = 3     \chardef \c@madda    = 4
+\chardef \c@high     = 10
+
+\chardef \c@sukun     = 1    \chardef \c@fatha     = 2
+\chardef \c@kasra     = 3    \chardef \c@damma     = 4
+\chardef \c@fathatan  = 5    \chardef \c@kasratan  = 6
+\chardef \c@dammatan  = 7    \chardef \c@zwarakay  = 8
+\chardef \c@wasla     = 9    \chardef \c@fathaspec = 10
+\chardef \c@kasraspec = 11   \chardef \c@ammad     = 12
+\chardef \c@kas@fath  = 13   \chardef \c@bars      = 14
+\chardef \c@kh@hamza  = 15   \chardef \c@kl@hamza  = 16
+\chardef \c@kh@hamzl  = 17   \chardef \c@kl@hamzl  = 18
+
+%%%%%%%%%%%%%%%%%%%%%%%% end of routines %%%%%%%%%%%%%%%%%%%%%%%% 
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%% 

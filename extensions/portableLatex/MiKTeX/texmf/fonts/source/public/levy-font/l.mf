@@ -1,0 +1,61 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 9.5u#,asc_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = -.25u#,-.25u# enddef;
+def krn = -.75u# enddef;
+     
+def gen_letter=
+  pickup fine.nib;
+  x1-.5stem=hround .75u; y1+.5stem=h;                   %top left
+  z1'=(1,.2); pos1(stem,angle z1'+90);                  %direction at z1
+  x3+x1=w; y3-.5stem=-oo; pos3(stem,-angle z1'+90);     %bottom right
+  y2=x_height; x2=.5[x1,x3];                            %attachment
+  z2'=(z3-z1)yscaled 2; pos2(hair,angle z2'+90);        %direction at z4
+  filldraw double_circ_stroke z1e{z1'}...
+    z2e{(z3-z1)yscaled 2}...{z1' yscaled -1}z3e;                %diagonal
+  lft x4l=hround.75u; bot y4l=0;                                %bottom left
+  numeric stem'; stem'=stem-currentbreadth; numeric slope;      %from z4 to z4
+  slope=angle(z2-z4l)+angle(length(z2-z4l)+-+.5stem',.5stem');
+  x4r=x4l+(stem'/sind slope); y4r=y4l; z4=.5[z4r,z4l];
+  path p; p=z1{z1'}...z2{(z3-z1)yscaled 2}...{z1' yscaled -1}z3;
+  forsuffixes e=r,l: z5e=(z4e--(z4e+2(z2-z4))) intersectionpoint p; endfor
+  filldraw stroke z4e{(z2-z4)if not monowidth: xscaled 1.2 fi}..z5e;
+enddef;
+     
+cmchar "Lowercase lambda";
+beginchar("l",dims);
+this_letter; penlabels(1,2,3,4,5); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by lambda";
+begindoublechar(oct"014",dim_sigma);
+mid_sigma; doublecharkern(krn); middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

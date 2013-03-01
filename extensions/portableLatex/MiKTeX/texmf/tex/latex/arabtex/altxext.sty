@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% altxext.sty
+% patches for LaTeX in arabic mode
+% for use with arabart.cls
+% ArabTeX 3.11
+% 04.05.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {altxext.sty} {3.11 LaTeX extensions for Arabic mode} {04.05.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@outputdblcol {% part of output routine for Arabic mode
+\if@firstcolumn \global\@firstcolumnfalse
+	\global\setbox\@leftcolumn \box\@outputbox
+\else \global\@firstcolumntrue
+	\setbox\@outputbox \vbox {\hbox to\textwidth {%
+		\hskip \columnwidth
+		\hfil \vrule width\columnseprule \hfil
+		\hbox to\columnwidth {\box\@leftcolumn \hss}%
+		\hskip -\textwidth
+		\hbox to\columnwidth{\box\@outputbox \hss}%
+		\hskip \columnsep
+		\hskip \columnwidth }}%
+	\@combinedblfloats \@outputpage 
+	\begingroup \@dblfloatplacement \@startdblcolumn
+	\@whilesw\if@fcolmade \fi
+	{\@outputpage \@startdblcolumn }\endgroup
+\fi}
+ 
+\let \@outputdblcol \a@outputdblcol % for Arabic mode
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@addmarginpar {% part of output routine for Arabic mode
+\@next \@marbox \@currlist 
+{\@cons\@freelist\@marbox \@cons\@freelist\@currbox}\@latexbug 
+\@tempcnta \m@ne
+\if@twocolumn
+       	\if@firstcolumn \@tempcnta \@ne \fi
+\else  \if@mparswitch
+		\ifodd \c@page \else \@tempcnta \@ne \fi
+	\fi
+       	\if@reversemargin \@tempcnta -\@tempcnta \fi
+\fi
+\ifnum \@tempcnta < \z@  
+	\global\setbox\@marbox \box\@currbox 
+\fi
+\@tempdima \@mparbottom \advance\@tempdima -\@pageht
+\advance\@tempdima \ht \@marbox 
+\ifdim \@tempdima > \z@
+       	\@@warning {Marginpar on page \thepage\space moved}%
+\else \@tempdima \z@ 
+\fi
+\global\@mparbottom \@pageht 
+\global\advance\@mparbottom \@tempdima
+\global\advance\@mparbottom \dp\@marbox
+\global\advance\@mparbottom \marginparpush
+\advance\@tempdima -\ht\@marbox
+\global\ht\@marbox \z@ \global\dp\@marbox \z@
+\vskip -\@pagedp \vskip\@tempdima \nointerlineskip
+\hbox to\columnwidth 
+	{\ifnum \@tempcnta > \z@
+       		\hskip\columnwidth \hskip\marginparsep
+	\else 	\hskip -\marginparsep \hskip -\marginparwidth 
+	\fi   	\box\@marbox \hss}%
+\nobreak   %% RmS 91/06/21 \nobreak added
+\vskip -\@tempdima \nointerlineskip
+\hbox {\vrule \@height\z@ \@width\z@ \@depth\@pagedp }}
+
+\let \@addmarginpar \a@addmarginpar % for Arabic mode
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\markright#1{{\let\protect\noexpand
+     \let\label\relax \let\index\relax \let\glossary\relax
+     \expandafter\@markright\@themark
+     {#1}\mark{\@themark}}\if@nobreak\ifvmode\nobreak\fi\fi}
+ 
+\def\@markright#1#2#3{\gdef\@themark{{#1}{#3}}}
+
+\def \markleft #1{{\let\protect\noexpand
+\let\label\relax \let\index\relax \let\glossary\relax
+\expandafter\@markleft \@themark {#1}%
+\mark {\@themark }}%
+\if@nobreak \ifvmode \nobreak \fi \fi }
+ 
+\def \@markleft #1#2#3{\gdef\@themark {{#3}{#2}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\UsePackage {alists} % load LaTeX extensions for Arabic lists
+\UsePackage {asect} % load LaTeX extensions for Arabic sections
+\UsePackage {atabg} % load LaTeX extensions for Arabic tabbing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput

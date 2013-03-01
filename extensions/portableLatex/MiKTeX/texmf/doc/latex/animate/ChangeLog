@@ -1,0 +1,128 @@
+2012-05-11
+	* minor, non-vital fix
+
+2012-05-11
+	* new: optional fourth field in timeline files for calling JavaScript;
+	ticking PSTricks metronome example by Manuel Luque added to docs
+
+2011-12-21
+	* transparency and patterns in pgf/TikZ graphics with dvipdfmx/xetex
+	drivers
+
+2011-09-16
+	* detects powerdot's `clock' option
+
+2011-08-22
+	* \pdfmdfivesum now used correctly
+
+2011-05-30
+	* rephrasing error message in documentation source file
+	* improving call to \pdfmdfivesum in animate.sty
+
+2010-09-28
+	* \graphicspath also used for searching timeline file
+
+2010-09-16
+	* now uses \graphicspath from graphics bundle, if set
+
+2010-08-31
+	* some improvements to \multiframe loop variable computation
+
+2010-03-04
+	* Fix: workaround for some powerdot/pstricks-add/animate issue
+
+2010-02-17
+	* small code changes
+
+2010-01-22
+	* H. Oberdiek's `transparent' package now supported as well
+
+2010-01-20
+	* Fix: transparency and patterns in PGF/TikZ pictures lead to broken PDFs
+	with the pdftex output driver
+	* Fix: animations from PGF/TikZ pictures could not be produced with the
+	dvips output driver
+
+2010-01-04
+	* check if ConTeXt's support file `supp-pdf.mkii' exists (MPS
+	to PDF converter, formerly named `supp-pdf.tex')
+
+2009-10-30
+	* revision of the documentation
+
+2009-10-08
+	* New: embedding files and pages in reverse order now possible with
+	\animategraphics
+
+2009-10-02
+	* small code changes
+
+2009-09-30
+	* small code changes
+
+2009-09-24
+	* DVI resolution is now checked during PS to PDF conversion and a warning
+	message is written to stderr if it is >1200dpi. Large dpi values may
+	lead to distorted animations when using Ghostscript ps2pdf.
+
+2009-08-31
+	* small code and documentation adjustments
+
+2009-08-17
+	* small code changes
+
+2009-07-23
+	* slight changes in the documentation
+
+2009-07-20
+	* New: the transparency stack can now be cleared using `c' in the
+	timeline file
+	* improved documentation of the timeline option
+	* new animateinline example (Lorenz Attractor) 
+	* Fix: animfp.sty: trailing zeros are now removed from the fractional part
+	of the result of the addition of two reals
+
+2009-06-08
+	* Fix: \newframe did not like non-integer frame rates; the same applied to
+	frame rate arguments in timeline files
+
+2009-05-07
+	* minor changes/additions in the documentation
+
+2009-01-26
+	* minor code refinements
+
+2008-10-06
+	* Fix: sometimes, when used with Powerdot document class, parts
+	of embedded graphics were missing
+
+2008-08-28
+	* Fix: package `calc' like length specifications didn't work with resizing
+	options
+
+2008-08-26
+	* \@anim@scale rewritten
+	* New: length commands \width, \height, \depth and \totalheight for use
+	with the resizing options
+
+2008-08-20
+	* New: multipage PDF support for XeTeX output driver
+	* Change: some exotic graphics formats that depend on QuickTime removed
+	from search list for XeTeX output driver
+
+2008-08-06
+	* minor modifications of the documentation
+
+2008-07-31
+	* minor code and documentation refinements
+
+2008-07-17
+	* New: start of maintaining a ChangeLog file
+	* Fix: wrong calculation of dimension variables in \multiframe command
+	* Change: stepped animations (using `step' option) don't loop any longer
+	by default if `controls' option is set; better \multiframe diagnostics of
+	wrong user input
+
+2008-07-14
+	* New: \multiframe command for building loops around parameterized
+	pictures

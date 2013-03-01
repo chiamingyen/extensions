@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/smflatex"><TPM:Name>smflatex</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Classes conforming to Societie Mathematique de France.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The Societe mathematique de France provides a set of classes,
+      packages and bibtex styles that are used in its publications.
+      They are based on AMS classes (whose code is sometimes recopied)
+      and mainly "upward-compatible". Their main features are: quite
+      different design; new environments for typesetting some
+      information in two languages (altabstract, alttitle,
+      altkeywords); if necessary, use of babel (option frenchb) and
+      deactivation of some features of frenchb. Includes smfart.cls,
+      smfbook.cls, smfplain.bst, smfalpha.bst, amongst opthers.</TPM:Description><TPM:RunFiles size="147761">texmf\bibtex\bst\smflatex\smfalpha.bst texmf\bibtex\bst\smflatex\smfplain.bst texmf\tex\latex\smflatex\smfart.cls texmf\tex\latex\smflatex\smfbook.cls texmf\tex\latex\smflatex\smfenum.sty texmf\tex\latex\smflatex\smfthm.sty texmf\tpm\packages\smflatex.tpm</TPM:RunFiles><TPM:DocFiles size="129922">texmf\doc\latex\smflatex\ALIRE texmf\doc\latex\smflatex\e-doc.dvi texmf\doc\latex\smflatex\e-doc.tex texmf\doc\latex\smflatex\f-doc.dvi texmf\doc\latex\smflatex\f-doc.tex texmf\doc\latex\smflatex\README</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>2957f02715d8654230b044384533bca8</TPM:MD5></rdf:Description></rdf:RDF>

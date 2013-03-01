@@ -1,0 +1,213 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\magnification=\magstep1
+\def\.#1{{\tt #1}}
+\def\disp#1{\line{\tt #1\hfil}}
+\def\angles#1{{$\langle$\rm #1$\rangle$}}
+\chardef\!`\\
+
+\def\verbatim{\begingroup
+  \def\do##1{\catcode`##1=12 } \dospecials
+  \parskip 0pt \parindent 0pt
+  \catcode`\ =13 \catcode`\^^M=13
+  \tt \catcode`\?=0 \verbatimdefs \verbatimgobble}
+{\catcode`\^^M=13{\catcode`\ =13\gdef\verbatimdefs{\def^^M{\ \par}\let =\ }} %
+  \gdef\verbatimgobble#1^^M{}}
+
+\centerline{INSTALLATION INSTRUCTIONS}
+
+\medskip
+
+(Note to non-UNIX sites: These instructions should be followed verbatim
+only on systems running UNIX.  I've tried to make the instructions 
+understandable to people without knowledge of UNIX, so that if you're
+familiar with your own operating system it should not be hard to
+figure out the right thing to do under it.  If the separator between
+components of a file pathname is not `/', you should change the
+definition of \.{readfrom} in \.{grbase.mf}.
+
+See the \.{README} file for an important note concerning required
+METAFONT capabilities.)
+
+In order to make the fonts, you need an executable version of
+METAFONT, version 1.0 or newer, with the `plain' base preloaded
+(see p.~279 of {\it The METAFONTbook\/} if you're not familiar with this).
+You will also need the \.{cmbase.mf} file, which is distributed
+with METAFONT, unless you have an executable METAFONT with that
+file already preloaded.  The shell script (batch file) \.{makefont}
+assumes that \.{cmmf} is an executable METAFONT with \.{cmbase.mf}
+preloaded; if you don't have that you can replace \.{cmmf} by
+\.{mf} in \.{makefont}.  (Non-UNIX sites: you'll have to edit
+\.{makefont} anyway, as well as \.{testfont} and \.{makeall} below.
+In each case the comments inside the file should guide you in finding
+the right incantations under your operating system.)
+
+If METAFONT has never been used at your site before, you will
+also need to create a file \.{local.mf} and preload it together
+with \.{plain.mf}.  (See pp.~278--9 of {\it The METAFONTbook}.)
+This file
+should contain the characteristics of the different output
+devices that you will generate fonts for.  The parameters
+for many output devices can be found on page 269 of the November
+1987 issue of TUGboat; and two more devices (the Apple laserwriter
+and Sun workstation) which are not in that table can be found
+in \.{modes.mf} (in this distribution).  The values in \.{modes.mf}
+are experimental; if you feel like fiddling with them and think
+you can get better results, let me know.  In any case, your
+\.{local.mf} should contain mode definitions for all output devices
+you intend to use the fonts with, and it should be preloaded
+together with \.{plain.mf}, so that when you issue the command
+\.{mf} or \.{cmmf} all this information is already in memory.
+
+Next you should test one font by saying
+
+\smallskip
+\disp{makefont grreg10 [\angles{modename}]}
+\smallskip
+
+(where \angles{modename} stands for \.{alw} if you're generating
+for the laserwriter, for example; the default is
+\.{localmode}, which should be defined in \.{local.mf}).
+It will take a while to make the font, and when
+it's done you can look in \.{grreg10.log} to see if everything went
+smoothly.  If everything is OK, move \.{grreg10.tfm}
+and \.{grreg10.NNNgf} to the system's \TeX\ font directory (often
+\.{/usr/lib/tex/fonts}) and do a test run:
+
+\smallskip
+\disp{\% tex}
+\disp{\angles{blurb...}}
+\disp{**\!font\!test=grreg10 \!test ABC \!end}
+\disp{\angles{more blurbs; hopefully no error messages}}
+\disp{\%}
+\smallskip
+
+The text typed during this test should be very simple, as above:
+no accents, ligatures, etc.  If you got a \.{texput.dvi} file without
+problems, you should try to print it, using your local dvi driver.
+Some dvi drivers cannot read font files of the form \.{*.NNNgf},
+only those of the form \.{*.NNNpk}; you can use the utility
+\.{gftopk}, which comes with the METAFONT distribution, to carry
+out the conversion.  If your driver can only read \.{*.NNNpxl} fonts,
+it's time to get a new one.
+
+Another problem with some dvi drivers is that they don't
+take 256 character fonts, although they should, since 256 characters
+is part of standard \TeX.  (The reason is, presumably, that Computer
+Modern fonts only have 128 characters, and programmers were counting
+on all other fonts being similarly restricted.)  To test this
+aspect of your driver, create a dvi file with a character in the
+range 128-255:
+
+\smallskip
+\disp{\% tex}
+\disp{\angles{blurb...}}
+\disp{**\!font\!test=grreg10 \!test 'a \!end}
+\disp{\angles{more blurbs}}
+\disp{\%}
+\smallskip
+
+When you try to print this, you may get an error message, or
+a core dump, or simply a blank page.  If so, you will have to
+fix your driver or get a new one.  Fixing your driver involves
+understanding fairly well the dvi format (carefully explained
+in {\it\TeX: The Program}), but should not be beyond anyone with
+a modicum of systems programming experience.  Getting a driver
+that works is probably easier if you're well connected,
+electronically speaking.  I recommend Nelson Beebe's family
+of drivers (page 41 of the April 1987 TUGboat).  Here are
+some hints from Nelson Beebe for obtaining his drivers: 
+
+\medskip
+\begingroup
+\verbatim
+> From BEEBE@SCIENCE.UTAH.EDU Mon Dec 21 10:28:08 1987
+> From: "Nelson H.F. Beebe" <Beebe@SCIENCE.UTAH.EDU>
+> Subject: Re: dvi drivers
+> X-Us-Mail: "Center for Scientific Computing, South Physics,
+>   University of Utah, Salt Lake City, UT 84112"
+> X-Telephone: (801) 581-5254
+> 
+> Internet users may retrieve the DVI driver family via ANONYMOUS
+> FTP to SCIENCE.UTAH.EDU; get the via 00README.TXT in the login
+> directory for details.  The files 00PCDOS.TXT, 00TOPS20.TXT and
+> 00VMSSETUP.TXT in the same directory describe TeX and DVI
+> directory layouts and system logical names on IBM PC DOS, TOPS-20
+> and VAX VMS.  Compressed Unix tar files are available in several
+> directories.
+> 
+> VAX VMS BACKUP savesets (compressed and uncompressed) are
+> available via ANONYMOUS FTP to CTRSCI.UTAH.EDU; the file
+> 00README.TXT in the login directory has further details.
+> 
+> Australian ACSnet users may retrieve the DVI drivers from
+> LaTrobe University, Bundoora, Victoria; send mail to
+> 	"munnari!latvax8.lat.oz.au!ccmk"@uunet.uu.net
+> for retrieval details.
+> 
+> European Bitnet users may contact $92@dhdurz1.bitnet
+> at the University of Heidelberg.  Here is how:
+> 	With the command directed at LISTSERV at DHDURZ1.BITNET
+> 		GET DRIVER FILELIST
+> 	you will receive a directory from the driver
+> 	subdirectory. To receive a file:
+> 		GET filename filetype
+> 
+> European DECNET users may retrieve the DVI drivers (and a
+> large collection of other TeX-related software) from the
+> University of Padova in Padova, Italy; send mail to 
+> 	CALVANI%VAXFPD.INFNET@IBOINFN.BITNET
+> for retrieval details.
+> 
+> UK Janet users should contact AbbottP@uk.ac.aston.mail (Aston
+> University).  Here is the latest retrieval information from
+> TeXHaX #92 (03-Nov-87):
+> 	The DVI family of drivers software is now stored
+> 	under (and has been for some time) public.texdvi208.
+> 	I have been notified that version 2.10 is being
+> 	shipped and this will be made available under
+> 	public.texdv210. The index for version 2.08 is
+> 		aston.kirk::[public.texdvi208]000index.list
+> 	If you want to know the latest state of the
+> 	archive the file is
+> 		aston.kirk::[public]000aston.readme
+?endgroup
+\endgroup
+\medskip
+
+Once you've got the driver working, you can type
+
+\smallskip
+\disp{testfont grreg10}
+\smallskip
+
+for a full-blown test of the font \.{grreg10}.  This creates
+a dvi file \.{grtestfont.dvi} and moves it to \.{grreg10.dvi}, which you
+should then print.
+
+Finally, you can say
+
+\smallskip
+\disp{makeall [ \angles{modename} [ \angles{mag} ]]}
+\smallskip
+
+for all modes and magnifications desired.  Don't forget to move
+the \.{*.tfm} and \.{*.NNNgf} files thus obtained to their destination
+directory.
+
+The last step is to TeX the user's manual page (\.{doc/readme.tex})
+and make it available to users.
+\end

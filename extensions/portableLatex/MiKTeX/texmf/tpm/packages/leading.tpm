@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/leading"><TPM:Name>leading</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Define leading with a length</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The package defines a command \leading, whose argument is a &lt;length&gt; that specifies the nominal distance between consecutive baselines of typeset text. The command replaces the rather more difficult LaTeX command \linespread{&lt;ratio&gt;}, where the leading is specified by reference to the font size. 
+
+The author is Will Robertson. The package is Copyright © 2007 Will Robertson.
+
+</TPM:Description><TPM:RunFiles size="2292">texmf\tex\latex\leading\leading.sty texmf\tpm\packages\leading.tpm</TPM:RunFiles><TPM:DocFiles size="92761">texmf\doc\latex\leading\leading.pdf texmf\doc\latex\leading\README</TPM:DocFiles><TPM:SourceFiles size="3826">texmf\source\leading-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1229978258</TPM:TimePackaged><TPM:MD5>87aec481c4523467c20ade423d407284</TPM:MD5></rdf:Description></rdf:RDF>

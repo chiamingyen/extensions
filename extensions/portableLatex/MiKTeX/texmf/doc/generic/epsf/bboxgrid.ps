@@ -1,0 +1,317 @@
+%!PS-Adobe
+%%BoundingBox: 0 0 612 792
+%%% ====================================================================
+%%%  @PostScript-file{
+%%%     author          = "Nelson H. F. Beebe",
+%%%     version         = "1.01",
+%%%     date            = "22 January 1994",
+%%%     time            = "23:33:36 MST",
+%%%     filename        = "bboxgrid.ps",
+%%%     address         = "Center for Scientific Computing
+%%%                        Department of Mathematics
+%%%                        University of Utah
+%%%                        Salt Lake City, UT 84112
+%%%                        USA
+%%%                        Tel: +1 801 581 5254
+%%%                        FAX: +1 801 581 4148",
+%%%     checksum        = "57568 317 1097 8973",
+%%%     email           = "beebe@solitude.math.utah.edu (Internet)",
+%%%     codetable       = "ISO/ASCII",
+%%%     keywords        = "grid, measure, calibration",
+%%%     supported       = "yes",
+%%%     docstring       = "This PostScript file produces a numbered grid
+%%%                        measured in PostScript units of big points
+%%%                        for the determination of correct bounding
+%%%                        boxes of other PostScript files.
+%%%
+%%%                        Accurate bounding box measurements are
+%%%                        required if the PostScript is to be included
+%%%                        in other PostScript documents, such as via
+%%%                        the TeX \special{} command.
+%%%
+%%%                        While PostScript by default places the (0,0)
+%%%                        origin at the lower-left page corner,
+%%%                        variations of several points will be found in
+%%%                        different printers, even between identical
+%%%                        models from the same vendor.
+%%%
+%%%                        To correctly determine the BoundingBox of an
+%%%                        arbitrary PostScript figure, overlay a
+%%%                        printed copy of the figure on the grid
+%%%                        produced by this file on the SAME printer,
+%%%                        and measure from it the coordinates of the
+%%%                        lower-left and upper-right corners.  These
+%%%                        four integers should be entered in the
+%%%                        PostScript file as a comment of the form
+%%%
+%%%                        %%BoundingBox: llx lly urx ury
+%%%
+%%%                        This comment should be placed near the
+%%%                        beginning, preferably right after the initial
+%%%                        line that should start %! or %!PS-Adobe...
+%%%
+%%%                        The checksum field above contains a CRC-16
+%%%                        checksum as the first value, followed by the
+%%%                        equivalent of the standard UNIX wc (word
+%%%                        count) utility output of lines, words, and
+%%%                        characters.  This is produced by Robert
+%%%                        Solovay's checksum utility.",
+%%%  }
+%%% ====================================================================
+
+%%% 1.01 [22-Jan-1994]  add top label, and bp axis labels
+%%% 1.00 [22-Nov-1991]  original version
+
+/TickSize 5 def
+/TickStep 5 def
+/TickFontSize 9 def
+
+/Frame                                  % x y width height Frame
+{
+        /height exch def
+        /width exch def
+        /y exch def
+        /x exch def
+        newpath
+        x y moveto
+        width 0 rlineto
+        0 height rlineto
+        width neg 0 rlineto
+        closepath
+        stroke
+
+        x y width TickStep TickSize TickX
+        x y width TickStep TickSize NumberX
+        x y height add width TickStep TickSize neg TickX
+        x y height add width TickStep TickSize neg NumberX
+        x y height TickStep TickSize TickY
+        x y height TickStep TickSize NumberY
+        x width add y height TickStep TickSize neg TickY
+        x width add y height TickStep TickSize neg NumberY
+        x y 25 25 width height Grid
+} def
+
+/Grid                                   % x y dx dy width height Grid
+{
+        /Gheight exch def
+        /Gwidth exch def
+        /Gdy exch def
+        /Gdx exch def
+        /Gy exch def
+        /Gx exch def
+
+        Gx
+        Gdx
+        Gx Gwidth add
+        {
+                newpath
+                Gy moveto
+                0 Gheight rlineto
+                closepath
+                stroke
+        }
+        for
+
+        Gy
+        Gdy
+        Gy Gheight add
+        {
+                newpath
+                Gx exch moveto
+                Gwidth 0 rlineto
+                closepath
+                stroke
+        }
+        for
+} def
+
+
+/NumberX                                % x y length dx tick NumberX
+{
+        /Helvetica findfont TickFontSize scalefont setfont
+        /Ttick exch def
+        /Tdx exch def
+        /Tlength exch def
+        /Ty exch def
+        /Tx exch def
+
+        /temp 12 string def
+        Tx
+        Tdx 5 mul
+        Tx Tlength add
+        {
+                dup
+                Ty moveto               % Tx already on stack
+                Ttick 0 lt
+                { 0 TickFontSize 0.5 mul rmoveto }
+                { 0 TickFontSize -1.5 mul rmoveto }
+                ifelse
+                temp cvs
+                dup stringwidth pop -2 div 0 rmoveto
+                show
+        }
+        for
+} def
+
+/NumberY                                % x y length dy tick NumberY
+{
+        /Helvetica findfont TickFontSize scalefont setfont
+        /Ttick exch def
+        /Tdy exch def
+        /Tlength exch def
+        /Ty exch def
+        /Tx exch def
+
+        /temp 12 string def
+        Ty
+        Tdy 5 mul
+        Ty Tlength add
+        {
+                dup
+                Tx exch moveto          % Ty already on stack
+                Ttick neg TickFontSize -2 div rmoveto
+                temp cvs
+                Ttick 0 gt
+                { dup stringwidth pop neg 0 rmoveto }
+                if
+                show
+        }
+        for
+} def
+
+/TickX                                  % x y length dx tick TickX
+{
+        /Ttick exch def
+        /Tdx exch def
+        /Tlength exch def
+        /Ty exch def
+        /Tx exch def
+
+        Tx
+        Tdx
+        Tx Tlength add
+        {
+                dup
+                newpath
+                Ty moveto               % Tx already on stack
+                cvi Tdx 5 mul cvi mod 0 eq% draw tick, double length every 5th
+                { Ttick 2 mul }
+                { Ttick }
+                ifelse
+                0
+                exch
+                rlineto
+                closepath
+                stroke
+        }
+        for
+} def
+
+/TickY                                  % x y length dy tick TickY
+{
+        /Ttick exch def
+        /Tdy exch def
+        /Tlength exch def
+        /Ty exch def
+        /Tx exch def
+
+        Ty
+        Tdy
+        Ty Tlength add
+        {
+                dup
+                newpath
+                Tx exch moveto          % Ty already on stack
+                cvi Tdy 5 mul cvi mod 0 eq% draw tick, double length every 5th
+                { Ttick 2 mul }
+                { Ttick }
+                ifelse
+                0
+                rlineto
+                closepath
+                stroke
+        }
+        for
+} def
+
+/inch
+{
+        72 mul
+} def
+
+/mm
+{
+        72 mul 25.4 div
+} def
+
+% (string) CenterCenterShow -- show centered at currentpoint
+/CenterCenterShow
+{
+        dup stringwidth pop -2 div TickFontSize -2 div rmoveto show
+} def
+
+% (string) RightCenterShow -- show right-centered at currentpoint
+/RightCenterShow
+{
+        dup stringwidth pop neg TickFontSize -2 div rmoveto show
+} def
+
+% (string) LeftCenterShow -- show right-centered at currentpoint
+/LeftCenterShow
+{
+        0 TickFontSize -2 div rmoveto show
+} def
+
+% Select ONE of these pairs of page dimensions
+
+% ISO A4-format paper
+% /PageWidth   210 mm def
+% /PageHeight  297 mm def
+
+% US A-format paper
+/PageWidth   8.5 inch def
+/PageHeight 11.0 inch def
+
+% Make grid lines half the normal thickness
+currentlinewidth 0.5 mul setlinewidth
+
+% Title the grid
+/Helvetica-Bold findfont TickFontSize scalefont setfont
+PageWidth 2 div 25 moveto
+(bboxgrid.ps [Version 1.01] [22 January 1994]) dup
+CenterCenterShow
+
+PageWidth 2 div 780 moveto
+CenterCenterShow
+
+% You can change this line to make a different grid.  The values
+% should all be multiples of 25.
+% The values 50 50 525 700 are appropriate for an Apple LaserWriter II.
+% x  y width height Frame
+50 50   525    700 Frame
+
+% label bottom horizontal axis at each end
+50 30 moveto
+(bp) CenterCenterShow
+575 30 moveto
+(bp) CenterCenterShow
+
+% label top horizontal axis at each end
+50 770 moveto
+(bp) CenterCenterShow
+575 770 moveto
+(bp) CenterCenterShow
+
+% label left vertical axis at each end
+25 50 moveto
+(bp) RightCenterShow
+25 750 moveto
+(bp) RightCenterShow
+
+% label right vertical axis at each end
+600 50 moveto
+(bp) LeftCenterShow
+600 750 moveto
+(bp) LeftCenterShow
+
+showpage

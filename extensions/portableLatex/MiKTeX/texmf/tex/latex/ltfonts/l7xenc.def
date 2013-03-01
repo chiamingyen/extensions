@@ -1,0 +1,238 @@
+%% l7xenc.def
+%%
+%% Sigitas Tolu{\v s}is, VTeX, Akademijos 4, Vilnius, Lithuania
+%% e-mail sigitas@vtex.lt
+%% http://www.vtex.lt/tex/littex/
+%%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.2
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+% 
+% Based on  t1enc.def [2001/06/05 v1.94]
+% Changes:
+%  2002.11.12 - ismesti dviraidziai lietuvisku simboliu trumpiniai
+%  2006.09.06 - default seima lmr
+%  2008.10.14 - ivesti pataisymai del case sensitive failu vardu
+%
+\ProvidesFile{l7xenc.def}
+ [2008/10/14 v1.96
+         LaTeX-LT file]
+\bgroup
+  \def\default@family{lmr}%
+  \DeclareFontEncoding{L7x}{}{}
+\egroup
+\@ifundefined{L7x@default@family}{\@namedef{L7x@default@family}{lmr}}{}
+\def\hooked@encoding{L7x}
+\DeclareRobustCommand\selectfont
+  {%
+  \ifx\f@linespread\baselinestretch 
+  \else
+    \set@fontsize\baselinestretch\f@size\f@baselineskip 
+  \fi
+  \ifx\f@encoding\hooked@encoding
+    \expandafter\ifx\csname \f@encoding+\f@family\endcsname\relax
+      \edef\reserved@a{\lowercase{\noexpand\IfFileExists{\f@encoding\f@family.fd}}}%
+      \reserved@a\relax{%
+        \expandafter\ifx\csname\f@encoding @default@family\endcsname\relax
+	\else
+          \@font@info{Failed loading font information for \f@encoding+\f@family.}%
+	  \expandafter\edef\expandafter\f@family\expandafter{\csname\f@encoding @default@family\endcsname}%
+	\fi
+	}%
+    \fi
+  \fi
+  \xdef\font@name{\csname\curr@fontshape/\f@size\endcsname}%
+  \pickup@font
+  \font@name
+  \size@update
+  \enc@update
+  }
+\DeclareTextAccent{\`}{L7x}{0}
+\DeclareTextAccent{\'}{L7x}{1}
+\DeclareTextAccent{\^}{L7x}{2}
+\DeclareTextAccent{\~}{L7x}{3}
+\DeclareTextAccent{\"}{L7x}{4}
+\DeclareTextAccent{\H}{L7x}{5}
+\DeclareTextAccent{\r}{L7x}{6}
+\DeclareTextAccent{\v}{L7x}{7}
+\DeclareTextAccent{\u}{L7x}{8}
+\DeclareTextAccent{\=}{L7x}{9}
+\DeclareTextCommand{\b}{L7x}[1]
+   {\hmode@bgroup\o@lign{\relax#1\crcr\hidewidth\sh@ft{29}%
+     \vbox to.2ex{\hbox{\char9}\vss}\hidewidth}\egroup}
+\DeclareTextAccent{\.}{L7x}{10}
+\DeclareTextCommand{\d}{L7x}[1]
+   {\hmode@bgroup
+    \o@lign{\relax#1\crcr\hidewidth\sh@ft{10}.\hidewidth}\egroup}
+\DeclareTextCommand{\c}{L7x}[1]
+   {\leavevmode\setbox\z@\hbox{#1}\ifdim\ht\z@=1ex\accent11 #1%
+     \else{\ooalign{\hidewidth\char11\hidewidth
+        \crcr\unhbox\z@}}\fi}
+\DeclareTextCommand{\k}{L7x}[1]
+   {\oalign{\null#1\crcr\hidewidth\char12}}
+\DeclareTextSymbol{\quotesinglbase}{L7x}{13}
+\DeclareTextSymbol{\textquotesinglbase}{L7x}{13}
+\DeclareTextSymbol{\guilsinglleft}{L7x}{14}
+\DeclareTextSymbol{\guilsinglright}{L7x}{15}
+\DeclareTextSymbol{\textquotedblleft}{L7x}{16}
+\DeclareTextSymbol{\textquotedblright}{L7x}{17}
+\DeclareTextSymbol{\quotedblbase}{L7x}{18}
+\DeclareTextSymbol{\textquotedblbase}{L7x}{18}
+\DeclareTextSymbol{\guillemotleft}{L7x}{19}
+\DeclareTextSymbol{\guillemotright}{L7x}{20}
+\DeclareTextSymbol{\textendash}{L7x}{21}
+\DeclareTextSymbol{\textemdash}{L7x}{22}
+\DeclareTextSymbol{\textcompwordmark}{L7x}{23}
+\DeclareTextSymbol{\i}{L7x}{25}
+\DeclareTextSymbol{\j}{L7x}{26}
+%\DeclareTextSymbol{\textvisiblespace}{L7x}{32}
+
+\DeclareTextSymbol{\textasciicircum}{L7x}{`\^}
+\DeclareTextSymbol{\textasciitilde}{L7x}{`\~}
+\DeclareTextSymbol{\textbackslash}{L7x}{`\\}
+\DeclareTextSymbol{\textbar}{L7x}{`\|}
+\DeclareTextSymbol{\textbraceleft}{L7x}{`\{}
+\DeclareTextSymbol{\textbraceright}{L7x}{`\}}
+\DeclareTextSymbol{\textdollar}{L7x}{`\$}
+\DeclareTextSymbol{\textgreater}{L7x}{`\>}
+\DeclareTextSymbol{\textless}{L7x}{`\<}
+\DeclareTextSymbol{\textquotedbl}{L7x}{`\"}
+\DeclareTextSymbol{\textquoteleft}{L7x}{`\`}
+\DeclareTextSymbol{\textquoteright}{L7x}{`\'}
+
+\DeclareTextSymbol{\textunderscore}{L7x}{95}
+\DeclareTextSymbol{\texteuro}{L7x}{128}
+% .notdef 129
+% textquotesinglbase 130
+\DeclareTextSymbol{\textflorin}{L7x}{131}
+% textquotedblbase 132
+\DeclareTextSymbol{\textellipsis}{L7x}{133}
+\DeclareTextSymbol{\textdagger}{L7x}{134}
+\DeclareTextSymbol{\textdaggerdbl}{L7x}{135}
+% .notdef 136
+\DeclareTextSymbol{\textperthousand}{L7x}{137}
+% .notdef 138
+% guilsinglleft 139
+\DeclareTextSymbol{\OE}{L7x}{140}
+% dieresis 141
+% caron 142
+% cedilla 143
+% .notdef 144
+% quoteleft 145
+% quoteright 146
+% textquotedblleft 147
+% textquotedblright 148
+\DeclareTextSymbol{\textbullet}{L7x}{149}
+% textendash 150
+% textemdash 151
+% .notdef 152
+\DeclareTextSymbol{\texttrademark}{L7x}{153}
+% .notdef 154
+% guilsinglright 155
+\DeclareTextSymbol{\oe}{L7x}{156}
+% macron 157
+% ogonek 158
+% .notdef 159
+% space 160
+% textquotedblright 161
+\DeclareTextSymbol{\textcent}{L7x}{162}
+\DeclareTextSymbol{\textsterling}{L7x}{163}
+\DeclareTextSymbol{\textcurrency}{L7x}{164}
+% textquotedblbase 165
+\DeclareTextSymbol{\textbrokenbar}{L7x}{166}
+\DeclareTextSymbol{\textsection}{L7x}{167}
+\DeclareTextSymbol{\O}{L7x}{168}
+\DeclareTextSymbol{\textcopyright}{L7x}{169}
+\DeclareTextSymbol{\copyright}{L7x}{169}% Plain TeX name
+\DeclareTextComposite{\c}{L7x}{R}{170}
+%%\DeclareTextSymbol{\guillemotleft}{L7x}{171}
+\DeclareTextSymbol{\textlogicalnot}{L7x}{172}
+% hyphen 173
+\DeclareTextSymbol{\textregistered}{L7x}{174}
+\DeclareTextSymbol{\AE}{L7x}{175}
+\DeclareTextSymbol{\textdegree}{L7x}{176}
+% plusminus 177
+% ^2 178
+% ^3 179
+% acute 180
+\DeclareTextSymbol{\textmu}{L7x}{181}
+\DeclareTextSymbol{\textparagraph}{L7x}{182}
+\DeclareTextSymbol{\textperiodcentered}{L7x}{183}
+\DeclareTextSymbol{\o}{L7x}{184}
+% ^1 185
+\DeclareTextComposite{\c}{L7x}{r}{186}
+\DeclareTextSymbol{\guillemotright}{L7x}{187}
+%%\DeclareTextSymbol{\textonequarter}{L7x}{188}
+\DeclareTextSymbol{\textonehalf}{L7x}{189}
+\DeclareTextSymbol{\textthreequarters}{L7x}{190}
+\DeclareTextSymbol{\ae}{L7x}{191}
+\DeclareTextComposite{\k}{L7x}{A}{192}
+\DeclareTextComposite{\k}{L7x}{I}{193}
+\DeclareTextComposite{\=}{L7x}{A}{194}
+\DeclareTextComposite{\'}{L7x}{C}{195}
+\DeclareTextComposite{\"}{L7x}{A}{196}
+\DeclareTextComposite{\r}{L7x}{A}{197}
+\DeclareTextComposite{\k}{L7x}{E}{198}
+\DeclareTextComposite{\=}{L7x}{E}{199}
+\DeclareTextComposite{\v}{L7x}{C}{200}
+\DeclareTextComposite{\'}{L7x}{E}{201}
+\DeclareTextComposite{\'}{L7x}{Z}{202}
+\DeclareTextComposite{\.}{L7x}{E}{203}
+\DeclareTextComposite{\c}{L7x}{G}{204}
+\DeclareTextComposite{\c}{L7x}{K}{205}
+\DeclareTextComposite{\=}{L7x}{I}{206}
+\DeclareTextComposite{\c}{L7x}{L}{207}
+\DeclareTextComposite{\v}{L7x}{S}{208}
+\DeclareTextComposite{\'}{L7x}{N}{209}
+\DeclareTextComposite{\c}{L7x}{N}{210}
+\DeclareTextComposite{\'}{L7x}{O}{211}
+\DeclareTextComposite{\=}{L7x}{O}{212}
+\DeclareTextComposite{\~}{L7x}{O}{213}
+\DeclareTextComposite{\"}{L7x}{O}{214}
+\DeclareTextComposite{\k}{L7x}{U}{216}
+\DeclareTextSymbol{\L}{L7x}{217}
+\DeclareTextComposite{\'}{L7x}{S}{218}
+\DeclareTextComposite{\=}{L7x}{U}{219}
+\DeclareTextComposite{\"}{L7x}{U}{220}
+\DeclareTextComposite{\.}{L7x}{Z}{221}
+\DeclareTextComposite{\v}{L7x}{Z}{222}
+\DeclareTextComposite{\k}{L7x}{a}{224}
+\DeclareTextSymbol{\ss}{L7x}{223}
+\DeclareTextComposite{\k}{L7x}{i}{225}
+\DeclareTextComposite{\=}{L7x}{a}{226}
+\DeclareTextComposite{\'}{L7x}{c}{227}
+\DeclareTextComposite{\"}{L7x}{a}{228}
+\DeclareTextComposite{\r}{L7x}{a}{229}
+\DeclareTextComposite{\k}{L7x}{e}{230}
+\DeclareTextComposite{\=}{L7x}{e}{231}
+\DeclareTextComposite{\v}{L7x}{c}{232}
+\DeclareTextComposite{\'}{L7x}{e}{233}
+\DeclareTextComposite{\'}{L7x}{z}{234}
+\DeclareTextComposite{\.}{L7x}{e}{235}
+\DeclareTextComposite{\c}{L7x}{g}{236}
+\DeclareTextComposite{\c}{L7x}{k}{237}
+\DeclareTextComposite{\=}{L7x}{i}{238}
+\DeclareTextComposite{\=}{L7x}{\i}{238}
+\DeclareTextComposite{\c}{L7x}{l}{239}
+\DeclareTextComposite{\v}{L7x}{s}{240}
+\DeclareTextComposite{\'}{L7x}{n}{241}
+\DeclareTextComposite{\c}{L7x}{n}{242}
+\DeclareTextComposite{\'}{L7x}{o}{243}
+\DeclareTextComposite{\=}{L7x}{o}{244}
+\DeclareTextComposite{\~}{L7x}{o}{245}
+\DeclareTextComposite{\"}{L7x}{o}{246}
+\DeclareTextComposite{\k}{L7x}{u}{248}
+\DeclareTextSymbol{\l}{L7x}{249}
+\DeclareTextComposite{\'}{L7x}{s}{250}
+\DeclareTextComposite{\=}{L7x}{u}{251}
+\DeclareTextComposite{\"}{L7x}{u}{252}
+\DeclareTextComposite{\.}{L7x}{z}{253}
+\DeclareTextComposite{\v}{L7x}{z}{254}
+%%%\DeclareTextAccent{\.}{L7x}{255}
+\endinput
+%%
+%% End of file `l7xenc.def'.

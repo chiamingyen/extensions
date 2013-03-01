@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hefonts0.sty
+% ArabTeX
+% load Hebrew fonts for old LaTeX
+% 03.04.1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally and Bernd Raichle
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {hefonts0.sty} {3.05 define Hebrew fonts for old LaTeX} {03.04.1997}
+
+% OLD FONT SELECTION
+\message {using lfonts.tex}
+
+% load all necessary fonts
+
+\newfont {\tenheb }{hclassic}
+\newfont {\elvnheb}{hclassic scaled 1095}
+\newfont {\twlvheb}{hclassic \@magscale1}
+\newfont {\frtnheb}{hclassic \@magscale2}
+\newfont {\svtnheb}{hclassic \@magscale3}
+\newfont {\twtyheb}{hclassic \@magscale4}
+\newfont {\twfvheb}{hclassic \@magscale5}
+
+% add the \pheb command to the size changing hooks
+ 
+\@addfontinfo \@vpt    {\def\pheb {\tenheb}}
+\@addfontinfo \@viipt  {\def\pheb {\tenheb}}
+\@addfontinfo \@viiipt {\def\pheb {\tenheb}}
+\@addfontinfo \@ixpt   {\def\pheb {\tenheb}}
+\@addfontinfo \@xpt    {\def\pheb {\tenheb}}
+\@addfontinfo \@xipt   {\def\pheb {\elvnheb}}
+\@addfontinfo \@xiipt  {\def\pheb {\twlvheb}}
+\@addfontinfo \@xivpt  {\def\pheb {\frtnheb}}
+\@addfontinfo \@xviipt {\def\pheb {\svtnheb}}
+\@addfontinfo \@xxpt   {\def\pheb {\twtyheb}}
+\@addfontinfo \@xxvpt  {\def\pheb {\twfvheb}}
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

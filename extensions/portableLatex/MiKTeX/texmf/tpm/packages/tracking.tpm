@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/tracking"><TPM:Name>tracking</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>Automatically adjust spaces between symbols in words or
+      phrases to fit them into a specified length. Any chain of
+      symbols (including spaces) in the current font may be treated.</TPM:Description><TPM:RunFiles size="3349">texmf\tex\latex\tracking\tracking.sty texmf\tpm\packages\tracking.tpm</TPM:RunFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>d6ba8b66ca24a0b0081ebf9a3d899a18</TPM:MD5></rdf:Description></rdf:RDF>

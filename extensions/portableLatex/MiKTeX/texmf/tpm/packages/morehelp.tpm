@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/morehelp"><TPM:Name>morehelp</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package to enhance LaTeX2e error messages by providing
+      descriptions of the possible causes including those that may
+      not be obvious. This style is effectively an online substitute
+      for error lists found in the LaTeX books, although it cannot
+      completely replace them. Only true LaTeX errors are included;
+      TeX errors are beyond the reach of ordinary macros.</TPM:Description><TPM:RunFiles size="18723">texmf\tex\latex\morehelp\morehelp.dyn texmf\tex\latex\morehelp\morehelp.eng texmf\tex\latex\morehelp\morehelp.sty texmf\tpm\packages\morehelp.tpm</TPM:RunFiles><TPM:DocFiles size="4200">texmf\doc\latex\morehelp\morehelp.README</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>082725826318bd7abe0e5d7c2ae5b91f</TPM:MD5></rdf:Description></rdf:RDF>

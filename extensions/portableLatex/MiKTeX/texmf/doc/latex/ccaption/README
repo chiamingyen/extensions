@@ -1,0 +1,127 @@
+____________________
+The CCAPTION package
+
+    The ccaption package provides commands for `continuation captions',
+unnumbered captions, and a legend heading for any environment. 
+Methods are provided to define captions for use outside float 
+environments, and to define new float environments and subfloats. 
+Tools are provided for defining your own captioning styles.
+
+    The packagehas been tested in conjunction with the rotating, caption2, 
+subfigure, sidecap, endfloat, longtable, xtab, tocloft and hyperref packages.
+
+
+Change History
+______________
+
+Version 3.2c (2011/08/07)
+- Fix a bug in longtable compatibility; font changing now works correctly
+
+Version 3.2b (2009/09/02)
+- New maintainer (Will Robertson)
+
+Version 3.2a (2005/03/29)
+- Fixed a labelling problem with bilingual captions
+
+Version 3.2 (2005/03/21)
+- New commands for bilingual captions in longtables
+
+Version 3.1c (2003/11/14)
+- \label now picks up the correct number after \contcaption
+
+Version 3.1b (2002/10/18)
+- Minor bug fix related to brackets in captions with the subfigure option
+- Stopped double labelling within a caption
+
+Version 3.1a (2002/04/01)
+- subfigure option code changed to match released version 2.1.2 of 
+  the subfigure package.
+
+Version 3.1 (2002/02/20)
+- subfigure option code changed to match released version 2.1 of 
+  the subfigure package.
+
+Version 3.0a (2001/08/03)
+- Catered for old versions of amsmath package doing odd things with
+  \@tempa, \@tempb, and \@tempc.
+
+Version 3.0 (2001/03/03)
+- Provides same tools for typesetting new List of... as the tocloft package
+
+Version 2.7 (2001/02/24)
+- Tools provided for styling captions.
+- The \formatlegend command has been replaced by the general styling
+  mechanism, so in this slight respect version 7.0 is not upwards 
+  compatible with earlier versions.
+- Added extensive discussion on float placement.
+
+Version 2.6e (2001/01/12)
+- Fixed problem with hyperref package and new (sub) floats.
+
+Version 2.6d (2001/01/02)
+- Fixed problem with fragile commands in subfigure 2.0 package option
+  continued subfloat captions.
+- Fixed problem with new subfloats and the subfigure 2.1 package option.
+- Added discussion on use with the endfloat package.
+
+Version 2.6a (2000/02/29)
+- With subfigures, main captions can be at the top or bottom of the
+  float, and subcaptions can be at the top or bottom of the `subfloat'
+
+Version 2.6 (2000/02/26)
+- Added support for bilingual captions
+
+Version 2.5 (2000/02/20)
+- Added support for the subfigure version 2.1 package
+- Fixed an infelicity with \centering
+
+Version 2.4 (1999/09/20)
+- Added support for the subfigure (version 2.0) package
+
+Version 2.3 (1999/01/24)
+- Added unnumbered captions
+- Much improved documentation.
+
+Version 2.1 (1998/10/04)
+- More efficient coding.
+
+----------------------------------------------------------------- 
+  Author: Peter Wilson (Herries Press)
+  Maintainer: Will Robertson (will dot robertson at latex-project dot org)
+  Copyright 1998-2005 Peter R. Wilson
+  Copyright 2011 Will Robertson
+ 
+  This work may be distributed and/or modified under the
+  conditions of the LaTeX Project Public License, either
+  version 1.3c of this license or (at your option) any 
+  later version: <http://www.latex-project.org/lppl.txt>
+
+  This work has the LPPL maintenance status "maintained".
+  The Current Maintainer of this work is Will Robertson.
+ 
+  This work consists of the files:
+README (this file)
+ccaption.dtx
+ccaption.ins
+ccaption.pdf (user manual)
+  and the derived files:
+ccaption.sty
+
+----------------------------------------------------------------- 
+
+  The distribution consists of the files:
+README (this file)
+ccaption.dtx
+ccaption.ins
+ccaption.pdf
+
+
+    To install the package:
+- run: latex ccaption.ins (which will generate ccaption.sty)
+- run: latex ccaption.dtx
+- (for an index run: makeindex -s gind.ist ccaption)
+- run: latex ccaption.dtx
+- Print ccaption.dvi for a hardcopy of the package manual 
+- Move ccaption.sty to a location where LaTeX will find it
+       (see the FAQ http://www.tex.ac.uk/faq for more about this).
+

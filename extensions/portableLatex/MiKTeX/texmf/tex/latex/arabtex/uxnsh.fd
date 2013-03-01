@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uxnsh.fd
+%
+% 31.08.93 1.0 created file when added support for NFSS2 (br)
+% 04.04.1997 ranges fixed (KL)
+% 17.09.1997 smaller sizes allowed
+% 14.04.1998 font xnsh14
+% 23.05.1999 name "uxnsh.fd"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Bernd Raichle and Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the font description of font `xnsh'
+%   fontencoding: U
+%   fontfamily:   xnsh
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% make sure, that it is used with NFSS2 only
+%
+\ifx\DeclareFontShape\undefined
+  \message{Something is wrong -- %
+           this file can only be used with NFSS2!!!}
+\expandafter\endinput\fi
+
+\ProvidesFile{uxnsh.fd}[1999/05/23 3.08 ArabTeX Naskh extd. font definitions]
+
+\DeclareFontFamily{U}{xnsh}{}%
+
+\DeclareFontShape{U}{xnsh}{m}{n}{%
+   <-6> sfixed * [7.2] xnsh14
+   <6-10> s * [1.44] xnsh14
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [1.44] xnsh14
+}{}
+
+\DeclareFontShape{U}{xnsh}{bx}{n}{%
+   <-6> sfixed * [7.2] xnsh14bf
+   <6-10> s * [1.44] xnsh14bf
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [1.44] xnsh14bf
+}{}
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

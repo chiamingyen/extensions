@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/cmdtrack"><TPM:Name>cmdtrack</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Check used commands.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Aids in the task of checking whether a command defined
+      in a document preamble is actually used somewhere in the
+      document. If you add a statement to use the package cmdtrack
+      to the preamble of your document, all `newcommand' and similar
+      statements between that point and the beginning of the document
+      will be marked for logging. At the end of the document a
+      report of the command usage will be printed in the TeX log,
+      for example: mdash was used on line 25; ndash was never used.</TPM:Description><TPM:RunFiles size="7852">texmf\tex\latex\cmdtrack\cmdtrack.sty texmf\tpm\packages\cmdtrack.tpm</TPM:RunFiles><TPM:SourceFiles size="16547">texmf\source\latex\cmdtrack\cmdtrack.dtx texmf\source\latex\cmdtrack\cmdtrack.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>dd4811966a3f27458c95644f2795e02c</TPM:MD5></rdf:Description></rdf:RDF>

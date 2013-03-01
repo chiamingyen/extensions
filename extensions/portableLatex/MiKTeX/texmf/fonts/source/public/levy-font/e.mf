@@ -1,0 +1,103 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_acc : readfrom("gen_acc") fi
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def width = 7.75u enddef;
+def height = x_height enddef;
+def dims = width#,height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  pos2(vstem,90); x2=.5w; top y2r=x_height+o;           %top point
+  pos7(vstem,630); x2=x7; bot y7r=-o;                   %bottom point
+  rt x1r=hround(w-.75u); bot y1l=.3[bot y2l,bar_height];        %top end
+  z1'=(x1r,y1l+.5(flare-currentbreadth));               %approximation to z1
+  numeric slope; slope=angle((z2-z1')yscaled 2); pos1(flare,slope-90);
+  bar_height=.5[y1,y8]; x8=x1; pos8(flare,slope+90);    %bottom end
+  pos3(vstem,120); lft x3r=hround .75u; y3=.5[y4r,y2r]; %top left bulge
+  pos6(vstem,600); x6=x3; y6=.5[y5r,y7r];               %bottom left bulge
+  y6:=y6r;y3:=y3r;                      %for the benefit of pulled_arc
+  top y5r-bot y4r=curve; y5+y4=2bar_height; x5=x4=x2;   %loop
+  pos4(vair,-90); pos5(vair,90);
+  filldraw stroke z1e{dir slope}...pulled_arc.e(2,3);   %top
+  drawloop(3,4,5,6);                                    %loop and bottom
+  forsuffixes e=l,r:
+    path foo.e; foo.e= z8e...pulled_arc.e(7,6);
+    if angle(direction 0 of foo.e) > angle(z8r-z8l):
+    foo.e:= z8e{z8r-z8l}...pulled_arc.e(7,6); fi
+  endfor;
+  filldraw stroke foo.e;
+  numeric x_baryctr; x_baryctr=x2;                      %accent reference
+enddef;
+     
+cmchar "Lowercase epsilon";
+beginchar("e",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase epsilon with grave";
+beginchar(oct"340",width#,acc_ht#,0); this_letter; grave(x_baryctr);
+endchar;
+     
+cmchar "Lowercase epsilon with rough breathing";
+beginchar(oct"341",width#,acc_ht#,0);
+this_letter; spirit(x_baryctr)<; endchar;
+     
+cmchar "Lowercase epsilon with smooth breathing";
+beginchar(oct"342",width#,acc_ht#,0);
+this_letter; spirit(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by epsilon with grave";
+begindoublechar(oct"343",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase epsilon with acute";
+beginchar(oct"350",width#,acc_ht#,0);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase epsilon with rough breathing and acute";
+beginchar(oct"351",width#,acc_ht#,0);
+this_letter; spirit_acute(x_baryctr)<; endchar;
+     
+cmchar "Lowercase epsilon with smooth breathing and acute";
+beginchar(oct"352",width#,acc_ht#,0);
+this_letter; spirit_acute(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by epsilon with acute";
+begindoublechar(oct"353",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase sigma followed by epsilon";
+begindoublechar(oct"005",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

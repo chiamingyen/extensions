@@ -1,0 +1,7 @@
+% Thomas Esser, 1998, public domain.
+
+% Usage: dvips -Pmirr ...
+% Purpose: print in a mirrored way for preparing transparent material
+%          on printers
+
+h mirr.hd

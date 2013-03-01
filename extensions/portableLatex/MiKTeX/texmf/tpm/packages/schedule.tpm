@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/schedule"><TPM:Name>schedule</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package intended to automatically format weekly
+      schedules using LaTeX's picture environment. It requires
+      the packages calc and color. Its main feature is the accuracy
+      with which appointments are represented: boxes drawn to
+      represent a particular appointment are accurate to the minute
+      -- i.e., a 31 minute appointment will have a box 1/60th
+      longer than a 30 minute appointment. A number of features
+      are included to allow the user to customize the output.</TPM:Description><TPM:RunFiles size="17875">texmf\tex\latex\schedule\schedule.sty texmf\tpm\packages\schedule.tpm</TPM:RunFiles><TPM:DocFiles size="60732">texmf\doc\latex\schedule\example.dvi texmf\doc\latex\schedule\example.tex texmf\doc\latex\schedule\schedule.dvi</TPM:DocFiles><TPM:SourceFiles size="25690">texmf\source\latex\schedule\schedule.dtx texmf\source\latex\schedule\schedule.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>97adb516179bd1b13c3bd66ae0bbf03e</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% asmo449.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% asmo449.sty
+% Scanner for ASMO 449 Code (ISO 9036) (table driven)
+% to install it, include it as a LaTeX package or style option "asmo449"
+% with Plain TeX, say "\input asmo449.sty"
+% to activate it, say "\setcode {asmo449}" or "\setcode {iso9036}"
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \asmoatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \asmoatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {asmo449.sty} {3.11 ASMO449 input encoding (table)} {26.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setasmo@codes {% activate and change some codes
+\a@digits = {0123456789}%
+\a@paren  = {"'([}%
+\a@first = {}%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \asmo@tbli {% ASMO re-encoding table
+\\AQ|\\BQA\\CQa\\DQw\\EQi\\FQy\\GA\\Hb\\IT%
+\\Jt\\KC\\LG\\MH\\NX\\Od\\PF\\Qr\\Rz%
+\\Ss\\Tx\\US\\VD\\WV\\XZ\\YP\\ZR%
+\\af\\bq\\ck\\dl\\em\\fn\\gh\\hw\\iY%
+\\jy\\k"aN\\l"uN\\m"iN\\n"a\\o"u\\p"i\\q@\\r""%
+\\s@\\t@\\u@\\v@\\w@\\x@\\y@\\z@\\`B\\@@}
+
+\def \asmo@tblii {% shadda + harakaat
+\\q\\sk\\tl\\um\\vn\\wo\\xp}
+
+\def \asmo@tbliii {% medial special characters
+\\\@\sc@endscan\\-\asmo@minus\\"\asmo@rquote}
+
+\def \asmo@tbliv {% initial special characters
+\\\@\sc@endscan\\G\asmo@alif\\"\asmo@lquote\\'\asmo@lquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif \ifa@quote
+
+\def \asmo@beg #1#2{% start ASMO 449 scanner
+	\h@mzafalse  \iz@fetfalse \novocalize % because of explicit quoting
+	\@ssimfalse
+	\def \next {\asmo@word #1#2}%
+	\def \l@@kup ##1\\#1##2\\##3\@@ {% look for special chars
+		\ifx *##2\relax\xpa\xpa\xpa\iffalse\fi\fi % not found; else
+		\def \next {##2#2}}%
+\iftrue \xpa \l@@kup \asmo@tbliv \\#1*\\\@@ \else 
+\ifx #1/\global \a@tokens ={#1}\def \next {\asmo@word #2}% /x
+\fi\fi \next }
+
+{\catcode `\^ 7 \catcode `\^^M=13
+\gdef \asmo@word #1#2{% transform input into internal notation
+	\def \l@@kup ##1\\#1##2\\##3\@@ {% look for special chars
+		\ifx *##2\relax\xpa\xpa\xpa\iffalse\fi\fi %
+		\def \next {##2#2}}% 
+\iftrue \xpa \l@@kup \asmo@tbliii \\#1*\\\@@ \else %
+\ifx #1/\def \next {\sc@back #1#2}\else %
+\if \nxp ^^M\nxp #1\def \next {\asmo@par #2}\else %
+\ifx #1#2\def \next {\asmo@word #1-#2}\else %
+	\def \l@@kup ##1\\#1##2\\##3\@@ {% reencode char
+		\def \sc@char {##2}}%
+	\xpa \l@@kup \asmo@tbli \\#1\nxp #1\\\@@ % reencode
+	\sc@put %
+	\def \l@@kup ##1\\#2##2\\##3\@@ {% look for shadda variants
+		\ifx *##2\relax\def \next {\asmo@word #2}%
+		\else \def \next {\asmo@word #1##2}\fi }% 
+	\xpa \l@@kup \asmo@tblii \\#2*\\\@@ % double 1st char
+\fi\fi\fi\fi \next }%
+} % catcode 13
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \asmo@alif {% alif at the beginning of a word
+\def \sc@char {a}\sc@put \asmo@word }
+
+\def \asmo@minus {% hyphen between words
+\def \sc@char {-}\sc@put \asmo@beg }
+
+\def \asmo@lquote {% left quote
+\ifa@quote \def \sc@char {'}\global\a@quotefalse
+\else \def \sc@char {`}\global\a@quotetrue
+\fi
+\sc@put \asmo@beg }
+
+\def \asmo@rquote {% right quote
+\global\a@quotefalse
+\def \sc@char {'}\sc@put \asmo@word }
+
+\def \asmo@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\#1\@ \@@ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@asmo {% select the ASMO 449 scanner
+\let \sc@beg \asmo@beg 		\let \sc@word \asmo@word  
+\let \sc@back \sc@@back		\let \sc@endscan \sc@@endscan
+\global\let \a@scan \a@@scan   	\setasmo@codes		\a@quotefalse
+\a@message {input encoding set to ASMO 449 (ISO 9036) conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the ASMO449 encoding
+asmo449\set@asmo	iso9036\set@asmo }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for code ASMO 449 (ISO 9036) installed.}
+
+\catcode `\@ = \asmoatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

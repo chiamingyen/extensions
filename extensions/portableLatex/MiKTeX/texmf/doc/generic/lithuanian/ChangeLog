@@ -1,0 +1,50 @@
+2008-10-28 sigitas
+
+          Fixed file name case sensitive error: l7xenc.def
+	  /compwordmark pakeistas i /cwm: latin7x.enc
+	  Renamed directory: ltextx to ltetx
+          Changed comments: lithuanian.ldf, lithuanian.sty,
+	    cp772.def, cp774.def, cp775.def, cpKBL.def, 
+	    cpRIM.def, l7xenc.dfu, latin7.def
+	  Changed URL address: l7xenc.def, l7xenc.sty
+	  Added 2008: Copyright
+
+2007-07-13 sigitas
+
+          Removed support for lmodern fonts as it support 
+	  l7x encoding itself
+	  Added compatibillity for Xe(La)TeX
+
+2006-09-28 sigitas
+
+          Changed version for lithuanian.ldf
+
+2006-09-22 sigitas
+
+	  Removed directory texmf/fonts/map/dvipdfm
+
+2006-09-21 sigitas
+
+          Added latin7def
+	  Corrected l7xenc.dfu
+
+2006-09-20 sigitas
+
+          Updated README 
+          Revised babel support: lithuanian.ldf
+	  Removed files: language.dat and language.def
+	  Removed spaces: l7xlmssq.fd, l7xlmtt.fd, l7xlmvtt.fd
+	  testlt.tex renamed to testlt-urw.tex
+	  Added testlt.tex 
+
+2006-09-08 sigitas
+
+          Added support for utf8 inputenc: l7xenc.dfu
+
+2006-09-06 sigitas
+
+          Initial revision for TDS 1.1
+
+	  
+	  
+

@@ -1,0 +1,159 @@
+%%
+%% This is file `l7xenc.dfu',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% utf8ienc.dtx  (with options: `l7x')
+%%
+%% This is a generated file.
+%%
+%% Copyright 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006
+%% The LaTeX3 Project and any individual authors listed elsewhere
+%% in this file.
+%%
+%% This file was generated from file(s) of the LaTeX base system.
+%% --------------------------------------------------------------
+%%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This file has the LPPL maintenance status "maintained".
+%%
+%% This file may only be distributed together with a copy of the LaTeX
+%% base system. You may however distribute the LaTeX base system without
+%% such generated files.
+%%
+%% The list of all files belonging to the LaTeX base distribution is
+%% given in the file `manifest.txt'. See also `legal.txt' for additional
+%% information.
+%%
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+ \ProvidesFile{l7xenc.dfu}
+   [2006/09/21 v0.1b L7x support for inputenc]
+\DeclareUnicodeCharacter{02C7}{\textasciicaron}     % 7
+\DeclareUnicodeCharacter{02D8}{\textasciibreve}     % 8
+\DeclareUnicodeCharacter{02D9}{\textperiodcentered} % 10
+\DeclareUnicodeCharacter{201A}{\textquotesinglbase} % 13, 130
+\DeclareUnicodeCharacter{2039}{\guilsinglleft}      % 14, 139
+\DeclareUnicodeCharacter{203A}{\guilsinglright}     % 15, 155
+\DeclareUnicodeCharacter{201C}{\textquotedblleft}   % 16, 147
+\DeclareUnicodeCharacter{201D}{\textquotedblright}  % 17, 148, 161
+\DeclareUnicodeCharacter{201E}{\textquotedblbase}   % 18, 132, 165
+\DeclareUnicodeCharacter{00AB}{\guillemotleft}      % 19, 171
+\DeclareUnicodeCharacter{00BB}{\guillemotright}     % 20, 187
+\DeclareUnicodeCharacter{2013}{\textendash}         % 21, 150
+\DeclareUnicodeCharacter{2014}{\textemdash}         % 22, 151
+\DeclareUnicodeCharacter{200C}{\textcompwordmark}   % 23
+\DeclareUnicodeCharacter{2030}{\textperthousand}    % 24, 137
+\DeclareUnicodeCharacter{20AC}{\texteuro}           % 128
+\DeclareUnicodeCharacter{0192}{\textflorin}         % 131
+\DeclareUnicodeCharacter{2026}{\textellipsis}       % 133
+\DeclareUnicodeCharacter{2020}{\textdagger}         % 134
+\DeclareUnicodeCharacter{2021}{\textdaggerdbl}      % 135
+\DeclareUnicodeCharacter{0152}{\OE}                 % 140
+\DeclareUnicodeCharacter{2018}{\textquoteleft}      % 145
+\DeclareUnicodeCharacter{2019}{\textquoteright}     % 146, 255
+\DeclareUnicodeCharacter{2022}{\textbullet}         % 149
+\DeclareUnicodeCharacter{2122}{\texttrademark}      % 153
+\DeclareUnicodeCharacter{0156}{\oe}                 % 156
+\DeclareUnicodeCharacter{00A2}{\textcent}           % 162
+\DeclareUnicodeCharacter{00A3}{\textsterling}       % 163
+\DeclareUnicodeCharacter{00A4}{\textcurrency}       % 164
+\DeclareUnicodeCharacter{201E}{\textquotedblbase}   % 165
+\DeclareUnicodeCharacter{00A6}{\textbrokenbar}      % 166
+\DeclareUnicodeCharacter{00A7}{\textsection}        % 167
+\DeclareUnicodeCharacter{00D8}{\O}                  % 168
+\DeclareUnicodeCharacter{00A9}{\textcopyright}      % 169
+\DeclareUnicodeCharacter{0156}{\c R}                % 170
+\DeclareUnicodeCharacter{00AC}{\textlnot}           % 172
+\DeclareUnicodeCharacter{00AE}{\textregistered}     % 174
+\DeclareUnicodeCharacter{00C6}{\AE}                 % 175
+\DeclareUnicodeCharacter{00B0}{\textdegree}         % 176
+\DeclareUnicodeCharacter{00B1}{\textpm}             % 177
+\DeclareUnicodeCharacter{00B2}{\texttwosuperior}    % 178
+\DeclareUnicodeCharacter{00B3}{\textthreesuperior}  % 179
+\DeclareUnicodeCharacter{201D}{\textquotedblright}  % 180
+\DeclareUnicodeCharacter{00B5}{\textmu}             % micro sign 181
+\DeclareUnicodeCharacter{00B6}{\textparagraph}      % 182
+\DeclareUnicodeCharacter{00B7}{\textperiodcentered} % 183
+\DeclareUnicodeCharacter{00F8}{\o}                  % 184
+\DeclareUnicodeCharacter{00B9}{\textonesuperior}    % 185
+\DeclareUnicodeCharacter{0157}{\c r}                % 186
+\DeclareUnicodeCharacter{00BC}{\textonequarter}     % 188
+\DeclareUnicodeCharacter{00BD}{\textonehalf}        % 189
+\DeclareUnicodeCharacter{00BE}{\textthreequarters}  % 190
+\DeclareUnicodeCharacter{00E6}{\ae}                 % 191
+\DeclareUnicodeCharacter{0104}{\k A}                % 192
+\DeclareUnicodeCharacter{012E}{\k I}                % 193
+\DeclareUnicodeCharacter{0100}{\=A}                 % 194
+\DeclareUnicodeCharacter{0106}{\@tabacckludge'C}    % 195
+\DeclareUnicodeCharacter{00C4}{\"A}                 % 196
+\DeclareUnicodeCharacter{00C5}{\r A}                % 197
+\DeclareUnicodeCharacter{0118}{\k E}                % 198
+\DeclareUnicodeCharacter{0112}{\=E}                 % 199
+\DeclareUnicodeCharacter{010C}{\v C}                % 200
+\DeclareUnicodeCharacter{00C9}{\@tabacckludge'E}    % 201
+\DeclareUnicodeCharacter{0179}{\@tabacckludge'Z}    % 202
+\DeclareUnicodeCharacter{0116}{\.E}                 % 203
+\DeclareUnicodeCharacter{0122}{\c G}                % 204
+\DeclareUnicodeCharacter{0136}{\c K}                % 205
+\DeclareUnicodeCharacter{012A}{\=I}                 % 206
+\DeclareUnicodeCharacter{013B}{\c L}                % 207
+\DeclareUnicodeCharacter{0160}{\v S}                % 208
+\DeclareUnicodeCharacter{0143}{\@tabacckludge'N}    % 209
+\DeclareUnicodeCharacter{0145}{\c N}                % 210
+\DeclareUnicodeCharacter{00D3}{\@tabacckludge'O}    % 211
+\DeclareUnicodeCharacter{014C}{\=O}                 % 212
+\DeclareUnicodeCharacter{00D5}{\~O}                 % 213
+\DeclareUnicodeCharacter{00D6}{\"O}                 % 214
+\DeclareUnicodeCharacter{00D7}{\texttimes}          % 215
+\DeclareUnicodeCharacter{0172}{\k U}                % 216
+\DeclareUnicodeCharacter{0141}{\L}                  % 217
+\DeclareUnicodeCharacter{015A}{\@tabacckludge'S}    % 218
+\DeclareUnicodeCharacter{016A}{\=U}                 % 219
+\DeclareUnicodeCharacter{00DC}{\"U}                 % 220
+\DeclareUnicodeCharacter{017B}{\.Z}                 % 221
+\DeclareUnicodeCharacter{017D}{\v Z}                % 222
+\DeclareUnicodeCharacter{00DF}{\ss}                 % 223
+\DeclareUnicodeCharacter{0105}{\k a}                % 224
+\DeclareUnicodeCharacter{012F}{\k i}                % 225
+\DeclareUnicodeCharacter{0101}{\=a}                 % 226
+\DeclareUnicodeCharacter{0107}{\@tabacckludge'c}    % 227
+\DeclareUnicodeCharacter{00E4}{\"a}                 % 228
+\DeclareUnicodeCharacter{00E5}{\r a}                % 229
+\DeclareUnicodeCharacter{0119}{\k e}                % 230
+\DeclareUnicodeCharacter{0113}{\=e}                 % 231
+\DeclareUnicodeCharacter{010D}{\v c}                % 232
+\DeclareUnicodeCharacter{00E9}{\@tabacckludge'e}    % 233
+\DeclareUnicodeCharacter{017A}{\@tabacckludge'z}    % 234
+\DeclareUnicodeCharacter{0117}{\.e}                 % 235
+\DeclareUnicodeCharacter{0123}{\c g}                % 236
+\DeclareUnicodeCharacter{0137}{\c k}                % 237
+\DeclareUnicodeCharacter{012B}{\=i}                 % 238
+\DeclareUnicodeCharacter{013C}{\c l}                % 239
+\DeclareUnicodeCharacter{0161}{\v s}                % 240
+\DeclareUnicodeCharacter{0144}{\@tabacckludge'n}    % 241
+\DeclareUnicodeCharacter{0146}{\c n}                % 242
+\DeclareUnicodeCharacter{00F3}{\@tabacckludge'o}    % 243
+\DeclareUnicodeCharacter{0140}{\=o}                 % 244
+\DeclareUnicodeCharacter{00F5}{\~o}                 % 245
+\DeclareUnicodeCharacter{00F6}{\"o}                 % 246
+\DeclareUnicodeCharacter{00F7}{\textdiv}            % 247
+\DeclareUnicodeCharacter{0173}{\k u}                % 248
+\DeclareUnicodeCharacter{0142}{\l}                  % 249
+\DeclareUnicodeCharacter{015B}{\@tabacckludge's}    % 250
+\DeclareUnicodeCharacter{016B}{\=u}                 % 251
+\DeclareUnicodeCharacter{00FC}{\"u}                 % 252
+\DeclareUnicodeCharacter{017C}{\.z}                 % 253
+\DeclareUnicodeCharacter{017E}{\v z}                % 254
+\endinput
+%%
+%% End of file `l7xenc.dfu'.

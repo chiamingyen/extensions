@@ -1,0 +1,32 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% mtsupp-std-urw-urw.map: support for MathTime 1.1 and
+%    MathTime Plus fonts.
+%
+% Useful for ps2pk.
+cob NimbusMonL-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022004l.pfb
+cobo NimbusMonL-BoldObli "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022024l.pfb
+com NimbusMonL-Regu "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022003l.pfb
+coo NimbusMonL-ReguObli "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022023l.pfb
+hv NimbusSanL-Regu "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019003l.pfb
+hvb NimbusSanL-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019004l.pfb
+hvbo NimbusSanL-BoldItal "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019024l.pfb
+hvo NimbusSanL-ReguItal "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019023l.pfb
+pcrb8y NimbusMonL-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022004l.pfb
+pcrbo8y NimbusMonL-BoldObli "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022024l.pfb
+pcrr8y NimbusMonL-Regu "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022003l.pfb
+pcrro8y NimbusMonL-ReguObli "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n022023l.pfb
+phvb8y NimbusSanL-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019004l.pfb
+phvbo8y NimbusSanL-BoldItal "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019024l.pfb
+phvr8y NimbusSanL-Regu "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019003l.pfb
+phvro8y NimbusSanL-ReguItal "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n019023l.pfb
+ptmb8y Times-Bold "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021004l.pfb
+ptmbi8y Times-BoldItalic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021024l.pfb
+ptmr8y Times-Roman "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021003l.pfb
+ptmri8y Times-Italic "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021023l.pfb
+sy StandardSymL <s050000l.pfb
+tib NimbusRomNo9L-Medi "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021004l.pfb
+tibi NimbusRomNo9L-MediItal "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021024l.pfb
+tii NimbusRomNo9L-ReguItal "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021023l.pfb
+tir NimbusRomNo9L-Regu "TeXnANSIEncoding ReEncodeFont" <texnansi.enc <n021003l.pfb
+zd Dingbats <d050000l.pfb

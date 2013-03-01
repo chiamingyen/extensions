@@ -1,0 +1,138 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_acc : readfrom("gen_acc") fi
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def width = 5u enddef;
+def dims = width#,x_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = if monospace: u#,u# else:0,2curve#-3u# fi enddef;
+     
+def gen_letter=
+  pickup fine.nib;
+  pos1(flare,180); lft x1r=hround u; top y1=x_height+oo;        %top
+  numeric neck; neck=.2[hair,stem];
+  pos2(neck,180); .2[lft x2r,rt x2l]=.2[lft x1r,rt x1l];        %neck
+  pos3(curve,-90); bot y3r=-oo;                                 %bottom
+  y2r=if monowidth: 2 else: 1.5 fi[bot y3r,top y3l]; z3r-z2r=whatever*(1,-1.25);
+  if monowidth:
+    y4r+.5neck=vround y2r; x3=.5[x2,x4]; pos4(neck,0);          %tip of hook
+    filldraw stroke z4e...z3e...z2e---z1e;
+  else:
+    z4l=z4r; top y4r=y2r; z4l-z3l=whatever*(1,1);
+    path p.r, p.l; forsuffixes e=r,l: p.e=z1e---z2e...z3e...z4e; endfor
+    rt x3.5r=hround(rt xpart directionpoint up of p.r);
+    z4'r=direction 3 of p.r; z3'r=direction 2 of p.r;
+    forever:                    %avoid bad vertical tangent between 2l and 3l
+      x2.5l:= rt xpart directionpoint down of p.l;
+      exitif abs(hround(x2.5l)-x2.5l)<.05;
+      x2l:=x2l+hround(x2.5l)-x2.5l; p.l:=(z1l---z2l...z3l...z4l);
+    endfor
+    p.r:=z1r---z2r...club.r(3,3.5,4);
+                                %avoid bad vertical tangent between 3r and 4r
+    filldraw stroke p.e;
+  fi
+  numeric x_baryctr; x_baryctr=x1;
+enddef;
+     
+cmchar "Lowercase iota";
+beginchar("i",dims);
+this_letter; penlabels(1,2,3,4); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase iota with grave";
+beginchar(oct"310",width#,acc_ht#,0);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with rough breathing";
+beginchar(oct"311",width#,acc_ht#,0);
+this_letter; spirit(x_baryctr if serifs: +.25u fi)<; endchar;
+     
+cmchar "Lowercase iota with smooth breathing";
+beginchar(oct"312",width#,acc_ht#,0);
+this_letter; spirit(x_baryctr if serifs: -.25u fi)>; endchar;
+     
+cmchar "Lowercase sigma followed by iota with grave";
+begindoublechar(oct"313",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with acute";
+beginchar(oct"320",width#,acc_ht#,0);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with rough breathing and acute";
+beginchar(oct"321",width#,acc_ht#,0);
+this_letter; spirit_acute(x_baryctr)<; endchar;
+     
+cmchar "Lowercase iota with smooth breathing and acute";
+beginchar(oct"322",width#,acc_ht#,0);
+this_letter; spirit_acute(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by iota with acute";
+begindoublechar(oct"323",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with circumflex";
+beginchar(oct"330",width#,circ_ht#,0);
+this_letter; circumflex(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with rough breathing and circumflex";
+beginchar(oct"331",width#,Circ_ht#,0);
+this_letter; spirit_circumflex(x_baryctr)<; endchar;
+     
+cmchar "Lowercase iota with smooth breathing and circumflex";
+beginchar(oct"332",width#,Circ_ht#,0);
+this_letter; spirit_circumflex(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by iota with circumflex";
+begindoublechar(oct"333",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,0);
+this_letter; circumflex(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with diaeresis";
+beginchar(oct"360",width#,circ_ht#,0);
+this_letter; diaeresis(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with diaeresis and grave";
+beginchar(oct"361",width#,acc_ht#,0);
+this_letter; diaeresis_grave(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with diaeresis and acute";
+beginchar(oct"362",width#,acc_ht#,0);
+this_letter; diaeresis_acute(x_baryctr); endchar;
+     
+cmchar "Lowercase iota with diaeresis and circumflex";
+beginchar(oct"363",width#,Circ_ht#,0);
+this_letter; diaeresis_circumflex(x_baryctr); endchar;
+     
+cmchar "Lowercase sigma followed by iota";
+begindoublechar(oct"011",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

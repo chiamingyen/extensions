@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hetrans.sty
+% ArabTeX
+% Modifications for Hebrew mode
+% needs atrans.sty version 3.09 or later
+% 17.07.1999
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \transatcode \undefined \UsePackage {atrans}
+\fi
+
+\catcode`\@ = 11 		% presupposes atrans.sty loaded
+
+\a@ident {hetrans.sty} {3.09 Hebrew transcription module} {17.07.1999}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\~=10
+\gdef \tr@heb   {% my transliteration for Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg	% start with default and modify	
+\gdef \tr@@e ##1{% test for ey -> `e
+	\ifx ##1y\def \next {\`e\tr@aword }\else 
+	\def \next {\setc@p e\tr@aword ##1}\fi \next}
+\gdef \tr@B {-}		\gdef \tr@C {\d{t}}	\gdef \tr@D {d}		
+\gdef \tr@R {g}		\gdef \tr@U {\=u\-}     \gdef \tr@V {t}		
+\gdef \tr@X {\d{h}}
+\tr@def \a@b {b}	\tr@def \a@e {\rsh@ft{07}{$^i$}\-}	  
+\tr@def \a@f {p}	\tr@def \a@j {\rsh@ft{07}{$^i$}\-}	  
+\tr@def \a@k {k}	\tr@def \a@o {\=o\-}
+\tr@def \a@A {\rsh@ft{07}{$^a$}\-}	  \tr@def \a@E {\=e\-}	  
+\tr@def \a@H {h}	\tr@def \a@I {\rsh@ft{07}{$^e$}\-}	  
+\tr@def \a@O {\rsh@ft{07}{$^o$}\-}	  \tr@def \a@U {}	
+\gdef \tr@aword {\@vocalfalse \tr@@aword }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \tr@zaw {% ZAW transliteration for Hebrew 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@heb 	% start with default and modify
+\gdef \tr@@e ##1{% test for ey -> `\ae
+	\ifx ##1y\def \next {\`{\ae}\tr@aword }\else 
+	\def \next {\ae\tr@aword ##1}\fi \next}
+\gdef \tr@@E ##1{% test for Ee -> ey
+	\ifx ##1e\def \next {\setc@p e\tr@aword y}\else 
+	\def \next {\^e\tr@aword ##1}\fi \next}
+\gdef \tr@o {\aa }			\gdef \tr@I {\^{\i}\-}
+\gdef \tr@O {\^o\-}			\gdef \tr@U {\^u\-}
+\tr@def \a@e {\rsh@ft{07}{$^e$}\-}	\tr@def \a@i {i\-}
+\tr@def \a@j {\rsh@ft{07}{$^e$}\-}	\tr@def \a@o {\=o\-}
+\tr@def \a@E {e\-}
+\tr@def \a@I {\rsh@ft{07}{$^{\hbox{\scriptsize \ae}}$}\-}
+\tr@def \a@O {\rsh@ft{07}{$^{\mathaccent 23a}$}\-}
+\ifx \tr@code \tr@oldcode \else \a@message {ZAW~transliteration}\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \tr@gesen {% transliteration for Hebrew after Gesenius
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@heb 	% start with default and modify	
+\gdef \tr@@e ##1{% test for ey -> `e
+	\ifx ##1y\def \next {\`e\tr@aword }\else 
+	\def \next {\u{e}\tr@aword ##1}\fi \next}
+\gdef \tr@f {ph} 		\gdef \tr@C {th}	
+\gdef \tr@H {h}			\gdef \tr@R {kh}	
+\tr@def \a@e {\rsh@ft{07}{$^e$}\-}
+\tr@def \a@j {\rsh@ft{07}{$^e$}\-}
+\ifx \tr@code \tr@oldcode \else \a@message {Gesenius'~transliteration}\fi }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\xpa \def \xpa \tr@table \xpa {\tr@table % add the Hebrew encodings
+gesenius\tr@gesen	zaw\tr@zaw	heb\tr@stdheb }
+
+\def \tr@stdheb {\tr@heb
+\ifx \tr@code \tr@oldcode \else 
+\a@message {ArabTeX default transliteration}\fi }
+
+\settrans {heb}% default
+
+\catcode`\@ = \transatcode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+
+

@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{times,europs}
+
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{2\baselineskip}
+
+\newcommand{\eutab}[1]{\begin{tabular}{l|cc}%
+       & upright & italic \\%
+\hline%
+medium & \textup{\textmd{#1}} & \textit{\textmd{#1}} \\%
+bold   & \textup{\textbf{#1}} & \textit{\textbf{#1}}%
+\end{tabular}}
+
+\begin{document}
+
+\def\sampletext{%
+The Euro symbol \eur{} comes in different shapes, depending on the
+\textbf{current context \eur}. Font changes \textit{can \eur{} be followed,
+\textbf{even if \eur{} they are nested}}. \textsf{Changes of \eur{} the font
+family} \texttt{are handled \eur{} differently.}
+}
+
+\let\eur\EUR
+\sampletext
+
+\textrm{EuroSerif}:\\
+\eutab{\EURtm}\\
+\let\eur\EURtm
+\sampletext
+
+\textsf{EuroSans}:\\
+\eutab{\EURhv}\\
+\let\eur\EURhv
+\sampletext
+
+\texttt{EuroMono}:\\
+\eutab{\EURcr}\\
+\let\eur\EURcr
+\sampletext
+
+\textrm{official}:\\
+\eutab{\EURofc}\\
+\let\eur\EURofc
+\sampletext
+
+\end{document}

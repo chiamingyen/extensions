@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/polynom"><TPM:Name>polynom</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Macros for manipulating polynomials.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>The polynom package implements macros for manipulating polynomials,
+for example it can typeset long polynomial divisions.  The main test
+case and application is the polynomial ring in one variable with
+rational coefficients.
+</TPM:Description><TPM:RunFiles size="64544">texmf\tex\latex\polynom\polynom.sty texmf\tpm\packages\polynom.tpm</TPM:RunFiles><TPM:DocFiles size="106326">texmf\doc\latex\polynom\polydemo.dvi texmf\doc\latex\polynom\polydemo.tex texmf\doc\latex\polynom\polynom.dvi texmf\doc\latex\polynom\README</TPM:DocFiles><TPM:SourceFiles size="30618">texmf\source\polynom-src.cab</TPM:SourceFiles><TPM:TimePackaged>1145728449</TPM:TimePackaged><TPM:MD5>a029259e26cf4dd0bd4153b77161b742</TPM:MD5></rdf:Description></rdf:RDF>

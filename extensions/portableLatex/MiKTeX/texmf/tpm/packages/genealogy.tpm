@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/genealogy"><TPM:Name>genealogy</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A simple compilation of the genealogical symbols found in the
+      `wasy' and `gen' font, essentially adding the male and female
+      symbols to Knuth's `gen' font, and so avoiding loading two
+      fonts when you need only genealogical symbols.</TPM:Description><TPM:RunFiles size="6994">texmf\fonts\source\public\genealogy\drgen.mf texmf\fonts\source\public\genealogy\drgen10.mf texmf\fonts\tfm\public\genealogy\drgen10.tfm texmf\tpm\packages\genealogy.tpm</TPM:RunFiles><TPM:DocFiles size="1137">texmf\doc\latex\genealogy\testgen.dvi texmf\doc\latex\genealogy\testgen.tex</TPM:DocFiles><TPM:SourceFiles size="960">texmf\source\latex\genealogy\licence.txt texmf\source\latex\genealogy\README</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>3381b72b240762cc7c64c7528d843677</TPM:MD5></rdf:Description></rdf:RDF>

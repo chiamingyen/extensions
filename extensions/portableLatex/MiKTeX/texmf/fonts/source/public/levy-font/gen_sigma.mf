@@ -1,0 +1,51 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+numeric gen_sigma; gen_sigma=1;
+     
+def dim_sigma = 9.5u#,x_height#,0 enddef;
+def ital_sigma = 0 enddef;
+def fit_params_sigma = 0,.75u# enddef;
+     
+def mid_sigma=
+italcorr ital_sigma; adjust_fit(fit_params_sigma);
+if known pic.c: currentpicture:=pic.c; else: gen_mid_sigma; fi
+if not working_hard : picture pic.c; pic.c=currentpicture; fi
+enddef;
+     
+def gen_mid_sigma =
+  pickup fine.nib;
+  lft x4r=hround .75u; rt x8r=w-lft x4r;        %left and right bulge
+  top y2r=h; bot y6r=-oo; x2r=x6r;              %top and bottom
+  numeric fake; fake=y2r-(vstem-currentbreadth); %approx height of z2l
+  2y4r=y2r+y6r; 2y8r=fake+y6r;
+  (x8r-x6r)/(y8r-y6r)=-(x4r-x6r)/(y4r-y6r);     %determine x6r
+  y1r=y2r;rt x1=hround(rt x8r+u); pos1(flare,90);       %tip
+  filldraw stroke z1e..gr_arc.e(2,3,4)(vstem,curve,otilt)
+    & gr_arc.e(4,5,6)(vair,curve,otilt)         %top stroke and left bowl
+    & gr_arc.e(6,7,8)(vair,curve,otilt);        %bottom part of right bowl
+  z9l=z2l; pos9(vair,180); z9'l=z2'l; z9'r=left;
+  filldraw stroke z8e{z8'e}..z9e{z9'e};         %top part of right bowl
+enddef;

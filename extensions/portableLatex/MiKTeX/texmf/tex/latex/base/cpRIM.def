@@ -1,0 +1,129 @@
+%%
+%% This is file `cpRIM.def',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% inputenc.dtx  (with options: `cpRIM')
+%%
+%% This is a generated file.
+%%
+%% Copyright 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006
+%% The LaTeX3 Project and any individual authors listed elsewhere
+%% in this file.
+%%
+%% This file was generated from file(s) of the LaTeX base system.
+%% --------------------------------------------------------------
+%%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This file has the LPPL maintenance status "maintained".
+%%
+%% This file may only be distributed together with a copy of the LaTeX
+%% base system. You may however distribute the LaTeX base system without
+%% such generated files.
+%%
+%% The list of all files belonging to the LaTeX base distribution is
+%% given in the file `manifest.txt'. See also `legal.txt' for additional
+%% information.
+%%
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+ \ProvidesFile{cpRIM.def}
+   [1995/06/06 v0.9d Input encoding file.]
+\ProvideTextCommandDefault{\textregistered}{\textcircled{\textsc r}}
+\ProvideTextCommandDefault{\textonequarter}{$\frac14$}
+\ProvideTextCommandDefault{\textonehalf}{$\frac12$}
+\ProvideTextCommandDefault{\textthreequarters}{$\frac34$}
+\ProvideTextCommandDefault{\textflorin}{\textit{f}}
+\providecommand{\mathdegree}{{{}^\circ}}
+\providecommand{\mathtwosuperior}{{{}^2}}
+\providecommand{\maththreesuperior}{{{}^3}}
+\providecommand{\mathordmasculine}{{{}^o}}
+\providecommand{\mathordfeminine}{{{}^a}}
+\providecommand{\uplow}[3]{\global\uccode#1=#2\global\lccode#1=#3}
+\DeclareInputText{"AF}{\AE}
+\DeclareInputText{"C0}{{\k A}}
+\DeclareInputText{"C1}{{\k I}}
+\DeclareInputText{"C2}{\=A}
+\DeclareInputText{"C3}{\'C}
+\DeclareInputText{"C4}{\"A}
+\DeclareInputText{"C5}{\AA}
+\DeclareInputText{"C6}{{\k E}} 
+\DeclareInputText{"C7}{\=E}
+\DeclareInputText{"C8}{{\v C}}
+\DeclareInputText{"C9}{\'E}
+\DeclareInputText{"CA}{\'Z}
+\DeclareInputText{"CB}{{\. E}}
+\DeclareInputText{"CE}{\=I}
+\DeclareInputText{"D0}{{\v S}}
+\DeclareInputText{"D1}{\'N}
+\DeclareInputText{"D3}{\'O}
+\DeclareInputText{"D4}{\=O}
+\DeclareInputText{"D5}{\~O}
+\DeclareInputText{"D6}{\"O}
+\DeclareInputText{"D8}{{\k U}}
+\DeclareInputText{"DA}{\'S}
+\DeclareInputText{"DB}{\=U}
+\DeclareInputText{"DC}{\"U}
+\DeclareInputText{"DD}{\.Z}
+\DeclareInputText{"DE}{{\v Z}}
+\DeclareInputMath{"E0}{{\k a}}
+\DeclareInputMath{"E1}{{\k i}}
+\DeclareInputMath{"E2}{\=a}
+\DeclareInputMath{"E3}{\'c}
+\DeclareInputMath{"E4}{\"a}
+\DeclareInputMath{"E5}{\aa}
+\DeclareInputMath{"E6}{{\k e}}
+\DeclareInputMath{"E7}{\=e}
+\DeclareInputMath{"E8}{{\v c}}
+\DeclareInputMath{"E9}{\'e}
+\DeclareInputMath{"EA}{\'z}
+\DeclareInputMath{"EB}{{\. e}}
+\DeclareInputMath{"EE}{\=\i}
+\DeclareInputMath{"F0}{{\v s}}
+\DeclareInputMath{"F1}{{\' n}}
+\DeclareInputMath{"F3}{\'o}
+\DeclareInputText{"F4}{\=o}
+\DeclareInputText{"F5}{\~o}
+\DeclareInputMath{"F6}{\"o}
+\DeclareInputMath{"F8}{{\k u}}
+\DeclareInputText{"FA}{{\'s}}
+\DeclareInputMath{"FB}{\=u}
+\DeclareInputMath{"FC}{\"u}
+\DeclareInputMath{"FD}{\.z}
+\DeclareInputText{"FE}{{\v z}}
+\uplow{"C0}{"C0}{"E0}\uplow{"E0}{"C0}{"E0}
+\uplow{"C6}{"C6}{"E6}\uplow{"E6}{"C6}{"E6}
+\uplow{"C1}{"C1}{"E1}\uplow{"E1}{"C1}{"E1}
+\uplow{"D8}{"D8}{"F8}\uplow{"F8}{"D8}{"F8}
+\uplow{"CB}{"CB}{"EB}\uplow{"EB}{"CB}{"EB}
+\uplow{"DB}{"DB}{"FB}\uplow{"FB}{"DB}{"FB}
+\uplow{"C8}{"C8}{"E8}\uplow{"E8}{"C8}{"E8}
+\uplow{"D0}{"D0}{"F0}\uplow{"F0}{"D0}{"F0}
+\uplow{"DE}{"DE}{"FE}\uplow{"FE}{"DE}{"FE}
+\endinput
+%% 
+%% End of file `cpRIM.def'.

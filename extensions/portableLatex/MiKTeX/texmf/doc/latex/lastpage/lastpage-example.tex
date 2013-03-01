@@ -1,0 +1,167 @@
+%%
+%% This is file `lastpage-example.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% lastpage.dtx  (with options: `example')
+%% 
+%% This is a generated file.
+%% 
+%% Project: lastpage
+%% Version: 2011/08/08 v1.2i
+%% 
+%% Copyright (C) 2010, 2011 by
+%%     H.-Martin M"unch <Martin dot Muench at Uni-Bonn dot de>
+%% Portions of code copyrighted by other people as marked.
+%% 
+%% The usual disclaimer applys:
+%% If it doesn't work right that's your problem.
+%% (Nevertheless, send an e-mail to the maintainer
+%%  when you find an error in this package.)
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3c of this license or (at your option) any later
+%% version. This version of this license is in
+%%    http://www.latex-project.org/lppl/lppl-1-3c.txt
+%% and the latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status "maintained".
+%% 
+%% The Current Maintainer of this work is H.-Martin Muench.
+%% 
+%% This package was invented by Jeffrey P. Goldberg.
+%% I thought that a replacement was needed and therefore created the
+%% pageslts package,
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/pageslts/pageslts.dtx
+%% or
+%% http://www.ctan.org/tex-archive/install/macros/latex/contrib/pageslts.tds.zip
+%% . Nevertheless, for compatibility with existing documents/packages as well as
+%% for the low amount of resources needed by the lastpage package (no new counter!),
+%% I updated this package.
+%% Thanks go to Jeffrey P. Goldberg for allowing me to do this.
+%% 
+%% This work consists of the main source file lastpage.dtx
+%% and the derived files
+%%    lastpage.sty, lastpage.pdf, lastpage.ins, lastpage.drv,
+%%    lastpage-example.tex.
+%% 
+\documentclass[british]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtEndDocument{\message{^^JLaTeX Info: Executing hook `AtEndDocument'.}}
+\usepackage[draft]{showkeys}[2007/08/07]% v3.15
+%%      Use final instead of draft to hide the keys. %%
+\usepackage{hyperref}[2011/04/17]% v6.82g
+\hypersetup{%
+ extension=pdf,%
+ plainpages=false,%
+ pdfpagelabels=true,%
+ hyperindex=false,%
+ pdflang={en},%
+ pdftitle={lastpage package example},%
+ pdfauthor={Hans-Martin Muench},%
+ pdfsubject={Example for the lastpage package},%
+ pdfkeywords={LaTeX, lastpage, Hans-Martin Muench},%
+ pdfview=Fit,%
+ pdfstartview=Fit,%
+ pdfpagelayout=SinglePage%
+}
+\usepackage{lastpage}[2011/08/08]% v1.2i
+\makeatletter
+\renewcommand{\@evenfoot}{%
+ \normalsize\slshape \today\hfil \upshape page \thepage%
+ \ of \pageref{LastPage}}
+\renewcommand{\@oddfoot}{\@evenfoot}
+\makeatother
+\gdef\unit#1{\mathord{\thinspace\mathrm{#1}}}%
+\listfiles
+\begin{document}
+\pagenumbering{Roman}
+
+\section*{Example for lastpage}
+\markboth{Example for lastpage}{Example for lastpage}
+
+This example demonstrates the use of package\newline
+\textsf{lastpage}, v1.2i as of 2011/08/08 (HMM; JPG).\newline
+The package takes no options.\newline
+For more details please see the documentation!\newline
+
+\noindent \label{keys} To hide the \pageref{keys}{\qquad } use option
+\texttt{final} instead of \texttt{draft} with the \textsf{showkeys}
+package (or remove the package call from the preamble of
+this document).\newline
+
+\textbf{Hyperlinks or not:} If the \textsf{hyperref} package is loaded,
+the references are also hyperlinked:\newline
+\smallskip
+Last page's name (LastPage): \pageref{LastPage}\newline
+\noindent If the \textsf{hyperref} package is loaded, but the hyperlinks
+of the references shall be suppressed, \verb|\pageref*{...}|
+can be used:\newline
+\smallskip
+Last page's name (LastPage): \pageref*{LastPage}\newline
+
+\textbf{Trademarks} appear throughout this example without any
+trademark symbol; they are the property of their respective
+trademark owner. There is no intention of infringement; the
+usage is to the benefit of the trademark owner.\newline
+
+\textbf{Tip}: Use \textit{logical page numbers} for
+the display of the pdf!\newline
+(In Adobe Reader X (10.1.0): \underline{E}dit $>$
+Prefere\underline{n}ces (Ctrl+k) $>$ Page Display $>$
+Page Content and Information $>$ Use logical page
+\nolinebreak{\underline{n}umbers.)}\newline
+
+If you are more ambitiouse in respect to your aims with this package,
+you might want to have a look at the \textsf{pageslts} package\newline
+\makeatletter
+ \@ifundefined{Hy@Warning}{% hyperref not loaded
+     \verb|http://www.ctan.org/tex-archive/macros/latex/contrib/pageslts/|).
+   }{% hyperref loaded
+     \href{http://www.ctan.org/tex-archive/macros/latex/contrib/pageslts/}{%
+     CTAN:/macros/latex/contrib/pageslts/}).
+    }%
+\makeatother
+
+\bigskip
+
+Save per page about $200\unit{ml}$~water, $2\unit{g}$~CO$_{2}$
+and $2\unit{g}$~wood:\newline
+Therefore please print only if this is really necessary.\newline
+I do NOT think, that it is necessary to print THIS file, really\newline
+(at least not after this page)!
+
+\bigskip
+
+\noindent The page (\verb|\thepage|): \thepage \newline
+
+\noindent Last page's name (LastPage): \pageref{LastPage}
+
+\newpage
+
+\noindent The page (\verb|\thepage|): \thepage \newline
+
+\noindent Last page's name (LastPage): \pageref{LastPage}
+
+\newpage
+
+\noindent The page (\verb|\thepage|): \thepage \newline
+
+\noindent Last page's name (LastPage): \pageref{LastPage}
+
+\newpage
+
+\section*{The End}
+
+\noindent The page (\verb|\thepage|): \thepage \newline
+
+\noindent Last page's name (LastPage): \pageref{LastPage}
+\end{document}
+\endinput
+%%
+%% End of file `lastpage-example.tex'.

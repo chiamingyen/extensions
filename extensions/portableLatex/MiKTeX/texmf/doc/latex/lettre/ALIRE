@@ -1,0 +1,37 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+% E-Mail: Denis.Megevand@obs.unige.ch
+% Site ftp: obsftp.unige.ch:/pub/tex/macros
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+Auteur :	Denis Mégevand
+Version :	`ls LAST_VERSION_IS_*` 
+Date :		`cat LAST_VERSION_IS_*`
+
+Les nouveautés et les corrections sont décrites dans les "release-notes":
+
+La documentation est en français. Elle est distribuée dans deux fichiers dvi,
+qui incluent de nombreux fichiers d'exemples et les résultats comme images
+Postscript pour former le manuel complet. letdoc1 utilise des polices EC,
+letdoc2 utilise des polices CM
+
+Une version Postscript du manuel est également fournie.
+----------------
+Installation
+============
+L'installation est très simple, les seuls fichiers importants sont lettre.cls
+et default.ins qui doivent être placés dans le chemin de recherche des macros
+de LaTeX, habituellement caché sous la variable  d'environnement $TEXINPUTS.
+----------------
+Utilisation
+===========
+Imprimer, puis suivre la documentation. Les exemples sont donnés comme fichiers
+source et Postscript. Essayer de les compiler
+pour tester la classe lettre par rapport à votre installation LaTeX.
+----------------

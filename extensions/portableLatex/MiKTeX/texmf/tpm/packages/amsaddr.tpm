@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/amsaddr"><TPM:Name>amsaddr</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Support for American Chemical Society journal submissions</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Provides a BibTeX style in accordance with the requirements of the
+journals of the American Chemical Society, along with a supporting
+LaTeX package. Also provided is a BibTeX style file to be used for
+bibliography database listings.
+
+The authors are Joseph Wright and Mats Dahlgren. The package is
+Copyright © 2007 Joseph Wright.
+</TPM:Description><TPM:RunFiles size="5358">texmf\tex\latex\amsaddr\amsaddr.sty texmf\tpm\packages\amsaddr.tpm</TPM:RunFiles><TPM:DocFiles size="22779">texmf\doc\latex\amsaddr\amsaddr.dvi texmf\doc\latex\amsaddr\README</TPM:DocFiles><TPM:SourceFiles size="4163">texmf\source\amsaddr-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1172179227</TPM:TimePackaged><TPM:MD5>b21f0a4d1ea9192f3147040e3dae665e</TPM:MD5></rdf:Description></rdf:RDF>

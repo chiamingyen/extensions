@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% verses.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% verses.sty
+% utility for ArabTeX
+% macros for typesetting Arabic verses in two columns
+% usage: load as a package, or after loading ArabTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik  
+%     Universitaet Stuttgart
+%     08.02.2006
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usage:
+% (use within an Arabic environment)
+%
+% \setversedim #1#2 		% define the layout (within a group): 
+% #1 = length of both half-verses
+% #2 = separation distance = length of a connection, if present
+% 	Variant:
+% \setversedim #1[#2]#3 	% for half-verses of unequal length
+% #1 = length of first (=right) half-verse
+% #2 = length of second (=left) half-verse
+% #3 = separation distance = length of a connection, if present
+%
+% \halfverses #1#2		% typeset two separated half-verses
+% #1 = text of first (=right) half-verse
+% #2 = text of second (=left) half-verse
+% 	Variant:
+% \halfverses #1[#2]#3		% typeset two connected half-verses
+% #1 = text of first (=right) half-verse
+% #2 = text of connection
+% #3 = text of second (=left) half-verse
+%
+% Alternative (if preferred):
+%
+% \connverses #1#2#3		% = \halfverses #1[#2]#3
+%
+% Note: use keshide to attach the connection, if required
+% Note: if the verses do not fit on the line, they will be put on
+%       two lines, flush to the margins.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \verseatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \verseatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {verses.sty} {3.12 verses in two columns} {08.02.2006}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define the layout, verses will be centered
+
+\newdimen \a@hvlen	\newdimen \a@hvsep	
+\newdimen \a@hvind	\newdimen \a@@hvlen
+
+\def \setversedim #1#2{% set lengths of half-verse, [separation]
+\ifx \LaTeX \undefined \a@hvind \hsize 
+\else \a@hvind \textwidth \fi
+\a@hvlen #1\relax \advance \a@hvind -\a@hvlen 
+\ifx [#2\def \next {\set@verseI [}\else
+\a@@hvlen \a@hvlen \def \next {\set@@verse {#2}}\fi \next }
+
+\def \set@verseI [#1]{% optional parameter
+\a@@hvlen #1\relax \set@@verse }
+
+\def \set@@verse #1{% separation
+\advance \a@hvind -\a@@hvlen \a@hvsep #1\relax 
+\advance \a@hvind -\a@hvsep  \divide \a@hvind 2 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \connverses #1#2#3{% first half-verse, connection, second half-verse
+\cond{\ifdim 0pt > \a@hvind }%
+{\spreadbox \a@hvlen {#1}\\ \hfill }% first block
+{\noindent \hskip \a@hvind \relax \spreadbox \a@hvlen {#1}}\fi 
+\spreadbox \a@hvsep {#2}% separator
+\spreadbox \a@@hvlen {#3}% second block
+\tracingmacros 0
+\par }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% macro for two half verses
+\def \halfverses #1#2{% normal case
+\connverses {#1}{\hfill}{#2}}
+
+\def \a@c@halfverses #1#2{% optional parameter?
+%\tracingmacros 1
+\cond{\ifx [#2}{\half@verses {#1}[}%
+{\half@verses {#1}[\hfill]{#2}}\fi }
+
+\def \half@verses #1[#2]#3{% first[mid]second
+\test@token \connverses {#1}{#2}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define a default layout
+% do this within a group!
+
+%\setversedim {2.0in}{0.3in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% make macros known to ArabTeX
+\allowarab \connverses		\all@wtw@ \setversedim
+
+\catcode `\@ = \verseatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

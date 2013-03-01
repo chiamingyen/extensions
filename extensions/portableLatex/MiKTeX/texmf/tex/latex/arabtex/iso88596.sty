@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% iso88596.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% iso88596.sty
+% Scanner for ISO 8859-6 Code
+% reuses the MacOS Arabic scanner
+% to install it, include it as a LaTeX package or style option "iso88596"
+% with Plain TeX, say "\input iso88596.sty"
+% to activate it, say "\setcode {iso8859-6}" or "\setcode{iso88596}"
+% 07.05.2000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chardef \isocatcode = \catcode`\@  \catcode`\@ = 11
+\a@ident {iso88596.sty} {3.10 ISO 8859-6 encoding} {07.05.2000}
+
+\UsePackage {amac} % reuse MacOS Arabic scanner
+\a@message {scanner for ISO 88596-9 code installed.}
+
+\catcode `\@ = \isocatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

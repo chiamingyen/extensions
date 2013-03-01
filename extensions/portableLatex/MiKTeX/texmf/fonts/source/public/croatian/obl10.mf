@@ -1,0 +1,86 @@
+
+% Croatian Glagolitic
+% round glagolitic, 1994, darko.zubrinic@etf.hr
+
+
+
+mode_setup;
+ u#:=.8pt#; font_quad= 24u#;
+            font_normal_space= 8u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 1u#;
+ em#:=10pt#; cap#:=7pt#;
+ thin#:=2/3pt#; thick#:=.9*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:= round 1.1*1/10em;
+input oblv  % velika slova
+
+
+
+%mode_setup;
+%pt#:=3/4pt#;
+%u#:=3/4u#;
+%em#:=3/4em#; cap#:=3/4cap#;
+%        thick#:=3/4thick#;
+%o#:=3/4o#;
+%define_pixels(em,cap);
+%define_blacker_pixels(thin,thick);
+%curve_sidebar:=3/4curve_sidebar;
+
+mode_setup;
+pt#:=3/4pt#;
+ u#:=.8pt#; font_quad= 24u#;
+            font_normal_space= 8u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 1u#;
+ em#:=10pt#; cap#:=7pt#;
+ thin#:=2/3pt#; thick#:=.9*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+
+
+input oblm  % mala slova
+
+
+input glz  % znakovi
+
+
+
+ligtable "c": "c" =: oct"013",  "h" =: oct"011";
+ligtable "s": "s" =: oct"014"; %umjesto sh
+ligtable "z":    "z" =: oct"015", "o" kern -.5u#,
+              "u" kern -.5u#;
+%ligtable "d": "d" =: oct"016"; % "d" =: oct"012";
+ligtable "y": "a" =: "w", "e" =: "w", "u" =: "5";
+ligtable "-": "-" =: oct"173";
+%ligtable "e": "i" kern -.5u#;
+%ligtable "f": "o" kern -u#, "u" kern -u#, "i" kern -.5u#, "g" kern-.5u#;
+%ligtable "i": "f" kern -.5u#;
+%ligtable "r": "k" kern -.5u#;
+%ligtable "n": "a" kern -.5u#;
+%ligtable "j": "a" kern -.5u#;
+
+u#:=4/3u#;
+
+
+
+ligtable "C": "c" =: oct"023", "C" =: oct "023", "H" =:
+                     oct"021", "h" =: oct"021";
+ligtable "S": "S" =: oct"024",  "s" =: oct"024";
+ligtable "Z": "Z" =: oct"025", "z"=: oct"025",
+              "O" kern -.5u#,
+              "u" kern -.5u#;
+%ligtable "D": "d" =: oct"026", "D" =: oct"026"; % "d" =: oct"022";
+ligtable "Y": "a" =: "W", "A" =: "W", "u" =: "2", "U" =: "2";
+%ligtable "E": "I" kern -.5u#;
+%ligtable "F": "O" kern -u#, "U" kern -u#, "I" kern -.5u#, "G" kern-.5u#;
+%ligtable "I": "F" kern -.5u#;
+%ligtable "R": "K" kern -.5u#;
+%ligtable "N": "A" kern -.5u#;
+
+
+end.
+

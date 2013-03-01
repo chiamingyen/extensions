@@ -1,0 +1,70 @@
+The package "lettre" is distributed under the terms of the LaTeX Project 
+Public License (LPPL) described in the file lppl.txt.
+
+This distribution includes the following files (x.xxx stands for the current
+release number), all subject to the conditions of the LPPL:
+-----------------------------------------------------------------------------
+Le paquetage "lettre" est distribué sous les termes de la licence publique 
+du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+La distribution contient les fichiers suivants (x.xxx est le numéro de la
+distribution courante), tous soumis aux termes  de la LPPL :
+
+						Denis Mégevand - 28.12.1999
+-----------------------------------------------------------------------------
+LAST_VERSION_IS_x.xxx  
+ALIRE		       
+README		       
+LICENSE 	       
+lppl.txt	       
+inputs/lettre.cls_x.xxx
+inputs/lettre.cls -> lettre.cls_x.xxx
+inputs/obs.ins	       
+inputs/default.ins     
+inputs/institut.tpl    
+inputs/lettre.tpl      
+inputs/telefax.tpl     
+doc/x.xxx-release-notes
+doc/letdoc.ps	
+doc/letdoc1.dvi 
+doc/letdoc2.dvi 
+doc/ecusson55.ps
+doc/amgmono.eps 
+doc/letex1.tex	
+doc/letex1.odt	
+doc/letex1.ps	
+doc/letex2.tex	
+doc/letex2.odt	
+doc/letex2.ps	
+doc/letex3.tex	
+doc/letex3.odt	
+doc/letex3.ps	
+doc/letex4.tex	
+doc/letex4.odt	
+doc/letex4.ps	
+doc/letex5.tex	
+doc/letex5.odt	
+doc/letex5.ps	
+doc/letex6.tex	
+doc/letex6.odt	
+doc/letex6.ps	
+doc/letex7.tex	
+doc/letex7.odt	
+doc/letex71.ps	
+doc/letex72.ps	
+doc/letex8.tex	
+doc/letex8.odt	
+doc/letex81.ps	
+doc/letex82.ps	
+doc/letex83.ps	
+doc/testfaxd.tex
+doc/testfaxd.odt
+doc/testfaxd.ps 
+doc/testfaxe.tex
+doc/testfaxe.odt
+doc/testfaxe.ps 
+doc/testfaxf.tex
+doc/testfaxf.odt
+doc/testfaxf1.ps
+doc/testfaxf2.ps
+-----------------------------------------------------------------------------

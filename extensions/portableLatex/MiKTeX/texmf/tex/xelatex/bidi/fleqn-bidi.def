@@ -1,0 +1,55 @@
+%%
+%% This is file `fleqn-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{fleqn-bidi.def}[2010/03/01 v0.1 adaptations for fleqn tag]
+\renewcommand\[{\relax
+                \ifmmode\@badmath
+                \else
+                  \begin{trivlist}%
+                    \@beginparpenalty\predisplaypenalty
+                    \@endparpenalty\postdisplaypenalty
+                    \item[]\leavevmode
+                    \hb@xt@\linewidth\bgroup \beginL$\m@th\displaystyle %$
+                      \hskip\mathindent\bgroup
+                \fi}
+\renewcommand\]{\relax
+                \ifmmode
+                      \egroup $\hfil% $
+                    \endL\egroup
+                  \end{trivlist}%
+                \else \@badmath
+                \fi}
+\renewenvironment{equation}%
+    {\@beginparpenalty\predisplaypenalty
+     \@endparpenalty\postdisplaypenalty
+     \refstepcounter{equation}%
+     \trivlist \item[]\leavevmode
+       \hb@xt@\linewidth\bgroup\beginL $\m@th% $
+         \displaystyle
+         \hskip\mathindent}%
+        {$\hfil % $
+         \displaywidth\linewidth\hbox{\@eqnnum}%
+       \endL\egroup
+     \endtrivlist}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `fleqn-bidi.def'.

@@ -1,0 +1,42 @@
+---- pstricks.pro
+1.06  2009-01-30  - cosmetic changes to the code
+1.05  2008-08-02  - commented out empty lines
+1.04  2008-05-11  - added Rand for a real random 0<=Rand<=1
+1.03  2008-04-15  - only some cosmetics to the code
+1.02  2008-01-01  - added the arrowtype D>, sides as curves (ArrowD)
+		  - added the whole algebraic parser stuff
+		  - added function tan := sin cos div
+		  - added function Tan := sin cos Div
+		  - added Pyth2 for 2 points given by xA yA xB yB 
+		  - change variable names from x,y to xOrig, yOrig for
+		    EllipticArcArrow 
+		  - move font setting for \psgrid into pstricks.tex
+1.01  2006-01-11  (vg) fix a bug with ArcAdjust when both angles ares negative
+                  add Sqrt sunction
+1.00  2005-09-19  move the code for arcs of an ellipse from
+                       the main pstricks.tex into this pro
+97, patch 7  2005-09-11  added new fillstyles
+97, patch 6  2005-05-17  added some helper stuff
+                         RadtoDeg, DegtoRad, Pi, TwoPi, ATAN
+97, patch 5  2005-03-08  bugfix for DashLine
+
+
+---- pst-dots.pro
+2.02  2008-04-19  add octogon symbol (hv) 
+2.01  2008-04-18  add some comments to the code (hv) 
+2.00  2006-12-19  add more dot symbols from Etienne Riga (hv) 
+
+
+---- pst-node.pro
+1.02  2009-01-30  - cosmetic changes to the code
+1.01  2008-08-14  - commented out empty lines
+                  - fix bug with \ncangle for npos=3
+1.00  2008-01-01  initial version (hv) 
+
+
+---- pst-alpparser.pro
+0.02  2008-08-02  - commented out empty lines
+0.01  2008-01-01  initial version (hv) 
+
+---- pstricks97.pro
+Version 97 patch 3, 98/06/01

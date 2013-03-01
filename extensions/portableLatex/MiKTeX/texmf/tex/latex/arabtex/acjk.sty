@@ -1,0 +1,33 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% acjk.sty
+% for CJK compatibility of ArabTeX
+% or rather the other way around
+% 24.10.1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx \CJK \undefined \else
+
+\chardef \acjkatcode = \catcode`\@            \catcode`\@ = 11
+\a@ident {acjk.sty} {3.08 ArabTeX extensions for CJK} {24.10.1998}
+
+\ifx \CJK \undefined \else
+\global\def\CJK@input#1{
+  \makeatletter
+  \edef\CJK@lscode{\noexpand\catcode`<\the\catcode`<}
+  \catcode `< 12
+  \endlinechar \m@ne
+  \input #1\relax
+  \endlinechar `\^^M
+  \CJK@lscode
+  \makeatother}
+\fi
+
+\catcode`\@ = \acjkatcode
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+
+

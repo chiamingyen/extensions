@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/linguex"><TPM:Name>linguex</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Format linguist examples.</TPM:Title><TPM:Version></TPM:Version><TPM:TargetSystem></TPM:TargetSystem><TPM:Description>A package to facilitate the formatting of linguist examples,
+automatically taking care of example numbering, indentations, indexed
+brackets, and the ``*'' in grammaticality judgments.
+</TPM:Description><TPM:RunFiles size="32544">texmf\tex\latex\linguex\cgloss4e.sty texmf\tex\latex\linguex\linguex.sty texmf\tex\latex\linguex\linguho.sty texmf\tex\latex\linguex\ps-trees.sty texmf\tpm\packages\linguex.tpm</TPM:RunFiles><TPM:DocFiles size="152316">texmf\doc\latex\linguex\linguex-doc.pdf texmf\doc\latex\linguex\ps-trees-doc.pdf texmf\doc\latex\linguex\README</TPM:DocFiles><TPM:SourceFiles size="11092">texmf\source\linguex-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1275666734</TPM:TimePackaged><TPM:MD5>a257e656eb4d2997b2c9da1f601bbe99</TPM:MD5></rdf:Description></rdf:RDF>

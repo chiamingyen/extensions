@@ -1,0 +1,223 @@
+		SplitIndex Installation Guide
+
+			   2009-03-18
+
+
+INTRODUCTION
+============
+
+If you know how to install LaTeX packages and how to install binary
+programs, just do it. If you don't know, read the following. If you
+are using Linux-i386 or OpenBSD-i386 or another Unix like environment
+with installed Gnu fileutils and installed Gnu-C-Compiler, you may try
+install.sh for installation. See
+
+    ./install.sh --help
+
+for more information. If you don't have GCC, Linux-i386 or
+OpenBSD-i386 you may also use install.sh, but you have to compile
+and link splitindex.c before. See the splitidx manual for this.
+
+But you may also try the following step by step installation:
+
+HOW TO INSTALL SplitIndex FROM A TDS-ARCHIVE
+============================================
+
+Some distributors may use a SplitIndex TDS-archive for distributing
+SplitIndex.  SplitIndex TDS-archive may be installed very easily.
+The SplitIndex TDS-archive has following contents:
+
+  +- doc/
+  |  +- latex/
+  |     +- splitindex/
+  |        +- install.txt
+  |        +- README
+  |        +- splitidx.pdf
+  |        +- splitindex.1
+  +- tex/
+  |  +- latex/
+  |     +- splitindex/
+  |        +- splitidx.sty
+  |        +- splitindex.tex
+  +- scripts/
+  |  +- splitindex/
+  |     +- perl/
+  |        +- splitindex.pl
+  +- source/
+     +- latex/
+        +- splitindex/
+           +- install.sh
+	   +- install.txt
+           +- manifest.txt
+           +- README
+           +- splitidx.dtx
+           +- splitidx.ins
+           +- splitindex.1
+           +- splitindex.c
+	   +- splitindex.class
+	   +- splitindex.exe
+           +- splitindex.java
+	   +- splitindex-Linux-i386
+	   +- splitindex-OpenBSD-i386
+           +- splitindex.pl
+           +- splitindex.tex
+
+If you don't have such an archive, continue reading at 1st step of ``HOW TO
+GENERATE THE splitidx PACKAGE''.  If you have such an archive - we will use
+the file name ``splitindex.tds.zip'' in the following - you may continue 
+with:
+
+A)   Have a look where your LaTeX Distribution searchs for files. 
+     With teTeX you can ask kpathsea for this, e.g. using a unix
+     shell:
+
+	kpsexpand \$TEXMFLOCAL
+
+     to use the local texmf tree or:
+
+	kpsexpand \$HOMETEXMF
+
+     to use your private texmf tree. Following uses ``<TEXMF>'' to 
+     be a synonym for the texmf tree you want to use.
+
+B)   Extract splitindex.tds.zip at <TEXMF> with all the subdirectories of
+     the splitindex.tds.zip but without generating additional 
+     subdirectories, e.g., using:
+
+        cd <TEXMF>
+	unzip splitindex.tds.zip
+
+     or any other zip extraction programm.
+
+C)   Continue with 5th to 9th step of ``HOW TO INSTALL THE BINARIES''.
+
+D)   Call the program, which is used to update the filename data
+     base, e.g., texhash or mktexlsr if you are using teTeX/TeX Live.
+
+E)   Read ``HOW TO TEST YOUR INSTALLATION'' at the end of this 
+     documentation.
+
+
+HOW TO GENERATE THE splitidx PACKAGE
+====================================
+
+You need this only, if you don't have a SplitIndex TDS-archive, but want
+to install SplitIndex from a basic SplitIndex distribution.  If you have 
+already done the SplitIndex TDS-archive installation discribed above, you
+should skip this section.
+
+1st) Process splitidx.ins with TeX or LaTeX, e.g. using the following
+     input at a command shell (e.g. bash or command.com):
+
+	latex splitidx.ins
+
+     Maybe you'll be asked, if you want to overwrite existing files. 
+     Answer this question with yes.
+
+2nd) Have a look where your LaTeX Distribution searchs for files. 
+     With teTeX you can ask kpathsea for this, e.g. using a unix
+     shell:
+
+	kpsexpand \$TEXMFLOCAL
+
+     to use the local texmf tree or:
+
+	kpsexpand \$HOMETEXMF
+
+     to use your private texmf tree. Following uses ``<TEXMF>'' to 
+     be a synonym for the texmf tree you want to use.
+
+3rd) Create folder <TEXMF>/tex/latex/splitindex (at Windows:
+     <TEXMF>\tex\latex\splitindex), if it doesn't exist. Copy 
+     splitidx.sty to this folder.
+
+4th) Call the program, which is used to update the filename data
+     base, e.g. texhash or mktexlsr if you are using teTeX/TeX Live.
+
+
+HOW TO INSTALL THE BINARIES
+===========================
+
+You need only one of the binaries splitindex (compiled from splitindex.c),
+splitindex.class (compiled from splitindex.java) or splitindex.pl (using a
+perl interpreter).  Following steps will install all these binaries.
+Please do them all, before asking for support.
+
+5th) Rename the suitable binary (e.g. splitindex-Linux-i386, if you're
+     using Linux-i386) to splitindex or compile splitindex.c to generate
+     a binary named splitindex using e.g.
+         gcc -O3 -Wall -o splitindex splitindex.c
+     or
+         gcc -O3 -Wall -DNO_LONGOPT -o splitindex splitindex.c
+
+6th) Copy splitindex.java to the binary search path of SUN JAVA
+     1.4.1.
+
+7th) Copy splitindex.pl and splitindex or splitindex.exe somewhere to
+     your binary search path (ask environment variable PATH).
+
+8th) Copy the manual page splitindex.1 to your manual seach path. If you are
+     using Linux or OpenBSD, this may be, e.g., /usr/local/man/man1/ (ask
+     environment variable MANPATH).
+
+9th) Copy splitindex.tex to the same location you've copied
+     splitidx.sty to and do 4th step again.
+
+
+HOW TO GENERATE THE MANUAL
+==========================
+
+10th) process splitidx.dtx with LaTeX to generate the user manual of
+      splitidx and SplitIndex, e.g. using the following input at a 
+      command shell:
+
+	latex splitidx.dtx
+	latex splitidx.dtx
+	mkindex splitidx
+	latex splitidx.dtx
+
+      or (if you do not have the mkindex script):
+
+	latex splitidx.dtx
+	latex splitidx.dtx
+	makeindex -s gind.ist splitidx
+	makeindex -s gglo.ist -o splitidx.gls splitidx.glo
+	latex splitidx.dtx
+
+      You may print the resulting splitidx.dvi. If you prefere PDF 
+      files, use pdflatex instead of latex.
+
+11th) read the manual you produced at 10th step.
+
+
+HOW TO TEST YOUR INSTALLATION
+=============================
+
+Use the following LaTeX source to test the installation. See
+splitidx.dvi or splitidx.pdf to see how to do this.
+
+\documentclass{article} %  We use \Class{article} class ...
+\usepackage{splitidx} % ... and the \Package{splitidx} package
+\makeindex %  And we want index generation
+\usepackage{hyperref}
+%  We define 4 indices:
+\newindex[General Index]{idx} %  Name and shortcut of the 1st index
+\newindex[Index of Animals]{ani} %  ... 2nd index
+\newindex[Index of Fruits]{fru} %  ... 3rd index
+\newindex[Index of Vegetables]{veg} % ... \dots\ 4th index
+
+\begin{document}
+Apples\sindex[fru]{apple} %  an entry to fru index
+and oranges\sindex[fru]{orange} %  an entry to fru index
+are fruits\sindex{fruits}. %  an implicite entry to idx index
+Tomatos\sindex[veg]{tomato} %  an entry to veg index
+are vegetables\index{vegetables}. %  an implicite entry to idx index
+Cats\sindex[ani]{cat} %  an entry to ani index
+are animals\sindex[idx]{animals}. %  an explicite entry to idx index
+
+\twocolumn[%
+ \section*{Indices}%
+ \markboth{Indices}{Indices}%
+]
+\printsubindex* %  print all indices
+\end{document}

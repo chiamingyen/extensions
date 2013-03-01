@@ -1,0 +1,158 @@
+%%
+%% This is file `luacolor.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% luacolor.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2007, 2009 by Heiko Oberdiek <oberdiek@uni-freiburg.de>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.3 of this license or (at your option) any later
+%% version. The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of
+%% LaTeX version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status "maintained".
+%% 
+%% This Current Maintainer of this work is Heiko Oberdiek.
+%% 
+%% This work consists of the main source file luacolor.dtx
+%% and the derived files
+%%    luacolor.sty, luacolor.pdf, luacolor.ins, luacolor.drv,
+%%    luacolor-test1.tex, luacolor-test2.tex, luacolor-test3.tex,
+%%    oberdiek.luacolor.lua, luacolor.lua.
+%% 
+\begingroup
+  \catcode123 1 % {
+  \catcode125 2 % }
+  \def\x{\endgroup
+    \expandafter\edef\csname LuaCol@AtEnd\endcsname{%
+      \catcode35 \the\catcode35\relax
+      \catcode64 \the\catcode64\relax
+      \catcode123 \the\catcode123\relax
+      \catcode125 \the\catcode125\relax
+    }%
+  }%
+\x
+\catcode35 6 % #
+\catcode64 11 % @
+\catcode123 1 % {
+\catcode125 2 % }
+\def\TMP@EnsureCode#1#2{%
+  \edef\LuaCol@AtEnd{%
+    \LuaCol@AtEnd
+    \catcode#1 \the\catcode#1\relax
+  }%
+  \catcode#1 #2\relax
+}
+\TMP@EnsureCode{34}{12}% "
+\TMP@EnsureCode{39}{12}% '
+\TMP@EnsureCode{40}{12}% (
+\TMP@EnsureCode{41}{12}% )
+\TMP@EnsureCode{42}{12}% *
+\TMP@EnsureCode{43}{12}% +
+\TMP@EnsureCode{44}{12}% ,
+\TMP@EnsureCode{45}{12}% -
+\TMP@EnsureCode{46}{12}% .
+\TMP@EnsureCode{47}{12}% /
+\TMP@EnsureCode{58}{12}% :
+\TMP@EnsureCode{60}{12}% <
+\TMP@EnsureCode{61}{12}% =
+\TMP@EnsureCode{62}{12}% >
+\TMP@EnsureCode{95}{12}% _ (other!)
+\TMP@EnsureCode{96}{12}% `
+\edef\LuaCol@AtEnd{%
+  \LuaCol@AtEnd
+  \noexpand\endinput
+}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{luacolor}%
+  [2009/04/10 v1.1 Coloring based on LuaTeX's node attributes (HO)]
+\RequirePackage{infwarerr}[2007/09/09]%
+\RequirePackage{ifluatex}[2009/04/10]%
+\RequirePackage{color}
+\ifluatex
+  \RequirePackage{luatex}[2009/04/10]%
+\else
+  \@PackageError{luacolor}{%
+    This package may only be run using LuaTeX%
+  }\@ehc
+  \expandafter\LuaCol@AtEnd
+\fi
+\ifnum\luatexversion<36 %
+  \def\LuaCol@directlua{\directlua0 }%
+\else
+  \let\LuaCol@directlua\directlua
+\fi
+\ifcolors@
+\else
+  \@PackageWarningNoLine{luacolor}{%
+    Colors are disabled by option `monochrome'%
+  }%
+  \expandafter\LuaCol@AtEnd
+\fi
+\LuaCol@directlua{%
+  require("oberdiek.luacolor")%
+}
+\RequirePackage{ifpdf}[2007/09/09]
+\ifpdf
+\else
+  \begingroup
+    \def\current@color{}%
+    \def\reset@color{}%
+    \setbox\z@=\hbox{%
+      \begingroup
+        \set@color
+      \endgroup
+    }%
+    \edef\reserved@a{%
+      \LuaCol@directlua{%
+        oberdiek.luacolor.dvidetect()%
+      }%
+    }%
+    \ifx\reserved@a\@empty
+      \@PackageError{luacolor}{%
+        DVI driver detection failed because of\MessageBreak
+        unrecognized color \string\special
+      }\@ehc
+      \endgroup
+      \expandafter\expandafter\expandafter\LuaCol@AtEnd
+    \else
+      \@PackageInfoNoLine{luacolor}{%
+        Type of color \string\special: \reserved@a
+      }%
+    \fi
+  \endgroup
+\fi
+\newattribute\LuaCol@Attribute
+\LuaCol@directlua{%
+  oberdiek.luacolor.setattribute(\number\allocationnumber)%
+}
+\protected\def\set@color{%
+  \setattribute\LuaCol@Attribute{%
+    \LuaCol@directlua{%
+      oberdiek.luacolor.get("\luaescapestring{\current@color}")%
+    }%
+  }%
+}
+\def\reset@color{}
+\def\luacolorProcessBox#1{%
+  \LuaCol@directlua{%
+    oberdiek.luacolor.process(\number#1)%
+  }%
+}
+\RequirePackage{atbegshi}[2007/09/09]
+\AtBeginShipout{%
+  \luacolorProcessBox\AtBeginShipoutBox
+}
+\set@color
+\LuaCol@AtEnd
+\endinput
+%%
+%% End of file `luacolor.sty'.

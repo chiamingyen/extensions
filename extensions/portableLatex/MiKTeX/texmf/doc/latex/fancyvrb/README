@@ -1,0 +1,66 @@
+
+              --------------------------------------------------
+              |                   `fancyvrb'                   |
+              |                  Version 2.6                   |
+              |                 July 17, 1998                  |
+              |                                                |
+	      | Timothy Van Zandt (Princeton University - USA) |
+              |              <tvz@Princeton.EDU>               |
+              |                                                |
+              |     Packaging, documentation and support       |
+              |       Denis Girou (CNRS/IDRIS - France)        |
+              |            <Denis.Girou@idris.fr>              |
+              |        Sebastian Rahtz (Elsevier - GB)         |
+              |           <s.rahtz@elsevier.co.uk>             |
+              --------------------------------------------------
+
+
+  The `fancyvrb' package provides very sophisticated facilities for reading
+and writing verbatim TeX code. Users can perform common tasks like changing
+font family and size, numbering lines, framing code examples, colouring text
+and conditionally processing text.
+
+  `fancyvrb' was heavily used in the typesetting of the "LaTeX Graphics
+Companion", by Michel Goossens, Sebastian Rahtz and Frank Mittelbach, Addison
+Wesley, 1997.
+
+  It was presented March 31, 1998 for EuroTeX'98. The original paper is
+available on (courtesy "Cahiers GUTenberg"):
+http://www.univ-rennes1.fr/pub/GUTenberg/publicationsPS/28-29-girou.ps.gz
+The description part of `fancyvrb' is not up to date (it was the content
+of the version 2.5) but the additional paragraph about it usage to the
+typesetting of the "LaTeX Graphics Companion" provide in depth informations
+on some usages of `fancyvrb' not described elsewhere.
+
+  The "contrib" subdirectory contain the `fvrb-ex' package (from Denis Girou),
+built above `fancyvrb', which offer some "example" environments showing both
+the code in verbatim mode and the result of it normally formatted.
+
+                                   Warning!
+                                   --------
+
+  * Support is provided by Denis Girou and Sebastian Rahtz and not by
+Timothy Van Zandt. Do not bother him with questions relative to `fancyvrb'!
+
+  * The standard `color' package must be available, with a correct "color.cfg"
+file defining the dvi converter that must be used.
+
+  * If the `changebar' package is available on your platform, the changes
+since the preceding version will be marked by special gray bars printed
+in the margins. But the driver name must be hardcoded in the file.
+So, if you have `changebar' and are not using the "dvips" driver, change this
+name in the line
+             {\ChangeBartrue\usepackage[dvips,rightbars]{changebar}}{}
+in fancyvrb.dtx (the other drivers supported by this package are "dvitoln03",
+"dvitops" and "emtex").
+    If you really need to desactivate this feature (it must not be the case,
+as there will be no effect if you haven't `changebar', and, if you have it,
+it must work on your platform...) just change the two relevant lines to:
+\IfFileExists{changebar.sty}{}{}
+
+.............................................................................
+
+     Comments, suggestions and bug reports (with version number and the
+keyword "fancyvrb" in the subject of the message) to <Denis.Girou@idris.fr>
+and <s.rahtz@elsevier.co.uk>
+

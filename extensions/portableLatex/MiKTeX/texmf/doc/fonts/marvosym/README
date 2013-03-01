@@ -1,0 +1,37 @@
+The Martin Vogels Symbole (marvosym) font is a Type 1 font.
+The marvosym style file lets you use this font in LaTeX2e documents.
+
+The font contains
+- the Euro currency symbol as defined by the European commission
+- Euro currency symbols in typefaces Times, Helvetica and Courier
+- Symbols fur structural engineering
+- Symbols for steel cross-sections
+- Astronomy signs (Sun, Moon, planets)
+- The 12 signs of the zodiac
+- Scissor symbols
+- a CE sign
+and many others.
+
+File list:
+README.1st      overview of what this package is
+umvs.tfm        TeX font metric file for the marvosym font
+umvs.fd         Font description file for the marvosym font
+marvodoc.pdf    The documentation for the marvosym package (PDF)
+marvodoc.ps     The documentation for the marvosym package (PS)
+marvodoc.tex    The source of the documentation
+marvosym.afm    Type 1 font metric file for the marvosym font
+marvosym.pfb    Type 1 font
+marvosym.sty    The marvosym style file for LaTeX2e
+PROBLEMS	describes some problems and their solutions
+LICENSE         License for this package
+
+IMPORTANT:
+Download files in BINARY mode!
+
+Font design: Martin Vogel
+Macros and documentation: Thomas Henlich
+
+marvosym is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.

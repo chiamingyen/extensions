@@ -1,0 +1,413 @@
+%%
+%% This is file `tocbasic.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% tocbasic.dtx  (with options: `package')
+%% scrlogo.dtx  (with options: `logo')
+%% 
+%% Copyright (c) 2007-2009
+%% Markus Kohm and any individual authors listed elsewhere in this file.
+%% 
+%% This file was generated from file(s) of the KOMA-Script bundle.
+%% ---------------------------------------------------------------
+%% 
+%% This work may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, version 1.3c of the license.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later and of this work.
+%% 
+%% This work has the LPPL maintenance status "author-maintained".
+%% 
+%% The Current Maintainer and author of this work is Markus Kohm.
+%% 
+%% This file may only be distributed together with the files
+%% `scrlogo.dtx' and `tocbasic.dtx'. You may however distribute the files
+%% `scrlogo.dtx' and `tocbasic.dtx' without this file.
+%% See also `tocbasic.dtx' for additional information.
+%% 
+%% If this file is a beta version, you are not allowed to distribute it.
+%% 
+%% Currently there is only a short english manual at `tocbasic.dtx', that
+%% should also be found as `tocbasic.pdf'.
+%% 
+%% The KOMA-Script bundle (but maybe not this file) was based upon the
+%% LaTeX2.09 Script family created by Frank Neukam 1993 and the LaTeX2e
+%% standard classes created by The LaTeX3 Project 1994-1996.
+%% 
+%%% From File: tocbasic.dtx
+\def\tocbasicversion{2009/06/08 v3.03b}
+\NeedsTeXFormat{LaTeX2e}[1995/06/01]
+\ProvidesPackage{tocbasic}
+                [\tocbasicversion\space KOMA-Script package
+                (handling toc-files)%
+                ]
+\newcommand*{\tb@listoftocs}{}
+\newcommand{\ifattoclist}[1]{%
+  \begingroup
+    \def\do##1##2{%
+      \edef\reserved@a{##1}%
+      \ifx\reserved@a\reserved@b\@tempswatrue\fi
+    }%
+    \edef\reserved@b{#1}\@tempswafalse\tb@listoftocs
+    \if@tempswa\aftergroup\@firstoftwo\else\aftergroup\@secondoftwo\fi
+  \endgroup
+}
+\newcommand*{\addtotoclist}{%
+  \@ifnextchar [%]
+    \scr@@addtotoclist\scr@addtotoclist
+}
+\newcommand*{\scr@addtotoclist}{%
+  \ifx\@currname\@empty
+    \def\reserved@a{\scr@@addtotoclist[]}%
+  \else
+    \edef\reserved@a{\noexpand\scr@@addtotoclist[\@currname.\@currext]}%
+  \fi
+  \reserved@a
+}
+\newcommand*{\scr@@addtotoclist}[2][]{%
+  \ifattoclist{#2}{%
+    \PackageError{tocbasic}{%
+      file extension `#2' cannot be used twice
+    }{%
+      File extension `#2' is already used by a toc-file, while
+      \ifx\relax#1\relax someone\else #2\fi\MessageBreak
+      tried to use it again for a toc-file.\MessageBreak
+      This may be either an incompatibility of packages, an error at a
+      package,\MessageBreak
+      or a mistake by the user.\MessageBreak
+    }%
+  }{%
+    \g@addto@macro\tb@listoftocs{\do{#2}{#1}}%
+    \ifx\relax #1\relax\else
+      \@ifundefined{tb@#1@add@hook}{}{%
+        \edef\reserved@a{%
+          \noexpand\def\noexpand\@currext{#2}%
+          \noexpand\@nameuse{tb@#1@add@hook}%
+          \noexpand\def\noexpand\@currext{\@currext}%
+        }\reserved@a
+      }%
+    \fi
+    \edef\reserved@a{%
+      \noexpand\def\noexpand\@currext{#2}%
+      \noexpand\@nameuse{tb@@add@hook}%
+      \noexpand\def\noexpand\@currext{\@currext}%
+    }\reserved@a
+  }%
+}
+\newcommand*{\AtAddToTocList}{%
+  \@ifnextchar [%]
+    \@@AtAddToTocList\@AtAddToTocList
+}
+\newcommand*{\@AtAddToTocList}{%
+  \ifx\@currname\@empty
+    \def\reserved@a{\@@AtAddToTocList[]}%
+  \else
+    \edef\reserved@a{\noexpand\@@AtAddToTocList[\@currname.\@currext]}%
+  \fi
+  \reserved@a
+}
+\newcommand*{\@@AtAddToTocList}[1][]{%
+  \@ifundefined{tb@#1@add@hook}{\@namedef{tb@#1@add@hook}{}}{}%
+  \expandafter\g@addto@macro\csname tb@#1@add@hook\endcsname
+}
+\newcommand*{\tocbasic@extend@babel}[1]{%
+  \begingroup\expandafter\expandafter\expandafter\endgroup
+  \ifx\csname bbl@set@language\endcsname\relax
+    \PackageInfo{tocbasic}{babel extension for `#1' omitted\MessageBreak
+      because of missing \string\bbl@set@language}%
+  \else
+    \iftocfeature{#1}{nobabel}{%
+      \PackageInfo{tocbasic}{omitting babel extension for `#1'\MessageBreak
+        because of feature `nobabel' available\MessageBreak
+        for `#1'}%
+    }{%
+      \PackageInfo{tocbasic}{setting babel extension for `#1'}%
+      \expandafter\gdef\expandafter\bbl@set@language\expandafter##\expandafter1%
+      \expandafter{%
+        \bbl@set@language{##1}%
+        \addtocontents{#1}{\xstring\select@language{\languagename}}%
+      }%
+    }%
+  \fi
+}
+\AtAddToTocList[]{\expandafter\tocbasic@extend@babel\expandafter{\@currext}}
+\newcommand*{\removefromtoclist}{%
+  \@ifnextchar [%]
+    \@removefromtoclist\@@removefromtoclist
+}
+\newcommand*{\@removefromtoclist}[2][]{%
+  \begingroup
+    \let\tb@oldlist\tb@listoftocs
+    \def\do##1##2{%
+      \edef\reserved@a{##1}%
+      \ifx\reserved@a\reserved@b
+        \begingroup
+          \edef\reserved@a{##2}%
+          \edef\reserved@b{#1}%
+          \ifx\reserved@a\reserved@b\else
+            \g@addto@macro\tb@listoftocs{\do{##1}{##2}}%
+          \fi
+        \endgroup
+      \else
+        \g@addto@macro\tb@listoftocs{\do{##1}{##2}}%
+      \fi
+    }%
+    \edef\reserved@b{#2}\let\tb@listoftocs\@empty
+    \tb@oldlist
+  \endgroup
+}
+\newcommand*{\@@removefromtoclist}[1]{%
+  \begingroup
+    \let\tb@oldlist\tb@listoftocs
+    \def\do##1##2{%
+      \edef\reserved@a{##1}%
+      \ifx\reserved@a\reserved@b\else
+        \g@addto@macro\tb@listoftocs{\do{##1}{##2}}%
+      \fi
+    }%
+    \edef\reserved@b{#1}\let\tb@listoftocs\@empty
+    \tb@oldlist
+  \endgroup
+}
+\newcommand{\doforeachtocfile}{%
+  \@ifnextchar [%]
+    \@doforeachtocfile\@@doforeachtocfile
+}
+\newcommand{\@doforeachtocfile}[2][]{%
+  \def\do##1##2{%
+    \edef\reserved@a{#1}\edef\reserved@b{##2}\ifx\reserved@a\reserved@b
+      \edef\@currext{##1}#2%
+    \fi
+  }%
+  \edef\reserved@a{%
+    \noexpand\tb@listoftocs
+    \noexpand\def\noexpand\@currext{\@currext}%
+  }\reserved@a
+  \let\do\relax
+}
+\newcommand{\@@doforeachtocfile}[1]{%
+  \def\do##1##2{%
+    \edef\@currext{##1}#1%
+  }%
+  \edef\reserved@a{%
+    \noexpand\tb@listoftocs
+    \noexpand\def\noexpand\@currext{\@currext}%
+  }\reserved@a
+  \let\do\relax
+}
+\newcommand{\addtoeachtocfile}{%
+  \@ifnextchar [%]
+    \@addtoeachtocfile\@@addtoeachtocfile
+}
+\newcommand{\@addtoeachtocfile}[2][]{%
+  \doforeachtocfile[{#1}]{\addtocontents{\@currext}{#2}}%
+}
+\newcommand{\@@addtoeachtocfile}[1]{%
+  \doforeachtocfile{\addtocontents{\@currext}{#1}}%
+}
+\newcommand{\addcontentslinetoeachtocfile}{%
+  \@ifnextchar [%]
+    \@addcontentslinetoeachtocfile\@@addcontentslinetoeachtocfile
+}
+\newcommand{\@addcontentslinetoeachtocfile}[3][]{%
+  \doforeachtocfile[{#1}]{\addcontentsline{\@currext}{#2}{#3}}%
+}
+\newcommand{\@@addcontentslinetoeachtocfile}[2]{%
+  \doforeachtocfile{\addcontentsline{\@currext}{#1}{#2}}%
+}
+\newcommand*{\tocbasic@starttoc}[1]{%
+  \begingroup
+    \setlength{\parskip}{\z@}%
+    \setlength{\parindent}{\z@}%
+    \setlength{\parfillskip}{\z@\@plus 1fil}%
+    \def\@currext{#1}%
+    \csname tocbasic@@before@hook\endcsname
+    \csname tb@#1@before@hook\endcsname
+    \@starttoc{#1}%
+    \csname tb@#1@after@hook\endcsname
+    \csname tocbasic@@after@hook\endcsname
+  \endgroup
+}
+\newcommand*{\tocbasic@@before@hook}{}
+\newcommand*{\tocbasic@@after@hook}{}
+\newcommand{\BeforeStartingTOC}[2][]{%
+  \expandafter\g@addto@macro\csname tb@#1@before@hook\endcsname{#2}%
+}
+\newcommand{\AfterStartingTOC}[2][]{%
+  \expandafter\g@addto@macro\csname tb@#1@after@hook\endcsname{#2}%
+}
+\newcommand*{\listoftoc}{%
+  \@ifstar \tocbasic@starttoc\@listoftoc
+}
+\newcommand*{\@listoftoc}[2][\list@fname]{%
+  \begingroup
+    \@ifundefined{listof#2name}{%
+      \let\list@fname\relax
+      \ifx\relax#1\relax
+        \PackageWarning{tocbasic}{%
+          You should either define \expandafter\string\csname
+          listof#2name\endcsname\MessageBreak
+          or use the optional argument of \string\listoftoc\space\MessageBreak
+          to set the term to be used for the\MessageBreak
+          heading of list of #2}%
+        \def\list@fname{\listofname~#2}%
+      \fi
+    }{%
+      \expandafter\let\expandafter\list@fname\csname listof#2name\endcsname
+    }%
+    \def\@currext{#2}%
+    \iftocfeature{\@currext}{onecolumn}{%
+      \iftocfeature{\@currext}{leveldown}{}{%
+        \if@twocolumn
+          \aftergroup\twocolumn\onecolumn
+        \fi
+      }%
+    }{}%
+    \tocbasic@listhead{#1}%
+    \tocbasic@starttoc{#2}%
+  \endgroup
+}
+\newcommand*{\listofname}{List of}
+\newcommand*{\listofeachtoc}{%
+  \@ifnextchar [%]
+    \@listofeachtoc\@@listofeachtoc
+}
+\newcommand{\@listofeachtoc}[1][]{%
+  \doforeachtocfile[{#1}]{\listoftoc{\@currext}}%
+}
+\newcommand{\@@listofeachtoc}[1]{%
+  \doforeachtocfile{\listoftoc{\@currext}}%
+}
+\newcommand*{\tocbasic@listhead}[1]{%
+  \@ifundefined{tocbasic@listhead@\@currext}{%
+    \begingroup\expandafter\expandafter\expandafter\endgroup
+    \expandafter\ifx\csname chapter\endcsname\relax
+      \expandafter\def\csname tocbasic@listhead@\@currext\endcsname##1{%
+        \iftocfeature{\@currext}{leveldown}{%
+          \iftocfeature{\@currext}{numbered}{%
+            \subsection[##1]{##1}%
+          }{%
+            \subsection*{##1}%
+            \ifx\@mkboth\@gobbletwo\else\markright{\MakeMarkcase{##1}}\fi
+            \iftocfeature{\@currext}{totoc}{%
+              \addcontentsline{toc}{subsection}{##1}%
+            }{}%
+          }%
+        }{%
+          \iftocfeature{\@currext}{numbered}{%
+            \section[##1]{##1\@mkboth{##1}{##1}}%
+          }{%
+            \section*{##1}%
+            \@mkboth{\MakeMarkcase{##1}}{\MakeMarkcase{##1}}%
+            \iftocfeature{\@currext}{totoc}{%
+              \addcontentsline{toc}{section}{##1}%
+            }{}%
+          }%
+        }%
+      }%
+    \else
+      \expandafter\def\csname tocbasic@listhead@\@currext\endcsname##1{%
+        \iftocfeature{\@currext}{leveldown}{%
+          \iftocfeature{\@currext}{numbered}{%
+            \section{##1}%
+          }{%
+            \section*{##1}%
+            \iftocfeature{\@currext}{totoc}{%
+              \addcontentsline{toc}{section}{##1}%
+            }{}%
+            \ifx\@mkboth\@gobbletwo\else\markright{\MakeMarkcase{##1}}\fi
+          }%
+        }{%
+          \iftocfeature{\@currext}{numbered}{%
+            \chapter[##1]{##1\@mkboth{##1}{##1}}%
+          }{%
+            \chapter*{##1}%
+            \@mkboth{\MakeMarkcase{##1}}{\MakeMarkcase{##1}}%
+            \iftocfeature{\@currext}{totoc}{%
+              \addcontentsline{toc}{chapter}{##1}%
+            }{}%
+          }%
+        }%
+      }%
+    \fi
+  }{}%
+  \csname tb@@beforehead@hook\endcsname
+  \csname tb@\@currext @beforehead@hook\endcsname
+  \csname tocbasic@listhead@\@currext\endcsname{#1}%
+  \csname tb@\@currext @afterhead@hook\endcsname
+  \csname tb@@afterhead@hook\endcsname
+}
+\newcommand{\BeforeTOCHead}[2][]{%
+  \expandafter\g@addto@macro\csname tb@#1@beforehead@hook\endcsname{#2}%
+}
+\newcommand{\AfterTOCHead}[2][]{%
+  \expandafter\g@addto@macro\csname tb@#1@afterhead@hook\endcsname{#2}%
+}
+\AtBeginDocument{%
+  \@ifundefined{MakeMarkcase}{%
+    \begingroup\expandafter\expandafter\expandafter\endgroup
+    \expandafter\ifx\csname KOMAClassName\endcsname\relax
+      \let\MakeMarkcase\MakeUppercase
+    \else
+      \let\MakeMarkcase\@firstofone
+    \fi
+  }{}%
+}
+\newcommand*{\deftocheading}[1]{%
+  \@namedef{tocbasic@listhead@#1}##1}
+\newcommand*{\setuptoc}[2]{%
+  \@for\@tempa:=#2\do{%
+    \expandafter\tb@@sp@def\expandafter\@tempa\expandafter{\@tempa}%
+    \@namedef{tocbasic@#1@feature@\@tempa}{}%
+  }%
+}
+\newcommand*{\unsettoc}[2]{%
+  \@for\@tempa:=#2\do{%
+    \expandafter\tb@@sp@def\expandafter\@tempa\expandafter{\@tempa}%
+    \expandafter\let\csname tocbasic@#1@feature@\@tempa\endcsname\relax
+  }%
+}
+\def\@tempa#1{%
+  \def\tb@@sp@def##1##2{%
+    \futurelet\tb@sp@tempa\tb@@sp@d##2\@nil\@nil#1\@nil\relax##1}%
+  \def\tb@@sp@d{%
+    \ifx\tb@sp@tempa\@sptoken
+      \expandafter\tb@@sp@b
+    \else
+      \expandafter\tb@@sp@b\expandafter#1%
+    \fi}%
+  \def\tb@@sp@b#1##1 \@nil{\tb@@sp@c##1}%
+}
+\@tempa{ }
+\def\tb@@sp@c#1\@nil#2\relax#3{\@temptokena{#1}\edef#3{\the\@temptokena}}
+\setuptoc{toc}{nobabel}
+\setuptoc{lof}{nobabel}
+\setuptoc{lot}{nobabel}
+\newcommand*{\iftocfeature}[2]{%
+  \begingroup\expandafter\expandafter\expandafter\endgroup
+  \expandafter\ifx\csname tocbasic@#1@feature@#2\endcsname\relax
+    \expandafter\@secondoftwo
+  \else
+    \expandafter\@firstoftwo
+  \fi
+}
+\newcommand*{\tocbasicautomode}{%
+  \let\tb@saved@starttoc\@starttoc
+  \BeforeStartingTOC{%
+    \let\@starttoc\tb@saved@starttoc
+    \expandafter\ifattoclist\expandafter{\@currext}{}{%
+      \addtotoclist[tocbasicautomode]{\@currext}%
+    }%
+  }%
+}
+%%% From File: scrlogo.dtx
+\@ifundefined{KOMAScript}{%
+  \DeclareRobustCommand{\KOMAScript}{\textsf{K\kern.05em O\kern.05em%
+      M\kern.05em A\kern.1em-\kern.1em Script}}}{}
+\endinput
+%%
+%% End of file `tocbasic.sty'.

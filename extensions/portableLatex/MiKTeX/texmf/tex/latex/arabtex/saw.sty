@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% saw.sty
+% macros for SAW and ALS
+% only available in one size
+% 22.06.2006
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {saw.sty}{1.00 SAW and ALS } {22.06.2006}
+
+\def \SAW {% for Roman mode
+% .salla all-ah `alayhi wa-sallam
+\setbox0 \hbox {\setarab \novocalize \tiny 
+\vbox {\hbox {\<.sall_A \hskip-0.6em al-ll_ahu >}%
+\nointerlineskip \vskip -1.5ex
+\hbox {\<wa-salama >}%
+\nointerlineskip \vskip -2.2ex
+\hbox {\hskip .4em \<`alayBBhi >\,}}}%
+\dp0 0pt \leavevmode \lower .20\ht0 \box0 }
+
+\def \ALS {% for Roman mode
+% `alayhi al-ssalAm
+\setbox0 \hbox {\setarab \novocalize \tiny 
+\vbox {\hbox {\,\<`alaByBhi >}%
+\nointerlineskip \vskip -1.0ex
+\hbox {\<al-ssalAm >\,}}}%
+\leavevmode \box0 }
+
+\def \a@c@SAW {% for Arabic paragraph mode
+\nospace \putwordb@x {\SAW \hskip -0.3em }\test@token }
+
+\def \a@c@ALS {% for Arabic paragraph mode
+\nospace \putwordb@x {\ALS \hskip -0.3em }\test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+

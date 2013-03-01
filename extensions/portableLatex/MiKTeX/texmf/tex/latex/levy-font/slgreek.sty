@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Greek.sty
+% A latex style file for use with Silvio Levy's classical Greek fonts
+% (see TUGboat 9.1 (1988), pp. 20 ff.).  The following style file 
+% consists of Levy's own greekmac.tex macros unaltered, followed by
+% some macros published by R. Wonneberger and slightly modified
+% by D. Wujastyk, which fix a problem in using Greek accents in LaTeX
+% footnotes.  See below for more explanation of the footnote stuff.
+%
+% Usage: \documentstyle[greek]{book} ... as normal.  This makes all the
+%        greekmac macros available, and fixes the footnote problem.
+% 29 Jan 1991
+%
+%    Copyright (C) 1991 Silvio Levy, Dominik Wujastyk, Reinhard Wonneberger
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\def\ifnextchar#1#2#3{\let\tempe #1\def\tempa{#2}\def\tempb{#3}\futurelet
+  \tempc\ifnch}
+\def\ifnch{\ifx\tempc\tempe\let\tempd\tempa\else\let\tempd\tempb\fi\tempd}
+\def\gobble#1{}
+\font\tengr=grreg10
+\font\tengrbf=grbld10
+\font\tengrtt=grtt10
+\def\greekmode{%
+\catcode`\<=13
+\catcode`\>=13
+\catcode`\'=11
+\catcode`\`=11
+\catcode`\~=11
+\catcode`\"=11
+\catcode`\|=11
+\lccode`\<=`\<%
+\lccode`\>=`\>%
+\lccode`\'=`\'%
+\lccode`\`=`\`%
+\lccode`\~=`\~%
+\lccode`\"=`\"%
+\lccode`\|=`\|%
+\tengr\def\bf{\tengrbf}\def\tt{\tengrtt}}
+\newcount\vwl
+\newcount\acct
+\def\lt{<}
+\def\gt{>}
+{
+  \greekmode
+  \gdef>{\ifnextchar `{\expandafter\smoothgrave\gobble}{\char\lq\>}}
+  \gdef<{\ifnextchar `{\expandafter\roughgrave\gobble}{\char\lq\<}}
+  \gdef\smoothgrave#1{\acct=\rq137 \vwl=\lq#1 \dobreathinggrave}
+  \gdef\roughgrave#1{\acct=\rq103 \vwl=\lq#1 \dobreathinggrave}
+  \gdef\dobreathinggrave{\ifnum\vwl\lt\rq140	%if uppercase
+    \char\the\acct\char\the\vwl\else\expandafter\testiota\fi}
+  \gdef\testiota{\ifnextchar |{\addiota\doaccent\gobble}{\doaccent}}
+  \gdef\addiota{\ifnum\vwl=\lq a\vwl=\rq370
+    \else\ifnum\vwl=\lq h\vwl=\rq371 \else\vwl=\rq372 \fi\fi}
+  \gdef\doaccent{\accent\the\acct \char\the\vwl\relax}
+}
+
+\newif\ifgreek\greekfalse
+
+\def\begingreek{\bgroup\greektrue\greekmode}
+\def\endgreek{\egroup}
+
+\let\math=$
+{\catcode`\$=13
+\gdef\greekdelims{\catcode`\$=13
+\def${\ifgreek\endgreek\else\begingreek\fi}
+\def\display{\math\math}\def\enddisplay{\math\math}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The following macros are taken from Reinhard Wonnenberger's
+% article "Chapter Mottos ..." in TUGboat 7(3), 1986, p.179.  I (Dominik
+% Wujastyk) have edited out those bits in which Reinhard was altering
+% the default values of LaTeX to his own liking.  If you want to do 
+% that as well, you might prefer to do it in a separate style file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The following macros avoid the need to read the footnote text as
+% a parameter.  They are taken from PLAIN.TEX.
+% LaTeX control sequences have been substituted for those from
+% PLAIN, and are marked thus: %LATEX
+%
+% \newinsert\footins
+% \def\footnote#1{\let\@sf\empty % parameter #2 (the text) is read later
+%   \ifhmode\edef\@sf{\spacefactor\the\spacefactor}\/\fi
+%   #1\@sf\vfootnote{#1}}
+% \def\vfootnote#1{\insert\footins\bgroup
+\def\@footnotetext{\insert\footins\bgroup               %LATEX
+  \footnotesize                                         %LATEX
+  \interlinepenalty\interfootnotelinepenalty
+% \splittopskip\ht\strutbox % top baseline for broken footnotes
+  \splittopskip\footnotesep                             %LATEX
+  \splitmaxdepth\dp\strutbox \floatingpenalty\@MM
+%   \leftskip\z@skip \rightskip\z@skip \spaceskip\z@skip \xspaceskip\z@skip
+  \hsize\columnwidth \@parboxrestore                    %LATEX
+  \edef\@currentlabel{\csname p@footnote\endcsname      %LATEX
+    \@thefnmark}%                                       %LATEX
+%   \textindent{#1}%Knuth
+% \textindent{\@thefnmark} % yields normal numbers
+\@makefnlabel                                           %LATEX
+\footstrut\futurelet\next\fo@t}
+%
+% Format the footnote label inside the footnote; based on book.sty:
+\def\@makefnlabel{\@@par \parindent 1em\noindent
+   \hbox to 1.8em{\hss$^{\@thefnmark}$}}
+%
+% From latex.tex, for comparison:
+% \long\def\@footnotetext#1{\insert\footins{\footnotesize
+%     \interlinepenalty\interfootnotelinepenalty
+%     \splittopskip\footnotesep
+%     \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+%     \hsize\columnwidth \@parboxrestore
+%    \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+%     {\rule{\z@}{\footnotesep}\ignorespaces
+%       #1\strut}}}
+%
+% Rewritten on the basis of plain.tex:
+\def\fo@t{\ifcat\bgroup\noexpand\next \let\next\f@@t
+  \else\let\next\f@t\fi \next}
+\def\f@@t{\bgroup
+  \rule{\z@}{\footnotesep}\ignorespaces                 %LATEX
+  \aftergroup\@foot\let\next}
+\def\f@t#1{#1\@foot}
+% \def\@foot{\strut\egroup}
+\def\@foot{\strut\egroup                                %LATEX
+  \ifhmode\spacefactor\@x@sf\relax\fi}                  %LATEX
+\def\footstrut{\vbox to\splittopskip{}}
+\skip\footins=\bigskipamount % space added when footnote is present
+\count\footins=1000 % footnote magnification factor (1 to 1)
+\dimen\footins=8in % maximum footnotes per page
+
+% End of Greek.sty

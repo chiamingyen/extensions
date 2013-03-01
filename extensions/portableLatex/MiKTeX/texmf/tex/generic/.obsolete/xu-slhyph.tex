@@ -1,0 +1,33 @@
+% xu-slhyph.tex
+% Wrapper for XeTeX to read slhyph.tex
+% Jonathan Kew, 2006-08-17
+% CSchenk: cloned xu-slhyph.tex from xu-sihyph.tex (Dec 2007)
+% Public domain
+
+\begingroup
+
+\expandafter\ifx\csname XeTeXrevision\endcsname\relax
+\else
+
+  % Define the accent macro " to expand to the required Unicode characters
+  \catcode`\"=13
+  \def"#1{\ifx#1c^^^^010d\else \ifx#1s^^^^0161\else \ifx#1z^^^^017e\else
+      \errmessage{Hyphenation pattern file corrupted!}%
+    \fi\fi\fi}
+  \catcode`\"=12 % reset catcode so we can read \lccode etc in slhyph.tex
+
+  \let\PATTERNS=\patterns
+  \def\patterns{% at the \patterns command in slhyph.tex...
+    \endgroup % end group to discard definitions from slhyph
+    \begingroup % and start our own (to match \endgroup in slhyph)
+    \lefthyphenmin=2 \righthyphenmin=3 % settings from slhyph.tex
+    \catcode`\"=13 % activate our definition of " from above
+    \PATTERNS % and then load the real patterns
+  }
+
+\fi
+
+\input slhyph.tex
+
+\endgroup
+\endinput

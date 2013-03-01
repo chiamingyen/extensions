@@ -1,0 +1,432 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% atrans.sty
+% transcription module for ArabTeX
+% ZDMG Transcription 
+% Encyclopedia of Islam Transcription
+% Modern Turkish Transcription
+% Urdu Transcription
+% Uighuric Transcription
+% 14.06.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Additional Transcription Modes for Farsi:
+%      Encyclopedia Iranica      [Standard Farsi]
+%      Farsi                     [Modified Encyclopedia Iranica]
+%      Lazard                    [Philological: Gilbert Lazard, etc.]
+% (c) Adrian Rezus [adriaan@{sci,cs}.kun.nl]: Nijmegen, Nederland
+% 21.12.95
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \transatcode \undefined 
+\chardef \transatcode = \catcode`\@            \catcode`\@ = 11
+\a@ident {atrans.sty} {3.11 generate the transliteration } {14.06.2003}
+\else \xpa \endinput
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \a@hyp \-		\let \a@macron \=
+\let \a@acute \'	\let \a@grave \`
+
+\gdef \a@trans #1>{% transcribe word 
+\iftest@trans \tracingmacros=1 
+\iftest@scan \else \a@verb (#1)>\fi\fi
+{\if@was \@vocaltrue \else \@vocalfalse \fi
+\let \- \a@hyp		\let \= \a@macron
+\let \' \a@acute	\let \` \a@grave	\def \tr@act {-}%
+\tr@aword #1|||>>%
+\if@vocal \global \@wastrue \else \global \@wasfalse \fi }%
+\iftest@trans \tracingmacros=0 \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif \if@vocal	\newif \ifc@p
+
+\gdef \tr@@aword #1{% transcribe rest of word 
+\let \tr@old \tr@act \def \tr@act {#1}%
+\case #1\of
+{       >{\@gobble }
+    \cap {\c@ptrue \tr@aword }
+%  |"^\a@e{\tr@aword }
+      |"^{\tr@aword }
+        -{-\tr@aword }
+    XlEeQ{\csname tr@@\string #1\endcsname }
+ \a@a NUW{\setc@p #1\kill@alif }
+        P{\tr@P \tr@aword }
+      aiu{\tr@wasla #1}
+    \a@Ze{\xpa\tr@aword \tr@old }
+\default {\@vocalfalse 
+        \ifcat \nxp #1-#1\else \setc@p #1%
+        \fi \tr@aword }
+}\endcase }
+
+\def \setc@p #1{% capitalize if needed
+\xpa\ifx \xpa\relax \csname tr@\string #1\endcsname \tr@@ \else
+\ifc@p \xxxpa\uppercase \xxpa{\csname tr@\string #1\endcsname }\c@pfalse
+\else \csname tr@\string #1\endcsname 
+\fi\fi }
+
+\def \@gobble #1{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \kill@alif #1{% delete alif or waw after N, U, W, _a 
+\case #1\of
+{   aAIYU{\tr@aword }
+\default {\tr@aword #1}
+}\endcase }
+
+\gdef \tr@wasla #1{% initial vowel, Arabic
+\ifiz@fet \@vocalfalse \fi
+\ifu@gh \@vocalfalse \fi
+\ifh@mza \if@vocal '\else \setc@p #1\fi
+\else \setc@p #1\fi 
+\@vocaltrue \tr@aword }
+
+\gdef \tr@vowel #1{% vowel
+\setc@p #1\@vocaltrue \tr@aword }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \sp@cw@w #1#2{% handle w after _h (Persian) specially
+\def \next {\tr@aword #2}\@vocalfalse 
+\ifiz@fet \ifx #2w#1\let\next\tr@aword
+\fi\fi \next }
+
+\gdef \putw@w {\sp@cw@w w }        % w after _h (Persian): normal
+
+\gdef \killw@w {\sp@cw@w {}}       % w after _h (Persian): delete
+
+\gdef \superv@w {\sp@cw@w {$^v\!$}}% w after _h (Persian): super v
+
+\gdef \superw@w {\sp@cw@w {$^w\!$}}% w after _h (Persian): super w
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \tr@@l #1{% test assimilation after l
+\ifx #1-\def \next {\tr@@la }\else 
+	\setc@p l\def \next {\tr@aword #1}%
+\fi \@vocalfalse \next }
+
+\gdef \tr@@la #1#2{% test assimilation after l-
+\case #1\of
+{	Q{\setc@p l-\tr@Q \tr@aword }	% l - Q x -> l - '
+	#2{\tr@aword #1-#2}		% l - x x -> x - x
+	\cap {\tr@@lb #2}		% l - \cap x 
+\default {\setc@p l-\tr@aword #1#2}
+}\endcase }
+
+\gdef \tr@@lb #1#2{% test assimilation after l-\cap
+\case #1\of
+{	#2{\tr@aword #1-\cap #2}	% l - \cap x x -> x - \cap x
+\default {\setc@p l-\tr@aword \cap #1#2}
+}\endcase }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \x@s #1{\oalign{#1\crcr\hidewidth \sh@ft{34}% accent for _h
+    \vbox to -.2ex {\hbox{\char'25}\vss}\hidewidth}}
+
+\gdef \x@x #1{\oalign{#1\crcr\hidewidth \sh@ft{29}% accent for .s in Urdu
+    \vbox to.2ex{\hbox{\char'177}\vss}\hidewidth}}
+
+\def \ish@ft #1{\dimen\z@.00#1ex\multiply\dimen\z@\fontdimen1\font
+  \kern.0156\dimen\z@} % positive kern for slant 
+
+\def \rsh@ft #1#2{\ish@ft{#1}#2\sh@ft{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \tr@def #1#2{% define \tr@#1 as {#2}
+\xpa \gdef \csname tr@\string #1\endcsname {#2}}
+
+\def \tr@cap #1{\ifc@p \uppercase {#1}\else #1\fi }
+
+\def \tr@ng {\tr@cap ng}	\def \tr@ny {\tr@cap ny}
+\def \tr@kh {\tr@cap kh}	\def \tr@th {\tr@cap th}
+\def \tr@dh {\tr@cap dh}	\def \tr@bh {\tr@cap bh}
+\def \tr@ph {\tr@cap ph}	\def \tr@zh {\tr@cap zh}
+\def \tr@sh {\tr@cap sh}	\def \tr@ch {\tr@cap ch}
+\def \tr@gh {\tr@cap gh}	\def \tr@af {\tr@cap {\'d}h}
+\def \tr@ag {\tr@cap {\'t}h}	\def \tr@aj {\tr@cap {\v{c}}h}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \tr@zdmg {% define character macros for transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let \specw@w \killw@w	% special handling of w after .h in Farsi
+\gdef \tr@@e ##1{% test for ee -> ey
+	\ifx ##1e\def \next {\setc@p e\tr@aword y}\else 
+	\def \next {\setc@p e\tr@aword ##1}\fi \next}
+\gdef \tr@@E ##1{% test for Ee -> ey
+	\ifx ##1e\def \next {\setc@p e\tr@aword y}\else 
+	\def \next {\setc@p E\tr@aword ##1}\fi \next}
+\gdef \tr@@Q ##1{\tr@Q \def \next {\tr@aword ##1}%
+        \ifh@mza \let \next \tr@aword \fi \next }
+\gdef \tr@@X {\setc@p X\specw@w }
+\gdef \tr@@ {{$\bullet $}}% substitute for illegal characters
+\gdef \tr@a {a\@vocaltrue }	    
+\gdef \tr@b {b}   \gdef \tr@c {c}   \gdef \tr@d {d}   
+\gdef \tr@e {e\@vocaltrue }        
+\gdef \tr@f {f}   \gdef \tr@g {g}   \gdef \tr@h {h}   
+\gdef \tr@i {i\@vocaltrue }         
+\gdef \tr@j {\v{z}}   \gdef \tr@k {k}   \gdef \tr@l {l}   
+\gdef \tr@m {m}   \gdef \tr@n {n}   
+\gdef \tr@o {o\@vocaltrue }
+\gdef \tr@p {p}   \gdef \tr@q {q}   \gdef \tr@r {r}   
+\gdef \tr@s {s}   \gdef \tr@t {t}   
+\gdef \tr@u {u\@vocaltrue }
+\gdef \tr@v {v}   \gdef \tr@w {w}   \gdef \tr@x {\v{s}}
+\gdef \tr@y {y}   \gdef \tr@z {z}
+\gdef \tr@A {\=a\-\@vocaltrue }     \gdef \tr@B {}    
+\gdef \tr@C {\b{t}}      \gdef \tr@D {\d{d}}        
+\gdef \tr@E {\=e\-\@vocaltrue }
+\gdef \tr@F {\b{d}}      \gdef \tr@G {\v{g}}
+\gdef \tr@H {\d{h}}      \gdef \tr@I {\ifc@p\=I\else\=\i\fi\-\@vocaltrue }
+\gdef \tr@J {\v{c}}      \gdef \tr@K {\~n}            
+\gdef \tr@L {y}          \gdef \tr@M {\tr@ny}        
+\gdef \tr@N {n\@vocalfalse }
+\gdef \tr@O {\=o\-\@vocaltrue }
+\gdef \tr@P {\rsh@ft{07}{\ifc@p \raise .2ex \hbox {$\lhook $}\kern-.1em
+	\else \kern-.05em$\lhook$\kern-.05em\fi }\@vocalfalse }
+\gdef \tr@Q {\rsh@ft{07}{\ifc@p \raise .2ex \hbox {$\rhook $}\kern-.1em
+	\else \kern-.05em$\rhook$\kern-.05em\fi }\@vocalfalse }
+\gdef \tr@R {\.g}        
+\gdef \tr@S {\d{s}}      \gdef \tr@T {t}          
+\gdef \tr@U {\=u\-\@vocaltrue }        
+\gdef \tr@V {\d{t}}        
+\gdef \tr@W {w\@vocalfalse }        
+\gdef \tr@X {\x@s{h}}  
+\gdef \tr@Y {\=a\-\@vocaltrue }        
+\gdef \tr@Z {\d{z}}
+\tr@def \a@a {\=a\-\@vocaltrue }
+\tr@def \a@b {\d{b}}     \tr@def \a@c {\'c}           \tr@def \a@d {\'d}
+\tr@def \a@e {\'d}       \tr@def \a@f {\d{f}}         \tr@def \a@g {g}
+\tr@def \a@h {h}         \tr@def \a@i {\ifc@p\=I\else\=\i\fi\-\@vocaltrue }
+\tr@def \a@j {\ifc@p\"I\else\"\i\fi\@vocaltrue }                    
+\tr@def \a@k {\ifs@nd \tr@kh\else k\fi }
+\tr@def \a@l {\~l}       \tr@def \a@m {k}             \tr@def \a@n {\d{n}}
+\tr@def \a@o {u\@vocaltrue }                          \tr@def \a@p {\tr@ng}
+\tr@def \a@q {\'r}       \tr@def \a@r {\'r}           \tr@def \a@s {\'s}
+\tr@def \a@t {\'t}       \tr@def \a@u {\=u\-\@vocaltrue }
+\tr@def \a@v {\'t}       \tr@def \a@w {{u}\@vocaltrue }
+\tr@def \a@x {v}         \tr@def \a@y {y}             \tr@def \a@z {\'z}
+\tr@def \a@A {e\@vocaltrue }                          
+\tr@def \a@B {\tr@@ }    \tr@def \a@C {\'c}           \tr@def \a@D  {\'{d}}
+\tr@def \a@E {\ifk@rd\v{e}\else\={e}\fi\@vocaltrue }
+\tr@def \a@F {f}         \tr@def \a@G {\'c}           \tr@def \a@H {h}
+\tr@def \a@I {\ifc@p\"J\else\"\j\fi }                 \tr@def \a@J {\.g}
+\tr@def \a@K {\d{k}}     \tr@def \a@L {k}             \tr@def \a@M {k}
+\tr@def \a@N {\d{n}}     
+\tr@def \a@O {o\@vocaltrue }    
+\tr@def \a@P {\={u}\@vocaltrue }                      \tr@def \a@Q {q}        
+\tr@def \a@R {\.r}       \tr@def \a@S {\'s}           \tr@def \a@T {\tr@ag}       
+\tr@def \a@U {u\@vocaltrue }                          
+\tr@def \a@V {v}         \tr@def \a@W {o}         
+\tr@def \a@X {w}         \tr@def \a@Y {\=e\-}         \tr@def \a@Z {\'s}
+\tr@def \a@aa {a\@vocaltrue }	% Uighuric alif
+\tr@def \a@ab {\x@x{b}}  \tr@def \a@ac {\tr@th}       \tr@def \a@ad {\tr@dh}
+\tr@def \a@ae {\x@x{d}}  \tr@def \a@af {\tr@af}       \tr@def \a@ag {\~{n}}
+\tr@def \a@ah {\"{\j}}   \tr@def \a@aj {\v{c}h}       \tr@def \a@ak {\x@x{g}}
+\tr@def \a@al {\x@x{n}}  \tr@def \a@an {\'{n}}        \tr@def \a@ap {\tr@bh}
+\tr@def \a@aq {\tr@ph}   \tr@def \a@ar {\'{r}}        \tr@def \a@at {\'{t}}
+\tr@def \a@au {w}		% Uighuric waw with roof
+\tr@def \a@ax {k}        
+\tr@def \a@aA {\'{d}}       
+\tr@def \a@aJ {s}		% sin with 3 dots below
+\tr@def \a@Zz {\d{\b{d}}}        % .z, Palestinian, coded .Z
+\tr@def \a@aO {\d{\b{d}}}        % .z, Palestinian, coded .Z, (for test only)
+\gdef \tr@aword {\tr@@aword }\global \tr@nstrue }% end \tr@zdmg
+}% catcodes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@encislam {% define Enc. of Islam transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg                 \let \@ub \underbar        
+\let \specw@w \killw@w	% special handling of w after .h in Farsi
+\def \tr@j {\@ub{\tr@zh}}    \def \tr@x {\@ub{\tr@sh}}
+\def \tr@C {\@ub{\tr@th}}    \def \tr@F {\@ub{\tr@dh}}        
+\def \tr@G {j}		     \def \tr@J {\@ub{\tr@ch}}    
+\def \tr@R {\@ub{\tr@gh}}    \def \tr@X {\@ub{\tr@kh}}
+%\def \tr@q {\d{k}} % variant qaf; uncomment if required
+%\def \tr@P {$^c$} % variant `ain; uncomment if required
+\a@message {Encyclopedia~of~Islam~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@turk {% define character macros for modern Turkish
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg        
+\let \specw@w \putw@w	% no special handling of w after .h in Farsi
+\gdef \tr@e {e\@vocaltrue }     \gdef \tr@q {k}        
+\gdef \tr@w {v}          	\gdef \tr@x {\c{s}}
+\gdef \tr@A {\^a\@vocaltrue }   \gdef \tr@E {\^e\@vocaltrue }
+\gdef \tr@G {c}          	\gdef \tr@H {h}     
+\gdef \tr@I {\^{\i}\@vocaltrue} \gdef \tr@J {\c{c}}      
+\gdef \tr@K {n}			\gdef \tr@O {\^o\@vocaltrue }        
+\gdef \tr@P {\-}		\gdef \tr@R {g}          
+\gdef \tr@S {s}			\gdef \tr@T {t}
+\gdef \tr@U {\^u\@vocaltrue \kill@alif }
+\gdef \tr@V {t}          	\gdef \tr@Z {z}
+\tr@def \a@j {\i\@vocaltrue }                
+\tr@def \a@m {\u{g}}     	\tr@def \a@w {{\"u}\@vocaltrue }
+\tr@def \a@A {\"a\@vocaltrue }  \tr@def \a@H {}        
+\tr@def \a@I {{\i}\@vocaltrue } \tr@def \a@J {\u{g}}        
+\tr@def \a@L {g}         	\tr@def \a@M {n}        
+\tr@def \a@O {\"o\@vocaltrue }
+\tr@def \a@P {\"o\@vocaltrue }  \tr@def \a@Q {q}
+\tr@def \a@U {\"u\@vocaltrue }  \tr@def \a@V {v}
+\catcode `\ =10 
+\a@message {modern~Turkish~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specific definitions for Persian:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\~=10 
+\gdef \tr@enciran   {% Encyclopaedia Iranica transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg                                  % start with default and modify        
+\let \specw@w \superv@w	% special handling of w after .h in Farsi
+\gdef\tr@w{v\@vocalfalse}                 % EIran = Lazard <> ZDMG
+\gdef\tr@W{v\@vocalfalse}                 % EIran = Lazard <> ZDMG
+\gdef\tr@G{\v{\j}\@vocalfalse}            % EIran = Lazard <> ZDMG
+\gdef\tr@D{\.{z}\@vocalfalse}             % EIran = Lazard <> ZDMG
+\gdef\tr@C{\b{s}\@vocalfalse}             % EIran <> Lazard <> ZDMG
+\gdef\tr@F{\b{z}\@vocalfalse}             % EIran <> Lazard <> ZDMG
+\gdef\tr@R{\={g}\@vocalfalse}             % EIran <> Lazard <> ZDMG
+\gdef\tr@X{\b{k}}                         % EIran <> Lazard <> ZDMG
+\tr@def\a@H{}                             % EIran = Lazard <> ZDMG
+\a@message {Encyclopaedia~Iranica~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\catcode `\~=10 
+\gdef \tr@farsi {% Modified Encyclopaedia Iranica transliteration 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@enciran                               % start with default and modify
+\let \specw@w \superv@w	% special handling of w after .h in Farsi
+\gdef\tr@R{\.{g}\@vocalfalse}             % ZDMG = Persian
+\gdef\tr@X{x}                             % Lazard = Persian
+\tr@def\a@H{$\hbar\!$}                    % Persian <> EIran = nil
+\a@message {Modified~Encyclopaedia~Iranica~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \tr@lazard {% Philological Farsi transliteration; cf., e.g.,        
+        % Gilbert Lazard 
+        % "La langue des plus anciens documents de la prose persane"
+        % (Paris: Cl. Klincksieck 1963).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@enciran                               % start with default and modify
+\let \specw@w \superv@w	% special handling of w after .h in Farsi
+\gdef\tr@C{\b{s}\@vocalfalse}             % Lazard <> EIran 
+\gdef\tr@C{$\theta\!$\@vocalfalse}        % Lazard <> EIran
+\gdef\tr@F{$\delta\!$\@vocalfalse}        % Lazard <> EIran <> ZDMG
+\gdef\tr@R{$\gamma\!$\@vocalfalse}        % Lazard <> EIran <> ZDMG
+\gdef\tr@X{x}                             % Lazard <> EIran <> ZDMG
+\a@message {Philological~Farsi~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@urdu {% define Urdu transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg                    
+\let \specw@w \killw@w	% special handling of w after .h in Farsi
+\gdef \tr@j {\.{z}}   \gdef \tr@x {\'{s}}   \gdef \tr@C {\x@x{s}}
+\gdef \tr@D {\b{z}}   \gdef \tr@F {\d{z}}   \gdef \tr@G {j}
+\gdef \tr@H {\b{h}}   \gdef \tr@J {c}       \gdef \tr@O {o\-\@vocaltrue}
+\gdef \tr@S {\b{s}}   \gdef \tr@T {t}       \gdef \tr@V {\x@x{t}}        
+\gdef \tr@X {x}       \gdef \tr@Z {\x@x{z}} \tr@def \a@d {\d{d}}
+\tr@def \a@r {\d{r}}  \tr@def \a@t {\d{t}}  \tr@def \a@H {}
+\a@message {Urdu~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@kash {% define Kashmiri transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg                 \let \@ub \underbar        
+\let \specw@w \putw@w	% no special handling of w after .h 
+\gdef \tr@j {ts}	\gdef \tr@x {\'{s}}	\gdef \tr@C {\b{s}}
+\gdef \tr@D {\x@x{z}}	\gdef \tr@F {\b{z}}	\gdef \tr@G {j}
+\gdef \tr@H {\d{h}}	\gdef \tr@J {c}   	\gdef \tr@R {\@ub{\tr@gh}}       
+\gdef \tr@S {\d{s}}	\gdef \tr@T {t}		\gdef \tr@V {\b{t}}        
+\gdef \tr@X {\@ub{\tr@kh}}  			\gdef \tr@Z {\d{z}}	
+\tr@def \a@d {\d{d}}	\tr@def \a@r {\d{r}}	\tr@def \a@t {\d{t}}	
+\tr@def \a@Za {\d{a}}	\tr@def \a@ZA {\d{\=a}}  
+\tr@def \a@Zo {\d{o}}	\tr@def \a@ZO {\d{\=o}}  
+\tr@def \a@Zu {u'} 	\tr@def \a@ZU {\=u'}  	\tr@def \a@ZI {\.y} 
+\a@message {Kashmiri~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@uigh {% define Uighuric transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg                    
+\gdef \tr@a {a}		\gdef \tr@e {e}		
+\gdef \tr@i {i}		\gdef \tr@j {j}		
+\gdef \tr@o {o}		\gdef \tr@u {u}		
+\gdef \tr@G {\v{g}}	\gdef \tr@X {x}		
+\gdef \tr@Y {}
+\tr@def \a@A {\"a}	\tr@def \a@O {\"o}	
+\tr@def \a@U {\"u}	\tr@def \a@X {v}	
+\a@message {Uyghuric~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@uighe {% define Uighuric English transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg                 \let \@ub \underbar        
+\gdef \tr@a {a}			\gdef \tr@e {e}		
+\gdef \tr@i {i}			\gdef \tr@j {\@ub{\tr@zh}}		
+\gdef \tr@o {o}			\gdef \tr@u {u}			
+\gdef \tr@x {\@ub{\tr@sh}}      \gdef \tr@G {j}
+\gdef \tr@J {\@ub{\tr@ch}}      \gdef \tr@K {\@ub{\tr@ng}}       
+\gdef \tr@R {\@ub{\tr@gh}}      \gdef \tr@X {\@ub{\tr@kh}}		
+\gdef \tr@Y {}
+\tr@def \a@A {\"a}		\tr@def \a@O {\"o}	
+\tr@def \a@U {\"u}		\tr@def \a@X {v}	
+\a@message {Uyghuric~English~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \settrans #1{% switch the transliteration
+\lowercase {\def \tr@code {#1}\begingroup
+\def \tr@lookup ##1#1##2##3\@@ {\endgroup ##2}%
+\xpa \tr@lookup \tr@table #1\tr@default \@@ }%
+\let \tr@oldcode \tr@code }
+
+\def \tr@table {% table of transliterations
+standard\tr@standard	zdmg\tr@standard	english\tr@encislam        
+turk\tr@turk		urdu\tr@urdu		iranica\tr@enciran
+farsi\tr@farsi		lazard\tr@lazard	kashmiri\tr@kash 
+uighur\tr@uigh 		uighure\tr@uighe }
+
+\def \tr@standard {% standard transliteration
+\ifx \tr@code \tr@oldcode \else \tr@zdmg 
+\a@message {ZDMG transliteration.}\fi }
+
+\def \tr@default {% unknown transliteration
+\tr@zdmg \message {unknown transliteration `\tr@code'}%
+\a@message {ZDMG transliteration is assumed.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \tr@oldcode \tr@code         \settrans {zdmg}        % default
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\catcode`\@ = \transatcode
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

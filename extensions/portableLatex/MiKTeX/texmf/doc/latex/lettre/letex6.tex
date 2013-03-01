@@ -1,0 +1,82 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage[german,francais]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+\newcommand{\dhfam}{\fontencoding{OT1}\fontfamily{cmdh}\fontseries{m}%
+                    \fontshape{n}}
+\newcommand{\cmd}{\dhfam\fontsize{10}{12pt}\selectfont}
+\newcommand{\Cmd}{\dhfam\fontsize{12}{14pt}\selectfont}
+\newcommand{\CMD}{\dhfam\fontsize{14}{17pt}\selectfont}
+%
+% Adresse precisee,
+% =================
+% langue allemande, format headings,
+% ==================================
+% precision de departement, lieu, telephone, fax, E-Mail.
+% =======================================================
+% Champs: annexes.
+% ================
+% Lignes auxiliaires de reference et d'E-Mail.
+% ============================================
+%
+\begin{letter}{ Herrn Professor H.F.~Hess \\
+                Astronomisches Institut   \\
+                Universit\"at Mainz   \\
+                Jupitergasse 4 \\
+                D-4102 \underline{B\"onningen}   }
+
+\allemand
+\pagestyle{headings}
+
+\name{Dr~T.G. Kurwezger}
+\address{\centering
+         \CMD Centre des D\'es Stochastiques \\ 
+         \cmd CH-1291 Prairie du Gr\"utli }
+\location{Dr~Terry G. Kurwezger \\
+          D\'epartement des Tas}
+\telephone{+41(1) 671 27 12}
+\lieu{La Prairie}
+\signature{Terry}
+\email{tkur@cds.unigr.ch}
+
+\nref{ TGK/dm }
+\fax{+41(1) 671 27 45}
+\username{tkur}
+\ccitt{OU=cds;O=unigr;C=ch}
+\internet{cds.unigr.ch}
+
+\opening{ Lieber Heinz, }
+
+Vielen Dank f\"ur deine Anruf und die Einladung, einen Vortrag in Mainz
+zu halten. Ich schlage den folgenden Titel vor:
+
+\begin{center}
+{\large KOSMOS, was, wo, wann ?}
+\end{center}
+\medskip
+
+\noindent{\large\it Zusammenfassung}
+
+Kosmos \"uberalles. Was sind die lichtst\"arksten Objekte die wir kennen ?
+Wo sind die Grenzen des Universums ? Warum befinden sich Quasaren
+im Zentrum von Galaxien, am Rande des beobachtbaren Universums ? 
+Wann anf\"angt die moderne Astronomie ?
+
+Falls du eine l\"angere Zusammenfassung w\"unschst, habe ich eine mit diesem Brief beigef\"ugt.
+
+\closing{Mit freundlichen Gr\"ussen}
+\encl{1 Zusammenfassung}
+\end{letter}
+%
+\end{document}

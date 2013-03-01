@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/pageno"><TPM:Name>pageno</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A LaTeX package that can re-define the plain page style
+      under the control of options, so you can have page numbers:
+      at the top or bottom of the page; in the inside corner,
+      outside corner, or in the middle. It was inspired by Axel
+      Sommerfeldt's rplain package.</TPM:Description><TPM:RunFiles size="5129">texmf\tex\latex\pageno\pageno.sty texmf\tpm\packages\pageno.tpm</TPM:RunFiles><TPM:SourceFiles size="11646">texmf\source\latex\pageno\pageno.dtx texmf\source\latex\pageno\pageno.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>bfd385dbfaf8cf6daa5ee3dcfd3869a2</TPM:MD5></rdf:Description></rdf:RDF>

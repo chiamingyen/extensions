@@ -1,0 +1,11 @@
+frletter
+
+A small class for typesetting letters in France; no assumption is made 
+about the language used. It represents a cosmetically modified beletter 
+class, which itself is based on the letter class. Corresponding layout 
+files were contributed on the Lyx Wiki.
+
+The authors of the original beletter class are James Kilfiger and 
+Frank Lenaerts. The contributor of frletter is Liviu Andronic.
+
+The license is Public Domain.

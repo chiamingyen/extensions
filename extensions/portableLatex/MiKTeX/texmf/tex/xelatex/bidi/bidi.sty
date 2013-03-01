@@ -1,0 +1,473 @@
+%%
+%% This is file `bidi.sty',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\def\bididate{2010/03/01}
+\def\bidiversion{v1.0.4}
+\def\bidirevision{revision 202}
+\ProvidesPackage{bidi}[\bididate\space \bidiversion\space <\bidirevision>
+Bidirectional typesetting in XeLaTeX]
+\AtBeginDocument{\special{pdf: docinfo <<
+/Creator (Bidi \bidiversion\space <\bidirevision> Copyright © 2009-2010 Vafa Khalighi)
+         >>}}
+\edef\bidiinfo{%
+bidi package (Support for bidirectional typesetting with XeLaTeX)^^J
+Description: A convenient interface for typesetting bidirectional^^J
+texts with XeLaTeX.  The package includes adaptations for use^^J
+with many other commonly-used packages.^^J
+Copyright © 2009-2010 Vafa Khalighi^^J
+\bidiversion, <\bidirevision>, \bididate^^J
+License: LaTeX Project Public License, version 1.3c or higher (your choice)^^J
+Home: http://bidi.berlios.de^^J
+Location on CTAN: /macros/xetex/latex/bidi}
+\typeout{\bidiinfo}
+\edef\bidi@everyjob{\the\everyjob}
+\everyjob{\bidi@everyjob\typeout{\bidiinfo}}
+\def\@tagsextension{clo}
+\def\@definitionfileextension{def}
+\def\@iftagsloaded{\@ifl@aded\@tagsextension}
+\def\@ifdefinitionfileloaded{\@ifl@aded\@definitionfileextension}
+\newif\if@RTLmain
+\newif\if@RTL
+\newif\if@Latin
+\newif\if@RTLtab
+\newif\if@sentdir
+\newif\if@RTL@footnote
+\let\if@rlmain=\if@RTLmain
+\let\@rlmaintrue=\@RTLmaintrue
+\let\@rlmainfalse=\@RTLmainfalse
+\let\if@rl=\if@RTL
+\let\@rltrue=\@RTLtrue
+\let\@rlfalse=\@RTLfalse
+\let\if@rl@footnote=\if@RTL@footnote
+\let\@rl@footnotetrue=\@RTL@footnotetrue
+\let\@rl@footnotefalse=\@RTL@footnotefalse
+\let\if@tab@rl=\if@RTLtab
+\let\@tab@rltrue=\@RTLtabtrue
+\let\@tab@rlfalse=\@RTLtabfalse
+\@RTLmainfalse
+\ifx\TeXXeTstate\undefined\else%
+   \TeXXeTstate=1
+\fi
+\ifx\beginR\@undefined%
+   \newlinechar`\^^J
+   \typeout{^^JTo avoid this error message,^^J%
+     run TeX--XeT or e-TeX engine instead of regular TeX.^^J}
+   \errmessage{Right-to-Left Support Error: use TeX--XeT or e-TeX
+     engine}%
+\fi
+\AtBeginDocument{%
+  \if@RTLmain\else
+    \if@RTL\@RTLmaintrue%
+    \else\@RTLmainfalse%
+    \fi%
+  \fi%
+}
+\def\Bidi@RTL@everypar{\if@RTL{\setbox\z@\lastbox\beginR\usebox\z@}\fi}
+   \let\o@everypar=\everypar
+   \newtoks\n@everypar
+   \n@everypar\expandafter{\the\o@everypar}
+   \o@everypar{\Bidi@RTL@everypar\the\n@everypar}
+   \let\everypar=\n@everypar
+\let\n@xt=\
+\def\LRE{\protect\pLRE}%
+\def\pLRE{\protect\afterassignment\moreLRE \let\n@xt= }
+\def\moreLRE{\bracetext \aftergroup\endL \beginL\@RTLfalse}
+\def\RLE{\protect\pRLE}
+\def\pRLE{\protect\afterassignment\moreRLE \let\n@xt= }
+\def\moreRLE{\bracetext \aftergroup\endR \beginR\@RTLtrue}
+\def\bracetext{\ifcat\n@xt{\else\ifcat\n@xt}\fi
+  \errmessage{Missing left brace has been substituted}\fi \bgroup}
+\def\lr#1{\begingroup\beginL\rmfamily#1\endL\endgroup}
+\def\LTR{\bgroup\par\@RTLfalse\@RTL@footnotefalse}
+\def\endLTR{\par\egroup}
+\def\RTL{\bgroup\par\@RTLtrue\@RTL@footnotetrue}
+\def\endRTL{\par\egroup}
+\def\ltr{\if@RTL\par\@RTLfalse\@RTL@footnotefalse\fi}
+\def\rtl{\if@RTL\relax\else\par\@RTLtrue\@RTL@footnotetrue\fi}
+\def\setRTL{\@RTLtrue\@RTL@footnotetrue}
+\def\setLTR{\@RTLfalse\@RTL@footnotefalse}
+\let\unsetRTL=\setLTR
+\let\unsetLTR=\setRTL
+\let\LR=\LRE
+\let\RL=\RLE
+\def\@ensure@RTL#1{\if@RTL#1\else\RLE{#1}\fi}
+\def\@ensure@LTR#1{\if@RTL\LRE{#1}\else#1\fi}
+\let\@ensure@RL=\@ensure@RTL
+\let\@ensure@LR=\@ensure@LTR
+\def\@ensure@dir#1{\if@RTL\RLE{#1}\else{#1}\fi}
+\let\@ensure@maindir=\@ensure@dir
+\def\@@RTL{RTL}
+\def\@@LTR{LTR}
+\def\save@dir{\if@RTL\gdef\saved@@dir{RTL}\else\gdef\saved@@dir{LTR}\fi}
+\def\reset@dir{\ifx\saved@@dir\@@RTL\setRTL\else\ifx\saved@@dir\@@LTR\setLTR\else\relax\fi\fi}
+\let\@@TeX\TeX
+\def\TeX{\@ensure@LTR{\@@TeX}}
+\let\@@LaTeX\LaTeX
+\def\LaTeX{\@ensure@LTR{\@@LaTeX}}
+\let\@@LaTeXe\LaTeXe
+\def\LaTeXe{\@ensure@LTR{\@@LaTeXe}}
+\def\reflect#1{{\setbox0=\hbox{#1}\rlap{\kern0.5\wd0
+  \special{x:gsave}\special{x:scale -1 1}}\box0 \special{x:grestore}}}
+\def\XeTeX{\LR{\leavevmode$\smash{\hbox{X\lower.5ex
+  \hbox{\kern-.125em\reflect{E}}\kern-.1667em \TeX}}$}}
+\def\XeLaTeX{\LR{\leavevmode$\smash{\hbox{X\lower.5ex
+  \hbox{\kern-.125em\reflect{E}}\kern-.1667em \LaTeX}}$}}
+\let\setRL=\setRTL
+\let\setLR=\setLTR
+\let\unsetRL=\setLTR
+\DeclareOption{RTLdocument}{\@RTLtrue\@RTL@footnotetrue\autofootnoterule}
+\DeclareOption{rldocument}{\@RTLtrue\@RTL@footnotetrue\autofootnoterule}
+\def\rcases#1{\left.\vcenter{\normalbaselines\m@th
+    \ialign{$##\hfil$&\quad{##}\hfil\crcr#1\crcr}}\,\right\}}
+\def\SepMark#1{\gdef\@SepMark{\if@RTL\beginR\fi#1\if@RTL\endR\fi}}
+\SepMark{.}
+\def\@thmcountersep{\@SepMark}
+\def\list#1#2{%
+  \ifnum \@listdepth >5\relax
+    \@toodeep
+  \else
+    \global\advance\@listdepth\@ne
+  \fi
+  \rightmargin\z@
+  \listparindent\z@
+  \itemindent\z@
+  \csname @list\romannumeral\the\@listdepth\endcsname
+  \def\@itemlabel{#1}%
+  \let\makelabel\@mklab
+  \@nmbrlistfalse
+  #2\relax
+  \@trivlist
+  \parskip\parsep
+  \parindent\listparindent
+  \advance\linewidth -\rightmargin
+  \advance\linewidth -\leftmargin
+  \if@RTL
+    \advance\@totalleftmargin \rightmargin
+  \else
+    \advance\@totalleftmargin \leftmargin
+  \fi
+  \parshape \@ne \@totalleftmargin \linewidth
+  \ignorespaces}
+\def\raggedright{%
+  \let\\\@centercr
+  \leftskip\z@skip\rightskip\@flushglue
+  \parindent\z@\parfillskip\z@skip}
+\let\@@raggedleft=\raggedleft
+\let\@@raggedright=\raggedright
+\renewcommand\raggedleft{\if@RTL\@@raggedright%
+                         \else\@@raggedleft\fi}
+\renewcommand\raggedright{\if@RTL\@@raggedleft%
+                          \else\@@raggedright\fi}
+\def\raggedright{%
+  \let\\\@centercr
+  \rightskip\z@skip\rightskip\@flushglue
+  \parindent\z@\parfillskip\z@skip}
+\renewcommand\raggedleft{\@@raggedleft}
+\renewcommand\raggedright{\@@raggedright}
+\def\centerline#1{%
+\if@RTL\@@line{\hss\beginR#1\endR\hss}
+\else\@@line{\hss#1\hss}\fi}
+\def\leftline#1{%
+\if@RTL\@@line{\beginR#1\endR\hss}
+\else\@@line{#1\hss}\fi}
+\def\rightline#1{%
+\if@RTL\@@line{\hss\beginR#1\endR}
+\else\@@line{\hss#1}\fi}
+\def\narrower{%
+  \advance\if@RTL\rightskip\else\leftskip\fi\parindent
+  \advance\if@RTL\leftskip\else\rightskip\fi\parindent}
+\def\leftmark{\if@RTLmain\beginR\fi\expandafter\@leftmark\botmark\@empty\@empty\if@RTLmain\endR\fi}
+\def\rightmark{\if@RTLmain\beginR\fi\expandafter\@rightmark\firstmark\@empty\@empty\if@RTLmain\endR\fi}
+\def\underline#1{%
+  \relax
+  \ifmmode\@@underline{#1}%
+  \else
+\if@RTL $\@@underline{\hbox{\beginR#1\endR}}\m@th$\relax
+\else
+$\@@underline{\hbox{#1}}\m@th$\relax\fi\fi}
+\if@compatibility
+   \let\undertext=\underline
+\fi
+\global\@RTLtabfalse
+\def\@tabular{\if@RTL\global\@RTLtabtrue\fi
+   \leavevmode \hbox \bgroup \if@RTLtab\beginR \fi
+   $\let\@acol\@tabacol
+   \let\@classz\@tabclassz
+   \let\@classiv\@tabclassiv \let\\\@tabularcr\@tabarray}
+\def\endtabular{\crcr\egroup\if@RTLtab\egroup\endR\egroup\fi
+                 \egroup $\if@RTLtab\endR\fi\egroup
+                 \global\@RTLtabfalse}
+\expandafter \let \csname endtabular*\endcsname = \endtabular
+\def\@array[#1]#2{%
+  \if #1t\vtop \else \if#1b\vbox \else \vcenter \fi\fi
+  \bgroup
+  \setbox\@arstrutbox\hbox{%
+    \vrule \@height\arraystretch\ht\strutbox
+           \@depth\arraystretch \dp\strutbox
+           \@width\z@}%
+  \@mkpream{#2}%
+  \edef\@preamble{%
+    \ialign \noexpand\@halignto
+      \bgroup \@arstrut \@preamble \tabskip\z@skip \cr}%
+  \let\@startpbox\@@startpbox \let\@endpbox\@@endpbox
+  \let\tabularnewline\\%
+    \let\par\@empty
+    \let\@sharp##%
+    \set@typeset@protect
+    \lineskip\z@skip\baselineskip\z@skip
+    \ifhmode \@preamerr\z@ \@@par\fi
+  \if@RTLtab\hbox\bgroup\beginR\vbox\bgroup\fi
+    \@preamble}
+\def\@testpach#1{\@chclass \ifnum \@lastchclass=\tw@ 4 \else
+    \ifnum \@lastchclass=3 5 \else
+     \z@ \if #1c\@chnum \z@ \else
+                              \if \if@RTLtab#1r\else#1l\fi\@chnum \@ne \else
+                              \if \if@RTLtab#1l\else#1r\fi\@chnum \tw@ \else
+          \@chclass \if #1|\@ne \else
+                    \if #1@\tw@ \else
+                    \if #1p3 \else \z@ \@preamerr 0\fi
+  \fi  \fi  \fi  \fi  \fi  \fi
+\fi}
+\def\@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    \vskip \z@ \@plus.2\p@
+    {\if@RTL\rightskip\else\leftskip\fi #2\relax \if@RTL\leftskip\else\rightskip\fi \@tocrmarg \parfillskip -\if@RTL\leftskip\else\rightskip\fi
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\if@RTL\rightskip\else\leftskip\fi \@tempdima \null\nobreak\hskip -\if@RTL\rightskip\else\leftskip\fi
+     {#4}\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill
+     \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+     \par}%
+  \fi}
+\def\RTL@outputdblcol{\if@firstcolumn
+\global\@firstcolumnfalse
+    \global\setbox\@leftcolumn\box\@outputbox
+  \else \global\@firstcolumntrue
+    \setbox\@outputbox\vbox{%
+     \hbox to\textwidth{%
+      \hbox to\columnwidth{\box\@outputbox \hss}%
+      \hfil \vrule width\columnseprule\hfil
+      \hbox to\columnwidth{\box\@leftcolumn \hss}%
+   }}\@combinedblfloats
+\@outputpage \begingroup \@dblfloatplacement
+\@startdblcolumn
+\@whilesw\if@fcolmade \fi
+{\@outputpage\@startdblcolumn}\endgroup
+    \fi}
+\def\LTR@outputdblcol{\if@firstcolumn
+\global\@firstcolumnfalse
+    \global\setbox\@leftcolumn\box\@outputbox
+  \else \global\@firstcolumntrue
+    \setbox\@outputbox\vbox{\hbox to\textwidth{%
+      \hbox to\columnwidth
+      {\box\@leftcolumn \hss}\hfil
+       \vrule width\columnseprule\hfil
+       \hbox to\columnwidth{\box\@outputbox \hss}}}%
+       \@combinedblfloats
+       \@outputpage \begingroup \@dblfloatplacement
+       \@startdblcolumn
+       \@whilesw\if@fcolmade \fi
+       {\@outputpage\@startdblcolumn}\endgroup
+    \fi}
+\renewcommand{\@outputdblcol}{\if@RTLmain\RTL@outputdblcol\else\LTR@outputdblcol\fi}
+\newcommand{\RTLdblcol}{\renewcommand{\@outputdblcol}{\RTL@outputdblcol}}
+\newcommand{\LTRdblcol}{\renewcommand{\@outputdblcol}{\LTR@outputdblcol}}
+\def\@addmarginpar{\@next\@marbox\@currlist{\@cons\@freelist\@marbox
+    \@cons\@freelist\@currbox}\@latexbug\@tempcnta\@ne
+    \if@twocolumn
+        \if@firstcolumn \@tempcnta\m@ne \fi
+    \else
+      \if@mparswitch
+         \ifodd\c@page \else\@tempcnta\m@ne \fi
+      \fi
+      \if@reversemargin \@tempcnta -\@tempcnta \fi
+    \fi
+    \ifnum\@tempcnta <\z@  \global\setbox\@marbox\box\@currbox \fi
+    \@tempdima\@mparbottom
+    \advance\@tempdima -\@pageht
+    \advance\@tempdima\ht\@marbox
+    \ifdim\@tempdima >\z@
+      \@latex@warning@no@line {Marginpar on page \thepage\space moved}%
+    \else
+      \@tempdima\z@
+    \fi
+    \global\@mparbottom\@pageht
+    \global\advance\@mparbottom\@tempdima
+    \global\advance\@mparbottom\dp\@marbox
+    \global\advance\@mparbottom\marginparpush
+    \advance\@tempdima -\ht\@marbox
+    \global\setbox \@marbox
+                   \vbox {\vskip \@tempdima
+                          \box \@marbox}%
+    \global \ht\@marbox \z@
+    \global \dp\@marbox \z@
+    \kern -\@pagedp
+    \nointerlineskip
+    \hb@xt@\columnwidth
+      {\if@RTL\beginR\fi\ifnum \@tempcnta >\z@
+          \hskip\columnwidth \hskip\marginparsep
+       \else
+          \hskip -\marginparsep \hskip -\marginparwidth
+       \fi
+       \box\@marbox \hss\if@RTL\endR\fi}%
+    \nointerlineskip
+    \hbox{\vrule \@height\z@ \@width\z@ \@depth\@pagedp}}
+\def\@stopline{\unskip\@stopfield\if@rjfield \global\@rjfieldfalse
+   \@tempdima\@totalleftmargin \advance\@tempdima\linewidth
+\hbox to\@tempdima{\if@RTL\beginR\fi\@itemfudge\hskip\dimen\@curtabmar
+   \box\@curline\hfil\box\@curfield\if@RTL\endR\fi}\else\@addfield
+   \hbox to\linewidth{\if@RTL\beginR\fi\@itemfudge
+   \hskip\dimen\@curtabmar\box\@curline\hfil\if@RTL\endR\fi}%
+\fi}
+\def\@outputpage{%
+\begingroup           % the \endgroup is put in by \aftergroup
+  \let \protect \noexpand
+  \@resetactivechars
+  \global\let\@@if@newlist\if@newlist
+  \global\@newlistfalse
+  \@parboxrestore
+  \shipout \vbox{%
+    \set@typeset@protect
+    \aftergroup \endgroup
+    \aftergroup \set@typeset@protect
+                                % correct? or just restore by ending
+                                % the group?
+  \if@specialpage
+    \global\@specialpagefalse\@nameuse{ps@\@specialstyle}%
+  \fi
+  \if@twoside
+    \ifodd\count\z@ \let\@thehead\@oddhead \let\@thefoot\@oddfoot
+         \let\@themargin\oddsidemargin
+    \else \let\@thehead\@evenhead
+       \let\@thefoot\@evenfoot \let\@themargin\evensidemargin
+    \fi
+    \ifx\@thehead\@empty \let\@thehead\hfil \fi
+    \ifx\@thefoot\@empty \let\@thefoot\hfil \fi
+    \else %% not @twoside
+    \ifx\@oddhead\@empty \let\@thehead\hfil \fi
+    \ifx\@oddfoot\@empty \let\@thefoot\hfil \fi
+  \fi
+  \reset@font
+  \normalsize
+  \normalsfcodes
+  \let\label\@gobble
+  \let\index\@gobble
+  \let\glossary\@gobble
+  \baselineskip\z@skip \lineskip\z@skip \lineskiplimit\z@
+    \@begindvi
+    \vskip \topmargin
+    \moveright\@themargin \vbox {%
+      \setbox\@tempboxa \vbox to\headheight{%
+        \vfil
+        \color@hbox
+          \normalcolor
+          \hb@xt@\textwidth{\if@RTLmain\beginR\fi\@thehead\if@RTLmain\endR\fi}%
+        \color@endbox
+        }%                        %% 22 Feb 87
+      \dp\@tempboxa \z@
+      \box\@tempboxa
+      \vskip \headsep
+      \box\@outputbox
+      \baselineskip \footskip
+      \color@hbox
+        \normalcolor
+        \hb@xt@\textwidth{\if@RTLmain\beginR\fi\@thefoot\if@RTLmain\endR\fi}%
+      \color@endbox
+      }%
+    }%
+  \global\let\if@newlist\@@if@newlist
+  \global \@colht \textheight
+  \stepcounter{page}%
+  \let\firstmark\botmark
+}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    \if@RTL\beginR\fi#1: #2\if@RTL\endR\fi\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\if@RTL\beginR\fi\hfil\box\@tempboxa\hfil\if@RTL\endR\fi}%
+  \fi
+  \vskip\belowcaptionskip}
+\def\equation{\beginL$$\refstepcounter{equation}}
+\def\endequation{\eqno \hbox{\@eqnnum}$$\endL\@ignoretrue}
+\def\@eqnnum{{\normalfont \normalcolor \if@RTL\beginR\fi(\theequation)\if@RTL\endR\fi}}
+\input{footnote-bidi.def}
+\input{loadingorder-bidi.def}
+\@iftagsloaded{leqno}{\input{leqno-bidi.def}}{}
+\@iftagsloaded{fleqn}{\input{fleqn-bidi.def}}{}
+\@ifpackageloaded{amsmath}{\input{amsmath-bidi.def}}{}
+\@ifpackageloaded{amsthm}{\input{amsthm-bidi.def}}{}
+\@ifpackageloaded{breqn}{\input{breqn-bidi.def}}{}
+\@ifpackageloaded{color}{\input{color-bidi.def}}{}
+\@ifpackageloaded{xcolor}{\input{xcolor-bidi.def}}{}
+\@ifpackageloaded{colortbl}{\input{colortbl-bidi.def}}{}
+\@ifpackageloaded{flowfram}{\input{flowfram-bidi.def}}{}
+\@ifpackageloaded{xltxtra}{\input{xltxtra-bidi.def}}{}
+\@ifpackageloaded{wrapfig}{\input{wrapfig-bidi.def}}{}
+\@ifpackageloaded{graphicx}{\input{graphicx-bidi.def}}{}
+\@ifpackageloaded{hyperref}{\input{hyperref-bidi.def}}{}
+\@ifpackageloaded{fancyhdr}{\input{fancyhdr-bidi.def}}{}
+\@ifpackageloaded{draftwatermark}{\input{draftwatermark-bidi.def}}{}
+\@ifpackageloaded{pdfpages}{\input{pdfpages-bidi.def}}{}
+\@ifpackageloaded{listings}{\input{listings-bidi.def}}{}
+\@ifpackageloaded{pstricks}{\input{pstricks-bidi.def}}{}
+\@ifpackageloaded{tikz}{\input{tikz-bidi.def}}{}
+\@ifpackageloaded{array}{\input{array-bidi.def}}{}
+\@ifpackageloaded{stabular}{\input{stabular-bidi.def}}{}
+\@ifpackageloaded{longtable}{\input{longtable-bidi.def}}{}
+\@ifpackageloaded{arydshln}{\input{arydshln-bidi.def}}{}
+\@ifpackageloaded{multicol}{\input{multicol-bidi.def}}{}
+\@ifpackageloaded{minitoc}{\input{minitoc-bidi.def}}{}
+\@ifpackageloaded{ragged2e}{\input{ragged2e-bidi.def}}{}
+\@ifpackageloaded{tabls}{\input{tabls-bidi.def}}{}
+\@ifpackageloaded{tabulary}{\input{tabulary-bidi.def}}{}
+\@ifpackageloaded{tocstyle}{\input{tocstyle-bidi.def}}{}
+\@ifclassloaded{article}{\input{article-bidi.def}}{}
+\@ifclassloaded{amsart}{\input{amsart-bidi.def}}{}
+\@ifclassloaded{letter}{\input{letter-bidi.def}}{}
+\@ifclassloaded{memoir}{\input{memoir-bidi.def}}{}
+\@ifclassloaded{refrep}{\input{refrep-bidi.def}}{}
+\@ifclassloaded{report}{\@ifpackageloaded{flowfram}{}{\input{report-bidi.def}}}{}
+\@ifclassloaded{rapport3}{\input{rapport3-bidi.def}}{}
+\@ifclassloaded{scrartcl}{\input{scrartcl-bidi.def}}{}
+\@ifclassloaded{scrbook}{\input{scrbook-bidi.def}}{}
+\@ifclassloaded{scrreprt}{\input{scrreprt-bidi.def}}{}
+\@ifclassloaded{amsbook}{\input{amsbook-bidi.def}}{}
+\@ifclassloaded{bookest}{\input{bookest-bidi.def}}{}
+\@ifclassloaded{extbook}{\input{extbook-bidi.def}}{}
+\@ifclassloaded{book}{\@ifpackageloaded{flowfram}{}{\input{book-bidi.def}}}{}
+\@ifpackageloaded{tocbibind}{\@ifclassloaded{memoir}{}{\input{tocbibind-bidi.def}}}{}
+\@ifpackageloaded{tocloft}{\@ifclassloaded{memoir}{}{\input{tocloft-bidi.def}}}{}
+\ProcessOptions
+
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `bidi.sty'.

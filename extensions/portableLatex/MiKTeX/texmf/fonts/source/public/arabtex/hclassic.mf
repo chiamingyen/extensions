@@ -1,0 +1,208 @@
+%(c) 1990,91 by Joel M. Hoffman
+
+%hclassic.  Modernized Classical Hebrew font.  Version 0.9.
+%calls the file base.
+%last update:  5/15/91 by JMH
+% modified for use with ArabTeX: 5/25/96 Klaus Lagally
+% renamed "hcbase_pc" to "hcbase": 1999/04/10 KL
+
+%This calls the file ``hcbase_pc'' to create a general purpose classical
+%Hebrew font.  See that file for more information. 
+
+%Use of this material in a commercial venture of any sort requires
+%permission from me.  Otherwise, you are free to use this for any
+%legal, non-destructive purpose.  If you find this font useful, a
+%contribution to charity will be most appreciated.
+%
+%Send comments or complaints to:
+%
+%BITNET:      hoffman@nyuacf.BITNET  <-- this will change soon
+%CompuServe:  72700,402 -or- 72700.402@compuserve.com
+%SNAIL:       Joel M. Hoffman
+%             19 Hillcrest Lane
+%             Rye, NY 10580
+%             U.S.A.                            
+
+
+mode_def testing=
+		pixels_per_inch:=300*4;
+		blacker:=.1;
+		o_correction:=1;
+		fillin:=.01;
+		proofing:=2;
+		fontmaking:=0;
+		tracingtitles:=1;
+	enddef;
+if unknown mode:
+mode:=localfont; fi
+mode_setup;
+
+if mode=testing: screenstrokes; fi
+
+
+%I used large units, and then later scaled the font down to size. -JMH
+%u#:=1/100in#;		%ten units to a square.
+u#:=1/384.16in#;	%but account for magnification.(1/384.16)
+%u#:=1/295.16in#;%but account for magnification and hp vs. epson
+
+let_height#:=35u#;	%height of a standard letter.
+asc_height#:=25u#;	%ascender height (for lamed).
+desc_height#:=16u#;	%descender height(depth?).
+ 
+let_width#:=31u#;	%width of a standard letter. (31u#)
+
+serif_height#:=3u#;	%height of a standard serif.(2.5u#)
+serif_width#:=2.5u#;	%width of a standard serif. (2.5u#)
+chupchiklength#:=6u#;
+
+vowel_width#:=14u#;	%width of vowels under the letters.
+vowel_height#:=12u#;	%How tall the vowels are.
+vowel_depth#:=8u#;	%the space between the baseline and the vowels.
+
+let_fit#:=3u#;		%space to left and right of letter (.5u#)
+vowel_fit#:=1.4u#;	%space to the left and right of vowel(1.4u#);
+
+thick#:=8.5u#;		%thickness of thick lines. (7.5u#)
+thin#:=3u#;		%thickness of thin lines. (2u#)
+hairline#:=1u#;		%VERY thin lines (.3u#)
+vowel_stroke#:=4u#;	%pen to use
+dot#:=4u#;		%diameter of dots (dagesh, vowels, etc)
+squaredot#:=10u#;	
+
+overshoot#:=3u#;	%overshoot for bet, taf.
+
+tightness:=.74;		%tightness for right_curve; (.78)
+
+baseline_tilt:=60;	%degrees for the tilt in baseline lines.
+
+head_tilt#:=.7u#;	%tilt for the head on the zion, etc.
+
+sss:=.7;		%Shrink the serif's width by this amount on a shin.
+			%(s)hrink (s)hin's (s)erif
+
+define_pixels(let_height,asc_height,desc_height,let_width,head_tilt);
+define_pixels(vowel_height,vowel_width,vowel_depth,vowel_height);
+define_pixels(squaredot);
+define_whole_pixels(let_fit,vowel_fit);
+define_pixels(serif_height,serif_width,chupchiklength);
+define_pixels(overshoot);
+define_whole_blacker_pixels(thick,thin,dot,hairline,vowel_stroke);
+
+def serifpen = pickup pencircle xscaled thin yscaled thick; enddef;
+%def serifpen = pickup pencircle xscaled hairline yscaled thick; enddef;
+def vowelpen = pickup pensquare scaled vowel_stroke; enddef;
+
+
+%this is from the METAFONT book:
+shrink_fit:=1+hround(2let_fit#*hppp)-2let_fit;
+
+def normal_adjust_fit(expr left_adjustment,right_adjustment) =
+ l:=-hround(left_adjustment*hppp)-let_fit;
+ interim xoffset:=-l;
+ charwd:=charwd+2let_fit#+left_adjustment+right_adjustment;
+ r:=l+hround(charwd*hppp)-shrink_fit;
+ w:=r-hround(right_adjustment*hppp)-let_fit;
+ enddef;
+let af=normal_adjust_fit;
+def negate_af = af(-let_fit#,-let_fit#); enddef;
+def vowel_af = af(-let_fit#+vowel_fit#,-let_fit#+vowel_fit#); enddef;
+extra_endchar := extra_endchar&"r:=r+shrink_fit;w:=r-l;";
+
+
+
+
+def top_serif (suffix i,j) = %draw a serif at point z.i, using z.j
+ serifpen;
+ x.j = x.i-serif_width; y.j = y.i + serif_height;
+ draw (x.i+serif_width,y.i) ... z.i .. z.j;
+enddef;
+
+def bottom_serif (suffix i,j) = %draw an inverse serif at point z.i, with z.j
+ serifpen;
+ x.j = x.i+serif_width;y.j=y.i-serif_height;
+ draw (x.i-serif_width,y.i) ... z.i .. z.j;
+enddef;
+
+def roundoff_bottom (suffix i) = %round off point z.i, assuming thin lines.
+ fill fullcircle scaled thin shifted z.i;
+enddef;
+
+def right_curve(suffix i,j,k,l) = %call general_right_curve
+general_right_curve(tightness,tightness,thick,thick,thin,thin,i,j,k,l);
+enddef;
+
+def left_curve(suffix i,j,k,l) = %call general_left_curve
+general_left_curve(tightness,tightness,thick,thick,thin,thin,i,j,k,l);
+enddef;
+
+
+def general_right_curve (expr ta,tb,sa,sb,sc,sd) (suffix i,j,k,l) =
+ y.j=y.i;x.j=ta*(x.l-x.i)+x.i;
+ x.k=x.l;y.k=tb*(y.i-y.l)+y.l;
+ penpos i (sa,90);
+ penpos j (sb,90);
+ penpos k (sc,0);
+ penpos l (sd,0);
+ penstroke z.l.e{up} ... {up}z.k.e ... z.j.e{left} ...{left} z.i.e;
+enddef;
+
+def general_left_curve (expr ta,tb,sa,sb,sc,sd) (suffix i,j,k,l) =
+ y.j=y.i;x.j=ta*(x.l-x.i)+x.i;
+ x.k=x.l;y.k=tb*(y.i-y.l)+y.l;
+ penpos i (sa,-90);
+ penpos j (sb,-90);
+ penpos k (sc,0);
+ penpos l (sd,0);
+ penstroke z.i.e{right}...{right}z.j.e...z.k.e{up}...{up}z.l.e;
+enddef;
+
+
+
+def any_curve (expr adjust,thick,thin) (suffix i,j,k,l,m) =
+	%draw from i to m via k, using j and l, using specified values for
+	% withds.
+ z.j=(tightness/adjust)[z.i,z.k];
+ z.l=(tightness/adjust)[z.m,z.k];
+ penpos i (thick,angle(z.k-z.i)+90);
+ penpos j (thick,angle(z.k-z.i)+90);
+ penpos l (thin,angle(z.m-z.k)+90);
+ penpos m (thin,angle(z.m-z.k)+90);
+ penstroke z.i.e{z.k-z.i}
+    ... {z.k-z.i}z.j.e 
+    ... z.l.e{z.m-z.k}
+    ... {z.m-z.k}z.m.e;
+enddef;
+
+def baseline (expr a,b) = %draw a baseline
+ pickup penrazor scaled thick rotated baseline_tilt;
+ draw a --- b;
+enddef;
+baselinewidth:= sind(baseline_tilt)*thick;
+
+def thickpen = pickup pencircle scaled thick; enddef;
+def thinpen = pickup pencircle scaled thin; enddef;
+def hairlinepen = pickup pencircle scaled hairline; enddef;
+def baselinepen = pickup penrazor scaled thick rotated baseline_tilt; enddef;
+def dotpen = pickup pencircle scaled dot; enddef;
+def squarepen = pickup penrazor scaled squaredot rotated 45; enddef;
+
+def dotat (expr z) = %put at dot at z
+fill fullcircle scaled dot shifted z;
+enddef;
+
+def chupchik(suffix i,j)(expr ang) = %draw a chupchik from z at angle ang
+thinpen;
+z.i=z.j+dir(ang)*chupchiklength;
+draw z.i--z.j;
+enddef;
+
+def mycutoff(expr a,b) = %cutoff with culling
+cullit;
+cutoff(a,b);
+cullit;
+enddef;
+
+%input hcbase_pc; % KL 25.05.96
+input hcbase; % 1999/04/10 KL
+
+end; % KL 03.11.96	

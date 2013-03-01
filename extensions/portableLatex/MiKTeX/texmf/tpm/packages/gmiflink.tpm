@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/gmiflink"><TPM:Name>gmiflink</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Three macros to simplify usage of \hypertarget an \hyperlink of hyperref.sty and avoid error if there's no target.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Three hyperref-based macros that
+simplify usage of \hypertarget
+and \hyperlink: one argument instead of the same one
+twice.  Also \gmiflink and \gmifref which
+typeset plain text instead of generating an error or printing
+‘??’ if there is no respective hypertarget
+or label.</TPM:Description><TPM:RunFiles size="8383">texmf\tex\latex\gmiflink\gmiflink.sty texmf\tpm\packages\gmiflink.tpm</TPM:RunFiles><TPM:DocFiles size="60344">texmf\doc\latex\gmiflink\gmiflink.pdf texmf\doc\latex\gmiflink\README</TPM:DocFiles><TPM:TimePackaged>1218911040</TPM:TimePackaged><TPM:MD5>a04ba61c44f9c82170b4c3c9321fad29</TPM:MD5></rdf:Description></rdf:RDF>

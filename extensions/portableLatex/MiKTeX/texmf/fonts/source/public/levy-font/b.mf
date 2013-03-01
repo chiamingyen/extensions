@@ -1,0 +1,83 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 9u#,asc_height#,desc_depth# enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter=
+  pickup fine.nib;
+  numeric thin_stem; thin_stem=.6[hair,stem];           %for upper bowl
+  numeric tilt; tilt=min(2*otilt,.5);                   %for both bowls
+  pos1(stem,180); y1-.5stem=-d-o;               %bottom left
+  pos2(hair,180); y2=.5bar_height;              %self-intersection (cf. z15)
+  x1=x2; lft x1r=hround(.75u+.5(hair-stem));    %i.e., lft x2r ~ .75u
+  x3r=x2r;                                      %beginning of curve
+  top y5r=h+oo; bot y14r=-oo; x5r=x14r;         %top and bottom bulges
+  top y10r=vstem+bot y9r=x_height; x9r=x10r;    %top and bottom of cusp
+  rt x12r=hround(w-.75u);                       %lower right bulge
+  x5r=.5[lft x2r,rt x12r]; x9r-.5vstem=hround(x5r-.5u-.5vstem);
+  % we want to simulate the following relations, to make slopes consistent
+  % (where z7 is the upper right bulge):
+  % z5r-z3r=whatever*(z9r-z7r)=whatever*(z14r-z12r);
+  % z7r-z5r=whatever*(z12r-z10r)=whatever*(z5r-z3r) yscaled -1;
+  numeric slope;
+  slope=((y10r-y12r)+(y12r-y14r))/((x12r-x10r)+(x12r-x14r));
+  z7'r=z9r+whatever*(1,slope); z7'r=z5r+whatever*(1,-slope);
+  y7r=y7'r; rt x7r=hround rt x7'r;
+  z12r=z14r+whatever*(1,slope); z3r=z5r+whatever*(1,slope);
+  filldraw double_circ_stroke gr_arc.e(7,6,5)(hair,thin_stem,tilt)..
+    gr_arc.e(5,4,3)(hair,thin_stem,tilt)..{down}z2e..z1e;       %top and left
+  z2=z15; pos15(hair,slope-90);         %intersection pt
+  numeric slope;
+  slope=angle((z14r-z15)yscaled 2);
+  filldraw stroke z15e{dir slope}...gr_arc.e(14,13,12)(hair,stem,tilt); %bottom
+  forsuffixes e=r,l:
+    path curv[]e; numeric S[]e;
+    curv1e=reverse gr_arc.e(9,8,7)(hair,thin_stem,tilt);        %cusp bottom
+    curv2e=gr_arc.e(12,11,10)(hair,stem,tilt); endfor           %cusp top
+  (S1r,S2r)=curv1r intersectiontimes curv2r;
+  (whatever,S2l)=curv1r intersectiontimes curv2l;
+  (S1l,whatever)=curv1l intersectiontimes curv2r;
+  if S1l=-1 : S1l:=2; fi
+  if S2l=-1 : S2l:=2; fi
+  filldraw stroke subpath(0,S1e+eps) of curv1e;                 %fill in cusp
+  filldraw stroke subpath(0,S2e+eps) of curv2e;
+  filldraw subpath (S1r+eps,2) of curv1r...subpath(2,S2r+eps) of curv2r..cycle;
+enddef;
+     
+cmchar "Lowercase beta";
+beginchar("b",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by beta";
+begindoublechar(oct"002",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

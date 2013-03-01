@@ -1,0 +1,47 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,anglais,origdate]{lettre}
+\usepackage[francais,english]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+%
+% telefax, entete officielle
+% ==========================
+% langue anglaise, adresse detaillee
+% ==================================
+% ligne d'E-Mail
+% ==============
+%
+\begin{telefax}{+41-22-320 29 27}{Geneva University\\
+                                To whom it may concern}
+\location{Dr~D.~M\'egevand
+	\\\TeX nician}
+\name{Denis M\'egevand}
+
+\anglais
+\detailledaddress
+\username{megevand}
+\bitnet{cgeuge54}
+\internet{obs.unige.ch}
+
+\conc{\LaTeX\ fax style}
+
+\opening{Dear collegues}
+
+This is just an example of my new telefax style in english. See the french example for the documentation.
+
+Looking forward to hearing from you soon and thanking you in advance.
+
+\closing{Sincerely yours,}
+
+\end{telefax}
+\end{document}

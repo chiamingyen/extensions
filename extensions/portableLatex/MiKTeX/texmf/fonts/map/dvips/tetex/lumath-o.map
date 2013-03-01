@@ -1,0 +1,15 @@
+% Thomas Esser, 2003, public domain.
+%
+% lumath-o.map: support old (non-berry) names for lucida math
+%
+lbma LucidaNewMath-Arrows <lbma.pfb
+lbmad LucidaNewMath-Arrows-Demi <lbmad.pfb
+lbmd LucidaNewMath-Demibold <lbmd.pfb
+lbmdi LucidaNewMath-DemiItalic <lbmdi.pfb
+lbmdo LucidaNewMath-AltDemiItalic <lbmdo.pfb
+lbme LucidaNewMath-Extension <lbme.pfb
+lbmi LucidaNewMath-Italic <lbmi.pfb
+lbmo LucidaNewMath-AltItalic <lbmo.pfb
+lbmr LucidaNewMath-Roman <lbmr.pfb
+lbms LucidaNewMath-Symbol <lbms.pfb
+lbmsd LucidaNewMath-Symbol-Demi <lbmsd.pfb

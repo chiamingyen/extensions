@@ -1,0 +1,51 @@
+%%
+%% This is file `ts1ccr.fd',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% cc.fdd  (with options: `TS1ccr')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from ts1ccr.fd.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file cc.fdd.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+ \ProvidesFile{ts1ccr.fd}
+        [1999/11/22 v1.0a (WaS)]
+\DeclareFontFamily{TS1}{ccr}{\hyphenchar\font\m@ne}
+\DeclareFontShape{TS1}{ccr}{m}{n}{%
+<5><6><7><8><9>gen*torm%
+<10><10.95><12><14.4><17.28><20.74><24.88>torm10%
+}{}
+\DeclareFontShape{TS1}{ccr}{m}{sl}{%
+<5><6><7><8><9><10>gen*tosl%
+<10.95><12><14.4><17.28><20.74><24.88>tosl10%
+}{}
+\DeclareFontShape{TS1}{ccr}{m}{it}{%
+<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>toti10%
+}{}
+\DeclareFontShape{TS1}{ccr}{bx}{n}{%
+<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>ssub*cmr/bx/n%
+}{}
+\DeclareFontShape{TS1}{ccr}{bx}{it}{%
+<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>ssub*cmr/bx/it%
+}{}
+\DeclareFontShape{TS1}{ccr}{bx}{sl}{%
+<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>ssub*cmr/bx/sl%
+}{}
+\DeclareFontShape{TS1}{ccr}{sbc}{n}{%
+<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>ssubf*tcssdc10%
+}{}
+\endinput
+%%
+%% End of file `ts1ccr.fd'.

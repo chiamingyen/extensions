@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/manjutex"><TPM:Name>manjutex</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Manju language support.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>ManjuTeX provides Manju for the TeX/LaTeX community.  Manju is a
+      language of North East Asia, belonging to the Tungusic branch of
+      the Altaic languages. Though it is virtually not spoken anymore,
+      it survives in written form as Manju was the native language of
+      the rulers of the Qing dynasty (1644--1911) in China. Large
+      quantities of documents of the Imperial Archives survive, as
+      well as some of the finest dictionaries ever compiled in Asia,
+      like the Pentaglot, a dictionary comprising Manju, Tibetan,
+      Mongolian, Uighur and Chinese.  ManjuTeX, developed on the basis
+      of MonTeX, provides all necessary
+      characters for writing standard Manju as well as transliterated
+      Tibetan texts, for which purpose a number of additional
+      characters was created. The retransliteration (from Latin input
+      to Manju output) is completely realized in TeX/Metafont so that
+      no external preprocessor is required. ManjuTeX can hence be used
+      with both TeX and LaTeX2e though there are a few more functions
+      (notably vertical text) available for the latter.</TPM:Description><TPM:RunFiles size="298061">texmf\fonts\source\public\manjutex\bthhsb.mf texmf\fonts\source\public\manjutex\bthhsm.mf texmf\fonts\source\public\manjutex\bthhwb.mf texmf\fonts\source\public\manjutex\bthhwm.mf texmf\fonts\source\public\manjutex\bthvsb.mf texmf\fonts\source\public\manjutex\bthvsm.mf texmf\fonts\source\public\manjutex\bthvwb.mf texmf\fonts\source\public\manjutex\bthvwm.mf texmf\fonts\source\public\manjutex\macodes.mf texmf\fonts\source\public\manjutex\maglyphs.mf texmf\fonts\source\public\manjutex\mantrlig.mf texmf\fonts\source\public\manjutex\mbatoms.mf texmf\fonts\source\public\manjutex\mbcodes.mf texmf\fonts\source\public\manjutex\mbglyphs.mf texmf\fonts\source\public\manjutex\mbnums.mf texmf\fonts\source\public\manjutex\mbparmb.mf texmf\fonts\source\public\manjutex\mbparmm.mf texmf\fonts\source\public\manjutex\mbparms.mf texmf\fonts\source\public\manjutex\mbpunc.mf texmf\fonts\tfm\public\manjutex\bthhsb.tfm texmf\fonts\tfm\public\manjutex\bthhsm.tfm texmf\fonts\tfm\public\manjutex\bthhwb.tfm texmf\fonts\tfm\public\manjutex\bthhwm.tfm texmf\fonts\tfm\public\manjutex\bthvsb.tfm texmf\fonts\tfm\public\manjutex\bthvsm.tfm texmf\fonts\tfm\public\manjutex\bthvwb.tfm texmf\fonts\tfm\public\manjutex\bthvwm.tfm texmf\tex\latex\manjutex\diagnose.sty texmf\tex\latex\manjutex\lmabthh.fd texmf\tex\latex\manjutex\lmabthv.fd texmf\tex\latex\manjutex\lmaenc.def texmf\tex\latex\manjutex\manju.sty texmf\tex\latex\manjutex\manju.tex texmf\tpm\packages\manjutex.tpm</TPM:RunFiles><TPM:DocFiles size="45372">texmf\doc\latex\manjutex\manjutex.dvi texmf\doc\latex\manjutex\manjutex.tex texmf\doc\latex\manjutex\README</TPM:DocFiles><TPM:SourceFiles size="23914">texmf\source\latex\manjutex\COPYING texmf\source\latex\manjutex\EMTEX texmf\source\latex\manjutex\FILES texmf\source\latex\manjutex\HISTORY texmf\source\latex\manjutex\INSTALL texmf\source\latex\manjutex\MIKTEX</TPM:SourceFiles><TPM:TimePackaged>991340658</TPM:TimePackaged><TPM:MD5>efc9d51d2b2217428c51b0a48e263ba4</TPM:MD5></rdf:Description></rdf:RDF>

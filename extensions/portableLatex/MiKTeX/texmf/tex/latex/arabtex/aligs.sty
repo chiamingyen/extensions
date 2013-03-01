@@ -1,0 +1,635 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aligs.sty
+% ArabTeX
+% Ligatures 
+% called in HMODE
+% Version 26.05.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {aligs.sty} {3.11 compute ligatures} {26.05.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \is@end@char #1{00% does not connect to the left ?
+\a@test {#1}\xxpa \unp@ck@skl \skl@skel \relax 
+\ifnum \skl@con = 0 \else \xpa \setiffalse \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \aw@endligs #1#2*#3#4*#5{% test for final ligatures
+% c1 m1 * c2 m2 * c3
+\ifcase \act@cls \lam@lig #3#5%                 % 0 l
+\or                                             % 1 YntCbyp
+        \ifnum \act@cd = \a@yah    	\yah@end #1#3#5\else
+        \ifnum \act@cd = \a@yah@h  	\yah@end #1#3#5\else
+        \ifnum \act@cd = \a@yah@p  	\yah@p@end #1#3#5\else
+        \ifnum \act@cd = \a@yah@p@s 	\yah@p@end #1#3#5\else
+        \ifnum \act@cd = \a@nun    	\nun@end #1#3#5\else 
+                                	\bah@end #1%
+        \fi\fi\fi\fi\fi
+\or \sin@lig #1#5%                              % 2 sxSD
+\or \gim@lig #1#3#5%                            % 3 GHXJ
+	\a@min 0
+\or \global\@highfalse \@mod@acttrue \put@tatwil % 4 cR
+\or \kaf@end #3#5%                              % 5 kgM 
+\or \fah@end #1%                                % 6 fqv
+\or \ttah@lig #1#5%                             % 7 VZ
+\or \rah@end #1#2*#3#5%                         % 8 rzj \a@r \a@R
+\or                                             % 9 \a@t \a@n
+        \ifnum \act@cd = \a@yah@p@s	\yah@p@end #1#3#5\else
+        \ifnum \act@cd = \a@nun@p 	\nun@end #1#3#5\else 
+                                	\bah@end #1%
+        \fi\fi
+\else \global\@highfalse \@mod@acttrue           % 10 ...
+        \ifnum \act@cd = \a@hah 	\hah@end #1#2*#3#4*#5\else
+        \ifnum \act@cd = \a@h@s 	\hah@urd #3\else 
+        \ifnum \act@cd = \a@mim 	\mim@end #2*#3#5\else
+                \put@tatwil 
+                \ifnum \act@cd = \a@dal \gim@test #5\else
+                \ifnum \act@cd = \a@dal@p \gim@test #5\else
+                \fi\fi
+        \fi\fi\fi
+\fi \aw@lower #5}
+
+%%%%%%%%%%%%%%%%%%%%%%% bah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \bah@end #1{% bah skeleton
+% c1
+\ifnum \act@cls = 1 \set@act\sk@b               % YntCbyp
+\else \set@act\sk@b@p
+\fi
+\put@tatwil \@mod@acttrue \global\@hightrue }
+
+%%%%%%%%%%%%%%%%%%%%%%% gim %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \gim@lig #1#2#3{% gim, hhah, khah, tchah etc.
+% c1 c2 c3
+\ifnum \act@cd = \a@khah \else
+	\@mod@acttrue 
+	\ifnum \act@cd = \a@gim@close \else \set@act\sk@hh 
+	\fi
+\fi
+\ifs@nd \else
+\if\is@end@char #3\gim@one #1#2#3\else 
+                \gim@more #1#2#3%
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%% gim %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \gim@one #1#2#3{% gim, hhah, khah, tchah        % and one char
+% c1 c2 c3
+%\ifligs
+\ifcase \chr@cls            
+    \act@gim #1\set@chr\sk@l@g@s                % 0 l
+\or \act@gim #1\chr@tie\a@g@to@bb               % 1 YntCbyp
+                \set@chr\sk@spc
+\or \act@gim #1\chr@tie\a@g@to@s \chr@sin       % 2 sxSD
+\or \act@gim #1%                                % 3 GHXJ
+\or \put@tatwil                                 % 4 cR
+\or \act@gim #1%                                % 5 kgM
+\or \act@gim #1%                                % 6 fqv
+\else   \ifx #2m\act@gim #1\set@chr\sk@m@s
+        \else \put@tatwil 
+        \fi
+%\fi
+\fi }
+
+\def \gim@more #1#2#3{% gim, hhah, khah, tchah
+% and more than one char
+% c1 c2 c3
+\ifligs
+\ifcase \chr@cls            
+    \act@gim #1\set@chr\sk@l@y                  % 0 l
+\or \act@gim #1\chr@tie\a@g@to@mb               % 1 YntCbyp
+                \set@chr\sk@b@y
+\or \act@gim #1\chr@tie\a@g@to@s \chr@sin       % 2 sxSD
+\or \put@tatwil                                 % 3 GHXJ
+\or \put@tatwil                                 % 4 cR
+\or \act@gim #1%                                % 5 kgM
+\else \ifx #2m\ifx #3l\act@gim #1\set@chr\sk@m@l@g
+      \fi\fi
+\fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% sin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \sin@lig #1#2{% sin, shin, ssad, ddad, \a@s
+% c1 c3
+\put@tatwil \@mod@acttrue 
+\ifnum \chr@cls = 1 % YntCbyp
+   \if\is@end@char #2\set@chr\sk@b@h \else
+   \ifx #1s\set@chr\sk@b@h \else
+   \ifx #1x\set@chr\sk@b@h \else
+   \fi\fi\fi
+\fi }
+
+\def \sin@lig #1#2{% sin, shin, ssad, ddad, \a@s
+% c1 c3
+\put@tatwil \@mod@acttrue 
+\ifnum \chr@cls = 1 % YntCbyp
+   \if\is@end@char #2\set@chr\sk@b@h \else
+   \ifnum \act@cd = \a@sin \set@chr\sk@b@h \else
+   \fi\fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% ttah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \ttah@lig #1#2{% ttah, tthah
+% c1 c3
+\put@tatwil \@mod@acttrue 
+\ifnum \chr@cls = 1 % YntCbyp
+   \if\is@end@char #2\set@chr\sk@b@h 
+   \fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% rah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \rah@end #1#2*#3#4{% final r, z, j 
+% c1 m1 * c2 c3
+\@mod@acttrue
+\ifcase \chr@cls 
+        \put@tatwil                             % 0 l
+\or \if\is@end@char #4%                         % 1 YntCbyp
+    \else \set@chr\sk@b@sp \set@high@act
+    \fi
+\or \chr@tie\a@er@to@s \chr@sin                 % 2 sxSD
+\or \put@tatwil                                 % 3 GHXJ
+\or \put@tatwil                                 % 4 cR
+\or \ifligs                                     % 5 kgM
+        \ifx #1r\if\is@updia #2*\put@tatwil 
+                \else \kaf@lig 
+                \fi
+        \else \put@tatwil 
+        \fi
+    \else \put@tatwil 
+    \fi
+\else \put@tatwil 
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% fah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \fah@end #1{% fah family
+% c1
+\ifnum \act@cd = \a@qaf 
+	\ifnewfont \set@act\sk@q@s \@mod@acttrue 
+	\fi
+\else \@mod@acttrue 
+\fi \global\@highfalse }
+
+%%%%%%%%%%%%%%%%%%%%%% kaf %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \kaf@end #1#2{% kaf family
+% c2 c3
+\ifnum \act@cd = \a@kaf 
+	\gim@test #2%  closed gim?
+	\kaf@test #1%  kaf-kaf ?
+\fi
+\@mod@acttrue }
+
+%%%%%%%%%%%%%%%%%%%%%% lam %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \lam@lig #1#2{% lam family
+% c2 c3
+\global\@highfalse
+\ifnum \act@cd = \a@lam@gim
+	\if\is@end@char #1\chr@tie\a@skip
+	\fi \else
+\ifnum \act@cd = \a@lam@spec@low \else
+        \@mod@acttrue 
+	\gim@test #2%  closed gim?
+	\kaf@test #1%  kaf-lam ?
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% mim %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \mim@end #1*#2#3{% final mIm 
+% m1 * c2 c3
+\ifs@nd \if\is@lodia #1*% simulate tail
+                \if\is@end@char #2\set@act\sk@m@s
+                \else \set@act\sk@B \chr@tie\a@mim 
+                \fi
+        \else \set@act\sk@m@s
+        \fi
+\else
+\ifcase \chr@cls 
+        \set@act\sk@m@s                         % 0 l
+        \if\is@end@char #3\else \set@chr\sk@l@m
+        \fi
+\or \set@act\sk@m@s                             % 1 YntCbyp
+        \if\is@end@char #3\chr@tie\a@em@to@bb \set@chr\sk@spc
+        \else \set@chr\sk@b@e@m
+        \fi
+\or \set@act\sk@m@s \chr@tie\a@em@to@s \chr@sin % 2 sxSD
+\or \put@tatwil                                 % 3 GHXJ
+\or \put@tatwil                                 % 4 cR
+\or     \if\is@updia #1*\put@tatwil             % 5 kgM
+        \else \set@act\sk@m@s %\kaf@lig 
+        \fi
+\or \set@act\sk@m@s                             % 6 fqv
+\else   \ifx #2m\set@act\sk@m@s
+                \if\is@end@char #3\set@chr\sk@m@s \else 
+                                \set@chr\sk@m@s@h
+                \fi
+        \else \put@tatwil 
+        \fi
+\fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% nun %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \nun@end #1#2#3{% final nun
+% c1 c2 c3
+\global\@highfalse \@mod@acttrue
+\ifnum \chr@cls = 1                             % YntCbyp
+        \if\is@end@char #3\else
+                \set@chr\sk@b@sp \set@high@act
+        \fi
+\else \put@tatwil 
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% hah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hah@end #1#2*#3#4+#5*#6{% hah, test for ligature
+% c1 m1 * c2 m21 + m22 * c3
+\ifu@gh 
+\ifx #1\a@H \else
+\set@act \sk@h@u 
+\fi
+\else
+\ifurd@ \ifm@lay \else \set@act \sk@h@s \fi	% two eyes
+	\ifx #1T\else
+	\ifx #1\a@H 
+		\ifx #3l\ifx #6l%                               % 0 l
+	        	\ifnum #4 = \c@shadda \set@chr\sk@l@w
+        	        % special short form of lam for the Name of God
+	        	\fi\fi                          
+	        	\put@tatwil 
+		\fi
+	\else 	\set@act\sk@h@u 
+		\if\is@end@char #3%
+		\else \set@loww@act \global\a@min 1
+		\fi
+	\fi\fi
+\else
+\ifx #3l\ifx #6l%                               % 0 l
+        \ifnum #4 = \c@shadda \set@chr\sk@l@w
+                % special short form of lam for the Name of God
+        \fi\fi                          
+        \put@tatwil 
+\else 
+\ifnum \chr@cls = 1 \set@chr\sk@b \put@tatwil   % 1 YntCbyp
+\else 
+\ifnum \chr@cls = 3                             % 3 GHX
+%        \if\is@updia #4+#5*\chr@tie\a@tatwil \else 
+		\put@tatwil 
+%        \fi
+\else \gim@test #6\put@tatwil 
+\fi\fi\fi\fi 
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% wavy hah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hah@urd #1{% wavy hah
+% c2 
+\if\is@end@char #1\set@act\sk@h 		% isolated round h
+\fi
+\@mod@actfalse 					% no mark below
+\ifnum \chr@cls = 1 \set@chr\sk@b               % YntCbyp normal height
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% yah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yah@end #1#2#3{% yah or alif maqsoura
+% y/Y/L c2 c3
+        \global\@highfalse 
+%\global        \a@min 1
+\ifx #1y\ifyahd@ts \@mod@acttrue \fi 
+\else \@mod@acttrue
+\fi
+\if\is@end@char #3\yah@one #2\else \yah@more #2%
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yah@one #1{% yah or alif maqsoura         % and one char
+% c2
+\ifcase \chr@cls                                
+        \act@yah \set@chr\sk@l@lng              % 0 l
+\or                                             % 1 YntCbyp
+        \ifh@mza \act@yah \set@chr\sk@b@y \else
+        \ifk@fs \act@yah \set@chr\sk@b@y  \else    % ++++
+        \ifx #1y\else
+        \ifx #1Y\else
+                \act@yah \set@chr\sk@b@y
+        \fi\fi\fi\fi                                % ++++
+\or \act@yah \chr@tie\a@em@to@s \chr@sin        % 2 sxSD
+\or \act@yah \ifs@nd \chr@tie\a@em@to@s \fi     % 3 GHXJ
+\or \act@yah                                    % 4 cR
+\or \act@yah \ifs@nd \chr@tie\a@em@to@s \fi     % 5 kgM
+\or \act@yah                                    % 6 fqv
+\else   \ifx #1m\act@yah \set@chr\sk@m@s \else 
+                \put@tatwil 
+        \fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yah@more #1{% yah or alif maqsoura        % and more than one char
+% c2
+\ifcase \chr@cls                                % 0 l
+        \act@yah \set@chr\sk@l@y
+	\set@low@act
+\or     \ifiz@fet                               % 1 YntCbyp
+                \ifx #1y\else 
+                \ifx #1Y\else
+                        \act@yah \set@chr\sk@b@e@m
+                \fi\fi
+        \else \act@yah \set@chr\sk@b@e@m
+        \fi
+\or \act@yah \chr@tie\a@em@to@s \chr@sin        % 2 sxSD
+\or \act@yah \ifs@nd \chr@tie\a@em@to@s \fi     % 3 GHXJ
+\or \put@tatwil                                 % 4 cR
+\or \act@yah \kaf@lig                           % 5 kgM
+	\ifs@nd \chr@tie\a@em@to@s \fi
+\or \ifs@nd \act@yah \else \put@tatwil \fi      % 6 fqv
+\else   \ifx #1h\act@yah \chr@tie\a@em@to@s 
+        \else \put@tatwil 
+        \fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% long yah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yah@p@end #1#2#3{% long (Urdu) yah bari
+% c2 c3
+        \global\@highfalse 
+\global        \a@min 2
+\ifx #1E\ifyahd@ts \@mod@acttrue 
+        \fi 
+\else \@mod@acttrue
+\fi
+\if\is@end@char #3\yah@p@one #2\else \yah@p@more #2%
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yah@p@one #1{% yah bari and one char
+% c2
+\ifcase \chr@cls \relax \set@chr\sk@l@lng         % 0 l
+\or \set@chr\sk@b@g                             % 1 YntCbyp
+\or \chr@tie\a@g@to@s \chr@sin                  % 2 sxSD
+\else   \ifx #1m\set@chr\sk@m@s 
+	\else \put@tatwil 
+        \fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \yah@p@more #1{% yah bari and more than one char c2 X
+% c2
+\ifcase \chr@cls \relax \set@chr\sk@l@y         % 0 l
+\or \set@chr\sk@b@g                             % 1 YntCbyp
+\or \chr@tie\a@g@to@s \chr@sin                  % 2 sxSD
+\else   \ifx #1m\set@chr\sk@m@s@h \else
+        \ifx #1h\set@chr\sk@h@s@l 
+	\else
+                \put@tatwil 
+        \fi\fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \aw@midligs #1#2*#3#4{% check for medial ligatures
+% c1 m1 * c2 c3
+\ifcase \act@cls \lam@lig #3#4% % 0 l
+\or \bah@mid #2*#3#4%                           % 1 YntCbyp
+\or \sin@lig #1#4%                              % 2 sxSD
+\or \gim@lig #1#3#4%                            % 3 GHXJ
+\or \global\@highfalse \put@tatwil              % 4 cR
+\or \global\@highfalse \put@tatwil              % 5 kgM
+\or \global\@highfalse \put@tatwil              % 6 fqv
+\or \ttah@lig #1#4%                             % 7 VZ
+\else \global\@highfalse
+        \ifx #1m\mim@mid #2*#3#4\else
+        \ifx #1h\hah@mid #1#3#4\else            % two-eyed hah 
+        \ifx #1\a@h\hah@urd@mid #1#3#4\else
+                \put@tatwil 
+        \fi\fi\fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \chr@fam #1{% put family
+% c2
+\if@con \@mod@chrtrue
+\ifcase \chr@cls                                % 0 l
+\or     \set@chr\sk@b                           % 1 YntCbyp
+	\ifx #1\a@am \chr@mod 6 \fi % Malay
+\or                                             % 2 sxSD
+\or     \set@chr\sk@hh \@mod@chrtrue            % 3 GHXJ
+\or                                             % 4 cR
+\or     \kaf@fam                                % 5 kgM
+\or     \set@chr\sk@f@s                         % 6 fqv
+\or                                             % 7 VZ
+\or                                             % 8 rzj
+\or     \set@chr\sk@b@p                         % 9 \a@t \a@n
+\else
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%% bah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \bah@mid #1+#2*#3#4{% long form of bah etc.
+% m11 + m12 * c2 c3
+\put@tatwil 
+\ifnum \act@cd = \a@bah@s                       % normal shape
+        \@mod@acttrue
+        \if@high \ifnum #1 > 9 \set@act\sk@b@h \global\@highfalse
+                 \fi
+        \else \global\@hightrue
+        \fi
+ \else
+\ifnum \act@cd = \a@bah@high                    % higher shape
+        \global\@highfalse
+ \else
+\ifnum \act@cd = \a@bah@spec@gim                % before medial gim
+	\global\@highfalse
+ \else
+\ifnum \act@cd = \a@bah@spec@yah                % before final yah
+	\global\@highfalse
+ \else
+\ifnum \act@cd = \a@bah@mid@mim                 % before medial mim
+	\global\@highfalse
+ \else
+\ifnum \act@cd = \a@bah@spec                    % before rah
+        \gim@test #4%  closed gim ?
+        \global\@highfalse
+ \else
+\fi\fi\fi\fi\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% mim %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \mim@mid #1*#2#3{% medial mIm
+% m1 * c2 c3
+\ifnum \act@cd = \a@mim@spec@alif % s-m-a
+        \ifnum \chr@cls = 2 \chr@sin 
+        \fi
+        \else
+\ifligs \mim@mid@lig #1*#2#3\else 
+\if\is@end@char #3\mim@mid@lig #1*#2#3\else 
+        \put@tatwil 
+\fi\fi\fi }
+
+\def \mim@mid@lig #1*#2#3{% ligature for medial mIm
+% m1 * c2 c3
+\ifcase \chr@cls                                % 0 l
+        \ifnum \act@cd = \a@mim@lam@gim         % l-m-^g
+                \if\is@end@char #3\set@chr\sk@l@h \else 
+                                \set@chr\sk@l@y
+                \fi
+                \if\is@updia #1*\set@act\sk@m@s@l
+                \fi
+        \else
+        \if\is@end@char #3\act@mim@spec #1*\set@chr\sk@l@m
+        \fi\fi
+%\or \set@act\sk@m@s \set@chr\sk@b@m@m           % 1 YntCbyp
+\or \act@mim@spec #1*\set@chr\sk@b@m@m           % 1 YntCbyp
+%\or \act@mim@spec #1*\chr@tie\a@bah@mid@mim      % 2 sxSD
+\or \set@act\sk@m@s \chr@tie\a@bah@mid@mim      % 2 sxSD
+        \chr@sin 
+\or \set@act\sk@m@s@h \gim@test #3%             % 3 GHXJ
+\or \set@act\sk@m@s@h                           % 4 cR
+\or \put@tatwil                                 % 5 kgM
+\or \set@act\sk@m@s@h                           % 6 fqv
+\else
+        \ifx #2m\if\is@end@char #3%
+%                        \act@mim@spec #1*\set@chr\sk@m@s@m
+			\set@act\sk@m@s@l \set@chr\sk@m@s@m
+	                \if\is@updia #1*\set@act\sk@m@s@l
+	                \fi
+                \else \put@tatwil 
+                \fi
+        \else \put@tatwil 
+        \fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% hah %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hah@mid #1#2#3{% medial hah, no ligature in Urdu
+% c1 c2 c3
+\ifurd@ \ifnum \chr@cls = 0                     % 0 l
+                \if\is@end@char #3\set@act\sk@h@s@l 
+                        \set@chr\sk@l@h 
+                \else \put@tatwil 
+                \fi
+        \else \put@tatwil 
+        \fi
+\else   
+\ifcase \chr@cls                              % 0 l
+	\ifligs \set@act\sk@h@s@l              
+        \if\is@end@char #3\set@chr\sk@l@h 
+	\else \set@chr\sk@l@m
+        \fi\fi
+\or \act@hah \set@chr\sk@b@e@h                  % 1 YntCbyp
+\or \act@hah \chr@tie\a@mh@to@s \chr@sin        % 2 sxSD
+\else   \ifnum \chr@cls = 9                     % \a@t \a@n
+                \act@hah \set@chr\sk@b@e@h
+        \else \put@tatwil 
+        \fi
+\fi 
+\fi }
+
+\def \hah@urd@mid #1#2#3{% medial (wavy) hah 
+% c1 c2 c3
+\ifcase \chr@cls \set@act\sk@h@s@l                     % 0 l
+        \if\is@end@char #3\set@chr\sk@l@h \else 
+                        \set@chr\sk@l@m
+        \fi
+\or \act@hah \set@chr\sk@b@e@h                         % 1 YntCbyp
+\or \act@hah \chr@tie\a@mh@to@s \chr@sin               % 2 sxSD
+\else   \ifnum \chr@cls = 9                            % \a@t \a@n
+        \act@hah \set@chr\sk@b@e@h
+        \else \put@tatwil 
+        \fi
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \gim@test #1{% closed gim ?
+% c3
+\ifnum \chr@cls = \gim@cls                         % GHXJ
+\if\is@end@char #1\set@chr\sk@j@cl
+        \@mod@chrtrue \global\@highfalse
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \kaf@test #1{% short kaf ?
+%\ifx #1\a@ax \put@tatwil % swash kaf
+\ifnum \chr@cd = \a@kaf@w \put@tatwil % swash kaf
+\else \ifnum \chr@cls = \kaf@cls 
+	\kaf@lig \global\@highfalse 
+\else \put@tatwil
+\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% change chr@cd %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \chr@sin {% shape without tooth                        % c
+\@mod@chrtrue 
+\ifnum \chr@cd = \a@sin     \set@chr\sk@sn@s \else
+\ifnum \chr@cd = \a@sad     \set@chr\sk@sd@s \else
+\fi\fi }
+
+\def \kaf@lig {% put short kaf-alif ligature
+\@mod@chrtrue
+\ifnum \chr@cd = \a@kaf     \set@chr\sk@k@sh \else
+\ifnum \chr@cd = \a@kaf@s   \set@chr\sk@k@sh \else
+\ifnum \chr@cd = \a@kaf@p   \set@chr\sk@k@sp \else
+\ifnum \chr@cd = \a@kaf@p@s \set@chr\sk@k@sp \else
+\ifnum \chr@cd = \a@gaf     \set@chr\sk@g@sh \else
+\ifnum \chr@cd = \a@gaf@s   \set@chr\sk@g@sh \else
+\ifnum \chr@cd = \a@gaf@p@s \set@chr\sk@g@sp \else
+\fi\fi\fi\fi\fi\fi\fi }
+
+\def \kaf@fam {% no mark
+\ifnum \chr@cd = \a@kaf     \set@chr\sk@k@s \else
+\ifnum \chr@cd = \a@kaf@p   \set@chr\sk@k@p \else
+\ifnum \chr@cd = \a@gaf     \set@chr\sk@g@s \else
+\fi\fi\fi }
+
+%%%%%%%%%%%%%%%%%%%%%% change act@cd %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \act@yah {% short yah
+\global\a@min 1
+\ifnum \act@cd = \a@yah     \set@act\sk@y@s  \else
+\ifnum \act@cd = \a@yah@h   \set@act\sk@y@h@s
+\fi\fi }
+
+\def \act@hah {% short hah
+\ifurd@ \else
+\ifnum \act@cd = \a@hah     \set@act\sk@h@s
+\fi\fi }
+
+\def \act@gim #1{% deposit ligature
+\ifnum \act@cd = \a@khah    \set@act\sk@kh@s \act@mod = 0 
+\else                       \set@act\sk@hh@s \@mod@acttrue     
+\fi \a@min 1 }
+%\fi }
+
+\def \act@mim@spec #1*{% lam-mim etc.
+\if\is@updia #1*\set@act\sk@m@s@l 
+\else           \set@act\sk@m@s 
+\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% keshide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \put@tatwil {% deposit keshide 
+\ifspread \if@con \@tattrue
+\fi\fi }
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

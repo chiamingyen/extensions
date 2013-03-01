@@ -1,0 +1,178 @@
+
+   ¦----------------------------------------------¦
+   ¦                                              ¦
+   ¦       THE POLYGLOSSIA PACKAGE v1.2.0         ¦
+   ¦                                              ¦
+   ¦ Modern multilingual typesetting with XeLaTeX ¦
+   ¦                                              ¦
+   ¦----------------------------------------------¦
+
+This package for provides a complete Babel replacement for users of XeLaTeX.
+This version includes support for 68 different languages.
+
+Polyglossia makes it possible to automate the following tasks:
+
+* Loading the appropriate hyphenation patterns.
+* Setting the script and language tags of the current font (if possible and
+  available), using the package fontspec.
+* Switching to a font assigned by the user to a particular script or language.
+* Adjusting some typographical conventions in function of the current language
+  (such as afterindent, frenchindent, spaces before or after punctuation marks,
+  etc.).
+* Redefining the document strings (like “chapter”, “figure”, “bibliography”).
+* Adapting the formatting of dates (for non-gregorian calendars via external
+  packages bundled with polyglossia: currently the Hebrew, Islamic and Farsi
+  calendars are supported).
+* For languages that have their own numeration system, modifying the formatting
+  of numbers appropriately.
+* Ensuring the proper directionality if the document contains languages
+  written from right to left (via the package bidi, available separately).
+
+Several features of Babel that do not make sense in the XeTeX world (like font
+encodings, shorthands, etc) are not supported. For German however, several
+shorthands do make sense and can be activated with the language option babelshorthands=true.
+
+Polyglossia is distributed in the traditional way with *.dtx and *.ins files,
+and also comes with a TDS-conformant ready-to-unpack zip file.
+
+To install from source (i.e. using polyglossia.dtx), run
+	xelatex polyglossia.dtx
+which will generate all files and produce the pdf documentation all at once.
+Alternatively if you have the file polyglossia.ins run
+	xetex polyglossia.ins
+and follow the instructions displayed.
+
+
+BUGS
+
+Users are encouraged to report bugs on the github tracker:
+http://github.com/fc7/polyglossia/issues
+
+
+CHANGES
+
+1.2.0a (27-07-2010)
+  * Initialize \fontfamily acc to value of \familydefault
+    (Fixes a bug when using polyglossia with beamer)
+  * Remove spurious space in def of \dateenglish
+  * Add missing English variant "american"
+  * Serbian: fix date format and captions (Latin+Cyrillic)
+  * Fix \atticnumeral in gloss-greek
+  * Small improvements and fixes in documentation
+
+
+1.2.0 (15-07-2010)
+  * Adapted for fontspec 2.0 (will not work with earlier versions!)
+  * New implementation of a \PolyglossiaSetup interface
+    that simplifies writing gloss-*.ldf files
+  * Many internal enhancements and refactoring
+    (including a patch by Dirk Ulrich)
+  * Improved automatic font setup when \<lang>font is not defined
+  * New environment otherlanguage* (env. equivalent of \foreignlanguage
+    (Enrico Gregorio)
+  * Bugfix to prevent bogus expansion of \{rm,sf,tt}family even in aux files
+    (Enrico Gregorio)
+  * New gloss files for Armenian, Bengali, Occitan, Bengali, Lao,
+    Malayalam, Marathi, Tamil, Telugu, and Turkmen.
+  * New auxiliary packages 'devanagaridigits' and 'bengalidigits'
+  * hijrical no longer loads bidi and checks for incompatible l3calc
+  * Add Babel shorthands for Russian (based on a patch by Vladimir Lomov)
+  * Fix \fnum@{table,figure} for Lithuanian
+  * Various improvements in gloss-russian (provided by Vladimir Lomov and
+    others)
+  * Corrected captions for Bahasai, Lithuanian, Russian, Croatian
+  * Add option indentfirst=true for Spanish, Croation and other languages
+    (NB: indentfirst was previously named frenchindent)
+  * New option 'script' for German: Setting script=fraktur modifies the
+    captions for typesetting in Fraktur.
+  * New command \aemph for Arabic, Farsi, Urdu, etc. to mark emphasis through
+    overlining.
+  * Package option 'nolocalmarks' is now true by default: to activate it the
+    option 'localmarks' must be passed instead.
+  * Loading languages à la Babel as package options is no longer possible (this
+    feature was deprecated since v1.1.0).
+
+1.1.1 (23-03-2010)
+  * Bugfix for French: explicit spaces before/after double punctuation
+    signs ("Par exemple : les grands « espaces » du Canada ! ") are
+    now replaced by the appropriate non-breaking spaces, as in Babel.
+  * Bugfix for font switching mechanism within Latin script
+    (pending a complete re-implementation in v1.2):
+    the font shape and series are no longer reset when switching language.
+  * New macros for non-Western decimal digits
+    (instead of fontmappings)
+  * New gloss files for Asturian, Lithuanian and Urdu
+  * hijrical.sty is now locale-aware: \hijritoday is
+    formatted differently in Arabic, Farsi, Urdu, Turkish
+    and Bahasa Indonesia.
+---NB: the above five items were not part of v1.1.1-rc1 which was made available on github---
+  * Enable babelshorthands for Dutch
+  * Add missing macro \allowhyphens
+  * Add global option babelshorthands
+  * Support Catalan geminated l
+  * Bugfix when declaring more than one pkg option
+  * Protect \reset@font
+  * Add missing requirement makecmds
+  * Bugfix for smallcaps in captions
+  * Typo for ccname in Hebrew
+  * Add option numerals to gloss-russian
+  * Provide newXeTeXintercharclass when undefined
+  * Bugfix for Russian alph
+  * Remove superfluous level of {} in def of markright
+  * Bugfix for \datecatalan
+  * Change hyphenmins for Sanskrit
+
+1.1.0b
+   * Modify hyphenmins for Sanskrit (Yves Codet)
+   * Bugfixes for Serbian and Bulgarian (Enrico Gregorio)
+1.1.0a
+   * Bugfix for interchar tokens
+1.1.0
+   * Use \newXeTeXintercharclass (thanks to Enrico Gregorio)
+   * Fixed implementation of shorthands for German (Babel code in file babelsh.def)
+   * Arabic (Khaled Hosny):
+     - Fix abjad form for 3 and 5 and add option abjadjimnotail
+     - bugfix for \arabicnumber
+     - make Gregorian calender the default
+     - fixed typos in the sample text
+   * Turkish (S. Ö. Yıldız):
+     - fix white-space before : and !
+     - also check if the font specified TRK for language
+     - added missing Turkish translation of "Glossary"
+   * Suppress nopattern warning for non-hyphenated scripts
+   * Changed U+0163 to U+021B for Romanian (Elie Roux)
+   * Stylistic fixes and use macro \xpg@option for package options (E. Gregorio)
+   * Fix monthnames in Dutch (A. Ledda)
+   * Add Brazilian translation for "glossary"
+   * Remove spurious space generated by gloss-spanish
+   * Fix ldf file for brazilian
+   * Various improvements in the code communicated by E. Gregorio:
+     - remove superfluous \protect\language
+     - change default language from 0 to \l@nohyphenation=255
+     - localize lccode handling of apostrophe in French; add it to Italian
+   * Fix frenchspacing for vietnamese
+   * Other minor bugfixes
+
+1.0.2
+   This is mostly a bug fixes release.
+   * Captions corrected in Hebrew, Russian and Spanish
+   * Removed all \text<lang> wrappers within caption definitions
+   * Improved compatibility with Babel
+   * New option "babelshorthands" for German
+   * New option "Script" for Sanskrit
+
+1.0.1
+   * Improved documentation (added sections on font setup and numeration mappings)
+   * Improvements and bugfixes for English and German
+   * Bugfix in gloss-syriac.ldf (spurious space after \textsyriac{...})
+   * Extended the scope of \syriacabjad
+   * Added gloss-amharic.ldf (ported from ethiop.ldf in the package ethiop)
+
+1.0
+   * Initial release on CTAN
+
+
+  ------------------------------
+   François Charette, July 2010
+    <firmicus ατ gmx δοτ net>
+  ------------------------------

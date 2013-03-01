@@ -1,0 +1,57 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+def dims = 10u#,x_height#,desc_depth# enddef;
+     
+def gen_letter=
+  pickup fine.nib;
+  x1-.5stem=hround .75u; y1+.5stem=h+oo;                %top left
+  z1'=(1,.2); pos1(stem,angle z1'+90);                  %direction at z1
+  x3+x1=w; y3-.5stem=-d-oo; pos3(stem,angle z1'+90);    %bottom right
+  z2=.5[z1,z3];                                         %attachment
+  z2'=(z3-z1)yscaled 2; pos2(hair,angle z2'+90);        %direction at z4
+  filldraw double_circ_stroke z1e{z1'}... z2e{(z3-z1)yscaled 2}...{z1'}z3e;
+  lft x7l=hround .75u; bot y7l=-d-oo; z2=.5[z7l,z8r]=.5[z7r,z8l];
+  numeric stem'; stem'=stem-currentbreadth;
+  numeric theta; theta=angle(z8r-z7l)+angle((x8r-x7l)++(y8r-y7l)+-+stem',stem');
+  x7r=x7l+(stem'/sind theta); y7r=y7l;
+  filldraw stroke z7e..z8e;
+enddef;
+     
+cmchar "Lowercase chi";
+beginchar("q",dims);
+this_letter; penlabels(1,2,3,7,8); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by chi";
+begindoublechar(oct"021",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

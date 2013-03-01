@@ -1,0 +1,56 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 8.5u#,x_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  rt x4r=hround(w-.75u); lft x4l-rt x4r=hround -.2[hair,stem];  %vert tangents
+  x5=lft x4l; y5+.5hair=h+oo; z5'l=z5'r=(u,-.2h);               %right tip
+  pos5(hair,angle z5'l+90);
+  pos3(whatever,-90); bot y3r=-oo; x3=.5w; z3'l=z3'r=z5'l xscaled -2;   %bottom
+  z3l+whatever*z3'l=z3r+(stem-currentbreadth)*(dir(angle z3'l-90)); %width=stem
+  filldraw circ_stroke club.e(5,4,3);                           %right stroke
+  y1+.5stem=h+oo; x1-.5stem=hround.75u;                         %left tip
+  z1'=(9u,-h); pos1(stem,angle z1'-90);
+  z2r=z3r; z2l-z3l=(hair-currentbreadth,0);
+  filldraw circ_stroke z1e{z1'}...{down}z2e;                    %left stroke
+enddef;
+     
+cmchar "Lowercase nu";
+beginchar("n",dims);
+this_letter; penlabels(1,2,3,4,5); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by nu";
+begindoublechar(oct"016",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

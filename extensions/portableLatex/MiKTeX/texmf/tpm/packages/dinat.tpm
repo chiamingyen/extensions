@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/dinat"><TPM:Name>dinat</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Bibliography style for German texts.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Bibliography style files intended for texts in german.  They
+      draw up bibliographies in accordance with the german DIN 1505,
+      parts 2 and 3. For more information see the included
+      documentation.</TPM:Description><TPM:RunFiles size="45397">texmf\bibtex\bst\dinat\dinat.bst texmf\tpm\packages\dinat.tpm</TPM:RunFiles><TPM:DocFiles size="35149">texmf\doc\latex\dinat\history.html texmf\doc\latex\dinat\index.html</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>c01b61c70c9bc36bdc23d3669427e8f4</TPM:MD5></rdf:Description></rdf:RDF>

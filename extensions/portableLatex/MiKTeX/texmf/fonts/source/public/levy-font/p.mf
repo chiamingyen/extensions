@@ -1,0 +1,55 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 9.5u#,x_height#,0 enddef;
+def ital = 0 enddef;
+def fit_params = -.25,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  pi_bar;                                                       %bar
+  pos4(hair,0); pos7(hair,0); y4=y7=y2;                         %attachments
+  lft x4l-(x1-.5hair)=lft x7l-rt x4r=rt x3-rt x7r;
+  pos5(hair,0); pos8(hair,0); y5=y8=.5x_height; x5=x4; x8=x7;   %midstems
+  x6+.5stem=hround(rt x4r if not straight:-.25u fi); y6-.5stem=-oo; %left stem
+  numeric slope; slope=angle((z5-z6)xscaled2); pos6(stem,slope-90);
+  filldraw circ_stroke z6e...z5e---z4e;
+  x9=x7+1.5u; bot y9l=-oo; pos9(stem,90); alpha_tail(9,10);     %right stem
+  filldraw stroke z10e...z9e{left}...z8e---z7e;
+enddef;
+     
+cmchar "Lowercase pi";
+beginchar("p",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by pi";
+begindoublechar(oct"020",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

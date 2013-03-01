@@ -1,0 +1,10 @@
+\RequirePackage{pstricks}
+\ProvidesPackage{pst-node}[2006/01/01 package wrapper for pst-node.tex]
+\input{pst-node.tex}
+\ProvidesFile{pst-node.tex}
+  [\filedate\space \fileversion\space `pst-node' (tvz)]
+\IfFileExists{pst-node.pro}{%
+    \ProvidesFile{pst-node.pro}
+      [2009/01/30 v. 1.02,  PostScript prologue file (hv)]
+      \@addtofilelist{pst-node.pro}}{}%
+\endinput

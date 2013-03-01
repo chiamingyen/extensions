@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abidir.sty
+% ArabTeX macros for bidirectional linebreaking
+% 22.08.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \a@RL \undefined \else \xpa \endinput \fi
+
+\a@ident {abidir.sty} {3.11 bidirectional linebreaking} {22.08.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% <LR insertion inside Rtext>
+%\def \test@insert #1>{\a@Linsert {#1}}
+
+% \LR{#1} = LR insertion inside Rtext
+\def \a@c@LR {\unarab@codes \a@Linsert }
+\let \a@c@L \a@c@LR	% usage: \L {LR text}
+
+% \LR{#1} = LR insertion inside Ltext: trivial
+\let \LR \relax 	\let \L \relax 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \RL{#1} = RL insertion inside Ltext
+\def \RL {\protect \a@RL }
+\let \R \RL		% usage: \R {RL text}
+
+% \RL{#1} = RL insertion inside Rtext: trivial
+\def \a@c@RL #1{\test@token #1 } 	\let \a@c@R \a@c@RL
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \goodpar {% 	usage: \goodpar {Roman paragraphs}
+% put around one or more paragraphs if the linebreaking is bad
+% caution: may lead to storage overflow
+\dimen0 \prevdepth \setbox0 \vbox \bgroup \prevdepth \dimen0
+\def \par {\egroup \endgraf \goodpar x}% dummy character
+\aftergroup \g@@dpar \let \next=}
+
+\def \g@@dpar {\unvbox0 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newdimen \a@Llength	\newdimen \a@Lwidth     \newdimen \a@Lindent	
+\newdimen \a@Rlength    \newdimen \a@Rheight	
+\newbox \a@Rboxi        \newbox \a@Rboxii       \newbox \Rinsertb@x	
+\newbox \a@Rdummyi      \newbox \a@Rdummyii     \newbox \Linsertb@x	
+\newbox \a@spacebox     \newif \ifR@split       \newcount \a@lines
+
+\def \ins@skip {\hskip \z@ plus 0.1em }% before and after insertion
+
+\def \a@vglue {\z@ plus 2ex }% glue at top of the insertion \vbox
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@RL {% RTL insertion inside LRtext
+\ifaRL \else \aRLtrue
+	\let \a@RLpar \par % prepare for normal baselines
+	\edef \a@lslimit {\lineskiplimit \the\lineskiplimit}%
+	\def \par {\a@RLpar \let \par \a@RLpar \a@lslimit \aRLfalse }%
+\fi \lineskiplimit -.9\baselineskip % enforce uniform baselines 
+\bgroup \arab@codes \set@arabfont \@waslafalse \@wasfalse \a@@Rinsert }
+
+\def \a@@Rinsert #1{% RL insertion inside Ltext
+\ifshow \a@@verb {#1}\fi % 	verbating listing
+\ifarab \a@Rinsert {#1} \fi % 	arabic writing 
+\iftrans \set@transfont \trans@text #1 \end \/\fi
+\ifnum \tracingarab > \@ne \message {>}\fi
+\unskip \egroup }
+
+\def \a@Rinsert #1{% put a sequence of RL words into Ltext
+\leavevmode % go to hmode if not there already
+\ifinner \a@sequence {#1}% inside a \hbox: append
+\else \a@Rsplit {#1}% splice into the current paragraph
+\fi }
+
+\def \a@Rsplit #1{% splice RL words into the current paragraph
+\bgroup \def \next@command {\test@special}\transfalse \showfalse 
+\ifspread \else \def \arab@space {\space }% no infinite stretch !!
+	\def \tat@skip {0.04ex plus 0.5ex }%
+\fi
+  \a@Rdimen {#1}% 	get the length of the first 2 RL words
+\ifdim \wd\a@Rboxii = \z@ 
+  \unhbox\a@Rboxi % 	done with the insertion
+\else \a@Ldimen % 	get the dimensions of the last line
+  \a@Rtobox {#1}% 	pack the insertion lines into a \vbox
+  \a@Runpack % 		unpack and splice into the current paragraph
+\fi \egroup }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@Rdimen #1{% get the dimensions of the first two words
+\setbox\a@Rboxii \hbox {}\setbox\a@Rdummyii \box\a@Rboxii
+\a@Rfirst #1 \to \a@wordi \a@Rrest
+\xpa \a@Rwordtobox \a@wordi \to \a@Rboxi \a@Rdummyi
+\ifx \space \a@Rrest \else
+\ifx \relax \a@Rrest \relax \else 
+\xpa \a@Rfirst \a@Rrest \to \a@wordii \a@Rrest 
+\xpa \a@Rwordtobox \a@wordii \to \a@Rboxii \a@Rdummyii 
+\fi\fi }
+
+\def \a@Rwordtobox #1\to #2#3{% Rword to \box#2, Rdummy to \box#3
+\a@sequence {#1}\setbox#2 \lastbox 
+\setbox#3\hbox to \wd#2{\hfill }\ht#3\ht#2\dp#3\z@}
+
+{\catcode `\^^a0 12 
+\gdef \a@Rfirst #1 #2\to #3#4{% split off first word
+\ifx \relax #1\relax \a@Rfirsti #2\to #3#4\else 
+\ifx \relax #2\relax \a@Rfirstii #1^^a0\to #3#4\else 
+\def #3{#1}\def #4{#2}\fi\fi }
+
+\gdef \a@Rfirstii #1^^a0#2\to #3#4{% split off first word
+\ifx \relax #1\relax \a@Rfirstiii #2\to #3#4\else 
+\def #3{#1}\def #4{#2 }\fi }
+}% catcode ^^a0
+
+\def \a@Rfirsti #1\to #2#3{% split off leading space
+\ifx \relax #1\relax \def #2{\relax }\def #3{\relax }%
+\else \a@Rfirst #1\to #2#3\fi }
+
+\def \a@Rfirstiii #1\to #2#3{% split off leading RL space
+\ifx \relax #1\relax \def #2{\relax }\def #3{\relax }%
+\else \a@Rfirstii #1\to #2#3\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@Ldimen {% get the dimensions of the preceding line
+\setbox\a@spacebox \hbox {\arab@space}\tolerance 10000
+\R@splitfalse \leavevmode 
+\penalty 0
+\copy \a@Rdummyi \arab@space \copy \a@Rdummyii
+\parfillskip \z@ plus 1fill \relax \tr@ceoff 
+$$\global \a@Llength \predisplaysize % 		dummy display
+\global \a@Lwidth \displaywidth \global \a@Lindent \displayindent 
+\hbox to \a@Lwidth {}\postdisplaypenalty \@M
+$$ {\endgraf }% keep paragraph parameters
+\tr@ceon \a@lines \prevgraf \advance \a@lines -3 
+\prevgraf \a@lines \prevdepth -\baselineskip
+\a@Ladjust % update \a@Llength and \a@Lindent
+\ifinner \a@killdisplay \else \a@skipback \fi }
+
+\def \a@Ladjust {% correct \a@Llength and \a@Lindent
+\ifdim \a@Llength = \maxdimen \a@Llength \a@Lwidth %	flexible line
+\else \advance \a@Llength -2em \advance \a@Llength -\a@Lindent 
+\fi 
+\advance \a@Llength -\leftskip \advance \a@Llength -\wd\a@Rdummyii
+\ifdim \a@Llength = \z@ \R@splittrue \a@Llength \a@Lwidth 
+	\advance \a@Llength -\leftskip \advance \a@Llength -\rightskip
+\else \advance \a@Llength -\wd\a@spacebox
+\fi \advance \a@Llength -\wd\a@Rdummyi 
+\ifnum \prevgraf = 1
+	\ifdim \z@ > \hangindent \advance \a@Llength -\hangindent 
+	\else \advance \a@Llength \hangindent 
+	\fi
+\else 	\ifdim \a@Llength = \z@ \R@splittrue \a@Llength \a@Lwidth 
+	\fi
+\fi }
+
+\def \a@killdisplay {% vbox: get back to the old position
+\unskip \unskip \unpenalty \setbox0 \lastbox % get rid of garbage
+\ifR@split \unskip \unskip \unpenalty \setbox0 \lastbox \fi
+\unskip \unskip \unpenalty \setbox0 \lastbox % last line
+\dimen0 \baselineskip \advance \dimen0 -\ht0
+\advance \dimen0 -\lastskip \prevdepth \dimen0
+\unskip \vskip -\parskip 
+\noindent \unhbox0 % open and trim last line 
+\unskip \unskip \unpenalty \setbox0 \lastbox 
+\ifR@split \else \unskip \setbox0 \lastbox \fi }
+
+\def \a@skipback {% paragraph: get back to the old position
+\vskip -\belowdisplayskip \vskip -3\baselineskip 
+\vskip -\abovedisplayskip \vskip -\parskip 
+\ifR@split \ifdim \z@ > \lineskiplimit \vskip -\baselineskip \else
+\vskip -\ht\a@Rdummyii \vskip -\dp\a@Rboxi \vskip -\lineskip
+\fi\fi \noindent \arab@strut \nobreak \hskip \a@Llength }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@normpen #1{% prevent penalty 10000
+\ifnum #1= 10000 #1= 9999 \fi }
+
+\def \a@Rtobox #1{% pack the insertion into \Rinsertb@x
+\setbox \Rinsertb@x \vbox {\a@hsize \a@Lwidth 
+\a@normpen \widowpenalty \a@normpen \clubpenalty
+\leftskip \z@ \rightskip \z@ 
+\parfillskip \z@ plus 1fil \relax \parskip \z@
+\let \a@@kern \a@kern \let \a@@mkern \a@mkern
+\def \a@kern {\nobreak \a@@kern}\def \a@mkern {\nobreak \a@@mkern}%
+\let \end \relax \spreadtrue \vskip \a@vglue \hbadness 10000
+\putlineb@x {\arab@strut \hskip \a@Llength }\a@spacefalse 
+\test@token #1 \end \unskip \unskip \vskip \a@vglue 
+\hbox {\box\lineb@x \hfill }}}
+
+\def \a@Runpack {\ins@skip % unpack all lines from the insertion
+\loop \a@Rgetline \unhbox \tempb@x \unskip \unskip \break
+\ifvbox \Rinsertb@x \repeat \unpenalty \ins@skip }
+
+\def \a@Rgetline {% unpack the next line globally to \box \tempb@x
+{\vbadness 10000 \splittopskip \a@vglue 
+\dimen0 \baselineskip \advance \dimen0 1ex 
+\setbox \tempb@x \vsplit \Rinsertb@x to \dimen0
+\setbox0 \vbox {\unvbox \tempb@x \setbox2 \lastbox \unhbox2 
+\unskip \unskip \unpenalty \global \setbox \tempb@x \lastbox }}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@Linsert #1{% splice Ltext into RL paragraph
+\putwordb@x {\ins@skip }\a@spacefalse \a@@Linsert {#1}\a@Lunpack 
+\putwordb@x {\ins@skip }\a@spacetrue \arab@codes 
+\tracingmacros 0
+\test@token }
+
+\def \a@@Linsert #1{% splice Ltext into RL paragraph
+\dimen0 \wd \lineb@x \setbox \Linsertb@x \vbox 
+{\hsize \a@hsize \hangindent -\dimen0 \hangafter -\@ne 
+\tr@ceoff \rm \tr@ceon \rightskip \z@ plus .001fil 
+\vskip \a@vglue \everypar {}\parskip \z@ 
+\dimen2 \fontdimen4\font \fontdimen4\font 0pt % prevent shrinking 
+\noindent \null \hskip 0pt plus .001fil \relax #1
+\clubpenalty 0 \widowpenalty 0 \tolerance 10000 
+\endgraf \fontdimen4\font \dimen2 }}
+
+\def \a@Lunpack {% unpack all lines from the insertion
+\loop \a@Lgetline \putwordb@x 
+{\unhbox \tempb@x \unskip \unskip }\a@spacefalse 
+\ifvbox \Linsertb@x \put@line \a@spacefalse \repeat }
+
+\def \a@Lgetline {% unpack the next line globally to \box \tempb@x
+{\vbadness 10000 \splittopskip \a@vglue \dimen0 \baselineskip 
+\setbox \tempb@x \vsplit \Linsertb@x to \dimen0
+\setbox0 \vbox {\unvbox \tempb@x \global \setbox \tempb@x \lastbox }}}
+
+%\testoutput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput

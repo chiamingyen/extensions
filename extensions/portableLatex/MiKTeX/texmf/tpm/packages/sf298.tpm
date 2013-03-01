@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/sf298"><TPM:Name>sf298</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Standard form 298.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>A LaTeX package for generating a completed standard form 298
+      (Rev. 8-98) as prescribed by ANSI Std. Z39.18 for report
+      documentation as part of a document delivered, for instance, on
+      a U.S. government contract.</TPM:Description><TPM:RunFiles size="22008">texmf\tex\latex\sf298\sf298.sty texmf\tpm\packages\sf298.tpm</TPM:RunFiles><TPM:DocFiles size="100788">texmf\doc\latex\sf298\sf298.dvi</TPM:DocFiles><TPM:SourceFiles size="21839">texmf\source\sf298-src.cab</TPM:SourceFiles><TPM:TimePackaged>1121197133</TPM:TimePackaged><TPM:MD5>c6aa4902ea5f067b3b9df86293dfc01d</TPM:MD5></rdf:Description></rdf:RDF>

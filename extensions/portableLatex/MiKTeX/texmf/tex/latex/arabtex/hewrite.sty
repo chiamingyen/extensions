@@ -1,0 +1,589 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.sty
+% ArabTeX
+% Modifications for Hebrew mode
+% 21.05.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {hewrite.sty} {3.11 for all supported Hebrew fonts} {21.05.2003}
+
+\UsePackage {hebsymb}        % Hebrew font character definitions
+\UsePackage {hebchrs}        % Hebrew letter token definitions
+
+\chardef \sind@t 1	\chardef \shind@t 2	\chardef \rd@t 3
+\chardef \r@phe 4 	\chardef \illch@r 33     
+
+\newcount \heb@dsp	\newcount \heb@cd       
+\newcount \heb@voc	\newcount \h@modii	\newcount \h@modi
+
+\newif \if@dagesh	\newif \if@final	\newif \if@meteg
+%\newif \ifhv@wel	% is obsolete, remove!
+\newif \ifsp@c
+
+\newdimen \h@ht		\newdimen \h@p		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \heb@write #1>{% Hebrew output routine
+\iftest@write \tracingmacros = 1 
+\iftest@parse \else \a@verb (#1)>\fi\fi
+\a@write@hook
+\ifa@@write \heb@testfont \heb@beg #1>0+0*>\fi 
+\iftest@write \tracingmacros = 0 
+\fi }
+
+\def \heb@testfont {% diagnose font, look for vowels and ayin
+\edef \next {\the\font }%
+\ifx \next \h@font \else
+\iftest@font \a@message {Hebrew font \next selected.}\fi
+\global\let \h@font \next \h@testfont \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \isch@r #1{00% code position in font not empty?
+\setbox0 \hbox {\tracinglostchars 0 \char #1}%
+\ifdim \wd0 = \z@ \xpa \setiffalse \fi }
+
+\def \h@testfont {% diagnose font, look for vowels and ayin
+\if\isch@r {"80}\global\heb@dsp "20\else
+\if\isch@r {"E0}\global\heb@dsp "80\else
+\if\isch@r {"60}\global\heb@dsp 0\else
+	\global\heb@dsp 0\errmessage {no usable Hebrew font found}%
+\fi\fi\fi
+\gdef \v@adj {0}\global\h@ht \ht0 \global\h@p .1\h@ht \relax
+\xdef \a@slant {\xpa\getfactor \the\fontdimen1\font }%
+\heb@cd \heb@dsp \advance \heb@cd 114 \xdef \hc@Pv {\the\heb@cd }%
+\if\isch@r {"10}\set@shalom\else
+\if\isch@r {1}\set@hclassic\else
+	\set@hebstd
+\fi\fi }
+
+\def \set@hclassic {% and dclassic, hcaption, dcaption
+\global\let \h@kern \relax \global\sp@cfalse 
+\gdef \v@adj {0}\gdef \hc@Pv {123}%
+\if\isch@r {"30}\global\sp@ctrue 
+\gdef \v@adj {-.2}\gdef \hc@Pv {114}%
+\fi \set@hcls }
+
+\def \set@shalom {% shlm_old, shlm_stk, shlm_scr
+\gdef \h@kern {\kern.05em }\global\sp@cfalse 
+\set@shlm }
+
+\def \set@hebstd {% jerusalem, oldjaffa, telaviv, deadsea, 
+% fr, frbx, frsl, crml, crmlsl
+\global\let \h@kern \relax \global\sp@ctrue 
+\set@hstd }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \heb@beg #1#2*#3{% start output                    
+% c m * c 
+\h@test@chr #1\heb@end #1#2*#3}
+
+\def \heb@end #1#2*#3{% final character                 
+% c m * c 
+\ifx #1>\let \next \relax 
+\else \def \next {\heb@mid #3}%
+	\ifx #1-\else
+	\ifcat \nxp #1-\h@put@spec #1#2*#3<%
+	\else \h@put@end #1#2*#3<%
+	\fi\fi
+	\h@test@chr #3%
+\fi \next }
+
+\def \heb@mid #1#2*#3{% non-final character             
+% c m * c 
+\ifx #1>\let \next \relax 
+\else \def \next {\heb@mid #3}%
+	\ifcat \nxp #1-\h@put@spec #1#2*#3<%
+	\else \h@put@mid #1#2*#3<%
+	\fi
+	\h@test@chr #3%
+\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \h@put@end {% final position
+\if@final \advance \act@cd -1 \fi \h@put@mid }
+
+\gdef \h@put@mid #1#2+#3*#4<{% deposit character         
+% c m1 + m2 * c <
+%	\def \next {\heb@mid #4}%
+\ifnum \act@cd = \hc@@ \relax \h@put@ill \else   % illegal character
+\case #1\of
+{	B{\put@maqqef \def \next {\heb@end #4}}
+	K{\put@box {$|$}}
+	M{\put@box {$\Box$}}
+       WN{\put@phantom }
+        y{\h@ylig #4<}
+        w{\h@wlig #4<}
+\default {\h@putchar }
+}\endcase
+\fi
+\heb@accent #2+#3*\h@kern 
+\ifnum \act@cd = \hc@l \relax \smash {\unhbox \ab@x }%
+\else \unhbox \ab@x 
+\fi }
+
+\def \h@wlig #1<{% waw ligatures
+\ifx #1w%
+\fi 
+\h@putchar }
+
+\def \h@ylig #1<{% yod ligatures
+\ifx #1w%
+\fi 
+\h@putchar }
+
+\def \h@put@ill {\put@box {$\bullet$}}
+
+\def \put@phantom {% small space
+\heb@cd \hc@y \advance \heb@cd \heb@dsp 
+\put@box {\hphantom{\char \the\heb@cd }}}
+
+{\catcode`\^ 12 	\catcode `\_ 12 	\catcode `\& 12 
+\catcode `\A 12 	\catcode `\B 12 	\catcode `\C 12 
+\catcode `\D 12 	\catcode `\E 12 	\catcode `\F 12 
+\catcode `\G 12 	\catcode `\H 12 	\catcode `\I 12 
+\catcode `\J 12 	\catcode `\K 12 	\catcode `\L 12 
+\catcode `\M 12 	\catcode `\N 12 	\catcode `\O 12 
+\catcode `\P 12 
+%
+\gdef \h@put@spec #1#2*#3<{% special character           
+% c m * c <
+\case #1\of
+{      -|{}
+%      !,.{#1}
+	:{#1\,}
+     \lq {\rm \bf `}
+	`{\rm \bf ``}
+%	A{{\tt "}\def \next {\heb@end #3}}		% "
+	A{{\tt "}} 		% "
+	B{{\rm \bf ,}}		% ,
+	C{{\tt -}}		% -
+	D{{\tt \char`\|}}	% |
+%	E{{\tt \char'015}\def \next {\heb@end #3}}	% '
+	E{{\tt \char'015}} 	% '
+	F{{\tt \char`\\}}	% \
+	G{{\tt \char`\}}}	% {
+	H{{\tt \char`\{}}	% }
+	I{{\bf $\cdots$}}	% ...
+	J{{\bf $\div$}}		% -:-
+	K{{\tt \char`\>}}	% <
+	L{{\tt \char`\<}}	% >
+	M{{\rm \bf --}}		% --
+	N{{\rm \bf ---}}	% ---
+	O{{\rm \bf `}}		% `
+%	P{{\rm \bf '}\def \next {\heb@end #3}}		% '
+	P{{\rm \bf '}}		% '
+\default {{\ifsp@c \else \rm \bf \fi
+	\ifx #1][\else \ifx #1[]\else
+	#1\fi\fi}}
+}\endcase 
+\ifx #1A\else \ifx #1E\else \ifx #1'\else 
+\def \next {\heb@end #3}\fi\fi\fi }
+}% \catcodes 12
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \h@test@chr #1{% get character attributes
+\@dageshfalse \@finalfalse \act@mod 0 \act@cd \hc@@
+\def \hc@sk {#1}%
+\csname tc@\string #1\endcsname }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \heb@accent #1+#2*{% put modifier onto contents of "\ab@x"
+% m1 + m2 *
+\red@mod = 0#1 \relax \advance \red@mod 100 \relax
+\xpa \heb@split \the\red@mod *\h@putaccent #2*}
+
+\def \h@putmod #1{% deposit modifier
+\ifcase #1\relax 
+\or \h@sindot \or \h@shindot \or \h@rdot \or \h@raphe \fi }
+
+\def \heb@split 1#1#2*{% separate modifier 1
+% 1 m11 m12 *
+\h@putmod #1\@metegfalse \red@mod = #2\relax
+\ifnum \red@mod > 3 \advance \red@mod -4  \@metegtrue \fi
+\ifnum \red@mod > 1 \advance \red@mod -2  \h@cholem \fi
+\ifnum \red@mod > 0 \advance \red@mod -1  \@dageshtrue \fi }
+
+\def \h@putaccent #1*{% deposit vowels
+\h@putmod \act@mod
+\ifcase 0#1\relax
+\put@dummy        \or \put@shwa     \or \put@patach  \or \put@chireq  \or
+\put@qibbus       \or \put@chpatach \or \put@chsegol \or \put@chqames \or
+\put@segol        \or \put@cholem   \or \put@qames   \or \put@sere    \or
+\put@qameschat    \or \put@patachf  \fi 
+\if@dagesh \put@dagesh \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \h@@putchar {% choose character glyph
+\ifnum \act@cd = \hc@v \relax \h@putlig \hc@w \hc@w \else
+\ifnum \act@cd = \hc@oy \relax \h@putlig \hc@y \hc@w \else
+\ifnum \act@cd = \hc@ey \relax \h@putlig \hc@y \hc@y \else
+	\h@put@char \act@cd 
+\fi\fi\fi }%
+
+\def \h@putlig #1#2{% Hebrew ligature
+\h@put@char #1\setbox4 \box \ab@x
+\h@put@char #2\setbox6 \box \ab@x
+\put@box {\unhcopy4 \unhcopy6 }}%
+
+\def \h@put@char #1{% choose character glyph
+\heb@cd #1\advance \heb@cd \heb@dsp \put@b@x {\the\heb@cd }}%
+
+\def \h@@putdot #1{% put a dot above a character
+\dimen@ 1.25\h@ht \dimen2 \a@slant\dimen@ \advance\dimen2 #1\a@wd 
+\global\setbox\ab@x \hbox
+{\rlap{\kern\dimen2 \raise\dimen@\hbox{\the@dot }}\unhcopy\ab@x}}%
+
+\def \h@@raphe {% no dagesh
+\setbox0 \hbox {\the@raphe }\dimen@ 1.25\h@ht 
+\dimen2 .5\a@wd \advance\dimen2 -.5\wd0 \advance\dimen2 \a@slant\dimen@ 
+\global\setbox\ab@x \hbox
+{\rlap{\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for vowel positioning
+% CAUTION: these routines are called in HMODE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \set@hcls{% routines for the HCLASSIC font family
+\globaldefs = 1\relax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\let \h@putchar \h@@putchar
+%
+\def \put@maqqef {% deposit maqqef
+\put@b@x {\the\act@cd }}%
+%
+\def \h@vowel {% check for meteg
+\if@meteg \xpa \h@meteg \else \xpa \h@putvowel \fi }%
+%
+\def \h@meteg ##1{% put vowel and meteg
+\h@putvowel {\char 8 ##1}}%
+%
+\def \the@dot {\char 0}%
+%
+\def \the@raphe {\vrule width.8\a@wd height.4pt depth0pt }%
+%
+\def \put@dummy     {\h@vowel {}}%                  % dummy for meteg, silluq
+\def \put@patach    {\h@vowel {\char 1 }}%          % patach
+\def \put@qames     {\h@vowel {\char 2 }}%          % qames 
+\def \put@segol     {\h@vowel {\char 3 }}%          % segol
+\def \put@qibbus    {\h@vowel {\char 4 }}%          % qibbus
+\def \put@chireq    {\h@vowel {\char 5 }}%          % chireq
+\def \put@qameschat {\h@vowel {\char 6 }}%          % qames chatuph
+\def \put@shwa      {\h@vowel {\char 7 }}%          % shwa
+\def \put@sere      {\h@vowel {\char 9 }}%          % sere
+\def \put@chpatach  {\h@vowel {\char 1 \char 7 }}%  % chateph patach 
+\def \put@chsegol   {\h@vowel {\char 3 \char 7 }}%  % chateph segol
+\def \put@chqames   {\h@vowel {\char 6 \char 7 }}%  % chateph qames
+\def \put@cholem    {\h@vowel {}\h@ldot }%          % cholem breve, meteg?
+\def \put@patachf   {\h@vowel {\hphantom 
+			{\char 1 }\char 1 }}%       % patach furtivum
+%
+\def \put@dagesh {\def \vadj {.48}\def \hadj {0}% default
+\ifnum \act@cd = \hc@j  \def \hadj {-.2}\fi                  % gimel
+\ifnum \act@cd = \hc@w  \def \hadj {-.3}\def \vadj {.55}\fi  % waw
+\ifnum \act@cd = \hc@z  \def \hadj {-.4}\fi                  % zayin
+\ifnum \act@cd = \hc@tt \def \hadj  {.1}\fi                  % tet
+\ifnum \act@cd = \hc@y  \def \hadj {-.45}\def \vadj {.55}\fi % yod
+\ifnum \act@cd = \hc@l  \def \hadj {-.1}\def \vadj {.3}\fi   % lamed
+\ifnum \act@cd = \hc@n  \def \hadj {-.2}\fi                  % nun
+\ifnum \act@cd = \hc@nf \def \hadj {-.2}\fi                  % nun sofit
+\ifnum \act@cd = \hc@f  \def \hadj {.15}\fi                  % pe
+\ifnum \act@cd = \hc@ff \def \hadj {.15}\fi                  % pe sofit
+\ifnum \act@cd = \hc@ss \def \hadj  {.1}\fi                  % sade
+\ifnum \act@cd = \hc@sf \def \hadj  {.1}\fi                  % sade sofit
+\ifnum \act@cd = \hc@si \def \hadj {.07}\fi                  % shin
+\ifnum \act@cd = \hc@M  \def \vadj  {.7}\fi                  % box
+\dimen@ \vadj\a@ht \dimen2 \a@slant\dimen@ 
+\advance\dimen2 \hadj\a@wd \advance\dimen2 .5\a@wd
+\global\setbox\ab@x \hbox
+%{\rlap{\kern\dimen2 \raise\dimen@\hbox{\char 0 }}\unhcopy\ab@x}}%
+{\rlap{\kern\dimen2 \raise\dimen@\hbox{\the@dot }}\unhcopy\ab@x}}%
+%
+\let \h@put@dot \h@@putdot 
+%
+\let \h@raphe \h@@raphe
+%
+\def \h@shindot {\h@put@dot {.8}}%        % right dot for shin
+%
+\def \h@sindot  {\h@put@dot {.2}}%        % left dot for sin
+%
+\def \h@rdot    {\h@put@dot {.5}}%        % right dot for waw, cholem breve
+%
+\def \h@ldot    {% left dot for cholem breve
+\ifnum \act@cd = \hc@l \relax \h@put@dot {-.1}% lamed
+\else \h@put@dot {.1}\fi }%
+%
+\def \h@cholem {% depends on carrier
+\ifnum \act@cd = \hc@w \h@rdot \else \h@shindot \fi }%
+%
+\def \h@putvowel ##1{% vowel mark
+\ifx ##1\relax \relax \else \def \hadj {0}\def \vadj {0}% 
+\ifnum \act@cd = \hc@P \let\vadj \v@adj \put@b@x{\hc@Pv }\else	% vowel-ayin
+\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.85}\else  % final kaph
+\ifnum \act@cd = \hc@r  \def \hadj  {.35}\else                  % resh
+\ifnum \act@cd = \hc@d  \def \hadj   {.2}\else                  % daleth
+\ifnum \act@cd = \hc@q  \def \hadj   {.1}\else                  % qoph
+\ifnum \act@cd = \hc@w  \def \hadj  {.15}\else                  % waw
+\ifnum \act@cd = \hc@si \def \hadj  {-.1}\else                  % sin
+\fi\fi\fi\fi\fi\fi\fi
+\setbox0 \hbox to \a@wd {\hss ##1\hss}\dimen@ \vadj\a@ht 
+\dimen2 \a@slant\dimen@ \advance\dimen2 \hadj\a@wd
+\global\setbox\ab@x \hbox
+{\rlap {\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }\fi }%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\globaldefs = 0 }% end font HCLASSIC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\global\let \@set@hcls \set@hcls
+
+\gdef \set@hcls{% routines for the HCLASSIC font family
+%\globaldefs = 1\relax
+\a@message {patch HCLASSIC}%
+\@set@hcls
+\globaldefs = 1\relax
+\def \the@dot {\vrule width\h@p height0pt depth\h@p }%
+\def \the@mdot {\vrule width\h@p height-\h@p depth2\h@p }%
+\def \the@ldot {\vrule width\h@p height-2\h@p depth3\h@p }%
+\def \the@shwa {\the@dot \kern-\h@p \the@ldot }%
+\def \the@sere {\the@dot \kern\h@p \the@dot }%
+\def \the@segol {\the@dot \the@ldot \the@dot }%
+\def \the@qibbus {\the@dot \the@mdot \the@ldot }%
+\def \the@meteg {\vrule width\h@p height0pt depth3\h@p }%
+\def \the@meteg {\vrule width\h@p height-.2\h@p depth3\h@p }%
+\def \the@patach {\vrule width3\h@p height0pt depth\h@p }%
+\def \the@qames {\the@patach \kern-2\h@p \the@meteg \kern\h@p }%
+\def \put@dummy     {\h@vowel {}}%
+\def \put@patach    {\h@vowel {\the@patach }}%
+\def \put@qames     {\h@vowel {\the@qames }}%
+\def \put@segol     {\h@vowel {\the@segol }}%
+\def \put@qibbus    {\h@vowel {\the@qibbus }}%
+\def \put@chireq    {\h@vowel {\the@dot }}%
+\def \put@qameschat {\h@vowel {\the@qames }}%
+\def \put@shwa      {\h@vowel {\the@shwa }}%
+\def \put@sere      {\h@vowel {\the@sere }}%
+\def \put@chpatach  {\h@vowel {\the@patach \kern\h@p \the@shwa }}%
+\def \put@chsegol   {\h@vowel {\the@segol \kern\h@p \the@shwa }}%
+\def \put@chqames   {\h@vowel {\the@qames \kern\h@p \the@shwa }}%
+\def \put@cholem    {\h@vowel {}\h@ldot }%
+\def \put@patachf   {\h@vowel {\kern4\h@p \the@patach }}%
+%
+\def \h@vowel {% check for meteg
+\if@meteg \xpa \h@meteg \else \xpa \h@putvowel \fi }%
+%
+\def \h@meteg ##1{% put vowel and meteg
+\h@putvowel {\the@meteg \kern\h@p ##1}}%
+%
+\def \h@vowel ##1{% check for meteg
+\if@meteg \xpa \h@meteg \else \xpa \h@putvowel \fi {\raise -.2ex\hbox{##1}}}%
+%
+\def \h@vowel ##1{% check for meteg
+\if@meteg \h@meteg {##1}\else \h@putvowel {\raise -.2ex\hbox{##1}}\fi }%
+%
+\def \h@vowel ##1{% check for meteg
+\if@meteg 
+\h@putvowel {\raise -.2ex\hbox{\the@meteg \kern\h@p ##1}}\else
+\h@putvowel {\raise -.2ex\hbox{##1}}\fi }%
+%
+\globaldefs = 0 }% end standard fonts
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \set@shlm{% routines for the SHALOM fonts
+\globaldefs = 1\relax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\def \h@putchar {% choose character glyph
+\ifnum \act@cd = \hc@v \put@b@x {18}\else 
+\ifnum \act@cd = \hc@oy \put@b@x {19}\else 
+\ifnum \act@cd = \hc@ey \put@b@x {21}\else 
+	\h@put@char \act@cd 
+\fi\fi\fi }%
+%
+\def \put@maqqef {% deposit maqqef
+\put@box {\char 25}}%
+%
+\def \isn@rrow {% narrow character (class 2) ?
+\xpa \is@in@list \hc@sk gdinrwyGDNORUWY>}%
+%
+\def \h@vowel ##1{% check class
+\heb@voc = ##1\relax
+\if\isn@rrow \advance\heb@voc 17 
+\put@box {\unhcopy\ab@x \llap{\char\heb@voc \kern -.075em }}%
+\else \xpa\h@v@wel \xpa{\the\heb@voc }\fi }%
+%
+\def \h@v@wel ##1{% add vowel char right
+\put@box {\unhcopy\ab@x \char ##1}}%
+%
+\def \put@dummy     {\relax }%                % dummy for meteg, silluq (?)
+\def \put@segol     {\h@vowel {50}}%          % segol
+\def \put@qibbus    {\h@vowel {52}}%          % qibbus
+\def \put@qameschat {\h@vowel {54}}%          % qames chatuph
+\def \put@sere      {\h@vowel {49}}%          % sere
+\def \put@chpatach  {\h@vowel {56}}%          % chateph patach 
+\def \put@chsegol   {\h@vowel {55}}%          % chateph segol
+\def \put@chqames   {\h@vowel {57}}%          % chateph qames
+\def \put@patachf   {\h@vowel {70}}%          % patach furtivum
+%
+\def \put@shwa      {% shwa on final kaf ?
+\ifnum\act@cd = \hc@kf \h@v@wel {85}\else \h@vowel {51}\fi }%          
+%
+\def \put@qames     {% qames on alef or final kaf ?
+\ifnum\act@cd = \hc@a \put@b@x {17}\else
+\ifnum\act@cd = \hc@kf \h@v@wel {86}\else \h@vowel {54}\fi\fi }%          
+%
+\def \put@patach    {% patach on alef or 2 yod ?
+\ifnum\act@cd = \hc@ey \put@b@x {22}\else 
+\ifnum\act@cd = \hc@a \put@b@x {16}\else \h@vowel {53}\fi\fi }%          
+%
+\def \put@chireq    {% chireq on yod ?
+\ifnum\act@cd = \hc@y \put@b@x {20}\else \h@vowel {48}\fi }%          
+%
+\def \put@cholem {% cholem breve, meteg?
+\ifnum\act@cd = \hc@l \put@box {\char 61 \unhcopy\ab@x }\else
+\put@box {\rlap {\kern .1em \char 61 }\unhcopy\ab@x }\fi }%
+%
+\def \h@cholem {% depends on carrier
+\ifnum \act@cd = \hc@w \put@b@x {62}\else \h@shindot \fi }%
+%
+\def \h@shindot {% right dot for sin
+\ifnum \act@cd = \hc@si \put@b@x {23}\else
+\put@box {\unhcopy\ab@x \llap {\char 61 \kern .1em}}\fi }%
+%
+\def \h@sindot {% left dot for sin
+\ifnum \act@cd = \hc@si \put@b@x {24}\fi }%
+%
+\def \h@rdot {\h@v@wel {61}}% right dot for waw, cholem breve
+%
+\def \h@raphe {\h@v@wel {26}}% soft consonant
+%
+\def \put@dagesh {% test for yod and class2
+\ifnum\act@cd = \hc@y \h@v@wel {89}\else 
+\ifnum\act@cd = \hc@w \put@b@x {60}\else
+\if\isn@rrow \put@box {\unhcopy\ab@x \llap {\char 88 \kern .05em}}%
+\else \h@v@wel {87}\fi\fi\fi }%          
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\globaldefs = 0 }% end font SHALOM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \set@hstd{% routines for the standard fonts
+\globaldefs = 1\relax
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\let \h@putchar \h@@putchar
+%
+\def \put@maqqef {% deposit maqqef
+\put@box {\kern.05em\raise .6ex \hbox {\char \act@cd }\kern.05em}}%
+%
+\let \h@raphe \h@@raphe
+%
+\let \h@put@dot \h@@putdot 
+%
+\def \h@shindot {\h@put@dot {.8}}%        % right dot for shin
+%
+\def \h@sindot  {\h@put@dot {.2}}%        % left dot for sin
+%
+\def \h@rdot    {\h@put@dot {.5}}%        % right dot for waw, cholem breve
+%
+\def \h@ldot    {% left dot for cholem breve
+%\ifnum \act@cd = \hc@l \relax \h@put@dot {-.1}% lamed
+\ifnum \act@cd = \hc@l \relax \h@put@dot {-.2}% lamed
+\else \h@put@dot {.1}\fi }%
+%
+\def \h@cholem {% depends on carrier
+\ifnum \act@cd = \hc@w \h@rdot \else \h@shindot \fi }%
+%
+\def \the@raphe {\vrule width8\h@p height\h@p depth0pt }%
+\def \the@dot {\vrule width\h@p height0pt depth\h@p }%
+\def \the@mdot {\vrule width\h@p height-\h@p depth2\h@p }%
+\def \the@ldot {\vrule width\h@p height-2\h@p depth3\h@p }%
+\def \the@shwa {\the@dot \kern-\h@p \the@ldot }%
+\def \the@sere {\the@dot \kern\h@p \the@dot }%
+\def \the@segol {\the@dot \the@ldot \the@dot }%
+\def \the@qibbus {\the@dot \the@mdot \the@ldot }%
+\def \the@meteg {\vrule width\h@p height0pt depth3\h@p }%
+\def \the@patach {\vrule width3\h@p height0pt depth\h@p }%
+\def \the@qames {\the@patach \kern-2\h@p \the@meteg \kern\h@p }%
+%
+\def \put@dummy     {\relax}%
+\def \put@dummy     {\h@vowel {}}%
+\def \put@patach    {\h@vowel {\the@patach }}%
+\def \put@qames     {\h@vowel {\the@qames }}%
+\def \put@segol     {\h@vowel {\the@segol }}%
+\def \put@qibbus    {\h@vowel {\the@qibbus }}%
+\def \put@chireq    {\h@vowel {\the@dot }}%
+\def \put@qameschat {\h@vowel {\the@qames }}%
+\def \put@shwa      {\h@vowel {\the@shwa }}%
+\def \put@sere      {\h@vowel {\the@sere }}%
+\def \put@chpatach  {\h@vowel {\the@patach \kern\h@p \the@shwa }}%
+\def \put@chsegol   {\h@vowel {\the@segol \kern\h@p \the@shwa }}%
+\def \put@chqames   {\h@vowel {\the@qames \kern\h@p \the@shwa }}%
+\def \put@cholem    {\h@vowel {}\h@ldot }%
+\def \put@patachf   {\h@vowel {\kern4\h@p \the@patach }}%
+%
+\def \put@dagesh {\def \vadj {.48}\def \hadj {0}% default
+\ifnum \act@cd = \hc@j  \def \hadj {-.2}\fi                  % gimel
+\ifnum \act@cd = \hc@w  \def \hadj {-.3}\def \vadj {.55}\fi  % waw
+\ifnum \act@cd = \hc@z  \def \hadj {-.4}\fi                  % zayin
+\ifnum \act@cd = \hc@tt \def \hadj  {.1}\fi                  % tet
+\ifnum \act@cd = \hc@y  \def \hadj {-.45}\def \vadj {.55}\fi % yod
+\ifnum \act@cd = \hc@l  \def \hadj {-.1}\def \vadj {.3}\fi   % lamed
+\ifnum \act@cd = \hc@n  \def \hadj {-.2}\fi                  % nun
+\ifnum \act@cd = \hc@nf \def \hadj {-.2}\fi                  % nun sofit
+\ifnum \act@cd = \hc@f  \def \hadj {.05}\fi                  % pe
+\ifnum \act@cd = \hc@ff \def \hadj {.15}\fi                  % pe sofit
+\ifnum \act@cd = \hc@ss \def \hadj  {.1}\fi                  % sade
+\ifnum \act@cd = \hc@sf \def \hadj  {.1}\fi                  % sade sofit
+\ifnum \act@cd = \hc@si \def \hadj {.18}\fi                  % shin
+\ifnum \act@cd = \hc@M  \def \vadj  {.7}\fi                  % box
+\dimen@ \vadj\a@ht \dimen2 \a@slant\dimen@ \advance \dimen2 -\h@p
+\advance\dimen2 \hadj\a@wd \advance\dimen2 .5\a@wd
+\global\setbox\ab@x \hbox
+{\rlap{\kern\dimen2 \raise\dimen@\hbox{\the@dot }}\unhcopy\ab@x}}%
+%
+\def \h@putvowel ##1{% vowel mark
+\ifx ##1\relax \relax \else \def \hadj {0}\def \vadj {0}% 
+\ifnum \act@cd = \hc@P \let\vadj \v@adj \put@b@x{\hc@Pv }\else	% vowel-ayin
+\ifnum \act@cd = \hc@kf \def \hadj  {-.1}\def \vadj {.85}\else  % final kaph
+\ifnum \act@cd = \hc@r  \def \hadj  {.35}\else                  % resh
+\ifnum \act@cd = \hc@d  \def \hadj   {.2}\else                  % daleth
+\ifnum \act@cd = \hc@q  \def \hadj   {.1}\else                  % qoph
+\ifnum \act@cd = \hc@y  \def \hadj   {.1}\else                  % yod
+\ifnum \act@cd = \hc@w  \def \hadj  {.15}\else                  % waw
+\ifnum \act@cd = \hc@si \def \hadj  {-.1}\else                  % sin
+\fi\fi\fi\fi\fi\fi\fi\fi
+\setbox0 \hbox to \a@wd {\hss ##1\hss}\dimen@ \vadj\a@ht 
+\advance \dimen@ -2\h@p
+\dimen2 \a@slant\dimen@ \advance\dimen2 \hadj\a@wd
+\global\setbox\ab@x \hbox
+{\rlap {\kern\dimen2 \raise\dimen@\box0 }\unhcopy\ab@x }\fi }%
+%
+\def \h@vowel {% check for meteg
+\if@meteg \xpa \h@meteg \else \xpa \h@putvowel \fi }%
+%
+\def \h@meteg ##1{% put vowel and meteg
+\h@putvowel {\the@meteg \kern\h@p ##1}}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\globaldefs = 0 }% end standard fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%}% end of dynamic definitions 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

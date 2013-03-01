@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% amac.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amac.sty
+% Scanner for MAC Arabic
+% to install it, include it as a LaTeX package or style option "amac"
+% with Plain TeX, say "\input amac.sty"
+% to activate it, say "\setcode{amac}" 
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \amacatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \amacatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {amac.sty} {3.11 MAC Arabic encoding} {26.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \amac@catcodes {% assignments for MAC Hebrew
+\countdef \is@m=2	\countdef \is@n=4       
+\is@m = 128        \is@n = 64
+\loop \ifnum \catcode \is@m = 11 \else \catcode \is@m = 11 \fi
+\global\lccode \is@m = \is@n
+\ifnum 159 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m = 160        \is@n = 32
+\loop \ifnum \catcode \is@m = 11 \else \catcode \is@m = 11 \fi
+\global\lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0 \catcode `\^^a0 12 }
+
+{\amac@catcodes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for MAC Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setamac@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@^^80 {@}  \def \sc@^^81 {@}   \def \sc@^^82 {@}   \def \sc@^^83 {@}
+\def \sc@^^84 {@}  \def \sc@^^85 {@}   \def \sc@^^86 {@}   \def \sc@^^87 {@}
+\def \sc@^^88 {@}  \def \sc@^^89 {@}   \def \sc@^^8a {@}  
+\def \sc@^^8b {\n@xp\a@n}   
+\def \sc@^^8c {@}  \def \sc@^^8d {@}   \def \sc@^^8e {@}   \def \sc@^^8f {@}   
+		
+\def \sc@^^90 {@}  \def \sc@^^91 {@}   \def \sc@^^92 {@}   \def \sc@^^93 {\a@ell}
+\def \sc@^^94 {@}  \def \sc@^^95 {@}   \def \sc@^^96 {@}   \def \sc@^^97 {@}
+\def \sc@^^98 {@}  \def \sc@^^99 {@}   \def \sc@^^9a {@}   \def \sc@^^9b {\a@div}
+\def \sc@^^9c {@}  \def \sc@^^9d {@}   \def \sc@^^9e {@}   \def \sc@^^9f {@}   
+		
+\def \sc@^^a0 {@}  \def \sc@^^a1 {!}   
+\def \sc@^^a2 {\a@dq}                  \def \sc@^^a3 {\a@hsh}
+\def \sc@^^a4 {\a@dlr}                 \def \sc@^^a5 {\a@pct}   
+\def \sc@^^a6 {\a@amp}                 \def \sc@^^a7 {\a@qt}
+\def \sc@^^a8 {)}  \def \sc@^^a9 {(}   \def \sc@^^aa {*}   \def \sc@^^ab {+}
+\def \sc@^^ac {,}  \def \sc@^^ad {-}   \def \sc@^^ae {.}   \def \sc@^^af {/}
+%
+\def \sc@^^b0 {0}  \def \sc@^^b1 {1}   \def \sc@^^b2 {2}   \def \sc@^^b3 {3}
+\def \sc@^^b4 {4}  \def \sc@^^b5 {5}   \def \sc@^^b6 {6}   \def \sc@^^b7 {7}
+\def \sc@^^b8 {8}  \def \sc@^^b9 {9}   \def \sc@^^ba {:}   \def \sc@^^bb {;}
+\def \sc@^^bc {\a@rab}                 \def \sc@^^bd {=}   
+\def \sc@^^be {\a@lab}                 \def \sc@^^bf {?}
+%
+\def \sc@^^c0 {*}  \def \sc@^^c1 {Q|}  \def \sc@^^c2 {QA}  \def \sc@^^c3 {Qa}
+\def \sc@^^c4 {Qw} \def \sc@^^c5 {Qi}  \def \sc@^^c6 {Qy}  \def \sc@^^c7 {A}  
+\def \sc@^^c8 {b}  \def \sc@^^c9 {T}   \def \sc@^^ca {t}   \def \sc@^^cb {C}
+\def \sc@^^cc {G}  \def \sc@^^cd {H}   \def \sc@^^ce {X}   \def \sc@^^cf {d}        
+
+\def \sc@^^d0 {F}  \def \sc@^^d1 {r}   \def \sc@^^d2 {z}   \def \sc@^^d3 {s}
+\def \sc@^^d4 {x}  \def \sc@^^d5 {S}   \def \sc@^^d6 {D}   \def \sc@^^d7 {V}
+\def \sc@^^d8 {Z}  \def \sc@^^d9 {P}   \def \sc@^^da {R}   \def \sc@^^db {]}  
+\def \sc@^^dc {\a@bsl}  \def \sc@^^dd {[}   
+\def \sc@^^de {\a@up}   \def \sc@^^df {\a@dn}
+
+\def \sc@^^e0 {B}  \def \sc@^^e1 {f}   \def \sc@^^e2 {q}   \def \sc@^^e3 {k}   
+\def \sc@^^e4 {l}  \def \sc@^^e5 {m}   \def \sc@^^e6 {n}   \def \sc@^^e7 {h}
+\def \sc@^^e8 {w}  \def \sc@^^e9 {Y}   \def \sc@^^ea {y}   \def \sc@^^eb {"aN}
+\def \sc@^^ec {"uN}\def \sc@^^ed {"iN} \def \sc@^^ee {"a}  \def \sc@^^ef {"u}
+
+\def \sc@^^f0 {"i} \def \sc@^^f1 {\n@xp\a@Ze}
+\def \sc@^^f2 {""} \def \sc@^^f3 {p}
+\def \sc@^^f4 {\n@xp\a@t}              \def \sc@^^f5 {J}   
+\def \sc@^^f6 {\n@xp\a@H}              \def \sc@^^f7 {v}
+\def \sc@^^f8 {g}                      \def \sc@^^f9 {\n@xp\a@d}   
+\def \sc@^^fa {\n@xp\a@r}              \def \sc@^^fb {\a@rbc}
+\def \sc@^^fc {\a@bar}                 \def \sc@^^fd {\a@lbc}   
+\def \sc@^^fe {j}                      \def \sc@^^ff {E}
+\a@digits = {0123456789}
+\a@paren  = {()[]}
+\a@first = {"`^^e6\a@tok \lq \rq \cap \MIN \IN }
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for MAC Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \amac@scan #1>{% standard scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase{\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \amac@beg {% start MAC Arabic scanner
+\h@mzafalse \iz@fetfalse \@ssimfalse \novocalize % because of explicit quoting
+\amac@word }
+
+{\catcode `\^^M=13 \endlinechar = -1
+\gdef \amac@word #1{% transform input into internal notation
+\ifx #1\@ \def \next {\sc@endscan }\else % finished
+\ifcat \nxp #1\relax \def \next {\t@cs #1}\else         % control sequence
+\if \nxp ^^M\nxp #1\def \next {\amac@par #1}% active character
+\else \def \next {\amac@w@rd #1}%
+\fi\fi\fi \next }%
+} % catcode 13
+
+\gdef \amac@w@rd #1#2{% special cases
+\case #1\of 
+{             #2{\amac@word #1-#2}
+           -{\amac@minus #2} 
+        ^^a0{\sc@back #2} 
+        ^^ad{\amac@minus #2} 
+\default {\amac@@word #1#2}
+}\endcase }
+
+\gdef \amac@@word #1{% default branch
+\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+\else \def \sc@char {\nxp #1}%
+\fi \sc@put \amac@word }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \amac@minus {% hyphen between words
+\def \sc@char {-}\sc@put \amac@beg }
+
+\gdef \amac@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\ #1\@ \@@ }
+
+\gdef \amac@endscan \@@ {\global\let \a@scan \amac@scan }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+} % \amac@catcodes
+
+\def \set@amac {% select the MAC Hebrew scanner
+\let \sc@beg \amac@beg                 \let \sc@word \amac@word  
+\let \sc@back \sc@@back                \let \sc@endscan \amac@endscan
+\global\let \a@scan \amac@scan   \setamac@codes        
+\amac@catcodes                 
+\a@message {input encoding set to MAC Arabic and ISO 8859-6 conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the MAC Hebrew encoding
+iso88596\set@amac 	iso8859-6\set@amac 	amac\set@amac }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for MAC Arabic code installed.}
+
+\catcode `\@ = \amacatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

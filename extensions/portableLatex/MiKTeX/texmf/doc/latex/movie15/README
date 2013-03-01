@@ -1,0 +1,371 @@
+                             =====================
+                              The movie15 Package
+                             =====================
+
+Author:
+
+    Alexander Grahn
+
+
+Description:
+
+    *
+    * Note:
+    * This package is obsolete now. Consider using package `media9'.
+    *
+
+    This package provides an interface to embed movies, sounds and 3D objects
+    into PDF documents for use with LaTeX as well as pdfLaTeX. It follows the
+    PDF-1.5 and PDF-1.6 specifications for embedding multimedia content. The
+    specification allows media file data to be completely incorporated into the
+    PDF output, thus producing self-contained PDF documents. A number of file
+    formats is supported. For a (possibly incomplete) list see the table at the
+    end of this file or refer to the PDF specification:
+
+        PDF Reference, fifth edition:
+        Adobe Portable Document Format version 1.6,
+        Implementation note 144, Appendix H.3,
+
+    available somewhere on Adobe's web site (http://www.adobe.com).
+
+    Note, this file only gives a summary of usage and available command
+    options. Please refer to the documentation `movie15.pdf' in the `doc/'
+    directory for details and examples.
+
+    Keywords: embed, movie, LaTeX, pdfLaTeX, PDF, 3D, JavaScript, include,
+              sound, video, multimedia, animation
+
+
+Usage:
+
+ \usepackage[<package options>]{movie15}
+
+   Package option `3D' enables the 3D feature from the PDF-1.6 specification.
+   With option `draft' media files are not included. Instead, the file name
+   is printed in a box of size <width>x(<height>+<depth>). `final' does the
+   opposite, overriding a global draft option specified in the \documentclass
+   command.
+
+
+ \includemovie[<options>]{<width>}{<height>}{<media file>}
+
+   <width> and <height> in TeX dimensions, may be left empty, see option `text'
+
+   <media file> file name of the media clip
+
+
+ \movieref[<options>]{<label spec>}{<text>}
+
+   makes <text> a hyperlink to the embedded media file which has been labelled
+   with <label spec> using the `label' option of the inclusion command.
+
+   Provides a means to control the playback state and properties of the
+   referenced media. In 3D context, it can be used to define an additional view
+   of the object, to access a particular view from the list of predefined views
+   by index or to run a JavaScript. Moreover, links can be created for
+   calculating 3D camera settings.
+
+   In addition to `play' (default), `stop', `resume', `pause', `close',
+   `3Dviewindex', `3Dcalculate' and `3Dgetview' it accepts `controls', `repeat',
+   `palindrome', `startat', `endat', `mouse', `rate', `volume', `default',
+   `3Dcoo', '3Droll', `3Dc2c', `3Droo', `3Dcaa' and `3Djscript' from the
+   subsequent list of command options.
+
+
+ Options:
+
+   attach[=false]             By default, the embedded data stream is re-used as
+                              embedded file attachment, giving the user the
+                              opportunity to extract the media file and to save
+                              it to disk for later playback with an external
+                              player.  Re-use as file attachment can be
+                              suppressed with `attach=false'.
+
+   autoclose                  Close the media player when the page is closed.
+                              Use of this option may be necessary for streamed
+                              media, such as Real Video.
+
+   autopause                  Pause playback when page is closed.
+
+   autoplay                   Start playback when page is opened. Useful for
+                              side by side movies to be played back
+                              simultaneously.
+
+   autostop                   Stops playing but keeps the media loaded when the
+                              page is closed. The media is rewound to its
+                              beginning or its `startat' position. This option
+                              is set by default if neither of the options
+                              `autopause', `autoclose' or `continue' is set.
+
+   autoresume                 Resume previously paused playback when page
+                              is opened.
+
+   continue                   Continue playback in background on premature page
+                              change.
+
+   controls[=true|false]      Display player specific controls.
+
+   depth=<depth>              Specifies how far the media display area should
+                              extend below the reference line of the running
+                              text. Any valid TeX dimension will be accepted.
+
+   draft                      Locally switches to draft mode.
+
+   externalviewer             Opens and plays the media in an external
+                              application.
+
+   final                      Locally disables draft mode.
+
+   inline[=false]             Movie file data are embedded into the PDF output
+                              by default. Embedding can be suppressed using
+                              `inline=false'.
+
+   label=<label spec>         The media is labelled with <label spec> such that
+                              it can be referenced by the `\movieref' command
+                              somewhere else in the document.
+
+   mimetype=<mimetype>        Mime type of media. Must be specified if
+                              <media file> has a non-standard file name
+                              extension from which the mimetype cannot be
+                              guessed. See table `Known file name extensions'
+                              below.
+
+   mouse[=true|false]         Enable mouse interaction: Clicking onto the media
+                              (giving it the focus) pauses the playback while
+                              clicking outside resumes it. In 3D context this
+                              option is set to `true' by default, but may be set
+                              to `false' in order to make the 3D annotation
+                              non-interactive.
+
+   palindrome[=true|false]    Play media forward and backward.
+
+   playerid=<playerid>        Forces a particular media player plug-in to be
+                              used instead of the default one. Currently, the
+                              following values are recognised:
+                              AAPL_QuickTime, MACR_FlashPlayer, RNWK_RealPlayer,
+                              MSFT_WindowsMediaPlayer, ADBE_MCI (Adobe builtin
+                              player).
+
+   poster                     The first frame of the movie or the frame at the
+                              beginning of the movie section specified by the
+                              `startat' and `endat' options is shown.
+
+   poster=<image>             Insert still image from file to be shown when
+                              media is not activated. The file type depends on
+                              the output driver: PS or EPS when using latex
+                              together with dvips; PDF, PNG or JPEG when using
+                              pdflatex.
+
+                              Deprecated. Use option `text' instead.
+
+                              See option `text' for a possibility to scale the
+                              media display area according to the poster image
+                              dimensions.
+
+   rate=<rate>                Playback rate (multiple of original speed).
+
+   repeat[=<repeats>]         Number of repeats. Without argument -> repeat
+                              forever.
+
+   startat=<offset>           Start/stop playback at the specified offsets
+   endat=<offset>             (time, frame, named marker). <offset> syntax:
+
+                              time:<seconds>
+                              frame:<frame number>
+                              marker:<quoted string>
+                              {marker:<quoted string>, time:<seconds>}
+                              {marker:<quoted string>, frame:<frame number>}
+
+   text=<text>                <text> is typeset onto the media display area.
+                              <text> is centred horizontally and vertically.
+                              If either or both of the <width> and <height>
+                              arguments are left empty, any unspecified
+                              dimension of the media clip is scaled to fit the
+                              corresponding dimension, i. e. width or height, of
+                              <text>. Likewise, the depth of the media display
+                              is adjusted to the depth of <text> if the `depth'
+                              option has not been given.
+
+                              This option can be used to scale the media display
+                              area to the natural or scaled dimensions of the
+                              poster image, e. g.:
+
+                              \includemovie[text={\includegraphics[scale=2]{
+                                path/to/poster}}]{}{}{path/to/movie}
+
+   textoverposter[=false]     Set this option to `false' if you wish <text> to
+                              be obscured by the external poster image (if
+                              specified). Deprecated.
+
+   url                        Treat <media file> as URL. Sets option `inline'
+                              to false automatically.
+
+   volume=<volume>            Percentage of original volume.
+
+   3Daac=<angle>              This option sets the aperture angle of the camera,
+                              measured in degrees. Fixed point real numbers
+                              between 0 and 180 are admissible. A sensible value
+                              of 30 is pre-set by default. Larger values can be
+                              used to achieve wide-angle or fish-eye effects.
+
+   3Dc2c=<x> <y> <z>          Direction vector C2C of arbitrary length,
+                              originating in the centre of orbit and pointing
+                              to the virtual camera; cf. option `3Dcoo' for the
+                              number format of <x> <y> <z>.
+
+   3Dcoo=<x> <y> <z>          Positional vector COO of the centre of orbit.
+                              Only fixed point numbers in the range from
+                              -999999999999999999.999999999999999999 to
+                              +999999999999999999.999999999999999999 are
+                              allowed.
+
+   3Droll=<roll>              Prescribes an initial camera roll around the
+                              optical axis (in clockwise direction, if <roll>
+                              is greater than zero); measured in degrees.
+
+   3Droo=<r>                  Radius of orbit ROO of the virtual camera; cf.
+                              option `3Dcoo' for the number format.
+
+   3Dviews=<views file>       Further named, predefined views can be set in an
+                              auxiliary file specified by the 3Dviews option.
+                              The file <views file> contains lines which obey
+                              the syntax:
+
+[<name>]{<coo_x> <coo_y> <coo_z>}{<c2c_x> <c2c_y> <c2c_z>}{<roo>}{<roll>}{<aac>}
+
+                              The <name> entry is optional. For <coo_x>,
+                              <coo_y>, <coo_z>, <c2c_x>, <c2c_y>, <c2c_z>, <roo>
+                              and <aac> the same rules as for the corresponding
+                              options `3Dcoo', `3Dc2c', `3Droo' and `3Daac'
+                              apply.
+
+   3Dbg=<r> <g> <b>           This option sets the background colour of the
+                              canvas. Only fixed point real numbers in the range
+                              from 0 to 1 are allowed for the colour components.
+
+   3Dlights=<lighting scheme> Sets the default lighting scheme. Possible values
+                              are: `None', `White', `Day', `Night', `Hard',
+                              `Primary', `Blue', `Red', `Cube', `CAD',
+                              `HeadLamp'.
+
+   3Drender=<render mode>     Sets the default render mode. Possible values
+                              are: `Solid', `SolidWireframe', `Transparent',
+                              `TransparentWireframe', `BoundingBox',
+                              `TransparentBoundingBox',
+                              `TransparentBoundingBoxOutline', `Wireframe',
+                              `ShadedWireframe', `HiddenWireframe', `Vertices',
+                              `ShadedVertices', `Illustration', `SolidOutline',
+                              `ShadedIllustration'.
+
+   3Djscript=<JavaScript file> Things like animation, lighting, background
+                              colour etc. may also be script driven. Option
+                              `3Djscript' associates a <JavaScript file> with
+                              the 3D object. The script will be executed upon
+                              activation of the object.
+
+   3Dresource=<resource file 1>[, 3Dresource=<resource file 2> [, ...]]
+
+                              Embeds additional 3D or rasterized image files for
+                              use as resources in the 3D annotation. Possible
+                              file types are U3D, Postscript (LaTeX + dvips) and
+                              PDF/JPEG/PNG (pdfLaTeX). Embedded resources must
+                              be loaded by the JavaScript method
+
+                              Resource("pdf://<resource path>")
+
+                              where <resource path> stands for the path to the
+                              resource file as specified by the `3Dresource'
+                              option.
+
+ Additional options for use with `\movieref':
+
+   play                       (Default) Immediately restarts playback. If new
+                              playback settings have been specified through the
+                              options given above, they override the original
+                              settings being in effect during media inclusion.
+
+   stop                       Stops and rewinds the media to its beginning or to
+                              the `startat' position.
+
+   resume                     Resumes paused media. In fact, this option makes
+                              the hyperlink a toggle switch: repeated clicking
+                              switches between paused and resumed state.
+
+   pause                      Has the same effect as option `resume'. Added for
+                              completeness only.
+
+   close                      Immediately closes the media player.
+
+   default                    Play the media at the original settings which were in
+                              effect during media inclusion.
+
+   3Dviewindex=<index>        Opens the first `F', last `L', next `N' or
+                              previous `P' view from the list of additional
+                              views, or the one indexed by an integer. `D' gives
+                              access to the default view.
+
+   3Dcalculate[=<aac angle>]  Creates a link for calculating `3Droo' and `3Dcoo'
+                              settings of the virtual camera. The default
+                              aperture angle of 30 degrees is used for the
+                              calculation unless an optional <aac angle> has
+                              been provided.
+
+   3Dgetview                  Camera settings corresponding to the current view
+                              in the Reader are printed to a dialogue box. The
+                              output is readily formatted to be inserted into a
+                              file of predefined views, see option `3Dviews'.
+
+
+Known file name extensions:
+
+ Extension          MIME type                       Description
+ =============================================================================
+ aif, aifc, aiff    audio/aiff                      Audio Interchange File
+                                                    Format
+ au, snd            audio/basic                     NeXT/Sun Audio Format
+ avi                video/avi                       AVI (Audio/Video Inter-
+                                                    leaved)
+ gif                image/gif                       (animated) GIF
+ mid, rmi           audio/midi                      MIDI (Musical Instrument
+                                                    Digital Interface)
+ mov, qt            video/quicktime                 Apple QuickTime
+ mp3, m3u           audio/x-mp3                     MPEG Audio Layer-3
+ mp4                video/mp4                       MPEG-4 Video/Audio
+ mpeg, mpg          video/mpeg                      MPEG-1 & 2 Video
+ ra                 audio/vnd.rn-realaudio          Real Audio
+ rm, rv             application/vnd.rn-realmedia    Real Media (video & sound)
+ smil               application/smil                Synchronized Multimedia
+                                                    Integration Language
+ swf                application/x-shockwave-flash   (Adobe?) Macromedia Flash
+ u3d                model/u3d                       Universal 3D File Format
+ wav                audio/wav                       MS Audio Format
+ wma                audio/x-ms-wma                  Windows Media Audio Format
+ wmv                video/x-ms-wmv                  Windows Media Video Format
+
+
+Requirements:
+
+ package `fp', if option `3D' is selected
+
+ pdfTeX, version >= 1.20 needed for PDF output
+
+ Adobe Reader, version >=6 for playing movies/sound,
+ Adobe Reader, version >=7 for 3D objects
+
+ Embedded media file data can also be extracted and saved to disk from within
+ Readers which support file attachments. This makes PDF documents a little more
+ portable to Readers which do not ship with a multimedia plugin.
+
+
+Installation:
+
+ Put the file movie15.sty to a place where TeX can find it.
+
+
+License:
+
+ This material is subject to the LaTeX Project Public License. See
+
+    http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
+
+ for the details of that license.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/mff"><TPM:Name>mff</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package to provide something similar to `multiple master'
+      fonts, but using MetaFont; you specify a font by a set of
+      MetaFont parameters, and TeX makes up an mf file to generate
+      the required font; this package is not integrated with NFSS
+      (or MakeTeXTFM) yet fun.</TPM:Description><TPM:RunFiles size="165760">texmf\tex\latex\mff\mfarithm.tex texmf\tex\latex\mff\mfcorfnt.tex texmf\tex\latex\mff\mfdcdata.tex texmf\tex\latex\mff\mff.sty texmf\tex\latex\mff\mfsauter.tex texmf\tex\latex\mff\mftricks.tex texmf\tpm\packages\mff.tpm</TPM:RunFiles><TPM:DocFiles size="133920">texmf\doc\latex\mff\mffdoc.dvi texmf\doc\latex\mff\mffdoc.tex texmf\doc\latex\mff\table.tex texmf\doc\latex\mff\test.tex</TPM:DocFiles><TPM:SourceFiles size="418">texmf\source\latex\mff\file_id.diz texmf\source\latex\mff\mff.mfj texmf\source\latex\mff\test.bat</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>0689defed7a33cb758b2748984c7929c</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/mpfnmark"><TPM:Name>mpfnmark</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package which provides the command \mpfootnotemark, which
+      can be used in the same way as \footnotemark. The difference
+      between these two macros is that within minipage environments
+      the latter uses the standard footnote marker style (defined
+      by \thefootnote), while the new command uses the minipage
+      footnote marker style (defined by \thempfootnote).</TPM:Description><TPM:RunFiles size="4473">texmf\tex\latex\mpfnmark\mpfnmark.sty texmf\tpm\packages\mpfnmark.tpm</TPM:RunFiles><TPM:DocFiles size="6420">texmf\doc\latex\mpfnmark\mpfnmark.dvi</TPM:DocFiles><TPM:SourceFiles size="21687">texmf\source\latex\mpfnmark\00readme.txt texmf\source\latex\mpfnmark\bugs.txt texmf\source\latex\mpfnmark\install.txt texmf\source\latex\mpfnmark\legal.txt texmf\source\latex\mpfnmark\manifest.txt texmf\source\latex\mpfnmark\mpfnmark.drv texmf\source\latex\mpfnmark\mpfnmark.dtx texmf\source\latex\mpfnmark\mpfnmark.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>ddb8b70006289f94d56d496c7be6a187</TPM:MD5></rdf:Description></rdf:RDF>

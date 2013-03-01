@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%% nashdig.mf %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NASH Font
+% 07.04.92
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if unknown nashbase: input nashbase fi;
+
+%%%%%%%%%%%%%% digits %%%%%%%%%%%%%%%%%
+
+numchar("0");
+x1 + .6pl = x4 - .6pl = 5dx;
+y1 - .6pl = y4 + .6pl = bot y.l + 6dy;
+penpos1(2px,pa); penpos4(2px,pa);
+fill z1l--z1r--z4r--z4l--cycle;
+endchar;
+
+numchar("1");
+x1 = 4dx; x2 = 7dx; y1 - 11dy = bot y2 = bot y.l;
+draw z1..z2{down};
+endchar;
+
+numchar("2");
+x1 = 3dx; x2 = 6dx; x3 = 8dx;
+y3 - 11dy = y1 - 11dy = bot y2 = bot y.l;
+%draw z3..z1{(-4dx,7dy)};
+draw z3{down}..z1; draw z1..z2{down};
+endchar;
+
+numchar("3");
+x1 = 2dx; x2 = 4dx; x3 = 9dx; x4 = 6dx;
+y4 = y3 = y1; y1 - 11dy = bot y2 = bot y.l;
+draw z3{down}..z4; draw z4{down}..z1; draw z1..z2{down};
+endchar;
+
+numchar("4");
+x1 = x2 - .5dx = x3 - dx = 6dx; x4 = x5 = 2dx;
+y1 - 11dy = y2 - 6dy = bot y3 = y4 - 8dy = y5 - 2dy = bot y.l;
+bow(z1, z4, z2); bow(z2, z5, z3);
+endchar;
+
+numchar("5");
+x1 = x2 - 3dx = x3 + 2dx = 5dx;
+y1 - 6dy = y2 = y3; y3 - 4dy = bot y.l - dy;
+draw z1{(dx,-dy)}..z2..z3..z1{(dx,dy)};
+endchar;
+
+numchar("6");
+x1 + 4dx = x2 = x3 - 2dx = 6dx;
+y1 -10dy = y2 - 10dy = bot y3 = bot y.l;
+draw z1{(7dx,-4dy)}..z2; draw z2{down}..z3;
+endchar;
+
+numchar("7");
+x1 + 4dx = x2 = x3 - 4dx = 5dx;
+y1 - 10dy = y3 - 10dy = bot y2 = bot y.l;
+draw z1..z2{down}; draw z3..z2{down};
+endchar;
+
+numchar("8");
+x1 + 4dx = x2 = x3 - 4dx = 5dx;
+y2 - 10dy = bot y1 = bot y3 = bot y.l;
+draw z1..z2{up}; draw z3..z2{up};
+endchar;
+
+numchar("9");
+x1 = x2 + 4dx = x3 + 2dx = x4 - 2dx = 6dx;
+y1 - 7dy = y2 - 7dy = y3 - 11dy = bot y4 = bot y.l;
+draw z1..z2..z3..z1{down}..z4;
+endchar;
+

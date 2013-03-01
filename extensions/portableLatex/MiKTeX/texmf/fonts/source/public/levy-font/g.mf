@@ -1,0 +1,61 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+
+def dims = 10u#,x_height#,desc_depth# enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+
+def gen_letter=
+  pickup fine.nib;
+  begingroup
+    save t; t:=superness; save superness; superness:=.95t;
+    pos2(curve,90); top y2r=h+oo;			%top of left branch
+    pos1(hair,180); bot y1=top y2r-4/3curve;		%tip of hook
+    lft x1r=hround .5u; x2-x1=y2-y1;			%central arc is round
+    pos3(hair,0); pos4(hair,-180); rt x3r-lft x4r=stem; %bottom of cusp
+    y4=y3; .5[x3,x4]=.5w; if monowidth: y3=0 else: y3-.5stem=vround(-.8d) fi;
+    pos5(curve,-270); top y5r=h+oo; x5+.5curve=hround(w-.75u); %right branch
+    pos5'(curve,0); z5'=z5;
+    filldraw stroke z1e{up}...z2e{right}; drawloop(2,3,4,5);	%hook and cusp	
+    filldraw z5l{right}...z5'r{up}...z5r{left}--cycle;	%right branch
+    if monowidth:					%complete stem
+      x3'=x3r; x4'=x4r; y3'=y4'; y3'-.5stem=vround(-.8d);
+      filldraw z3r--z3'{down}...{up}z4'--z4r--cycle; fi
+  endgroup;
+enddef;
+
+cmchar "Lowercase gamma";
+beginchar("g",dims);
+this_letter; penlabels(1,2,3,3',4,4',5); endchar;
+
+if boolean barebones: picture savedpicture; endinput; fi
+
+cmchar "Lowercase sigma followed by gamma";
+begindoublechar(oct"007",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+
+picture savedpicture;

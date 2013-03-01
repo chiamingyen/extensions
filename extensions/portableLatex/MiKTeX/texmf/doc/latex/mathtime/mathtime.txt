@@ -1,0 +1,74 @@
+%% Copyright 1996 1997  Frank Mittelbach David Carlisle
+%%
+%% Development of this package was commissioned by Y&Y Inc.
+%% http://www.yandy.com
+
+
+   The `mathtime' package for accessing MathTime fonts
+   ===================================================
+             Frank Mittelbach  David Carlisle
+
+
+This package enables the use of MathTime (including MathTime Plus)
+fonts in LaTeX documents.
+
+The basic usage is simply to add \usepackage{mathtime} to your
+document preamble, however there are several options to control the
+behaviour, as described in the documentation.
+
+Installation 
+============
+   (Please note instructions differ depending on whether
+    or not the MathTime Plus font set is available, and on
+    the age of your LaTeX.)
+
+1)
+If you are using a Case Sensitive file system (such as UNIX)
+and your LaTeX is older then the release of 1996/12/01 then edit the
+file mathtime.ins to uncomment the line that is marked by the first
+   %%%% IMPORTANT NOTE %%%%%.
+This will cause `fd' files to be written in the old style (MY1mtt.fd)
+rather than the new style (my1mtt.fd). On DOS or other case insensitive
+systems this step may be omitted as MY1mtt.fd and my1mtt.fd refer to
+the same file.
+
+2)
+If you have the basic MathTime font set, but not the bold math fonts
+and other fonts that make up the MathTime Plus (or MathTime Complete)
+font sets, then you should edit mathtime.ins to  uncomment the line
+marked by the second
+   %%%% IMPORTANT NOTE %%%%%.
+This will cause the fd files written by the installation process
+to refer to the more restricted set of fonts that you have available.
+
+3)
+The documented source of the packages is the file mathtime.dtx.
+The sources of the `font descriptor files' that make the external
+font files known to LaTeX are in the file mtfonts.fdd.
+
+To generate the package files and font descriptor files you should
+run:
+
+latex mathtime.ins
+
+An identical mathtime.sty will be produced however you may have
+edited mathtime.ins, but the `fd' files will be modified to match
+your local installation, as documented above.
+
+In addition to mathtime.sty, a package mathpi.sty will also be produced
+making available math fonts from the Adobe Math Pi font set.
+These .sty files and all the .fd files that are produced should be
+placed in a directory on TeX's input path.
+
+A PostScript header file,  mh2scr.enc will also be produced
+this will need to be included by your dvi driver if you are using the
+Adobe Math Pi 2 font.
+
+Further documentation on the packages may be obtained by running LaTeX
+on the document sources, typically by a command such as
+
+latex mathtime.dtx
+
+
+
+

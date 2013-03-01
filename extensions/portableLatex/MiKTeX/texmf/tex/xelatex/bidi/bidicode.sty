@@ -1,0 +1,202 @@
+%%
+%% This is file `bidicode.sty',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bidicode}
+\RequirePackage{xcolor}
+\RequirePackage{showexpl}
+\definecolor{Orange}{rgb}{1,.4,.2}
+\definecolor{myblue}{rgb}{0.02,0.04,0.48}
+\definecolor{lightblue}{rgb}{0.61,.8,.8}
+\definecolor{myred}{rgb}{0.65,0.04,0.07}
+\definecolor{mygreen}{rgb}{0,.43,0}
+\definecolor{blendedred}{rgb}{0.9,0.1,0.1}
+\definecolor{blendedgreen}{rgb}{0.2,0.7,0.2}
+\definecolor{darkgray}{gray}{0.3}
+\definecolor{mygray}{gray}{0.6}
+\definecolor{skugga}{gray}{0.7}
+\definecolor{mybackground}{rgb}{1,0.8,0.5}
+\lstset{%
+    language=[LaTeX]TEX,%
+    float=hbp,%
+    basicstyle=\ttfamily, %
+    identifierstyle=\color{black}, %
+    keywordstyle=\color{mygreen}, %
+    stringstyle=\color{blue}, %
+    commentstyle=\color{blue}, %
+    columns=flexible, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    breaklines=true, %
+    breakautoindent=true,
+    captionpos=t,
+    explpreset={columns=flexible,language=[LaTeX]TEX},
+   morekeywords={setLTR,setLR,setRTL,setRL,LRE,LR,RLE,RL,lr}
+}
+\lstdefinestyle{syntax}{backgroundcolor=\color{blue!20}}
+\lstdefinestyle{code}{backgroundcolor=\color{red!20}}
+\lst@UserCommand\lstlistlistingname{List of Examples} % \lstlistoflistings
+\lst@UserCommand\lstlistingname{Example}
+
+\def\lst@Init#1{%
+    \begingroup\if@RTL\@RTLfalse\fi
+    \ifx\lst@float\relax\else
+        \edef\@tempa{\noexpand\lst@beginfloat{lstlisting}[\lst@float]}%
+        \expandafter\@tempa
+    \fi
+    \ifx\lst@multicols\@empty\else
+        \edef\lst@next{\noexpand\multicols{\lst@multicols}}
+        \expandafter\lst@next
+    \fi
+    \ifhmode\ifinner \lst@boxtrue \fi\fi
+    \lst@ifbox
+        \lsthk@BoxUnsafe
+        \hbox to\z@\bgroup
+             $\if t\lst@boxpos \vtop
+        \else \if b\lst@boxpos \vbox
+        \else \vcenter \fi\fi
+        \bgroup \par\noindent
+    \else
+        \lst@ifdisplaystyle
+            \lst@EveryDisplay
+            \par\penalty-50\relax
+            \vspace\lst@aboveskip
+        \fi
+    \fi
+    \normalbaselines
+    \abovecaptionskip\lst@abovecaption\relax
+    \belowcaptionskip\lst@belowcaption\relax
+    \lst@MakeCaption t%
+    \lsthk@PreInit \lsthk@Init
+    \lst@ifdisplaystyle
+        \global\let\lst@ltxlabel\@empty
+        \if@inlabel
+            \lst@ifresetmargins
+                \leavevmode
+            \else
+                \xdef\lst@ltxlabel{\the\everypar}%
+                \lst@AddTo\lst@ltxlabel{%
+                    \global\let\lst@ltxlabel\@empty
+                    \everypar{\lsthk@EveryLine\lsthk@EveryPar}}%
+            \fi
+        \fi
+        \everypar\expandafter{\lst@ltxlabel
+                              \lsthk@EveryLine\lsthk@EveryPar}%
+    \else
+        \everypar{}\let\lst@NewLine\@empty
+    \fi
+    \lsthk@InitVars \lsthk@InitVarsBOL
+    \lst@Let{13}\lst@MProcessListing
+    \let\lst@Backslash#1%
+    \lst@EnterMode{\lst@Pmode}{\lst@SelectCharTable}%
+    \lst@InitFinalize}
+
+\newcommand\Larg [1]{{\normalfont\itshape#1\/}}
+\newcommand\Larga[1]{$\langle$\Larg{#1}$\rangle$}
+\newcommand\Largb[1]{\lcb\Larg{#1}\rcb}
+\newcommand\Largs[1]{\lsb\Larg{#1}\rsb}
+\newcommand\Largr[1]{\lrb\Larg{#1}\rrb}
+\newcommand\LBEG[1]{{\normalfont\ttfamily\bs{}begin\lcb#1\rcb}}
+\newcommand\LEND[1]{{\normalfont\ttfamily\bs{}end\lcb#1\rcb}}
+
+\DeclareRobustCommand\bs{{\normalfont\ttfamily\symbol{92}}}
+\DeclareRobustCommand\lcb{{\normalfont\ttfamily\char`\{}}
+\DeclareRobustCommand\rcb{{\normalfont\ttfamily\char`\}}}
+\DeclareRobustCommand\lsb{{\normalfont\ttfamily[}}
+\DeclareRobustCommand\rsb{{\normalfont\ttfamily]}}
+\DeclareRobustCommand\lrb{{\normalfont\ttfamily(}}
+\DeclareRobustCommand\rrb{{\normalfont\ttfamily)}}
+
+\def\Lcs#1{\nxLcs{#1}}
+\def\LcsStar#1{\nxLcs{#1}\OptArg*{*}}
+\def\nxLcs#1{\texttt{\symbol{92}#1}}
+
+\def\Coordx#1{$x_{#1}$}
+\def\Coordy#1{$y_{#1}$}
+\def\Coordz#1{$z_{#1}$}
+\def\Coord#1{\Coordx{#1},\kern 1pt\Coordy{#1}}
+\def\Coordn{\Coordx{n},\kern 1pt\Coordy{n}}
+\def\CoordIII#1{\Coordx{#1},\kern 1pt\Coordy{#1},\kern 1pt\Coordz{#1}}
+\def\CAny{\Coordx{},\kern 1pt\Coordy{}}
+\def\CIIIAny{\Coordx{},\kern 1pt\Coordy{},\kern 1pt\Coordz{}}
+\def\coord#1{(\Coordx{#1},\kern 1pt\Coordy{#1})}
+\def\coordn{(\Coordx{n},\kern 1pt\Coordy{n})}
+\def\coordiii#1{(\Coordx{#1},\kern 1pt\Coordy{#1},\kern 1pt\Coordz{#1})}
+\def\coordx#1{($x_{#1}$)}
+\def\coordy#1{($y_{#1}$)}
+\def\coordz#1{($z_{#1}$)}
+\def\cAny{(\Coordx{},\kern 1pt\Coordy{})}
+\def\ciiiAny{(\Coordx{},\kern 1pt\Coordy{},\kern 1pt\Coordz{})}
+
+\newsavebox{\boxdef}
+\newenvironment{BDef}
+  {\begin{lrbox}\boxdef
+      \def\arraystretch{1.0}\if@RTL\@RTLfalse\fi
+      \begin{tabular}{@{}l@{}l@{}l@{}}
+  }
+  {\end{tabular}\end{lrbox}
+
+   {\BCmd\fbox{\usebox\boxdef}\endBCmd}
+   \aftergroup\@afterindentfalse\aftergroup\@afterheading
+  }
+
+\newenvironment{BDef*}
+  {\begin{lrbox}\boxdef
+      \def\arraystretch{1.0}\if@RTL\@RTLfalse\fi
+      \begin{tabular}{@{}l@{}l@{}l@{}}
+  }
+  {\end{tabular}\end{lrbox}
+   {\begin{BCmd*}\fbox{\usebox\boxdef}\end{BCmd*}}
+   \aftergroup\@afterindentfalse\aftergroup\@afterheading
+  }
+\newenvironment{BCmd}{
+  \@beginparpenalty-\@lowpenalty
+  \topsep\BDefaboveskip
+  \fboxsep3pt
+  \flushleft\if@RTL\@RTLfalse\fi}
+ {\@endparpenalty\@M
+  \@topsepadd\BDefbelowskip
+  \endflushleft}
+
+\newenvironment{BCmd*}{
+  \@beginparpenalty\@M
+  \topsep\BDefinlineskip
+  \fboxsep3pt
+  \flushleft\if@RTL\@RTLfalse\fi}
+ {\@endparpenalty5000
+  \endflushleft}
+
+\newskip\BDefaboveskip
+\newskip\BDefbelowskip
+\newskip\BDefinlineskip
+\setlength\BDefaboveskip{10pt plus 4pt}
+\setlength\BDefbelowskip{6pt}
+\setlength\BDefinlineskip{6pt}
+
+\def\OptArgs{\colorbox{black!20}{\texttt{[Options]}}\kern1pt}
+\def\OptArg{\@ifnextchar*\OptArg@i{\OptArg@ii*}}
+\def\OptArg@i*#1{\colorbox{black!20}{\texttt{#1}}\kern1pt}
+\def\OptArg@ii*#1{\colorbox{black!20}{\texttt{[#1]}}\kern1pt}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `bidicode.sty'.

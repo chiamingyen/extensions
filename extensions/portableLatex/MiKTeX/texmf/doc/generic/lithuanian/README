@@ -1,0 +1,69 @@
+README for littex
+
+* What is it?
+
+Lithuanian language support package for TeX.
+
+Provides:
+
+- Lithuanian hyphenation
+- Lithuanian adds for Babel
+- Lithuanian TeX fonts for lmr and urwvn font families
+- examples for making Lithuanian TeX fonts with fontinst
+- extra tools for inputenc
+
+* Instalation (based on teTeX 3.0 and TDS 1.1)
+
+1. Copy texmf stuff from archive to TEXMFLOCAL.
+   (You can find TEXMFLOCAL location by using kpsewhich:
+    kpsewhich -expand-var='$TEXMFLOCAL').
+   Run mktexlsr.
+
+2. Manage map files: 
+
+   * updmap --enable Map $TEXMFLOCAL/fonts/map/dvips/lt/l7x-lm.map 
+     (for current user) 
+   * updmap-sys --enable Map $TEXMFLOCAL/fonts/map/dvips/lt/l7x-lm.map 
+     (for all users) 
+     
+   * updmap --enable Map $TEXMFLOCAL/fonts/map/dvips/lt/l7x-urwvn.map 
+     (for current user) 
+   * updmap-sys --enable Map $TEXMFLOCAL/fonts/map/dvips/lt/l7x-urwvn.map 
+     (for all users)
+     
+3. Manage hyphenation (TeX formats):
+
+   Get current language.dat and language.def locations
+   >kpsewhich language.dat
+   >kpsewhich language.def
+
+   Get language.lt.dat and language.lt.def locations
+   >kpsewhich language.lt.dat
+   >kpsewhich language.lt.def
+
+   Copy language.dat to language.lt.dat location and add record from
+   language.lt.dat to language.dat
+   
+   Copy language.def to language.lt.def location and add record from
+   language.lt.def to language.def
+   
+   Run mktexlsr.
+
+   * fmtutil --all
+     (for current user)    
+   * fmtutil-sys --all
+     (for all users)         
+
+That's all! 
+
+
+* More info
+
+General information about this package is at: 
+
+   http://www.vtex.lt/tex/littex/
+
+Enjoy Lithuanian TeXing!
+
+7 September 2006
+Sigitas Tolu\v{s}is

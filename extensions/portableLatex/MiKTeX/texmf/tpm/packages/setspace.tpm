@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/setspace"><TPM:Name>setspace</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Set space between lines: e.g., double and one and a half spacing.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Support for double, one-and-a-half, and other line spacings
+      based on pt size.</TPM:Description><TPM:RunFiles size="22615">texmf\tex\latex\setspace\setspace.sty texmf\tpm\packages\setspace.tpm</TPM:RunFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>13f6b4dad02e7b320d4da1dd2ebe6a6a</TPM:MD5></rdf:Description></rdf:RDF>

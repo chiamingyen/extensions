@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/pst-optexp"><TPM:Name>pst-optexp</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Drawing optical experimental setups</TPM:Title><TPM:Version></TPM:Version><TPM:TargetSystem></TPM:TargetSystem><TPM:Description>The package pst-optexp is a collection of optical components that facilitate easy sketching of optical experimental setups. Mechanisms for proper alignment of different components are provided internally. This way the user does not have to care for proper orientation of the elements. 
+
+The author is Christoph Bersch.
+
+</TPM:Description><TPM:RunFiles size="88744">texmf\dvips\pst-optexp\pst-optexp.pro texmf\tex\generic\pst-optexp\pst-optexp.tex texmf\tex\latex\pst-optexp\pst-optexp.sty texmf\tpm\packages\pst-optexp.tpm</TPM:RunFiles><TPM:DocFiles size="392088">texmf\doc\latex\pst-optexp\Changes texmf\doc\latex\pst-optexp\parque-nacional.eps texmf\doc\latex\pst-optexp\pst-optexp-doc.pdf texmf\doc\latex\pst-optexp\README</TPM:DocFiles><TPM:SourceFiles size="16028">texmf\source\pst-optexp-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1257620311</TPM:TimePackaged><TPM:MD5>bd1e43d4947a8bd59def9ba319ca24ad</TPM:MD5></rdf:Description></rdf:RDF>

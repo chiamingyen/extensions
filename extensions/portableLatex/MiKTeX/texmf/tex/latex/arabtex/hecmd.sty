@@ -1,0 +1,217 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hecmd.sty
+% ArabTeX
+% special commands for Hebrew mode
+% using ideas by Rama Porrat, Bernd Raichle and others
+% 07.05.2000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {hecmd.sty} {3.05 additional commands for Hebrew} {07.05.2000}
+
+\let \RLtext \arabtext		\let \endRLtext \endarabtext		
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcount \is@m      \newcount \is@n      \newcount \is@l	
+
+\def \heb@catcodes {% make chars 128-154 and 224-250 into letters
+\is@m =  96 % oldcode
+\is@n = 128 % pccode
+\is@l = 224 % newcode
+\loop 	\lccode \is@n = \is@m \catcode \is@n = 11
+	\lccode \is@l = \is@m \catcode \is@l = 11
+\ifnum 122 > \is@m
+	\advance \is@m 1 \advance \is@n 1 \advance \is@l 1
+\repeat }
+
+\def \heb@catcodes {% make chars 128-154 and 224-250 into letters
+\is@m =  96 % oldcode
+\is@n = 128 % pccode
+\is@l = 224 % newcode
+\loop 	\global\lccode \is@n = \is@m \catcode \is@n = 11
+	\global\lccode \is@l = \is@m \catcode \is@l = 11
+\ifnum 122 > \is@m
+	\advance \is@m 1 \advance \is@n 1 \advance \is@l 1
+\repeat }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% activate most commands from hebrew.sty
+
+\begingroup
+\heb@catcodes
+
+\allowarab \äâéÖ		\allowarab \õÒÔ¨
+\allowarab \Äùôéÿàî		\allowarab \¯¸¾ÔÒÕý
+\allowarab \ÄùôÆÉù		\allowarab \¯¸¾­¸
+\allowarab \éÿÖ			\allowarab \Ô°¨
+\allowarab \öÜçéÿÖ		\allowarab \¶·þÔ°¨
+\allowarab \æéàÿéÿÖ		\allowarab \±ÔÕ°Ô°¨
+\allowarab \öÜçûëêàê		\allowarab \¶·þ÷ÚÞÕÞ
+\allowarab \æéàÿûëêàê		\allowarab \±ÔÕ°÷ÚÞÕÞ
+\allowarab \öëæùä		\allowarab \¶Ú±¸õ
+\allowarab \öëæùäöëæùä		\allowarab \¶Ú±¸õ¶Ú±¸õ
+\allowarab \ùöëûäùêÉä		\allowarab \¸¶Ú÷õ¸Þ­õ
+\allowarab \ùöëûäüëÉàÉëÜ	\allowarab \¸¶Ú÷õßÚ­Õ­Ú·
+\allowarab \ùöëûäéâàîä		\allowarab \¸¶Ú÷õÔÒÕýõ
+\allowarab \ÖàÿäëÄëÅ		\allowarab \¨Õ°õÚ¯Ú´
+\allowarab \ÖàÿäÖÄÇî		\allowarab \¨Õ°õ¨¯Óý
+\allowarab \Äÿïå		\allowarab \¯°Ùµ
+\allowarab \äëàì 		\allowarab \õÚÕÝ
+
+\gdef \äâéÖ {\hadgesh}		\gdef \õÒÔ¨ {\hadgesh}
+\gdef \Äùôéÿàî {\makafgadol}	\gdef \¯¸¾ÔÒÕý {\makafgadol}
+\gdef \ÄùôÆÉù {\makafanak}	\gdef \¯¸¾­¸ {\makafanak}
+\gdef \éÿÖ {\geresh}		\gdef \Ô°¨ {\geresh}
+\gdef \öÜçéÿÖ {\opengeresh}	\gdef \¶·þÔ°¨ {\opengeresh}
+\gdef \æéàÿéÿÖ {\closegeresh}	\gdef \±ÔÕ°Ô°¨ {\closegeresh}
+\gdef \öÜçûëêàê {\openquote}	\gdef \¶·þ÷ÚÞÕÞ {\openquote}
+\gdef \æéàÿûëêàê {\closequote}	\gdef \±ÔÕ°÷ÚÞÕÞ {\closequote}
+\gdef \öëæùä {\piska}		\gdef \¶Ú±¸õ {\piska}
+\gdef \öëæùäöëæùä {\piskapiska}	\gdef \¶Ú±¸õ¶Ú±¸õ {\piskapiska}
+\gdef \ùöëûäùêÉä {\smallskip}	\gdef \¸¶Ú÷õ¸Þ­õ {\smallskip }
+\gdef \ùöëûäüëÉàÉëÜ {\medskip}	\gdef \¸¶Ú÷õßÚ­Õ­Ú· {\medskip }
+\gdef \ùöëûäéâàîä {\bigskip}	\gdef \¸¶Ú÷õÔÒÕýõ {\bigskip }
+\gdef \ÖàÿäëÄëÅ {\rightline}	\gdef \¨Õ°õÚ¯Ú´ {\rightline}
+\gdef \ÖàÿäÖÄÇî {\leftline}	\gdef \¨Õ°õ¨¯Óý {\leftline}
+\gdef \Äÿïå {\centerline}	\gdef \¯°Ùµ {\centerline}
+\gdef \äëàì {\hebday}		\gdef \õÚÕÝ {\hebday}
+\endgroup
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@hadgesh #1{% poor man's bold version
+\setbox0 \hbox {#1}%
+\kern-.025em\copy0\kern-\wd0
+\kern.05em\copy0\kern-\wd0
+\kern-.025em\raise.025em\copy0\kern-\wd0
+\raise-.025em\box0}
+
+\def \a@c@hadgesh #1{\putwordb@x {\a@hadgesh {\R{#1}}}\test@token }
+\def \hadgesh #1{\a@hadgesh {\R {#1}}}	
+
+\def \a@c@makafgadol {\putwordb@x {\bf --}\test@token }
+
+\def \a@c@makafanak {\putwordb@x {\bf ---}\test@token }
+
+\def \a@c@geresh {\a@spacefalse \putwordb@x {\bf `}\test@token }
+\let \a@c@closegeresh \a@c@geresh
+\def \geresh {`}	\let \closegeresh \geresh
+
+\def \a@c@opengeresh {\putwordb@x {\bf '}\a@spacefalse \test@token }
+\def \opengeresh {'}
+
+\def \a@c@closequote {\a@spacefalse \putwordb@x {\bf ``}\test@token }
+\def \closequote {``}
+
+\def \a@c@openquote {\putwordb@x {\bf ''}\a@spacefalse \test@token }
+\def \openquote {''}
+
+\def \a@c@undertext #1{\putwordb@x {$\underline {\R {#1}}$}\test@token }
+\let \undertext \underline
+
+\def \a@c@hebday {\putwordb@x {\number\day }\a@spacetrue
+\edef \themonth {ü\ifcase \month \or
+ ëÉàÇÿ\or  öüÿàÇÿ\or     Äÿò\or    Çöÿëî\or     ÄÇë\or   ëàÉë\or
+  ëàîë\or  Çàéàæê\or  æöêÄüÿ\or  Çàùêàüÿ\or  ÉàüÄüÿ\or  âûÄüÿ\fi }%
+\putwordb@x {\xpa \RL \xpa {\themonth }}\a@spacetrue
+\putwordb@x {\number\year }\test@token }
+
+\def \hebday {\RL{\hebday }} % this looks wrong, but works !
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@Hebrewtoday {% internal calendar routine
+\Hebrewsetreg
+\tracingmacros 1
+\edef \theHebrewDay {\HebrewDayName {\Hebrewday }\space
+ü\HebrewMonthName {\Hebrewmonth }{\Hebrewyear },\space 
+\a@HebrewYearName {\Hebrewyear }}%
+\tracingmacros 0
+\putwordb@x {\xpa \R \xpa {\theHebrewDay }}\test@token }
+
+\def \a@HebrewYearName #1{% max 4 digits, fully expandable version
+\ifnum #1>9999 \errmessage{HebrewYearName: illegal argument #1}\else
+\ifnum #1>999 \xpa \a@HYName \number #1\else
+\ifnum #1>99 \xpa \a@HYName \xpa 0\number #1\else
+\ifnum #1>9 \xpa \a@HYName \xpa 0\xpa 0\number #1\else
+\xpa \a@HYName \xpa 0\xpa 0\xpa 0\number #1\fi \fi \fi \fi }
+
+\def \a@HYName #1#2#3#4{% max 4 digits to Hebrew number
+\ifnum #1= 5 % Change it in the next Hebrew Millennium..
+	\ifnum #2#3#4> 0 \else \DigitInHebrew {#1}'\fi 
+\else \DigitInHebrew {#1}'\fi
+\a@ShortHYName {#2#3#4}% 
+\ifnum #1< 1 \space )îö"é(\fi
+\ifnum #2#3#4= 0 \space )îö"é(\fi }
+
+\def \a@SHYNumber #1{% fully expandable version
+\ifnum #1>999 \errmessage{ShortHYName: illegal argument #1}\else
+\ifnum #1>99 \xpa \a@SHYName \number #1\else
+\ifnum #1>9 \xpa \a@SHYName \xpa 0\number #1\else
+\xpa \a@SHYName \xpa 0\xpa 0\number #1\fi \fi \fi }
+
+\def \a@SHYName #1#2#3{% max 3 digits, fully expandable
+\ifcase #1\or	ù\or 	ÿ\or	Ö\or	Ü\or
+	Üù\or	Üÿ\or	ÜÖ\or	ÜÜ\or	ÜÜù\fi
+\ifnum #2#3 = 16 êå\else
+\ifnum #2#3 = 15 êà\else
+	\ifnum #2 = 0 \else \TensInHebrew{#2}\fi
+	\ifnum #3 = 0 \else \DigitInHebrew{#3}\fi
+\fi\fi }		
+
+\def \a@ShortHYName #1{% format Hebrew number < 1000
+\xpa \xpa \xpa \a@FormatNumber \a@EvalToCS {\a@SHYNumber {#1}}\@ }
+
+\def \a@EvalToCS #1{% fully expand the parameter to a \cs name string
+\xpa \string \csname #1\endcsname }
+
+\def \a@FormatNumber #1\@ {\xpa \a@Format #1\@ }
+
+\def \a@Format #1#2\@ {\a@Formati #2\@ }
+
+\def \a@Formati #1#2\@ {% first digit
+#1\ifx \relax #2\relax '\else \ReturnFi 
+\a@Formatii #2\@ \fi }
+
+\def \a@Formatii #1#2\@ {% following digits
+\ifx \relax #2\relax ''#1\else #1\ReturnFi 
+\a@Formatii #2\@ \fi }
+
+\def \ReturnFi #1\fi {\fi #1}% FALSE branch
+
+\def \ReturnElseFi #1\else #2\fi {\fi #1}% TRUE branch
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+% from heb_pc.mac
+
+%\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+
+\everydisplay{\aftergroup\beginR }
+
+\def\piska#1{\item{#1}\hangindent=-\hangindent}
+
+\def\piskapiska#1{\itemitem{#1}\hangindent=-\hangindent}
+		
+\def\leftquotation{\L{''}}
+\def\rightquotation{\L{``}}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+°  !  "     $  %  &  .  (  )  =  ?  ;
+^  1  2² 3³ 4  5  6  7{ 8[ 9] 0} ß\ ,
+     Q@ W  E  R  T  Z  U  I  O  P  Ü  *
+     /  '  ù  ÿ  Ç  å  à  Å  ì  ö  ü  +~
+      A  S  D  F  G  H  J  K  L  Ö  Ä  ,
+      Ö  â  é  ï  Æ  ë  ç  î  è  ö  ä  #
+     >  Y  X  C  V  B  N  Mµ ô  :  _
+     <| ê  æ  ü  ä  É  Ä  û  Ü  ò  -
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

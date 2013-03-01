@@ -1,0 +1,263 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\input amstex
+\documentstyle{amsppt}
+\nologo
+\hsize=6.5in
+\vsize=9in
+\widowpenalty=10000
+\clubpenalty=10000
+
+\input greekmacros
+\greekdelims
+
+\font\sc=cmcsc10
+\def\LaTeX{{\rm L\kern-.36em\raise.3ex\hbox{\sc a}\kern-.15em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\def\plus{\math{}+{}\math}
+\def\.#1{{\tt #1}}
+\def\disp#1{\line{\tt #1\hfil}}
+\def\angles#1{{$\langle$\rm #1$\rangle$}}
+\chardef\!`\\
+\chardef\~`\~
+\chardef\{`\{
+\chardef\}`\}
+\chardef\#`\#
+\def\begineight{\smallskip\bgroup\eightpoint}
+\def\endeight{\par\egroup\smallskip}
+
+\def\verbatim{\begingroup
+  \def\do##1{\catcode`##1=12 } \dospecials
+  \parskip 0pt \parindent 0pt
+  \catcode`\ =13 \catcode`\^^M=13
+  \tt \catcode`\?=0 \verbatimdefs \verbatimgobble}
+{\catcode`\^^M=13{\catcode`\ =13\gdef\verbatimdefs{\def^^M{\ \par}\let =\ }} %
+  \gdef\verbatimgobble#1^^M{}}
+\def\beginverbatim{\smallskip\begingroup\verbatim}
+\def\endverbatim{\endgroup\endgroup\smallskip}
+
+\topmatter
+\title Using Greek Fonts with \TeX\endtitle
+\author Silvio Levy \endauthor
+\affil
+  Princeton University \\
+  Fine Hall, Washington Road\\
+  Princeton, NJ, 08544\\
+  (\.{levy\@princeton.edu})
+\endaffil
+\endtopmatter
+\document
+
+\abovedisplayskip6pt plus3pt minus3pt
+\belowdisplayskip6pt plus3pt minus3pt
+\abovedisplayshortskip0pt plus3pt
+\belowdisplayshortskip4pt plus3pt minus4pt
+
+In this document I hope to show that typesetting Greek in \TeX\
+using the \.{gr} family of fonts can be as easy as typesetting
+English text, and leads to equally good results.
+This is meant to be a tutorial, not an exhaustive discussion;
+some \TeX nical remarks that should be useful after the reader
+has acquired some familiarity with the fonts are printed in fine
+print.
+
+\heading
+The Alphabet
+\endheading
+
+In order to typeset Greek text, you need to go into ``Greek mode.''
+This is achieved by typing \.{\!begingreek} anywhere in your document;
+Greek mode will remain in effect until you type a matching \.{\!endgreek}.
+While in Greek mode, the letters `a' to `z' and `A' to `Z' come out
+as Greek letters, according to the following code:
+\display
+\hbox{\valign
+  {\hbox to 10pt{\hfil\strut$#$\hfil}&\hbox to 10pt{\hfil\strut\tt#\hfil}\cr
+  a&a\cr b&b\cr g&g\cr d&d\cr e&e\cr z&z\cr h&h\cr j&j\cr
+  i&i\cr k&k\cr l&l\cr m&m\cr n&n\cr x&x\cr o&o\cr p&p\cr
+  r&r\cr c&s\cr t&t\cr u&u\cr f&f\cr q&q\cr y&y\cr w&w\cr}}
+\enddisplay
+
+There is no digamma yet.  The same character `s' will print as
+`$c$' or `$s$', depending on its position in a word.
+
+\begineight
+The system does this by accessing a ligature of `s' with any other
+letter that follows it.  If, for some reason, you want to print
+an initial/medial sigma by itself (as in the table above), or
+at the end of a word, you should type `c'.
+\endeight
+
+Try to typeset some simple text now.  Create a file
+containing the following lines:
+
+\beginverbatim
+\input greekmacros	% where \begingreek and other commands are defined
+This is English text.
+\begingreek
+This is Greek text.
+\endgreek
+?endverbatim
+
+When you \TeX\ this file, you get the following gibberish:
+\display
+\hbox{
+This is English text.
+\begingreek
+This is Greek text.
+\endgreek
+}
+\enddisplay
+
+If you say \.{\!greekdelims} near the top of your file,
+the character \.{\$} can be used
+in place of both \.{\!begingreek} and \.{\!endgreek}.  The control
+sequence \.{\!math} takes on the former meaning of \.{\$}.
+
+\heading
+Accents and Breathings
+\endheading
+
+To get an acute, grave or circumflex accent over a vowel,
+type \.{'}, \.{`} or \.{\~}, respectively, before the vowel.
+To get a rough or smooth breathing, type \.{<} or \.{>} before
+the vowel (or rho) and any accent that it may have.  To get an iota
+subscript, type \.{|} {\it after\/} the vowel.  A diaeresis is
+represented by \.{"}, and if accompanied by an accent it can come
+before or after the accent.
+
+For example, \hbox{\.{>en >arq\~h| >\~hn <o l'ogos}}
+gives \hbox{$>en >arq~h| >~hn <o l'ogos$}.
+Neat, ain't it?
+
+\begineight
+Accents and breathings, too, are typeset by means of ligatures: a
+vowel with a breathing, an accent and iota subscript, for example,
+is realized as a four-character ligature.  The only exception is
+when a breathing is followed by a grave accent, in which case the
+breathing\plus accent combination is typeset as a \TeX\ \.{\!accent}
+over the vowel.  This means that words containing such combinations
+cannot be hyphenated in (standard) \TeX; but this is not a problem
+because, with the exception of very rare cases of crasis, all such words
+are monosyllables.
+\endeight
+
+\heading
+Punctuation
+\endheading
+
+Here's the table of correspondences for punctuation:
+\display
+\hbox{\valign
+  {\hbox to 15pt{\hfil\strut$#$\hfil}&\hbox to 15pt{\hfil\strut\tt#\hfil}\cr
+  .&.\cr ,&,\cr ;&;\cr :&:\cr !&!\cr ?&?\cr ''&''\cr ((&((\cr ))&))\cr}}
+\enddisplay
+The last three entries represent the apostrophe and quotations marks.
+The other available non-letters are the ten digits, parentheses,
+brackets, hyphen, em- and en-dashes, slash, percent sign, asterisk,
+plus and equal signs.  All of these are accessible in the same way as
+under plain \TeX.  In a future release there will be tick marks for
+numbers (\math\hbox{$a$}'=1\math, \math{}_\prime\hbox{$a$}=1000\math).
+
+\heading
+Hyphenation
+\endheading
+
+A hyphenation table for both modern and ancient Greek is currently
+being debugged.  For now one can use plain \TeX\ with its (English)
+hyphenation table, which gives the right results about 90\% of the
+time (amazing, isn't it?).  Be sure to proofread your text carefully,
+unless you've turned hyphenation off.
+
+\begineight
+In standard \TeX, only one hyphenation dictionary can be used in
+a job.  Thus, even with a Greek hyphenation table, a file that
+combines Greek and English text is likely to be incorrectly
+hyphenated.  Michael Ferguson's extension to \TeX\ handles multiple
+hyphenation tables, and hyphenates words containing \.{\!accent}s
+(cf.~the previous fine print paragraph).
+\endeight
+
+\heading
+Interaction with other macros
+\endheading
+
+While in Greek mode you can do just about everything that you can
+outside: go into math mode, create boxes, alignments, and so on.
+The file \.{greekmacros.tex} sets things up so that in Greek mode
+the control sequences \.{\!tt} and \.{\!bf} switch to a
+typewriter and a bold Greek font, respectively: thus
+\.{\{\!tt s''>agap\~w\}} gives \hbox{$\tt s''>agap~w$}.  (Try it.)
+On the other hand, there are no ``italic'' or slanted Greek fonts,
+so \.{\!it} and \.{\!sl} will give you the same fonts as outside
+Greek mode.  The various constructions under
+\AmSTeX\ and \LaTeX\ for increasing or decreasing point sizes don't
+work yet; they will in a future release.
+
+The characters that form diacritics (\.{<}, \.{>},
+\.{'}, \.{`}, \.{\~}, \.{"} and \.{|}) are treated differently
+depending on whether or not you're in Greek mode.  More exactly,
+under plain \TeX\ these characters (with the exception of
+\.{\~}) have a \.{\!catcode} of 12: they print as themselves, 
+and they cannot appear in control words.  But in Greek mode
+\.{'}, \.{`}, \.{\~}, \.{"} and \.{|} are ``letters'', that is,
+they have a \.{\!catcode} of 11, while \.{<} and \.{>} are
+active, with a \.{\!catcode} of 13.  This may be important even
+for beginners because it means that \.{'}, for example, can be taken
+as part of a control word.  Thus the sequence
+\beginverbatim
+\begingreek
+\line{wm'ega\hfil'alfa}
+\endgreek
+?endverbatim
+\noindent
+will cause an error message about an
+undefined control sequence \.{\!hfil'alfa}, instead of printing
+\display
+$\line{wm'ega\hfil 'alfa}$
+\enddisplay
+as you might expect.  (I hope classicists will forgive this use
+of the modern Greek one-accent system.) The solution, of course,
+is to remember to add a blank after the \.{\!hfil}.
+
+\begineight
+A more subtle problem arises when you use Greek text in macro
+arguments, if the arguments are scanned while you're outside Greek
+mode.  This is because \TeX\ assigns \.{\!catcode}s to tokens
+as it first reads them, so when the argument is plugged into
+the body of the macro the characters above have the wrong 
+\.{\!catcode}.  If the legendary Jonathan Horatio Quick were
+to write
+\display
+\hbox{\.{%
+\!def\!hellenize\#1\{\!begingreek \#1\!endgreek\}
+\!hellenize\{d'uo >`h tre\~is,\}}}
+\enddisplay
+he would be unpleasantly surprised by the following output:
+\display
+\def\hellenize#1{\begingreek #1\endgreek}
+\hbox{\hellenize{d'uo >`h tre~is,}}
+\enddisplay
+which can be explained as follows: the \.{\~}, which should be
+a letter, is seen as an active character, and expands to a blank
+as in plain \TeX; while the breathing, which should be active,
+is not, and in particular it doesn't do the right thing when
+next to the grave accent.  Solutions to this problem require a
+bit of wizardry, and will not be discussed here; see, for example,
+Reinhard Wonneberger's article in the October, 1986 issue of
+{\it TUGboat}, especially pages 179--180.
+\endeight
+\end

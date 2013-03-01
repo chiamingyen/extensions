@@ -1,0 +1,52 @@
+%Filename: l7xuhv.fd
+%Created by: tex makelt
+%Created using fontinst v1.929
+
+%THIS FILE SHOULD BE PUT IN A TEX INPUTS DIRECTORY
+
+\ProvidesFile{l7xuhv.fd}
+   [2006/09/05 Fontinst v1.929 font definitions for L7x/uhv.]
+
+\DeclareFontFamily{L7x}{uhv}{}
+
+\DeclareFontShape{L7x}{uhv}{b}{n}{
+   <-> l7x-uhvb
+}{}
+
+\DeclareFontShape{L7x}{uhv}{b}{it}{
+   <-> l7x-uhvbo
+}{}
+
+\DeclareFontShape{L7x}{uhv}{m}{n}{
+   <-> l7x-uhvr
+}{}
+
+\DeclareFontShape{L7x}{uhv}{m}{it}{
+   <-> l7x-uhvro
+}{}
+
+\DeclareFontShape{L7x}{uhv}{bc}{n}{
+   <-> l7x-uhvbc
+}{}
+
+\DeclareFontShape{L7x}{uhv}{bc}{it}{
+   <-> l7x-uhvboc
+}{}
+
+\DeclareFontShape{L7x}{uhv}{mc}{n}{
+   <-> l7x-uhvrc
+}{}
+
+\DeclareFontShape{L7x}{uhv}{mc}{it}{
+   <-> l7x-uhvroc
+}{}
+
+\DeclareFontShape{L7x}{uhv}{bx}{n}{<->ssub * uhv/b/n}{}
+\DeclareFontShape{L7x}{uhv}{bx}{it}{<->ssub * uhv/b/it}{}
+\DeclareFontShape{L7x}{uhv}{b}{sl}{<->ssub * uhv/b/it}{}
+\DeclareFontShape{L7x}{uhv}{bx}{sl}{<->ssub * uhv/b/sl}{}
+\DeclareFontShape{L7x}{uhv}{m}{sl}{<->ssub * uhv/m/it}{}
+\DeclareFontShape{L7x}{uhv}{bc}{sl}{<->ssub * uhv/bc/it}{}
+\DeclareFontShape{L7x}{uhv}{mc}{sl}{<->ssub * uhv/mc/it}{}
+
+\endinput

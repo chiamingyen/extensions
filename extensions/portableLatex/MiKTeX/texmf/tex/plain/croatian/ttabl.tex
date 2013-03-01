@@ -1,0 +1,56 @@
+%\hsize=10cm
+
+%\font\blj=blj
+%\def\tvr{{\cyr\t}\relax}
+
+{
+\baselineskip=0.5cm\rm
+
+\setbox1=\vbox{\halign{\ngl\hfil#\hfil&\quad#\hfil&\quad\hfil#\quad\cr
+A&  A& 1\cr
+B&  B&  2\cr
+V&  V&  3\cr
+G&  G&  4\cr
+D&  D&  5\cr
+E&  E&  6\cr
+Zz&  \v Z&  7\cr
+9& Dz&    8\cr
+Z& Z&  9\cr
+Y& \"I&  10\cr
+I&  I&  20\cr
+Dd, J&  Dj&  30\cr
+K&  K&  40\cr
+L&  L&  50\cr
+M&  M&  60\cr
+N&  N&  70\cr
+}}
+
+
+
+\setbox2=\vbox{\halign{\ngl\hfil#\hfil&\quad#\hfil&\quad\hfil#\quad\cr
+O&   O&  80\cr
+P&  P&  90\cr
+R&  R&  100\cr
+S&   S&  200\cr
+T&  T&  300\cr
+U&  U&  400\cr
+F&   F&  500\cr
+H&   H&  600\cr
+Q & $\omega$&  700\cr
+Ch& \v S\'c, \' C&  800\cr
+C&  C&  900\cr
+Cc, Cx&  \v C&  1000\cr
+Ss&  \v S&  2000\cr
+\^{}& semivowel&  \cr
+YA& Ja, Je& \cr
+YU& Ju&\cr}}
+
+
+
+\setbox22=\vbox to \ht1{\vskip3.33pt\copy2\vss}
+%\setbox33=\vbox to \ht1{\vskip3.33pt\copy3\vss}
+
+$$
+\hbox to \hsize{\copy1\hfil\copy22}
+$$
+}

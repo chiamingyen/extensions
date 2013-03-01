@@ -1,0 +1,57 @@
+% This is a config file for dvips 5.85(k) and teTeX, which is
+% meant to produce PostScript optimized for distilling to PDF.
+% Experimental. Created 12 Apr 1999 by tvz@nwu.edu; public domain. 
+%
+% Changes by te, Sun May 16 20:41:16 CEST 1999:
+%    - removed papersize stuff
+%    - changed "o" line
+%
+% Memory available: The default for Distiller 3.0x is 8meg.
+% Reduce to be on safe side:
+
+m 6000000
+
+% Default is to save output as file.
+% If possible, change this so that it pipes output to distiller.
+% If not, use command line ``-o file'' option to change name
+% of output file.
+
+o
+
+% Default resolution. Attempt to make `resolution independent'.
+% Resolution set to 8000dpi (could be as high as 10000).
+
+D 8000
+
+% This is for using BlueSky/AMS/Y&Y Type 1 fonts. Change this for other
+% Type 1 fonts.
+
+p psfonts_t1.map
+
+% Last resort sizes.
+% If you accidentally include a bitmapped pk font, it will probably go
+% at 600dpi.
+
+R 300 600
+
+% Partial Type1 font downloading. This will happen by default. Uncomment
+% this is you want to download entire fonts. NOT RECOMMENDED.
+
+% j0
+
+% Character shifting.  You may have wanted to do this when using the
+% BlueSky/AMS/Y&Y fonts, a long time ago, to work around various
+% bugs in ancient versions of Acrobat Reader, but it should no longer
+% be necessary. It remaps certain ``control character'' positions to
+% another range where these characters are repeated.
+%
+% Since this is doing more harm than good, it is disabled by default.
+%
+% G
+
+% Switching algorithm for drawing rules. texc.pro is loaded by default,
+% but the h tex.pro is need so that it comes before the patch. See
+% below for more details.
+
+h tex.pro
+h alt-rule.pro

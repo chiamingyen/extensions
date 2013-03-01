@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% atabg.sty
+% called by altxext.sty
+% 21.01.1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {atabg.sty} {3.05 LaTeX tabbing macros for Arabic} {21.01.1997}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@tabdef #1{\xpa\def \csname a@c@\string #1\endcsname }
+
+\def \a@c@tabbing {% tabbing in Arabic mode
+\a@tabdef >{\a@rtab 	\test@token }
+\a@tabdef ={\a@settab 	\test@token }
+\a@tabdef <{\@ltab 	\test@token }
+\a@tabdef +{\@tabplus 	\test@token }
+\a@tabdef -{\@tabminus 	\test@token }
+\a@tabdef `{\a@tabrj 	\test@token }
+\a@tabdef '{\a@tablab 	\test@token }
+\def \a@last@line {\let \next \a@tabcr }
+\let \endtabbing \a@endtabbing
+\a@@par \lineskip \z@skip 
+\@hightab \@firsttab \global\@nxttabmar \@firsttab
+\dimen\@firsttab \@totalleftmargin \global\@tabpush \z@ 
+\global\@rjfieldfalse
+\trivlist \item\relax
+\if@minipage \else \vskip\parskip \fi
+\setbox\@tabfbox \hbox
+	{\rlap {\indent \hskip\@totalleftmargin \the\everypar }}%
+\def \@itemfudge {\box\@tabfbox }%
+\a@startline \test@token }
+
+\def \a@endtabbing {% end of Arabic tabbing environment
+\a@stopline \aftergroup \a@spacefalse
+\ifnum\@tabpush >\z@ \@badpoptabs \fi
+\endtrivlist }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@startline{% open new tabbing line
+\ifnum \@nxttabmar >\@hightab \@badtab \global\@nxttabmar \@hightab \fi
+\global\@curtabmar \@nxttabmar \global\@curtab \@curtabmar
+\global\setbox\@curline \hbox {}\a@startfield }
+
+\def \a@stopline {% deposit tabbing line
+\a@stopfield \a@spacefalse
+\if@rjfield \global\@rjfieldfalse
+	\@tempdima\@totalleftmargin \advance\@tempdima\linewidth
+	\putwordb@x {\hb@xt@ \@tempdima
+	{\box\@curfield \hfil \box\@curline
+	\hskip\dimen\@curtabmar \@itemfudge }}%
+\else \a@addfield \putwordb@x {\hbox
+	{\box\@curline \hskip\dimen\@curtabmar \@itemfudge }}%
+\fi \short@line }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@startfield {% new tabbing field
+\initlineb@x \putwordb@x {\color@endgroup }}
+
+\def \a@stopfield {% end of tabbing field
+\global\setbox\@curfield \hbox {\color@begingroup \unhbox\lineb@x }}
+
+\def \a@contfield {% continue tabbing field
+\setbox\lineb@x \box\@curfield 
+\a@spacefalse \putwordb@x {\color@endgroup }}
+
+\def \a@addfield {% add field to current line
+\ifdim \wd\@curfield = \z@ \else
+\global\setbox\@curline \hbox 
+	{\arab@space \unhbox\@curfield \unhbox\@curline }\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@tabcr {\a@stopline \@ifstar{\penalty \@M \a@xtabcr }\a@xtabcr }
+\def \a@xtabcr {\@ifnextchar[\a@itabcr {\a@startline \test@token }}
+\def \a@itabcr [#1]{\vskip #1\a@startline \test@token }
+
+\def \a@c@kill {\a@stopfield \a@startline \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@rtab {% \> skip right
+\a@stopfield \a@addfield
+\ifnum \@curtab<\@hightab \global\advance\@curtab \@ne 
+\else\@badtab\fi
+\@tempdima \dimen\@curtab
+\advance\@tempdima -\dimen\@curtabmar
+\advance\@tempdima -\wd\@curline
+\global\setbox\@curline \hbox {\hskip\@tempdima \unhbox\@curline }%
+\a@startfield }
+
+\def \a@settab {% \= set tab
+\a@stopfield \a@addfield
+\ifnum \@curtab <\@maxtab
+	\ifnum\@curtab =\@hightab \advance\@hightab \@ne \fi
+	\global\advance\@curtab \@ne
+\else \@latex@error{Tab overflow}\@ehd \fi
+\dimen\@curtab \dimen\@curtabmar \advance\dimen\@curtab \wd\@curline
+\a@startfield }
+
+\def \a@tabrj {% \` field at right margin
+\a@stopfield \a@addfield \global\@rjfieldtrue \a@startfield }
+
+\def \a@tablab {% \' field right adjusted to last tab
+\a@stopfield \dimen@ \wd\@curfield
+\global\setbox\@curline \hbox {\hskip\tabbingsep \box\@curfield
+	\hskip-\dimen@ \hskip-\tabbingsep \box\@curline }%
+\a@startfield }
+
+\def \a@c@pushtabs {% new level of tabs
+\a@stopfield \a@addfield \global\advance\@tabpush \@ne 
+\begingroup \a@contfield \test@token }
+
+\def \a@c@poptabs {% return to previous level
+\a@stopfield \a@addfield
+\ifnum \@tabpush >\z@ \endgroup \global\advance\@tabpush \m@ne
+	\ifnum \@curtab >\@hightab \global\@curtab \@hightab \@badtab \fi
+\else \@badpoptabs \fi
+\a@contfield \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

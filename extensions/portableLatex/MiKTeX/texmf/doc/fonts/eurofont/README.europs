@@ -1,0 +1,156 @@
+Adobe's Euro currency fonts for LaTeX
+=====================================
+
+[ Note: this Europs package has been merged with the fonts/euro package
+so the paths in this documentation aren't correct any more.  You find all
+support files apart from the Adobe fonts itself in the directory
+CTAN:/tex-archive/fonts/euro.
+
+Reinhard Zierke, 09-Aug-1999 ]
+
+
+1. Introduction
+---------------
+
+This is yet another attempt to provide the Euro currency symbol for LaTeX.
+There are already several solutions, but each with limited possibilities:
+
+ - The package marvosym (by Thomas Henlich) provides a PostScript font with
+   four glyphs: The official Euro symbol, and three not-so-official shapes
+   which are more convenient when using the symbol together with Times,
+   Helvetica or Courier.
+
+ - The package eurosym (by Henrik Theiling) provides the Euro symbol in
+   several shapes, among them one that is constructed from the exact
+   specifications. The font itself is done with Metafont, which is not
+   a problem by itself. But if you want to create PDFs containing the Euro
+   symbol, you're bound for trouble.
+
+ - Finally, there is a set of tfm files for Adobe's Euro fonts, which were
+   placed on CTAN on behalf of Y&Y. The included (plain) TeX-example works,
+   but leaves much to be desired.
+
+
+2. This Package
+---------------
+
+So, several solutions, but every single one has it's drawbacks. So I decided
+to try to hack something together, and that's what I came up with:
+
+ - I use the twelve fonts distributed by Adobe, as the Y&Y package does.
+
+ - The font names conform to Karl Berry's naming scheme. The following
+   list gives the PostScript names and the corresponding TeX names. The
+   two other file names in the list are used later:
+
+     PostScript            TeX            PC             Macintosh
+
+     EuroSans-Regular      zpeurs.pfb     _1______.PFB   EuroSanReg
+     EuroSans-Italic       zpeuris.pfb    _1I_____.PFB   EuroSanIta
+     EuroSans-Bold         zpeubs.pfb     _1B_____.PFB   EuroSanBol
+     EuroSans-BoldItalic   zpeubis.pfb    _1BI____.PFB   EuroSanBolIta
+
+     EuroSerif-Regular     zpeur.pfb      _3______.PFB   EuroSerReg
+     EuroSerif-Italic      zpeuri.pfb     _3I_____.PFB   EuroSerIta
+     EuroSerif-Bold        zpeub.pfb      _3B_____.PFB   EuroSerBol
+     EuroSerif-BoldItalic  zpeubi.pfb     _3BI____.PFB   EuroSerBolIta
+
+     EuroMono-Regular      zpeurt.pfb     _2______.PFB   EuroMonReg
+     EuroMono-Italic       zpeurit.pfb    _2I_____.PFB   EuroMonIta
+     EuroMono-Bold         zpeubt.pfb     _2B_____.PFB   EuroMonBol
+     EuroMono-BoldItalic   zpeubit.pfb    _2BI____.PFB   EuroMonBolIta
+
+ - I have included fd files, so that within each of the three font families
+   the usual NFSS commands for changing series and shape work.
+
+ - The file europs.sty defines five commands for selecting the Euro symbol:
+
+     \EURhv     selects EuroSans
+     \EURtm     selects EuroSerif
+     \EURcr     selects EuroMono
+     \EUR       selects one of the three above, depending on the current
+                context
+     \EURofc    selects EuroSans Regular independent of context
+                N.B.: This is the only "official" Euro symbol. If you
+                      want to conform with the rules of the EU (or
+                      whoever), you may only use this symbol.
+
+   The first four names are stolen from marvosym. Although the association
+   with Helvetica, Times and Courier is not necessarily intelligent, these
+   names are easy to remember.
+
+So, you can simply say
+
+   \textsf{just my 2 \EUR}
+   \textbf{\textit{just my 2 \EUR}}
+
+and you get the symbol you expect.
+
+
+3. Installation
+---------------
+
+This archive consists of the following files:
+
+   dvips
+      zpeu.map
+   pdftex
+      zpeu.pdfmap
+   tex
+      europs.dtx      europs.ins
+      eutest.ps       eutest.tex
+   tfm
+      zpeub.tfm       zpeubi.tfm      zpeubis.tfm      zpeubit.tfm
+      zpeubs.tfm      zpeubt.tfm      zpeur.tfm        zpeuri.tfm
+      zpeuris.tfm     zpeurit.tfm     zpeurs.tfm       zpeurt.tfm
+
+Install the tfm files in the appropriate place, depending on your TeX version.
+
+You will need the Type 1 files from Adobe. For legal reasons they cannot be
+included in this package. You have to fetch them personally, e.g. from
+
+   http://www.adobe.com/type/eurofont.html
+
+or
+
+   ftp://ftp.adobe.com/pub/adobe/type/win/all/eurofont.exe
+   ftp://ftp.adobe.com/pub/adobe/type/mac/all/eurofont.sea.hqx
+
+You can either unpack one of these archives on an appropriate computer, or
+you can use the freely distributable "unzip" to extract the files from the
+file "eurofont.exe". Once you've done this, you have to rename the fonts
+according to the table shown above, i.e. _1______.PFB is renamed to
+zpeurs.pfb, and so on. If you have downloaded and unpacked the Macintosh
+archive, you have to extract the POST part from the resource fork of the
+fonts. This can e.g. be done with the program "macfont". It is available
+at your nearest CTAN mirror. Once you got the PFB files, put them into the
+type1 directory of your TeX installation.
+
+Append(!!) zpeu.map to psfonts.map, and, if you are using pdfTeX, zpeu.pdfmap
+to the appropriate mapping file, so that dvips and pdfTeX know how to handle
+these fonts. Note: dvips prior to 5.80 has problems with partial font
+downloading in general, and with Adobe's Euro fonts in particular. You can
+say "dvips -j0 ..." to switch off partial font downloading completely, but
+this may increase the size of the generated PostScript file. You should
+really get the most recent version of dvips, which can be found at
+
+   http://www.radicaleye.com/
+
+Most TeX distributions include new versions of the individual programs quite
+fast, so you may want to check your distribution for a recent version of
+dvips.
+
+Process europs.ins with TeX or LaTeX. This will produce a style file and
+three font definition files. Move them to a place where LaTeX can find them.
+
+Now you should be able to use the Euro currency symbol.
+
+
+4. Bugs
+-------
+
+Probably many. If you find one, or want a feature to be added, please contact
+
+   Joern Clausen
+   University of Bielefeld, Faculty of Technology
+   joern@TechFak.Uni-Bielefeld.DE

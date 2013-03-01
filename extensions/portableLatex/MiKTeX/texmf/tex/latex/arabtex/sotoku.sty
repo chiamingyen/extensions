@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% sotoku.sty
+% additional transcription module for ArabTeX
+% special transcription 
+% 16.02.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Additional Transcription Modes:
+% transcribe `ayn by the Arabic letter
+% activate by: \settrans{sotoku}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\catcode`\@ = 11
+\a@ident{sotoku.sty}{1.00 generate special transliteration }{16.02.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9 
+\catcode `\~=10 
+\gdef \tr@sotoku {% define Sotoku transliteration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tr@zdmg % standard routine
+% transliterate 'ayin' as Arabic letter: 
+\gdef \tr@P {{\scriptsize\transfalse\arabtrue\showfalse\<`>}\@vocalfalse}
+% transliterate 'hamza' as Arabic letter:
+\gdef \tr@Q {{\transfalse\arabtrue\showfalse\<-'>}\@vocalfalse}       
+% comment out if not required!
+\a@message {Sotoku~special~transliteration.}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@extend \tr@table {sotoku\tr@sotoku }% install
+
+\settrans{sotoku}% activate
+% switch to standard version by \settrans{standard}
+
+\catcode`\@ = \transatcode
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+

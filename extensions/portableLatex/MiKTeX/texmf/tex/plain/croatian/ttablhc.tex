@@ -1,0 +1,59 @@
+%\hsize=10cm
+\font\hc=hcyr
+%\def\cc{\hc\char'034}
+
+{
+\baselineskip=0.5cm\rm
+
+\setbox1=\vbox{\halign{\hc\hfil#\hfil&\quad\hfil#\hfil\quad\cr
+A& A \cr
+B& B  \cr
+V& V \cr
+G& G \cr
+D, \char'076, 5& D \cr
+%DDD& Dd \cr % \cc -> DD
+E& E \cr
+ZZ, ZX, \char'017& Zz \cr
+9& DZ \cr
+Z& Z \cr
+I&  I \cr
+DD, 2&  Dj \cr
+K& K \cr
+L& L \cr
+DDL& LJ \cr
+M& M \cr
+N& N \cr
+DDN& NJ \cr
+}}
+
+
+
+\setbox2=\vbox{\halign{\hc\hfil#\hfil&\quad\hfil#\hfil\quad\cr
+O& O \cr
+P& P \cr
+R& R \cr
+S& S \cr
+T& T \cr
+U& U \cr
+F& F \cr
+H& H \cr
+Q & OT \cr
+CH& {\v S\'c, \v C} \cr
+C& C \cr
+CC& \v C \cr
+SS& \v S \cr
+\^{}& {semivowel}  \cr
+J, \&{}& ja \cr
+%YA&  JA  \cr
+%YE&  JE  \cr
+YU& ju\cr}}
+
+
+
+\setbox22=\vbox to \ht1{\vskip3.33pt\copy2\vss}
+%\setbox33=\vbox to \ht1{\vskip3.33pt\copy3\vss}
+
+$$
+\hbox to \hsize{\copy1\hss\copy22}
+$$
+}

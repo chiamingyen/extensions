@@ -1,0 +1,24 @@
+%%
+%% This is file `uzpeut.fd',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% europs.dtx  (with options: `uzpeut')
+%% 
+%% Copyright 1998 Joern Clausen
+%% 
+\ProvidesFile{uzpeut.fd}
+     [1999/01/16 v1.2 font definitions for U/zpeut]
+\DeclareFontFamily{U}{zpeut}{}
+\DeclareFontShape{U}{zpeut}{m}{n}{<->zpeurt}{}
+\DeclareFontShape{U}{zpeut}{m}{it}{<->zpeurit}{}
+\DeclareFontShape{U}{zpeut}{bx}{n}{<->zpeubt}{}
+\DeclareFontShape{U}{zpeut}{bx}{it}{<->zpeubit}{}
+\DeclareFontShape{U}{zpeut}{b}{n}{<->ssub * zpeut/bx/n}{}
+\DeclareFontShape{U}{zpeut}{b}{it}{<->ssub * zpeut/bx/it}{}
+\DeclareFontShape{U}{zpeut}{m}{sl}{<->ssub * zpeut/m/it}{}
+\DeclareFontShape{U}{zpeut}{bx}{sl}{<->ssub * zpeut/bx/it}{}
+\endinput
+%%
+%% End of file `uzpeut.fd'.

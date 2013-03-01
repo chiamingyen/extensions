@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hefonts.sty
+% ArabTeX
+% load Hebrew fonts in LaTeX mode
+% 02.07.1997 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally and Bernd Raichle
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% load this file only, if \pheb not defined
+% select the Hebrew font by \pheb (\protected )
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\expandafter \ifx \csname pheb\endcsname \relax \else
+  \expandafter \endinput
+\fi
+
+\a@ident {hefonts.sty} {3.06 standard Hebrew fonts} {02.07.1997}
+
+\chardef \fntatcode = \catcode`\@            \catcode`\@ = 11
+\chardef \fntlscode = \catcode`\<            \catcode`\< = 12
+
+\ifx \LaTeX \undefined \else
+
+% If we are using the NFSS, Version 2,  \DeclareFontShape
+% is defined.
+%
+% (The \expandafter\ifx\csname...\endcsname\relax is necessary,
+% because the NFSS2 styleoptions use LaTeX's internal \@ifundefined
+% command.)
+%
+\xpa \ifx \csname DeclareFontShape\endcsname\relax
+
+% Now it's possible that NFSS, Version 1, is used.
+% If \selectfont is defined, NFSS is active, otherwise
+% we assume LaTeX's `lfonts.tex'.
+%
+	\xpa \ifx \csname selectfont\endcsname\relax
+
+		% OLD FONT SELECTION
+		\UsePackage {hefonts0}
+	\else 	% NEW FONT SELECTION -- Version 1
+		\UsePackage {hefonts1}
+	\fi
+\else
+		% NEW FONT SELECTION -- Version 2
+	\UsePackage {hefonts2}
+\fi\fi
+
+\catcode`\@ = \fntatcode        \catcode`\< = \fntlscode                   
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

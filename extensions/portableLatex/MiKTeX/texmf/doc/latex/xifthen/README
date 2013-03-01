@@ -1,0 +1,22 @@
+This package implements new commands to go within the first argument of
+\ifthenelse to test whether a string is void or not, if a command is
+defined or equivalent to another. It includes also the possibility to make
+use of the complex expressions introduced by the package calc, together
+with the ability of defining new commands to handle complex tests. This
+package requires the e-TEX features.
+
+What's new
+
+v.1.
+-  \cnttest and \dimtest now accept <= and >= comparisons.
+-  I renames \terminateswith in \endswith.
+
+v1.2
+-  Corrected a bug with \newtest
+
+v1.3
+-  Removed a spurious space in the code.
+
+This material is subject to the LaTeX Project Public License.
+See http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html
+for the details of that license.

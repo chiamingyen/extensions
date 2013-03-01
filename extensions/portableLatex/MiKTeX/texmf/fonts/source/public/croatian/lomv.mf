@@ -1,0 +1,66 @@
+
+beginchar("A",.5em#,4/3cap#,0); "The letter A";
+pickup pencircle xscaled 1.4thick yscaled .3thin;
+x1=x3=x2=w-x4=w-x5=curve_sidebar;
+y2=y4=0;
+y1=h; y3=.6h;
+y5=3/4y3;
+draw z1--z2; draw z4--z5{up}..{left}z3;
+endchar;
+
+beginchar("D",.7em#,cap#,0); "The letter D";
+pickup pencircle xscaled 1.4thick yscaled .3thin;
+x1=w-x3=w-x4=curve_sidebar;
+x2=x5=x6=.4[x1,x3];
+y2=y3=0; y1=y6=h; y4=y5=.45h;
+draw z1--z6--z2--z3--z4--z5;
+endchar;
+
+beginchar(oct"025",.6em#,cap#,0); "The letter ZZ";
+pickup pencircle xscaled 1.4thick yscaled .3thin;
+x1=w-x2=w-x3=curve_sidebar;
+x4=x5=.4[x1,x2];
+y5=y3=0; y1=y4=y2=h;
+draw z1--z2--z3--z5--z4;
+x8=.7[x5,x3]; x6=.5[x1,x4];
+x6-x7=x8-x6; y6=h;
+y7=y8=1.27h;
+draw z6{up}..{left}z7; draw z6{up}..{right}z8;
+endchar;
+
+
+
+beginchar("L",.7em#,cap#,0); "The letter L";
+pickup pencircle xscaled 1.4thick yscaled .3thin;
+x1=w-x3=w-x4=curve_sidebar;
+x2=x5=.45[x1,x3];
+x6=.5[x5,x4];
+x1-x7=x6-x2;
+y1=y2=y3=h; y7=y6=4/3h; y4=y5=0;
+draw z1--z3--z4--z5--z2{up}..z6--z7; draw z1{up}..z7;
+endchar;
+
+
+
+beginchar("T",.6em#,cap#,0); "The letter T";
+pickup pencircle xscaled 1.4thick yscaled .3thin;
+x1=w-x2=w-x3=curve_sidebar;
+x4=x5=.4[x1,x2];
+y5=y3=0; y1=y4=y2=h;
+draw z1--z2--z3--z5--z4;
+picture slovo; slovo=currentpicture;
+endchar;
+
+beginchar("V",.6em#,cap#,0); "The letter V";
+transform t; t=identity reflectedabout ((0,.5h),(w,.5h))
+shifted (0,.5thin);
+addto currentpicture also slovo transformed t;
+endchar;
+
+beginchar("Z",.6em#,cap#,0); "The letter Z lazzni (za ZZ)";
+transform t; t=identity reflectedabout ((0,.5h),(w,.5h));
+addto currentpicture also slovo transformed t;
+endchar;
+
+
+

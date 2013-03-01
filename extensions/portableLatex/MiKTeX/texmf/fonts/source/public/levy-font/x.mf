@@ -1,0 +1,63 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def dims = 8.5u#,asc_height#,desc_depth# enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter=
+  pickup fine.nib;
+  lft x7r=rt x7l-hair=hround(.75u); x7=.5[x7r,x7r];             %big bulge
+  pos8(stem,-90); bot y8r=0; x8=.5w; z8'r=z8'l=left;            %inflection pt
+  pos9(hair,-180); rt x9l=hround(w-.75u); y9=-.5stem;           %bottom right
+  y6+.5stem=x_height+o; x6+.5stem=hround(rt x9l-1.5u);          %middle right
+  numeric slope; slope=angle(5(x6-x7),y6-y8); pos6(stem,slope+90);
+  z6'r=z6'l=dir slope;
+  pos10(vstem,-270); y9=.5[y10r,y8r]; x10-.5vstem=hround x8;
+  filldraw double_circ_stroke                                   %bowl and tail
+    z10e{right}...z9e{up}...club.e(8,7,6);
+  pos5(hair,slope-90); z5l=z6r;                                 %attachment
+  z4=.5[z3,z5]+whatever*dir slope;                              %small bulge
+  pos4(hair,-180); lft x4r=hround(lft x7r+1.5u);
+  y3+.5stem=h+o; x3+.5stem=hround(rt x9l-.25u); pos3(stem,slope+90);    %top rt
+  filldraw circ_stroke z3e{-dir slope}..z4{down}...z5e{dir slope};
+  pos2(hair,slope+90); z2r=z3r;                         %where handle attaches
+  pos1(curve,0); lft x1l=hround(lft x7r+.25u); y1+.5curve=h+o;  %end of handle
+  filldraw circ_stroke z1e{down}...z2e{dir slope};
+enddef;
+     
+cmchar "Lowercase xi";
+beginchar("x",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase sigma followed by xi";
+begindoublechar(oct"030",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

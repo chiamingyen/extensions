@@ -1,0 +1,220 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aedpatch.sty
+% patches for EDMAC to operate with ArabTeX
+% 19.03.93 2.07 EDMAC 3.00
+% 19.06.94 3.02 EDMAC 3.15 compatible
+%		\pstart, \pend, \autopar within Arabic
+% 06.05.97 3.05 bug fixes, works with EDMAC 3.17
+% 05.07.97 3.06 for edmacfss.sty
+% 22.01.98 3.06a fixed parafootnote format
+% 07.02.98 3.06a fixed parafootnote format for LaTeX
+% 08.07.98 3.07  new ArabTeX version
+% 10.04.99 3.08  fixed spurious space
+% 20.08.03 3.11  cleanup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \aedatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \aedatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {aedpatch.sty} {3.11 ArabTeX extensions for EDMAC} {20.08.2003}
+
+\def \tr@ce@n {\tracingmacros 0}
+
+\def \tr@ce@ff {\edef \tr@ce@n 
+	{\nxp\tracingmacros \the\tracingmacros }\tracingmacros 0}
+\let \tr@ce@n \relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% modify some EDMAC commands in a compatible way
+
+\long \def \text #1#2/{% inside Roman text
+% depends on EDMAC version used
+\leavevmode 
+\begingroup \no@expands
+	\xdef\@tag{#1}%
+	\set@line \global\insert@count=0
+	\ignorespaces #2\relax \flag@start
+\endgroup
+#1%
+\a@end@lemma
+\flag@end }
+
+\def \a@end@lemma {% for EDMAC 3.00 and EDMAC 3.15
+\ifx \end@lemma \undefined % as in EDMAC 3.15 - 3.17
+	\ifx\end@lemmas\empty \else
+	    \gl@p\end@lemmas\to\x@lemma
+	    \x@lemma
+	    \global\let\x@lemma=\relax
+	\fi
+\else \the\end@lemma % defined or EDMAC 3.00
+\fi }
+
+\def \lemma #1{% in argument of \text
+% care for delayed expansion of some ArabTeX commands
+  \begingroup \def \protect {\noexpand \protect \noexpand }%
+     \xdef\@tag{#1}%
+  \endgroup \ignorespaces }
+
+\def \do@line {% break off a line from \raw@text
+   {\vbadness=10000 \splittopskip=0pt
+   \advance \baselineskip 1ex
+% guard against some overfull \vboxes !
+% Arabic lines have a greater height and depth
+   \global \setbox\one@line
+   \vsplit \raw@text to \baselineskip }% 
+   \unvbox\one@line \global \setbox\one@line \lastbox \getline@num
+   \hbox to \hsize {\affixline@num {\hfil
+   \hbox to \wd\one@line {\new@line \unhbox\one@line }}}%
+   \add@inserts
+   \add@penalties }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% variants for use inside an Arabic environment
+
+\def \<#1>{\RL{#1}} % allow long insertions
+
+{\catcode `< \active
+\gdef <#1>{\RL{#1}}} % allow long insertions
+
+\def \a@c@text {% internal version of \text
+% parameters will have the original catcodes
+\tr@ce@n \leavea@vmode \unarab@codes \begingroup 
+\tr@ce@ff \rm \tr@ce@n \a@@text }
+
+\long \def \a@@text #1{% auxiliary routine
+% to kill leading blanks and remove spurious braces from #2
+\def \next@command {\a@@@text {#1}}%
+\futurelet \next@token \test@space }
+
+\def \a@append #1{% to the \lineb@x
+\setbox \lineb@x \hbox {\unhbox \lineb@x #1}}
+
+\def \a@get@text #1\@@ {% get flags and lemma
+\a@append {\flag@start }\a@@Linsert {#1}}
+
+\def \a@put@text {% unpack \Linsertb@x
+\a@Lunpack \putwordb@x {\ins@skip }}
+
+\long \def \a@@@text #1#2/{% inside arabic enviroment:
+% stay in vertical mode, put the text into a \hbox
+% and deposit the box *and* the \writes in the Arabic line
+	\no@expands
+	\def \next@command {\test@special}%
+	\xdef \@tag{#1}\set@line \global\insert@count=0
+	\aftergroup \a@get@text 
+	% prepare for collecting any side effects of #2
+	\ignorespaces #2\relax
+\endgroup
+	#1\a@end@lemma \@@ % close the text
+	\a@put@text \a@append {\flag@end }%
+	\arab@codes \a@spacetrue 
+\tr@ce@ff \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@label #1{% outside the arguments of \text
+% hide the \write commands inside a box in the Arabic line
+% otherwise \do@line will not find the correct line breaks
+  \do@labelsfile
+  \ifx \labelref@list \empty \xdef \label@refs {\zz@@@ }%
+  \else \gl@p \labelref@list \to \label@refs
+  \fi
+  \edef \next {\write\@aux {\string\make@labels \label@refs|{#1}}}%
+  \global \setbox \wordb@x \hbox
+          {\write\linenum@out {\string\@lab }\next }%
+  \put@word \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \a@par \a@@par % save for \a@@everypar in \a@c@autopar
+
+\def \a@c@pstart {\pstart \test@token }
+
+\def \a@c@pend {\a@par \pend \a@par \test@token }
+
+\def \a@c@autopar {% use inside Arabic environment
+\ifnumbering \else \errmessage 
+	{\string\autopar\space must be used within a numbered section}%
+	\beginnumbering
+\fi
+\a@@everypar= {\setbox0 = \box \lineb@x \let \next \test@token
+	\a@par \pstart % starts a group
+	\def \a@@par {\a@par \pend \a@par }%
+	\def \end {\a@par \pend \test@token \end }%
+	\a@@everypar= {}\arab@indent }%
+\a@spacefalse \test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% allow still more EDMAC commands in Arabic text also
+
+\all@w@ne \pageref      \all@w@ne \lineref      \all@w@ne \sublineref
+\all@w@ne \xpageref     \all@w@ne \xlineref     \all@w@ne \xsublineref
+\all@wtw@ \makelabel    \all@wtw@ \xxref
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fix some bugs in EDMAC (Plain TeX and LaTeX2e versions)
+
+\xpa\def \xpa\no@expands \xpa{\no@expands \let ~=0\relax }
+
+\ifx\selectfont\undefined 
+
+\font \nashix	=nash14 scaled 900
+\font \nashviii	=nash14 scaled 800
+
+\xpa\def \xpa\eightpoint \xpa{\eightpoint % Arabic is higher
+\normalbaselineskip=15.99pt
+\setbox\strutbox=\hbox{\vrule height10pt depth6pt width0pt}%
+\normallineskiplimit -16pt
+\setarabfont \nashviii
+\normalbaselines \rm }
+
+\else
+\listfiles 
+
+\def\notefontsetup{\rm\fontsize{8}{15.99pt}\selectfont
+\lineskiplimit -\baselineskip }
+
+\def \begin #1{% call \a@c@#1
+% enable local \end
+\@ifundefined {#1}%
+{\def \@tempa {\@latexerr {Environment #1 undefined}\@eha }}%
+{\def \@tempa {\def \@currenvir {#1}\csname #1\endcsname }}%
+\begingroup \let \end \a@l@end \@endpefalse \@tempa }
+
+\def \a@l@end #1{% call \end#1
+% local version of \end
+\csname end#1\endcsname \@checkend {#1}%
+\if@endpe \global \let \@gtempa \@doendpe
+\else \global \let \@gtempa \relax
+\fi \endgroup \@gtempa }
+
+\fi
+
+\interparanoteglue{1em plus2em minus.4em}
+% more stretch for Arabic text
+
+\ifx \LaTeX \undefined \else \listfiles \fi
+
+\def \end {\newlinechar `$\wlog {\arabtexconfig }\@@end }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \edmacloaded \relax
+	\ifx \selectfont \undefined 
+		\let \notefontsetup \eightpoint
+	\fi
+	\footnormal{A}	\footnormal{B}	\footnormal{C}
+	\footnormal{D}	\footnormal{E}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\catcode`\@ = \aedatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

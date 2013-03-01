@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% alatex.sty
+% LaTeX extensions for ArabTeX
+% 04.05.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \undefined \LaTeX \xpa \endinput \fi
+
+\a@ident {alatex.sty} {3.11 ArabTeX extensions for LaTeX } {04.05.2003}
+
+%%%%%%%%%%%%%%%%%%% modify \document command %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\let \a@document \document	\let \a@enddocument \enddocument
+
+\def \document {% activate Arabic insertions
+	\a@document \setarab } 
+\ifx \@listfiles \undefined
+\def \enddocument {% report the configuration
+	{\newlinechar `$ \wlog {\arabtexconfig $}}\a@enddocument }
+\fi
+
+\UsePackage {afoot} % ArabTeX footnotes
+
+%%%%%%%%%%%%%%%%%%%%%%% verbatim %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% patch for LaTeX2e
+% thanks to Andreas Scherer 
+% <scherer@imib.rwth-aachen.de>
+
+\def \verb {% make < safe
+\ifx \undefined\documentclass % LaTeX 2.09
+\begingroup \catcode ``=13 \tt 
+\else
+\relax \ifmmode \hbox \fi \bgroup \verbatim@font 
+\fi
+\catcode `<=12 \@noligs \let \do \@makeother \dospecials 
+\@ifstar {\@sverb }{\@verb }}
+
+%%%%%%%%%%%%%%%%%%%%%% enable LaTeX commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \fdef #1#2#3#4{% define NFSS2 font
+\pdef #1{\def \pheb {\fontencoding {U}\fontfamily {#2}%
+\fontseries {#3}\fontshape {#4}\selectfont }%
+\ifx \a@normalfont \a@default \gdef \a@normalfont {#1}\fi
+\setarabfont \pheb \set@arabfont }%
+\all@wcmd #1}
+
+\all@wcmd \tiny         \all@wcmd \footnotesize \all@wcmd \small
+\all@wcmd \normalsize   \all@wcmd \large        \all@wcmd \Large
+\all@wcmd \LARGE        \all@wcmd \huge         \all@wcmd \Huge
+
+\all@wcmd \mdseries	\all@wcmd \bfseries	\all@wcmd \a@normalfont
+\all@wcmd \upshape	\all@wcmd \itshape	\all@wcmd \slshape
+\all@wcmd \rmfamily	\all@wcmd \sffamily	\all@wcmd \ttfamily
+\all@wcmd \a@normalfont
+
+\def \a@c@input {\expandafter \test@token \@@input }
+
+\def \@abj #1{\abj@d {#1}}
+
+\def \Arabic #1{\expandafter \@Arabic \csname c@#1\endcsname }
+\def \arab #1{\expandafter \@arab \csname c@#1\endcsname }
+\def \Arab #1{\expandafter \@Arab \csname c@#1\endcsname }
+\def \abj #1{\expandafter \@abj \csname c@#1\endcsname }
+\def \Abj #1{\expandafter \@Abj \csname c@#1\endcsname }
+
+\let \@Arab \@arabic	\let \@arab \@arabic	\let \@Arabic \@arabic
+\let \@abjad \@abj 	\let \@Abj \@abj 	
+
+%%%%%%%%%%%%%%%%%%%%%% Math in Arabic mode %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@spec@def \({% inline math insertion in Arabic mode
+\unarab@codes \test@mathx }
+
+\def \test@mathx #1\){% finish inline math insertion 
+\putwordb@x {$#1$}\a@spacetrue \arab@codes \test@token }
+
+\def \a@c@math {% inline math environment in Arabic mode
+	\def \endmath {$\egroup \aftergroup \test@mathy }%
+\unarab@codes \global\setbox1 \hbox \bgroup $}
+
+\def \a@c@test@mathy {% finish inline math environment
+\a@spacetrue \putwordb@x {\box1 }\a@spacetrue \test@token }
+
+\a@spec@def \[{% math display in Arabic mode
+\begingroup \endarabtext \leavevmode \let \a@end@dis \]%
+	\def \]{\a@end@dis \endgroup \a@spacefalse \test@token }\[}
+
+\def \a@c@displaymath {% displaymath environment in Arabic mode
+\endarabtext \leavevmode \displaymath }
+
+\def \a@c@equation {\endarabtext \equation }
+
+\def \a@c@eqnarray {\endarabtext \eqnarray }
+
+\xpa\def \csname a@c@eqnarray*\endcsname {% eqnarray* environment
+\endarabtext \csname eqnarray*\endcsname }
+
+%%%%%%%%%%%%%%%%%%%%% inner environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \end #1{% modified LaTeX version: tail supplied by \begin
+  \csname end#1\endcsname \@checkend {#1}%
+\if@endpe \aftergroup \@doendpe \fi 
+\endgroup }
+
+\def \a@c@@doendpe {% called in Arabic mode
+\@doendpe \test@token }
+
+\def \begin #1{% from LaTeX2e; after \end stay in Roman mode
+\@ifundefined {#1}%
+    {\def \reserved@a {\@latex@error 
+	{Environment #1 undefined}\@eha }}%
+    {\def \reserved@a {\def \@currenvir {#1}\edef \@currenvline {\on@line}%
+			\csname #1\endcsname }}%
+\@ignorefalse \begingroup \aftergroup \a@endx
+\@endpefalse \reserved@a }
+
+\def \a@endx {% after \end in Roman mode
+\if@ignore \@ignorefalse \ignorespaces \fi}
+
+\def \a@c@begin #1{% Arabic version; after \end set Arabic mode
+\@ifundefined {a@c@#1}%
+    {\def \reserved@a {\@latex@error 
+	{Arabic mode: Environment #1 undefined}\@eha \test@token }}%
+    {\def \reserved@a {\def \@currenvir {#1}\edef \@currenvline {\on@line}%
+			\csname a@c@#1\endcsname }}%
+\@ignorefalse \begingroup \aftergroup \a@endy
+\@endpefalse \reserved@a }
+
+\def \a@endy {% after \end in Arabic mode
+\a@spacefalse \test@token }
+
+%%%%%%%%%%%%%%%%%%%%% new commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \a@c@newcommand #1#2#{\a@@def \newcommand {#1}{#2}}
+
+\def \a@c@renewcommand #1#2#{\a@@def \renewcommand {#1}{#2}}
+
+\def \a@c@providecommand #1#2#{\a@@def \providecommand {#1}{#2}}
+
+\def \a@c@@env {\putwordb@x {\unhbox1 }\a@spacetrue \test@token }
+
+\def \a@@env #1#2#3#4#5{% define environment in RL mode
+\xpa \def \csname end#2\endcsname 
+{\def \end {\global \setbox1 \hbox {\unhbox \lineb@x}\aftergroup \@env }%
+\test@token #5 \end }%
+\xpa #1\csname a@c@#2\endcsname #3%
+%{\setbox\lineb@x \box\lineb@x \a@spacetrue \test@token #4}%
+{\setbox\lineb@x \box\lineb@x \let\ifa@space \ifa@space \test@token #4}%
+\test@token }
+
+\def \a@c@newenvironment #1#2#{\a@@env \newcommand {#1}{#2}}
+
+\def \a@c@renewenvironment #1#2#{\a@@env \renewcommand {#1}{#2}}
+
+\def \a@c@protect {\test@token }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

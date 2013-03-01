@@ -1,0 +1,213 @@
+%%%%%%%%%%%%%%%%%%%% xarbsymb.mf %%%%%%%%%%%%%%%%%%%%
+% 15.7.1998  16:19:14
+% code assignments for arabic font in ArabTeX 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% (c) Klaus Lagally 
+%     Institut fuer Informatik 
+%     Universitaet Stuttgart 
+%     15.07.98 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+%\a@ident {xarbsymb.sty} {3.07 symbolic output encoding } {15.07.97} 
+ 
+nashcode  := oct "1";  % file has been read 
+ 
+%%%%%%%%%%%%%%%%%% connection forms %%%%%%%%%%%%%%%%%% 
+ 
+f_iso     := oct "0";  % isolated 
+f_end     := oct "1";  % final 
+f_mid     := oct "2";  % medial 
+f_beg     := oct "3";  % initial 
+ 
+%%%%%%%%%%%%%%%%%% diacritical marks %%%%%%%%%%%%%%%%% 
+ 
+ttah_dia         := oct "010";  % for urdu 
+one_dot_up       := oct "011";  % 
+two_dots_down    := oct "012";  % 
+fatha            := oct "013";  % 
+kasra            := oct "013";  % 
+damma            := oct "014";  % 
+hamza            := oct "015";  % 
+madda            := oct "016";  % 
+shadda           := oct "017";  % 
+two_dots_up      := oct "020";  % 
+three_dots_up    := oct "021";  % 
+three_dots_down  := oct "022";  % 
+fathatan         := oct "023";  % 
+kasratan         := oct "023";  % 
+dammatan         := oct "024";  % 
+sukun            := oct "025";  % 
+wasla            := oct "026";  % 
+quran_alif       := oct "027";  % 
+bow_dia          := oct "030";  % for kurdish 
+e_dia            := oct "040";  % for pashto 
+zwarakay         := oct "040";  % for pashto 
+one_dot_down     := oct "056";  % period 
+hamz_s           := oct "143";  % for kashmiri 0674 
+bars             := oct "144";  % for 06fd, 06fe 
+roof             := oct "145";  % for 06c9 
+h_dia            := oct "146";  % for urdu 
+ammad            := oct "146";  % for pashto 
+ 
+f_iv             := oct "122";  % farsi 4 
+f_v              := oct "123";  % farsi 5 
+f_vi             := oct "124";  % farsi 6 
+ 
+%%%%%%%%%%%%%%%%%% letters %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+alif           := oct "100";  % 100,101 
+alif_iso       := alif;         % 100 
+alif_end       := oct "101";          % 101 
+ 
+lam_alif       := oct "102";  % 102,103 
+lam_alif_iso   := lam_alif;      % 102 
+lam_alif_end   := oct "103"; % 	   103 
+ 
+bah_s          := oct "110";  % 110-113 bah without dots 
+bah            := bah_s;        % 110 
+bah_p          := oct "114";  % 114-117 bah with loop 
+ 
+rah            := oct "120";  % 120,121 
+%%		zay           122 122,123 
+%%		zhah          124 124,125 
+rah_p          := oct "126";  % 126,127 rah with loop 
+ 
+hamza_iso      := oct "132";  % 132  
+hamzc          := hamza_iso;    % 132 
+ 
+dal            := oct "130";  % 130,131 
+dal_p          := oct "136";  % 136,137 dal with loop 
+ 
+gim_close      := oct "144";  % 147     closed gim 
+%%		gim           140 140-143 
+hhah           := oct "150";  % 150-153 
+rah_s          := oct "156";  % 156,157 rah with two dots 
+khah           := oct "160";  % 160-163 
+%%		tsah          170 170-173 
+rah_k          := oct "166";  % 166,167 kurdish rah 
+ 
+sin            := oct "200";  % 200-203 
+sin_spec       := oct "202";  % 204,205 short form 
+%%		shin_spec     204 206,207 short form 
+qaf_s          := oct "206";  % 206,207 qaf without dots 
+%%		shin          210 210-213 
+%%		sin_p         214 214,215 sin with two dots 
+ 
+sad            := oct "220";  % 220-223 
+sad_spec       := oct "222";  % 224,225 short form 
+%%		dad_spec      224 226,227 short form 
+%%		dad           230 230-233 
+ 
+gaf_p_spec     := oct "224";  % 226,227 short form of gaf with loop 
+gaf_p_s        := oct "230";  % 230-233 gaf with loop  
+kaf_w          := oct "234";  % 234-237 wide kaf 
+ 
+ttah           := oct "240";  % 240-243 
+ 
+%%		zzah          244 244-247 
+waw_r          := oct "244";  % 244,245 waw with ring 
+waw_b          := oct "246";  % 246,247 waw with bar 
+ 
+ain            := oct "250";  % 250-253 
+fah_s          := oct "254";  % 254-257 fah family 
+ 
+kaf_p_s        := oct "260";  % 260-263 kaf with loop 
+gaf_p          := kaf_p_s;      % 260 
+kaf_p          := oct "264";  % 264,265 kaf with loop and mark 
+kaf_p_spec     := oct "264";  % 266,267 short form of kaf with loop 
+kaf_s          := oct "270";  % 270-273 kaf family 
+kaf            := oct "274";  % 274,275 
+kaf_spec       := oct "274";  % 276,277 short form 
+gaf_s          := oct "300";  % 300-303 gaf family 
+gaf            := oct "304";  % 304,305 
+gaf_spec       := oct "304";  % 306,307 short form 
+ 
+lam            := oct "310";  % 310-313 
+mim            := oct "320";  % 320-323 
+mim_sind       := oct "335";  % 335     Sindhi final mim 06fe 
+ 
+nun            := oct "340";  % 340,341 
+nun_p          := oct "342";  % 342,343 nun with loop 
+ 
+hah            := oct "350";  % 350-354 
+hah_urd        := oct "353";  % 353,354 two-eyed hah, 
+                % see hah and hah_spec_lam 
+hah_spec_lam   := oct "352";  % 354     medial hah after initial lam 
+hah_spec       := oct "354";  % 355-357 final short hah; 
+h_s            := hah_spec;      % 354 
+                % also medial hah after sin 
+ 
+waw            := oct "360";  % 360,361 
+%%		fah           362 362,363 
+qaf            := oct "364";  % 364,365 
+%%		vah           366 366,367 
+ 
+yah            := oct "370";  % 370,371 
+yah_spec       := oct "371";  % 372     ligature for final yah 
+yah_h          := oct "373";  % 373,374 yah with hook 
+yah_h_spec     := oct "374";  % 375     ligature for yah with hook 
+yah_p          := oct "376";  % 376,377 long yah 
+yah_p_s        := oct "366";  % 366,367 long yah with loop 
+ 
+%%%%%%%%%%%%%%%%%% special characters %%%%%%%%%%%%%%%%%%% 
+ 
+block          := oct "000";  % 000-003 
+tatwil         := oct "004";  % 004-007 
+ 
+rquotes        := oct "042";  % 042 
+period         := oct "056";  % 056 
+lquotes        := oct "134";  % 134 
+ 
+space_spec     := oct "044";  % 046,047 carrier for dots 
+smspc          := space_spec;   % 044 
+skip           := oct "045";  % 047     small space, initial (!) 
+no_break       := oct "046";  % 046     no space, breaks ligatures  
+break          := oct "047";  % 047     small space, medial 
+ 
+%%%%%%%%%%%%%%%%%% ligatures %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+bah_spec_gim   := oct "027";  % 031     medial bah before gim 
+bah_beg_gim    := oct "030";  % 032     initial (!) bah before gim 
+g_to_mb        := oct "031";  % 033     medial bah to gim 
+bah_high       := oct "032";  % 034,035 before sin, sad 
+bah_spec       := oct "034";  % 036,037 bah before final rah, nun 
+lam_spec_low   := oct "072";  % 074     medial lam for 'allah' 
+lam_l          := lam_spec_low;  % 072 
+alif_spec_mim  := oct "075";  % 076     final alif after mim 
+bah_end_hah    := oct "102";  % 104,105 bah before final hah 
+bah_spec_yah   := oct "104";  % 106,107 bah before gim, with tie; 
+                % also bah before yah 
+%%		gim_spec      143 144,145 from above 
+hhah_spec      := oct "153";  % 154,155 from above 
+khah_spec      := oct "163";  % 164,165 from above 
+%%		tsah_spec     173 174,175 from above 
+lam_gim        := oct "311";  % 314     lam on gim 
+lam_on_gim     := oct "312";  % 314     initial (!) lam before gim 
+lam_long       := oct "312";  % 315     initial lam before yah 
+lam_spec_yah   := oct "314";  % 316     before final yah ? 
+lam_spec_mim   := oct "314";  % 317     initial lam before medial mim 
+mim_spec_high  := oct "322";  % 324     from above 
+mim_spec       := oct "324";  % 325-327 final; medial after lam; 
+                % also before gim 
+mim_spec_mim   := oct "325";  % 330     initial mim before mim 
+mim_lam_gim    := oct "327";  % 331     medial mim between lam and gim 
+lam_spec_hah   := oct "330";  % 333     initial lam before medial hah 
+mim_spec_long  := oct "332";  % 334     medial mim after lam, vocalized 
+mm_to_b        := oct "333";  % 335     bah to medial mim 
+bah_mid_mim    := oct "334";  % 336,337 bah before medial mim 
+mim_spec_alif  := oct "342";  % 344     medial mim before alif 
+er_to_s        := oct "343";  % 345     sin to final rah 
+bah_end_mim    := oct "344";  % 346     medial bah before final mim 
+bah_beg_mim    := oct "345";  % 347     initial (!) bah before final mim 
+ 
+%%%%%%%%%%%%%%%%%% ties %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+g_to_s         := bah_spec_gim;  % sin to gim 
+em_to_s        := bah_end_mim;   % sin to final mim 
+mh_to_s        := bah_end_hah;   % sin to medial hah or final mim 
+g_to_bb        := bah_beg_gim;   % initial bah to gim 
+em_to_bb       := bah_beg_mim;   % initial bah to final mim 
+ 
+%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+endinput; 

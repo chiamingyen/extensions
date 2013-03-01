@@ -1,0 +1,74 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_acc : readfrom("gen_acc") fi
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def width = 8.5u enddef;
+def height = x_height enddef;
+def depth = desc_depth enddef;
+def dims = width#,height#,depth# enddef;
+def ital = 0 enddef;
+def fit_params = 0,0 enddef;
+     
+def gen_letter =
+  pickup fine.nib;
+  lft x4r=hround .75u; x8r=w-x4r; y4r=y8r=.5h;          %left and right
+  top y2r=h+oo; bot y6r=-oo; x2r=x6r=.5w;               %top and bottom
+  filldraw stroke
+    gr_arc.e(4,5,6)(curve,vair,-otilt) & gr_arc.e(6,7,8)(curve,vair,-otilt) &
+    gr_arc.e(8,1,2)(curve,vair,-otilt) & gr_arc.e(2,3,4)(curve,vair,-otilt);
+  if straight:
+    y9-.5stem=-d-oo; x9=x4; pos9(stem,180);                     %end of handle
+    filldraw circ_stroke z9e..z4e;
+  else:
+    y9-.5stem=-d-oo; x9=lft x4r+stem;                           %end of handle
+    pos9(stem,angle((z9-z4)xscaled3)-90); z9'r=z9'l=(z9-z4)xscaled3;
+    rt x10l=lft x10r+vair;                      %vertical tangents of handle
+    x10r=x4r-epsilon; assign_z4'r((-2eps,-1));  %so club.r won't get confused
+    filldraw double_circ_stroke club.e(4,10,9);
+  fi
+  numeric x_baryctr; x_baryctr=x2;                      %breathing placement
+enddef;
+     
+cmchar "Lowercase rho";
+beginchar("r",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8,9,10); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase rho with rough breathing";
+beginchar(oct"373",width#,acc_ht#,depth#);
+this_letter; spirit(x_baryctr)<; endchar;
+     
+cmchar "Lowercase rho with smooth breathing";
+beginchar(oct"374",width#,acc_ht#,depth#);
+this_letter; spirit(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by rho";
+begindoublechar(oct"022",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture savedpicture;

@@ -1,0 +1,291 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% heparse.sty
+% ArabTeX
+% Modifications for Hebrew mode
+% 27.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {heparse.sty} {3.11 Hebrew parser routines} {27.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \def@hebvoc {% define vowel parsing routines for Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% short vowels
+
+\def \sv@a {\sv@patach }		% a: patach
+\def \sv@e {\sv@segol }			% e: segol
+\def \sv@i {\sv@chireq }		% i: chireq breve
+\def \sv@o {\sv@qamesqatuf }		% o: qames-chatuph
+\def \sv@u {\sv@qibbus }		% u: qibbus
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% long vowels
+
+\def \sv@A {\sv@qames }			% A: qames 
+\def \sv@E {\sv@serelongum }		% E: sere yod
+\def \sv@I {\sv@chireqlongum }		% I: chireq yod
+\def \sv@O {\sv@cholemlongum }		% O: cholem waw
+\def \sv@U {\sv@shureq }		% U: shureq
+\def \sv@Y {\sv@qameslongum }		% _A: qames aleph
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% long vowels, defective
+
+\sv@def \a@a {\sv@qames }		% _a: qames aleph	?
+\sv@def \a@e {\sv@shewa }		% .i: shewa
+\sv@def \a@i {\sv@chireq }		% _i: chireq yod ?
+\sv@def \a@o {\sv@cholem }		% _o: cholem breve
+\sv@def \a@u {\sv@shureq }		% _u: shureq ?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% special vowels
+
+\sv@def \a@A {\sv@chatef@patach }	% .a:
+\sv@def \a@E {\sv@sere }		% _e: sere breve
+\sv@def \a@I {\sv@chatef@segol }	% .e:
+\sv@def \a@O {\sv@chatef@qames }	% .o:
+\sv@def \a@U {\put@syl \syl@con }	% .u: no vowel mark
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% extra marks
+
+\sv@def \a@Za {\sv@sindot }		% sin dot
+\sv@def \a@Ze {\sv@shindot }		% shin dot
+\sv@def \a@Zi {\sv@rdot }		% center dot
+\sv@def \a@Zo {\sv@raphe }		% raphe
+\sv@def \a@Zu {\sv@dagesh }		% dagesh
+
+\sv@def \a@ZA {\sv@ay }			% Yiddish ay
+\sv@def \a@ZE {\sv@ey }			% Yiddish ey
+\sv@def \a@ZI {\syl@voctest }		% free
+\sv@def \a@ZO {\sv@oy }			% Yiddish oy
+\sv@def \a@ZU {\syl@voctest }		% free
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% hamza handling
+
+\def \syl@hamza {% non-initial hamza, context #1'
+\put@con a\syl@voctest }
+
+\let \syl@hamzabeg \syl@hamza
+
+\def \syl@test@voc {% vowel or shewa ?
+\h@test@voc }
+
+\def \check@high ##1{\relax }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% static definitions for Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif \ifp@tach	\newif \ifch@lem
+
+\def \h@test@voc #1{% vowel or shewa ?
+\ifch@lem \ch@lemfalse \add@rdot \fi		% rdot
+\if\is@vowel #1\def \next {\syl@voc #1}\else  % test for vowel
+\ifx #1|\add@madda \def \next {\syl@shewa }%	% meteg 
+\else \def \next {\syl@shewa #1}% 		non-vowel follows
+\fi\fi \next }
+
+\def \syl@shewa #1{% put shewa if appropriate
+\ifp@tach \add@patachf \p@tachfalse \else
+\xpa\ifx \the\last@con B\else
+\ifx #1<\add@@shewa \else 
+\ifcat \nxp #1\nxp <\add@@shewa \else 
+	\add@sukun 					% shewa
+\fi\fi\fi\fi \put@syl \syl@con #1}
+
+\def \add@@shewa {% put shewa on final kaf
+\xpa\case \the\last@con \of
+{  k R {\add@shewa }}
+\endcase }
+
+\def \syl@meteg #1#2{% test for meteg and patach furtivum
+\ifx #2|\add@madda \def \next {#1}\else 
+\ifx #2\a@A\p@tachtrue \def \next {#1}\else
+	\def \next {#1#2}%
+\fi\fi \put@syl \next }
+
+\gdef \test@cont #1{% vowel contact? put dummy if not cholem male
+\ifx #1O\def \next {\syl@con #1}\else
+\ifx #1U\def \next {\syl@con #1}\else
+\if\is@vowel #1\def \next {\syl@con N#1}\else
+\def \next {\syl@con #1}\fi\fi\fi \next }
+
+\def \test@patf #1{% vowel contact? put dummy, test for guttural: 05.10.01
+\ifx #1O\def \next {\test@p@tf #1}\else
+\ifx #1U\def \next {\test@p@tf #1}\else
+\if\is@vowel #1\def \next {\syl@con N#1}\else
+\def \next {\test@p@tf #1}\fi\fi\fi \next }
+
+\def \test@p@tf #1#2#3{% guttural at end: prepare patach furtivum
+\ifx #1h\ifx #2\a@Zu \p@tachtrue 
+	\fi\fi
+\ifx #2a\ifx #3<\if\is@in@list #1PX>\p@tachtrue 
+	\fi\fi\fi
+\syl@con #1#2#3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \sv@patach {% a: put patach, test meteg
+\ifp@tach \add@patachf \p@tachfalse \else \add@fatha 
+\fi \syl@meteg \test@cont }
+
+\def \sv@segol {% e: put segol, test meteg
+\add@zwarakay \syl@meteg \test@cont }
+
+\def \sv@qamesqatuf {% o: put qames qatuf, test meteg
+\add@ammad \syl@meteg \test@cont }
+
+\def \sv@qibbus {% u: put qibbus, test meteg
+\add@damma \syl@meteg \test@cont }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@qames {% long a: put qames, test meteg
+\add@fathaspec \syl@meteg \test@cont }
+
+\def \sv@qamesaleph {% long a: put qames, test meteg
+\add@fathaspec \syl@meteg \sv@qames@aleph }
+
+\def \sv@qames@aleph {% long a: put aleph
+\put@con a\put@syl \test@cont }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@sere {% long e: put sere breve, test meteg
+\add@kasraspec \syl@meteg \sv@s@re }
+						
+\def \sv@s@re #1{% test for ey = E
+\ifx #1y\def \next {\sv@sere@longum }%
+\else \def \next {\test@patf #1}%
+\fi \next }
+						
+\def \sv@serelongum {% long e: put sere, test meteg
+\add@kasraspec \syl@meteg \sv@sere@longum }
+						
+\def \sv@sere@longum {% long e: put yod ?
+\test@yod }
+
+\def \test@yod #1{% vowel or consonant
+\if\is@vowel #1\def \next {\syl@con y#1}\else
+\put@con y\put@syl \def \next {\test@patf #1}%
+\fi \next }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@chireq {% i: put chireq, test meteg
+\add@kasra \syl@meteg \sv@ch@req }
+
+\def \sv@ch@req #1{% test for iy = I
+\ifx #1y\def \next {\sv@chireq@longum }%
+\else \def \next {\test@cont #1}%
+\fi \next }
+
+\def \sv@chireqlongum {% long i: put chireq, test meteg
+\add@kasra \syl@meteg \sv@chireq@longum }
+
+\def \sv@chireq@longum {% long i: put yod ?
+\test@yod }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@shureq {% long u: test meteg
+\syl@meteg \sv@sh@req }
+
+\def \sv@sh@req {% long u: put waw with shureq
+\put@con w\add@shadda \put@syl \test@patf }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@cholem #1{% short o: test meteg
+\ifx #1|\add@madda \def \next {\sv@ch@lem }%
+\else \def \next {\sv@ch@lem #1}%
+\fi \next }
+
+\def \sv@ch@lem #1{% short o: put cholem breve
+\xpa\ifx \the\last@con \a@s 		% omit cholem on sin
+\else	\case #1\of
+{          a A Q w{\ch@lemtrue }	% shift cholem
+	\default  {\add@cholem }	% deposit cholem
+}	\endcase
+\fi \put@syl \sv@ch@lemwaw #1}
+
+\def \sv@ch@lemwaw #1{% test for ow = O
+\ifx #1w\def \next {\sv@cholem@longum }%
+\else \def \next {\test@cont #1}%
+\fi \next }
+
+\def \sv@cholemlongum {% long o: test meteg
+\syl@meteg \sv@cholem@longum }
+
+\def \sv@cholem@longum {% long o: put waw with cholem
+\put@con w\add@rdot \ch@lemfalse \put@syl \test@patf }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@chatef@patach {% put chatef patach, test meteg
+\add@fathatan \syl@meteg \test@cont }
+
+\def \sv@chatef@segol {% put chatef segol, test meteg
+\add@kasratan \syl@meteg \test@cont }
+
+\def \sv@chatef@qames {% put chatef qames, test meteg
+\add@dammatan \syl@meteg \test@cont }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@shewa {% put shewa unconditionally
+\add@shewa \put@syl \syl@con }
+
+\def \sv@sindot {% sin dot
+\voc@suk \advance \last@mod 10 \syl@voctest }
+
+\def \sv@shindot {% shin dot
+\voc@suk \advance \last@mod 20 \syl@voctest }
+
+\def \sv@rdot {% center dot
+\voc@suk \advance \last@mod 30 \syl@voctest }
+
+\def \sv@raphe {% raphe
+\voc@suk \advance \last@mod 40 \syl@voctest }
+
+\def \sv@dagesh {% dagesh, ww -> U, shureq?
+\add@shadda 
+\xpa\ifx \the\last@con w\put@syl \def \next {\test@patf }%
+%\else \def \next {\syl@test@voc }%
+%\else \def \next {\syl@voctest }%
+\else \voc@suk \def \next {\syl@voctest }%
+\fi \next }
+
+\def \sv@dagesh {% dagesh, ww -> U, shureq?
+\add@shadda \voc@suk \syl@voctest }
+
+%%%%%%%%%%%%%%%%
+
+\def \sv@ay {% Yiddish ay
+\put@syl \put@con \a@i \v@ctrue \add@fatha \put@syl \test@patf }
+						
+\def \sv@ey {% Yiddish ey
+\put@syl \put@con \a@i \put@syl \test@patf }
+						
+\def \sv@oy {% Yiddish oy
+\put@syl \put@con \a@o \put@syl \test@patf }
+						
+%%%%%%%%%%%%%%%%
+
+\def \add@rdot {\advance \last@mod \c@hamza }
+
+\def \add@cholem {\ifv@c \last@voc \c@wasla \fi }
+
+\def \add@patachf {\ifv@c \last@voc 13 \fi }
+
+\def \add@shewa {% put shewa unconditionally
+\ifv@c \last@voc \c@sukun \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput

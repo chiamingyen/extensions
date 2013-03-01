@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% afonts2.sty
+% ArabTeX
+% load Naskh14 for NFSS2
+% 19.10.1999
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally and Bernd Raichle
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {afonts2.sty} {3.10 define Naskh fonts for LaTeX2e} {19.10.1998}
+
+% NEW FONT SELECTION -- Version 2
+
+% define \pnash to use the `unknown' fontencoding, `nash' fontfamily,
+% `m'edium fontseries und `n'ormal fontshape.
+
+\def\pnash{\fontencoding{U}\fontfamily{nash}%
+           \fontseries{m}\fontshape{n}\selectfont}
+
+% define \pnashbf to use the `unknown' fontencoding, `nash' fontfamily,
+% `b'old e`x'tended fontseries und `n'ormal fontshape.
+
+\def\pnashbf{\fontencoding{U}\fontfamily{nash}%
+             \fontseries{bx}\fontshape{n}\selectfont}
+
+% extended Nash fonts (14pt @ 12pt):
+
+\def \xnash   {\protect \pxnash }
+\def \xnashbf {\protect \pxnashbf }
+
+\def \pxnash {\fontencoding {U}\fontfamily {xnsh}%
+           \fontseries {m}\fontshape {n}\selectfont }
+
+\def \pxnashbf {\fontencoding {U}\fontfamily {xnsh}%
+           \fontseries {bx}\fontshape {n}\selectfont }
+
+% smaller fonts (12pt @ 12pt):
+
+\def \snash   {\protect \psnash }                     
+\def \snashbf {\protect \psnashbf }                     
+                                                      
+\def \psnash {\fontencoding {U}\fontfamily {xnsh}%    
+           \fontseries {m}\fontshape {s}\selectfont } 
+                                                      
+\def \psnashbf {\fontencoding {U}\fontfamily {xnsh}%
+           \fontseries {bx}\fontshape {s}\selectfont }
+
+% All other definitions are done in the files `Unash.fd' and `Uxnsh.fd', 
+% which are loaded on demand.
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

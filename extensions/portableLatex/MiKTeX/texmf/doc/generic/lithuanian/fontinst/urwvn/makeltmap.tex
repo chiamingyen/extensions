@@ -1,0 +1,16 @@
+%
+% makeltmap.tex
+%
+
+\input finstmsc.sty
+\resetstr{PSfontsuffix}{.pfb}
+\adddriver{dvips}{l7x-urwvn.dvips}
+\adddriver{dvipdfm}{l7x-urwvn.dvipdfm}
+\adddriver{pltotf}{pltotf-script.sh}
+\adddriver{debug}{mapdump.txt}
+\input makelt.recs
+\donedrivers
+\bye
+
+
+

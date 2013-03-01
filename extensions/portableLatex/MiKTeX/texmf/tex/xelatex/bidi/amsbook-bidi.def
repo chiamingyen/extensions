@@ -1,0 +1,122 @@
+%%
+%% This is file `amsbook-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{amsbook-bidi.def}[2010/03/01 v0.3 adaptations for amsbook class]
+\def\@tocline#1#2#3#4#5#6#7{\relax
+  \ifnum #1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty\addvspace{#2}%
+    \begingroup \hyphenpenalty\@M
+    \@ifempty{#4}{%
+      \@tempdima\csname r@tocindent\number#1\endcsname\relax
+    }{%
+      \@tempdima#4\relax
+    }%
+    \parindent\z@ \if@RTL\rightskip\else\leftskip\fi#3\relax \advance\if@RTL\rightskip\else\leftskip\fi\@tempdima\relax
+    \if@RTL\leftskip\else\rightskip\fi\@pnumwidth plus4em \parfillskip-\@pnumwidth
+    #5\leavevmode\hskip-\@tempdima #6\nobreak\relax
+    \hfil\hbox to\@pnumwidth{\@tocpagenum{#7}}\par
+    \nobreak
+    \endgroup
+  \fi}
+\renewcommand\thesubsection    {\thesection\@SepMark\arabic{subsection}}
+\renewcommand\thesubsubsection {\thesubsection \@SepMark\arabic{subsubsection}}
+\renewcommand\theparagraph     {\thesubsubsection\@SepMark\arabic{paragraph}}
+\renewcommand\thesubparagraph  {\theparagraph\@SepMark\arabic{subparagraph}}
+\renewenvironment{thebibliography}[1]{%
+  \@bibtitlestyle
+  \normalfont\bibliofont\labelsep .5em\relax
+  \renewcommand\theenumiv{\arabic{enumiv}}\let\p@enumiv\@empty
+  \list{\@biblabel{\theenumiv}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \rightmargin\labelwidth \advance\rightmargin\labelsep
+     \leftmargin\labelwidth \advance\leftmargin\labelsep
+    \usecounter{enumiv}}%
+  \sloppy \clubpenalty\@M \widowpenalty\clubpenalty
+  \sfcode`\.=\@m
+}{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+}
+\def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
+\columnseprule\z@ \columnsep 35\p@
+\@indextitlestyle
+\thispagestyle{plain}%
+\let\item\@idxitem
+\parindent\z@ \parskip\z@\@plus.3\p@\relax
+\raggedleft
+\hyphenpenalty\@M
+\footnotesize}
+
+\def\@idxitem{\par\hangindent -2em}
+\def\subitem{\par\hangindent -2em\hspace*{1em}}
+\def\subsubitem{\par\hangindent -3em\hspace*{2em}}
+\def\right@footnote{%
+  \hbox to \columnwidth
+  {\beginR \vbox{\kern-.4\p@
+        \hrule\@width 5pc\kern11\p@\kern-\footnotesep}\hfil\endR}}
+\def\left@footnote{\kern-.4\p@
+        \hrule\@width 5pc\kern11\p@\kern-\footnotesep}
+\long\def\@footnotetext#1{%
+    \begingroup
+    \setbox\footins
+    \vbox{\if@RTL@footnote\@RTLtrue\else\@RTLfalse\fi\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore \parindent\normalparindent \sloppy
+    \bidi@footnotetext@dir{#1}%
+    \protected@edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces#1\unskip\strut\par}}%
+     \bidi@footnotetext@after
+    \insert\footins{\unvbox\footins}%
+    \endgroup}
+\long\def\@RTLfootnotetext#1{%
+    \begingroup
+    \setbox\footins
+    \vbox{\@RTLtrue\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore \parindent\normalparindent \sloppy
+    \bidi@footnotetext@dir{#1}%
+    \protected@edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces #1\unskip\strut\par}}%
+     \bidi@footnotetext@after
+    \insert\footins{\unvbox\footins}%
+    \endgroup}
+\long\def\@LTRfootnotetext#1{%
+    \begingroup
+    \setbox\footins
+    \vbox{\@RTLfalse\reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore \parindent\normalparindent \sloppy
+    \bidi@footnotetext@dir{#1}%
+    \protected@edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces #1\unskip\strut\par}}%
+     \bidi@footnotetext@after
+    \insert\footins{\unvbox\footins}%
+    \endgroup}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `amsbook-bidi.def'.

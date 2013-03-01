@@ -1,0 +1,216 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% hescan.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hescan.sty
+% Scanner for ISO 8859-8 Code, loaded by hebtex.sty
+% experimental scanner for Hebrew files
+% to activate it, say "\setcode {hed}" or "\setcode {HED}" or
+% "\setcode {pccode}" or "\setcode {newcode}" or "\setcode {iso8859-8}"
+% for Hebrew Windows encoding CP1255 say "\setcode{cp1255}"
+% 07.03.2002
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \hedatcode \undefined \else \xpa \endinput \fi
+
+\chardef \hedatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {hescan.sty} 
+{3.10a scanner for HED and ISO 8859-8 encoding} {07.03.2002}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \sethed@codes {\seta@codes % activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@a {b}   \def \sc@b {g}   \def \sc@c {d}   \def \sc@d {h}
+%\def \sc@a {v}   \def \sc@b {g}   \def \sc@c {d}   \def \sc@d {h}
+\def \sc@e {w}   \def \sc@f {z}   \def \sc@g {X}   \def \sc@h {C}
+\def \sc@i {y}   \def \sc@j {k}   \def \sc@k {k-}  \def \sc@l {l}
+\def \sc@m {m}   \def \sc@n {m-}  \def \sc@o {n}   \def \sc@p {n-}
+%\def \sc@q {s}   \def \sc@r {P}   \def \sc@s {f}   \def \sc@t {f-}
+\def \sc@q {s}   \def \sc@r {P}   \def \sc@s {p}   \def \sc@t {p-}
+\def \sc@u {S}   \def \sc@v {S-}  \def \sc@w {q}   \def \sc@x {r}
+\def \sc@y {\n@xp \a@S }  	  \def \sc@z {t}
+%
+\xpa \def \csname sc@`\endcsname {Q}
+\a@digits = {0123456789}	\a@paren  = {()[]}	\a@first = {}
+\globaldefs=0 
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Hebrew: oldcode and pccode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hed@scan #1>{% modified scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase {\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\@ssimfalse
+\novocalize \lowercase {\sc@beg #1\@ \@@ }% transform
+\iftest@scan \tracingmacros = 0 \xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hed@word #1#2{% transform input into internal notation
+	\def \next {\hed@word #2}%
+\ifx #1\@ \let \next \relax \else
+\ifcat \nxp #1\relax \def \next {\hed@cs #1#2}\else	% control sequence
+	\ifx #1-\def \sc@char {B}\else
+	\ifx #1`\def \sc@char {Q}\else
+	\ifcat \noexpand #1a\edef \sc@char 
+		{\csname sc@#1\endcsname }%
+	\else \def \sc@char {#1}%
+	\fi\fi\fi \sc@put
+\fi\fi \next }
+
+\def \h@d@cs #1#2{% test word end
+\def \sc@char {#1}\sc@put 
+\ifx #2\@ \def \next {\sc@endscan #2}\else
+\ifcat -\nxp #2 \def \next {\hed@word #2}\else
+\def \next {\sc@back #2}\fi \fi \next }
+
+\def \hed@cs #1#2{% control sequence within a word; push back?
+\xpa \ifx #1\closegeresh \def \next {\h@d@cs {\nxp \lq }#2}\else 
+\xpa \ifx #1\closequote \def \next {\h@d@cs {`}#2}\else 
+	\def \next {\sc@back #1#2}%
+\fi\fi \next }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hed@select {% select the new scanner
+\heb@catcodes			% inside hebtex.sty; to make sure
+\let \sc@beg \hed@word 		\let \sc@word \hed@word  
+\let \sc@back \sc@@back		\let \sc@endscan \sc@@endscan
+\sethed@codes			\global\let \a@scan \hed@scan
+\a@message {input encoding set to ISO 8859-8 and other Hebrew conventions}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hwin@catcodes {% assignments for CP 1255
+\countdef \is@m=2 	\is@m = 192	\is@n = 64
+\loop \catcode \is@m = 11 \lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0 \catcode `\^^a0 12 }
+
+{\hwin@catcodes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \sethwin@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@^^c0 {"\n@xp\a@e}	\def \sc@^^c1 {"\n@xp\a@I} 
+\def \sc@^^c2 {"\n@xp\a@A}	\def \sc@^^c3 {"\n@xp\a@O}
+\def \sc@^^c4 {"i} 		\def \sc@^^c5 {"\n@xp\a@E}  
+\def \sc@^^c6 {"e}  		\def \sc@^^c7 {"a}
+\def \sc@^^c8 {"A}		\def \sc@^^c9 {"\n@xp\a@o}   
+\def \sc@^^ca {L}		\def \sc@^^cb {"u}
+\def \sc@^^cc {"\n@xp\a@Zu}	\def \sc@^^cd {|}   
+\def \sc@^^ce {B}		\def \sc@^^cf {"\n@xp\a@Zo}
+
+\def \sc@^^d0 {K}		\def \sc@^^d1 {"\n@xp\a@Ze}   
+\def \sc@^^d2 {"\n@xp\a@Za}	\def \sc@^^d3 {:}
+\def \sc@^^d4 {w-w}   		\def \sc@^^d5 {wy}		
+\def \sc@^^d6 {y-y}		\def \sc@^^d7 {@}  
+\def \sc@^^d8 {@}  \def \sc@^^d9 {@}   \def \sc@^^da {@}   \def \sc@^^db {@}
+\def \sc@^^dc {@}  \def \sc@^^dd {@}   \def \sc@^^de {@}   \def \sc@^^df {@}
+
+\def \sc@M {M} %\def \sc@N {N}
+\def \sc@^^e0 {Q}  \def \sc@^^e1 {b}   \def \sc@^^e2 {g}   \def \sc@^^e3 {d}
+\def \sc@^^e4 {h}  \def \sc@^^e5 {w}   \def \sc@^^e6 {z}   \def \sc@^^e7 {X}
+\def \sc@^^e8 {C}  \def \sc@^^e9 {y}   \def \sc@^^ea {k}   \def \sc@^^eb {k}
+\def \sc@^^ec {l}  \def \sc@^^ed {m}   \def \sc@^^ee {m}   \def \sc@^^ef {n}
+
+\def \sc@^^f0 {n}  \def \sc@^^f1 {s}   \def \sc@^^f2 {P}   \def \sc@^^f3 {p}
+\def \sc@^^f4 {p}  \def \sc@^^f5 {S}   \def \sc@^^f6 {S}   \def \sc@^^f7 {q}
+\def \sc@^^f8 {r} \def\sc@^^f9{\n@xp\a@S} \def\sc@^^fa {t} \def \sc@^^fb {@}
+\def \sc@^^fc {@}  \def \sc@^^fd {@}   \def \sc@^^fe {@}   \def \sc@^^ff {@}
+\a@digits = {0123456789}
+\a@paren  = {()[]}
+\a@first = {"`^^e6}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Hebrew, CP1255, ISO8859-8, newcode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \hwin@scan #1>{% standard scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase{\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \hwin@beg {% start CP 1255 scanner
+\h@mzafalse \iz@fetfalse \@ssimfalse \novocalize % because of explicit quoting
+\hwin@word }
+
+{\catcode `\^^M=13 \endlinechar = -1
+\gdef \hwin@word #1{% transform input into internal notation
+\ifx #1\@ \def \next {\sc@endscan }\else % finished
+\if \nxp ^^M\nxp #1\def \next {\hwin@par #1}% active character
+\else \def \next {\hwin@w@rd #1}%
+\fi\fi \next }%
+} % catcode 13
+
+\gdef \hwin@w@rd #1#2{% special cases
+\case #1\of 
+{   	  #2{\hwin@word #1-#2}
+	   -{\hwin@minus #2} 
+	^^a0{\sc@back #2} 
+	^^ad{\hwin@minus #2} 
+\default {\hwin@@word #1#2}
+}\endcase }
+
+\gdef \hwin@@word #1#2{% default branch
+\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+\else \def \sc@char {\nxp #1}%
+\fi \sc@put 
+\def \next {\hwin@word #2}%
+\next }
+
+\gdef \hwin@@word #1{% default branch
+\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+\else \def \sc@char {\nxp #1}%
+\fi \sc@put \hwin@word }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \hwin@minus {% hyphen between words
+\def \sc@char {-}\sc@put \hwin@beg }
+
+\gdef \hwin@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\ #1\@ \@@ }
+
+\gdef \hwin@endscan \@@ {\global\let \a@scan \hwin@scan }
+} % \hwin@catcodes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@hwin {% select the CP 1255 scanner
+\let \sc@beg \hwin@beg 		\let \sc@word \hwin@word  
+\let \sc@back \sc@@back		\let \sc@endscan \hwin@endscan
+\global\let \a@scan \hwin@scan  \sethwin@codes	
+\hwin@catcodes 		
+\a@message {input encoding set to Windows CP 1255 conventions}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the Hebrew encodings
+hed\hed@select 		newcode\hed@select 	pccode\hed@select 
+iso8859-8\hed@select 	hwin\set@hwin		cp1255\set@hwin	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for ISO 8859-8, CP1255, and other Hebrew codes installed.}
+
+\catcode `\@ = \hedatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

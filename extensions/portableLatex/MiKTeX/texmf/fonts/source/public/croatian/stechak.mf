@@ -1,0 +1,909 @@
+
+% ORNAMENTI NA STECHCIMA, 1995
+
+% "a", "b", "c"    8+krug, 7, 6 -kraka zvijezda
+% "j", "e", "f"    6+krug, 5, 4 -kraka zvijezda
+% "g", "h"         kotacc s precckama (h ima petokraku zvijezdu)
+% "i", "5"         7 -kraka zvijezda, petokraka
+% "k", "l", "d"    kolo
+% "p", "q"         ptica
+% "s"              svastika
+% "A", "B", "C"    krizz (kvadratni), standardni, ljiljan
+% "D", "T"         dupli krizz, obli
+% "E", "F", "G",   bordure
+% "H", "I", "J",
+% "M", "N"
+% "K"              krug
+% "L"              lutka
+% "S", "O"         6 i 8 latica cvijeta
+% "P", "R"         polumjesec, repatica
+% "Z"              zvijezda
+
+Pt#:=3pt#;
+
+mode_setup;
+ font_size 10Pt#;
+ u#:=.8Pt#; font_quad= 24u#;
+            font_normal_space= 9u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 2u#;
+ em#:=10Pt#; cap#:=7Pt#;
+ thin#:=2/3Pt#; thick#:=.9*5/6Pt#;
+ o#:=1/5Pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=round 1.1*1/10em;
+
+
+%  Besslagich, zvijezda 8 krakova
+beginchar("a",cap#,cap#,.2cap#); "a(zvijezda)8";
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/8;
+xx:=.5; %cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z2--z3--z4--z4--z1--cycle;
+%{dir (270-.5*kut)}..{right}z1..{dir
+%(90+.5*kut)}z2;
+for n=1,2,3,4,5,6,7,8:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+%  Besslagich, 7 krakova
+beginchar("b",cap#,cap#,.2cap#); "b(zvijezda)7";
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/7;
+xx:=.5; %cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z2--z3--z4--z4--z1--cycle;
+%{dir (270-.5*kut)}..{right}z1..{dir
+%(90+.5*kut)}z2;
+list:=list rotatedaround (z3, 180);
+for n=1,2,3,4,5,6,7:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+
+%  Besslagich, 6 latica
+beginchar("c",cap#,cap#,.2cap#); "c(zvijezda)6";
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/6;
+xx:=.5; %cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z2--z3--z4--z4--z1--cycle;
+%{dir (270-.5*kut)}..{right}z1..{dir
+%(90+.5*kut)}z2;
+for n=1,2,3,4,5,6:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+
+%  Besslagich, zvijezda s 6 latica i krugom
+beginchar("j",cap#,cap#,.2cap#); "j - ssest latica"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/6;
+xx:=1-.5*cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z4{dir (270-.5*kut)}..{right}z1..{dir
+(90+.5*kut)}z2;
+draw list;
+for n=1,2,3,4,5,6:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+rr:=.2w;
+path krug; krug= fullcircle scaled rr shifted z3;
+erase fill krug;
+draw krug;
+endchar;
+
+
+%  Besslagich, zvijezda sa 5 latica
+beginchar("e",cap#,cap#,.2cap#); "e - 5 latica"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/5;
+xx:=1-.5*cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z4{dir (270-.5*kut)}..{right}z1..{dir
+(90+.5*kut)}z2;
+list:=list rotatedaround (z3, 180);
+transform b; b= identity rotatedaround (z3, kut);
+transform b[]; b[0]=b;
+for n=1,2,3,4,5:
+ b[n]=b[n-1] transformed b;
+draw (list transformed b[n]); endfor
+endchar;
+
+
+
+%  Besslagich, zvijezda sa 4 latice
+beginchar("f",cap#,cap#,.2cap#); "f - 4 latice"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/4;
+xx:=1-.5*cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z4{dir (270-.5*kut)}..{right}z1..{dir
+(90+.5*kut)}z2;
+%draw list;
+for n=1,2,3,4:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+%  Besslagich, kotacc s 20 preccki
+beginchar("g",cap#,cap#,.2cap#); "g - kotacc(20)"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+draw fullcircle scaled w shifted z3;
+draw fullcircle scaled .7w shifted z3;
+kutt:=-15;
+z1=(.5w,.15h); z2=(.5w,0) rotatedaround (z3,kutt);
+path list; list=z1{dir(270+kutt)}..{dir(180-kutt)}z2;
+kut:=360/20;
+transform b; b= identity rotatedaround (z3, kut);
+transform b[]; b[0]=b;
+for n=1 thru 20:
+ b[n]=b[n-1] transformed b;
+draw (list transformed b[n]); endfor
+endchar;
+
+
+
+%  Besslagich, kotacc sa peterokrakom zvijezodm
+beginchar("h",cap#,cap#,.2cap#); "h - kotacc(20+5)"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+draw fullcircle scaled w shifted z3;
+draw fullcircle scaled .7w shifted z3;
+draw fullcircle scaled .3w shifted z3;
+z0=(.5w,.5h+.15w);
+path krak; krak=z3--z0;
+transform c; c=identity rotatedaround (z3, 72);
+transform c[]; c[0]=c;
+for n=1 thru 5:
+  c[n]=c[n-1] transformed c;
+  draw (krak transformed c[n]); endfor
+kutt:=-15;
+z1=(.5w,.15h); z2=(.5w,0) rotatedaround (z3,kutt);
+path list; list=z1{dir(270+kutt)}..{dir(180-kutt)}z2;
+kut:=360/20;
+transform b; b= identity rotatedaround (z3, kut);
+transform b[]; b[0]=b;
+for n=1 thru 20:
+ b[n]=b[n-1] transformed b;
+draw (list transformed b[n]); endfor
+endchar;
+
+
+%  Besslagich, zvijezda sa 7 latica
+beginchar("i",cap#,cap#,.2cap#); "i - 7 latica";
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/7;
+xx:=1-.5*cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z4{dir (270-.5*kut)}..{right}z1..{dir
+(90+.5*kut)}z2;
+list:=list rotatedaround (z3, 180);
+transform b; b= identity rotatedaround (z3, kut);
+transform b[]; b[0]=b;
+for n=1,2,3,4,5,6,7:
+ b[n]=b[n-1] transformed b;
+draw (list transformed b[n]); endfor
+endchar;
+
+
+%  Besslagich, svastika
+beginchar("s",1.4cap#,1.2cap#,.2cap#); "s(vastika)";
+pickup pencircle scaled  .3thin;
+x2=0; x3=x4=.5w; x13=w;
+ss=.05w; %ssirina
+x1=ss;
+x30=ss;
+x35=x36=x1+ss;
+x26=2*ss; x25=3*ss; x28=3*ss; x29=x28-ss; x27=x28+ss;
+x33=x32=x23=x22=x3-ss;
+x34=x31=x24=x3-2*ss;
+x5=x7=x16=x17=x3+ss;
+x37=x15=x18=x3+2ss;
+x20=x13-ss;
+x14=x13-ss;
+x9=x13-2ss;
+x11=x13-3ss;
+x10=x11-ss; x12=x11+ss;
+x8=x9-ss;
+x21=x19=x20-ss;
+y36=y3=0;
+y1=y5=ss; y35=y34=2ss; y33=3ss;
+y2=y13=.5h;
+y4=y21=h;
+y28=.9h; y29=y27=y28-ss;
+y11=h-y28;
+y10=y12=y11+ss;
+y9=y2-2ss;
+y32=y7=y2-2ss; y30=y31=y37=y8=y2-ss;
+y25=y24=y15=y14=y2+ss;
+y26=y2+2ss;
+y23=y16=y2+2ss;
+y22=y20=y4-ss;
+y18=y19=y4-2ss;
+y17=y4-3ss;
+y2:=1.2y2;
+y13:=.8y13;
+draw z1{down}..{right}z36--z3{right}..{up}z5--z7{up}..{right}z37
+--z8{right}..{down}z9--z10{dir angle(z10-z9)}..{dir10}z11..{dir angle
+(z13-z12)}z12--z13{dir angle(z13-z12)}..{left}z14--z15{left}..{up}z16--z17
+{up}..{right}z18--z19{right}..{up}z20..{left}z21--z4{left}..{down}z22--
+z23{down}..{left}z24--z25{left}..{dir angle(z27-z26)}z26--z27{dir
+angle(z27-z26)}..{left}z28..{dir angle(z2-z29)}z29--z2{dir angle(z2-z29)}
+..{right}z30--z31{right}..{down}z32--z33{down}..{left}z34--z35{left}..cycle;
+endchar;
+
+
+
+% Zijemlje polje kod Mostara, slika 34, nalik na gl `ch'
+beginchar("L",.7em#,cap#,0); " L(utka)";
+pickup pencircle scaled .3thin;
+x1=x2=w-x4=w-x3=curve_sidebar;
+x5=x6=.5w;
+x7=w-x8=.15w;
+y1=y6=y4=h;
+y2=y5=y3=.7h;
+y7=y8=0;
+draw z1--z2--z3--z4;
+draw z6--z5--z7--z8--z5;
+dd:=.25w;
+z66=(.5w,h+.5*dd);
+%pickup pencircle scaled .6thin;
+draw fullcircle scaled dd shifted z66;
+endchar;
+
+
+% Ubosko, Ljubinje, BiH, sl. 16
+%beginchar("Z",cap#,cap#,0); "Z(vijezda)";
+%pickup pencircle scaled  .3thin;
+%x1=x2=w-x5=w-x6=.35w; x3=x4=.5w;
+%y1=y6=0; y3=.5h;
+%y4=.5(x6-x1); y4=y3-y5=y3-y2;
+%draw z4--z1--z2--z3--z4--z6--z5--z3;
+%transform t; t= identity rotatedaround (z3, -90);
+%addto currentpicture also currentpicture transformed t;
+%addto currentpicture also currentpicture transformed (t transformed t);
+%endchar;
+
+
+% Ubosko, Ljubinje, BiH, sl. 16
+beginchar("Z",cap#,cap#,.2cap#); "Z(zvijezda)8";
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/8;
+xx:=.5; %cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z2--z3--z4--z4--z1--cycle;
+%{dir (270-.5*kut)}..{right}z1..{dir
+%(90+.5*kut)}z2;
+for n=1,2,3,4,5,6,7,8:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut+22.5);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+% Ljubusski sl. 46 ili Krvavica, Makarska
+beginchar("k",em#,1.4cap#,0); "k(olo)";
+pickup pencircle scaled  .4thin;
+x1=x6=.5w; x9=x10=w;
+x5=.7w;
+y1=h; y6=y5=0;
+rr:=.14h;
+z0=(x1,h-.5*rr);
+path cetvrt; cetvrt= quartercircle scaled rr shifted z0;
+z2=(cetvrt rotatedaround (z0,-90))
+ intersectionpoint (z5--z1);
+z3-z2=.4(z2-z1);
+y9=y3;
+z4-z3=z3-z2;
+draw z1{right}..{dir(90+angle(z0-z2))}z2--z3;
+x8=x11=.5[x12,x10];
+y8=y4-(y2-y3);
+y8-y11=.8(y3-y4);
+y9-y10=.8(y8-y11);
+z7=(x3+.05w,y3);
+z12=(.7[x3,x7],y4);
+draw z4--z5--z6;
+draw z3--z7{right}..tension 1.3..{right}z8..tension 1.3..{right}z9;
+draw z4--z12{right}..tension 1.3..{right}z11..tension1.3..{right}z10;
+transform t; t= identity reflectedabout (z6,z1);
+z91=(x9-.05w,y9+.06w); z93=(w,1.1y9);
+z92=(.7[x91,x9],.4[y9,y93]);
+pickup pencircle scaled  .2thin;
+draw z9{left}..{dir 75}z91..{dir-20}z92{dir(180-20)}..{right}z93;
+addto currentpicture also currentpicture transformed t;
+endchar;
+
+
+% Ljubusski sl. 46 ili Krvavica, Makarska
+beginchar("l",em#,1.4cap#,0); "l(kolo)";
+pickup pencircle scaled  .4thin;
+x1=x6=.5w; x9=x10=w;
+x5=.7w;
+y1=h; y6=y5=0;
+rr:=.14h;
+z0=(x1,h-.5*rr);
+path cetvrt; cetvrt= quartercircle scaled rr shifted z0;
+z2=(cetvrt rotatedaround (z0,-90))
+ intersectionpoint (z5--z1);
+z3-z2=.4(z2-z1);
+y9=y3;
+z4-z3=z3-z2;
+x8=x11=.5[x12,x10];
+y8=y4-(y2-y3);
+y8-y11=.8(y3-y4);
+y9-y10=.8(y8-y11);
+z7=(x3+.05w,y3);
+z12=(.7[x3,x7],y4);
+path dio; dio=z1{right}..{dir(90+angle(z0-z2))}z2--z3--z7;
+path dioo; dioo =z12--z4--z5--z6;
+draw dio;
+draw dioo;
+transform t; t= identity reflectedabout (z6,z1);
+draw dio transformed t;
+draw z3--z7{right}..tension 1.3..{right}z8..tension 1.3..{right}z9;
+draw z4--z12{right}..tension 1.3..{right}z11..tension 1.3..{right}z10;
+transform t; t= identity reflectedabout (z6,z1);
+z91=(x9-.05w,y9+.06w); z93=(w,1.1y9);
+z92=(.7[x91,x9],.4[y9,y93]);
+2(y3-y8)=y8-y13;
+y13-y14=y9-y10;
+z13-z1=whatever*(z5-z1);
+z14-z1=whatever*(z5-z1);
+z13'=z13 transformed t;
+z14'=z14 transformed t;
+path diooo; diooo= z12--z4--z13;
+draw diooo transformed t;
+path diio; diio= z14--z5--z6;
+draw diio transformed t;
+z7'=z7 reflectedabout (z1,z6);
+z12'=z12 reflectedabout (z1,z6);
+z8'=z8 reflectedabout (z1,z6);
+x8':=x8'-.04w;
+y8':=y8'-.07h;
+z11'-z8'=1.41(y9-y10,0);
+draw z7'{left}..tension 1.6..{down}z8'..tension 1.6..{dir angle(z14'-z8')}z14';
+draw z12'{left}..tension 1.6..{down}z11'..tension 1.6..
+{dir angle(z13'-z11')}z13';
+pickup pencircle scaled  .2thin;
+draw z9{left}..{dir 75}z91..{dir-20}z92{dir(180-20)}..{right}z93;
+%addto currentpicture also currentpicture transformed t;
+picture slovo_l; slovo_l=currentpicture;
+endchar;
+
+
+% Ljubusski sl. 46 ili Krvavica, Makarska
+beginchar("d",em#,1.4cap#,0); "d(kolo)";
+transform t; t=identity reflectedabout ((.5w,0),(0.5w,h));
+addto currentpicture also slovo_l transformed t;
+endchar;
+
+
+beginchar("p",1.41em#,.9cap#,0); "p(tica)"; % 1.55em#
+pickup pencircle scaled  .3thin;
+x8=0;  x1=w; x7=.06w;
+x6=.4w;
+x4=.7w;
+x3=.3[x4,x1]; x2=.4[x3,x1];
+x5=.47[x6,x4];
+x11=.5w; x12=x11+.03w;
+x9=.43w; x13=.1[x12,x1];
+x10=.5[x9,x11];
+x15=.1[x4,x1];
+x14=.66[x13,x15];
+y11=y12=0;
+y3=h;
+y2=.5[y1,y3];
+y4=.9h;
+y1=.35[y4,y3];
+y6=.5h;
+y5=.5[y6,y4];
+y7=y6+.1h;
+y8=.1h;
+y9=.7y6; y10=.8y9;
+y15=.85y4;
+y13=1.1y9;
+y14=.36[y13,y15];
+draw
+z12{up}..z13{dir (angle(z14-z13)-5)}..{dir angle(z15-z13)}z14..{dir45}z15..
+tension 1.6..
+{dir 3}z1{dir 175}..z2..{left}z3..{dir (180+75)}z4..
+{dir(180+35)}z5..
+{dir(180+15)}z6..tension 1.6..z7--z8..tension 1.6..{right}z9..z10..
+{down}z11;
+picture ptica; ptica=currentpicture;
+endchar;
+
+
+beginchar("q",1.41em#,.9cap#,0); "q(ptica)";
+transform t; t=identity reflectedabout ((.5w,0),(0.5w,h));
+addto currentpicture also ptica transformed t;
+endchar;
+
+
+%  Besslagich, Krizz
+beginchar("A",1.4cap#,1.4cap#,.2cap#); "A - krizz";
+pickup pencircle scaled  .3thin;
+z0=(.5w,.5w);
+z13=(.5w,.9x0);
+z1=z13 rotatedaround (z0,-45);
+z3=z13 rotatedaround (z0,45);
+z2=(x1,.15y1);
+z4=(x3,y2);
+z76=(.5w,0);
+kut:=25;
+z6=z76 rotatedaround (z0,kut);
+z7=z76 rotatedaround (z0,-kut);
+z24=.5[z2,z4];
+z9=(.5w, h);
+hh:=2h-2y24;
+path krug; krug= fullcircle scaled hh shifted z9;
+z5= krug intersectionpoint (z6--z0);
+z8= krug intersectionpoint (z7--z0);
+kutt:=.5*kut;
+path list; list= z3--z4{right}..z5{dir kutt}..{dir (180+kut)}z6..{left}z76..
+{dir(180-kut)}z7..{dir -kutt}z8..{right}z2--z1;
+for n=1,2,3,4:
+transform b[]; b[n]= identity rotatedaround (z0, n*90);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+%  Besslagich, Krizz
+beginchar("B",1.1cap#,1.4cap#,.2cap#); "B - krizz";
+pickup pencircle scaled  .3thin;
+x1=x2=x5=x6=.56w; x7=.5w;
+hh:=3(x6-x7);
+x3=x4=w-hh; x8=w;
+y7=h; y6=y7-hh;
+y5=y4=.65h;
+y2=y3=y5-2*(x6-x7);
+y1=0;
+y8=.5[y3,y4];
+z0=(.5w,0);
+kut:=60;
+path kriz; kriz = z0--z1--z2--z3{dir -kut}..{up}z8..{dir(180+kut)}z4--z5--z6{dir (90-kut)}
+..{left}z7;
+path krizz; krizz= kriz reflectedabout (z0,z7);
+draw kriz; draw krizz;
+endchar;
+
+
+%  Besslagich, Krizz -- ljiljan
+beginchar("C",1.2cap#,1.4cap#,.2cap#); "C - krizz";
+pickup pencircle scaled  .3thin;
+z0=(.5w,0);
+x1=x2=.61w; x8=.5w;
+x7-x8=.8(x2-x8);
+x5=w; x4=x3=x6=.5[x2,x5];
+y1=0; y8=h; y7=.7h; y2=y7-2(x1-x0);
+y3=.5[y2,y7];
+y6-y3=.7(y7-y2);
+y5=y3;
+y4=y2-.6(y7-y2);
+kut:=60;
+path kriz; kriz= z0--z1--z2{up}..{right}z3..{dir(180+kut-10)}z4{dir (kut-15)}
+..{up}z5..{left}z6..{dir(180+kut-30)}z7{dir(kut-25)}..{left}z8;
+path krizz; krizz= kriz reflectedabout (z0,z8);
+draw kriz; draw krizz;
+endchar;
+
+
+
+%  Besslagich, D krizz dupli
+beginchar("D",.7cap#,1.2cap#,.2cap#); "Dupli krizz";
+pickup pencircle scaled  .3thin;
+x1=x4=w-x3=w-x2=(.5-.12)*w;
+x5=x8=x9=x12=0;
+x6=x7=x10=x11=w-x5;
+y1=y2=0; y3=y4=h;
+y5=y6=.2h;
+y8=y7=y5+(x2-x1);
+y12=y11=h-y5;
+y9=y10=h-y8;
+x13=x14=x15=x16=x1;
+y13=y12; y14=y9; y15=y8; y16=y5;
+x17=x18=x19=x20=x2;
+y17=y11; y18=y10; y19=y7; y20=y6;
+draw z1--z2--z20--z6--z7--z19--z18--z10--z11--
+z17--z3--z4--z13--z12--z9--z14--z15--z8--z5--z16--cycle;
+endchar;
+
+
+%  Besslagich, Bordura
+beginchar("T",.75em#,cap#,.2cap#); "T - krizz";
+pickup pencircle scaled  .2thin;
+z0=(.5w,0); x7=w; x1=.7w;
+x2=.57w; x6=x8=.7[x2,x7];
+x4=.8[x0,x1]; x5=.5w;
+y1=0; y5=h;
+y2=.4h;
+y3=.5h;
+y4=.67[y3,y5];
+z3-z2=whatever*dir(angle(z2-z1)-10);
+y6=y2;
+y7=.5[y6,y8]; % y8
+y7=y3+.04h;
+y33-y7=y7-y3;
+z30=(x0,y33); z70=(x7,y33);
+x33= xpart  ((z30--z70) intersectionpoint (z3{up}..{up}z4));
+path luk; luk=z0--z1--z2{dir(angle(z2-z1))}..
+{up}z3{right}..{right}z6..{up}z7..{left}z8
+..{left}z33{up}..z4{up}..{left}z5;
+draw luk;
+transform a; a=identity reflectedabout (z0,z5);
+path lukk; lukk=luk transformed a;
+draw lukk;
+endchar;
+
+
+
+% Dugo Polje; slika 60, Besslagich
+beginchar("K",cap#,cap#,0); "K(rug)"; %
+pickup pencircle scaled  .3thin;
+x1=x3=x5=x7=.5w;
+x4=0; x2=w; x8=w-x6=.15w;
+y1=0; y3=h; y4=y8=y6=y2=.5h;
+y5=h-y7=x8;
+draw z1{right}..z2{up}..{left}z3..{down}z4..cycle;
+draw z5{right}..z6{up}..{left}z7..{down}z8..cycle;
+draw z5--z7; draw z6--z8;
+z0=(.5w,.5h);
+path hh; hh= (z5--z7) rotatedaround (z0,45); draw hh;
+path vv; vv= (z6--z8) rotatedaround (z0,45); draw vv;
+endchar;
+
+
+%  Besslagich
+beginchar("P",.6em#,cap#,.2cap#); "P(olumjesec)"; % 1.55em#
+pickup pencircle scaled  .3thin;
+x2=0; x1=x3=w; x4=.4w;
+y3=-d; y2=y4=.5h; y1=h+d;
+kut:=180-10;
+kkut:=180-20;
+draw z3{dir kut}..{up}z2..{dir (180-kut)}z1;
+draw z3{dir kkut}..{up}z4..{dir (180-kkut)}z1;
+endchar;
+
+
+%  Besslagich, Bordura
+beginchar("R",2cap#,cap#,.2cap#); "R - repatica";
+pickup pencircle scaled  .2thin;
+x1=x5=0; x6=.1w;
+x2=.9w; x4=w; x3=.5[x2,x4];
+y4=y5=.5h;
+y4-y3=x4-x3;
+y5-y6=.9(y6-y1)=y4-y3;
+y2=.7[y3,y4];
+path luk; luk= z5--z6--z1--z2{dir -85}..{right}z3..{up}z4;
+draw luk;
+transform a; a=identity reflectedabout (z4,z5);
+path lukk; lukk=luk transformed a;
+draw lukk;
+endchar;
+
+
+
+%  Besslagich, zvijezda s 8 latica
+beginchar("O",cap#,cap#,.2cap#); "O(sam) latica"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/8;
+xx:=1-.5*cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z2--z3--z4{dir (270-.5*kut)}..{right}z1..{dir
+(90+.5*kut)}z2;
+draw list;
+for n=1,2,3,4,5,6,7,8:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+rr:=.2w;
+path krug; krug= fullcircle scaled rr shifted z3;
+erase fill krug;
+draw krug;
+endchar;
+
+
+%  Besslagich, zvijezda sa 6 latica
+beginchar("S",cap#,cap#,.2cap#); "S(est) latica"; % 1.55em#
+pickup pencircle scaled  .3thin;
+z3=(.5w,.5w);
+z1=(.5w,0);
+kut:=360/6;
+xx:=1-.5*cosd (.5*kut);
+y2=y4=xx*x3;
+x4=w-x2;
+z2=z4 rotatedaround (z3, kut);
+path list; list= z2--z3--z4{dir (270-.5*kut)}..{right}z1..{dir
+(90+.5*kut)}z2;
+%draw list;
+for n=1,2,3,4,5,6:
+transform b[]; b[n]= identity rotatedaround (z3, n*kut);
+draw (list transformed b[n]); endfor
+endchar;
+
+
+% krugu s krizzem
+beginchar("4",cap#,cap#,.2cap#); "4";
+pickup pencircle scaled  .3thin;
+z0=(.5w,0);
+numeric  kk; kk:=10;
+z1=z0 rotatedabout ((.5w,.5w),kk);
+z2=z0 rotatedabout ((.5w,.5w),90-kk);
+z3=(x1,y2);
+path p; p= z2--z3--z1{dir kk}..{dir(90-kk)}z2;
+numeric kutt; kut:=90;
+transform b; b= identity rotatedaround ((.5w,.5w), kut);
+path p[]; p[0]=p;
+for n=1,2,3,4:
+p[n]=p[n-1] transformed b;
+draw p[n];
+endfor
+endchar;
+
+
+%  zvijezda petokraka
+beginchar("5",cap#,cap#,.2cap#); "5";
+pickup pencircle scaled  .3thin;
+z0=(.5w,h);
+kut:=360/5;
+transform b; b= identity rotatedaround ((.5w,.5w), kut);
+for n=1,2,3,4,5:
+ z[n]=z[n-1] transformed b;
+endfor
+draw z1--z3--z5--z2--z4--cycle;
+endchar;
+
+
+% biljka, npr. u Lovreccu (Imostski)
+beginchar("6",em#,cap#,0); "6";
+pickup pencircle scaled .3thick;
+z0=(.5w,0); z1=(x0,.6h);
+x0'=x0+.1w; y0'=0;
+x3=w; x4=.96x8=x10=x6=x2=.5[x0',x3];
+x7=.6[x10,x3]; x11=.3[x10,x7];
+x5=.1[x0',x3]; x9=.6[x5,x10];
+%x56=.1[x5,x6];
+y2=h; %y1=.65h;
+y5=.9y1;
+y7=y3=y1;
+y6=.6[y1,y2];
+y9=.9y11=.5[y5,y7];
+y8=.8y5;
+y10=.5[y5,y6];
+y6-y10=y8-y4; % y4
+path p; p= z1{dir70}..z2{right}..{down}z3..{left}z4..{up}z5..{right}z6..{down}z7
+..{left}z8..{up}z9..{right}z10..{down}z11;
+z56= point .4 of (z5{up}..{right}z6);
+path q; q= z0'{up}..{direction .4 of(z5{up}..{right}z6)}z56;
+draw p; draw q;
+transform a; a= identity reflectedabout (z0,z1);
+addto currentpicture also currentpicture transformed a;
+endchar;
+
+
+
+Pt#:=pt#;
+
+mode_setup;
+ font_size 10Pt#;
+ u#:=.8Pt#; font_quad= 24u#;
+            font_normal_space= 9u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 2u#;
+ em#:=10Pt#; cap#:=7Pt#;
+ thin#:=2/3Pt#; thick#:=.9*5/6Pt#;
+ o#:=1/5Pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=round 1.1*1/10em;
+
+
+
+%  Besslagich, Bordura
+beginchar("E",em#,cap#,.2cap#); "E - bordura(6)";
+pickup pencircle scaled  .3thin;
+x1=x3=0; x5=.5w; x2=x4=w;
+x6=.55x5;
+x8-x5=.3(x5-x6);
+x7=.5[x6,x8];
+x10=.8[x6,x7];
+x9=.5[x10,x8];
+y1=y2=h; y3=y4=y5=.8h;
+y7=0; y6=.4y5; y9=.45y5;
+y8=.5[y7,y9]; y10=.75[y8,y9];
+draw z1--z2; draw z3--z4;
+draw z5{dir (180+40)}..tension 1.2 ..{down}z6..{right}z7..{up}z8..{left}z9..
+{dir(180+30)}z10;
+endchar;
+
+
+%  Besslagich, Bordura
+beginchar("F",.8em#,cap#,.2cap#); "F - bordura";
+pickup pencircle scaled  .3thin;
+x1=x3=0; x2=x4=w;
+x5=.1w; x6=.8w;
+x8=.35w;
+x10=.9w;
+ x12=.4[x8,x10]; x11=x9=.6[x8,x10];
+ y1=y2=0; y3=y4=y5=y6=.2h;
+ y9=h;
+ y8=.95y10=.65[y3,y9];
+ y11=.4[y3,y9];
+ y12=.6[y11,y10];
+z7= point .7 of (z6{left}..z8{up});
+ draw z1--z2; draw z3--z4;
+ draw z6{left}..z8{up}..{right}z9..{down}z10..{left}z11..
+ {up}z12;
+draw z5{right}..{dir 80}z7;
+ endchar;
+
+
+%  Besslagich, Bordura
+beginchar("G",1.1*.5em#,1.1*cap#,.2cap#); "G - bordura";
+pickup pencircle scaled  .3thin;
+x7=w-x8=0; x1=.1w; x2=.8w;
+x4=.25w; x5=.3[x4,x2]; x6=.5[x5,x2]; x3=.4[x5,x2];
+y1=y7=y8=.5h; y3=h; y5=.45[y1,y3];
+y4=.45[y5,y3]; y2=.4[y5,y3];
+y6=.3[y5,y3];
+draw z7--z8;
+path luk; luk= z1{right}..{up}z2..{left}z3..{down}z4..{right}z5..{up}z6;
+transform b; b= identity reflectedabout (z7,z8);
+draw luk;
+path lukk; lukk= luk transformed b;
+draw lukk;
+ endchar;
+
+
+%  Besslagich, Bordura
+beginchar("H",2.5cap#,cap#,.2cap#); "H - bordura";
+pickup pencircle scaled  .3thin;
+x10=x12=0; x11=x13=w; y10=y11=0; y12=y13=h;
+draw z10--z11; draw z12--z13;
+x1=.5w; x3=.9w; x5=.4[x1,x3];
+x7=.6[x5,x3]; x4=.5[x5,x3];
+x8=.6[x5,x7]; x2=x6=.5[x5,x7];
+y1=y5=y7=y3=.5h;
+y4=h-y2=.2h;
+y6=.5[y1,y2];
+y8=.4[y7,y4];
+path luk; luk= z1{dir (angle(z2-z1)+6)}..{right}z2..{down}z3..{left}z4
+..{up}z5..{right}z6..{down}z7..{left}z8;
+draw luk;
+transform a; a= identity rotatedaround(z1,180);
+path lukk; lukk=luk transformed a;
+draw lukk;
+ endchar;
+
+
+%  Besslagich, Bordura
+beginchar("I",1.1*1.41cap#,1.1*cap#,.2cap#); "I - bordura";
+pickup pencircle scaled  .3thin;
+x1=x3=x5=0; x2=x4=x6=w;
+y5=y6=0; y1=y2=h; y3=y4=.8h;
+draw z1--z2; draw z3--z4; draw z5--z6;
+x7=w-x9=.2w;
+x8=x12=x14=x10=.5w;
+x11=w-x13=.4[x7,x12];
+y8=y3-y10=.2y3;
+y7=y11=y13=y9=.5y3;
+y12=y3-y14=.5[y8,y7];
+draw superellipse (z9,z10,z7,z8,.75);
+draw superellipse (z13,z14,z11,z12,.75);
+ endchar;
+
+
+%  Besslagich, Bordura
+beginchar("J",2cap#,cap#,.2cap#); "J - bordura";
+pickup pencircle scaled  .3thin;
+x1=x3=0; x2=x4=w; x5=.5w;
+y1=y2=0;
+y3=y4=y5=h;
+draw z1--z2; draw z3--z4; draw z1--z5--z2;
+endchar;
+
+
+
+%  Besslagich, Bordura
+beginchar("M",.5em#,cap#,.2cap#); "M - bordura";
+pickup pencircle scaled  .3thin;
+x1=x3=0; x2=x4=w;
+y1=y2=0; y3=y4=h;
+draw z1--z2; draw z3--z4; draw z1--z4;
+endchar;
+
+
+
+%  Besslagich, Bordura, cvijet
+beginchar("N",1.1*2.3cap#,1.1*cap#,.2cap#); "N - bordura";
+pickup pencircle scaled  .2thin;
+kut:=43;
+x1=x11=0; x12=x3=x10=w;
+x2=.5w; x4=.4[x2,x3]; x13=.5[x2,x4];
+x0=.5[x2,x3];
+y1=y10=h; y11=y12=0;
+y2=y3=.5h;
+y0=.2h; y13=h-y0;
+y4=.7[y2,y13];
+kutt:=kut+5;
+kuttt:=270-kutt;
+x5=.1[x13,x4];
+z5-z4=whatever*dir(kuttt);
+%x9-x4=x4-x5;
+%z9-z4=z4-z5;
+z7=z5 rotatedaround(z4,90);
+z9=z7 rotatedaround(z4,90);
+z55=z5 rotatedaround (z4,10);
+z99=z9 rotatedaround (z4,-10);
+z77=.4[z4,z7];
+z77'=1.3[z4,z7];
+z6=z77 rotatedaround (z4,-30);
+z8=z77 rotatedaround (z4,30);
+draw z1--z10; draw z11--z12;
+path luk; luk=
+ z4{dir (angle(z5-z4)-60)}..%tension1.1..
+  z55{dir angle(z7-z4)}..%tension1.2..
+{dir (angle(z4-z6))}z6{dir (angle(z6-z4))}..{dir angle(z9-z5)}z77'..
+{dir (angle(z4-z8))}z8{dir (angle(z8-z4))}..%tension1.2..
+{dir angle(z4-z7)}z99..%tension1.1..
+{dir (angle(z4-z9)+60)}
+z4{dir (180-kutt)}..{left}z13..
+ z2{dir-kut}..{right}z0..{dir kut}z3;
+draw luk;
+path lukk; lukk = luk shifted(-.5w,0);
+transform a; a=identity reflectedabout (z2,z3);
+lukk:=lukk transformed a;
+draw lukk;
+endchar;
+
+
+
+
+
+end.
+

@@ -1,0 +1,130 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_acc : readfrom("gen_acc") fi
+     
+cmchar "Grave accent";
+beginchar("`",9u#,acc_ht#,0);
+grave(.5w);
+endchar;
+     
+cmchar "Acute accent";
+beginchar("'",9u#,acc_ht#,0);
+acute(.5w);
+endchar;
+     
+cmchar "Circumflex accent";
+beginchar("~",9u#,circ_ht#,0);
+circumflex(.5w);
+endchar;
+     
+cmchar "Diaeresis";
+beginchar(oct"042",9u#,circ_ht#,0);
+diaeresis(.5w);
+endchar;
+     
+cmchar "Rough breathing";
+beginchar("<",9u#,acc_ht#,0);
+spirit(.5w)<;
+endchar;
+     
+cmchar "Smooth breathing";
+beginchar(">",9u#,acc_ht#,0);
+spirit(.5w)>;
+endchar;
+     
+cmchar "Rough breathing with acute";
+beginchar(oct"126",9u#,acc_ht#,0);
+spirit_acute(.5w)<;
+endchar;
+     
+cmchar "Rough breathing with grave";
+beginchar(oct"103",9u#,acc_ht#,0);
+spirit_grave(.5w)<;
+endchar;
+     
+cmchar "Rough breathing with circumflex";
+beginchar(oct"100",9u#,acc_ht#,0);
+spirit_circumflex(.5w)<;
+endchar;
+     
+cmchar "Smooth breathing with acute";
+beginchar(oct"136",9u#,acc_ht#,0);
+spirit_acute(.5w)>;
+endchar;
+     
+cmchar "Smooth breathing with grave";
+beginchar(oct"137",9u#,Circ_ht#,0);
+spirit_grave(.5w)>;
+endchar;
+     
+cmchar "Smooth breathing and circumflex";
+beginchar(oct"134",9u#,Circ_ht#,0);
+spirit_circumflex(.5w)>;
+endchar;
+     
+cmchar "Diaeresis with acute";
+beginchar(oct"043",9u#,acc_ht#,0);
+diaeresis_acute(.5w);
+endchar;
+     
+cmchar "Diaeresis with grave";
+beginchar(oct"044",9u#,acc_ht#,0);
+diaeresis_grave(.5w);
+endchar;
+     
+cmchar "Diaeresis with circumflex";
+beginchar(oct"040",9u#,Circ_ht#,0);
+diaeresis_circumflex(.5w);
+endchar;
+     
+cmchar "Iota subscript";
+beginchar("|",9u#,0,.6desc_depth#);
+iota_sub(.5w);
+endchar;
+     
+cmchar "Breve accent";
+beginchar(oct"036",9u#,min(asc_height#,2x_height#),0);
+italcorr h#*slant+.5vair#-1.5u#;
+adjust_fit(0,0);
+pickup crisp.nib; pos1(vair,-180); pos3(vair,0);
+top y1=top y3=h; lft x1r=w-rt x3r=hround(2u-.5vair);
+numeric mid_thickness; mid_thickness=vround 1/3[vair,stem];
+pos2(mid_thickness,-90); x2=.5w;
+bot y2r=vround max(x_height+o+tiny,1/3[x_height,h]+o-.5mid_thickness);
+filldraw stroke z1e{down}...z2e{right}...{up}z3e;  % stroke
+endchar;
+     
+cmchar "Macron (bar) accent";
+numeric macron_breadth#; macron_breadth#=.2[vair#,stem#];
+beginchar(oct"037",9u#,.4[x_height#,asc_height#]+macron_breadth#,0);
+italcorr h#*slant-.75u#;
+adjust_fit(0,0);
+numeric macron_breadth; macron_breadth:=Vround .2[vair,stem];
+pickup if serifs: crisp.nib else: fine.nib fi;
+pos1(macron_breadth,90); pos2(macron_breadth,90);
+top y1r=top y2r=h+o; lft x1=w-rt x2=hround 1.25u;
+filldraw stroke z1e--z2e;  % bar
+endchar;

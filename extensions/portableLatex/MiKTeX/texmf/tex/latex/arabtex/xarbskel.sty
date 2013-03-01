@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% xarbskel.sty
+% ArabTeX
+% character skeleton definitions for font xnsh14
+% called in HMODE
+% extends arabskel.sty
+% Version 17.07.1999
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chardef \sklatcode = \catcode`\@ \catcode`\@ = 11 
+\a@ident {xarbskel.sty}{3.09 character skeleton definitions }{17.07.1999}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \setx@skels {% define \ArabTeX character skeletons for font xnsh
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pattern: class, code, connect, {iso, fin, med, ini}
+\gdef \sk@@   {10 ,\a@block ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % illegal
+\gdef \sk@def {10 ,\a@block ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % default
+
+% basic letters
+\gdef \sk@a   {10 ,\a@alif  ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % alif
+\gdef \sk@ain { 4 ,\a@ain   ,1 ,{{4,0}{4,1}{0,0}{0,0}}} % `ain
+\gdef \sk@b   { 1 ,\a@bah   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % bah, no dot
+\gdef \sk@b@p { 9 ,\a@bah@p ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % bah, loop
+\gdef \sk@d   {10 ,\a@dal   ,0 ,{{0,0}{0,0}{0,2}{0,0}}} % dal
+\gdef \sk@d@p {10 ,\a@dal@p ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % dal, loop
+\gdef \sk@f@s { 6 ,\a@fah@s ,1 ,{{0,5}{0,5}{0,0}{0,0}}} % fah, no dot
+\gdef \sk@g   { 5 ,\a@gaf   ,1 ,{{0,2}{0,4}{0,0}{0,0}}} % gaf
+\gdef \sk@g@p { 5 ,\a@gaf@p ,1 ,{{0,2}{0,4}{0,0}{0,0}}} % gaf, loop
+\gdef \sk@g@s { 5 ,\a@gaf@s ,1 ,{{0,2}{0,3}{0,0}{0,0}}} % gaf, bar
+\gdef \sk@g@ps{ 5,\a@gaf@p@s,1 ,{{0,2}{0,3}{0,0}{0,0}}} % gaf, loop, bar
+\gdef \sk@h   {10 ,\a@hah   ,1 ,{{0,0}{0,-1}{0,0}{0,0}}} % hah
+\gdef \sk@h@m {10 ,\a@hah   ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % hah marbouta
+\gdef \sk@h@s {10 ,\a@h@s   ,1 ,{{1,0}{0,0}{0,0}{0,0}}} % urdu hah
+\gdef \sk@h@u {10,\a@hah@urd,1 ,{{1,0}{0,0}{0,0}{0,0}}} % urdu hah
+\gdef \sk@hh  { 3 ,\a@hhah  ,1 ,{{4,0}{4,0}{0,0}{0,2}}} % hhah
+\gdef \sk@k   { 5 ,\a@kaf   ,1 ,{{0,2}{0,3}{0,0}{0,-1}}} % kaf
+\gdef \sk@k   { 5 ,\a@kaf   ,1 ,{{6,-1}{6,-1}{6,-2}{6,-3}}} % kaf
+\gdef \sk@k@p { 5 ,\a@kaf@p ,1 ,{{0,2}{0,2}{0,0}{0,-1}}} % kaf, loop
+\gdef \sk@k@s { 5 ,\a@kaf@s ,1 ,{{0,2}{0,3}{0,0}{0,-1}}} % kaf, no mark
+\gdef \sk@k@s { 5 ,\a@kaf@s ,1 ,{{0,2}{0,3}{6,-3}{6,-2}}} % kaf, no mark
+\gdef \sk@k@w { 5 ,\a@kaf@w ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % wide kaf
+\gdef \sk@kh  { 3 ,\a@khah  ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % khah
+\gdef \sk@l   { 0 ,\a@lam   ,1 ,{{0,3}{0,2}{0,0}{0,0}}} % lam
+\gdef \sk@l@w { 0 ,\a@lam@l ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % lower lam
+\gdef \sk@m   {10 ,\a@mim   ,1 ,{{0,1}{0,0}{0,0}{0,0}}} % mim
+\gdef \sk@n   { 1 ,\a@nun   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % nun, no dot
+\gdef \sk@n@p { 9 ,\a@nun@p ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % nun, loop
+\gdef \sk@q   { 6 ,\a@qaf   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % qaf
+\gdef \sk@q@s { 6 ,\a@qaf@s ,1 ,{{0,2}{0,2}{0,0}{0,0}}} % qaf without dots
+\gdef \sk@r   { 8 ,\a@rah   ,0 ,{{0,2}{0,1}{0,0}{0,0}}} % rah
+\gdef \sk@r@p { 8 ,\a@rah@p ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % rah, loop
+\gdef \sk@r@s { 8 ,\a@rah@s ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % rah, two dots
+\gdef \sk@s   { 2 ,\a@sin   ,1 ,{{0,6}{0,4}{0,1}{0,3}}} % sin
+\gdef \sk@ss  { 2 ,\a@sad   ,1 ,{{0,4}{0,4}{0,1}{0,2}}} % ssad
+\gdef \sk@tt  { 7 ,\a@ttah  ,1 ,{{0,2}{0,2}{0,1}{0,1}}} % ttah
+\gdef \sk@w   {10 ,\a@waw   ,0 ,{{0,1}{0,1}{0,0}{0,0}}} % waw
+\gdef \sk@w@r {10 ,\a@waw@r ,0 ,{{0,1}{0,1}{0,0}{0,0}}} % waw with ring
+\gdef \sk@w@b {10 ,\a@waw@b ,0 ,{{0,1}{0,1}{0,0}{0,0}}} % waw with bar
+\gdef \sk@y   { 1 ,\a@yah   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % yah
+\gdef \sk@y@h { 1 ,\a@yah@h ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % yah, stroke
+\gdef \sk@y@p { 1 ,\a@yah@p ,1 ,{{0,1}{0,2}{0,0}{0,0}}} % yah bari
+\gdef \sk@y@ps{ 9,\a@yah@p@s,1 ,{{0,1}{0,2}{0,0}{0,0}}} % yah bari with loop
+
+% special forms
+\gdef \sk@sn@s  { 2 ,\a@sin@spec     ,1 ,{{0,6}{0,4}{0,-2}{0,-1}}} % sin short
+\gdef \sk@sd@s  { 2 ,\a@sad@spec     ,1 ,{{0,4}{0,4}{0,-3}{0,-2}}} % ssad short
+\gdef \sk@j@cl  { 3 ,\a@gim@close    ,1 ,{{0,0}{0,0}{0,0}{0,1}}} % gim closed
+\gdef \sk@k@sh  { 5 ,\a@kaf@spec     ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % kaf, short
+\gdef \sk@k@sh  { 5 ,\a@kaf@spec     ,1 ,{{6,0}{6,0}{6,0}{6,-3}}} % kaf, short
+\gdef \sk@k@sp  { 5 ,\a@kaf@p@spec   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % gaf1 short
+\gdef \sk@g@sh  { 5 ,\a@gaf@spec     ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % gaf- short
+\gdef \sk@g@sp  { 5 ,\a@gaf@p@spec   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % gaf2 short
+\gdef \sk@y@s   { 1 ,\a@yah@spec     ,1 ,{{0,0}{0,2}{0,0}{0,0}}} % yah  lig
+\gdef \sk@y@h@s { 1 ,\a@yah@h@spec   ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % yah' lig
+\gdef \sk@hh@s  { 3 ,\a@hhah@spec    ,1 ,{{4,0}{4,6}{0,1}{0,0}}} % hhah short
+\gdef \sk@kh@s  { 3 ,\a@khah@spec    ,1 ,{{0,0}{0,0}{0,1}{0,0}}} % khah short
+\gdef \sk@l@a   {10 ,\a@lam@alif     ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % lam-alif
+\gdef \sk@m@si  {10 ,\a@mim@sind     ,1 ,{{0,2}{0,0}{0,0}{0,0}}} % Sindhi mim 
+
+% specials
+\gdef \sk@B   {10 ,\a@tatwil,1 ,{{0,0}{0,0}{0,0}{0,0}}} % tatwil
+\gdef \sk@Q   {10 ,\a@hamzc ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % hamza char
+\gdef \sk@W   {10 ,\a@break ,0 ,{{0,0}{0,0}{0,0}{0,0}}} % small space 34
+\gdef \sk@spc {10 ,\a@smspc ,1 ,{{0,0}{0,0}{2,0}{2,0}}} % small space 36
+\gdef \sk@skip{10 ,\a@skip  ,1 ,{{0,0}{0,0}{2,0}{2,0}}} % small space 37
+
+% ligatures
+\gdef \sk@b@sp  { 1 ,\a@bah@spec     ,1 ,{{0,0}{0,0}{0,0}{0,1}}} % r-b-?
+\gdef \sk@b@g   { 1 ,\a@bah@spec@gim ,1 ,{{0,0}{0,0}{0,2}{0,4}}} % j-b-?
+\gdef \sk@b@h   { 1 ,\a@bah@high     ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % s-b-?
+\gdef \sk@b@y   { 1 ,\a@bah@spec@yah ,1 ,{{0,0}{0,0}{0,-1}{0,0}}} % y-b-?
+\gdef \sk@b@e@m { 1 ,\a@bah@end@mim  ,1 ,{{0,0}{0,0}{0,1}{0,0}}} % m-b-?
+\gdef \sk@b@m@m { 1 ,\a@bah@mid@mim  ,1 ,{{0,0}{0,0}{2,2}{2,2}}} % m-b-?
+\gdef \sk@b@e@h { 1 ,\a@bah@end@hah  ,1 ,{{0,0}{0,0}{2,2}{0,0}}} % h-b-?
+\gdef \sk@h@s@l {10 ,\a@hah@spec@lam ,1 ,{{1,0}{0,0}{1,-3}{0,0}}} % E-h-?
+\gdef \sk@l@h   { 0 ,\a@lam@spec@hah ,1 ,{{0,0}{0,0}{0,0}{0,-3}}} % m-l-|
+\gdef \sk@l@g   { 0 ,\a@lam@gim      ,1 ,{{0,0}{0,0}{0,0}{0,4}}} % j-l-|
+\gdef \sk@l@g@s { 0 ,\a@lam@gim      ,1 ,{{0,0}{0,0}{0,0}{0,1}}} % j-l-|
+\gdef \sk@l@y   { 0 ,\a@lam@spec@yah ,1 ,{{0,0}{0,0}{0,1}{0,0}}} % j-l-?
+\gdef \sk@l@m   { 0 ,\a@lam@spec@mim ,1 ,{{0,0}{0,0}{0,0}{0,-2}}} % m-l-|
+\gdef \sk@l@lng { 0 ,\a@lam@long     ,1 ,{{0,0}{0,0}{0,0}{0,1}}} % y-l-|
+\gdef \sk@m@s   {10 ,\a@mim@spec     ,1 ,{{0,0}{0,-1}{0,2}{0,2}}} % ?-m-l
+\gdef \sk@m@s@h {10 ,\a@mim@spec@high,1 ,{{0,0}{0,0}{0,0}{0,0}}} % j-m-|
+\gdef \sk@m@s@l {10 ,\a@mim@spec@long,1 ,{{0,0}{0,0}{0,-1}{0,0}}} % ?-m-l
+\gdef \sk@m@s@m {10 ,\a@mim@spec@mim ,1 ,{{0,0}{0,0}{0,5}{0,0}}} % m-m-|
+\gdef \sk@m@l@g {10 ,\a@mim@lam@gim  ,1 ,{{0,0}{0,0}{0,0}{0,0}}} % j-m-l
+\gdef \sk@l@spc {10 ,\a@smspc        ,1 ,{{0,0}{0,0}{0,0}{0,-4}}} % small space
+
+\global\let \sk@free \sk@W % phantom for outtable
+
+\global\let \sk@b@s \sk@b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\catcode`\@ = \sklatcode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/emp"><TPM:Name>emp</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package for encapsulated MetaPost pictures in LaTeX. Useful for
+      keeping illustrations in sync with the text. It also frees
+      the user from inventing descriptive names for PostScript
+      files that fit into the confines of file system conventions.</TPM:Description><TPM:RunFiles size="7973">texmf\tex\latex\emp\emp.sty texmf\tpm\packages\emp.tpm</TPM:RunFiles><TPM:DocFiles size="63622">texmf\doc\latex\emp\manual.ps.gz</TPM:DocFiles><TPM:SourceFiles size="63949">texmf\source\latex\emp\COPYING texmf\source\latex\emp\emp.drv texmf\source\latex\emp\emp.dtx texmf\source\latex\emp\emp.ins texmf\source\latex\emp\empman.drv texmf\source\latex\emp\Makefile texmf\source\latex\emp\README</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>9be70823706519c688191a221440aaf9</TPM:MD5></rdf:Description></rdf:RDF>

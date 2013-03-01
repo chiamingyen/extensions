@@ -1,0 +1,67 @@
+
+Feyn: a Metafont for Feynman diagrams
+-------------------------------------
+
+Version 0.3.3.
+
+This package is intended to produce relatively simple Feynman diagrams, for 
+example within equations.
+
+This package differs from Thorsten Ohl's feynmf/feynmp package.
+FeynMP works by creating Metafont or MetaPost figures using a
+preprocessor.  It's more general than this package, but is at its best
+when creating relatively large diagrams, for figures.  In contrast,
+the present system consists of a carefully-designed font with which
+you can easily write simple diagrams, within equations or within text,
+in a size matching the surrounding text size.
+
+The propagators and vertices which are implemented are those which
+seem to appear most often in non-figure displays (the practical
+definition of `appear most often' is `which I wanted' and `which people
+asked me for').  I have no current plans to extend the package
+further, but I'm willing add other features if you can make a case for
+them, and they fit within the package's remit of 'diagrams for use in
+equations'.
+
+The package is on CTAN, and is included in TeXLive but not, as far as
+I'm aware, teTeX.  The arXiv started using TeXLive 2008 in summer
+2008 (I understand), so it should be available there from that date.
+
+There is further documentation, plus numerous examples, in the package
+documentation (feyn.pdf).
+
+See the package's home page on the web: http://purl.org/nxg/dist/feyn
+
+
+Installation
+------------
+
+Extract the package file from the distribution file using `latex
+feyn.ins'.  The resulting `feyn.sty' should be installed in the usual
+location for style files -- that is, something like
+`texmf.local/tex/latex/feyn.sty'.  The Metafont source files `*.mf'
+should be installed in a directory with a location such as
+`texmf.local/fonts/source/feyn/' (on a system which has the command,
+`kpsepath mf' will indicate the possibilities here, but these
+typically include the current directory).  That should be all you need
+to do as regards the installation of the fonts -- if your TeX setup is
+installed correctly, then the usual font-generation commands (such as
+`mktexpk' for example) should work as normal, and they should be
+invoked by default when you LaTeX the feyn.dtx file.
+
+You should be able to find generic instructions for installing LaTeX files at
+http://www.tex.ac.uk/cgi-bin/texfaq2html?label=installthings
+
+
+Licence
+-------
+
+This software is copyright, 1991, 2001, 2002, 2005, 2008, Norman Gray.  It is
+released under the terms of the GNU General Public Licence.  See the
+copyright declaration at the top of file feyn.dtx, and the file
+LICENCE for the licence conditions.
+
+
+
+Norman Gray, <norman@astro.gla.ac.uk>
+http://nxg.me.uk

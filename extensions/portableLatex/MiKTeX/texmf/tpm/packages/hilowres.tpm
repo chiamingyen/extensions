@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/hilowres"><TPM:Name>hilowres</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>A package to simplify the inclusion of low resolution versions
+      of high resolution images, if each pair of files have the
+      same basename (e.g., bird.low.eps and bird.eps). The package
+      is a simple wrapper around the \includegraphics command of
+      the graphicx package.</TPM:Description><TPM:RunFiles size="2121">texmf\tex\latex\hilowres\hilowres.sty texmf\tpm\packages\hilowres.tpm</TPM:RunFiles><TPM:SourceFiles size="10250">texmf\source\latex\hilowres\hilowres.dtx texmf\source\latex\hilowres\hilowres.ins texmf\source\latex\hilowres\readme.txt</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>34274557b9ac5e4f67f17d2981ee64f1</TPM:MD5></rdf:Description></rdf:RDF>

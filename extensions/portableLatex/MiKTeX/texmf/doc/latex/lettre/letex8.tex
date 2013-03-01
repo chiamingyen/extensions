@@ -1,0 +1,142 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage{epic,eepic}
+\usepackage[francais]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+%
+% Fichier de defaut de l'Observatoire
+% ===================================
+\institut{obs}
+%
+% Entete officielle, triple signature, format empty, date.
+% ========================================================
+% Lignes auxiliaires de reference et d'E-Mail. 
+% ============================================
+% Tests: quote, quotation, verbatim, minipage, 
+% ============================================
+%        picture, tabbing. 
+% ========================
+%
+\begin{letter}{	Pr.~E.N.~Photon \\ 
+                D\'epartement d'Astrotopographie \\ 
+                Universit\'e de Saint Pozium \\
+                3945, Quai du G\'eneral Gisant \\
+                CH-6800 Motte-au-Rolla }
+
+\pagestyle{empty}
+
+\psobs
+\name{Dr~D.P.~Dnavegem}
+\location{Pr.~J.~Su\"{\i}jy-Rest\\Groupe des Forces Statiques}
+\lieu{Sauverni}
+\date{au 25 Joviet 2091}
+\signature{Pr.~J.~Su\"{\i}jy-Rest\\ Doyen et\\ Chef de D\'epartement}
+\secondsignature{Dr~D.P.~Dnavegem\\ Collaborateur Scientifique}
+\thirdsignature{A.~Jout\'e\\ Assistant}
+
+\vref{EP/mjs}
+\nref{jsr002}
+\username{jsr}
+\bitnet{cgeuge54}
+\decnet{chgate::20159}
+
+\opening{Cher Professeur Photon,}
+
+Nous vous remercions d'avoir donn\'e suite \`a notre requ\^ete, et vous
+confirmons notre participation au symposium en tant que sp\'ecialistes
+des affaires \'etranges. Veuillez trouver ici un r\'esum\'e de notre 
+communication commune:
+
+\begin{quote}\bf\sl
+L'influence n\'efaste des extra-terrestres pendulaires et frontaliers
+sur les communications t\'el\'evisuelles intercontinentales.
+\end{quote}
+
+\begin{quotation}
+L'\'emergence de courants plasmuriques forts dans la r\'egion d'atterrissage 
+des  v\'ehicules de liaison plan\'etaires (VLP) est \`a l'origine des champs 
+gravito--organiques \`a bolomisations al\'eatoires connus depuis la fin du 
+si\`ecle pass\'e. Ces modifications de l'\'equilibre physico-chimique de 
+l'atmosph\`ere donnent lieu \`a toute une panoplie de ph\'enom\`enes plus 
+ou moins inqui\'etants et spectaculaires, tels que les trous dans la couche 
+d'ozone ou les aurores bor\'eales ou australes que l'on attribuait par le 
+pass\'e \`a des regains d'activit\'e solaire.
+
+On a d\'ecouvert r\'ecemment qu'aux heures de pointe, le flux des VLP, 
+anciennement acronym\'es OVNIS,  pouvait provoquer des battements et des 
+ph\'enom\`enes de r\'esonances dans certaines configurations de terrain, 
+et sous certaines conditions, telles que les meilleurs blindages 
+gravito--organiques ne pouvaient y \^etre totalement opaques. 
+
+Les communications t\'el\'evisuelles intracontinentales, bas\'ees sur les 
+technologies les plus r\'ecentes de fibres auditiques en 
+Corduron$^{\mbox{\copyright}}$ de chez Dubond de Velours sont compl\'etement 
+insensibles \`a de telles perturbations, contrairement aux anciennes lignes 
+intercontinentales en cablage traditionnel (polygraphite impr\'egn\'e).  
+\end{quotation}
+
+Nous avons d\'evelopp\'e un logiciel d'analyse permettant de traiter 
+l'information statistique fournies par les sondes FVLP, pour fournir 
+\`a nos clients l'information sur les endroits les plus touch\'es du globe.
+Veuillez trouver ci-apr\`es le pseudo-code du protocole de communication, 
+une illustration des sondes se transmettant l'information de mani\`ere 
+autonome, ainsi qu'une table des param\`etres de celles-ci.
+
+\begin{verbatim}
+BEGIN
+   if(alive(S1) && alive(S3) && alive(S5)) then
+      BEGIN
+         contact{s1,S1};
+         contact{S1,S3};
+         contact{S3,S5};
+         contact{S5,s3};
+      END         
+   endif
+   if(alive(S2) && alive(S4) && alive(S6)) then
+      BEGIN
+         contact{s2,S2};
+         contact{S2,S4};
+         contact{S4,S6};
+         contact{S6,s4};
+      END         
+   endif
+END         
+\end{verbatim}
+
+\input{sondes.tex} % graphique en mode picture avec eepic
+
+\begin{minipage}{7cm}
+Les valeurs param\'etriques des satellites sont donn\'ees ci-contre, par ordre 
+de date de lancement. Les unit\'es sont MKSA, dans la mesure du possible, 
+l'excentricit\'e des orbites est donn\'e comme le rapport grand/petit axe, 
+et le taux de transmission en TB/s.
+\end{minipage}\hfill
+\begin{minipage}{7cm}
+\begin{tabbing}
+n$^{\textrm o} $ \=masse \=g.a/p.a \=puissance \=t$_{\textrm tr}$\\
+S1\>247\>1.16\>53.5\>1.3\\
+S2\>211\>1.40\>49.3\>1.1\\
+S3\>233\>1.27\>51.0\>1.2\\
+S4\>199\>1.91\>48.8\>1.0\\
+S5\>270\>1.33\>65.2\>1.5\\
+S6\>270\>1.33\>65.2\>1.5\\
+\end{tabbing}
+\end{minipage}
+
+\closing{Veuillez agr\'eer, Monsieur le professeur, l'expression 
+         de nos condol\'eances distingu\'ees.} 
+
+\end{letter}
+%
+\end{document}

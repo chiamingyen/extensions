@@ -1,0 +1,60 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage[francais]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+
+%
+% Entete et signature par defaut, format plain.
+% =============================================
+% Champs: objet, copies, annexes, post-scriptum.
+% ==============================================
+%
+\begin{letter}{	Pr.~E.T.~Phonom \\ 
+                D\'epartement d'Asprototographie \\ 
+                Universit\'e de Saint Zopium \\
+                3945, Quai du G\'eneral Gisant \\
+                CH-6800 Motte-au-Rolla }
+
+\pagestyle{plain}
+
+\name{Dr~S.~E.~Dnavegem}
+
+\conc{Sixi\`eme Symposium Al\'ea\-toi\-re Intercommunal
+de Dynamotoculture (~SAID~1993~)} 
+
+\opening{Cher Professeur Phonom,}
+
+Je vous remercie d'avoir donn\'e suite \`a ma requ\^ete, et vous
+confirme ma participation au symposium en tant que sp\'ecialiste
+des affaires \'etranges. 
+
+\closing{Veuillez agr\'eer, Monsieur le professeur, l'expression
+         de mes condol\'eances distingu\'ees.} 
+
+\cc{Pr.~Zoldan Fratschski \\
+    Me  Barillada \\
+    Ra\"{\i}ssa Goba }
+
+\encl{Talon de participation \\
+      Bons de visite (6) \\
+      Article Dnavegem }
+
+\ps{PS :~}{Veuillez trouver en annexe les documents dont nous avons
+parl\'e ce matin au t\'el\'ephone, ainsi qu'un exemplaire de mon
+article consacr\'e \`a la culture intensive du Yen Japonais en
+milieu hospitalier. Je vous en souhaite bonne r\'eception.} 
+
+\end{letter}
+%
+\end{document}

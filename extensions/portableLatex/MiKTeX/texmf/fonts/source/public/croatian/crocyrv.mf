@@ -1,0 +1,426 @@
+% oct"043" = Dd,J,CH (crkvica)
+% oct"100" = drugi D
+% oct"025" = Zz
+% oct"017" = Zz (drugi Zz)
+% oct"000" = Zx (krizz)
+% oct"036" = Zz (glagoljski)
+% oct"020" = drugi R (zaobljeni)
+% oct"001" = Yu
+% oct"002" = Ye
+% oct"003" = Ya
+% ^        = meki poluglas
+% &        = tvrdi poluglas
+% 9        = Dz
+% 2        = Dd,J,Ch (pravocrtna crkvica)
+% 5        = D (kut)
+
+beginchar("A",.6em#,1.2cap#,.7cap#); "The letter A";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x7=w-x5=w-x2=w-x3=curve_sidebar;
+x2-x1=x4-x3=.2w;  x6=x8=.5[x7,x5];
+y1=-d; y4=h; bot y6=0; y8=.5h/1.2; y7=y5=.5[y6,y8];
+y2=-.7d; y3=.8h;
+draw z1{dir(20)}..{up}z2--z3{up}..{dir(20)}z4;
+draw z5{down}..{left}z6..{up}z7..{right}z8;
+endchar;
+
+beginchar("B",.55em#,1.2cap#,0); "The letter B";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x6=x3=w-x5=curve_sidebar;
+x1=w; x2=.65w;
+x4=x7=.5w;
+bot y4=0; top y2= h; y1=.8h;
+y3=.5h/1.2;
+y6=y5=.25h/1.2;
+y7=.5h/1.2;
+draw z1{up}
+%{dir(90+15)}
+..{left}z2..
+{down}z3..{down}z6..{right}z4..{up}z5..{left}z7;
+pickup pencircle xscaled .3thick yscaled .3thin;
+draw z7{left}..{down}z6;
+endchar;
+
+
+beginchar("V",.7em#,.5cap#,0); "The letter V";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x5=w-x4=w-x8=curve_sidebar;
+x2=x6=w-x3=w-x7=.25w;
+top y1=top y2=top y3=top y4=h;
+bot y5=bot y6=bot y7=bot y8=0;
+draw z1--z4; draw z5--z8;
+draw z2--z6; draw z3--z7;
+endchar;
+
+beginchar("G",.8em#,.5cap#,.5cap#); "The letter G";
+pickup pencircle xscaled 1.2thick yscaled .3thin;
+x1=0; w-x6=curve_sidebar;
+x2=.2w; x3=x4=.6w; x5=.5[x4,x6];
+y1=-d; top y2=top y3= h; bot y5=0; y4=y6=x6-x5;
+draw z1{dir angle(z3-z1)}..{up}z2--z3--z4{down}..{right}z5..{up}z6;
+endchar;
+
+beginchar("D",.65em#,.5cap#,0); "The letter  D (kao A)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x5=x1=w-x3=w-x4=curve_sidebar;
+x2=.5w;
+bot y1=bot y4=0; y5=y3=.2h; top y2= h;
+draw z1--z5{up}..{right}z2..{down}z3--z4;
+draw z5--z3;
+endchar;
+
+beginchar(oct"100",.55em#,1.2cap#,.7cap#); "The letter drugi D";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x5=curve_sidebar; x5-x6=.1w;
+x2=x3=.3w; x4=.5w;
+bot y1=bot y5=0; y2=-d; y3=h; y4=.5h/1.2; y6=.5y4;
+z56=(x6,.5y6);
+draw z2{dir(90+10)}..{up}z1..{dir(90-10)}z3;
+pickup pencircle xscaled 1.2thick yscaled .25thin;
+draw z1{up}..{right}z4..{down}z6--z56{down}..{right}z5;
+endchar;
+
+
+beginchar("E",.5em#,.5cap#,0); "The letter  E";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=w-x3=curve_sidebar; x4=.7w;
+bot y2=0; top y3= h; y1=y4=.5h;
+draw z3{left}..{down}z1..{right}z2;
+draw z1--z4;
+endchar;
+
+beginchar(oct"025",.9em#,.5cap#,0); "The letter  Zz";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x7=w-x8=w-x4=curve_sidebar;
+x2=1/3[x1,x4]; x3=2/3[x1,x4];
+x5=w-x6=.4[x1,x2];
+bot y1=bot y4=0; top y7=top y8= h; y5=y2=y3=y6=.5h;
+draw z1{right}..{up}z2..{left}z7;
+draw z4{left}..{up}z3..{right}z8;
+draw z5--z6;
+endchar;
+
+beginchar(oct"017",.95em#,.5cap#,0); "The letter  zz (drugi)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x7=w-x8=w-x4=curve_sidebar;
+x2=w-x3=.9*1/3[x1,x4];
+x5=w-x6=.4[x1,x2];
+bot y1=bot y4=0; top y7=top y8= h; y5=y2=y3=y6=.5h;
+draw z1{right}..{up}z2..{left}z7;
+draw z4{left}..{up}z3..{right}z8;
+draw z5--z6;
+z78=.5[z7,z8]; z14=.5[z1,z4];
+pickup pencircle xscaled .9thick yscaled .3thin;
+draw z78--z14;
+endchar;
+
+
+beginchar(oct"000",.7em#,.5cap#,0); "The letter Zz, Zx (krizz)";
+pickup pencircle xscaled 1.2thick yscaled .3thin;
+x1=x4=w-x3=w-x6=curve_sidebar;
+x2=x5=.5w;
+bot y1=bot y2=bot y3=0; top y4=top y5=top y6= h;
+draw z1--z6;  draw z3--z4;
+pickup pencircle xscaled .9thick yscaled .3thin;
+draw z2--z5;
+endchar;
+
+beginchar(oct"036",em#,cap#,0); "The letter zz (glagoljski)";
+pickup pencircle xscaled 1.2thick yscaled .3thin;
+x5=curve_sidebar; x2=.5w; x3=.4w; x4=x1=.4[x5,x3];
+y1= h; bot y4=0; y2=.5h; y5=y3=.25h;
+draw z2{left}..z5{down}..{right}z4..{up}z3..{dir(90+60)}z1;
+transform t; t=identity reflectedabout ((.5w,0),z2);
+addto currentpicture also currentpicture transformed t;
+endchar;
+
+
+
+
+beginchar("Z",.6em#,.5cap#,.7cap#); "The letter  Z";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar; x4-x2=.1w;
+x3=.35w; x5=.25w;
+top y1=top y2= h; bot y3=0; y4=-.5d; y5=-d;
+draw z1--z2--z3{dir(10)}..{down}z4..tension1.3..{left}z5;
+endchar;
+
+beginchar("9",.55em#,.5cap#,0); "The letter  Dz";
+pickup pencircle xscaled 1.2thick yscaled .3thin;
+x1=w-x6=curve_sidebar;
+x4=w-x3=.45w; x2=.6[x1,x3]; x5=.4[x4,x6];
+bot y5=0; top y2= h; y1=y3=h-(x2-x1);
+y4=y6=x5-x4;
+draw z1{up}..{right}z2..{down}z3..{down}z4..{right}z5..{up}z6;
+endchar;
+
+beginchar("J",.55em#,cap#,0); "The letter J (meki poluglas)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar; x3=x4=.5w;
+x7=.7w;
+bot y3=0; y1=y2=.25h; y4=.5h; y7=h;
+path p; p=z1{up}..tension1.2..{right}z7;
+draw p;
+z8=point .5 of p;
+z8-z5=z6-z8=(.25w,0);
+draw z5--z6;
+draw z1{up}..{right}z4..{down}z2..{left}z3..cycle;
+endchar;
+
+
+
+beginchar(oct"043",.8em#,cap#,0); "The letter  DD,J,CH (crkvica)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar;
+x3=x4=.5w;x5=w-x6=.25w;
+top y4= h; bot y1=bot y2=0; y3=.5h; y5=y6=.75h;
+draw z3--z4; draw z5--z6;
+draw z1{up}..{right}z3..{down}z2;
+endchar;
+
+
+beginchar("I",.55em#,.5cap#,0); "The letter  I";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+bot y2=bot y3=0; top y1=top y4= h;
+z5=.5[z1,z2]; z6=.5[z3,z4];
+draw z1--z2; draw z3--z4; draw z5--z6;
+endchar;
+
+
+beginchar("K",.8em#,.5cap#,0); "The letter  K";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x2=w-x4=w-x6=curve_sidebar;
+x1=x3=.4w; x5=.6w;
+bot y1=bot y4=0; top y3=top y6= h; y2=y5=.5[y1,y3];
+draw z1{left}..{up}z2..{right}z3;
+draw z4{left}..{up}z5..{right}z6;
+endchar;
+
+beginchar("L",.65em#,.5cap#,0); "The letter  L";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x3=curve_sidebar;
+x2=.4w; bot y1=bot y3=0; top y2= h;
+draw z1--z2--z3;
+endchar;
+
+
+beginchar("M",.9em#,.5cap#,0); "The letter  M";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x5=curve_sidebar;
+x3=.5w; x2=.65[x1,x3]; x4=.5[x3,x5];
+bot y1=bot y3=bot y5=0;
+top y2=top y4=h;
+draw z1--z2--z3--z4--z5;
+endchar;
+
+
+beginchar("N",.5em#,cap#,0); "The letter drugi N";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+x5-x3=.2w;
+bot y1=0; y2=y3=.5h; y4=.8h; top y5= h;
+draw z1--z2--z3--z4{up}..{right}z5;
+endchar;
+
+beginchar("O",.6em#,.5cap#,0); "The letter drugi O";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar;
+x3=x4=.5w; bot y3=0; y1=y2=.5h; top y4= h;
+draw z1{up}..{right}z4..{down}z2..{left}z3..cycle;
+endchar;
+
+beginchar("P",.6em#,.5cap#,0); "The letter drugi P";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x3=w-x4=curve_sidebar;
+x1=x5=w-x2=w-x6=.25w;
+bot y1=bot y2=0; top y3=top y4=top y5=top y6=h;
+draw z1--z5; draw z2--z6; draw z3--z4;
+endchar;
+
+beginchar("R",.6em#,.5cap#,.5cap#); "The letter  R";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x2=w-x3=curve_sidebar;
+x1=.3w;
+y1=-d; top y2= h; y3=.5h; bot y4=0;
+z4=whatever[z1,z2];
+draw z1--z2{right}..{down}z3..{left}z4;
+endchar;
+
+beginchar(oct"020",.65em#,.5cap#,.7cap#); "The letter drugi r";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar;
+x3=.4w; x4=.5w;
+bot y1=0; top y3=h; y2=.5h;
+y4=-d;
+draw z1{right}..{up}z2..{left}z3..{down}z1..{dir(-40)}z4;
+endchar;
+
+
+
+beginchar("S",.6em#,.5cap#,0); "The letter drugi S";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x2=w-x4=w-x5=curve_sidebar;
+x1=x3=.5w;
+bot y3=0; top y1=h; y2=.5h;y4=h-y5=.2h;
+draw z5{dir(90+30)}..z1{left}..{down}z2..{right}z3..{dir(90-30)}z4;
+endchar;
+
+beginchar("T",.8em#,.5cap#,0); "The letter drugi T";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar;
+x3=x7=w-x5=w-x8=.2w; x4=x6=.5w;
+top y1=top y7=top y6=top y8=top y2= h;
+bot y3=bot y4=bot y5=0;
+draw z1--z2; draw z3--z7; draw z4--z6; draw z5--z8;
+endchar;
+
+beginchar("H",.6em#,.5cap#,0); "The letter H";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+top y1=top y4=h; bot y2=bot y3=0;
+z5=.6[z3,z1];
+draw z1--z3;  draw z2{dir(70)}..z5..z4;
+endchar;
+
+beginchar(oct"024",.8em#,.5cap#,0); "The letter Ss";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x4=w-x5=curve_sidebar; x3=x6=.5w;
+y1=y5=h; y6=h; y2=y3=y4=0;
+draw z1--z2--z3--z4--z5; draw z3--z6;
+endchar;
+
+beginchar(oct"021",.8em#,.5cap#,.4cap#); "The letter Sst, Ch";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x4=w-x5=curve_sidebar; x3=x6=.5w;
+y1=y5=h; y6=h; y2=y4=0; y3=-d;
+draw z1--z2--z4--z5; draw z3--z6;
+endchar;
+
+beginchar("C",.6em#,.5cap#,.2cap#); "The letter C";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x4=w-x5=w-x6=curve_sidebar;
+x3=.2[x1,x5];
+top y1=top y6= h; bot y3=bot y5=0; y2-y3=x3-x2; y4=-d;
+draw z1--z2{down}..{right}z3--z5; draw z4--z6;
+endchar;
+
+beginchar(oct"023",.65em#,.5cap#,0); "The letter Cc";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x3=curve_sidebar;
+x2=.5[x1,x3];
+top y1=top y3= h; bot y2=0;
+draw z1--z2--z3;
+endchar;
+
+beginchar("U",.5em#,.5cap#,.4cap#); "The letter U";
+pickup pencircle xscaled 1.2thick yscaled .3thin;
+x1=x5=w-x3=w-x6=curve_sidebar;
+x2=x4=.5w;
+y2=.2h; top y1=top y6= h; y4=-d; y5=y3=.5[y4,y2];
+path p; p= z1{down}..z2..{down}z3..{left}z4..{up}z5..z2..{up}z6;
+transform tt; tt=identity shifted (0,d+bot0);
+path q; q= p transformed tt;
+draw q;
+endchar;
+
+beginchar("F",.66em#,.8cap#,.3cap#); "The letter F";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x5=w-x6=curve_sidebar;
+x2=x4=x3=x1=.5w;
+y1=h; y3=.5h/.8; y5=y6=.25h/.8;
+y4=0; y2=-d;
+draw z1--z2; draw z5{up}..{right}z3..{down}z6..{left}z4..cycle;
+endchar;
+
+beginchar("Q",.9em#,.5cap#,0); "The letter Ot";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x2=w-x6=curve_sidebar;
+x4=.5w; x1=w-x7=.25w; x3=.5[x2,x4]; x5=.5[x4,x6];
+top y1=top y7= h; bot y3=bot y5=0; y2=y6=y4=.5h;
+draw z1{dir(180+30)}..{down}z2..{right}z3..{up}z4{down}..{right}z5
+..{up}z6..{dir(180-30)}z7;
+endchar;
+
+
+beginchar("^",.6em#,cap#,0); "The letter 6 (meki poluglas)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=0; w-x5=curve_sidebar; x3=x2=x4=1.3curve_sidebar;
+bot y3=0; top y1=top y2= h; y4=.5h; y5=.25h;
+draw z1--z2--z3{right}..{up}z5..{left}z4;
+endchar;
+
+beginchar("&",.66em#,cap#,0); "The letter 7 (tvrdi poluglas)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x5=x7=.5curve_sidebar;
+ w-x4=curve_sidebar;
+x3=x2=x1=.34w;
+x6-x1=x8-x1=x1-x5;
+y1= h; y2=.5h; bot y3=0; y4=.25h;
+y5=y6=.77h;
+y7=y8=.65h;
+ draw z1--z3{right}..{up}z4..{left}z2;
+pickup pencircle xscaled thick yscaled .3thin;
+draw z7--z5--z6--z8;
+endchar;
+
+beginchar(oct"001",.85em#,.5cap#,0); "The letter Ju";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=x3=w-x6=curve_sidebar;
+x4=.47w; x5=x7=.5[x4,x6];
+top y1=top y7= h; y4=y3=y6=.5h; bot y2=bot y5= 0;
+draw z1--z2; draw z3--z4; draw z4{down}..{right}z5..{up}z6..{left}z7..cycle;
+endchar;
+
+beginchar(oct"002",.7em#,.5cap#,0); "The letter Je";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=x3=w-x6=curve_sidebar;
+x4=.55w; x5=x7=x6;
+top y1=top y7= h; y4=y3=y6=.5h; bot y2=bot y5= 0;
+draw z1--z2; draw z3--z6;
+draw z7{left}..{down}z4..{right}z5;
+endchar;
+
+beginchar(oct"003",.55em#,.5cap#,0); "The letter  Ja";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+bot y2=bot y3=0; top y1=top y4= h;
+z5=.5[z1,z2]; z6=.5[z3,z4];
+z7=(.5w,y5); z8=(x3,0); z9=.5[z7,z8];
+draw z1--z2; draw z3--z4; draw z5--z6;
+pickup pencircle xscaled .8thick yscaled .2thin;
+draw z7{down}..z9..{down}z8;
+endchar;
+
+
+beginchar("X",.55em#,.5cap#,0); "The letter  X, fiktivni";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+draw (0,0)--(0,w);
+endchar;
+
+beginchar("Y",.55em#,.5cap#,0); "The letter  Y, fiktivni";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+draw (0,0)--(0,w);
+endchar;
+
+beginchar("5",1.2em#,cap#,0); "d (kut)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+kut:=40; koef:=.6;
+x1=w-x2=curve_sidebar;
+y1=y2=0;
+y4=0; x4=koef*w;
+z3-z1=(z2-z1)rotated 40; % z3
+z5=koef[z1,z3];
+draw z2--z1--z3;
+draw z4{up}..{dir (90+kut)}z5;
+endchar;
+
+beginchar("2",.8em#,cap#,0); "dj,j,CH (crkvica, pravocrtno)";
+pickup pencircle xscaled 1.3thick yscaled .3thin;
+x1=w-x2=curve_sidebar;
+x3=x4=.5w;x5=w-x6=.25w;
+top y4= h; bot y1=bot y2=0; y3=.5h; y5=y6=.75h;
+draw z3--z4; draw z5--z6;
+draw z1--z3--z2;
+endchar;
+

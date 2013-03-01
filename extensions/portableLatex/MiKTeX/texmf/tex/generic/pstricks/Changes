@@ -1,0 +1,101 @@
+pstricks.tex --------
+1.31  2009-11-27  - fixed introduced problem with \pst@def
+1.30  2009-10-25  - revert the changes for the \pst@object, it now
+                    use \def\pst@par{}
+1.29  2009-05-19  - new option pType for a parabola with two points
+1.28  2009-03-17  - fix spurious blank for \SpecialCoor
+1.27  2009-01-25  - updated \pssetlength to check for special coor
+	          - renamed internal \next to \ps@next to prevent problems
+                    with other packages
+                  - added \psPline(p1)(p2)(p3) for the shortest distance 
+                    of P1 to the line p2p3
+                  - added \psarcAB and \psarcnAB for arcs with a given
+                    center and two points
+1.26  2008-07-31  - fixed bug with double arrow and arrowscale 
+		  - fix bug with arrows longer than the arc/line ...
+		  - fix bug with pst@theheaders
+		  - fix bug with trailing spaces
+1.25  2008-06-17  added fill style penrose
+1.24  2008-06-17  added \psDEBUG[#1]#2 for better dubugging
+1.23  2008-05-23  - add octogon symbol (hv)
+		  - fix bug with D>-<D (hv) 
+1.22  2008-04-14  - added shift=* option to get vertically centered
+		    pspicture box. It is the old \pspciture[0.5] option
+		  - add \pscircleOA(center)(point on the circle)
+1.21  2008-01-24  - changed code for transparency making distiller work 
+1.20  2008-01-01  - added opacity for normal stroke operation (lines)
+	          - added the arrowtype <D-D> and <D<D-D>D>, which draws the
+		    sides as betier curves (ArrowD type in pstricks.pro)
+                  - add special coor type (*x f(x)), which invokes the
+                    algebraic parser for f(x) before using the default
+		    (!x y) coor type
+		  - add option linejoin=0,1,or 2 for connecting lines
+		  - add option linecap=0,1,or 2 for line ends
+		  - small tweaks to psellipticarc x y -> xOrig yOrig
+		  - fix introduced bug with \newpsstyle: \pst@tempa->\pst@tempA
+    		  - add PS subroutines /UserCoor and /ScreenCoor for easy
+		    transforming into user or screen coordinates
+		  - changed wrong name of \psk@shift to \pst@shift
+		  - fix bug with pst-node and \\[name=...]. It now uses
+		    \ps@ifnextchar for scanning the next token
+		  - fix bug with pst@tempg in \polar@coor. It was already used in
+		    \pst@getangle.
+		  - new option gridfont for the label font of \psgrid
+		    can now be any of the PS-fonts Helvetica (Default),
+		    Times-Roman, Palatino-Roman, ... 
+1.15a 2007-01-05  - \parabola->\psparabola (old name still valid) (hv) 
+1.15  2006-12-19  - add support for more dot styles (from Etienne Riga) 
+1.14c 2006-04-29  - add option linecap for dashed lines 
+1.14b 2006-04-20  - fix a bug in \psset@linetype 
+1.14a 2006-02-06  - revert the changes for pslongbox (introduced bug)
+1.14  2005-12-17  - make the color part compatible to color/xcolor
+1.13  2005-12-15  - fix bug of \psdot*
+1.12  2005-10-25  - spurious blank for \multirput
+                  - shift only for an absolute length
+		  - add the missing arrows ]-[)-(
+1.11  2005-09-08  - rename \rotateleft | right | down to 
+                    \psrotateleft | right | down to be consistant to the
+		    other PSTricks macro names
+		  - new fillstyle options
+		  - move the code for arcs of an ellipse into pstricks.pro
+1.10  2005-08-13  - fix bug with \multips (spurious blank) (hv)
+                  - allow empty optional arrow argument \psline[..]{}(2,2)
+		  - redefined \psarc@iv for negative loops of \nccircle
+		  - introduce new options shift and showgrid for the
+		    main pspicture environment
+                  - rename \scalebox and \scaleboxto to 
+                    \psscalebox(to) to be consistant to the
+		    other PSTricks macro names
+1.08  2005-06-02  fix bug with \multips (spurious blank) (hv)
+1.07  2005-05-06  make \nccircle working for counter-clockwise
+                  orientation (hv)
+1.06  2005-02-24  fix spurious blank in doublestroke (hv)
+
+
+pst-node.tex --------
+1.01  2008-11-26  - bugfix for \fnode 
+1.00  2007-08-18  - new option pcRef for the first node (hv) 
+                  - new option Circle for psmatrix (hv) 
+		  - fix bug with pst-node and \\[name=...]. It now uses
+		    \ps@ifnextchar for scanning the next token (defined
+		    in pstricks.tex)
+
+
+pst-plot.tex --------
+1.04  2009-06-08  - fix new bug with \ifdim\nA pt, use now 
+                    \def\pst@minusZero{-0}
+1.03  2009-06-01  - fix bug with \ifdim\nA pt, must be sp 
+1.02  2008-11-24  - add PostScript variable ps@Exit for exit the loop
+		    for \psplot and \psparametricplot
+		  - add new names \psparametricplot, \psdataplot,...
+		    the old names still work
+1.01  2008-01-26  - make negative Dx/Dy work (hv) 
+1.00  2007-06-26  - added two new line style LineToXaxis/LineToYaxis (hv) 
+
+
+xdvipdfmx.con ------
+0.01 2007-03-11	  - first CTAN version, must be renamed to pstricks.con
+                    when used with XeTeX
+
+vtex.con ------
+0.02 2008-01-01	  - disable transparent color setting

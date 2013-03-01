@@ -1,0 +1,16 @@
+% Thomas Esser, 1998, 1999. Public domain.
+%
+% raw-ar-ext-adobe-bi.map: map file with basic ps fonts (those
+%     available to the acrobat reader and most printers).
+%
+% "Faked" ExtendFont / SlantFont without download. Useful for
+% dvips + gsftopk. Does not work with pdftex and ps2pk.
+rphvbrn Helvetica-Bold ".82 ExtendFont"
+rphvbon Helvetica-BoldOblique ".82 ExtendFont"
+rphvrrn Helvetica ".82 ExtendFont"
+rphvron Helvetica-Oblique ".82 ExtendFont"
+rpsyro Symbol ".167 SlantFont"
+rptmbo Times-Bold ".167 SlantFont"
+rptmrrn Times-Roman ".82 ExtendFont"
+rptmro Times-Roman ".167 SlantFont"
+rptmrre Times-Roman "1.2 ExtendFont"

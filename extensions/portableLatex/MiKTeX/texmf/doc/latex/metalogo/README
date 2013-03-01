@@ -1,0 +1,39 @@
+The metalogo package
+Andrew Gilbert Moschou
+Saturday, 29 May 2010
+version 0.12
+
+This work is released under the LPPL v1.3c or later.
+
+The metalogo package exposes the spacing parameters for the various TeX logos to
+the end user. It is intended to help XeLaTeX users, who use various typefaces,
+to easily optimise the logos for each typeface. Still, the package remains
+useful if any typeface is used, not necessarily loaded through \XeTeX.
+
+Usage
+  \usepackage{metalogo}
+
+Logos
+  \TeX       \XeTeX      \LuaTeX
+  \LaTeX     \XeLaTeX    \LuaLaTeX
+  \LaTeXe
+
+Commands
+  \setlogokern{<string>}{<dimen>}
+    <string>: Te, eX, La, aT, Xe, eT, eL, X2
+     <dimen>: a legitimate TeX dimension or default
+  \setlogodrop[<string>]{<dimen>}
+    <string>: XeTeX (default), TeX, Xe
+     <dimen>: A legitimate TeX dimension or default
+  
+  \setlateXa{<arg>}
+    <arg>: The definition that typesets the raised 'a' of 'LaTeX' or default
+  \setLaTeXee{<arg>}
+    <arg>: The definition that typesets the lowered 'ε' of 'LaTeX2ε' or default
+  
+  \seteverylogo{<toks>}
+    <toks>: A list of tokens inserted before every logo command. Also clears any
+            previously set list.
+  \everylogo{<toks>}
+    <toks>: A list of tokens to be appended to the list that is inserted before
+            every logo command.

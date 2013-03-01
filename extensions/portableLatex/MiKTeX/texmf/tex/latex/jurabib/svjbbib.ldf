@@ -1,0 +1,138 @@
+%%
+%% This is file `svjbbib.ldf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% jurabib.dtx  (with options: `swedish')
+%% ----------------------------------------
+%% Local language definition file for use with the jurabib package v0.61beta
+%% 
+%% (http://www.jurabib.org)
+%% 
+%% The syntax to adjust commands for your purposes is for the main
+%% document language (Note the capitals in \AddTo!):
+%% 
+%%     \AddTo\bibs<language>{\def\janname{January}}
+%% 
+%% e.g.
+%% 
+%%     \AddTo\bibsenglish{\def\janname{January}}
+%% 
+%% If you want to change it for all possible main languages:
+%% 
+%%     \AddTo\bibsall{\def\janname{January}}
+%% 
+\ProvidesFile{svjbbib.ldf}[jurabib Swedish language definitions]
+\def\bibsswedish{%
+    \def\etalname{\unskip\nobreakspace{}et\,al.}%
+    \def\etalnamenodot{\unskip\nobreakspace{}et\,al}%
+    \def\bibandname{och}%
+    \def\textandname{\bibandname}%
+    \def\commaname{,}%
+    \def\bibeandname{and}%
+    \def\texteandname{\bibeandname}%
+    \def\commaename{,}%
+    \def\inname{\ifjboxford i:\else\ifjbchicago i\else I\fi\fi}%
+    \def\ofseriesname{av}%
+    \def\volumeofname{av}%
+    \def\inseriesname{i}%
+    \def\editorname{\unskip,\space{}redakt\"or}%
+    \def\editorsname{\unskip,\space{}redakt\"orer}%
+    \def\sndeditorname{redakt\"or}%
+    \def\sndeditorsname{redakt\"orer}%
+    \def\edbyname{redigerad av}%
+    \def\Edbyname{Redigerad av}%
+    \def\byname{av}%
+    \def\volname{vol.}%
+    \def\volumename{volym}%
+    \def\Volumename{Volym}%
+    \def\numbername{Nummer}%
+    \def\editionname{utg.}%
+    \def\bibchaptername{kap.}%
+    \def\Bibchaptername{Kap.}%
+    \def\bibchapterlongname{kapitel}%
+    \def\jbpagename{s.}%
+    \def\jbpagesname{s.}%
+    \def\bibpagename{s.}%
+    \def\bibpagesname{s.}%
+    \def\bibtotalpagesname{sidorna}%
+    \def\jbarchpagename{\jbpagename}%
+    \def\jbarchpagesname{\jbpagesname}%
+    \def\bibarchpagename{\bibpagename}%
+    \def\bibarchpagesname{\bibpagesname}%
+    \def\jbpagenamenodot{s}%
+    \def\alsothesisname{och}%
+    \def\phdthesisname{fil.dr}%
+    \def\mastersthesisname{kand.}%
+    \def\jurthesisname {diss. jur.}%
+    \def\technicalreportname{Teknisk rapport}%
+    \def\organizationname{\textup{(Org.)}}%
+    \def\janname{januari}%
+    \def\febname{februari}%
+    \def\marname{mars}%
+    \def\aprname{april}%
+    \def\mayname{maj}%
+    \def\junname{juni}%
+    \def\julname{juli}%
+    \def\augname{augusti}%
+    \def\sepname{september}%
+    \def\octname{oktober}%
+    \def\novname{november}%
+    \def\decname{december}%
+    \def\firstedname{1:a}%
+    \def\secondedname{2:a}%
+    \def\thirdedname{3:e}%
+    \def\fourthedname{4:e}%
+    \def\fifthedname{5:e}%
+    \def\thedname{:e}%
+    \def\urldatecomment{bes\"okt den }%
+    \def\howcitedprefix{ (citerat: }%
+    \def\howcitedsuffix{)}%
+    \def\lookatprefix{ (som i nr.~}%
+    \def\lookatsuffix{)}%
+    \def\ibidemname{Ibid.}%
+    \def\ibidemmidname{ibid.}%
+    \def\idemname{Idem}%
+    \def\idemmidname{idem}%
+    \def\bibcontinuedname{(forts.)}%
+    \def\idemSmname{\idemname}\def\idemsmname{\idemmidname}\def\idemPmname{\idemname}
+    \def\idempmname{\idemmidname}\def\idemSfname{\idemname}\def\idemsfname{\idemmidname}%
+    \def\idemPfname{\idemname}\def\idempfname{\idemmidname}\def\idemSnname{\idemname}%
+    \def\idemsnname{\idemmidname}\def\idemPnname{\idemname}\def\idempnname{\idemmidname}%
+    \def\idemSmedbyname{\idemname}\def\idemsmedbyname{\idemmidname}\def\idemPmedbyname{\idemname}%
+    \def\idempmedbyname{\idemmidname}\def\idemSfedbyname{\idemname}\def\idemsfedbyname{\idemmidname}%
+    \def\idemPfedbyname{\idemname}\def\idempfedbyname{\idemmidname}\def\idemSnedbyname{\idemname}%
+    \def\idemsnedbyname{\idemmidname}\def\idemPnedbyname{\idemname}\def\idempnedbyname{\idemmidname}%
+    \def\bibidemSmname{\idemname}\def\bibidemsmname{\idemmidname}\def\bibidemPmname{\idemname}%
+    \def\bibidempmname{\idemmidname}\def\bibidemSfname{\idemname}\def\bibidemsfname{\idemmidname}%
+    \def\bibidemPfname{\idemname}\def\bibidempfname{\idemmidname}\def\bibidemSnname{\idemname}%
+    \def\bibidemsnname{\idemmidname}\def\bibidemPnname{\idemname}\def\bibidempnname{\idemmidname}%
+    \def\trans{\ifjbweareinbib \"o versat\else\ifjboxford \"o versat\else\ifjbchicago \"o versat\else \"O versat\fi\fi\fi}%
+    \def\transfrom{fr\aa n}%
+    \def\Transfrom{Fr\aa n}%
+    \def\transby{av}%
+    \def\fromgerman{tyska}%
+    \def\fromenglish{engelska}%
+    \def\fromfrench{franska}%
+    \def\fromdutch{nederlandska}%
+    \def\fromspanish{spanska}%
+    \def\fromitalian{italienska}%
+    \def\fromnorsk{norska}%
+    \def\fromportuguese{portugisiska}%
+    \def\fromfinnish{finska}%
+    \def\Reprint{Omtryck}%
+    \def\reprint{ontryck}%
+    \def\reviewname{Recension}%
+    \def\reviewofname{av}%
+    \def\reviewbyname{av}%
+    \def\updatesep{,}%
+    \def\updatename{sista updatering:}%
+    \def\herename{h\"a r:~}%
+    \def\foundername{\space\edfont{(TODO)}}%
+    \def\afterfoundersep{\slash}%
+    \addtoalllanguages%
+}%
+%% 
+%%
+%% End of file `svjbbib.ldf'.

@@ -1,0 +1,155 @@
+%%
+%% This is file `flowfram-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{flowfram-bidi.def}[2010/03/01 v0.1 adaptations for flowfram package]
+\def\@outputdblcol{%
+\@nxtcol=\c@thisframe
+\c@curpg=\c@page
+\@g@tnextcol{\@nxtcol}%
+\if@ff@nwpg % next flow frame starts on new page
+  \global\@firstcolumntrue
+  \@setcolbox\c@thisframe
+  \if@specialpage
+    \global\@specialpagefalse
+    \@nameuse{ps@\@specialstyle}\relax
+  \fi
+  \if@twoside
+    \ifodd\count\z@
+      \let\@thehead\@oddhead
+      \let\@thefoot\@oddfoot
+    \else
+      \let\@thehead\@evenhead
+      \let\@thefoot\@evenfoot
+    \fi
+  \else
+    \let\@thehead\@oddhead
+    \let\@thefoot\@oddfoot
+  \fi
+  \@begindvi
+  \@dodynamicthehead\@dodynamicthefoot
+  \vbadness=\@M
+  \setbox\@outputbox\vbox{\hbox to \textwidth{\@ff@do@allframes}}%
+  \@combinedblfloats
+  \@outputpage
+\advance\c@curpg by -\c@page\relax
+  \whiledo{\c@curpg>0}{\advance\c@curpg by -1\relax
+  \setbox\@outputbox\vbox{\hbox to \textwidth{\@ff@do@allframes}}%
+\@outputpage}
+  \begingroup
+    \@dblfloatplacement
+    \@startdblcolumn
+    \@whilesw \if@fcolmade \fi
+       {\@outputpage \@startdblcolumn }\endgroup
+  \@resetst@tics
+  \@resetdyn@mics
+\else % still on same page, save contents of box255
+  \global\@firstcolumnfalse
+  \@setcolbox\c@thisframe
+\fi
+\global\c@thisframe=\@nxtcol
+\@setcol{\c@thisframe}\relax
+\global\@colht\vsize
+}
+\def\@outputpage{%
+\begingroup
+  \let\protect\noexpand
+  \@resetactivechars
+  \global\let\@@if@newlist\if@newlist
+  \global\@newlistfalse\@parboxrestore
+  \shipout\vbox{\set@typeset@protect
+    \aftergroup
+    \endgroup
+    \aftergroup
+    \set@typeset@protect
+    \reset@font\normalsize\normalsfcodes
+    \let\label\@gobble
+    \let\index\@gobble
+    \let\glossary\@gobble
+    \baselineskip\z@skip
+    \lineskip\z@skip
+    \lineskiplimit\z@
+    \vskip\topmargin\moveright\@themargin
+    \vbox{%
+      \vskip\headheight
+      \vskip\headsep
+      \box\@outputbox
+    }}%
+  \global\let\if@newlist\@@if@newlist
+  \stepcounter{page}%
+  \setcounter{displayedframe}{0}%
+  \let\firstmark\botmark}
+
+
+\newcommand*\bidi@s@tfftextcol{\ifthenelse{\equal{\ff@txtcol}{}}{}{%
+\expandafter\bidicolor\ff@txtcol}}
+
+\newcommand{\bidi@ff@box}[3]{{\@ffbackground{\vbox to#2
+{\hb@xt@ #1{\hss{\bidi@s@tfftextcol #3}\hss}\vss\kern\z@}}}}
+
+
+\renewcommand*{\@docolbox}[1]{%
+\edef\ff@frametype{%
+\csname @ff@frametype@\romannumeral#1\endcsname}%
+\edef\ff@col{\csname @ff@col@\romannumeral#1\endcsname}%
+\edef\ff@txtcol{\csname @ff@txtcol@\romannumeral#1\endcsname}%
+\edef\ff@backcol{\csname @ff@backcol@\romannumeral#1\endcsname}%
+\@ff@setoffset{#1}%
+\rotateframe{\csname @ff@angle@\romannumeral#1\endcsname}{%
+\ifthenelse{\boolean{columnframe\romannumeral#1}}{%
+\@ff@fbox{\csname colwidth\romannumeral#1\endcsname}%
+{\csname colheight\romannumeral#1\endcsname}{%
+\expandafter\box\csname column\romannumeral#1\endcsname}{%
+\csname\ff@frametype\endcsname}%
+}{%
+\bidi@ff@box{\csname colwidth\romannumeral#1\endcsname}%
+{\csname colheight\romannumeral#1\endcsname}{%
+\expandafter\box\csname column\romannumeral#1\endcsname}%
+}}}
+\@ifclassloaded{book}{%
+\renewcommand\theequation
+  {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@equation}
+\renewcommand \thefigure
+     {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@figure}
+\renewcommand \thetable
+     {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@table}
+\renewcommand \thechapter {\@arabic\c@chapter}
+\renewcommand \thesection {\thechapter\@SepMark\@arabic\c@section}
+\renewcommand\thesubsection   {\thesection\@SepMark\@arabic\c@subsection}
+\renewcommand\thesubsubsection{\thesubsection \@SepMark\@arabic\c@subsubsection}
+\renewcommand\theparagraph    {\thesubsubsection\@SepMark\@arabic\c@paragraph}
+\renewcommand\thesubparagraph {\theparagraph\@SepMark\@arabic\c@subparagraph}}{}
+\@ifclassloaded{report}{%
+\renewcommand\theequation
+  {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@equation}
+\renewcommand \thefigure
+     {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@figure}
+\renewcommand \thetable
+     {\ifnum \c@chapter>\z@ \thechapter\@SepMark\fi \@arabic\c@table}
+\renewcommand \thechapter {\@arabic\c@chapter}
+\renewcommand \thesection {\thechapter\@SepMark\@arabic\c@section}
+\renewcommand\thesubsection   {\thesection\@SepMark\@arabic\c@subsection}
+\renewcommand\thesubsubsection{\thesubsection \@SepMark\@arabic\c@subsubsection}
+\renewcommand\theparagraph    {\thesubsubsection\@SepMark\@arabic\c@paragraph}
+\renewcommand\thesubparagraph {\theparagraph\@SepMark\@arabic\c@subparagraph}}{}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `flowfram-bidi.def'.

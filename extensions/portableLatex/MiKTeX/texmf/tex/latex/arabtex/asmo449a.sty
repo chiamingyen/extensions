@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% asmo449.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% asmo449.sty
+% Scanner for ASMO 449 Code (ISO 9036) (long version)
+% to install it, include it as a LaTeX package or style option "asmo449"
+% with Plain TeX, say "\input asmo449.sty"
+% to activate it, say "\setcode {asmo449}" or "\setcode {iso9036}"
+% 11.04.1997
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \asmoatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \asmoatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {asmo449.sty} {3.05 ASMO449 input encoding (long)} {11.04.1997}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setasmo@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@A {Q|}  \def \sc@B {QA}  \def \sc@C {Qa}  \def \sc@D {Qw}
+\def \sc@E {Qi}  \def \sc@F {Qy}  \def \sc@G {A}   \def \sc@H {b}
+\def \sc@I {T}   \def \sc@J {t}   \def \sc@K {C}   \def \sc@L {G}
+\def \sc@M {H}   \def \sc@N {X}   \def \sc@O {d}   \def \sc@P {F}
+\def \sc@Q {r}   \def \sc@R {z}   \def \sc@S {s}   \def \sc@T {x}
+\def \sc@U {S}   \def \sc@V {D}   \def \sc@W {V}   \def \sc@X {Z}
+\def \sc@Y {P}   \def \sc@Z {R}
+\def \sc@a {f}   \def \sc@b {q}   \def \sc@c {k}   \def \sc@d {l}
+\def \sc@e {m}   \def \sc@f {n}   \def \sc@g {h}   \def \sc@h {w}
+\def \sc@i {Y}   \def \sc@j {y}   \def \sc@k {"aN} \def \sc@l {"uN}
+\def \sc@m {"iN} \def \sc@n {"a}  \def \sc@o {"u}  \def \sc@p {"i}
+\def \sc@q {@}   \def \sc@r {""}  \def \sc@s {@}   \def \sc@t {@}
+\def \sc@u {@}   \def \sc@v {@}   \def \sc@w {@}   \def \sc@x {@}
+\def \sc@y {@}   \def \sc@z {@}	  \def \sc@@ {@}
+\a@digits = {0123456789}        \a@paren  = {"'([}
+\a@first = {}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif \ifa@quote
+
+\def \asmo@beg #1#2{% start ASMO 449 scanner
+\h@mzafalse  \iz@fetfalse \novocalize % because of explicit quoting
+  \def \next {\asmo@word #1#2}%
+\ifx #1\@ \def \next {\sc@endscan #2}\else		% finished
+\ifx #1G\def \next {\asmo@alif #2}\else
+\ifx #1"\def \next {\asmo@lquote #2}\else
+\ifx #1/\global \a@tokens ={#1}\def \next {\asmo@word #2}% x>
+\fi\fi\fi\fi \next }
+
+{\catcode `\^ 7 \catcode `\^^M=13
+\gdef \asmo@word #1#2{% transform input into internal notation
+\ifx #1\@ \def \next {\sc@endscan #2}\else % finished
+\ifx #1-\def \next {\asmo@minus #2}\else %
+\ifx #1"\def \next {\asmo@rquote #2}\else %
+\ifx #1/\def \next {\sc@back #1#2}\else %
+\if \nxp ^^M\nxp #1\def \next {\asmo@par #2}\else % active character
+\ifx #1#2\def \next {\asmo@word #1-#2}\else %
+	\ifx #1`\def \sc@char {B}\else %
+	\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+	\else \def \sc@char {\nxp #1}%
+	\fi \fi %
+	\sc@put %
+	\ifx #2q\def \next {\asmo@word #1}\else %
+	\ifx #2s\def \next {\asmo@word #1k}\else %
+	\ifx #2t\def \next {\asmo@word #1l}\else %
+	\ifx #2u\def \next {\asmo@word #1m}\else %
+	\ifx #2v\def \next {\asmo@word #1n}\else %
+	\ifx #2w\def \next {\asmo@word #1o}\else %
+	\ifx #2x\def \next {\asmo@word #1p}\else %
+		\def \next {\asmo@word #2}%
+	\fi\fi\fi\fi\fi\fi\fi %
+\fi\fi\fi\fi\fi\fi \next }%
+} % catcode 13
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \asmo@alif {% alif at the beginning of a word
+\def \sc@char {a}\sc@put \asmo@word }
+
+\def \asmo@minus {% hyphen between words
+\def \sc@char {-}\sc@put \asmo@beg }
+
+\def \asmo@lquote {% left quote
+\ifa@quote \def \sc@char {'}\global\a@quotefalse
+\else \def \sc@char {`}\global\a@quotetrue
+\fi
+\sc@put \asmo@beg }
+
+\def \asmo@rquote {% right quote
+\global\a@quotefalse
+\def \sc@char {'}\sc@put \asmo@word }
+
+\def \asmo@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\#1\@ \@@ }
+
+\def \asmo@endscan \@@ {\global\let \a@scan \a@@scan }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@asmo {% select the ASMO 449 scanner
+\let \sc@beg \asmo@beg 		\let \sc@word \asmo@word  
+\let \sc@back \sc@@back		\let \sc@endscan \sc@@endscan
+\global\let \a@scan \a@@scan    \setasmo@codes          \a@quotefalse
+\message {input encoding set to ASMO 449 (ISO 9036) conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the ASMO449 encoding
+asmo449\set@asmo	iso9036\set@asmo }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\message {scanner for code ASMO 449 (ISO 9036) installed.}
+
+\catcode `\@ = \asmoatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

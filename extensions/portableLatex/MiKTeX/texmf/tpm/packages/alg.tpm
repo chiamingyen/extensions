@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/alg"><TPM:Name>alg</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>LaTeX environments for typesetting algorithms.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Defines two environments for typesetting algorithms in LaTeX2e
+      where lines are automatically numbered and can be referenced,
+      with easy indentation, and algorithms as floats.</TPM:Description><TPM:RunFiles size="8404">texmf\tex\latex\alg\alg.sty texmf\tpm\packages\alg.tpm</TPM:RunFiles><TPM:DocFiles size="1347">texmf\doc\latex\alg\readme.txt</TPM:DocFiles><TPM:SourceFiles size="19617">texmf\source\latex\alg\alg.dtx texmf\source\latex\alg\alg.ins</TPM:SourceFiles><TPM:TimePackaged>991340658</TPM:TimePackaged><TPM:MD5>6f528ab165a48c69cc16ce14f8d56f85</TPM:MD5></rdf:Description></rdf:RDF>

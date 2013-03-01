@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hefonts1.sty
+% ArabTeX
+% load Hebrew fonts for NFSS1
+% 24.05.1996
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally and Bernd Raichle
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {hefonts1.sty} {3.04 define Hebrew fonts for NFSS1} {24.05.1996}
+
+% NEW FONT SELECTION -- Version 1
+\message {using NFSS1}
+
+% define \pheb to use the `heb' family, `m'edium series und
+% `n'ormal shape.
+%
+\def\pheb{\family{heb}\series{m}\shape{n}\selectfont}
+
+% setup the font definition table
+% (`1' at the beginning of a fontname: size not available, print
+% warning to inform the user)
+%
+\new@fontshape{heb}{m}{n}{%
+      <5>1hclassic%
+      <6>1hclassic%
+      <7>1hclassic%
+      <8>1hclassic%
+      <9>1hclassic%
+      <10>hclassic%
+      <11>hclassic at10.95pt%
+      <12>hclassic at12.0pt%
+      <14>hclassic at14.4pt%
+      <17>hclassic at15.77441pt%
+      <20>hclassic at17.28pt%
+      <25>hclassic at20.736pt}{}
+\extra@def{heb}{}{}
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

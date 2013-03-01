@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is ASIZE10.CLO in text format
+% size dependent corrections for arabart.cls and size10.clo
+% for use with ArabTeX Version 3.04
+% 29.11.1995
+%
+% Copyright (C) 1995 by Klaus Lagally
+%
+% reusing art12.sty of 14 Jan 1992
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesFile {asize10.clo}[1995/11/29 v1.00 10pt parameters for arabart]
+
+%  ****************************************
+%  *            PAGE LAYOUT               *
+%  ****************************************
+
+\columnsep 20pt
+\columnseprule .4pt
+\headheight 18pt
+
+%    ****************************************
+%    *                LISTS                 *
+%    ****************************************
+
+% presently not changed
+
+\iffalse
+\leftmargini 2.5em
+\leftmarginii 2.2em     % > \labelsep + width of '(m)'
+\leftmarginiii 1.87em   % > \labelsep + width of 'vii.'
+\leftmarginiv 1.7em     % > \labelsep + width of 'M.'
+\leftmarginv 1em
+\leftmarginvi 1em
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

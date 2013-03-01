@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{fontspec}                     %設定字體用
+\setmainfont{新細明體}                     %使用 Windows 系統中文字體(標楷體, 新細明體)
+\XeTeXlinebreaklocale "zh"                %讓中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt        %這兩行是texWorks範例中所缺少的。
+
+\title{採用 TexStudio}
+\author{作者姓名}
+\date{} %不要日期
+
+\begin{document}
+\maketitle
+
+\section {開始使用 XeLatex}
+This is a very  simple document.
+
+這是我的中文內容，也可以直接打公式以及符號，\fontspec{標楷體}這裡開始改用標楷體。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，\fontspec{新細明體}這裡開始改用細明體。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。這是我的中文內容，也可以直接打公式以及符號，這裡也是中文內容。
+
+English Test.  This is a simple template for a XeLaTeX document using the
+article class, with the fontspec package to easily select fonts.
+Don't forget to include examples of topicalization.
+They look like this:
+
+\section {一般文字}
+這裡當然可以處理許多的字元,也沒有問題,但是在許多情況下也並非沒有
+Type your text in free-format; lines can be as long
+or as short
+as you wish.
+      You can indent      or space out
+        your input
+          text in
+            any way you like to highlight the structure
+      of your manuscript and make it easier to edit.
+LaTeX fills lines and adjusts spacing between words to produce an
+aesthetically pleasing result.
+
+Completely blank lines in the input file break your text into
+paragraphs.
+To change the font for a single character, word, or set of words,
+enclose the word and the font changing command within braces,
+{\em like this}.
+A font changing command not enclosed in braces, like the change to \bf
+bold here, keeps that change in effect until the end of the document or
+until countermanded by another font switch, like this change back to
+\rm roman. 
+
+
+\section {顯示文字}
+Use the ``quote'' and ``quotation'' environments for typesetting quoted
+material or any other text that should be slightly indented and set off
+from the normal text.
+\begin{quotation}
+The quote and quotation environments are similar, but use different
+settings for paragraph indentation and spacing.
+
+\em When in doubt, consult the manual.
+\end{quotation}
+
+So far, I have demonstrated titles, paragraphs, font changes, and
+section headings.
+Now, I am going to show lists and tables. 
+
+\begin{enumerate}
+\item
+這是第一項
+\item 
+這是第二項
+\item
+這是第三項
+
+$a^2+b^2=c^2$
+
+\end{enumerate}
+
+Items in a list can contain multiple paragraphs.
+These paragraphs are appropriately spaced and indented according to their
+position in the list.
+  \begin{itemize}
+  \item The ``itemize'' environment sets off list items with ``bullets'',
+like this. Finally, the ``description'' environment lets you put your own
+    \begin{description}
+    \item[A] label on each item, like this ``A''.
+    \item[If the label is long,] the first line of the item text will
+be spaced over to the right as needed.
+    \end{description} 
+  \end{itemize}
+
+Here is a very simple table showing data lined up in columns.
+Notice that I include the table in a ``center'' environment to display
+it properly.
+The title is created simply as another paragraph in the center environment,
+rather than as part of the table itself.
+
+\begin{center}
+Numbers of Computers on Earth Sciences Network, By Type.
+
+\begin{tabular}{lr}
+Macintosh&175\\
+DOS/Windows PC&60\\
+Unix Workstation or server&110\\
+\end{tabular}
+\end{center} 
+
+
+Here is a more complicated table that has been boxed up, with a multi-column
+header and paragraph entries set in one of the columns.
+\begin{center}
+\begin{tabular}{|l|c|p{3.5in}|}
+\hline
+\multicolumn{3}{|c|}{Places to Go Backpacking}\\ \hline
+Name&Driving Time&Notes\\
+&(hours)&\\ \hline
+Big Basin&1.5&Very nice overnight to Berry Creek Falls from
+either Headquarters or ocean side.\\ \hline
+Sunol&1&Technicolor green in the spring. Watch out for the cows.\\ \hline
+Henry Coe&1.5&Large wilderness nearby suitable for multi-day treks.\\ \hline
+\end{tabular}
+\end{center} 
+
+\section {數學方程式}
+Simple equations, like $x^y$ or $x_n = \sqrt{a + b}$ can be typeset right
+in the text line by enclosing them in a pair of single dollar sign symbols.
+Don't forget that if you want a real dollar sign in your text, like \$2000,
+you have to use the \verb+\$+ command.
+
+A more complicated equation should be typeset in {\em displayed math\/} mode,
+like this:
+\[
+z \left( 1 \ +\ \sqrt{\omega_{i+1} + \zeta -\frac{x+1}{\Theta +1} y + 1}
+\ \right)
+\ \ \ =\ \ \ 1
+\]
+The ``equation'' environment displays your equations, and automatically
+numbers them consecutively within your document, like this:
+\begin{equation}
+\left[
+{\bf X} + {\rm a} \ \geq\
+\underline{\hat a} \sum_i^N \lim_{x \rightarrow k} \delta C
+\right]
+\end{equation}
+
+\begin{equation}
+\left[
+{\bf X} + {\rm a} \ \geq\
+\underline{\hat a} \sum_i^N \lim_{x \rightarrow k} \delta C
+\right]
+\end{equation}
+
+\end{document}

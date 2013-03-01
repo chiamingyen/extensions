@@ -1,0 +1,45 @@
+%
+%
+%  This file is part of
+%	MakeIndex - A formatter and format independent index processor
+%
+%  Author: Gabor Herr
+%
+%
+% $Log: wb.ist,v $
+% Revision 1.1  1991/12/13  16:46:04  schrod
+% Initial revision
+%
+% Revision 1.1  1991/08/26  17:49:44  herr
+% Initial revision
+%
+%
+% german sort rules for TeX and LaTeX (Woerterbuchsortierung)
+
+% sort rules for TeX-style umlaut-macros
+sort_rule	"\\\"A"		"a"
+sort_rule	"\\\"a"		"a"
+sort_rule	"\\\"O"		"o"
+sort_rule	"\\\"o"		"o"
+sort_rule	"\\\"U"		"u"
+sort_rule	"\\\"u"		"u"
+sort_rule	"\\ss({})?"	"ss"
+
+% sort rules for german LaTeX-style umlaut-macros
+sort_rule	"\"A"		"a"
+sort_rule	"\"a"		"a"
+sort_rule	"\"O"		"o"
+sort_rule	"\"o"		"o"
+sort_rule	"\"U"		"u"
+sort_rule	"\"u"		"u"
+sort_rule	"\"s"		"ss"
+
+% define merge rules:
+include "german/umlaut.ist"	% don't remove umlaut-macros
+include "tex.ist"		% handle TeX and
+include "latex.ist"		% LaTeX stuff
+
+% define sort rules
+include "german/digit.ist"	% sort rules for digits
+include "german/special.ist"	% sort rules for special characters
+include "icase.ist"		% we sort case insensitive

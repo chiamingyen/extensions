@@ -1,0 +1,53 @@
+\ProvidesFile{gloss-italian.ldf}[polyglossia: module for italian]
+\makeatletter
+\PolyglossiaSetup{italian}{
+  hyphennames={italian},
+  hyphenmins={2,2},
+  frenchspacing=true,
+  indentfirst=true,
+  fontsetup=true,
+}
+
+\def\captionsitalian{%
+  \def\prefacename{Prefazione}%
+  \def\refname{Riferimenti bibliografici}%
+  \def\abstractname{Sommario}%
+  \def\bibname{Bibliografia}%
+  \def\chaptername{Capitolo}%
+  \def\appendixname{Appendice}%
+  \def\contentsname{Indice}%
+  \def\listfigurename{Elenco delle figure}%
+  \def\listtablename{Elenco delle tabelle}%
+  \def\indexname{Indice analitico}%
+  \def\figurename{Figura}%
+  \def\tablename{Tabella}%
+  \def\partname{Parte}%
+  \def\enclname{Allegati}%
+  \def\ccname{e~p.~c.}%
+  \def\headtoname{Per}%
+  \def\pagename{Pag.}%    % in Italian the abbreviation is preferred
+  \def\seename{vedi}%
+  \def\alsoname{vedi anche}%
+  \def\proofname{Dimostrazione}%
+  \def\glossaryname{Glossario}%
+   }
+\def\dateitalian{%
+   \def\today{\number\day~\ifcase\month\or
+    gennaio\or febbraio\or marzo\or aprile\or maggio\or giugno\or
+    luglio\or agosto\or settembre\or ottobre\or novembre\or
+    dicembre\fi\space \number\year}}
+
+\def\noextras@italian{%
+   \lccode"2019=\z@
+   }
+
+\def\blockextras@italian{%
+   \lccode"2019="2019
+   %TODO ? \clubpenalty3000\widowpenalty3000\finalhyphendemerits50000000 << in Babel
+   }
+
+\def\inlineextras@italian{%
+   \lccode"2019="2019
+   }
+
+\endinput

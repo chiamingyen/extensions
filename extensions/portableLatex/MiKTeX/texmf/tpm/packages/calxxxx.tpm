@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/calxxxx"><TPM:Name>calxxxx</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Prints a card-size calendar for any year.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Prints a card-size calendar for any year, AD or BC, with
+      Gregorian or Julian leap rules (useful for year before adoption
+      of Gregorian rules).  Cal2000.tex prints a calendar for years
+      1990--2020.</TPM:Description><TPM:RunFiles size="14351">texmf\tex\latex\calxxxx\cal2000.tex texmf\tex\latex\calxxxx\calxxxx.tex texmf\tpm\packages\calxxxx.tpm</TPM:RunFiles><TPM:DocFiles size="9111">texmf\doc\latex\calxxxx\readme.tex</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>4761ee3b9a4f64c54d0e3f8a578329a0</TPM:MD5></rdf:Description></rdf:RDF>

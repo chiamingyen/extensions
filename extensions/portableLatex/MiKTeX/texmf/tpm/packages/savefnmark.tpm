@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/savefnmark"><TPM:Name>savefnmark</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Save name of the footnote mark for reuse.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Sometimes the same footnote applies to more than one location in
+      a table. With this package the mark of a footnote can be saved
+      into a name, and re-used subsequently without creating another
+      footnote at the bottom.</TPM:Description><TPM:RunFiles size="2706">texmf\tex\latex\savefnmark\savefnmark.sty texmf\tpm\packages\savefnmark.tpm</TPM:RunFiles><TPM:SourceFiles size="12012">texmf\source\latex\savefnmark\savefnmark.drv texmf\source\latex\savefnmark\savefnmark.dtx texmf\source\latex\savefnmark\savefnmark.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>27dfcb5f86219c583f4f60ca87a9c6ff</TPM:MD5></rdf:Description></rdf:RDF>

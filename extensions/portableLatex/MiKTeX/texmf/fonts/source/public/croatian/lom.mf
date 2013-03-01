@@ -1,0 +1,39 @@
+
+% Croatian Glagolitic
+% Baromich broken ligatures (1493-94),
+% 1995, darko.zubrinic@etf.hr
+
+mode_setup;
+ font_size 10pt#;
+ u#:=.8pt#; font_quad= 24u#;
+            font_normal_space= 9u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 2u#;
+ em#:=10pt#; cap#:=7pt#;
+ thin#:=2/3pt#; thick#:=.9*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=round 1.1*1/10em;
+
+
+input lomv % velika slova
+
+mode_setup;
+u#:=3/4u#;
+em#:=3/4em#; cap#:=3/4cap#;
+        thick#:=3/4thick#;
+o#:=3/4o#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+%curve_sidebar:=3/4curve_sidebar;
+input lomm % mala slova
+
+
+ligtable "z":   "z" =: oct"015";
+
+u#:=4/3u#;
+ligtable "Z":   "z" =: oct"025", "Z" =: oct"025";
+
+
+end.

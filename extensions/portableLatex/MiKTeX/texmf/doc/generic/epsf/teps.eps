@@ -1,0 +1,186 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: psposter +x 1in +y 1in +w 2in +h 0.75in +p 20pt +fg navyblue +bd red +bg skyblue test of epsf.tex
+%%CreationDate: Sat Jul 23 17:26:56 MDT 2005
+%%Creator: psposter Version 0.11 [13-Jan-2000]
+%%For: Nelson H. F. Beebe <beebe@psi.math.utah.edu>
+%%BoundingBox: 72 72 216 126
+%%DocumentMedia: A 612 792 0 () ()
+%%DocumentData: Clean7Bit
+%%DocumentFonts: font Times-Bold
+%%DocumentNeededResources: font Times-Bold
+%%Orientation: Portrait
+%%PageOrder: Ascend
+%%Pages: 1
+%%EndComments
+%=======================================================================
+%%BeginProlog
+/psposterdict 50 dict def
+psposterdict begin
+/inch { 72 mul } def
+/BackgroundColor { 0.529412 0.807843 0.921569 } def % skyblue
+/BaselineSkipFactor 1.2 def
+/BorderColor { 1 0 0 } def % red
+/BorderMargin 0 def
+/BorderWidth 10 def
+/CapHeight
+{
+	gsave newpath 0 0 moveto (M) true charpath pathbbox
+	exch pop sub neg exch pop grestore
+} def
+/ForegroundColor { 0 0 0.501961 } def % navyblue
+/reencodePRIVATE {
+	dup length dict begin
+		{1 index /FID ne {def}{pop pop} ifelse} forall
+		%% Using default font encoding, perhaps: /Encoding StandardEncoding def
+		currentdict
+	end
+} def
+/findPRIVATE {
+	dup /FontType known {
+		dup /FontType get 3 ne {
+			dup /CharStrings known {
+				dup /CharStrings get /Thorn known {
+					true
+				}{ false } ifelse
+			}{ false } ifelse
+		}{ false } ifelse
+	}{ false } ifelse
+} def
+/LandscapeMode false def
+/MarginWidth 0 def
+/PageHeight 792 def
+/PageWidth 612 def
+/Height 54 def
+/Width 144 def
+/PointSize 19.9253 def
+/ROTATE_0 {} def
+/ROTATE_90 {Width 0 translate 90 rotate} bind def
+/ROTATE_180 {Width Height translate 180 rotate} bind def
+/ROTATE_270 {0 Height translate 270 rotate} bind def
+/ScaleFactor 1 def
+LandscapeMode
+{
+	/TextHeight Width MarginWidth 2 mul sub BorderWidth 2 mul sub BorderMargin 2 mul sub def
+	/TextWidth Height MarginWidth 2 mul sub BorderWidth 2 mul sub BorderMargin 2 mul sub def
+}
+{
+	/TextHeight Height MarginWidth 2 mul sub BorderWidth 2 mul sub BorderMargin 2 mul sub def
+	/TextWidth Width MarginWidth 2 mul sub BorderWidth 2 mul sub BorderMargin 2 mul sub def
+}
+ifelse
+/XOffset 72 def
+/YOffset 72 def
+% Center and show a string at the current point, leaving
+% point at the center of the next line.
+% Usage: (string) cshow
+/cshow
+{
+	currentpoint /cpy exch def /cpx exch def
+	dup stringwidth pop 0.5 mul neg 0 rmoveto show
+	cpx cpy moveto
+	NewLine
+} def
+/max
+{
+	/a exch def
+	/b exch def
+	a b gt { a } { b } ifelse
+} def
+/min
+{
+	/a exch def
+	/b exch def
+	a b lt { a } { b } ifelse
+} def
+/TheFont /Times-Bold def
+/TheFontPRIVATE /Times-Bold-PRIVATE def
+TheFontPRIVATE TheFont findfont reencodePRIVATE definefont pop
+% Set the font size so that longest PosterLines string fills the TextWidth
+% Usage: setfontsize
+/setfontsize
+{
+	TheFont findfont
+		findPRIVATE {reencodePRIVATE TheFontPRIVATE exch definefont} if
+		10 scalefont setfont
+	% Set TheFontSize according to maximum string width
+	0 PosterLines { stringwidth pop max } forall TextWidth exch div 10 mul
+	/TheFontSize exch def
+	% Adjust TheFontSize according to the number of text lines
+	LineCount TheFontSize mul BaselineSkipFactor mul
+	TextHeight div
+	dup 1 gt { TheFontSize exch div /TheFontSize exch def } { pop } ifelse
+	% NB: The following definition silently overrides the previous one
+	/TheFontSize PointSize def
+	/BaselineSkip BaselineSkipFactor TheFontSize mul def
+	TheFont findfont
+		findPRIVATE {reencodePRIVATE TheFontPRIVATE exch definefont} if
+		TheFontSize scalefont setfont
+} def
+/NewLine {0 BaselineSkip neg rmoveto} def
+/PosterLines
+[
+	(test of epsf.tex)
+] def
+/LineCount PosterLines length 1 max def
+end % psposterdict
+%%EndProlog
+%=======================================================================
+%%BeginSetup
+/#copies 1  def
+%%EndSetup
+%=======================================================================
+%%Page: 1 1
+%%BeginPageSetup
+psposterdict begin
+XOffset YOffset translate
+ScaleFactor dup scale
+ROTATE_0
+end % psposterdict
+%%EndPageSetup
+
+psposterdict begin
+% Draw a frame box and fill it with the background color, and a border color.
+BorderWidth setlinewidth
+newpath
+MarginWidth BorderWidth 0.5 mul add dup moveto
+TextWidth BorderMargin 2 mul add BorderWidth add 0 rlineto
+0 TextHeight BorderMargin 2 mul add BorderWidth add rlineto
+TextWidth BorderMargin 2 mul add BorderWidth add neg 0 rlineto
+closepath
+BackgroundColor setrgbcolor gsave fill grestore
+BorderColor setrgbcolor stroke
+
+0 0 0 setrgbcolor % revert to black
+
+% Set the clipping path to the text region
+0 setlinewidth
+newpath
+MarginWidth BorderWidth add BorderMargin add dup moveto
+TextWidth 0 rlineto
+0 TextHeight rlineto
+TextWidth neg 0 rlineto
+closepath
+clip
+
+% Move origin to text box center, since x = 0 is a convenient
+% value for centering text.
+LandscapeMode
+	{ Height 0.5 mul Width 0.5 mul translate }
+	{ Width 0.5 mul Height 0.5 mul translate }
+ifelse
+% Set font size so that the longest line just fills the TextWidth.
+setfontsize
+% Center the text vertically, such that the middle line has its text
+% (rather than baseline distance) centered on a horizontal line
+% passing through the center of the picture.
+0 LineCount 0.5 mul BaselineSkip mul BaselineSkip sub moveto
+0 BaselineSkip CapHeight sub 0.5 mul rmoveto
+ForegroundColor setrgbcolor
+% Typeset the poster text.
+PosterLines { cshow } forall
+end % psposterdict
+showpage
+%%PageTrailer
+%=======================================================================
+%%Trailer
+%%EOF

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/play"><TPM:Name>play</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Typeset plays.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>A class and style file that supports the typesetting of plays,
+including options for line numbering.
+</TPM:Description><TPM:RunFiles size="9449">texmf\tex\latex\play\play.cls texmf\tex\latex\play\play.sty texmf\tpm\packages\play.tpm</TPM:RunFiles><TPM:DocFiles size="413">texmf\doc\latex\play\README</TPM:DocFiles><TPM:SourceFiles size="12737">texmf\source\latex\play\play.dtx texmf\source\latex\play\play.ins</TPM:SourceFiles><TPM:TimePackaged>1005996048</TPM:TimePackaged><TPM:MD5>2f618ca7819a85db80ce184a1683e750</TPM:MD5></rdf:Description></rdf:RDF>

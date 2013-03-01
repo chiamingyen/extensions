@@ -1,0 +1,179 @@
+%%
+%% This is file `dtk-pdf.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% dtk.dtx  (with options: `pdf')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from dtk-pdf.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file dtk.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%  Time-stamp: "dtk.dtx        2006-08-11 18:18:53 CET Mittwoch  RN/HjG/hv"
+%%
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%^^A $Id: dtk.dtx,v 1.9b 2006/08/11 21:03:42 hv Exp hv $
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Purpose:
+%%      LaTeX Class and Styles for ``Die TeXnische Komoedie''.
+%%
+%% Documentation:
+%%      The documentation  can be  generated  from  the original file
+%%      dtk.dtx with the doc style/package. LaTeX the file dtk.tex to
+%%      get the full documentation in DVI format.
+%%
+%%
+%% Author: Gerd Neugebauer
+%%         Mainzer Str. 8
+%%         56321 Rhens (Germany)
+%% Mail:   gene@gerd-neugebauer.de
+%%
+%% Copyright (C) 1995-1996 Gerd Neugebauer
+%% Copyright (C) 1997-2006 DANTE, Deutschsprachige
+%%                           Anwendervereinigung TeX e.V.
+%%
+%%  dtk.dtx is distributed in the hope that it  will  be useful, but
+%%  WITHOUT  ANY  WARRANTY.    No   author  or  distributor  accepts
+%%  responsibility to anyone for the consequences of using it or for
+%%  whether it serves any particular purpose or works at all, unless
+%%  he says so in writing.
+%%
+%%  Everyone is granted permission to  copy, modify and redistribute
+%%  dtk.dtx,  provided  this copyright notice is preserved  and  any
+%%  modifications are indicated.
+%%
+%%
+%%  This package is still under development and may be replaced with
+%%  a new version which provides enhanced functionality.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%%^^A%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\DTKrcs$#1: #2 #3${#2}
+\def\filename{dtk.dtx}
+\xdef\fileversion{\DTKrcs$Revision: 1.10 $}
+\xdef\filedate{\DTKrcs$Date: 2007/08/28 18:17:42 $}
+\let\docversion=\fileversion
+\let\docdate=\filedate
+\ProvidesPackage{dtk-pdf}[\filedate\space\fileversion\space  gene]
+\RequirePackage{multicol,graphicx,color}
+\RequirePackage[bookmarks=false]{hyperref}
+\definecolor{navy}{rgb}{0,0,.5}
+\hypersetup{a5paper,colorlinks,urlcolor=navy}
+\oddsidemargin=-10mm
+\evensidemargin=-10mm
+\topmargin=-15mm
+\renewcommand\Volume{?/??}
+\newcommand\Pages{???}
+\renewcommand\volume{\Volume\ -- Nachdruck}
+\let\titlemark\@gobble
+\newcount\AdNo \AdNo=0
+\newcommand\Address{\bigskip\par\advance\AdNo1
+  \begin{multicols}2 \count255=0\relax
+    \loop\csname Address\the\count255\endcsname\advance\count255 1
+    \ifnum\count255<\AdNo \repeat
+  \end{multicols}}
+\renewcommand\address[3]{%
+  \expandafter\gdef\csname Address\the\AdNo\endcsname
+  {\par\parbox{.45\textwidth}{\footnotesize\raggedright
+      #1 #2 \\#3}}\advance\AdNo1\relax}
+\address{\href{http://www.dante.de/}{\Dante}}{}{%
+  \href{http://www.dante.de/}{Postfach 10\,18\,40\\
+    69008 Heidelberg\\
+    \texttt{dante@dante.de}}}
+\providecommand\DTK@keywords{}
+\let\m@ketitle=\maketitle
+\renewcommand\maketitle{%
+  \thispagestyle{empty}%
+  \newlength{\l@@x}\settowidth{\l@@x}{\Large\DTK}%
+  \advance\l@@x3em\quad
+  \href{http://www.dante.de/dante/DTK}{%
+    \rotatebox{90}{\hspace*{1.5em}\Large\DTK}}
+  \rule{.9pt}{\l@@x}\quad
+                                %
+  \begin{minipage}[b]{.75\textwidth}\parskip=1ex
+    {\raggedleft\large
+      \href{http://www.dante.de/}{DANTE\\
+      Deutschsprachige\\
+      Anwendervereinigung \TeX\ e.V.}\medskip\par
+      }%
+    {\let\thanks\@gobble
+    \ifx\@author\empty\else\@author: \fi
+    \ifx\@title\empty\else\emph{\@title}, \fi
+    }
+    \DTK\ \Volume, S.\ \Pages.\medskip
+
+    \scriptsize Reproduktion oder Nutzung dieses Beitrags durch
+    konventionelle, elektronische oder beliebige andere Verfahren ist
+    nur im nicht-kommerziellen Rahmen gestattet.  Verwendungen in
+    gr"o"serem Umfang bitte zur Information bei \dante{} melden.  F\"ur
+    kommerzielle Nutzung ist die Zustimmung der Autoren einzuholen.
+
+    \DTK\ ist die Mitgliedszeitschrift von \Dante. Einzelne Hefte
+    k\"onnen von Mitgliedern bei der Gesch\"aftsstelle von \Dante\
+    erworben werden. Mitglieder erhalten \DTK\ im Rahmen ihrer
+    Mitgliedschaft.
+  \end{minipage}
+
+  \begingroup
+    \def\LaTeX{LaTeX}%
+    \def\BibTeX{BibTeX}%
+    \def\TeX{TeX}%
+    \def\LyX{LyX}%
+    \hypersetup{%
+      pdftitle=\@title,
+      pdfauthor=\@author,
+      pdfkeywords={\DTK@keywords},
+      pdfsubject={\volume},
+      pdfstartview={FitBH}
+      }%
+  \endgroup
+  \m@ketitle
+}
+\def\textcentigrade{\textcelsius}
+\AtBeginDocument{%
+  \DeclareFontEncoding{OT4}{}{}%
+  \DeclareFontEncoding{TS1}{}{}%
+  \DeclareFontSubstitution{OT4}{cmr}{m}{n}%
+  \DeclareTextCommand{\guillemotleft}{\encodingdefault}{%
+    {\fontencoding{OT4}\fontfamily{cmr}\selectfont\char174}}%
+  \DeclareTextCommand{\guillemotright}{\encodingdefault}{%
+    {\fontencoding{OT4}\fontfamily{cmr}\selectfont\char175}}%
+  \DeclareTextCommand{\guilsinglleft}{\encodingdefault}{%
+    {\fontencoding{T1}\fontfamily{cmr}\selectfont\char14}}%
+  \DeclareTextCommand{\guilsinglright}{\encodingdefault}{%
+    {\fontencoding{T1}\fontfamily{cmr}\selectfont\char15}}%
+  \DeclareTextCommand{\textperthousand}{\encodingdefault}{%
+    {\fontencoding{TS1}\fontfamily{cmr}\selectfont\char135}}%
+}
+\newif\ifmaintitle
+\newlength\footheight
+\endinput
+%%
+%% End of file `dtk-pdf.sty'.

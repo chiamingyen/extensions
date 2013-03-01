@@ -1,0 +1,547 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% xnshlig.mf %%%%%%%%%%%%%%%%%%%%%%%%
+% Extended NASH Font
+% ligatures
+% 14.07.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if unknown xnshbase: input xnshbase fi;
+
+%%%%%%%%%%%%%% alif after mim %%%%%%%%%%%%%%%%%
+
+arabchar(alif_spec_mim, f_end, 3, 15, 0); % mim-alif
+x1 + dx = x2 + .5dx = x.r; y1 = 13dy; y2 = y.r + .5dy;
+bow(z1, z2, z.r); serif(1);
+endchar;
+
+%%%%%%%%%%%%%% bah_high %%%%%%%%%%%%%%%%%
+
+arabchar(bah_high, f_beg, 5, 10, 0);
+x.m := x.m + 0.5dx;
+x1 - dx = x2 = x.m; y1 = y.l; y2 = y.l + 6dy;
+bow(z2, z1, z.l);
+endchar;
+
+arabchar(bah_high, f_mid, 6, 10, 0);
+x5 - dx = x6 = x.m;
+y6 = good.y (y.l + 6dy); y5 = y.l;
+z4 = .5[z6, z5];
+l_att(4); bow(z6, z5, z.r);
+endchar;
+
+%%%%%%%%%%%%%% bah before nun %%%%%%%%%%%%%%%%%
+
+arabchar(bah_spec, f_beg, 5, 10, 0);
+x4 - 2dx = x.ll; y4 - 2dy = y.ll;
+draw z4{(dx,-2dy)}..z.ll{left};
+r_con(ll); % measure for raising final nun, rah
+endchar;
+
+arabchar(bah_spec, f_mid, 5, 10, 0);
+x6 = x.l + 2dx; y6 = good.y (y.ll + 2dy);
+draw z6..z.ll{left}; draw z6{down}..z.r{right};
+%r_con(ll);
+endchar;
+
+%%%%%%%%%%%%%% bah over yah maqsoura %%%%%%%%%%%%%%%%%
+
+%arabchar(bah_spec_yah, f_beg, 5, 10, 7);
+arabchar(bah_spec_yah, f_beg, 5, 10, 2);
+x1 - 2dx = x2 - 3dx = x.l; y1 - 6dy = y2 - dy = y.l;
+draw z1{(4dx,-7dy)}..z2..z.l{(-6dx,-dy)};
+endchar;
+
+arabchar(bah_spec_yah, f_mid, 4, 8, 2);
+z1 = 0.5[z.ll, z.rr]; x2 = x.l; x4 = x.r;
+y2 = y4 = y.r + dy;
+draw z.ll..controls z1 and z2..z4;
+r_con(4);
+endchar;
+
+%%%%%%%%%%%%%% bah over middle mim %%%%%%%%%%%%%%%%%
+
+arabchar(bah_mid_mim, f_beg, 6, 10, 0);
+x1 = x.rr - dx; y1 = y.rr + dy;
+draw z.l{(-dx,dy)}..z1{(dx,-dy)};
+endchar;
+
+arabchar(bah_mid_mim, f_mid, 6, 10, 0);
+x1 = x.rr - 3dx; y1 = y.rr + 2dy;
+draw z.l{(-dx,dy)}..z1..z.rr{right};
+r_con(rr);
+endchar;
+
+%%%%%%%%%%%%%% bah over end mim %%%%%%%%%%%%%%%%%
+
+arabchar(bah_beg_mim, f_mid, 5, 8, 0);
+x1 = x.l + 7dx; y1 = y.r + dy;
+draw z.l{(dx,dy)}..z1{(dx,-6dy)};
+endchar;
+
+arabchar(bah_end_mim, f_mid, 8, 8, 4);
+x1 = x.r - 2dx; y1 = y.r + 2dy;
+draw z.l{(dx,dy)}..z1{(dx,-6dy)}..z.r{right};
+endchar;
+
+%%%%%%%%%%%%%% bah over gim %%%%%%%%%%%%%%%%%
+
+%arabchar(bah_spec_gim, f_mid, 12, 8, 7);
+arabchar(bah_spec_gim, f_mid, 12, 8, 0);
+x5 = x4 = x.r - 4dx; y4 - 4dy = y5 = y.r;
+z3 = 0.2[z5,z4]; z1 = 0.9[z1,z3]; z2 = 0.8[z.ll,z4];
+z6 = 0.5[z4, z.rr]; x7 = x5; x8 = x.r; y7 = y8 = y.r + dy;
+draw z.l..controls z1 and z2..z4..controls z6 and z7..z8;
+r_con(8);
+endchar;
+
+arabchar(bah_beg_gim, f_mid, 8, 8, 6);
+x4 - dx = x5 = x.r; y4 - 3dy = y5 - 5dy = y.r;
+z3 = 0.2[z.r,z5]; z1 = 0.9[z.l,z3]; z2 = 0.8[z.ll,z5];
+draw z.l..controls z1 and z2..z5..z4{(dx,-6dy)};
+endchar;
+
+%%%%%%%%%%%%%% bah over hah %%%%%%%%%%%%%%%%%
+
+arabchar(bah_end_hah, f_mid, 6, 8, 5);
+x1 = x.r - 2dx; y1 = y.r + 2dy;
+draw z.l{(dx,dy)}..z1..z.r{right};
+endchar;
+
+arabchar(bah_end_hah, f_beg, 6, 8, 0);
+x1 + 2dx = x.r; y1 = y.r;
+draw z.l{(4dx,7dy)}..z1;
+endchar;
+
+%%%%%%%%%%%%%% hhah-spec-macros %%%%%%%%%%%%%%%%%
+
+def hhah_spec_bar =
+x1 = x2 - 9dx = x.rr;
+y1 = y.rr; y2 = 0.5[y.r, y.rr];
+draw z1{right}..z2{right};
+r_con(rr);
+enddef;
+
+def hhah_spec_beg =
+hhah_spec_bar; draw z2{left}..z.l{left};
+enddef;
+
+def hhah_spec_iso =
+hhah_spec_bar; hhah_bow;
+enddef;
+
+if false:
+%%%%%%%%%%%%%% gim ligature %%%%%%%%%%%%%%%%%
+
+arabchar(gim_spec, f_end, 4, 10, 10);
+hhah_spec_iso;
+x.m := x.r + 2dx;
+one_dot(-3);
+endchar;
+
+arabchar(gim_spec, f_mid, 2, 10, 5);
+hhah_spec_beg;
+x.m := x.r + 4dx;
+one_dot(-4);
+endchar;
+fi
+
+%%%%%%%%%%%%%% hhah ligature %%%%%%%%%%%%%%%%%
+
+arabchar(hhah_spec, f_end, 4, 10, 10);
+hhah_spec_iso;
+endchar;
+
+%arabchar(hhah_spec, f_mid, 2, 10, 5);
+arabchar(hhah_spec, f_mid, 2, 10, 0);
+hhah_spec_beg;
+endchar;
+
+%%%%%%%%%%%%%% khah ligature %%%%%%%%%%%%%%%%%
+
+arabchar(khah_spec, f_end, 4, 15, 10);
+hhah_spec_iso; 
+x.m := x.r;
+one_dot(10);
+endchar;
+
+%arabchar(khah_spec, f_mid, 2, 15, 5);
+arabchar(khah_spec, f_mid, 2, 15, 0);
+hhah_spec_beg;
+x.m := x.r;
+one_dot(10);
+endchar;
+
+if false:
+%%%%%%%%%%%%%% tsah ligature %%%%%%%%%%%%%%%%%
+
+arabchar(tsah_spec, f_end, 4, 10, 10);
+hhah_spec_iso;
+x.m := x.r + 3dx;
+three_dots_low(-3);
+endchar;
+
+arabchar(tsah_spec, f_mid, 2, 10, 8);
+hhah_spec_beg;
+x.m := x.r + 4dx;
+three_dots_low(-4);
+endchar;
+fi
+
+%%%%%%%%%%%%%% closed hhah %%%%%%%%%%%%%%%%%
+
+arabchar(gim_close, f_beg, 12, 9, 0); % closed hhah
+%arabchar(gim_close, f_beg, 12, 8, 0); % closed hhah
+x1 = x2 - 9dx = x.l + 2dx; y1 - 4dy = y2 - 2dy = y.r;
+x3 = x7 = x1 + 7dx; y3 - 2dy = y7 = y.r;
+x4 = x1 - 2dx; y4 = y.l + 2dy;
+draw z4..z1{(8dx,3dy)}..z2{right}; draw z2{left}..z.l{left};
+endchar;
+
+%arabchar(gim_close, f_mid, 13, 8, 1); % closed hhah
+%hhah_mid; draw z3{down}..z.r{right};
+%endchar;
+
+%%%%%%%%%%%%%% sin_spec-macros %%%%%%%%%%%%%%%%%
+
+def sin_spec_wave =
+z5 - z.l = z3 - z2;
+x3 - x2 = 2(x3 - x5) = 2dx; x.m := x2;
+y5 = y2 - 2dy = y.l;
+draw z3..z5..z2; draw z2{down}..z.l{left};
+enddef;
+
+def sin_spec_beg =
+sin_spec_wave;
+enddef;
+
+def sin_spec_mid =
+sin_spec_wave; r_att(3);
+enddef;
+
+def sin_spec_mid =
+sin_spec_wave; draw z3{down}..z.r{right};
+enddef;
+
+%%%%%%%%%%%%%% short sin %%%%%%%%%%%%%%%%%
+
+arabchar(sin_spec, f_mid, 6, 6, 0);
+sin_spec_mid;
+endchar;
+
+arabchar(sin_spec, f_beg, 4, 6, 0);
+sin_spec_beg;
+endchar;
+
+if false:
+%%%%%%%%%%%%%% short shin %%%%%%%%%%%%%%%%%
+
+arabchar(shin_spec, f_mid, 6, 15, 0);
+sin_spec_mid; three_dots(8);
+endchar;
+
+arabchar(shin_spec, f_beg, 4, 15, 0);
+sin_spec_beg; three_dots(8);
+endchar;
+fi
+
+%%%%%%%%%%%%%% sad_spec-macros %%%%%%%%%%%%%%%%%
+
+def sad_spec_beg =
+x.m := x.m - dx;
+x1 = x2 - dx = x3 - 9dx = x.l;
+y1 + dy = y2 = y3 - 3dy = y.l;
+x8 = x2 + 3.5dx; y8 = y2 + 0.5dy;
+draw z1{(5dx,6dy)}..z3{(4dx,-7dy)}..tension 2..z.l{left};
+enddef;
+
+%%%%%%%%%%%%%% short sad %%%%%%%%%%%%%%%%%
+
+%arabchar(sad_spec, f_mid, 10, 10, 0);
+arabchar(sad_spec, f_mid, 10, 8, 0);
+sad_spec_beg; draw z.r{left}..z8;
+endchar;
+
+%arabchar(sad_spec, f_beg, 10, 10, 0);
+arabchar(sad_spec, f_beg, 10, 8, 0);
+sad_spec_beg;
+endchar;
+
+if false:
+%%%%%%%%%%%%%% short dad %%%%%%%%%%%%%%%%%
+
+arabchar(dad_spec, f_mid, 10, 10, 0);
+sad_spec_beg; draw z.r{left}..z8; 
+one_dot(8);
+endchar;
+
+arabchar(dad_spec, f_beg, 10, 10, 0);
+sad_spec_beg; one_dot(8);
+endchar;
+fi
+
+%%%%%%%%%%%%%% kaf_spec-macros %%%%%%%%%%%%%%%%%
+
+def kaf_spec_beg =
+x1 = x.l + 9dx; x2 = x.l - 3.5dx; x4 = x.l + 8dx;
+%x1 = x.r - dx; x2 = x.l - 3.5dx; x4 = x.r - 2dx;
+%y4 = y.r; y1 = 14dy; y2 = 9dy; z3 = .4[z2, z4];
+y4 = y.l = y1 - 13dy = y2 - 8dy; z3 = .4[z2, z4];
+bow (z1, z2, z3);
+draw z3{z3 - z2}..z.l{left};
+enddef;
+
+%%%%%%%%%%%%%% short kaf %%%%%%%%%%%%%%%%%
+
+arabchar(kaf_spec, f_mid, 10, 15, 0);
+kaf_spec_beg; draw z3{z.r-z3}..z.r{right};
+endchar;
+
+arabchar(kaf_spec, f_beg, 7, 15, 0);
+%arabchar(kaf_spec, f_beg, 10, 15, 0);
+kaf_spec_beg;
+endchar;
+
+%%%%%%%%%%%%%% short gaf %%%%%%%%%%%%%%%%%
+
+%arabchar(gaf_spec, f_mid, 10, 16, 0);
+arabchar(gaf_spec, f_mid, 10, 17, 0);
+kaf_spec_beg; draw z3{z.r-z3}..z.r{right};
+gaf_serif;
+endchar;
+
+%arabchar(gaf_spec, f_beg, 7, 16, 0);
+arabchar(gaf_spec, f_beg, 7, 17, 0);
+kaf_spec_beg;
+gaf_serif;
+endchar;
+
+%%%%%%%%%%%%%% short kaf with loop %%%%%%%%%%%%%%%%%
+
+arabchar(kaf_p_spec, f_mid, 10, 15, 0);
+kaf_spec_beg; draw z3{z.r-z3}..z.r{right};
+z8 = .3[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+endchar;
+
+arabchar(kaf_p_spec, f_beg, 7, 15, 0);
+kaf_spec_beg;
+z8 = .3[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+endchar;
+
+%%%%%%%%%%%%%% short gaf with loop %%%%%%%%%%%%%%%%%
+
+%arabchar(gaf_p_spec, f_mid, 10, 15, 0);
+arabchar(gaf_p_spec, f_mid, 10, 16, 0);
+kaf_spec_beg; draw z3{z.r-z3}..z.r{right};
+z8 = .3[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+gaf_serif;
+endchar;
+
+%arabchar(gaf_p_spec, f_beg, 7, 15, 0);
+arabchar(gaf_p_spec, f_beg, 7, 16, 0);
+kaf_spec_beg;
+z8 = .3[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+gaf_serif;
+endchar;
+
+%%%%%%%%%%%%%% lam_alif %%%%%%%%%%%%%%%%%
+
+def lam_alif_serif(suffix $) =
+x.$sa = x.$sb - 2dx = x.$;
+y.$sa + dy = y.$sb + 3dy = y.$;
+draw z.$--z.$sa--z.$sb;
+enddef;
+
+arabchar(lam_alif_end, 0, 12, 15, 0);
+x1 + 3dx = x2 + 2dx = x.r;
+x3 + 8dx = x4 = x5 + 8dx = x6 + 2dx = x1;
+y1 = 12dy; y2 = y3 + 2dy = y.r; y4 = y6 + dy = 4dy; y5 = 11dy;
+z7 = 0.7[z1,z2]; draw z1---z7..z.r{right};
+bow(z1, z4, z3);
+draw z5{z4 - z5}..z6; lam_alif_serif(5);
+endchar;
+
+arabchar(lam_alif_iso, 0, 11, 15, 0);
+x1 + 2dx = x4 + 2dx = x3 + 6dx = x2 = x5 + 10dx = x.r;
+y1 = 13dy; y4 = 3dy; y3 = y2 = y.r; y5 = 12dy;
+bow(z1, z4, z3);
+bow(z5, z2, z3);
+serif(1); lam_alif_serif(5);
+endchar;
+
+%%%%%%%%%%%%%% lam in 'allah' %%%%%%%%%%%%%%%%%
+
+arabchar(lam_spec_low, f_mid, 5, 11, 0);
+x1 + .5dx = x2 - .5dx = x.m; y1 = 9dy; y2 = y.r;
+bow (z1, z2, z.r); bow (z1, z2, z.l);
+endchar;
+
+%%%%%%%%%%%%%% lam over yah %%%%%%%%%%%%%%%%%
+
+%arabchar(lam_spec_yah, f_mid, 7, 15, 7);
+arabchar(lam_spec_yah, f_mid, 7, 15, 0);
+x4 = x.r; x1 = x2 - dx = x.r - 3dx; 
+y1 - 11dy = y2 = y4 = y.r + 2dy;
+z3 = .2[z2, z1];
+bow (z1, z3, z.l); draw z1---z3..z4{right};
+r_con (4);
+endchar;
+
+%arabchar(lam_on_gim, f_mid, 6, 10, 5);
+arabchar(lam_on_gim, f_mid, 6, 12, 0);
+x1 = x2 - dx = x.l + 4dx;
+y1 = 9dy; y2 = y.l; z3 = 0.7[z1, z2];
+draw z1..z3{z2 - z3}..z.l{left}; serif(1);
+endchar;
+
+%arabchar(lam_long, f_beg, 6, 15, 3);
+arabchar(lam_long, f_beg, 6, 15, 0);
+x1 = x2 - dx = x.l + 4dx;
+y1 = 12dy; y2 = y.l; z3 = 0.8[z1, z2];
+draw z1..z3{z2 - z3}..z.l{left}; serif(1);
+endchar;
+
+%%%%%%%%%%%%%% lam over mim and hah %%%%%%%%%%%%%%%%%
+
+arabchar(lam_spec_mim, f_beg, 3, 15, 0);
+x1 + dx = x2 + .5dx = x.l; y1 = 13dy; y2 = y.l + .5dy;
+bow(z1, z2, z.l); serif(1);
+endchar;
+
+arabchar(lam_spec_hah, f_beg, 3, 10, 0);
+x1 + dx = x2 + .5dx = x.l; y1 - 8dy = y2 - .5dy = y.l;
+bow(z1, z2, z.l); serif(1);
+endchar;
+
+%%%%%%%%%%%%%% mim ligatures %%%%%%%%%%%%%%%%%
+
+%arabchar(mim_spec, f_end, 5, 5, 13); % final mim connected from above
+arabchar(mim_spec, f_end, 5, 5, 8); % final mim connected from above
+x2 + 6dx = x4 + 4dx = x5 + 3.5dx = x6 + 4.5dx = x1;
+y2 + dy = y4 + 11dy = y5 - 2.5dy = y6 - 1.5dy = y1;
+z5 = z.r; bow(z4,z2,z1); draw z5--z1;
+endchar;
+
+arabchar(mim_spec, f_mid, 4, 10, 0); % medial mim after lam
+%x2 = x.r = x1 - 2dx; y1 = y.r = y2 - dy;
+x2 = x.r - dx = x1 - 2dx; y1 = y.r = y2 - dy;
+draw z.l{right}..z2..z1;
+r_con(2);
+endchar;
+
+arabchar(mim_spec, f_beg, 8, 10, 5); % mim over gim
+x2 = x1 = x3 + 2dx = x.l + 7dx;
+y2 = y1 - 2dy = y3 - dy = y.l + 2dy;
+draw z3..z1..z2{left}..z.l;
+endchar;
+
+arabchar(mim_spec_mim, f_beg, 6, 10, 0); % mim over mim
+x2 = x1 = x3 + 2dx = x.l + 3dx;
+y2 = y1 - 2dy = y3 - dy = y.l + 5dy;
+draw z3..z1..z2{left}..z.l{(dx,-dy)};
+endchar;
+
+arabchar(mim_spec_high, f_mid, 5, 10, 0); % mim after gim etc
+x1 = x2 - dx = x3 + dx = x.rr;
+y1 = y.rr; y2 = y3 - 3dy = y.l;
+%x1 = x2 - dx = x3 + 2dx = x.rr;
+%y1 = y.rr; y2 = y3 - 2dy = y.l;
+draw z3..tension 2..z2..tension 2..z1..z3..z.l{left};
+%draw z3..tension 2..z2..tension 1.5..z1..z3..z.l{left};
+r_con(1);
+endchar;
+
+%arabchar(mim_spec_long, f_mid, 9, 10, 0); % long mim after lam
+arabchar(mim_spec_long, f_mid, 9, 5, 0); % long mim after lam
+%x2 = x.r = x1 - 2dx; y1 = y.r = y2 - dy;
+x2 = x.r - dx = x1 - 2dx; y1 = y.r = y2 - dy;
+draw z.l{right}..z2..z1;
+r_con(2);
+endchar;
+
+arabchar(mim_spec_alif, f_mid, 8, 8, 3); % mim before alif
+x1 = x2 = x.l + 5dx; y1 + 3dy = y2 - 3dy = y.r;
+z3 = .5[z2, z.r];
+draw z.l{(4dx,-7dy)}..z1{(7dx,-4dy)};
+draw z1{(-7dx,4dy)}..z2{right}..z3{(dx,-6dy)}..z.r{right};
+endchar;
+
+arabchar(mim_lam_gim, f_mid, 6, 10, 2); % lam_mim over gim
+x1 - 2dx = x2 = x.r; y1 + dy = y2 = y.r + 2dy;
+draw z.l{(dx,dy)}..z2..z1;
+r_con(2);
+endchar;
+
+%%%%%%%%%%%%%% hah ligature %%%%%%%%%%%%%%%%%
+
+arabchar(hah_spec, f_end, 5, 8, 0);
+x1 + 2dx = x.r; y1 - 2dy = y.r;
+draw z.r{left}..z1..z.l{(-dx,-dy)};
+endchar;
+
+%arabchar(hah_spec, f_mid, 6, 5, 6); % sharp medial hah
+arabchar(hah_spec, f_mid, 6, 8, 6); % sharp medial hah
+x1 = x2 = x3 + 1.5dx = x.r - 2dx;
+y1 + 6dy = y2 - 2dy = y.r; y3 = y1 + 2dy;
+draw z1{up}..z.r{(dx,dy)};
+bow (z1, z3, z2); l_att(2);
+endchar;
+
+arabchar(hah_spec, f_beg, 5, 8, 2);
+x1 = x.r; x2 - 2dx = x.l;
+y1 = y2 = y.r + 2dy;
+draw z1..z2{up}; draw z2{down}..z.l{left};
+endchar;
+
+arabchar(hah_spec_lam, f_mid, 5, 15, 0); % hah after lam
+x2 = x3 + 1.5dx = x4 - 1.5dx = x.l + 3dx;
+x6 + dx = x5 - 3dx = x.l + 8dx;
+y2 = 2dy; y3 = y4 = 4dy; y6 = dy;
+draw z.rr{curl 0}..tension 1.5..z6..tension 2..z2..z3..z4..z2..z.l{left};
+r_con(rr);
+endchar;
+
+%%%%%%%%%%%%%% yah after sin %%%%%%%%%%%%%%%%%
+
+arabchar(yah_spec, f_end, 9, 5, 7); % final yah connected from above
+x.m := x.m + dx; x2 = x.r + 4dx;
+x3 = x.m; lft x4 = lft x5 + 1.5dx - pl = x.l;
+y2 - dy = y4 = y5 - 3dy = y3 + 3dy = -3dy;
+draw z.r{(8dx,-3dy)}..tension 1.5
+..z2{down}..tension 1.5..z3{left}..z4{up}..z5;
+endchar;
+
+arabchar(yah_h_spec, f_end, 11, 5, 7); % final yah with hook
+x.m := x.m + 2dx; x2 = x.r + 4dx;
+x3 = x.m; lft x4 = x5 - dx = x.r - 9dx;
+y2 - dy = y4 = y5 - 3dy = y3 + 3dy = -3dy;
+draw z.r{(8dx,-3dy)}..tension 1.5
+..z2{down}..tension 1.5..z3{left}..z4{up}..z5;
+x7 = x5 - 3dx; y7 = y5 - 5dy; draw z5--z7;
+endchar;
+
+%%%%%%%%%%%%%% ties %%%%%%%%%%%%%%%%%
+
+%arabchar(mm_to_b, f_mid, 6, 5, 6);
+%x1 = x.rr - 3dx; y1 = y.r + 2dy;
+%x2 = x.l; y.l - y2 = y.rr - y.r;
+%draw z2{(-dx,dy)}..z1..z.r{right};
+%r_con(rr);
+%endchar;
+
+arabchar(er_to_s, f_mid, 5, 5, 0);
+x1 + dx = x.l; x5 = x.r - 2dx;
+y1 - .5dy = y5 - 2dy = y.r;
+draw z1--z5; draw z5..z.r{right};
+endchar;
+
+arabchar(g_to_mb, f_mid, 8, 8, 6);
+z3 = 0.2[z.r,z.rr]; z1 = 0.9[z1,z3]; z2 = 0.8[z.ll,z.rr];
+draw z.l..controls z1 and z2..z.rr;
+endchar;
+
+endinput;
+%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%
+

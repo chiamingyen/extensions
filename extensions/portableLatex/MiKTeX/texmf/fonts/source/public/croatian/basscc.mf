@@ -1,0 +1,637 @@
+
+
+beginchar("x",.7em#,cap#,0); "The letter x->az (Bassch)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+c:=curve_sidebar;
+x1=x2=x3=
+w-x4=
+w-x5=
+w-x6=
+w-x7=
+w-x8=c;
+y3=y4=0; y2=y7=.5h; y1=y5=h;
+y6-y7=y7-y8=.01h;
+draw z6--z1--z3--z8; draw z2--z7; draw z4--z5;
+endchar;
+
+
+beginchar("1",.9em#,cap#,0); "The letter 1->az (Sup.odl.)"; % Supetarski odlomak
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+c:=curve_sidebar;
+kk:=1.2;
+x1=x2=x3=
+w-kk*x4=
+w-kk*x5=
+w-kk*x6=
+w-kk*x7=
+w-kk*x8=c;
+y3=y4=0;
+ y2=y7=.5h;
+ y1=y5=h;
+y6-y7=y7-y8=0; %.13h;
+z55=(w-curve_sidebar,h);
+z44=(x55,0);
+draw z6--z1--z3--z8; %draw z2--z7;
+draw z44--z4--z5--z55;
+endchar;
+
+
+
+
+beginchar("a",.9em#,cap#,0); "The letter a";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+ficlek:=.17w;
+x1=x2=w-x3=w-x4=curve_sidebar;
+x6=x7=.5w;
+x5=x8=x6+ficlek;
+y5=y6=0; y7=y8=h; y2=y3=.5h; y2-y1=y3-y4=ficlek;
+draw z1--z2--z3--z4;
+draw z5--z6--z7--z8;
+endchar;
+
+
+beginchar("b",.9em#,cap#,0); "The letter b";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x3=x8=w-x7=w-x5=w-x10=curve_sidebar;
+x1=x9=.18w; x2=.8w; x4=x6=.5w;
+y1=y2=0;
+y10=-.1h; y8=y6=y7=h; y3=y9=y4=y5=.5h;
+draw z8--z3--z5--z7; draw z4--z6;
+draw z9--z1--z2{right}..{down}z10;
+endchar;
+
+
+beginchar("v",1.2em#,cap#,0); "The letter v";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+rr:=.15w;
+z5=(rr+curve_sidebar,h-rr); z6=(w-rr-curve_sidebar,h-rr);
+draw fullcircle scaled 2rr shifted z5;
+draw fullcircle scaled 2rr shifted z6;
+z55=(x5,y5-rr); z66=(x6,y6-rr);
+z3-z5=(z55-z5) rotated 10;
+z4-z6=(z66-z6) rotated -10;
+y1=y2=0; z1-z5=whatever*(z3-z5);
+         z2-z6=whatever*(z4-z6);
+draw z3--z1--z2--z4;
+%x1=w-x3=w-x4=curve_sidebar; x8-x1=x7-x2=x3-x6=.28w;
+picture slovo_v; slovo_v=currentpicture;
+endchar;
+
+beginchar("d",1.2em#,cap#,0); "The letter d";
+transform t; t=identity reflectedabout ((0,.5h),(w,.5h));
+addto currentpicture also slovo_v transformed t;
+endchar;
+
+
+
+
+beginchar("V",.7em#,cap#,0); "The letter V (grcc)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=w-x2=curve_sidebar;
+x1=x4=x5=x6; x2=x3=x8=x7;
+y1=y2=0;
+y6=y7=h;
+y6-y5=.9(y5-y4)=y4-y1;
+y5=y8; y4=y3;
+draw z5--z8--z7--z6--z1--z2--z3--z4;
+endchar;
+
+
+beginchar("g",1.4em#,cap#,0); "The letter g";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x2=w-x7=w-x8=curve_sidebar;
+x9=x6=.65w;
+x4=x3=.45w;
+x5=.2w;
+y5=-.05h; y9=y8=0; y3=h;
+y1=y4=y6=y7=.5h;
+y2=.8h;
+draw z5--z4--z3--z2--z1--z7--z8--z9--z6;
+endchar;
+
+
+
+beginchar("e",.7em#,cap#,0); "The letter e";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x5=x4=w-x2=w-x3=w-x6=curve_sidebar;
+y1=y2=0; y3=y4=h; y5=y6=.5h;
+draw z1--z2--z3--z4;
+draw z5--z6;
+endchar;
+
+beginchar("E",1.2em#,cap#,0); "The letter E (plominski)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x5=x4=x7=w-x6=w-x8=curve_sidebar;
+x2=x3=.5w;
+k:=.15;
+y1=y2=0; y3=y4=h;
+y5=y6=(.5+k)*h;
+y7=y8=(.5-k)*h;
+draw z1--z2--z3--z4;
+draw z5--z6;
+draw z7--z8;
+endchar;
+
+
+
+beginchar(oct"015",1.06em#,cap#,0); "The letter zz";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x3=x4=w-x6=w-x5=curve_sidebar;
+x2-x3=x7-x2=x6-x7; x1=x2; x8=x7;
+y3=y2=y7=y6=0; y1=y8=h; y4=y5=.5h;
+draw z1--z2--z3--z4--z5--z6--z7--z8;
+endchar;
+
+
+beginchar("z",1.2em#,cap#,0); "The letter z";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x4=x5=w-x7=w-x8=curve_sidebar;
+x9-x2=.8(x8-x9);
+x8-x9=.9(x2-x1);
+x3=x2; x6=x9;
+y1=y2=y9=y8=0;
+y5=y6=y7=.5h;
+y4=y3=h;
+draw z1--z4--z3--z2--cycle; draw z5--z7--z8--z9--z6;
+endchar;
+
+
+
+beginchar("i",.9em#,cap#,0); "The letter i";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=w-x2=curve_sidebar; x3=.5w;
+x6-x1=x2-x7=.2w;
+x5=w-x4=.5[x1,x6];
+y3=0; y1=y6=y7=y2=.5h;
+y5=y4=h;
+y11=.3h; z11=(x1,y11); z22=(x2,y11);
+x32-x3=x3-x31=.3w; z32=(x32,0); z31=(x31,0);
+draw z6--z5--z4--z7;
+draw z1--z2{down}..controls z22 and z32..
+{left}z3..controls z31 and z11..{up}z1;
+endchar;
+
+beginchar("I",.4em#,cap#,0); "The letter I (latiniccni)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x4=w-x2=w-x6=curve_sidebar; x3=x5=.5w;
+y1=y3=y2=0; y4=y5=y6=h;
+draw z1--z2; draw z3--z5; draw z4--z6;
+endchar;
+
+
+
+beginchar("y",1.1em#,cap#,0); "The letter y";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x5=x6=w-x7=w-x8=curve_sidebar;
+x9-x6=x7-x10=.9(x10-x9);
+x3=x9; x4=x10;
+x3-x1=x2-x4=.06w;
+y1=y2=0;
+y5=y3=y4=y8=.66h;
+y6=y9=y10=y7=h;
+draw z1--z4--z8--z7--z6--z5--z3--z2--cycle;
+draw z3--z9; draw z4--z10;
+endchar;
+
+
+beginchar("j",.9em#,cap#,0); "The letter j";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x7=w-x2=curve_sidebar; x6=x3=x2; x5=x4=.5w;
+y1=y5=y2=0; y4=y3=h; y7=y6=.5h;
+draw z6--z7--z1--z2--z3--z4--z5;
+endchar;
+
+
+beginchar("J",em#,cap#,0); "The letter J -> (Plominski I)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x7=w-x2=w-x6=curve_sidebar;
+x3=.5w;
+y1=y2=0; y7=y6=h;
+y4=y5;
+y3=.85h;  % .7
+z8=(x3, h-.8y3);
+z4=(z1--z3)intersectionpoint(z7--z8);
+z5=(z2--z3)intersectionpoint(z6--z8);
+draw z5--z2--z1--z4;
+draw z6--z7--z8--cycle;
+endchar;
+
+
+
+beginchar("k",.8em#,cap#,0); "The letter k";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x2=w-x3=w-x4=curve_sidebar; x1=.2w;
+y4=0; y2=y3=.5h; y1=h;
+draw z1--z2--z3--z4;
+endchar;
+
+
+beginchar("K",.8em#,cap#,0); "The letter K (Sup.odl.)"; % Supetarski odlomak
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+x5=x6=.4w;
+y6=y4=0; y2=y3=.5h; y1=h;
+y5=.35h;
+draw z1--z2--z3--z4; draw z5--z6;
+endchar;
+
+
+
+beginchar("l",1.06em#,cap#,0); "The letter l";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x3=x4=w-x6=w-x5=curve_sidebar;
+x2-x3=x7-x2=x6-x7; x1=x2; x8=x7;
+y3=y2=y7=y6=0; y1=y8=h; y4=y5=.5h;
+draw z1--z2--z3--z4--z5--z6--z7--z8--cycle;
+endchar;
+
+
+beginchar("m",1.6em#,cap#,0); "The letter m";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x10=x12=w-x11=w-x15=curve_sidebar;
+x9=x17=.5w;
+x18-x10=x11-x16=1.2(x17-x18);
+x13=x18; x14=x16;
+x1-x10=x11-x6=.1w;
+x4=x1; x6=x7;
+x2-x1=x6-x5=1(x5-x2);
+x3=x2; x8=x5;
+y1=y2=y5=y6=0;
+y10=y18=y17=y16=y11=h;
+y10-y12=y4-y1=1.2(y12-y4); %.33h;
+y12=y13=y14=y15;
+y4=y3=y9=y8=y7;
+k:=.45;
+z1210=k[z12,z10]; y1318=y1416=y1511=y1210;
+ x1318=x13; x1416=x14; x1511=x15;
+z1213=k[z12,z13]; z1312=k[z13,z12]; z1415=k[z14,z15]; z1514=k[z15,z14];
+z140=k[z1,z4]; z120=k[z1,z2]; z210=k[z2,z1]; z230=k[z2,z3];
+z580=k[z5,z8]; z560=k[z5,z6]; z650=k[z6,z5]; z670=k[z6,z7];
+draw z3--z230{down}..{left}z210--z120{left}..{up}z140
+--z4--z7--
+z670{down}..{left}z650--z560{left}..{up}z580--z8;
+draw z9--z17;
+draw z18--z1318{down}..{left}z1312--z1213{left}..{up}z1210--
+z10--z11--
+z1511{down}..{left}z1514--z1415{left}..{up}z1416--z16;
+endchar;
+
+
+
+beginchar("M",1.1em#,cap#,0); "The letter M (latiniccni)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=w-x5=curve_sidebar; x3=.5w;
+x2-x1=x5-x4=.1[x1,x3];
+y1=y5=0; y2=y4=h; y3=.6h;
+draw z1--z2--z3--z4--z5;
+endchar;
+
+
+beginchar("n",.8em#,cap#,0); "The letter n";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x6=w-x4=curve_sidebar; x5=x3=x2=.4w;
+y1=y2=0; y3=h; y5=y6=.45h;
+y4=.5[y5,y3];
+draw z1--z2--z3{right}..{down}z4..{left}z5--z6;
+endchar;
+
+
+beginchar("N",.8em#,cap#,0); "The letter N (latiniccni)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x5=x2=w-x3=curve_sidebar; x6=x4=x3;
+y2=y3=0; y1=y4=h;
+y1-y5=y6-y3=.2h;
+draw z1--z2; draw z5--z6; draw z3--z4;
+endchar;
+
+
+beginchar("o",.7em#,cap#,0); "The letter o";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x8=x5=x4=w-x2=w-x7=w-x6=w-x3=curve_sidebar;
+y1=y2=0; y3=y4=h;
+y8-y1=y4-y5=.32h;
+y7-y2=y3-y6=.8(y8-y1);
+draw z7--z8--z1--z2--z3--z4--z5--z6;
+endchar;
+
+
+beginchar("O",.8em#,cap#,0); "The letter O";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=w-x3=curve_sidebar;
+k:=.1;
+x2=x4=.5w; y2=k*h; y4=(1-k)*h; y1=y3=.5h;
+draw z1{down}..{right}z2..{up}z3..{left}z4..cycle;
+endchar;
+
+
+
+beginchar("p",1.08em#,cap#,0); "The letter p";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x4=w-x7=w-x6=curve_sidebar;
+x2-x1=x8-x2=x7-x8;  x3=x2; x5=x8;
+y1=y2=y8=y7=0; y4=y3=y5=y6=h;
+draw z1--z2--z3; draw z4--z6--z7--z8--z5;
+endchar;
+
+
+beginchar("P",1.07em#,cap#,0); "The letter P (Plominski nat.)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x8=w-x3=w-x4=curve_sidebar; x1=x2=x7=.15[x8,x3];
+x6=x5=.5[x2,x3];
+y1=-.18h; y8=y7=y5=y4=.5h; y2=y6=y3=h;
+draw z1--z2--z3--z4--z5--z6;
+draw z7--z8;
+endchar;
+
+
+
+beginchar("r",.7em#,cap#,0); "The letter r";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x4=x5=w-x2=curve_sidebar; x6=x3=x2;
+y1=y2=0; y5=y6=h; y3=y4=.5h;
+draw z4--z3--z2--z1--z5--z6;
+endchar;
+
+
+beginchar("s",1.2em#,cap#,0); "The letter s";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x6=w-x7=curve_sidebar; x3=.5w;
+x1-x6=x7-x2=.15w;
+k:=.7;
+y1=y2=0; y6=y7=h;
+y3=.68h;
+z4=k[z1,z3]; z5=k[z2,z3];
+draw z1--z2--z3--cycle;
+draw z4{left}..{up}z6--z7{down}..{left}z5;
+endchar;
+
+
+beginchar("S",em#,cap#,0); "The letter S (Plominski nat.)";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x7=w-x2=w-x6=curve_sidebar;
+x3=.5w;
+y1=y2=0; y7=y6=h;
+y4=y5;
+y3=.7h;
+z8=(x3, h-1.2y3);
+z4=(z1--z3)intersectionpoint(z7--z8);
+z5=(z2--z3)intersectionpoint(z6--z8);
+draw z1--z2--z3--cycle;
+draw z4--z7--z6--z5;
+endchar;
+
+
+
+
+beginchar("t",em#,cap#,0); "The letter t";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x4=w-x7=w-x6=curve_sidebar;
+x2-x1=x8-x2=x7-x8;  x3=x2; x5=x8;
+y1=y2=y8=y7=.4h; y4=y3=y5=y6=h;
+ draw z3--z2--z1--z4--z6--z7--z8--z5;
+endchar;
+
+
+beginchar("T",em#,cap#,0); "The letter T";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x4=x3=w-x5=w-x6=curve_sidebar;
+x1=x2=.5w;
+y1=0; y3=y2=y5=h; y4=y6=.8h;
+draw z4--z3--z5--z6;
+draw z1--z2;
+endchar;
+
+
+beginchar("c",em#,cap#,0); "The letter c";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x2=w-x4=curve_sidebar; x3=.5w;
+x1=1.1[x2,x3];
+y3=0; y1=y2=h; y4=.4h;
+z5=.55[z2,z3];
+draw z5{dir(20)}..{up}z1--z2--z3--z4;
+endchar;
+
+
+beginchar(oct"013",.9em#,cap#,0); "The letter cc";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x2=w-x3=w-x4=curve_sidebar; x5=x7=w-x6=w-x8=.32w;
+y5=y6=0; y1=y4=h;
+y2=y7=y8=y3=.5h;
+draw z1--z2--z3--z4;
+draw z7--z5--z6--z8;
+endchar;
+
+
+beginchar(oct"023",em#,cap#,0); "The letter CC (neobiccni)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+x5=x6=.15w; x7=x8=w-x5;
+x9=x11=.33[x6,x7];
+x10=x12=w-x9;
+y1=y11=y12=y3=0;
+y2=y4=h;
+y5=y8=.65h; y6=y7=y9=y10=h-y5;
+x56=x5+.07w;
+z56=(x56,.5h); z78=(w-x56,.5h);
+z55=(z56{up}..z2) intersectionpoint (z5--z8);
+z66=(x55,h-y55); z88=(w-x55,y55); z77=(x88,h-y88);
+draw z1..{up}z56..z2; draw z3..{up}z78..z4;
+draw z55--z88; draw z66--z77; draw z9--z11--z12--z10;
+endchar;
+
+
+
+beginchar(oct"011",.8em#,cap#,0); "The letter ch";
+pickup pencircle xscaled 1.2thick yscaled  .4thin;
+x1=x2=w-x3=curve_sidebar; x3=x6=x7;
+x5=x4=.5w;
+y1=y4=y6=h;
+y2=y3=.5h; y5=y7=0;
+draw z1--z2--z3;
+draw z4--z5--z7--z6;
+endchar;
+
+
+
+beginchar("u",1.2em#,cap#,0); "The letter u";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x10=x6=x5=w-x3=curve_sidebar;
+x2=x9=x8=x7=x4=.46w;
+y1=y2=0; y4=y5=h; y3=y8=.5h;
+y5-y6=y10-y1=.5(y8-y2);
+y4-y7=y9-y2=.7(y10-y1);
+draw z9--z10--z1--z2{right}..{up}z3..{left}z4--z5--z6--z7;
+draw z2--z4; draw z8--z3;
+endchar;
+
+
+beginchar("h",em#,cap#,0); "The letter h";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x2=w-x4=w-x5=curve_sidebar;
+x3=x6=.45w;
+x1=.35[x2,x3];
+y6=y5=0; y1=h; y2=y3=y4=.6h;
+draw z1--z2--z4--z5--z6--z3;
+endchar;
+
+
+beginchar(oct"014",.7em#,cap#,0); "The letter ss";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+x5=x6=.5w;
+y2=y5=y3=.5h; y1=y6=y4=h;
+draw z1--z2--z3--z4;
+draw z5--z6;
+endchar;
+
+
+beginchar("3",1.2em#,cap#,0); "The letter poluglas";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=x4=w-x6=curve_sidebar;
+x8-x2=.8(x2-x1);
+x2-x1=.8(x6-x8);
+x3=x2; x7=x8;
+y1=y2=y8=0;
+y7=h; y4=y3=y6=.5h;
+draw z3--z2--z1--z4--z6;
+draw z8--z7{right}..{down}z6..{left}z8;
+endchar;
+
+
+beginchar("4",1.1em#,cap#,0); "The letter poluglas drugi";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x5=w-x2=curve_sidebar; x1=x3=.6w; x4=.2w;
+y1=0; y4=h; y2=.3[y1,y3]; y5=.8h; y3=.65h;
+draw z3--z1{right}..{up}z2..{dir angle(z4-z3)}z3--z4--z5;
+endchar;
+
+
+beginchar("w",em#,cap#,0); "The letter ya";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=w-x2=curve_sidebar; x6=x5=.5w;
+x5-x4=x3-x5=.12w;
+y1=y6=y2=0; y4=y5=y3=h;
+z7=.45[z1,z4]; z8=.45[z2,z3];
+draw z1--z2--z3--z4--cycle;
+draw z6--z5; draw z7--z8;
+endchar;
+
+
+beginchar(oct"004",1.3em#,cap#,0); "The letter yu";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x1=w-x3=w-x4=curve_sidebar; x8-x1=x7-x2=x3-x6=.28w;
+x2=.15w;
+x5=x6;
+y5=y4=0; y2=y7=y6=y3=h;
+y1=y8=.5h;
+draw z1--z2--z3--z4--z5--z6; draw z7--z8;
+endchar;
+
+
+beginchar(oct"002",1.5em#,cap#,0); "The letter en";
+pickup pencircle xscaled 1.2thick  yscaled .4thin;
+x4=w-x10=curve_sidebar; x4=x5=x1; x10=x6=x7;
+x3-x4=x10-x9=.3w;
+x3=x2; x9=x8;
+y4=y3=y9=y10=0;
+y5=y6=.5h; y1=y2=y8=y7=h;
+draw z1--z2--z3--z4; draw z7--z8--z9--z10;
+draw z5--z6;
+endchar;
+
+beginchar(oct"135",.36em#,cap#,0); "The letter ]";
+pickup pencircle scaled  .6thin;
+x2=x3=w-x1=w-x4=curve_sidebar;
+y2=y1=0-.3h; y3=y4=h+.3h;
+draw z2--z1--z4--z3;
+endchar;
+
+
+beginchar(oct"133",.36em#,cap#,0); "The letter [";
+pickup pencircle scaled  .6thin;
+x2=x3=w-x1=w-x4=curve_sidebar;
+y2=y1=0-.3h; y3=y4=h+.3h;
+draw z1--z2--z3--z4;
+endchar;
+
+beginchar("C",.36em#,cap#,0); "The letter C ([)"; % radi CC
+pickup pencircle scaled  .6thin;
+x2=x3=w-x1=w-x4=curve_sidebar;
+y2=y1=0-.3h; y3=y4=h+.3h;
+draw z1--z2--z3--z4;
+endchar;
+
+beginchar("A",.75em#,cap#,0); "The letter A(NS) (nostratic)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=w-x2=curve_sidebar;
+x3=x5=x4=x8=.5w; x6=.5w-.2w; y8=h;
+x5-x6=x7-x5=y8-y7=y8-y6=y6-y5;
+y4=y5-.1h; y1=y2=0; y3=-.2h;
+draw z6{up}..{right}z8..{down}z7..{left}z5..cycle;
+draw z1{up}..{right}z4..{down}z2; draw z3--z5;
+endchar;
+
+
+beginchar("B",em#,cap#,0); "The letter B (nostratic)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x3=w-x2=w-x4=curve_sidebar;
+x5=x6=.5w; x7=x10=.3[x3,x6];  x8=x9=.8[x6,x4];
+y1=y5=y2=h; y3=y6=y10=y4=.5h; y7=0; y8=.5y4; y9=-.2h;
+z8l=.7[z7,z8]; z8d=.6[z9,z8];
+draw z1--z3--z4--z2--cycle;
+draw z5--z6; draw z10--z7--z8l{dir angle(z8-z7)}..{down}z8d--z9;
+endchar;
+
+
+beginchar(oct"030",.9em#,cap#,0); "The letter N (valun)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x3=w-x5=curve_sidebar; x2=x7=x4=.4w; x6=.5[x4,x5];
+y1=y2=0; y4=h; y3=y7=y5=.4h; y6=.5[y5,y4];
+draw z1--z2--z4--z5--z3; draw z7--z6;
+endchar;
+
+
+beginchar(oct"031",1.1em#,cap#,0); "The letter YU (valun)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x6=w-x3=w-x2=curve_sidebar; x5=.4w; x4=.6w; x7=0;
+y6=y3=0; y1=y2=y4=y5=h;
+z7-z6=whatever*(z6-z5);
+draw z6--z1--z2--z3--z4; draw z5--z7;
+endchar;
+
+
+beginchar(oct"032",em#,cap#,0); "The letter S (valun)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+y1=y4=.2h; y2=y3=h;
+D:=.5(x4-x1);
+draw fullcircle scaled D shifted(.5w,.5D);
+draw z1--z2--z3--z4;
+endchar;
+
+
+beginchar(oct"033",.8em#,cap#,0); "The letter K (valun)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=x2=w-x3=w-x4=curve_sidebar;
+x5=.35[x1,x3]; x6=x1;
+y1=h; y2=y3=.5h; y4=0; y5=.4h; y6=-.1h;
+draw z1--z2--z3--z4;
+draw z5--z6;
+endchar;
+
+
+beginchar(oct"034",1.1em#,cap#,0); "The letter V (valun)";
+pickup pencircle xscaled 1.2thick yscaled .4thin;
+x1=w-x2=curve_sidebar;
+x3=.5w; x4=w-x6=.35w;
+y1=y4=y6=y2=h;
+y3=0;
+path p; p= z1{down}..{right}z3;
+path q; q= z2{down}..{left}z3;
+z5= point .4 of p;
+z7= point .4 of q;
+draw p; draw q;
+draw z1--z4{down}..{dir (180+30)}z5;
+draw z2--z6{down}..{dir (-30)}z7;
+endchar;
+

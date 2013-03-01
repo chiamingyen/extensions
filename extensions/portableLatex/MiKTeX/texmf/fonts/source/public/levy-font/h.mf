@@ -1,0 +1,175 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%    As a special exception, if you create a document which uses this font,
+%    and embed this font or unaltered portions of this font into the
+%    document, this font does not by itself cause the resulting document to
+%    be covered by the GNU General Public License. This exception does not
+%    however invalidate any other reasons why the document might be covered
+%    by the GNU General Public License. If you modify this font, you may
+%    extend this exception to your version of the font, but you are not
+%    obligated to do so. If you do not wish to do so, delete this exception
+%    statement from your version.
+
+if unknown gen_acc : readfrom("gen_acc") fi
+if unknown gen_sigma : readfrom("gen_sigma") fi
+     
+def width = 8.5u enddef;
+def dims = width#,x_height#,desc_depth# enddef;
+def ital = 0 enddef;
+def fit_params = if straight: .75 else: .5 fi u#,0 enddef;
+     
+def gen_letter =
+ pickup fine.nib;
+ y1r-.5stem=-d-o; pos1(stem,0);                                 %bottom right
+ rt x2r=hround(w-.75u); y2r=.5x_height; pos2(hair,0);           %right bulge
+ lft x5r=hround(1.5u); y5-.5stem=-o; pos5(stem,-180);           %bottom left
+ top y4r=x_height+o; x4r=.5[lft x2l,rt x5l];                    %top of arch
+ pos6(hair,180); y6=y2;                                 %where handle attaches
+ if straight:
+  x1=x2; x5=x6; pos4(stem,90);                          %yawn...
+  filldraw double_circ_stroke z1e--pulled_arc.e(2,4)&pulled_arc.e(4,6)--z5e;
+ else:
+  rt x1r=hround (rt x2r-.25u); z2'l=z2'r=up;
+  filldraw circ_stroke z1e{up}...gr_arc.e(2,3,4)(hair,stem,.8); %right leg
+  filldraw circ_stroke z5e{(z4-z5) yscaled 3}...z4e{-z4'e};     %left leg
+  z6r=((0,y2)--(w,y2)) intersectionpoint (z5r{(z4-z5) yscaled 3}...z4r{-z4'r});
+ fi
+ pos8(vstem,0); rt x8r=hround(lft x6r-.75u);            %end of handle
+ pos7(vstem,-90); top y7l=x_height+o; z8r=z7r;          %top of handle
+ filldraw circ_stroke z8e{up}...z7e{right}...z6e{down};
+ numeric x_baryctr; x_baryctr=.1[x4,x7];                %accent reference
+ numeric pos_stem; pos_stem=x5;                         %iota reference
+enddef;
+     
+cmchar "Lowercase eta";
+beginchar("h",dims);
+this_letter; penlabels(1,2,3,4,5,6,7,8); endchar;
+     
+if boolean barebones: picture savedpicture; endinput; fi
+     
+cmchar "Lowercase eta with grave";
+beginchar(oct"230",width#,acc_ht#,desc_depth#);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase eta with rough breathing";
+beginchar(oct"231",width#,acc_ht#,desc_depth#);
+this_letter; spirit(x_baryctr)<; endchar;
+     
+cmchar "Lowercase eta with smooth breathing";
+beginchar(oct"232",width#,acc_ht#,desc_depth#);
+this_letter; spirit(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by eta with grave";
+begindoublechar(oct"233",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,desc_depth#);
+this_letter; grave(x_baryctr); endchar;
+     
+cmchar "Lowercase eta with grave and iota subscript";
+beginchar(oct"234",width#,acc_ht#,desc_depth#);
+this_letter; grave(x_baryctr); iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with rough breathing and iota subscript";
+beginchar(oct"235",width#,acc_ht#,desc_depth#);
+this_letter; spirit(x_baryctr)<; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with smooth breathing and iota subscript";
+beginchar(oct"236",width#,acc_ht#,desc_depth#);
+this_letter; spirit(x_baryctr)>; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase sigma followed by eta with iota subscript";
+begindoublechar(oct"237",dim_sigma);
+mid_sigma;
+middoublechar(width#,x_height#,desc_depth#);
+this_letter; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with acute";
+beginchar(oct"240",width#,acc_ht#,desc_depth#);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase eta with rough breathing and acute";
+beginchar(oct"241",width#,acc_ht#,desc_depth#);
+this_letter; spirit_acute(x_baryctr)<; endchar;
+     
+cmchar "Lowercase eta with smooth breathing and acute";
+beginchar(oct"242",width#,acc_ht#,desc_depth#);
+this_letter; spirit_acute(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by eta with acute";
+begindoublechar(oct"243",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,desc_depth#);
+this_letter; acute(x_baryctr); endchar;
+     
+cmchar "Lowercase eta with acute and iota subscript";
+beginchar(oct"244",width#,acc_ht#,desc_depth#);
+this_letter; acute(x_baryctr); iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with rough breathing, acute and iota subscript";
+beginchar(oct"245",width#,acc_ht#,desc_depth#);
+this_letter; spirit_acute(x_baryctr)<; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with smooth breathing and acute and iota subscript";
+beginchar(oct"246",width#,acc_ht#,desc_depth#);
+this_letter; spirit_acute(x_baryctr)>; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase sigma followed by eta with acute and iota subscript";
+begindoublechar(oct"247",dim_sigma);
+mid_sigma; middoublechar(width#,acc_ht#,desc_depth#);
+this_letter; acute(x_baryctr); iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with circumflex";
+beginchar(oct"250",width#,circ_ht#,desc_depth#);
+this_letter; circumflex(x_baryctr); endchar;
+     
+cmchar "Lowercase eta with rough breathing and circumflex";
+beginchar(oct"251",width#,Circ_ht#,desc_depth#);
+this_letter; spirit_circumflex(x_baryctr)<; endchar;
+     
+cmchar "Lowercase eta with smooth breathing and circumflex";
+beginchar(oct"252",width#,Circ_ht#,desc_depth#);
+this_letter; spirit_circumflex(x_baryctr)>; endchar;
+     
+cmchar "Lowercase sigma followed by eta with circumflex";
+begindoublechar(oct"253",dim_sigma);
+mid_sigma; middoublechar(width#,circ_ht#,desc_depth#);
+this_letter; circumflex(x_baryctr); endchar;
+     
+cmchar "Lowercase eta with circumflex and iota subscript";
+beginchar(oct"254",width#,circ_ht#,desc_depth#);
+this_letter; circumflex(x_baryctr); iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with rough breathing, circumflex and iota subscript";
+beginchar(oct"255",width#,Circ_ht#,desc_depth#);
+this_letter; spirit_circumflex(x_baryctr)<; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with smooth breathing, circumflex and iota subscript";
+beginchar(oct"256",width#,Circ_ht#,desc_depth#);
+this_letter; spirit_circumflex(x_baryctr)>; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase sigma followed by eta with circumflex and iota subscript";
+begindoublechar(oct"257",dim_sigma);
+mid_sigma; middoublechar(width#,circ_ht#,desc_depth#);
+this_letter; circumflex(x_baryctr); iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase eta with iota subscript";
+beginchar(oct"371",width#,x_height#,desc_depth#);
+this_letter; iota_sub(pos_stem); endchar;
+     
+cmchar "Lowercase sigma followed by eta";
+begindoublechar(oct"010",dim_sigma);
+mid_sigma; middoublechar(dims); this_letter; endchar;
+     
+picture pic.iota;
+picture savedpicture;

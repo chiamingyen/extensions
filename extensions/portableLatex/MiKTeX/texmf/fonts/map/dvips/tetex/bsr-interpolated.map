@@ -1,0 +1,66 @@
+% The bsr fonts don't cover the whole AMS set. This map file tells
+% pdftex/dvips to fill the gaps by using the closest available size.
+%
+% cmex fonts are no longer scaled by this file; instead, ttcmex.map is
+% used in teTeX (using Type1 fonts from TeXTrace2001).
+%
+% Submitted by Christophe Bernard. 1998, Thomas Esser.
+cmbsy6 CMBSY7 <cmbsy7.pfb
+cmbsy8 CMBSY7 <cmbsy7.pfb
+cmbsy9 CMBSY10 <cmbsy10.pfb
+cmbxti12 CMBXTI12 <cmbxti10.pfb
+cmbxti7 CMBXTI10 <cmbxti10.pfb
+cmcsc8 CMCSC10 <cmcsc10.pfb
+cmcsc9 CMCSC10 <cmcsc10.pfb
+cmitt12 CMITT12 <cmitt10.pfb
+cmitt9 CMITT10 <cmitt10.pfb
+cmmib6 CMMIB7 <cmmib7.pfb
+cmmib8 CMMIB7 <cmmib7.pfb
+cmmib9 CMMIB10 <cmmib10.pfb
+cmsl6 CMSL8 <cmsl8.pfb
+cmsltt9 CMSLTT10 <cmsltt10.pfb
+cmssbxo10 CMSSBX10 " .212 SlantFont " <cmssbx10.pfb
+euex7 EUEX10 <euex10.pfb
+euex8 EUEX10 <euex10.pfb
+euex9 EUEX10 <euex10.pfb
+eufb6 EUFB7 <eufb7.pfb
+eufb8 EUFB7 <eufb7.pfb
+eufb9 EUFB10 <eufb10.pfb
+eufm6 EUFM7 <eufm7.pfb
+eufm8 EUFM7 <eufm7.pfb
+eufm9 EUFM10 <eufm10.pfb
+eurb6 EURB7 <eurb7.pfb
+eurb8 EURB7 <eurb7.pfb
+eurb9 EURB10 <eurb10.pfb
+eurm6 EURM7 <eurm7.pfb
+eurm8 EURM7 <eurm7.pfb
+eurm9 EURM10 <eurm10.pfb
+eusb6 EUSB7 <eusb7.pfb
+eusb8 EUSB7 <eusb7.pfb
+eusb9 EUSB10 <eusb10.pfb
+eusm6 EUSM7 <eusm7.pfb
+eusm8 EUSM7 <eusm7.pfb
+eusm9 EUSM10 <eusm10.pfb
+msam6 MSAM7 <msam7.pfb
+msam8 MSAM7 <msam7.pfb
+msam9 MSAM10 <msam10.pfb
+msbm6 MSBM7 <msbm7.pfb
+msbm8 MSBM7 <msbm7.pfb
+msbm9 MSBM10 <msbm10.pfb
+wncyb5 WNCYB10 <wncyb10.pfb
+wncyb6 WNCYB10 <wncyb10.pfb
+wncyb7 WNCYB10 <wncyb10.pfb
+wncyb8 WNCYB10 <wncyb10.pfb
+wncyb9 WNCYB10 <wncyb10.pfb
+wncyi5 WNCYI10 <wncyi10.pfb
+wncyi6 WNCYI10 <wncyi10.pfb
+wncyi7 WNCYI10 <wncyi10.pfb
+wncyi8 WNCYI10 <wncyi10.pfb
+wncyi9 WNCYI10 <wncyi10.pfb
+wncyr5 WNCYR10 <wncyr10.pfb
+wncyr6 WNCYR10 <wncyr10.pfb
+wncyr7 WNCYR10 <wncyr10.pfb
+wncyr8 WNCYR10 <wncyr10.pfb
+wncyr9 WNCYR10 <wncyr10.pfb
+wncyss8 WNCYSS10 <wncyss10.pfb
+wncyss9 WNCYSS10 <wncyss10.pfb

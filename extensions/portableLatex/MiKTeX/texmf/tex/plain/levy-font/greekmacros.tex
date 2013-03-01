@@ -1,0 +1,66 @@
+%    Copyright (C) 1991 Silvio Levy
+%     
+%    This file is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 2 of the License, or
+%    (at your option) any later version.
+%
+%    This file is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+\def\ifnextchar#1#2#3{\let\tempe #1\def\tempa{#2}\def\tempb{#3}\futurelet
+  \tempc\ifnch}
+\def\ifnch{\ifx\tempc\tempe\let\tempd\tempa\else\let\tempd\tempb\fi\tempd}
+\def\gobble#1{}
+\font\tengr=grreg10
+\font\tengrbf=grbld10
+\font\tengrtt=grtt10
+\def\greekmode{%
+\catcode`\<=13
+\catcode`\>=13
+\catcode`\'=11
+\catcode`\`=11
+\catcode`\~=11
+\catcode`\"=11
+\catcode`\|=11
+\lccode`\<=`\<%
+\lccode`\>=`\>%
+\lccode`\'=`\'%
+\lccode`\`=`\`%
+\lccode`\~=`\~%
+\lccode`\"=`\"%
+\lccode`\|=`\|%
+\tengr\def\bf{\tengrbf}\def\tt{\tengrtt}}
+\newcount\vwl
+\newcount\acct
+\def\lt{<}
+\def\gt{>}
+{
+  \greekmode
+  \gdef>{\ifnextchar `{\expandafter\smoothgrave\gobble}{\char\lq\>}}
+  \gdef<{\ifnextchar `{\expandafter\roughgrave\gobble}{\char\lq\<}}
+  \gdef\smoothgrave#1{\acct=\rq137 \vwl=\lq#1 \dobreathinggrave}
+  \gdef\roughgrave#1{\acct=\rq103 \vwl=\lq#1 \dobreathinggrave}
+  \gdef\dobreathinggrave{\ifnum\vwl\lt\rq140    %if uppercase
+    \char\the\acct\char\the\vwl\else\expandafter\testiota\fi}
+  \gdef\testiota{\ifnextchar |{\addiota\doaccent\gobble}{\doaccent}}
+  \gdef\addiota{\ifnum\vwl=\lq a\vwl=\rq370
+    \else\ifnum\vwl=\lq h\vwl=\rq371 \else\vwl=\rq372 \fi\fi}
+  \gdef\doaccent{\accent\the\acct \char\the\vwl\relax}
+}
+     
+\newif\ifgreek\greekfalse
+     
+\def\begingreek{\bgroup\greektrue\greekmode}
+\def\endgreek{\egroup}
+     
+\let\math=$
+{\catcode`\$=13
+\gdef\greekdelims{\catcode`\$=13
+\def${\ifgreek\endgreek\else\begingreek\fi}
+\def\display{\math\math}\def\enddisplay{\math\math}}}

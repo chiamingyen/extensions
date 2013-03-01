@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/leaflet"><TPM:Name>leaflet</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Creat small, single page handouts.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>A document class to create small hand-outs that fit on a
+      single sheet of paper which is then folded twice, with a
+      script to rearrange pages so that they print correctly (on
+      a PostScript printer) on a single sheet.</TPM:Description><TPM:RunFiles size="19408">texmf\tex\latex\leaflet\leaflet.cls texmf\tpm\packages\leaflet.tpm</TPM:RunFiles><TPM:DocFiles size="163173">texmf\doc\latex\leaflet\leaflet-manual.pdf texmf\doc\latex\leaflet\leaflet.dvi texmf\doc\latex\leaflet\README</TPM:DocFiles><TPM:SourceFiles size="13316">texmf\source\leaflet-src.cab</TPM:SourceFiles><TPM:TimePackaged>1104780293</TPM:TimePackaged><TPM:MD5>3488f4f9520c12c46272661a56b248ec</TPM:MD5></rdf:Description></rdf:RDF>

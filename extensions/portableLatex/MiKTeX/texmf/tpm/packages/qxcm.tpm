@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/qxcm"><TPM:Name>qxcm</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>An experimental collection of extended CM fonts</TPM:Title><TPM:Version></TPM:Version><TPM:Description>An experimental collection of extended CM fonts in PostScript Type 1 format.
+    The collection contains fonts based on cmr10, cmbx10, cmti10, and cmbxti10:
+    qcmrr.pfb, qcmrri.pfb, qcmrb.pfb, qcmrbi.pfb (and .afm, .pfm, .tfm files).
+    The original Computer Modern layout is extended to QX layout as an
+    alternative to EC (Cork) encoding, usable also in Windows environment.
+    Fonts can be adapted to any needed TeX encoding; since they contain most
+    common European characters, the fonts can serve, e.g., for preparing good
+    PDF files.</TPM:Description><TPM:RunFiles size="273246">texmf\dvips\qxcm\config.qcmr texmf\dvips\qxcm\qcmr.enc texmf\dvips\qxcm\qcmr.map texmf\fonts\afm\public\qxcm\qcmrb.afm texmf\fonts\afm\public\qxcm\qcmrbi.afm texmf\fonts\afm\public\qxcm\qcmrr.afm texmf\fonts\afm\public\qxcm\qcmrri.afm texmf\fonts\pfm\public\qxcm\qcmrb.pfm texmf\fonts\pfm\public\qxcm\qcmrbi.pfm texmf\fonts\pfm\public\qxcm\qcmrr.pfm texmf\fonts\pfm\public\qxcm\qcmrri.pfm texmf\fonts\tfm\public\qxcm\qcmrb.tfm texmf\fonts\tfm\public\qxcm\qcmrbi.tfm texmf\fonts\tfm\public\qxcm\qcmrr.tfm texmf\fonts\tfm\public\qxcm\qcmrri.tfm texmf\fonts\type1\public\qxcm\qcmrb.pfb texmf\fonts\type1\public\qxcm\qcmrbi.pfb texmf\fonts\type1\public\qxcm\qcmrr.pfb texmf\fonts\type1\public\qxcm\qcmrri.pfb texmf\tpm\packages\qxcm.tpm</TPM:RunFiles><TPM:DocFiles size="76064">texmf\doc\fonts\qxcm\README.ENG texmf\doc\fonts\qxcm\README.POL</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>f86d0312bee878240982140862df6e09</TPM:MD5></rdf:Description></rdf:RDF>

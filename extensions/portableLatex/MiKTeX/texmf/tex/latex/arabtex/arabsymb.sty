@@ -1,0 +1,192 @@
+%%%%%%%%%%%%%%%%%%%% xarbsymb.sty %%%%%%%%%%%%%%%%%%%%
+% 20.4.1998  11:30:59
+% code assignments for arabic font in ArabTeX 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% (c) Klaus Lagally 
+%     Institut fuer Informatik 
+%     Universitaet Stuttgart 
+%     20.04.98 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\a@ident {xarbsymb.sty} {3.07 symbolic output encoding } {12.07.1997}
+
+\chardef \a@nashcode  = '1   % file has been read 
+ 
+%%%%%%%%%%%%%%%%%% connection forms %%%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@f@iso     = '0   % isolated 
+\chardef \a@f@end     = '1   % final 
+\chardef \a@f@mid     = '2   % medial 
+\chardef \a@f@beg     = '3   % initial 
+ 
+%%%%%%%%%%%%%%%%%% diacritical marks %%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@ttah@dia         = '010   % for urdu 
+\chardef \a@one@dot@up       = '011   % 
+\chardef \a@two@dots@down    = '012   % 
+\chardef \a@fatha            = '013   % 
+\chardef \a@kasra            = '013   % 
+\chardef \a@damma            = '014   % 
+\chardef \a@hamza            = '015   % 
+\chardef \a@madda            = '016   % 
+\chardef \a@shadda           = '017   % 
+\chardef \a@two@dots@up      = '020   % 
+\chardef \a@three@dots@up    = '021   % 
+\chardef \a@three@dots@down  = '022   % 
+\chardef \a@fathatan         = '023   % 
+\chardef \a@kasratan         = '023   % 
+\chardef \a@dammatan         = '024   % 
+\chardef \a@sukun            = '025   % 
+\chardef \a@wasla            = '026   % 
+\chardef \a@quran@alif       = '027   % 
+\chardef \a@bow@dia          = '030   % for kurdish 
+\chardef \a@e@dia            = '040   % for pashto 
+\chardef \a@zwarakay         = '040   % for pashto 
+\chardef \a@one@dot@down     = '056   % period 
+\chardef \a@h@dia            = '146   % for urdu 
+\chardef \a@ammad            = '146   % for pashto 
+ 
+%%%%%%%%%%%%%%%%%% letters %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@alif           = '100   % 100,101 
+\chardef \a@bah@s          = '110   % 110-113 
+%%		gim           140 140-143 
+\chardef \a@hhah           = '150   % 150-153 
+\chardef \a@khah           = '160   % 160-163 
+%%		tsah          170 170-173 
+\chardef \a@dal            = '130   % 130,131 
+\chardef \a@rah            = '120   % 120,121 
+%%		zay           122 122,123 
+%%		zhah          124 124,125 
+\chardef \a@sin            = '200   % 200-203 
+%%		shin          210 210-213 
+\chardef \a@sad            = '220   % 220-223 
+%%		dad           230 230-233 
+\chardef \a@kaf@w          = '234   % 234-237 wide kaf 
+\chardef \a@ttah           = '240   % 240-243 
+%%		zzah          244 244-247 
+\chardef \a@ain            = '250   % 250-253 
+\chardef \a@fah@s          = '254   % 254-257 fah family 
+%%		fah           362 362,363 
+\chardef \a@qaf            = '364   % 364,365 
+%%		vah           366 366,367 
+\chardef \a@kaf@s          = '270   % 270-273 kaf family 
+\chardef \a@kaf            = '274   % 274,275 
+\chardef \a@gaf@s          = '300   % 300-303 gaf family 
+\chardef \a@gaf            = '304   % 304,305 
+\chardef \a@lam            = '310   % 310-313 
+\chardef \a@mim            = '320   % 320-323 
+\chardef \a@nun            = '340   % 340,341 
+\chardef \a@hah            = '350   % 350-354 
+\chardef \a@waw            = '360   % 360,361 
+\chardef \a@yah            = '370   % 370,371 
+ 
+\chardef \a@hamza@iso      = '132   % 132  
+ 
+\chardef \a@alif@iso       = \a@alif          % 100 
+\chardef \a@alif@end       = '101           % 101 
+\chardef \a@bah            = \a@bah@s         % 110 
+\chardef \a@hamzc          = \a@hamza@iso     % 132 
+ 
+%%%%%%%%%%%%%%%%%% special characters %%%%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@block          = '000   % 000-003 
+\chardef \a@tatwil         = '004   % 004-007 
+ 
+\chardef \a@rquotes        = '042   % 042 
+\chardef \a@period         = '056   % 056 
+\chardef \a@lquotes        = '134   % 134 
+ 
+\chardef \a@space@spec     = '044   % 046,047 carrier for dots 
+\chardef \a@skip           = '045   % 047     small space, initial (!)
+\chardef \a@no@break       = '046   % 046     no space, breaks ligatures 
+\chardef \a@break          = '047   % 047     small space, medial
+ 
+\chardef \a@smspc          = \a@space@spec    % 044 
+ 
+%%%%%%%%%%%%%%%%%% ligatures %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@bah@spec@gim   = '027   % 031     medial bah before gim 
+\chardef \a@bah@beg@gim    = '030   % 032     initial (!) bah before gim 
+\chardef \a@g@to@mb        = '031   % 033     medial bah to gim 
+\chardef \a@bah@high       = '032   % 034,035 before sin, sad 
+\chardef \a@bah@spec       = '034   % 036,037 bah before final rah, nun 
+\chardef \a@lam@spec@low   = '072   % 074     medial lam for 'allah' 
+\chardef \a@alif@spec@mim  = '075   % 076     final alif after mim 
+\chardef \a@lam@alif       = '102   % 102,103 
+\chardef \a@bah@end@hah    = '102   % 104,105 bah before final hah 
+\chardef \a@bah@spec@yah   = '104   % 106,107 bah before gim, with tie; 
+                % also bah before yah 
+%%		gim_spec      143 144,145 from above 
+\chardef \a@gim@close      = '144   % 146,147 closed gim 
+\chardef \a@hhah@spec      = '153   % 154,155 from above 
+\chardef \a@khah@spec      = '163   % 164,165 from above 
+\chardef \a@rah@k          = '166   % 166,167 kurdish rah 
+%%		tsah_spec     173 174,175 from above 
+\chardef \a@sin@spec       = '202   % 204,205 short form 
+%%		shin_spec     204 206,207 short form 
+\chardef \a@sad@spec       = '222   % 224,225 short form 
+%%		dad_spec      224 226,227 short form 
+\chardef \a@kaf@spec       = '274   % 276,277 short form 
+\chardef \a@gaf@spec       = '304   % 306,307 short form 
+\chardef \a@lam@gim        = '311   % 314     lam on gim 
+\chardef \a@lam@on@gim     = '312   % 314     initial (!) lam before gim 
+\chardef \a@lam@long       = '312   % 315     initial lam before yah 
+\chardef \a@lam@spec@yah   = '314   % 316     before final yah ? 
+\chardef \a@lam@spec@mim   = '314   % 317     initial lam before medial mim 
+\chardef \a@mim@spec@high  = '322   % 324     from above 
+\chardef \a@mim@spec       = '324   % 325-327 final; medial after lam; 
+                % also before gim 
+\chardef \a@mim@spec@mim   = '325   % 330     initial mim before mim 
+\chardef \a@mim@lam@gim    = '327   % 331     medial mim between lam and gim 
+\chardef \a@lam@spec@hah   = '330   % 333     initial lam before medial hah 
+\chardef \a@mim@spec@long  = '332   % 334     medial mim after lam, vocalized 
+\chardef \a@mm@to@b        = '333   % 335     bah to medial mim 
+\chardef \a@bah@mid@mim    = '334   % 336,337 bah before medial mim 
+\chardef \a@mim@spec@alif  = '342   % 344     medial mim before alif 
+\chardef \a@er@to@s        = '343   % 345     sin to final rah 
+\chardef \a@bah@end@mim    = '344   % 346     medial bah before final mim 
+\chardef \a@bah@beg@mim    = '345   % 347     initial (!) bah before final mim 
+\chardef \a@hah@urd        = '353   % 353,354 two-eyed hah, 
+                % see hah and hah_spec_lam 
+\chardef \a@hah@spec@lam   = '352   % 354     medial hah after initial lam 
+\chardef \a@hah@spec       = '354   % 355-357 final short hah; 
+                % also medial hah after sin 
+\chardef \a@yah@spec       = '371   % 372     ligature for final yah 
+ 
+\chardef \a@lam@alif@iso   = \a@lam@alif       % 102 
+\chardef \a@lam@alif@end   = '103  % 	   103 
+ 
+\chardef \a@h@s            = \a@hah@spec       % 354 
+\chardef \a@lam@l          = \a@lam@spec@low   % 072 
+ 
+%lam_spec_gim  311 
+ 
+%%%%%%%%%%%%%%%%%% ties %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@g@to@s         = \a@bah@spec@gim   % sin to gim 
+\chardef \a@em@to@s        = \a@bah@end@mim    % sin to final mim 
+\chardef \a@mh@to@s        = \a@bah@end@hah    % sin to medial hah or final mim 
+\chardef \a@g@to@bb        = \a@bah@beg@gim    % initial bah to gim 
+\chardef \a@em@to@bb       = \a@bah@beg@mim    % initial bah to final mim 
+ 
+%%%%%%%%%%%%%%%%%% others %%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+\chardef \a@bah@p          = '114   % 114-117 bah family with loop 
+\chardef \a@rah@p          = '126   % 126,127 rah with loop 
+\chardef \a@dal@p          = '136   % 136,137 dal with loop 
+\chardef \a@rah@s          = '156   % 156,157 rah with two dots 
+%%		sin_p         214 214,215 sin with two dots 
+\chardef \a@kaf@p@s        = '260   % 260-263 kaf family with loop 
+\chardef \a@kaf@p          = '264   % 264,265 kaf with loop and mark 
+\chardef \a@kaf@p@spec     = '264   % 266,267 short form of kaf with loop 
+\chardef \a@nun@p          = '342   % 342,343 nun with loop 
+\chardef \a@yah@h          = '373   % 373,374 yah with hook 
+\chardef \a@yah@h@spec     = '374   % 375     ligature for final yah with hook 
+\chardef \a@yah@p          = '376   % 376,377 long yah 
+ 
+\chardef \a@gaf@p          = \a@kaf@p@s       % 260 
+ 
+%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\endinput 

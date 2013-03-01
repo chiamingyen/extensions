@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hefonts2.sty
+% ArabTeX
+% load Hebrew fonts for NFSS2
+% 27.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally and Bernd Raichle
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {hefonts2.sty} {3.11 define Hebrew fonts for NFSS2} {27.04.2003}
+
+% NEW FONT SELECTION -- Version 2
+%\a@message {using NFSS2}
+
+\def \fdef #1#2#3#4{% define NFSS2 font command
+\pdef #1{\def \pheb {\fontencoding {U}\fontfamily {#2}%
+\fontseries {#3}\fontshape {#4}\selectfont }%
+\ifx \a@normalfont \a@default \gdef \a@normalfont {#1}\fi
+%\setarabfont \pheb \set@arabfont }%
+\setarabfont \pheb }%
+\all@wcmd #1}
+
+\def \hdef #1{\fdef #1{heb}}% define Hebrew font
+
+% commands for selecting the default Hebrew fonts:
+
+\hdef \sethebrm  {m}{n}
+\hdef \sethebbf {bx}{n}
+
+%\let \hc \sethebrm	\all@wcmd \hc		
+%\let \hp \sethebbf	\all@wcmd \hp
+
+\hdef \hc {m}{n}
+\hdef \hp {bx}{n}
+
+% commands for selecting the standard Hebrew fonts from CTAN:
+
+\hdef \Jm {m}{Jm}
+\hdef \jm {m}{jm}
+\hdef \ds {m}{ds}
+\hdef \oj {m}{oj}
+\hdef \ta {m}{ta}
+
+% commands for selecting the Shalom family of Hebrew fonts from CTAN:
+
+\hdef \shlmold {m}{so}
+\hdef \shlmscr {m}{sr}
+\hdef \shlmstk {m}{sk}
+
+% commands for selecting the Frank Ruehl family of Hebrew fonts from CTAN:
+
+\hdef \fr    {m}{fr}
+\hdef \frbx {bx}{fr}
+\hdef \frsl {sl}{fr}
+
+% commands for selecting the Carmel family of Hebrew fonts from CTAN:
+
+\hdef \crml    {m}{crml}
+\hdef \crmlsl {sl}{crml}
+
+% All other definitions are done in file `Uheb.fd', which is
+% loaded on demand.
+
+%\def \a@defaultfont {\hc }
+\hc
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

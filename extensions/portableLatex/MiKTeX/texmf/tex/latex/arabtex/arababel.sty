@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arababel.sty
+% protect against a conflict with the BABEL package
+% as suggested by Olaf Kummer and Johannes Braams
+% 10.03.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {arababel.sty}{3.07 BABEL compatibility } {10.03.1998}
+
+\def\peek@token#1#2{%
+  \expandafter\let\expandafter\bbl@nexta\csname #1\string#2\endcsname
+  \expandafter\let\expandafter\bbl@nextb
+    \csname system@active\string#2\endcsname
+  \futurelet\bbl@token\bbl@test@token}
+
+\def\bbl@test@token{%
+  \let\bbl@next\bbl@nexta
+  \ifcat\noexpand\bbl@token a%
+  \else
+    \ifcat\noexpand\bbl@token=%
+    \else
+      \ifcat\noexpand\bbl@token\noexpand\bbl@next
+      \else
+        \let\bbl@next\bbl@nextb
+      \fi
+    \fi
+  \fi
+  \bbl@next}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+

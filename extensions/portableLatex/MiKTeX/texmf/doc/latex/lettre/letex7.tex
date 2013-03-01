@@ -1,0 +1,126 @@
+% This file is part of the "lettre" package.
+% This package is distributed under the terms of the LaTeX Project 
+% Public License (LPPL) described in the file lppl.txt.
+%
+% Denis Mégevand - Observatoire de Genève.
+%
+% Ce fichier fait partie de la distribution du paquetage "lettre".
+% Ce paquetage est distribué sous les termes de la licence publique 
+% du projet LaTeX (LPPL) décrite dans le fichier lppl.txt.
+
+\documentclass[12pt,origdate]{lettre}
+\usepackage[francais,english]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{mltex}
+\begin{document}
+%
+% Fichier de defaut de l'Observatoire
+% ===================================
+\institut{obs}
+%
+% Entete par defaut, double signature,
+% ====================================
+% langue anglaise, format headings, marge precisee.
+% =================================================
+% Champs: objet.
+% ==============
+% Lignes auxiliaires de reference et d'E-Mail. 
+% ============================================
+% Tests: itemize, description, enumerate, center, 
+% ===============================================
+%        tabular, array, eqnarray, footnote.
+%        ===================================
+%
+\begin{letter}{	SoftIdeas\\
+                P.O.Box 8K23 \\
+                Prove Islands, TO 14501 \\
+                USA}
+
+\anglais
+\pagestyle{headings}
+\marge{30mm}
+
+\name{Dr~S.~E.~Dnavegem}
+\signature{Dr~S.~E.~Dnavegem\\Collaborateur Scientifique}
+\secondsignature{Dr~P.~Barre-Thordue\\Collaborateur Scientifique}
+
+\nref{PL/cf69}
+\faxobs
+\username{dnavegem}
+\ccittobs
+\internetobs
+
+\conc{Our activities} 
+
+\opening{Dear Sir,}
+
+Enclosed\footnote{In fact, the check will be sent by separate mail}, you 
+will find a description of our activities and a check of \$149.95 corresponding 
+to your invoice \#439 dated 05/28/93 for:
+\begin{itemize}
+\item 1 PiC\TeX\ manual, describing completely all the commands implemented
+by the macros written by M.J.~Wichura. If the manual doesn't respond to
+our demand, we will send it back, ans ask for complete refund.
+\item 1 PiC\TeX\ software on 5.25 inch floppy disk. The disk is to be
+formatted in IBM PC compatible format.
+\item 5 PiC\TeX\ Quick Reference Cards.
+\end{itemize}
+We'll be happy if you could send us a detailled list of your products.
+
+We are a software developing team, and our work involves:
+\begin{description}
+\item[Editors] Full-screen editors for PC and compatibles.
+\item[Compilers] Full range of compilers for PC and compatibles. It includes
+ADA, BASIC, C, FORTH, FORTRAN, ICON, LISP, MODULA-2, PASCAL and PROLOG 
+compilers.
+\item[Operating Systems] Multitasking, real-time OS.
+\item[Utilities] A lot of useful add-on software.
+\end{description}
+
+We can produce cross-reference tables of product compatibilities for various
+software and vendors.
+\begin{center}
+\begin{tabular}{||l|||r@{.}l|l|l||}
+\hline
+gnuBASE IV&419&00&nul&ok\\
+\hline
+GNATUS 123&489&95&complete&N.A\\
+\hline
+Turbo Foo&99&95&partial&good\\
+\hline
+\end{tabular}
+\end{center}
+
+We can also furnish scientific text processing systems for your computer,
+or for your site (Education licenses!)
+Here are some examples of our outputs:
+
+\begin{eqnarray}
+x&=&17y\\
+y&>&a+b+c+d+e+f+g+h+i+j+ \nonumber \\
+&&k+l+m+n+o+p
+\end{eqnarray}
+
+\[
+x=\left\{\begin{array}{ll}
+                y&\mbox{if $y>0$} \\
+                z+y&\mbox{otherwise}
+         \end{array}
+  \right.
+\]
+
+{\em et voila \ldots that's it \ldots}
+
+Remember we order today:
+\begin{enumerate}
+\item 1 PiC\TeX\ manual, describing completely all the commands implemented
+by the macros written by M.J.~Wichura. 
+\item 1 PiC\TeX\ software on 5.25 inch IBM PC compatible formatted floppy disk. 
+\item 5 PiC\TeX\ Quick Reference Cards.
+\end{enumerate}
+
+\closing{Sincerely}
+
+\end{letter}
+%
+\end{document}

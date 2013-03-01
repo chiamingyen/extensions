@@ -1,0 +1,90 @@
+%%
+%% This is file `bookest-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{bookest-bidi.def}[2010/03/01 v0.2 adaptations for bookest class]
+\AtBeginDocument{
+\def\@makechapterhead#1{%
+  \vspace*{20\p@}
+  {\parindent \z@ \if@RTL\raggedleft\else\raggedright\fi \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        {\colorA\huge\scshape \@chapapp\space \thechapter}
+        \par\nobreak
+        \vskip 10\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+  {\colorB\hrule}
+  \vskip 15\p@
+   \begin{flushleft}
+     {\colorA\Huge \bfseries #1}\par\nobreak
+   \end{flushleft}
+  \vskip 5\p@
+  {\colorB\hrule}
+  \vskip 30\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{20\p@}
+  {\parindent \z@ \raggedright \normalfont
+  {\colorB\hrule}
+  \vskip 15\p@
+   \begin{center}
+     {\colorA\Huge \bfseries #1}\par\nobreak
+   \end{center}
+  \vskip 5\p@
+  {\colorB\hrule}
+  \vskip 30\p@
+  }}
+\renewcommand{\setevenhead}[1]{\def\@evenhead{#1}}
+\renewcommand{\setoddhead}[1]{\def\@oddhead{#1}}
+\renewcommand{\setevenfoot}[1]{\def\@evenfoot{#1}}
+\renewcommand{\setoddfoot}[1]{\def\@oddfoot{#1}}
+\renewcommand{\oddheadtext}{{\colorA{\slshape\rightmark}\hfill\thepage}}
+\renewcommand{\setoddheadtext}[1]{\renewcommand{\oddheadtext}{#1}}
+\renewcommand{\evenheadtext}{\oddheadtext}
+\renewcommand{\setevenheadtext}[1]{\renewcommand{\evenheadtext}{#1}}
+\renewcommand{\evenfoottext}{}
+\renewcommand{\setevenfoottext}[1]{\renewcommand{\evenfoottext}{#1}}
+\renewcommand{\oddfoottext}{}
+\renewcommand{\setoddfoottext}[1]{\renewcommand{\oddfoottext}{#1}}
+\renewcommand{\setleftmark}[1]{\renewcommand{\leftmark}{#1}}
+\renewcommand{\setrightmark}[1]{\renewcommand{\rightmark}{#1}}
+\renewcommand{\makeheadrule}{{\colorB\hrule\@width\textwidth \@height 0.4pt \vskip-0.4pt}}
+\renewcommand{\makefootrule}{\makeheadrule}
+\if@twoside
+  \setevenheadtext{{\colorA\thepage\hfill\slshape\leftmark}}
+\fi
+\setevenhead{\vbox{\evenheadtext \vskip 5\p@ \makeheadrule}}
+\setoddhead{\vbox{\oddheadtext \vskip 5\p@ \makeheadrule}}
+\let\UCase\MakeUppercase
+\renewcommand{\MakeUppercase}{}
+\def\ps@plain{%
+    \def\@oddfoot{{\hfil\colorA\thepage\hfil}}
+    \def\@evenfoot{{\hfil\colorA\thepage\hfil}}
+    \let\@oddhead\@empty
+    \let\@evenhead\@empty
+}
+}
+\NoHyper
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `bookest-bidi.def'.

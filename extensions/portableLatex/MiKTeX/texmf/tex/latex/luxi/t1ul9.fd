@@ -1,0 +1,25 @@
+\ProvidesFile{t1ul9.fd}
+   [2003/03/02 font definitions for LuxiMono T1/ul9]
+\expandafter\ifx\csname ul9@Scale\endcsname\relax
+ \let\ulIX@@Scale\@empty
+\else
+ \edef\ulIX@@Scale{s*[\csname ul9@Scale\endcsname]}%
+\fi
+
+\DeclareFontFamily{T1}{ul9}{\hyphenchar \font -1}
+
+\DeclareFontShape{T1}{ul9}{m}{n}{<-> \ulIX@@Scale ul9r8t}{}
+
+\DeclareFontShape{T1}{ul9}{m}{sl}{<-> \ulIX@@Scale ul9ro8t}{}
+
+\DeclareFontShape{T1}{ul9}{b}{n}{<-> \ulIX@@Scale ul9b8t}{}
+
+\DeclareFontShape{T1}{ul9}{b}{sl}{<-> \ulIX@@Scale ul9bo8t}{}
+
+\DeclareFontShape{T1}{ul9}{m}{it}{<->ssub * ul9/m/sl}{}
+\DeclareFontShape{T1}{ul9}{bx}{n}{<->ssub * ul9/b/n}{}
+\DeclareFontShape{T1}{ul9}{bx}{sl}{<->ssub * ul9/b/sl}{}
+\DeclareFontShape{T1}{ul9}{b}{it}{<->ssub * ul9/b/sl}{}
+\DeclareFontShape{T1}{ul9}{bx}{it}{<->ssub * ul9/b/it}{}
+
+\endinput

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/bibhtml"><TPM:Name>bibhtml</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>BibTeX support for HTML files.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Bibhtml consists of a Perl script and a BibTeX style file, which together allow
+      you to compile a bibliography for a collection of HTML
+      files. The references in the text are linked directly to the
+      corresponding bibliography entry, and if a URL is defined in the
+      entry within the BibTeX database file, then the generated
+      bibliography entry is linked to this.  The BibTeX style file is
+      plainhtml.bst, and is derived from the standard plain.bst.</TPM:Description><TPM:RunFiles size="259508">texmf\bibtex\bib\bibhtml\bibrefs.bib texmf\bibtex\bst\bibhtml\abbrvhtml.bst texmf\bibtex\bst\bibhtml\alphahtml.bst texmf\bibtex\bst\bibhtml\alphahtmldate.bst texmf\bibtex\bst\bibhtml\alphahtmldater.bst texmf\bibtex\bst\bibhtml\plainhtml.bst texmf\bibtex\bst\bibhtml\plainhtmldate.bst texmf\bibtex\bst\bibhtml\plainhtmldater.bst texmf\bibtex\bst\bibhtml\unsrthtml.bst texmf\scripts\bibhtml\perl\bibhtml.pl texmf\tpm\packages\bibhtml.tpm</TPM:RunFiles><TPM:DocFiles size="49090">texmf\doc\latex\bibhtml\bibhtml-extract-aux.xslt texmf\doc\latex\bibhtml\bibhtml-insert-bib.xslt texmf\doc\latex\bibhtml\bibhtml.html texmf\doc\latex\bibhtml\detex.sed texmf\doc\latex\bibhtml\LICENCE texmf\doc\latex\bibhtml\README</TPM:DocFiles><TPM:TimePackaged>1249986527</TPM:TimePackaged><TPM:MD5>bff0a68acdb0a168ac7a19c44213d3da</TPM:MD5></rdf:Description></rdf:RDF>

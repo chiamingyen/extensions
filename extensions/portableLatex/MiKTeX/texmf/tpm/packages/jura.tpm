@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/jura"><TPM:Name>jura</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>A document class for German legal texts.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Implements the standard layout for German term papers in law
+      (one-and-half linespacing, 7 cm margins, etc.). Includes alphanum that permits alphanumeric
+      section numbering (e.g., A. Introduction; III. International
+      Law).</TPM:Description><TPM:RunFiles size="13414">texmf\tex\latex\jura\alphanum.sty texmf\tex\latex\jura\jura.cls texmf\tpm\packages\jura.tpm</TPM:RunFiles><TPM:DocFiles size="5624">texmf\doc\latex\jura\juratest.dvi</TPM:DocFiles><TPM:SourceFiles size="64379">texmf\source\latex\jura\jura.dtx texmf\source\latex\jura\jura.ins texmf\source\latex\jura\jura2html texmf\source\latex\jura\juratest.ltx</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>af2048a9725a21c4698bebccdfad6663</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,294 @@
+%% /u/sy/beebe/tex/epsf/epsf-2.7.3/README, Sat Jul 30 18:41:35 2005
+%% Edit by Nelson H. F. Beebe <beebe@math.utah.edu>
+
+============
+Introduction
+============
+
+The epsf.tex and epsf.sty (identical) files provide for
+low-level typesetting of Encapsulated PostScript (EPS)
+files, with optional suppression of the figure contents (for
+faster display and printing during document development),
+optional figure framing, and optional figure labeling.
+
+See the header comments in epsf.tex or epsf.sty files for
+usage information.
+
+LaTeX users are cautioned that the graphicx package
+documented in the LaTeX Graphics Companion and LaTeX
+Companion (2nd ed.) books provides a much more powerful and
+general facility, and allows easy switching between
+pdf(la)tex and (la)tex without document modification.
+
+Plain TeX and AmSTeX users, however, may find epsf.tex
+useful.
+
+
+===================
+Testing the package
+===================
+
+The test files in the package can be typeset on Unix systems
+with
+
+	make check
+
+You can then view or print the .dvi files to see several
+examples of what they are supposed to look like.
+
+If you are in doubt about their appearance when generated at
+your site, try the okay/*.dvi files: they were produced by
+the package maintainers to illustrate the correct behavior
+the package macros.
+
+
+=================
+Problem EPS files
+=================
+
+If you experience difficulty in positioning an EPS picture,
+and find that it appears in an unexpected location, or in an
+incorrect scale or orientation, then it is often the case
+that the PostScript is not EPSF-conformant (see the
+specification in the references below).  This may be because
+it uses forbidden low-level PostScript operators that modify
+the PostScript page transformations.  The fndbadps shell
+script in the distribution can be used on Unix systems to
+search for forbidden operators in EPS files.  If you find
+any, you should complain to the author or vendor of the
+software that produced the bad EPS files: the EPS
+specification has been available since 1992, and is very
+clear about what operators are forbidden.
+
+It is sometimes possible to repair problem EPS files by
+converting from PostScript to PDF and back to PostScript.
+Suitable tools for PostScript to PDF conversion include
+Adobe distill, ghostscript ps2pdf, and Frank M. Siegert's
+pstill.  For PDF to PostScript conversion, use Adobe
+acroread, ghostscript pdf2ps, or your PDF file viewer's
+print-to-PostScript-file option.
+
+In bad cases, the only way to deal with a problem EPS file
+may be to convert it to a high-resolution bitmap and back to
+PostScript, taking care to choose a lossless bitmap format.
+This can be done with the NetPBM tools and ghostscript.
+These utilities offer a myriad of options, so it is
+convenient to combine them in a separate tool that provides
+the commonly-needed options: pstopngtops (see the References
+section below).
+
+
+===========================
+Bounding boxes and clipping
+===========================
+
+Sometimes the only problem is that the size of the figure is
+wrong.  This is usually because the %%BoundingBox comment
+that is normally present in the first few lines of the EPS
+file is wrong: indeed, most PostScript-producing software
+produces nonsensical bounding boxes.
+
+One way to fix this problem is to print your EPS file and
+the bboxgrid.ps file from this package on the SAME printer,
+overlay them against a light source, and measure the
+lower-left and upper-right corner coordinates in big points
+(72bp = 1in = 25.4mm) of the picture and then edit the EPS
+file to supply the correct coordinates as whole numbers in
+order:
+
+	%%BoundingBox: lower-left-x lower-left-y upper-right-x upper-right-y
+
+The PostScript coordinate system is right-handed Cartesian
+with the origin at the lower-left page corner.  The reason
+that you need the grid provided by bboxgrid.ps is that even
+though PostScript defines the coordinate position (0,0) to
+be at the lower-left page corner, mechanical limitations
+and/or misadjustments in PostScript printers often result in
+that point being displaced by as much 1cm in any direction.
+Even two identical models of the same printer can differ in
+their true page origins!  When you measure the picture
+corners of your figure using the bboxgrid.ps output on the
+same printer, you eliminate this source of confusion and
+error.
+
+A better way to obtain an accurate bounding box is to ask
+ghostscript to measure it for you:
+
+	% gs -sDEVICE=bbox -dNOPAUSE bboxgrid.ps quit.ps
+	AFPL Ghostscript 8.51 (2005-04-18)
+	Copyright (C) 2005 artofcode LLC, Benicia, CA.  All rights reserved.
+	This software comes with NO WARRANTY: see the file PUBLIC for details.
+	Loading NimbusSanL-Bold font from /usr/local/share/ghostscript/fonts/n019004l.pfb... 4506264 2452117 1502816 214110 1 done.
+	Loading NimbusSanL-Regu font from /usr/local/share/ghostscript/fonts/n019003l.pfb... 4506264 2483411 1522912 220580 1 done.
+	%%BoundingBox: 15 18 610 783
+	%%HiResBoundingBox: 15.444000 18.395999 609.713981 782.045976
+
+You can then replace the faulty %%BoundingBox comment in
+your file with the correct one.
+
+The %%HiResBoundingBox comment is produced and used by some
+software, but is nonstandard, and should not be relied on.
+The epsf package ignores it, and PostScript printers ignore
+all comments (text outside strings from percent to end of
+line).
+
+If editing the EPS file is impossible, impractical, or
+undesirable, you can supply the correct bounding box as a
+square-bracketed optional argument to \epsfbox:
+
+	\epsfbox[30 50 250 270]{filename.eps}
+
+This will override any %%BoundingBox comment in the file,
+and if clipping is turned on with \epsfclipon, only material
+inside the bounding box will appear in your output.
+
+If you find that the bounding box specification near the
+start of the EPS file looks like this:
+
+	%%BoundingBox: (atend)
+
+then search backward from the end of the file to find the
+NEAREST %%BoundingBox comment, and then replace the (atend)
+comment with the one you just found.  TeX has to read the
+EPS file until it finds the %%BoundingBox comment, and the
+further it is from the beginning, the longer TeX will take
+to find it.  Parsing text in TeX is NOT a fast operation!
+
+Historical note: The bbox device was added to ghostscript at
+version 3.68 in April 1996 at the suggestion of Nelson
+H. F. Beebe.
+
+
+==========
+References
+==========
+
+Web resources:
+
+	LaTeX graphicx package:
+		http://ctan.tug.org/tex-archive/macros/latex/required/graphics/graphicx.dtx
+
+
+	Pstill (PostScript to PDF conversion tool):
+		http://www.wizards.de/~frank/pstill.html
+		http://www.this.net/~frank/pstill_win.html
+
+	Aladdin Ghostscript:
+		ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/
+		http://prdownloads.sourceforge.net/ghostscript/
+		http://www.artifex.com/
+		http://www.cs.wisc.edu/~ghost/
+
+	GNU Ghostscript:
+		ftp://ftp.gnu.org/gnu/ghostscript
+		http://directory.fsf.org/ghostscript.html
+
+	pstopngtops:
+		ftp://ftp.math.utah.edu/pub/pstopngtops
+		http://www.math.utah.edu/pub/pstopngtops
+
+	netpbm:
+		http://netpbm.sourceforge.net/
+		http://sourceforge.net/projects/netpbm/
+		http://ii2.sourceforge.net/
+		Note: NetPBM has a nonstandard build
+		procedure and historically has been very
+		painful to build on most Unix systems.  The
+		first URL listed provides pointers to binary
+		distributions for some platforms that you
+		may find easier to install.  Some GNU/Linux
+		distributions already have them: if the
+		Unix command
+
+			which pngtopnm pnmcrop pnmmargin pnmtops
+
+		reports locations of each those tools, then
+		you already have the ones needed for pstopngtops.
+		Mac OS X users can most conveniently install NetPBM
+		from the ii2 link above.
+
+
+Books:
+
+@String{pub-ADOBE               = "{Adobe Systems Incorporated}"}
+@String{pub-ADOBE:adr           = "San Jose, CA, USA"}
+
+@String{pub-AW                  = "Ad{\-d}i{\-s}on-Wes{\-l}ey"}
+@String{pub-AW:adr              = "Reading, MA, USA"}
+
+@Book{Adobe:1990:PLR,
+  author =       "Adobe Systems Incorporated",
+  title =        "{PostScript} Language Reference Manual",
+  publisher =    pub-AW,
+  address =      pub-AW:adr,
+  edition =      "Second",
+  pages =        "viii + 764",
+  year =         "1990",
+  ISBN =         "0-201-18127-4",
+  ISBN-13 =      "978-0-201-18127-2",
+  LCCN =         "QA76.73.P67 P67 1990",
+  bibdate =      "Sat Oct 28 08:25:15 2000",
+  remark =       "Appendix H documents the EPSF 3.0 specification.",
+}
+
+@TechReport{Adobe:1992:EPF,
+  author =       "{Adobe PostScript Developer Support Group}",
+  title =        "{Encapsulated PostScript Files} Specification Version
+                 3.0",
+  number =       "PN LPS5002",
+  institution =  pub-ADOBE,
+  address =      pub-ADOBE:adr,
+  day =          "1",
+  month =        may,
+  year =         "1992",
+  bibdate =      "Sat Jul 30 18:50:43 2005",
+  URL =          "http://partners.adobe.com/public/developer/en/ps/5002.EPSF_Spec.pdf",
+  note =         "The specification is also published in
+                  \cite[Appendix~H]{Adobe:PLR90}.",
+}
+
+@Book{Goossens:1997:LGC,
+  author =       "Michel Goossens and Sebastian Rahtz and Frank
+                 Mittelbach",
+  title =        "The {\LaTeX} Graphics Companion: Illustrating
+                 Documents with {\TeX} and {PostScript}",
+  publisher =    pub-AW,
+  address =      pub-AW:adr,
+  pages =        "xxi + 554",
+  year =         "1997",
+  ISBN =         "0-201-85469-4",
+  ISBN-13 =      "978-0-201-85469-5",
+  LCCN =         "Z253.4.L38G663 1997",
+  bibdate =      "Fri Jul 11 07:51:47 1997",
+  price =        "US\$39.75",
+  series =       "Tools and Techniques for Computer Typesetting",
+  acknowledgement = ack-nhfb,
+  keywords =     "LaTeX (Computer file); Computerized typesetting.;
+                 PostScript (Computer program language); Scientific
+                 illustration --- Computer programs.; Mathematics
+                 printing --- Computer programs.; Technical publishing
+                 --- Computer programs.",
+}
+
+@Book{Mittelbach:2004:LC,
+  author =       "Frank Mittelbach and Michel Goossens and Johannes
+                 Braams and David Carlisle and Chris Rowley and
+                 Christine Detig and Joachim Schrod",
+  title =        "The {\LaTeX} Companion",
+  publisher =    pub-AW,
+  address =      pub-AW:adr,
+  edition =      "Second",
+  pages =        "xxvii + 1090",
+  year =         "2004",
+  ISBN =         "0-201-36299-6",
+  ISBN-13 =      "978-0-201-36299-2",
+  LCCN =         "Z253.4.L38 G66 2004",
+  bibdate =      "Thu May 20 13:23:24 2004",
+  price =        "US\$59.99, CAN\$86.99",
+  series =       "Tools and Techniques for Computer Typesetting",
+  acknowledgement = ack-nhfb,
+  remark =       "Authors listed as: Frank Mittelbach and Michel
+                 Goossens with Johannes Braams, David Carlisle, and
+                 Chris Rowley, and with contributions by Christine Detig
+                 and Joachim Schrod.",
+}

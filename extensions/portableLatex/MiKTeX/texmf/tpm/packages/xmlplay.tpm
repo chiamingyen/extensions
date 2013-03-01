@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/xmlplay"><TPM:Name>xmlplay</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Typeset Shakespeare's plays as marked up by Bosak.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>This is an xmltex package for typsetting the plays of
+      Shakespeare, as marked up by Jon Bosak. See
+      http://www.oasis-open.org/cover/bosakShakespeare200.html.</TPM:Description><TPM:RunFiles size="3444">texmf\tex\xmltex\xmlplay\play.xmt texmf\tpm\packages\xmlplay.tpm</TPM:RunFiles><TPM:DocFiles size="514">texmf\doc\xmltex\xmlplay\readme</TPM:DocFiles><TPM:SourceFiles size="1217">texmf\source\xmltex\xmlplay\play.dtd</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>41cffd7285cc86486c59403f51a86138</TPM:MD5></rdf:Description></rdf:RDF>

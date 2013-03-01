@@ -1,0 +1,55 @@
+
+{
+\baselineskip=0.5cm\rm
+
+\setbox1=\vbox{\halign{\bassv\hfil#\hfil&\quad#\hfil&\quad\hfil#\q\cr
+a, x&  A&1\cr
+b&  B&  2\cr
+v, V&  V&  3\cr
+g&  G&  4\cr
+d&  D&  5\cr
+e&  E&  6\cr
+zz&  \v Z&  7\cr
+%9& {\cyr Z} (zjelo)&    8\cr
+z& Z&  9\cr
+y& \"I&  10\cr
+i, I&  I&  20\cr
+%&  Dd, J&  30\cr
+k&  K&  40\cr
+l&  L&  50\cr
+m, M&  M&  60\cr
+n, N&  N&  70\cr
+}}
+
+
+
+\setbox2=\vbox{\halign{\bassv\hfil#\hfil&\quad#\hfil&\quad\hfil#\q\cr
+o, O&   O&  80\cr
+p&  P&  90\cr
+r&  R&  100\cr
+s&   S&  200\cr
+t, T&  T&  300\cr
+u&  U&  400\cr
+%F&   F&  500\cr
+h&   H&  600\cr
+%Q & $\omega$&  700\cr
+ch&  \hbox to0pt{\v S\'c, \' C\hss}&  800\cr
+c&  C&  900\cr
+cc, CC&  \v C&  1000\cr
+ss&  \v S&  2000\cr
+3, 4&  \hbox to 0cm{semivowels\hss}&  \cr
+ya& Ja, Je& \cr
+yu& Ju&\cr
+\char'002& \hbox to0cm{nasal ``en''\hss}&\cr
+}}
+
+
+
+\setbox22=\vbox to \ht1{\vskip3.33pt\copy2\vss}
+%\setbox33=\vbox to \ht1{\vskip3.33pt\copy3\vss}
+
+$$
+\hbox to \hsize{\copy1\hfil\copy22}
+$$
+}
+

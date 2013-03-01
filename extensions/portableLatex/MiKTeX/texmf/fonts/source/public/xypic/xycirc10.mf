@@ -1,0 +1,154 @@
+% $Id: xycirc10.mf,v 3.7 1999/02/16 15:12:50 krisrose Exp $
+%
+% XYCIRC10: 1/8 circles with varying radii for Xy-pic at 10 point.
+% Copyright (c) 1992,1993  Kristoffer H. Rose  <krisrose@brics.dk>
+%
+% This file is part of the Xy-pic macro package.
+%
+% The Xy-pic macro package is free software; you can redistribute it and/or
+% modify it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or (at your
+% option) any later version.
+%
+% The Xy-pic macro package is distributed in the hope that it will be
+% useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
+% Public License for more details.
+%
+% You should have received a copy of the GNU General Public License along
+% with this macro package; if not, write to the Free Software Foundation, Inc.,
+% 675 Mass Ave, Cambridge, MA 02139, USA.
+%
+% As a special exception, you may use this file and all files derived
+% from it without restriction.  This special exception was added with
+% version 3.7 of Xy-pic.
+% _________________________________________________________________________
+%
+% CONTENTS: 1/8 circles with radii from 1 to 32pt dissected into the 1/8
+% circle segments shown below
+%				    6     5
+%                                   .......	    _
+%                              7  ..   |   ..  4    |
+%                                : |   |   | :	    | radius
+%                               :  |   |   |  :	    |
+%       Reference point ---> ___:__|___|___|__:_____|
+%                               :  |   |   |  :
+%                                : |   |   | :
+%                              0  .!   |   !.  3
+%                                   ...|...
+%				    1     2
+%
+% such that each group of 8 characters cc+0 to cc+7 constitute a full circle
+% with the given radius when typeset on the same baseline (as shown).
+%
+% The bounding box of each segment is the vertical slice of the unit square
+% around the circle.
+%
+% The radius is given for each character group g = cc mod 8 by the formula
+%
+%  radius [pt] = g+1,		if  0 <= g < 8
+%	       	 2(g-8) + 10,	if  8 <= g < 12		[= 2g-6]
+%	    	 4(g-12) + 20,	if 12 <= g < 16		[= 4g-28]
+%
+% The bounding box of each segment is the smallest box enclosing it (not
+% including the rule width) with reference point on the horizontal line
+% through the center of the circle---so segment 1256 have either height or
+% depth negative.
+% _________________________________________________________________________
+%
+font_identifier "XYCIRC"; font_size 10pt#;
+mode_setup;
+
+% METANESS...
+%
+rulew# = .4pt#; define_whole_blacker_pixels(rulew); % line thickness
+%
+pickup pencircle scaled rulew; char_pen := savepen;
+
+% TESTING...we redefine openit because the characters extend far to the
+% left of the bounding box!
+%
+def openit = %let echar = endchar; def endchar = echar; stop ". " enddef;
+ openwindow currentwindow from origin to (1000,800) at (-200,300)
+enddef;
+
+% FONT.
+%
+% Font dimension 8 is the rule thickness (cf. The TeXbook, app.G)
+%
+font_coding_scheme:="Xy-pic 1/8 circles";
+fontdimen 8:	rulew#;			% default_rule_thickness
+
+% Use the following macro that generates an entire group from character cc
+% to cc+7 with radius:
+%
+def makeg(expr g,radius) =
+
+ minor# := (1 - sqrt 1/2) * radius;
+ major# := radius - minor#;
+ full#  := radius;
+ define_pixels(minor,major,full);
+
+ beginchar(8g  ,minor#,full#,full#); pickup char_pen;
+  z0=(0,0); z1=(minor,-major); draw z0{0,-1}..{1,-1}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+1,major#,full#,full#); pickup char_pen;
+  z0=(0,-major); z1=(major,-full ); draw z0{1,-1}..{1,0}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+2,major#,full#,full#); pickup char_pen;
+  z0=(0,-full); z1=(major,-major); draw z0{1,0}..{1, 1}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+3,minor#,full#,full#); pickup char_pen;
+  z0=(0,-major); z1=(minor,0); draw z0{1, 1}..{0, 1}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+4,minor#,full#,full#); pickup char_pen;
+  z0=(0, major); z1=(minor,0); draw z0{1,-1}..{0,-1}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+5,major#,full#,full#); pickup char_pen;
+  z0=(0, full); z1=(major, major); draw z0{1,0}..{1,-1}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+6,major#,full#,full#); pickup char_pen;
+  z0=(0, major); z1=(major, full); draw z0{1, 1}..{1,0}z1;
+  penlabels(0,1); endchar;
+
+ beginchar(8g+7,minor#,full#,full#); pickup char_pen;
+  z0=(0,0); z1=(minor, major); draw z0{0, 1}..{1, 1}z1;
+  penlabels(0,1); endchar
+
+enddef;
+
+% Make groups:
+%
+for g =  0 step 1 until  7: makeg(g,  (g+1)*pt#); endfor;
+for g =  8 step 1 until 11: makeg(g, (2g-6)*pt#); endfor;
+for g = 12 step 1 until 15: makeg(g,(4g-28)*pt#); endfor;
+
+bye.
+
+% $Log: xycirc10.mf,v $
+% Revision 3.7  1999/02/16 15:12:50  krisrose
+% Interim release (Y&Y fonts now free).
+%
+% Revision 3.3  1996/12/19 03:31:56  krisrose
+% Maintenance release
+%
+% Revision 3.0  1995/07/07 20:14:21  kris
+% Major release w/new User's Guide!
+%
+% Revision 2.13  1995/07/04  15:11:17  kris
+% Ready to release v3?
+%
+% Revision 2.7  1994/03/08  02:09:27  kris
+% Release 3alpha.
+%
+% Revision 2.6.9.1  1994/03/07  04:22:46  kris
+% Last internal 3alpha and pre-2.7 release.
+%
+% NEW file to go in version 2.7!
+% Based on xymisc10.mf [Revision 2.6  1992/06/24  01:23:34  kris]

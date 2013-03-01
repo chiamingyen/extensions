@@ -1,0 +1,97 @@
+Typesetting exercises: the exercise package
+===========================================
+
+The package helps to typeset exercises or list of exercises within any
+document.
+
+Exercises, questions, sub-questions are automatically numbered. It is
+possible to put answers in the same document, and display them
+immediately, later in the document or not at all.
+
+The layout of exercise is fully customisable. It is then possible to typeset
+long problems, short exercises, questionnaires, etc.
+
+Usage of the babel package is detected, but not fully supported by now
+(only english and french are implemented). See documentation for more
+information.
+
+Copyright:
+----------
+
+Copyright (C) 2004 by Paul Pichaureau
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+
+Installation:
+-------------
+
+- execute latex on exercise.ins
+
+- execute latex on exercise.dtx
+
+- produce Index and Change History with
+
+   makeindex -s gind.ist -o exercise.ind exercise.idx
+   makeindex -s gglo.ist -o exercise.gls exercise.glo
+
+- and then execute latex on exercise.dtx (again !)
+
+- copy exercise.sty and exercise.pdf to the correct places in the texmf
+tree. exercise.sty could be put in
+
+  $LOCALTEXMF\tex\latex\exercise
+
+exercise.pdf is the documentation of the package: it could take place
+in
+
+  $TEXMF\doc\latex\exercise
+
+- run texhash or the corresponding command of your distribution
+
+
+To do:
+------
+
+- Add more languages.
+
+
+Change log:
+-----------
+- v1.58 2012-05-08    Minor modification to avoid pagebreak after exercise and answer heading (thx to Mathias Magdowski)
+- v1.57 2011/07/19    Bug correction on exercise selection (thx to Tobias Isenberg)
+- v1.56 2011/05/10    Portuguese translation added (thx to José Romildo Malaquias)
+- v1.55 2011/03/13    Command \refAnswer added (thx to Ferenc Wettl)
+- v1.54 2010/12/14    Corrected a bug with infinite loop in Answer
+- v1.53 2010/11/27    Exercise selection now works correctly
+- v1.52 2010/10/09    New skip added
+                      German support added (thx to Peter Zimmermann)
+- v1.5  2010/10/03    Label and reference now corrects
+                      Dutch support added (thx to Frank Koenders)
+- v1.4  2010/08/27    Many bugs corrected
+                      Exercise selection reviewed
+- v1.31 2009/03/28    Italian support added
+- v1.3  2009/03/26    Spanish support added
+                      List of exercices support
+                      Bug corrected
+- v1.2  2006/04/22    A basic exercice selection mechanism added.
+- v1.11 2004/09/08    Corrected a bug preventing the correct
+                      use of the babel package.
+- v1.1  2004/09/05    Added the \renewcounter command
+- v1    2004/08/19    First release
+
+19 aout 2004
+Paul Pichaureau
+paul.pichaureau@alcandre.net

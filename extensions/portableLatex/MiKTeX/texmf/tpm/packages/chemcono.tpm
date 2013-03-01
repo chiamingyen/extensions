@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/chemcono"><TPM:Name>chemcono</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Support for compound numbers in chemistry documents.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>A LaTeX style file for using compound numbers in chemistry
+      documents. It works like \cite and the \thebibliography, using
+      \fcite and \theffbibliography instead. It allows compound
+      names in documents to be numbered and does not affect the
+      normal citation routines.</TPM:Description><TPM:RunFiles size="26426">texmf\tex\latex\chemcono\chemcono.sty texmf\tex\latex\chemcono\drftcono.sty texmf\tex\latex\chemcono\showkeysff.sty texmf\tpm\packages\chemcono.tpm</TPM:RunFiles><TPM:DocFiles size="16130">texmf\doc\latex\chemcono\example.dvi texmf\doc\latex\chemcono\example.tex</TPM:DocFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>33bc0f60eebaf32c4445d312dca3b94c</TPM:MD5></rdf:Description></rdf:RDF>

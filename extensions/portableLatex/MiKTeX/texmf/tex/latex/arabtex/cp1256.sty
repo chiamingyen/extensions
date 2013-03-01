@@ -1,0 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% cp1256.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cp1256.sty
+% Scanner for Windows CP 1256 
+% to install it, include it as a LaTeX package or style option "cp1256"
+% with Plain TeX, say "\input cp1256.sty"
+% to activate it, say "\setcode{cp1256}" or "\setcode{arabwin}"
+% 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \awinatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \awinatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {cp1256.sty} {3.11 CP 1256 Windows encoding} {26.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \awin@catcodes {% assignments for MAC Hebrew
+\countdef \is@m=2	\countdef \is@n=4       
+\is@m = 128        \is@n = 64
+\loop \ifnum \catcode \is@m = 11 \else \catcode \is@m = 11 \fi
+\global\lccode \is@m = \is@n
+\ifnum 159 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m = 160        \is@n = 32
+\loop \ifnum \catcode \is@m = 11 \else \catcode \is@m = 11 \fi
+\global\lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0 \catcode `\^^a0 12 }
+
+{\awin@catcodes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Arabic
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \setawin@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@^^80 {p}  \def \sc@^^81 {@}   \def \sc@^^82 {@}   \def \sc@^^83 {@}
+\def \sc@^^84 {@}  \def \sc@^^85 {@}   \def \sc@^^86 {@}   \def \sc@^^87 {@}
+\def \sc@^^88 {@}  \def \sc@^^89 {@}   
+\def \sc@^^8a {\n@xp\a@t}              \def \sc@^^8b {@}
+\def \sc@^^8c {@}  \def \sc@^^8d {J}   
+\def \sc@^^8e {j}  \def \sc@^^8f {\n@xp\a@d}
+		
+\def \sc@^^90 {g}  \def \sc@^^91 {@}   \def \sc@^^92 {@}   \def \sc@^^93 {@}
+\def \sc@^^94 {@}  \def \sc@^^95 {@}   \def \sc@^^96 {@}   \def \sc@^^97 {@}
+\def \sc@^^98 {\n@xp\a@k}  \def \sc@^^99 {@}   
+\def \sc@^^9a {\n@xp\a@r}   \def \sc@^^9b {@}
+\def \sc@^^9c {@}  \def \sc@^^9d {@}   \def \sc@^^9e {@}   
+\def \sc@^^9f {\n@xp\a@n}
+
+\def \sc@^^a0 {@}  \def \sc@^^a1 {,}   \def \sc@^^a2 {@}   \def \sc@^^a3 {@}
+\def \sc@^^a4 {$}  \def \sc@^^a5 {@}   \def \sc@^^a6 {@}   \def \sc@^^a7 {@}
+\def \sc@^^a8 {@}  \def \sc@^^a9 {@}   \def \sc@^^aa {h}  \def \sc@^^ab {@}
+\def \sc@^^ac {@}  \def \sc@^^ad {-}   \def \sc@^^ae {@}   \def \sc@^^af {@}
+
+\def \sc@^^b0 {@}  \def \sc@^^b1 {@}   \def \sc@^^b2 {@}   \def \sc@^^b3 {@}
+\def \sc@^^b4 {@}  \def \sc@^^b5 {@}   \def \sc@^^b6 {@}   \def \sc@^^b7 {@}
+\def \sc@^^b8 {@}  \def \sc@^^b9 {@}   \def \sc@^^ba {;}   \def \sc@^^bb {@}
+\def \sc@^^bc {@}  \def \sc@^^bd {@}   \def \sc@^^be {@}   \def \sc@^^bf {?}
+
+\def \sc@^^c0 {\n@xp\a@H}  
+\def \sc@^^c1 {Q|} \def \sc@^^c2 {QA}  \def \sc@^^c3 {Qa}
+\def \sc@^^c4 {Qw} \def \sc@^^c5 {Qi}  \def \sc@^^c6 {Qy}  \def \sc@^^c7 {A}
+\def \sc@^^c8 {b}  \def \sc@^^c9 {T}   \def \sc@^^ca {t}   \def \sc@^^cb {C}
+\def \sc@^^cc {G}  \def \sc@^^cd {H}   \def \sc@^^ce {X}   \def \sc@^^cf {d}
+
+\def \sc@^^d0 {F}  \def \sc@^^d1 {r}   \def \sc@^^d2 {z}   \def \sc@^^d3 {s}
+\def \sc@^^d4 {x}  \def \sc@^^d5 {S}   \def \sc@^^d6 {D}   \def \sc@^^d7 {@}
+\def \sc@^^d8 {V}  \def \sc@^^d9 {Z}   \def \sc@^^da {P}   \def \sc@^^db {R}
+\def \sc@^^dc {B}  \def \sc@^^dd {f}   \def \sc@^^de {q}   \def \sc@^^df {k}
+
+\def \sc@^^e0 {@}  \def \sc@^^e1 {l}   \def \sc@^^e2 {@}   \def \sc@^^e3 {m}
+\def \sc@^^e4 {n}  \def \sc@^^e5 {h}   
+\def \sc@^^e6 {w}  \def \sc@^^e7 {@}
+\def \sc@^^e8 {@}  \def \sc@^^e9 {@}   \def \sc@^^ea {@}   \def \sc@^^eb {@}
+\def \sc@^^ec {Y}  \def \sc@^^ed {y}   \def \sc@^^ee {@}   \def \sc@^^ef {@}
+
+\def \sc@^^f0 {"aN}\def \sc@^^f1 {"uN} \def \sc@^^f2 {"iN} \def \sc@^^f3 {"a}
+\def \sc@^^f4 {@}  \def \sc@^^f5 {"u}  \def \sc@^^f6 {"i}  \def \sc@^^f7 {@}
+\def \sc@^^f8 {\n@xp\a@Ze} 	\def \sc@^^f9 {@}
+\def \sc@^^fa {""} \def \sc@^^fb {@}
+\def \sc@^^fc {@}  \def \sc@^^fd {@}   \def \sc@^^fe {@}   \def \sc@^^ff {E}
+\a@digits = {0123456789}
+%\a@paren  = {()[]^^a8^^a9^^e2^^e3}
+\a@paren  = {()[]}
+\a@first = {"`^^e6}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \awin@scan #1>{% standard scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase{\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \awin@beg #1{% start CP 1256 scanner
+\h@mzafalse  \iz@fetfalse \yahdots \novocalize % because of explicit quoting
+	\@ssimfalse
+%\urd@true
+\ifx #1^^c7\def \next {\awin@alif}\else
+\def \next {\awin@word #1}\fi \next }
+
+{\catcode `\^^M=13 \endlinechar = -1
+\gdef \awin@word #1{% transform input into internal notation
+\ifx #1\@ \def \next {\sc@endscan }\else % finished
+\if \nxp ^^M\nxp #1\def \next {\awin@par #1}% active character
+\else \def \next {\awin@w@rd #1}%
+\fi\fi \next }%
+} % catcode 13
+
+\gdef \awin@w@rd #1#2{% special cases
+\case #1\of 
+{   	  #2{\awin@word #1-#2}
+	   -{\awin@minus #2} 
+	   "{\awin@dquote #2} 
+	^^a0{\sc@back #2} 
+	^^ad{\awin@minus #2} 
+\default {\awin@@word #1#2}
+}\endcase }
+
+\gdef \awin@@word #1{% default branch
+\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+\else \def \sc@char {\nxp #1}%
+\fi \sc@put \awin@word }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \awin@alif {% alif at the beginning of a word
+\def \sc@char {a}\sc@put \awin@word }
+
+\gdef \awin@dquote {% double quote
+\def \sc@char {\a@dq}\sc@put \awin@word }
+
+\gdef \awin@minus {% hyphen between words
+\def \sc@char {-}\sc@put \awin@beg }
+
+\gdef \awin@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\ #1\@ \@@ }
+
+\gdef \awin@endscan \@@ {\global\let \a@scan \awin@scan }
+} % \awin@catcodes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \set@awin {% select the CP 1256 scanner
+\let \sc@beg \awin@beg 		\let \sc@word \awin@word  
+\let \sc@back \sc@@back		\let \sc@endscan \awin@endscan
+\global\let \a@scan \awin@scan   \setawin@codes	
+\awin@catcodes 		\yahdots
+\a@message {input encoding set to Windows CP 1256 conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the CP 1256 encoding
+awin\set@awin		cp1256\set@awin	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for Windows code page 1256 installed.}
+
+\catcode `\@ = \awinatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

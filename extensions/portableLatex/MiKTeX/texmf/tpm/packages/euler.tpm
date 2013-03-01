@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/euler"><TPM:Name>euler</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>Provides a setup for using the AMS Euler family of fonts
+      for math in LaTeX documents. ``The underlying philosophy of
+      Zapf's Euler design was to capture the flavor of mathematics
+      as it might be written by a mathematician with excellent
+      handwriting.'' [concrete-tug]  The euler package is based on
+      Knuth's macros for the book ``Concrete Mathematics''. The text
+      fonts for the Concrete book are provided by the beton package.</TPM:Description><TPM:RunFiles size="13341">texmf\tex\latex\euler\euler.sty texmf\tpm\packages\euler.tpm</TPM:RunFiles><TPM:DocFiles size="39768">texmf\doc\latex\euler\euler.dvi</TPM:DocFiles><TPM:SourceFiles size="34000">texmf\source\latex\euler\euler.dtx texmf\source\latex\euler\euler.ins</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>7bcc505e66d808e612299ab0c31a0daf</TPM:MD5></rdf:Description></rdf:RDF>

@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% hmac.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hmac.sty
+% Scanner for MAC Hebrew
+% to install it, include it as a LaTeX package or style option "hmac"
+% with Plain TeX, say "\input hmac.sty"
+% to activate it, say "\setcode{hmac}" 
+% 07.03.2002
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \hmacatcode \undefined \else \expandafter \endinput
+\fi % load only once
+
+\chardef \hmacatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {hmac.sty} {3.10a MAC Hebrew encoding} {07.03.2002}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \hmac@catcodes {% assignments for MAC Hebrew
+\countdef \is@m=2	\is@m = 160        
+\countdef \is@n=4       \is@n = 32
+\loop \ifnum \catcode \is@m = 11 \else \catcode \is@m = 11 \fi
+\global\lccode \is@m = \is@n
+\ifnum 255 > \is@m \advance \is@m 1 \advance \is@n 1 \repeat
+\is@m=0 \is@n=0
+\catcode `\^^81 11 
+\catcode `\^^a0 12 }
+
+{\hmac@catcodes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dynamic definitions for Hebrew
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\gdef \sethmac@codes {% activate and change some codes
+\globaldefs=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \sc@^^81 {yy"A}   
+\def \sc@^^a0 {@}  \def \sc@^^a1 {!}   
+\def \sc@^^a2 {\a@dq}                  \def \sc@^^a3 {\a@hsh}
+\def \sc@^^a4 {\a@dlr}                 \def \sc@^^a5 {\a@pct}   
+\def \sc@^^a6 {\a@dlr}                 \def \sc@^^a7 {\a@qt}
+\def \sc@^^a8 {(}  \def \sc@^^a9 {)}   \def \sc@^^aa {*}   \def \sc@^^ab {+}
+\def \sc@^^ac {,}  \def \sc@^^ad {\h@phen}   
+\def \sc@^^ae {.}  \def \sc@^^af {/}
+
+\def \sc@^^b0 {0}  \def \sc@^^b1 {1}   \def \sc@^^b2 {2}   \def \sc@^^b3 {3}
+\def \sc@^^b4 {4}  \def \sc@^^b5 {5}   \def \sc@^^b6 {6}   \def \sc@^^b7 {7}
+\def \sc@^^b8 {8}  \def \sc@^^b9 {9}   \def \sc@^^ba {:}   \def \sc@^^bb {;}
+\def \sc@^^bc {\a@rab}                 \def \sc@^^bd {=}   
+\def \sc@^^be {\a@lab}                 \def \sc@^^bf {?}
+
+\def \sc@^^c0 {l"\n@xp\a@o}            \def \sc@^^c1 {,,}
+\def \sc@^^c2 {@}                      \def \sc@^^c3 {@}
+\def \sc@^^c4 {@}                      \def \sc@^^c5 {@}
+\def \sc@^^c6 {"\n@xp\a@Zu}            \def \sc@^^c7 {w"\n@xp\a@o}        
+\def \sc@^^c8 {w"\n@xp\a@Zu}           \def \sc@^^c9 {\a@ell}
+\def \sc@^^ca {N}                      \def \sc@^^cb {"A}
+\def \sc@^^cc {"a}                     \def \sc@^^cd {"\n@xp\a@E}        
+\def \sc@^^ce {"e}                     \def \sc@^^cf {"i}        
+
+\def \sc@^^d0 {\a@end}                 \def \sc@^^d1 {\a@emd}   
+\def \sc@^^d2 {\a@lq\a@lq}             \def \sc@^^d3 {\a@rq\a@rq}
+\def \sc@^^d4 {\a@lq}                  \def \sc@^^d5 {\a@rq}   
+\def \sc@^^d6 {\n@xp\a@S"\n@xp\a@Ze}   \def \sc@^^d7 {\n@xp\a@S"\n@xp\a@Za}   
+\def \sc@^^d8 {"\n@xp\a@Zo}            \def \sc@^^d9 {"\n@xp\a@e}   
+\def \sc@^^da {"\n@xp\a@A}             \def \sc@^^db {"\n@xp\a@I}   
+\def \sc@^^dc {"u}                     \def \sc@^^dd {"\n@xp\a@o}   
+\def \sc@^^de {"o}                     \def \sc@^^df {"\n@xp\a@O}   
+
+\def \sc@^^e0 {Q}  \def \sc@^^e1 {b}   \def \sc@^^e2 {g}   \def \sc@^^e3 {d}
+\def \sc@^^e4 {h}  \def \sc@^^e5 {w}   \def \sc@^^e6 {z}   \def \sc@^^e7 {X}
+\def \sc@^^e8 {C}  \def \sc@^^e9 {y}   \def \sc@^^ea {k}   \def \sc@^^eb {k}
+\def \sc@^^ec {l}  \def \sc@^^ed {m}   \def \sc@^^ee {m}   \def \sc@^^ef {n}
+
+\def \sc@^^f0 {n}  \def \sc@^^f1 {s}   \def \sc@^^f2 {P}   \def \sc@^^f3 {p}
+\def \sc@^^f4 {p}  \def \sc@^^f5 {S}   \def \sc@^^f6 {S}   \def \sc@^^f7 {q}
+\def \sc@^^f8 {r}  \def\sc@^^f9{\n@xp\a@S} 
+\def \sc@^^fa {t}  \def \sc@^^fb {\a@rbc}
+\def \sc@^^fc {]}  \def \sc@^^fd {\a@lbc}   
+\def \sc@^^fe {[}  \def \sc@^^ff {\a@bar}
+
+\a@digits = {0123456789}	\a@paren  = {()[]}	\a@first = {"`^^e6}
+\globaldefs=0 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}% end of dynamic definitions for MAC Hebrew
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \hmac@scan #1>{% standard scanner call: token sequence -> \a@tokens
+\iftest@scan \tracingmacros = 1 
+\ifshow \else \lowercase{\a@verb #1>}\fi\fi
+\global\def \a@rest {}\global\a@tokens = {}\sc@beg #1\@ \@@ 
+\iftest@scan \tracingmacros = 0 %
+\xpa \a@verb \xpa (\the\a@tokens )>\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \hmac@beg {% start MAC Hebrew scanner
+\h@mzafalse \iz@fetfalse \@ssimfalse \novocalize % because of explicit quoting
+\hmac@word }
+
+{\catcode `\^^M=13 \endlinechar = -1
+\gdef \hmac@word #1{% transform input into internal notation
+\ifx #1\@ \def \next {\sc@endscan }\else % finished
+\if \nxp ^^M\nxp #1\def \next {\hmac@par #1}% active character
+\else \def \next {\hmac@w@rd #1}%
+\fi\fi \next }%
+} % catcode 13
+
+\gdef \hmac@w@rd #1#2{% special cases
+\case #1\of 
+{             #2{\hmac@word #1-#2}
+           -{\hmac@minus #2} 
+        ^^a0{\sc@back #2} 
+%        ^^ad{\hmac@minus #2} 
+\default {\hmac@@word #1#2}
+}\endcase }
+
+\gdef \hmac@@word #1{% default branch
+\ifcat a\nxp #1\edef \sc@char {\csname sc@#1\endcsname }%
+\else \def \sc@char {\nxp #1}%
+\fi \sc@put \hmac@word }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\gdef \hmac@minus {% hyphen between words
+\def \sc@char {-}\sc@put \hmac@beg }
+
+\gdef \hmac@par #1\@ \@@ {% new line, push back the rest
+\sc@back \\ #1\@ \@@ }
+
+\gdef \hmac@endscan \@@ {\global\let \a@scan \hmac@scan }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+} % \hmac@catcodes
+
+\def \set@hmac {% select the MAC Hebrew scanner
+\let \sc@beg \hmac@beg                 \let \sc@word \hmac@word  
+\let \sc@back \sc@@back                \let \sc@endscan \hmac@endscan
+\global\let \a@scan \hmac@scan   \sethmac@codes        
+\hmac@catcodes                 
+\a@message {input encoding set to MAC Hebrew and ISO 8859-8 conventions}}
+
+\xpa \def \xpa \sc@table \xpa {\sc@table % add the MAC Hebrew encoding
+hmac\set@hmac	iso8859-8\set@hmac	iso88598\set@hmac }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@message {scanner for MAC Hebrew code installed.}
+
+\catcode `\@ = \hmacatcode
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

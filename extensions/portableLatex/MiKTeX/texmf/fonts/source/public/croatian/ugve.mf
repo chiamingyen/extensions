@@ -1,0 +1,55 @@
+
+
+%%****************************************************************
+%%********  G L A G O L J I C A, bl ** Darko Zubrinic, ETF, Zagreb, 1992
+%%****************************************************************
+
+
+
+mode_setup;
+ pt#:=4/3pt#;
+ u#:=2*.8pt#; font_quad= 24u#;
+            font_normal_space= 8u#;
+            font_normal_stretch= 3u#;
+            font_normal_shrink= 1u#;
+ em#:=2*10pt#; cap#:=2*7pt#;
+ thin#:=3*2/3pt#; thick#:=1.5*1.15*5/6pt#;
+ o#:=1/5pt#;
+define_pixels(em,cap);
+define_blacker_pixels(thin,thick);
+curve_sidebar:=1.1*1/10em;
+
+
+
+
+input croblv  % velika slova
+%input croblm  % mala slova
+input glz  % znakovi
+
+
+
+
+
+ligtable "C":  "C" =: oct "023", "H" =:
+                     oct"021", "X" =: oct"001";
+ligtable "S": "S" =: oct"024";
+ligtable "Z": "Z" =: oct"025", "X" =: oct"007",
+              "O" kern -.5u#;
+ligtable "D": "D" =: oct"026"; % "d" =: oct"022";
+ligtable "Y": "A" =: oct"003",
+              "E" =: oct"003",
+              "U" =: oct"005";
+ligtable "E": "I" kern -.5u#;
+ligtable "F": "O" kern -u#, "U" kern -u#, "I" kern -.5u#, "G" kern-.5u#;
+ligtable "I": "F" kern -.5u#;
+ligtable "R": "K" kern -.5u#;
+ligtable "N": "A" kern -.5u#;
+
+
+
+
+end.
+
+
+
+

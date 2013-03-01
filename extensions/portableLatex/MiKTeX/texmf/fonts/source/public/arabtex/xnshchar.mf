@@ -1,0 +1,646 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% xnshchar.mf %%%%%%%%%%%%%%%%%%%%%%%
+% Extended NASH Font
+% normal characters
+% 15.07.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if unknown xnshbase: input xnshbase fi;
+
+%%%%%%%%%%%%%% alif %%%%%%%%%%%%%%%%%
+
+arabchar(alif, f_iso, 3, 15, -1);
+rt x6 = x.r; bot y6=0;
+x7 = x6 - dx; y7 = 13dy;
+draw z6{up}..z7{up};
+serif(7);
+endchar;
+
+arabchar(alif, f_end, 4, 15, 0);
+x6 + 2dx = x7 + 3dx = x.r;
+y6 = y.r; y7 = 13dy;
+z8 = 0.7[z7,z6]; draw z7---z8..z.r{right};
+endchar;
+
+%%%%%%%%%%%%%% bah family %%%%%%%%%%%%%%%%%
+
+arabchar(bah_s, f_iso, 16, 6, 1);
+bah_iso;
+endchar;
+
+arabchar(bah_s, f_end, 17, 6, 1);
+bah_end;
+endchar;
+
+arabchar(bah_s, f_mid, 5, 8, 0);
+x1 = x.m; y1 = y.l + 2dy;
+draw z.l{right}..z1; draw z1..z.r{right};
+endchar;
+
+arabchar(bah_s, f_beg, 5, 8, 0);
+x2 = x1 = x.l + 3dx; y1 - 4dy = y2 - dy = y.l;
+draw z1{(4dx,-11dy)}..z2..z.l{left};
+endchar;
+
+%%%%%%%%%%%%%% bah family with loop %%%%%%%%%%%%%%%%%
+
+arabchar(bah_p, f_iso, 16, 6, 3);
+bah_iso;
+x6 = x5; top y6 = y5; p_loop(6);
+endchar;
+
+arabchar(bah_p, f_end, 17, 6, 3);
+bah_end;
+x6 = x5; top y6 = y5; p_loop(6);
+endchar;
+
+arabchar(bah_p, f_mid, 6, 8, 2);
+x1 = x2 + dx = x.r - 2dx; y1 - 2dy = y2 = y.l;
+draw z.l{right}..z1{up}; draw z1..z.r{right};
+p_loop(2);
+endchar;
+
+arabchar(bah_p, f_beg, 5, 8, 2);
+x2 = x1 = x.l + 3dx; y1 - 4dy = y2 - dy = y.l;
+draw z1{(4dx,-11dy)}..z2..z.l{left};
+p_loop(2);
+endchar;
+
+%%%%%%%%%%%%%% hhah %%%%%%%%%%%%%%%%%
+
+arabchar(hhah, f_iso, 12, 10, 10);
+hhah_iso;
+endchar;
+
+arabchar(hhah, f_end, 13, 10, 10);
+hhah_end;
+endchar;
+
+arabchar(hhah, f_mid, 13, 10, 0);
+hhah_mid;
+endchar;
+
+arabchar(hhah, f_beg, 12, 8, 0);
+hhah_beg;
+endchar;
+
+%%%%%%%%%%%%%% khah %%%%%%%%%%%%%%%%%
+
+arabchar(khah, f_iso, 12, 15, 10);
+hhah_iso; x.m := x.m - 2dx; one_dot(10);
+endchar;
+
+arabchar(khah, f_end, 13, 15, 10);
+hhah_end; one_dot(10);
+endchar;
+
+arabchar(khah, f_mid, 13, 15, 0);
+hhah_mid; one_dot(10);
+endchar;
+
+arabchar(khah, f_beg, 12, 15, 0);
+hhah_beg; one_dot(10);
+endchar;
+
+%%%%%%%%%%%%%% dal, dhal %%%%%%%%%%%%%%%%%
+
+arabchar(dal, f_iso, 7, 10, 0);
+dal_iso;
+endchar;
+
+arabchar(dal, f_end, 10, 11, 0);
+dal_end;
+endchar;
+
+%%%%%%%%%%%%%% dal with loop %%%%%%%%%%%%%%%%%
+
+arabchar(dal_p, f_iso, 7, 10, 0);
+dal_iso; p_loop(3);
+endchar;
+
+arabchar(dal_p, f_end, 10, 11, 1);
+dal_end; 
+x6 = x4 + 2dx; y6 = y4; p_loop(6);
+endchar;
+
+%%%%%%%%%%%%%% rah %%%%%%%%%%%%%%%%%
+
+arabchar(rah, f_iso, 8, 5, 5);
+rah_iso;
+endchar;
+
+arabchar(rah, f_end, 8, 5, 5);
+rah_end;
+endchar;
+
+%%%%%%%%%%%%%% rah with loop %%%%%%%%%%%%%%%%%
+
+arabchar(rah_p, f_iso, 8, 5, 8);
+rah_iso; p_loop(3l);
+endchar;
+
+arabchar(rah_p, f_end, 8, 5, 8);
+rah_end; p_loop(3l);
+endchar;
+
+%%%%%%%%%%%%%% rah with two dots %%%%%%%%%%%%%%%%%
+
+arabchar(rah_s, f_end, 8, 5, 6);
+rah_end;
+x6 = x.r; y6 = y3l; x7 = x3l; y7 = y5 + dy;
+put_dot(6); put_dot(7);
+endchar;
+
+arabchar(rah_s, f_iso, 8, 5, 6);
+rah_iso;
+x6 = x.r; y6 = y3l; x7 = x3l; y7 = y5 + dy;
+put_dot(6); put_dot(7);
+endchar;
+
+%%%%%%%%%%%%%% kurdish rah %%%%%%%%%%%%%%%%%
+
+arabchar(rah_k, f_iso, 8, 5, 10);
+rah_iso;
+x6 + dx = x7 + 3dx = x.r;
+y6 + 3dy = y7 + 8dy = y.r;
+draw z6{(dx,-2dy)}..z7;
+endchar;
+
+arabchar(rah_k, f_end, 8, 5, 10);
+rah_end;
+x6 + dx = x7 + 3dx = x.r;
+y6 + 3dy = y7 + 8dy = y.r;
+draw z6{(dx,-2dy)}..z7;
+endchar;
+
+%%%%%%%%%%%%%% sin %%%%%%%%%%%%%%%%%
+
+arabchar(sin, f_iso, 16, 6, 0);
+sin_iso;
+endchar;
+
+arabchar(sin, f_end, 18, 6, 0);
+sin_end;
+endchar;
+
+arabchar(sin, f_mid, 13, 6, 0);
+sin_mid;
+endchar;
+
+arabchar(sin, f_beg, 11, 6, 0);
+sin_beg;
+endchar;
+
+%%%%%%%%%%%%%% sad %%%%%%%%%%%%%%%%%
+
+arabchar(sad, f_iso, 19, 8, 0);
+sad_iso;
+endchar;
+
+arabchar(sad, f_end, 19, 8, 0);
+sad_iso; draw z.r{left}..z8;
+endchar;
+
+arabchar(sad, f_mid, 14, 8, 0);
+sad_beg; draw z.r{left}..z8;
+endchar;
+
+arabchar(sad, f_beg, 14, 8, 0);
+sad_beg;
+endchar;
+
+%%%%%%%%%%%%%% ttah %%%%%%%%%%%%%%%%%
+
+arabchar(ttah, f_iso, 13, 8, 0);
+ttah_iso;
+endchar;
+
+arabchar(ttah, f_end, 13, 8, 0);
+ttah_iso; draw z.r{left}..z8;
+endchar;
+
+arabchar(ttah, f_mid, 12, 8, 0);
+ttah_beg; draw z.r{left}..z8; draw z2--z.l;
+endchar;
+
+arabchar(ttah, f_beg, 11, 8, 0);
+ttah_beg; draw z2--z.l;
+endchar;
+
+%%%%%%%%%%%%%% ain, ghain %%%%%%%%%%%%%%%%%
+
+arabchar(ain, f_iso, 11, 11, 10);
+ain_iso;
+endchar;
+
+arabchar(ain, f_end, 10, 7, 10);
+ain_end;
+endchar;
+
+arabchar(ain, f_mid, 9, 7, 0);
+ain_mid;
+endchar;
+
+arabchar(ain, f_beg, 9, 10, 0);
+ain_beg;
+endchar;
+
+%%%%%%%%%%%%%% fah family %%%%%%%%%%%%%%%%%
+
+arabchar(fah_s, f_iso, 17, 11, 0);
+fah_iso;
+endchar;
+
+arabchar(fah_s, f_end, 18, 10, 0);
+fah_end;
+endchar;
+
+arabchar(fah_s, f_mid, 8, 10, 0);
+fah_mid;
+endchar;
+
+arabchar(fah_s, f_beg, 6, 10, 0);
+fah_beg;
+endchar;
+
+%%%%%%%%%%%%%% qaf %%%%%%%%%%%%%%%%%
+
+arabchar(qaf_s, f_iso, 12, 10, 2);
+qaf_iso;
+endchar;
+
+arabchar(qaf_s, f_end, 12, 10, 2);
+qaf_end;
+endchar;
+
+arabchar(qaf, f_iso, 12, 15, 2);
+qaf_iso; two_dots(11);
+endchar;
+
+arabchar(qaf, f_end, 12, 15, 4);
+qaf_end; two_dots(10);
+endchar;
+
+%%%%%%%%%%%%%% kaf family %%%%%%%%%%%%%%%%%
+
+arabchar(kaf_s, f_iso, 16, 15, 0);
+gaf_iso;
+endchar;
+
+arabchar(kaf_s, f_end, 16, 15, 0);
+gaf_iso; bow(z3, z4, z.r);
+endchar;
+
+arabchar(kaf_s, f_mid, 12, 15, 0);
+kaf_beg; draw z3{z.r-z3}..z.r{right};
+endchar;
+
+arabchar(kaf_s, f_beg, 9, 15, 0);
+kaf_beg;
+endchar;
+
+%%%%%%%%%%%%%% kaf %%%%%%%%%%%%%%%%%
+
+arabchar(kaf, f_iso, 10, 15, 0);
+x1 = x.r - 2dx; x2 = x.m; x3 = x.l + dx;
+y1 = 12dy; y2 = y.r; y3 = y.l + dy;
+x4 = x.l + 6dx; y4 = y.l + 4dy;
+bow(z1, z.r, z2); bow(z2, z.l, z3);
+serif(1); kaf_mark(4);
+endchar;
+
+arabchar(kaf, f_end, 12, 15, 0);
+x1 + dx = x2 = x.r - 2dx;
+x4 = x.m; lft x5 = x6 - dx = x.l;
+z3 = .7[z1, z2];
+y1 = 12dy; y2 = y.r; y4 = y.r; y5 = y6 - 2dy = y.l + 2dy;
+x7 = x.l + 7dx; y7 = y.l + 4dy;
+draw z1--z3{z2 - z1}..z4..z5..z6;
+draw z3{z2 - z3}..z.r{right};
+kaf_mark(7);
+endchar;
+
+%%%%%%%%%%%%%% kaf family with loop %%%%%%%%%%%%%%%%%
+
+arabchar(kaf_p_s, f_iso, 16, 15, 0);
+gaf_iso;
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+endchar;
+
+arabchar(kaf_p_s, f_end, 16, 15, 0);
+gaf_iso; bow(z3, z4, z.r);
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+endchar;
+
+arabchar(kaf_p_s, f_mid, 12, 15, 0);
+kaf_beg; draw z3{z.r-z3}..z.r{right};
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+endchar;
+
+arabchar(kaf_p_s, f_beg, 9, 15, 0);
+kaf_beg;
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+endchar;
+
+%%%%%%%%%%%%%% kaf with loop %%%%%%%%%%%%%%%%%
+
+arabchar(kaf_p, f_iso, 16, 15, 0);
+gaf_iso; 
+x8 = .6[x.l, x4]; y8 = y.l + 4dy;	kaf_mark(8);
+z18 = .4[z1,z2]; x9 = x18; y9 = bot y18; p_loop(9);
+endchar;
+
+arabchar(kaf_p, f_end, 16, 15, 0);
+gaf_iso; bow(z3, z4, z.r);
+x8 = .6[x.l, x4]; y8 = y.l + 4dy;	kaf_mark(8);
+z18 = .4[z1,z2]; x9 = x18; y9 = bot y18; p_loop(9);
+endchar;
+
+%%%%%%%%%%%%%% wide kaf %%%%%%%%%%%%%%%%%
+
+arabchar(kaf_w, f_iso, 16, 10, 0);
+serpent; ttah_tail;
+endchar;
+
+arabchar(kaf_w, f_end, 16, 10, 0);
+serpent; draw z.r{left}..z1; ttah_tail;
+endchar;
+
+arabchar(kaf_w, f_mid, 16, 10, 0);
+serpent; draw z.r{left}..z1; draw z2{left}..z.l;
+endchar;
+
+arabchar(kaf_w, f_beg, 16, 10, 0);
+serpent; draw z2{left}..z.l;
+endchar;
+
+%%%%%%%%%%%%%% gaf family %%%%%%%%%%%%%%%%%
+
+arabchar(gaf_s, f_iso, 16, 16, 0);
+gaf_iso; gaf_serif;
+endchar;
+
+arabchar(gaf_s, f_end, 16, 16, 0);
+gaf_iso; bow(z3, z4, z.r);
+gaf_serif;
+endchar;
+
+arabchar(gaf_s, f_mid, 12, 16, 0);
+kaf_beg; draw z3{z.r-z3}..z.r{right};
+gaf_serif;
+endchar;
+
+arabchar(gaf_s, f_beg, 9, 16, 0);
+kaf_beg; gaf_serif;
+endchar;
+
+%%%%%%%%%%%%%% gaf %%%%%%%%%%%%%%%%%
+
+arabchar(gaf, f_iso, 16, 16, 0);
+gaf_iso; gaf_serif; 
+x8 = .6[x.l, x4]; y8 = y.l + 4dy;	kaf_mark(8);
+endchar;
+
+arabchar(gaf, f_end, 16, 16, 0);
+gaf_iso; bow(z3, z4, z.r); gaf_serif; 
+x8 = .6[x.l, x4]; y8 = y.l + 4dy;	kaf_mark(8);
+endchar;
+
+%%%%%%%%%%%%%% gaf family with loop %%%%%%%%%%%%%%%%%
+
+arabchar(gaf_p_s, f_iso, 16, 18, 0);
+gaf_iso;
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+gaf_serif;
+endchar;
+
+arabchar(gaf_p_s, f_end, 16, 16, 0);
+gaf_iso; bow(z3, z4, z.r);
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+gaf_serif;
+endchar;
+
+arabchar(gaf_p_s, f_mid, 12, 16, 0);
+kaf_beg; draw z3{z.r-z3}..z.r{right};
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+gaf_serif;
+endchar;
+
+arabchar(gaf_p_s, f_beg, 9, 16, 0);
+kaf_beg;
+z8 = .4[z1,z2]; x9 = x8; y9 = bot y8; p_loop(9);
+gaf_serif;
+endchar;
+
+%%%%%%%%%%%%%% lam %%%%%%%%%%%%%%%%%
+
+arabchar(lam, f_iso, 9, 15, 4);
+rt x4 = w; lft x5 = 0; x1 = x4 - dx; x3 = x5 + dx;
+y1 = 12dy; y3 = 3dy; y4 = y5 = 0;
+draw z1{down}..z4{down}..z5{up}..z3; serif(1);
+endchar;
+
+arabchar(lam, f_end, 12, 15, 5);
+x1 + 3dx = x2 + 2dx = x.r; y1 - 11dy = y2 = y.r;
+z8 = 0.7[z1,z2]; draw z1---z8..z.r{right};
+s_bow(1);
+endchar;
+
+arabchar(lam, f_mid, 5, 15, 0);
+x1 + 3dx = x2 + 2dx = x.r; y1 - 11dy = y2 = y.r;
+z8 = 0.7[z1,z2]; draw z1---z8..z.r{right};
+bow (z1, z2, z.l);
+endchar;
+
+arabchar(lam, f_beg, 4, 15, 0);
+x1 = x2 - dx = x.l + 2dx;
+y1 = 12dy; y2 = y.l; z3 = 0.8[z1, z2];
+draw z1..z3{z2 - z3}..z.l{left}; serif(1);
+endchar;
+
+%%%%%%%%%%%%%% mim %%%%%%%%%%%%%%%%%
+
+arabchar(mim, f_iso, 7, 10, 5);
+x2 + 6dx = x4 + 4dx = x5 + 3.5dx = x6 + 4.5dx = x1;
+y2 + dy = y4 + 11dy = y5 - 2.5dy = y6 - 1.5dy = y1;
+z2 = z.l; bow(z4,z2,z1); bow(z6,z5,z1);
+endchar;
+
+arabchar(mim, f_end, 10, 10, 1);
+x1 + 0.5dx = x2 - 2.5dx = x3 + 2dx = x5 - 2dx = x.m;
+y1 - 3dy = y2 - 0.5dy = y3 - 1.5dy = y5 - dy = y.l;
+x4 = x.l + 2dx; y4 = -8dy;
+draw z.r{left}..z5..z1..tension 1.5..z3;
+draw z3{down}..tension 1.2..z2;
+bow(z3, z.l, z4);
+endchar;
+
+arabchar(mim, f_mid, 8, 10, 1);
+x1 + 0.5dx = x2 - 2.5dx = x3 + 2dx = x5 - 2dx = x.m;
+y1 - 3dy = y2 - 0.5dy = y3 - 1.5dy = y5 - dy = y.l;
+draw z.r{left}..z5..z1..tension 1.5..z3
+& z3{down}..tension 1.2..z2; l_att(3);
+endchar;
+
+arabchar(mim, f_beg, 7, 10, 0);
+x1 = x2 - dx = x3 + 2dx = x.l + 5dx;
+y1 - 4dy = y2 = y3 - 2dy = y.l;
+draw z3..tension 2..z2..tension 1.5..z1..z3..z.l{left};
+endchar;
+
+arabchar(mim_sind, f_iso, 7, 10, 0);
+x1 = x2 - dx = x3 + 2dx = x.l + 5dx;
+y1 - 4dy = y2 = y3 - 2dy = y.l;
+x4 = x.l; y4 = y.l - 2dy;
+draw z3..tension 2..z2..tension 1.5..z1..z3..z4{left};
+endchar;
+
+%%%%%%%%%%%%%% nun %%%%%%%%%%%%%%%%%
+
+arabchar(nun, f_iso, 10, 8, 4);
+nun_iso;
+endchar;
+
+arabchar(nun, f_end, 11, 4, 7);
+nun_end;
+endchar;
+
+%%%%%%%%%%%%%% nun with loop %%%%%%%%%%%%%%%%%
+
+arabchar(nun_p, f_iso, 10, 8, 6);
+nun_iso;
+x6 = x3; top y6 = y3; p_loop(6);
+endchar;
+
+arabchar(nun_p, f_end, 11, 4, 9);
+nun_end;
+x6 = x5; top y6 = y5; p_loop(6);
+endchar;
+
+%%%%%%%%%%%%%% hah, tah marbuta %%%%%%%%%%%%%%%%%
+
+arabchar(hah, f_iso, 5, 10, 0);
+hah_iso;
+endchar;
+
+arabchar(hah, f_end, 6, 10, 0);
+hah_end;
+endchar;
+
+arabchar(hah, f_mid, 6, 10, 4);
+x1 + dx = x2 = x3 = x4 + 2dx = x.m + dx;
+y1 = y2 - 4dy = y3 + 4dy = y4 = y.r;
+draw z1{(7dx,-4dy)}..z3..z4{up}..z2;
+draw z2{(5dx,-6dy)}..z.l{left}; draw z.r--z1;
+endchar;
+
+arabchar(hah, f_beg, 9, 10, 0);
+x1 + 0.5dx = x2 = x3 + 1.5dx = x4 - 1.5dx = x.r - 5dx;
+x6 + dx = x5 - 3dx = x.r;
+y1 = 7dy; y2 = 2dy; y3 = y4 = 4dy; y6 = dy;
+draw z1{curl 0}..tension 1.5..z6..tension 2..z2..z3..z4..z2..z.l{left};
+endchar;
+
+%%%%%%%%%%%%%% waw %%%%%%%%%%%%%%%%%
+
+arabchar(waw, f_iso, 9, 7, 6);
+waw_bow;
+draw z2{(-7dx,-4dy)}..z6..z1{right}..z2{(4dx,-11dy)};
+endchar;
+
+arabchar(waw, f_end, 10, 7, 6);
+x.r := x.r - dx; waw_bow; x.r := x.r + dx;
+draw z.r{left}..z6..z1{right}..z2{(4dx,-11dy)};
+endchar;
+
+%%%%%%%%%%%%%% waw with ring %%%%%%%%%%%%%%%%%
+
+arabchar(waw_r, f_iso, 9, 7, 6);
+waw_bow;
+draw z2{(-7dx,-4dy)}..z6..z1{right}..z2{(4dx,-11dy)};
+%x8 = x3; y8 = y5; p_loop(8);
+x8 = x3; y8 = y5 + dy; p_loop(8);
+endchar;
+
+arabchar(waw_r, f_end, 10, 7, 6);
+x.r := x.r - dx; waw_bow; x.r := x.r + dx;
+draw z.r{left}..z6..z1{right}..z2{(4dx,-11dy)};
+x8 = x3; y8 = y5 + .5dy; p_loop(8);
+endchar;
+
+%%%%%%%%%%%%%% waw with bar %%%%%%%%%%%%%%%%%
+
+arabchar(waw_b, f_iso, 9, 7, 6);
+waw_bow;
+draw z2{(-7dx,-4dy)}..z6..z1{right}..z2{(4dx,-11dy)};
+waw_bar;
+endchar;
+
+arabchar(waw_b, f_end, 10, 7, 6);
+x.r := x.r - dx; waw_bow; x.r := x.r + dx;
+draw z.r{left}..z6..z1{right}..z2{(4dx,-11dy)};
+waw_bar;
+endchar;
+
+%%%%%%%%%%%%%% yah, alif_maqsura %%%%%%%%%%%%%%%%%
+
+arabchar(yah, f_iso, 13, 5, 5);
+yah_iso;
+endchar;
+
+arabchar(yah, f_end, 11, 5, 7);
+yah_end;
+endchar;
+
+%%%%%%%%%%%%%% long yah %%%%%%%%%%%%%%%%%
+
+arabchar(yah_p, f_iso, 15, 8, 3);
+yah_p_iso;
+endchar;
+
+arabchar(yah_p, f_end, 5, 8, 3);
+yah_p_end;
+endchar;
+
+arabchar(yah_p_s, f_iso, 15, 8, 5);
+yah_p_iso;
+x11 = x.r - 7dx; top y11 = y8; p_loop(11);
+endchar;
+
+arabchar(yah_p_s, f_end, 5, 8, 5);
+yah_p_end;
+x11 = x.r - 2dx; top y11 = y8; p_loop(11);
+endchar;
+
+%%%%%%%%%%%%%% yah with hook %%%%%%%%%%%%%%%%%
+
+arabchar(yah_h, f_iso, 15, 5, 5);
+yah_iso;
+x7 = x5 - 3dx; y7 = y5 - 5dy; draw z5--z7;
+endchar;
+
+arabchar(yah_h, f_end, 13, 5, 7);
+yah_end;
+x7 = x5 - 3dx; y7 = y5 - 5dy; draw z5--z7;
+endchar;
+
+%%%%%%%%%%%%%% hamza %%%%%%%%%%%%%%%%%
+
+arabchar(hamza_iso, f_iso, 5, 8, 0);
+x3 = x1 + 3.5dx = x2 + 3.5dx = x7; x8 = x2 + 0.2dx +0.3py;
+y3 - 3dy = y1 + dy = y2 - 2dy = y7 = y.r + dy; y8 = y2;
+lda := 0.5[pa,90]; x.m = 0.5[x1,x7];
+penpos7(px,pa); penpos3(0.3dy,90);
+penpos2(px,lda); penpos8(px,lda);
+fill z7l{z1-z7}..z2l{up}--z2r--z8r{down}..z7r{z7-z1}--cycle;
+fill z2r{(7dx,10dy)}..z3r--z3l..z8l{(-7dx,-10dy)}--z2l--cycle;
+draw z1..z7;
+endchar;
+
+endinput;
+
+%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%
+

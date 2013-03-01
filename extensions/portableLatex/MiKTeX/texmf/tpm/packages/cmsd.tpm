@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/cmsd"><TPM:Name>cmsd</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>A package including additional fd files.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Its purpose is to provide an alternative interface to the
+      CM Sans Serif boldface fonts. The EC (T1, Cork) encoded
+      versions of the `CM Sans Serif boldface extended' fonts differ
+      considerably from the traditionally (OT1) encoded ones: At
+      large sizes, &gt; 10pt, they have thinner strokes and are much
+      wider. At 25pt they are hardly to be recognized as being
+      `boldface'. This package attempts to make these T1 fonts
+      look like the traditional ones did. You do not need any new
+      fonts; the package just changes the way LaTeX makes use of
+      the current ones.</TPM:Description><TPM:RunFiles size="3257">texmf\tex\latex\cmsd\cmsd.sty texmf\tex\latex\cmsd\t1cmsd.fd texmf\tex\latex\cmsd\ts1cmsd.fd texmf\tpm\packages\cmsd.tpm</TPM:RunFiles><TPM:SourceFiles size="4801">texmf\source\latex\cmsd\liesmich texmf\source\latex\cmsd\readme</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>c6f42d55b9e32b1cbdb118e585315787</TPM:MD5></rdf:Description></rdf:RDF>

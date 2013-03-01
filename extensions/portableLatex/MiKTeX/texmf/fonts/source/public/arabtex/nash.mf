@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% nash.mf %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ArabTeX NASKH Font
+% collect all characters
+% 27.01.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% abort if cm base is loaded
+if unknown nashbase: endinput fi;
+
+mode_setup;
+
+% font parameters
+em# := 25.4dx#;
+ex# := 8dy#;
+font_slant 0;
+font_normal_space .3em#;
+font_normal_stretch .5em#;
+font_normal_shrink .1em#;
+font_x_height ex#;
+font_quad em#;
+font_extra_space 0;
+font_coding_scheme "ArabTeX Naskh";
+
+font_setup;
+
+input nashchar;
+
+input nashlig;
+
+input nashdia;
+
+input nashdig;
+
+input nashspec;

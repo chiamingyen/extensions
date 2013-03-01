@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uheb.fd
+% ArabTeX
+% Hebrew font descriptions for LaTeX2e
+% 13.06.2000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Bernd Raichle and Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file contains the font description of the Hebrew fonts
+%   fontencoding: U
+%   fontfamily:   heb
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% make sure, that it is used with NFSS2 only
+%
+\ifx\DeclareFontShape\undefined
+  \message{Something is wrong -- %
+           this file can only be used with NFSS2!!!}
+\expandafter\endinput\fi
+
+\ProvidesFile{uheb.fd }[ 2000/06/13 v3.10 ArabTeX Hebrew font definitions]
+
+\DeclareFontFamily{U}{heb}{}%
+
+\DeclareFontShape{U}{heb}{m}{n}{%
+   <-8> fixed * [102.4] hclassic
+   <8-10> s * [12.8] hclassic
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [12.8] hclassic
+}%
+{\fontdimen5\font =.8\fontdimen2\font   % ex
+ \fontdimen6\font = 3\fontdimen5\font } % em
+
+\DeclareFontShape{U}{heb}{bx}{n}{%
+   <-8> fixed * [102.4] hcaption
+   <8-10> s * [12.8] hcaption
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * [12.8] hcaption
+}%
+{\fontdimen5\font =.8\fontdimen2\font % ex
+ \fontdimen6\font = 3\fontdimen5\font % em
+ \fontdimen1\font =.2pt }             % slant
+
+\DeclareFontShape{U}{heb}{m}{Jm}{%
+   <-10> fixed * Jerusalem
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * Jerusalem
+}{}
+
+\DeclareFontShape{U}{heb}{m}{jm}{%
+   <-10> fixed * jerusale
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * jerusale
+}{}
+
+\DeclareFontShape{U}{heb}{m}{ds}{%
+   <-10> fixed * deadsea 
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * deadsea 
+}{}
+
+\DeclareFontShape{U}{heb}{m}{ta}{%
+   <-10> fixed * telaviv 
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * telaviv 
+}{}
+
+\DeclareFontShape{U}{heb}{m}{oj}{%
+   <-10> fixed * oldjaffa 
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * oldjaffa 
+}{}
+
+\DeclareFontShape{U}{heb}{m}{so}{%
+   <-10> fixed * shlm_old
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * shlm_old
+}%
+{\fontdimen5\font =\fontdimen2\font }  % ex
+
+\DeclareFontShape{U}{heb}{m}{sr}{%
+   <-10> fixed * shlm_scr
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * shlm_scr
+}%
+{\fontdimen5\font =\fontdimen2\font }  % ex
+
+\DeclareFontShape{U}{heb}{m}{sk}{%
+   <-10> fixed * shlm_stk
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * shlm_stk
+}%
+{\fontdimen5\font =\fontdimen2\font }  % ex
+
+\DeclareFontShape{U}{heb}{m}{fr}{%
+   <-10> fixed * fr
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * fr
+}{}
+
+\DeclareFontShape{U}{heb}{bx}{fr}{%
+%   <-10> fixed * [12.8] frbx
+   <-10> fixed * frbx
+%   <10><10.95><12><14.4><17.28><20.74><24.88> s * [12.8] frbx
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * frbx
+}{}
+
+\DeclareFontShape{U}{heb}{sl}{fr}{%
+%   <-10> fixed * [12.8] frsl
+   <-10> fixed * frsl
+%   <10><10.95><12><14.4><17.28><20.74><24.88> s * [12.8] frsl
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * frsl
+}%
+{\fontdimen1\font =.2pt }             % slant
+
+\DeclareFontShape{U}{heb}{m}{crml}{%
+   <-10> fixed * crml10
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * crml10
+}%
+{\fontdimen5\font =\fontdimen2\font }  % ex
+
+\DeclareFontShape{U}{heb}{sl}{crml}{%
+   <-10> fixed * crmlsl10
+   <10><10.95><12><14.4><17.28><20.74><24.88> s * crmlsl10
+}%
+{\fontdimen5\font =\fontdimen2\font }  % ex
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

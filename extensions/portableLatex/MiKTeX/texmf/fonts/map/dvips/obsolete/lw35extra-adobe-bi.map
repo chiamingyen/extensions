@@ -1,0 +1,37 @@
+% Thomas Esser, 1998, public domain.
+%
+% lw35extra-adobe-bi.map: completes acrobat.map with fonts available
+%    to most ps printers (LW35 fonts).
+%
+% Useful for dvips, gsftopk. Does not work for ps2pk and psftex.
+pagd8r AvantGarde-Demi "TeXBase1Encoding ReEncodeFont" <8r.enc
+pagdo8r AvantGarde-DemiOblique "TeXBase1Encoding ReEncodeFont" <8r.enc
+pagk8r AvantGarde-Book "TeXBase1Encoding ReEncodeFont" <8r.enc
+pagko8r AvantGarde-BookOblique "TeXBase1Encoding ReEncodeFont" <8r.enc
+pbkd8r Bookman-Demi "TeXBase1Encoding ReEncodeFont" <8r.enc
+pbkdi8r Bookman-DemiItalic "TeXBase1Encoding ReEncodeFont" <8r.enc
+pbkdo8r Bookman-Demi ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pbkl8r Bookman-Light "TeXBase1Encoding ReEncodeFont" <8r.enc
+pbkli8r Bookman-LightItalic "TeXBase1Encoding ReEncodeFont" <8r.enc
+pbklo8r Bookman-Light ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+phvb8rn Helvetica-Narrow-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc
+phvbo8rn Helvetica-Narrow-BoldOblique "TeXBase1Encoding ReEncodeFont" <8r.enc
+phvr8rn Helvetica-Narrow "TeXBase1Encoding ReEncodeFont" <8r.enc
+phvro8rn Helvetica-Narrow-Oblique "TeXBase1Encoding ReEncodeFont" <8r.enc
+pncb8r NewCenturySchlbk-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc
+pncbi8r NewCenturySchlbk-BoldItalic "TeXBase1Encoding ReEncodeFont" <8r.enc
+pncbo8r NewCenturySchlbk-Bold ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pncr8r NewCenturySchlbk-Roman "TeXBase1Encoding ReEncodeFont" <8r.enc
+pncri8r NewCenturySchlbk-Italic "TeXBase1Encoding ReEncodeFont" <8r.enc
+pncro8r NewCenturySchlbk-Roman ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pplb8r Palatino-Bold "TeXBase1Encoding ReEncodeFont" <8r.enc
+pplbi8r Palatino-BoldItalic "TeXBase1Encoding ReEncodeFont" <8r.enc
+pplbo8r Palatino-Bold ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pplbu8r Palatino-BoldItalic "-.1763 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pplr8r Palatino-Roman "TeXBase1Encoding ReEncodeFont" <8r.enc
+pplr8rn Palatino-Roman ".82 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pplri8r Palatino-Italic "TeXBase1Encoding ReEncodeFont" <8r.enc
+pplro8r Palatino-Roman ".167 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pplrr8re Palatino-Roman "1.2 ExtendFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pplru8r Palatino-Italic "-.1763 SlantFont TeXBase1Encoding ReEncodeFont" <8r.enc
+pzcmi8r ZapfChancery-MediumItalic "TeXBase1Encoding ReEncodeFont" <8r.enc

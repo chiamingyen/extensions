@@ -1,0 +1,578 @@
+%%%%%%%%%%%%%%%%%%%%%% xnshbase.mf %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% base file for extended NASH
+% 13.07.98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if unknown cmbase: else:
+errhelp "you are using 'cmbase'; rerun with base=&plain";
+errmessage "this font needs the 'plain' METAFONT base; run aborted";
+endinput
+fi;
+
+if unknown nashcode: input xarbsymb fi;
+
+xnshbase := 1;
+
+def font_setup =
+ define_pixels(dx, dy, dp, em, ex);
+ define_blacker_pixels(px, py, spx);
+ pa := pen_angle; pl := px++py; da := pa - angle(px,py);
+ pickup pensquare xscaled px yscaled py rotated pa;
+% pickup pencircle xscaled px yscaled py rotated pa;
+ nash_pen := savepen;
+ pickup pencircle scaled spx;
+ dia_pen := savepen;
+enddef;
+
+def makegrid(text r) =
+ for x=0 step dx until w+.5dx:
+  for y=0 step dy until h+.5dy:
+   fill unitsquare shifted (x,y);
+  endfor;
+  for y=dy step dy until d+.5dy:
+   fill unitsquare shifted (x,-y);
+  endfor;
+ endfor
+% for y=0,h,-d: r((0,y), (w,y)); endfor
+% for x=0,w: r((x,-d), (x,h)); endfor
+ maketicks(r);
+enddef;
+
+%%%%%%%%%%%%%% char-macros %%%%%%%%%%%%%%%%%
+
+def arabchar(expr code, form, uw, uh, ud) =
+  beginchar(if string code: code else: (code + form) fi,
+            uw*dx#, uh*dy#, (ud + dia_d)*dy#);
+  pickup nash_pen;
+  if .5w <> good.x .5w: change_width; fi
+  x.l = x.ll = 0; x.r = x.rr = w; x.m = 0.5w;
+  bot y.l = bot y.r = y.m = bot y.ll - .5ex = 0; y.rr = y.ll;
+enddef;
+
+def diachar(expr code, uw, uh) =
+  beginchar(code, uw*dx#, (uh+0.5)*dy#, 0.5*dy#);
+%  beginchar(code, uw*dx#, uh*dy#, 0);
+  pickup dia_pen;
+  if .5w <> good.x .5w: change_width; fi
+  lft x.l = 0; rt x.r = w;
+  y.l = 0.5dy; y.r = h - dy;
+%  bot y.l = 0; top y.r = h;
+enddef;
+
+def numchar(expr code) =
+  beginchar(code, 10*dx#, 10*dy#, 5*dy#);
+  pickup nash_pen;
+  if .5w <> good.x .5w: change_width; fi
+  lft x.l = 0; rt x.r = w;
+  bot y.l = -d; top y.r = h;
+%  bot y.l = 0; top y.r = h;
+enddef;
+
+extra_endchar :=
+extra_endchar & "penlabels(l,m,r,ll,rr,range 1 thru 20);";
+
+%%%%%%%%%%%%%% dot-macros %%%%%%%%%%%%%%%%%
+
+def put_dot (suffix $) =
+ z.$1 - z.$2 = (0, px - py) rotated pa;
+ z.$ = .5[z.$1, z.$2];
+ draw z.$1--z.$2;
+ labels($1,$2);
+enddef;
+
+def one_dot (expr n) =
+ x.dd := x.m; y.dd := y.m + round(n*dy);
+ put_dot(dd);
+enddef;
+
+def two_dots (expr n) =
+ x.dr - x.m = x.m - x.dl = round(dpx*dx);
+ y.dl = y.dr = y.m + round(n*dy);
+ put_dot(dl); put_dot(dr);
+enddef;
+
+def three_dots (expr n) =
+ two_dots(n); one_dot(n+dpy);
+enddef;
+
+def three_dots_low (expr n) =
+ two_dots(n); one_dot(n-dpy);
+enddef;
+
+%%%%%%%%%%%%%% stroke-macros %%%%%%%%%%%%%%%%%
+
+def bow (expr u, v, w) =
+ draw u..controls v and v..w;
+enddef;
+
+def l_att (suffix $) =
+ x.$l = x.$ - dx; y.$l = y.l;
+ bow(z.$, z.$l, z.l);
+enddef;
+
+def r_att (suffix $) =
+ x.$r = x.$ + dx; y.$r = y.r;
+ bow(z.$, z.$r, z.r);
+enddef;
+
+def r_att (suffix $) =
+ x.$r = x.$ + dx; y.$r = y.r;
+% bow(z.$, z.$r, z.r);
+draw z.${z.$r-z.$}..z.r{right};
+enddef;
+
+def serif (suffix $) =
+ z.$ = 0.2[z.$2,z.$1];
+% z.$2 - z.$1 = 3dy * (-4dx,11dy); % 110
+ y.$2 - y.$1 = 3dy;
+ z.$2 - z.$1 = whatever * (-4dx,11dy);
+ draw z.$1--z.$2;
+enddef;
+
+def s_bow (suffix $) =
+ x.$1 - .5dx = x.$;
+ x.$2 - 4dx = lft x.$3 = lft x.$4 + 1.5dx - pl = x.l;
+ y.$1 - dy = y.$3 = y.$4 - 2dy = y.$2 + 2dy = - 2dy;
+ draw z.$..z.$1{down}..z.$3{up}..z.$4;
+enddef;
+
+def p_loop (suffix $) =
+pickup dia_pen;
+x.$1 = x.$2 = x.$; y.$1 + spx + dy = y.$2; top y.$2 = y.$;
+draw z.$1..z.$2..cycle;
+pickup nash_pen;
+enddef;
+
+def r_con (suffix $) =
+ charic := (y.$-y.r)/vppp;
+enddef;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% bah-macros %%%%%%%%%%%%%%%%%
+
+def bah_bow =
+x1 = x4 + dx = x2 + 13.8dx; x2 = x3 = x.l + 0.6dx;
+%x1 = x4 = x2 + 13.8dx; x2 = x3 = x.l + 0.6dx;
+y4 - 5dy = y1 - 3dy = y2 - 2dy = y.m = y3 - 4dy;
+x5 = x.m; y5 = y.m - 0.5dy;
+enddef;
+
+def bah_end =
+bah_bow; draw z1..z5{left}..z2..z3; r_att(1);
+enddef;
+
+def bah_iso =
+bah_bow; draw z4..z1..z5{left}..z2..z3;
+enddef;
+
+def bah_mid =
+x6 = x.m; y6 = good.y (y.r + 2dy);
+l_att(6); r_att(6);
+enddef;
+
+def bah_beg =
+x.m := x.m + 0.5dx;
+x1 - dx = x2 = x.m; y1 = y.l; y2 = y.m + 4dy;
+bow(z2, z1, z.l);
+enddef;
+
+%%%%%%%%%%%%%% hhah-macros %%%%%%%%%%%%%%%%%
+
+def hhah_iso_bar =
+x1 - 2dx = x2 - 11dx = x.l; y1 - 4dy = y2 - 4dy = y.r; 
+x3 = x2 - 2dx; y3 = y2; draw z1{(8dx,3dy)}..z2{right};
+enddef;
+
+def hhah_mid_bar =
+x1 - 2dx = x2 - 11dx = x.l; y1 - 4dy = y2 - 3dy = y.r; 
+x3 = x2 - 2dx; y3 = y2;	draw z1{(8dx,3dy)}..z2{right};
+enddef;
+
+def hhah_beg_bar =
+x1 - 2dx = x2 - 11dx = x.l; y1 - 4dy = y2 - 2dy = y.r; 
+x3 = x2 - 2dx; y3 = y2;	draw z1{(8dx,3dy)}..z2{right};
+enddef;
+
+def hhah_bow =
+lft x4 = x1 - 2dx = x5 - 8dx; rt x6 - 6dx = x5;
+y5 = y6 - dy = -10dy; y4 = 0.6[y2,y5];
+penpos4(pl,da); penpos5(pl,90); penpos6(0.3dy,90);
+draw z2{left}..z4{down};
+fill z4r{down}..z5r{right}..z6r--z6l--z5l{left}..z4l{up}--cycle;
+enddef;
+
+def hhah_iso =
+hhah_iso_bar; hhah_bow;
+enddef;
+
+def hhah_end =
+hhah_mid_bar; hhah_bow;
+draw z3{down}..z.r{right};
+enddef;
+
+def hhah_mid =
+hhah_mid_bar; draw z2{left}..z.l{left};
+draw z3{down}..z.r{right};
+enddef;
+
+def hhah_beg =
+hhah_beg_bar; draw z2{left}..z.l{left};
+enddef;
+
+%%%%%%%%%%%%%% dal-macros %%%%%%%%%%%%%%%%%
+
+def dal_iso =
+x1 = x2 + 2dx = x3 - 3dx = x.r - 4dx; x.m := x1;
+y1 - 6dy = y2 = y3 - dy = y.r;
+draw z1{(7dx,-4dy)}..z3..z2{left};
+enddef;
+
+def dal_end =
+x1 + dx = x3 - dx = x4 + 4dx = x.r - 3dx; lft x2 = x.r - 9dx;
+y1 = 8dy; y2 - dy = y3 = y4 = y.l; z5 = .3[z1,z3];
+draw z1--z5{z3-z1}..z.r{right};
+draw z5{z3 - z1}..z4{left}..z2;
+enddef;
+
+%%%%%%%%%%%%%% rah-macros %%%%%%%%%%%%%%%%%
+
+def rah_bow =
+x5 + dx = x2 + dx = x4 + 9dx = x3 - px + 6dx = x.r;
+y5 + 3dy = y2 - 0.5dy = y4 + 6dy = y3 + 6dy = y.r;
+penpos2(pl,da); penpos3(pl,90);
+penpos4(0.3dy,90); penpos5(0.4[py,px],0);
+enddef;
+
+def rah_iso =
+rah_bow;
+y1 - 2dy = y.r; x1 + 0.5dx = x2;
+penpos1(pl,da);
+fill z1l..z2l..z5l..z3r..z4r{left}--z4l--z3l..z5r..z2r..z1r--cycle;
+enddef;
+
+def rah_end =
+rah_bow;
+y1 - .5dy = y.r; x1 = x2; % = x.r - dx;
+fill z2l..z5l..z3r..z4r{left}--z4l--z3l..z5r..z2r--cycle;
+draw z1..z.r{right};
+enddef;
+
+%%%%%%%%%%%%%% sin-macros %%%%%%%%%%%%%%%%%
+
+def s_wave =
+z2 - z1 = z5 - z4 = 2(z3 - z2);
+x3 - x1 = 6(x3 - x5) = 6dx; x.m := x2;
+y4 = y5 - 0.5dy = y2 - 2.5dy = y.r;
+draw z3..z5..z2; draw z2..z4{left};
+enddef;
+
+def mid_wave =
+x3 = x.r - 3dx; s_wave;
+draw z4{left}..z1;
+enddef;
+
+def beg_wave =
+rt x3 = x.r; s_wave;
+draw z4{left}..z1;
+enddef;
+
+def sin_iso =
+beg_wave; s_bow(1);
+enddef;
+
+def sin_end =
+mid_wave;
+draw z3{down}..z.r{right}; s_bow(1); enddef;
+
+def sin_mid =
+mid_wave; draw z3{down}..z.r{right}; l_att(1);
+enddef;
+
+def sin_beg =
+beg_wave; l_att(1);
+enddef;
+
+%%%%%%%%%%%%%% sad-macros %%%%%%%%%%%%%%%%%
+
+def sad_bow =
+x2 - dx = x3 - 9dx; x2 + 3dx = x.m; x4 = x2 - 2dx;
+y2 = y3 - 3dy = y4 - 2dy = y.r;
+x8 = x2 + 3.5dx; y8 = y2 + 0.5dy;
+draw z2{(5dx,6dy)}..z3{(4dx,-7dy)}..tension 2..z2{left};
+enddef;
+
+def sad_iso =
+x.m := x.m + 4dx;
+sad_bow; draw z2{left}..z4; s_bow(4);
+enddef;
+
+def sad_beg =
+x.m := x.m + dx;
+sad_bow; draw z2{left}..z4; l_att(4);
+enddef;
+
+%%%%%%%%%%%%%% ttah-macros %%%%%%%%%%%%%%%%%
+
+def ttah_stroke =
+x5 = x7 - dx = x2; y5 = 12dy; y7 = y2 + dy;
+draw z5{down}..z7{down};
+serif(5);
+enddef;
+
+def ttah_tail =
+x2 - x6 = 5dx; y6 = top y2;
+penpos2(pl,da);
+fill z6--z2r--z2l{left}..z6..cycle;
+enddef;
+
+def ttah_iso =
+x.m := x.m + dx;
+sad_bow; ttah_stroke; ttah_tail;
+x.m := x.m + dx;
+enddef;
+
+def ttah_beg =
+sad_bow; ttah_stroke;
+x.m := x.m + dx;
+enddef;
+
+%%%%%%%%%%%%%% ain-macros %%%%%%%%%%%%%%%%%
+
+def ain_head =
+x.m := x.m - 2dx;
+lda := 0.5pa + angle(dx,dy);
+penpos7(pl,pa); penpos3(0.3dy,90);
+penpos2(px,lda); penpos8(px,lda);
+x7 + 2dx = x3 + dx = x2 + 6dx; x8 = x2 + 0.3dx;
+y7 = y2 - 3dy = y3 - 4dy; y8 = y2; z7 = 0.25[z1, z.l];
+fill z7l{z.l-z1}..z2l{up}--z2r--z8r{down}..z7r{z1-z.l}--cycle;
+fill z2r{(7dx,10dy)}..z3r--z3l..z8l{(-7dx,-10dy)}--z2l--cycle;
+enddef;
+
+def ain_bow =
+lft x4 = x.l = x5 - 8dx; rt x6 = x5 + 6dx;
+y5 = y6 - dy = -10dy; y4 = 0.6[y1,y5];
+penpos4(pl,da); penpos5(pl,90); penpos6(0.3dy,90);
+draw z1{z.l - z1}..z4{down};
+fill z4r{down}..z5r{right}..z6r--z6l--z5l{left}..z4l{up}--cycle;
+enddef;
+
+def ain_top =
+x2 = x1 = x.r - 3.5dx; y2 - 2dy = y1 = 2dy;
+%x2 = x1 = x.m + 0.5dx; y2 - 2dy = y1 = 2dy;
+x7 - x2 = x2 - x3 = 2dx; y7 = y3 = y2 - 0.5dy;
+x8 = x3 - dx; y8 = y3;
+draw z.r{left}..z1..z3; draw z8..z2..z7;
+enddef;
+
+def ain_iso =
+x1 = x.r - 3dx; y1 = 5dy;
+ain_head; ain_bow;
+enddef;
+
+def ain_end =
+ain_top; draw z7..z1{z.l - z1}; ain_bow;
+enddef;
+
+def ain_mid =
+ain_top; draw z7..z1..z.l{left};
+enddef;
+
+def ain_beg =
+rt x1 = x.r; y1 = 3dy;
+ain_head; draw z1..z7..z.l{left};
+enddef;
+
+%%%%%%%%%%%%%% fah-macros %%%%%%%%%%%%%%%%%
+
+def fah_iso =
+x.m := x.m + 4dx;
+x1 = x2  - 2dx = x3 + dx = x4 - 2.5dx; rt x4 = x.r;
+y1 = y4 = 6dy; y2 = y3 = 8dy;
+lft x5 = x.l; lft x6 = lft x5 - 1.5dx + pl; x7 = 6dx;
+y5 = 3dy; y6 = y5 + 3dy; bot y7 = -0.5dy;
+draw z2..z1..z3..z4{down}..z7..z5{up}..z6;
+enddef;
+
+def fah_end =
+x.m := x.m + 4dx;
+x1 = x2 + dx = x.r - 2dx; lft x3 = lft x4 + 1.5dx - pl = x5 - 5dx = x.l;
+y5 = dy; y1 = 6.5dy; y2 = 2dy; y3 = 4dy; y4 = 6dy;
+x2a + 3dx = x2b = x1; y2a = y2b = y.r + 2dy;
+draw z.r{left}..z2a..z1;
+draw z1..z2b..tension 1.5..z5..z3{up}..z4;
+enddef;
+
+def fah_mid =
+x1 = x2 + dx = x.r - 2dx; y1 - 5dy = y2 - 0.5dy = y.r;
+x2a + 3dx = x2b = x1; y2a = y2b = y.r + 2dy;
+draw z.r{left}..z2a..z1; draw z1..z2b..z.l{left};
+enddef;
+
+def fah_beg =
+x1 = x2  - 2dx = x3 + dx = x4 - 2.5dx; rt x4 = x.r;
+y1 = y4 = 4dy; y2 = y3 = 6dy;
+draw z2..z1..z3..z4{down}..z.l{left};
+enddef;
+
+%%%%%%%%%%%%%% qaf-macros %%%%%%%%%%%%%%%%%
+
+def qaf_iso =
+x.m := x.m + 2dx;
+x1 = x2  - 2dx = x3 + dx = x4 - 2.5dx; rt x4 = x.r;
+y1 = y4 = 4dy; y2 = y3 = 6dy;
+lft x5 = x.l; lft x6 = lft x5 - 1.5dx + pl; x7 = 5dx;
+y5 = dy; y6 = y5 + 3dy; y7 = -2dy;
+draw z2..z1..z3..z4{down}..z7..z5{up}..z6;
+enddef;
+
+def qaf_end =
+x.m := x.m + 2dx;
+x1 + 3dx = x2 + dx = x.r; 
+lft x3 = lft x4 + 1.5dx - pl = x5 - 5dx = x.l;
+y1 - 4dy = y2 = y.r = y3 + 2dy = y4 = y5 + 5dy;
+draw z.r{left}..z2..z1{right}..z2..z5..z3{up}..z4;
+enddef;
+
+%%%%%%%%%%%%%% kaf-macros %%%%%%%%%%%%%%%%%
+
+def kaf_mark (suffix $) =
+x.$6 + dx = x.$7 + 2dx = x.$8 = x.$9 + 3dx = x.$;
+y.$6 - 3dy = y.$7 - dy = y.$8 = y.$9 + dy = y.$;
+pickup dia_pen;
+draw z.$6{(-6dx,-5dy)}..z.$7..z.$8..z.$9{left};
+pickup nash_pen;
+labels($6,$7,$9);
+enddef;
+
+def kaf_beg =
+x1 - 11dx = x2 = x4 - 10dx = x.l;
+%x1 = x.r - dx; x2 = x.l; x4 = x.r - 2dx;
+%y4 = y.r; y1 = 14dy; y2 = 9dy; z3 = .4[z2, z4];
+y4 = y.l = y1 - 13dy = y2 - 8dy; z3 = .4[z2, z4];
+bow (z1, z2, z3);
+draw z3{z3 - z2}..z.l{left};
+enddef;
+
+%%%%%%%%%%%%%% gaf-macros %%%%%%%%%%%%%%%%%
+
+def gaf_iso =
+x1 - 15dx = x2 - 6dx = x4 - 8dx = x6 - dx = x.l;
+y1 - 13dy = y2 - 9dy = y4 = y6 - dy = y.l;
+z3 = .7[z2, z4]; z5 = .5[z4, z.l];
+bow(z1, z2, z3); bow(z3, z4, z5); bow(z5, z.l, z6);
+enddef;
+
+def gaf_iso =
+x1 - 2dx = x2 + 7dx = x4 +5dx = x.r; 
+y1 - 13dy = y2 - 9dy = y4 = y.r; 
+z3 = .7[z2, z4]; bow(z1, z2, z3); 
+x6 = x7 = x.l + 0.6dx; y6 = y7 - 2dy = y.l + dx;
+x5 = .5[x6, x4]; y5 = y.m; z13 = .5[z4, z3];
+draw z7 .. z6 .. z5{right} .. z13{z3-z13}--z3;
+enddef;
+
+def gaf_serif =
+x10 = x1; y10 = y1 + 2.5dy; x11 = x2 + 2dx; y11 = y2 + 3dy;
+pickup dia_pen;
+z12 = 0.1[z10,z11]; draw z12--z11;
+pickup nash_pen;
+enddef;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+def serpent =
+x1 = x3 = x.r - 3dx;
+x2 = x4 = x5 - dx = x.l + 4dx;
+y1 = y2 = y4 - 4dy = y5 - 8dy = y.l; y3 = y4;
+draw z5 .. z4{right} .. z3{right} .. z1{left} .. z2;
+enddef;
+
+%%%%%%%%%%%%%% nun-macros %%%%%%%%%%%%%%%%%
+
+def nun_iso =
+x1 + 2dx = rt x2 = x.r; x3 = x.m; lft x4 = lft x5 + 1.5dx - pl = x.l;
+y1 - 8dy = y2 - 3dy = y4 - 3dy = y5 - 5dy = y3 + dy = y.r - 3dy;
+draw z1..z2{down}..z3..z4{up}..z5;
+enddef;
+
+def nun_end =
+x1 = x.r - 2dx; y1 = y.r + dy;
+x2 - .5dx = x1; lft x3 = lft x4 + 1.5dx - pl = x.l;
+y2 - dy = y3 = y4 - 2dy = y.r - 3dy;
+x5 = x.m; y5 = y3 - 4dy;
+draw z1..z2{down}..z5..z3{up}..z4; r_att(1);
+enddef;
+
+%%%%%%%%%%%%%% waw-macros %%%%%%%%%%%%%%%%%
+
+def waw_bow = 
+rah_bow;
+x1 + 2.5dx = x2; y1 - 3dy = y2;
+x6 = x1; y6 = y2;
+fill z2l..z5l..z3r..z4r{left}--z4l--z3l..z5r..z2r--cycle;
+enddef;
+
+def waw_bar =
+pickup dia_pen;
+x7 = .3[x4,x5]; y7 = y5; draw z7--z5;
+pickup nash_pen;
+enddef;
+
+%%%%%%%%%%%%%% hah-macros %%%%%%%%%%%%%%%%%
+
+def hah_iso =
+x1 = x.m - .5dx; rt x2 = x.r; lft x3 = x.l;
+y1 = 7dy; y2 = y3 = 3dy;
+%y1 = 6dy; y2 = y3 = 3dy;
+%y1 = 6dy; y2 = y3 = 2dy;
+draw z1..z2{down}..z3{up}..z1;
+enddef;
+
+def hah_end =
+x1 = x2 - dx = x4 + 2.5dx = x.m;
+y1 = 7dy; y2 = y.r; y4 = 4dy;
+z3 = .15[z1, z2]; z5 = .6[z1, z2];
+draw z1--z5{z5-z1}..z.r{right};
+draw z3{(-7dx,-4dy)}..z4{down}..z5{(7dx,4dy)};
+enddef;
+
+%%%%%%%%%%%%%% yah-macros %%%%%%%%%%%%%%%%%
+
+def yah_iso =
+x6 = x1 + 5dx = x2 + dx = x.r = x3 + 6dx; 
+lft x4 = lft x5 + 1.5dx - pl = x.r - 13dx;
+%x6 = x1 + 5dx = x2 + dx = x.r = x3 + 6dx; lft x4 = x5 - dx = x.r - 13dx;
+y6 - 7dy = y1 - 3dy = y5 - 3dy = y2 - dy = y4 = y3 + 3dy = y.r - 2dy; 
+draw z6{up}..tension 1.5..z1{down}..tension 1.5
+..z2{down}..tension 1.5..z3..z4{up}..z5;
+enddef;
+
+def yah_end =
+x1 + 4dx = rt x2 = x.r = x3 + 5dx; 
+lft x4 = lft x5 + 1.5dx - pl = x.r - 11dx;
+y1 + 2dy = y2 + 4dy = y4 + 4dy = y3 + 7dy = y5 + dy = y.r;
+draw z.r{left}..z1{down}..tension 1.5
+..z2{down}..tension 1.5..z3..z4{up}..z5;
+enddef;
+
+def yah_p_iso =
+x10 = x4 - dx = x5; x3 = x6 = x7 + 2dx = x4 - 8dx; x8 = x4 + 4dx = x.r;
+y10 = y6 = y4 - 3dy = y5 - 5dy = y.r; y3 = y.rr; y7 = y8 = y.r - 3dy;
+z9 = 0.2[z10,z5]; z1 = 0.9[z6,z9]; z2 = 0.8[z3,z5];
+draw z8--z7{left}..z6..controls z1 and z2..z5..z4{(dx,-6dy)};
+enddef;
+
+def yah_p_end =
+x8 - 7dx = x7 + 3dx = x.r; y7 = y8 = y.r - 3dy;
+draw z8--z7{left}..z.r{(4dx,dy)};
+enddef;
+
+%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%
+
+

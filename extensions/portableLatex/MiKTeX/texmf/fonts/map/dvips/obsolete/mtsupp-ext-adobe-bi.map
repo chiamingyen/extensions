@@ -1,0 +1,11 @@
+% Thomas Esser, 1999. Public domain.
+%
+% mtsupp-ext-adobe-bi.map: map file with basic ps fonts as
+%    needed for mathtime package.
+%
+% "Faked" ExtendFont / SlantFont without font downloading. Only useful
+% for dvips and psftopk.
+ptmbo8y Times-Bold ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+ptmro8y Times-Roman ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+tibo Times-Bold ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc
+tio Times-Roman ".167 SlantFont TeXnANSIEncoding ReEncodeFont" <texnansi.enc

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/mciteplus"><TPM:Name>mciteplus</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>An enhanced mcite</TPM:Title><TPM:Version></TPM:Version><TPM:Description>he mciteplus LaTeX package is an enhanced reimplementation of Thorsten 
+Ohl's mcite package which provides support for the grouping of multiple 
+citations together as is often done in physics journals. An extensive 
+set of features provide for other applications such as reference 
+sublisting.
+
+Mciteplus is compatible with the REVTeX4 class.</TPM:Description><TPM:RunFiles size="278756">texmf\bibtex\bst\mciteplus\apsrevM.bst texmf\bibtex\bst\mciteplus\apsrmpM.bst texmf\bibtex\bst\mciteplus\IEEEtranM.bst texmf\bibtex\bst\mciteplus\IEEEtranMN.bst texmf\tex\latex\mciteplus\mciteplus.sty texmf\tpm\packages\mciteplus.tpm</TPM:RunFiles><TPM:DocFiles size="496747">texmf\doc\latex\mciteplus\changelog.txt texmf\doc\latex\mciteplus\mciteplus_code.txt texmf\doc\latex\mciteplus\mciteplus_doc.pdf texmf\doc\latex\mciteplus\README</TPM:DocFiles><TPM:SourceFiles size="25431">texmf\source\mciteplus-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1223308944</TPM:TimePackaged><TPM:MD5>2807e6e8e3c274e53cc03d9832807990</TPM:MD5></rdf:Description></rdf:RDF>

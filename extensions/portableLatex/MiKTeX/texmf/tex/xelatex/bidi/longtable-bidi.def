@@ -1,0 +1,36 @@
+%%
+%% This is file `longtable-bidi.def',
+
+%% 
+%%   __________________________________
+%%   Copyright © 2009-2010 Vafa Khalighi
+%% 
+%%   License information appended.
+%% 
+%% 
+\ProvidesFile{longtable-bidi.def}[2010/03/01 v0.2 adaptations for longtable package]
+\def\LT@makecaption#1#2#3{%
+  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
+    \sbox\@tempboxa{\if@RTL\beginR\fi#1{#2: }#3\if@RTL\endR\fi}%
+    \ifdim\wd\@tempboxa>\hsize
+      #1{#2: }#3%
+    \else
+      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \endgraf\vskip\baselineskip}%
+  \hss}}}
+%% 
+%% Copyright © 2009-2010      by Vafa Khalighi     <vafa@users.berlios.de>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Vafa Khalighi.
+%% 
+%% 
+%% 
+%% 
+%%
+%% End of file `longtable-bidi.def'.

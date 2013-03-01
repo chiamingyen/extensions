@@ -1,0 +1,68 @@
+% abjad.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% defines the command \abjad {#1}
+% to produce the `abjad' rendering of the argument,
+% which must be (or expand within Tex's mouth to)
+% a legal number between 1 and 1999
+% This command works both inside and outside an Arabic environment.
+% 26.04.2003
+% no warranty whatsoever
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx \abjatcode \undefined \else \expandafter \endinput 
+\fi % load only once
+
+\chardef \abjatcode = \catcode`\@  \catcode`\@ = 11
+
+\a@ident {abjad.sty} {3.11 abjad numerals } {26.04.2003}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \abj@d #1{% convert to abjad notation if possible
+\ifnum #1>1999 #1 \else \ifnum #1=0 0 \else
+\ifnum #1>999 \xpa\@bjad \number #1\else 
+\ifnum #1>099 \xpa\@bjad \xpa0\number#1\else
+\ifnum #1>009 \xpa\@bjad \xpa0\xpa0\number#1\else 
+\xpa\@bjad \xpa0\xpa0\xpa0\number#1%
+\fi\fi\fi\fi\fi }
+
+\def \@bjad #1#2#3#4{% convert to abjad notation
+\ifx #10\else .g\fi 
+\ifcase #2 \or q\or r\or ^s\or t\or _t \or _h\or _d\or .d\or .z\fi
+\ifcase #3 \or Y\or k\or l\or m\or n\or s\or `\or f\or .s\fi
+\ifcase #4 \or |A\or .b\or .h-\or d\or h\or w\or z\or .h\or .t\fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \abjad #1{% inside a Roman environment
+\edef \the@bjad {\abj@d {#1}}%
+\novocalize \arabtrue \transfalse \RL {\stdcode {\the@bjad }}%
+\iftrans {\set@transfont \ \trans@text #1 \end }\fi }
+
+\def \a@c@abjad #1{% inside an Arabic environment
+\putwordb@x {\transfalse \showfalse \abjad {#1}}%
+\iftrans {\set@transfont \trans@text #1 \end }\fi
+\arab@tail }
+
+\allowarab \the@bjad
+
+% NOTE: \abj@d is fully expandable
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \Abjad #1{\xpa \@Abjad \csname c@#1\endcsname }
+
+\let \@Abjad \abj@d
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\catcode `\@ = \abjatcode
+
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+

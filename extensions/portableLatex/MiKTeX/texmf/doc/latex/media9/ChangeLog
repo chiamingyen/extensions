@@ -1,0 +1,33 @@
+2012-05-02
+	* v0.7
+	* new: 3Dpartsattrs added as package option
+
+2012-04-25
+	* v0.6
+	* new: command options added: 3Dpartsattrs, label;
+	updated APlayer and VPlayer versions with exposed ActionScript functions
+	for player control from JavaScript
+
+2012-04-16
+	* v0.5
+	* fix: option 3Dortho did not work, documentation update
+
+2012-04-12
+	* v0.4
+	* new: dependency on babel package removed; code contributed by
+	Enrico Gregorio
+	* fix: annotation box size calculation produced non-intuitive results
+
+2012-04-03
+	* v0.3
+	* fix: `deactivate' option did not work
+	* new: enhanced StrobeMediaPlayback.swf video player included
+
+2012-03-16
+	* v0.2
+	* new: LuaLaTeX support
+	* fix: wrong poster dimension in dvi output; fp numbers in PDF objects had
+	too many decimal places for dvipdfmx
+
+2012-03-01
+	* initial release (v0.1) to CTAN

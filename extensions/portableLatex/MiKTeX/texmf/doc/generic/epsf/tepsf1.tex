@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Preamble
+
+\input epsf.tex
+
+\def \bs {\char`\\}
+
+\def \heading #1{\centerline{\bf #1}}
+
+\def \myfont {%
+    \baselineskip = 9.6pt
+    \font \rm = cmr8 at 8pt
+    \rm
+}
+
+\def \noise
+{%
+    Blah blah blah blah blah blah. Blah blah blah blah blah blah. Blah
+    blah blah blah blah blah. Blah blah blah blah blah blah
+}
+
+\def \ARROWPICTURE {\llap{$\Rightarrow$}\PLAINPICTURE\rlap{$\Leftarrow$}}
+
+\def \PLAINPICTURE {\epsffile{tepsf.eps}}
+
+\parindent = 2em
+
+\parskip = 2ex plus 0.5ex minus 0.5ex
+
+%% Page size in mid-Atlantic units
+\voffset = -0.5in
+
+\vsize = 9.5in
+
+\hsize = 12.5cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document body
+
+\myfont
+
+\heading{Test of {\tt epsf.tex}}
+
+\noise
+
+This figure should be centered:
+
+\centerline{\PLAINPICTURE}
+
+\noise
+
+This figure should be left-adjusted:
+
+\leftline{\PLAINPICTURE}
+
+\noise
+
+This figure should be right-adjusted:
+
+\rightline{\PLAINPICTURE}
+
+\noise
+
+This figure should be centered with abutting arrows on the baseline:
+
+\centerline{\ARROWPICTURE}
+
+\noise
+
+This figure should be left-adjusted with abutting arrows on the
+baseline, the leftmost of which is in the left margin on the baseline:
+
+\leftline{\ARROWPICTURE}
+
+\noise
+
+This figure should be right-adjusted with abutting arrows on the
+baseline, the rightmost of which is in the right margin on the
+baseline:
+
+\rightline{\ARROWPICTURE}
+
+\noise
+
+\vfill
+\eject
+
+%% ---------------------------------------------------------------------
+
+\heading{Test of {\tt epsf.tex}}
+\heading{with}
+\heading{{\tt \bs epsfframetrue} and {\tt \bs epsfshowfalse} and
+         {\tt \bs epsfshowfilenametrue}}
+
+\epsfframetrue
+\epsfshowfalse
+\epsfshowfilenametrue
+\epsfverbosetrue
+
+\noise
+
+This figure should be centered:
+
+\centerline{\PLAINPICTURE}
+
+\noise
+
+This figure should be left-adjusted:
+
+\leftline{\PLAINPICTURE}
+
+\noise
+
+This figure should be right-adjusted:
+
+\rightline{\PLAINPICTURE}
+
+\noise
+
+This figure should be centered with abutting arrows on the baseline:
+
+\centerline{\ARROWPICTURE}
+
+\noise
+
+This figure should be left-adjusted with abutting arrows on the
+baseline, the leftmost of which is in the left margin on the baseline:
+
+\leftline{\ARROWPICTURE}
+
+\noise
+
+This figure should be right-adjusted with abutting arrows on the
+baseline, the rightmost of which is in the right margin on the
+baseline:
+
+\rightline{\ARROWPICTURE}
+
+\noise
+
+\vfill
+\eject
+
+%% ---------------------------------------------------------------------
+
+\bye

@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebchrs.sty
+% ArabTeX
+% dynamic letter token definitions for Hebrew
+% Version 26.04.2003
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Formale Methoden der Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\a@ident {hebchrs.sty} {3.11 Hebrew letter token definitions } {26.04.2003}
+
+{\catcode `\^ 7 \catcode `\ =9 \catcode `\^^M=9 \catcode `\^^I=9
+\gdef \def@hebchars {% define character macros for Hebrew
+\tc@clearall
+\gdef \tc@@ {\act@cd \hc@@ }                     % illegal
+\gdef \tc@a {\act@cd \hc@a }                     % aleph
+\gdef \tc@b {\act@cd \hc@b }                     % beth
+\gdef \tc@d {\act@cd \hc@d }                     % daleth
+\gdef \tc@f {\act@cd \hc@f  \@finaltrue }        % pe
+\gdef \tc@f {\act@cd \hc@f  \@finaltrue \act@mod\r@phe }        % pe
+\gdef \tc@g {\act@cd \hc@j }                     % gimel
+\gdef \tc@h {\act@cd \hc@h }                     % heh
+\gdef \tc@i {\act@cd \hc@y }                     % chireq plene
+\gdef \tc@k {\act@cd \hc@k  \@finaltrue }        % kaph
+\gdef \tc@l {\act@cd \hc@l }                     % lamed
+\gdef \tc@m {\act@cd \hc@m  \@finaltrue }        % mem
+\gdef \tc@n {\act@cd \hc@n  \@finaltrue }        % nun
+\gdef \tc@p {\act@cd \hc@f  \@finaltrue }        % pe
+\gdef \tc@q {\act@cd \hc@q }                     % qoph
+\gdef \tc@r {\act@cd \hc@r }                     % resh
+\gdef \tc@s {\act@cd \hc@s }                     % samekh
+\gdef \tc@t {\act@cd \hc@t }                     % taw
+\gdef \tc@v {\act@cd \hc@b }                     % beth
+\gdef \tc@v {\act@cd \hc@b \act@mod\r@phe }                     % beth
+\gdef \tc@w {\act@cd \hc@w }                     % waw
+\gdef \tc@x {\act@cd \hc@si \act@mod \shind@t }  % shin with dot
+\gdef \tc@y {\act@cd \hc@y }                     % yod
+\gdef \tc@z {\act@cd \hc@z }                     % zayin
+
+\gdef \tc@A {\act@cd \hc@a }                     % aleph again
+\gdef \tc@B {\act@cd \hc@B }                     % maqqeph
+\gdef \tc@C {\act@cd \hc@tt }                    % thet
+\gdef \tc@D {\act@cd \hc@d  \@dageshtrue }       % daleth dagesh
+\gdef \tc@F {\act@cd \hc@d }                     % daleth
+\gdef \tc@G {\act@cd \hc@j }                     % gimel
+\gdef \tc@H {\act@cd \hc@h  \@dageshtrue }       % heh mappiq
+\gdef \tc@K {\act@cd \hc@K }                     % paseq
+\gdef \tc@M {\act@cd \hc@M }                     % phantom 1: box
+\gdef \tc@N {\act@cd \hc@N }                     % phantom 2: space
+\gdef \tc@O {\act@cd \hc@w  \act@mod \rd@t }     % cholem maleh
+\gdef \tc@P {\act@cd \hc@P }                     % ayin
+\gdef \tc@Q {\act@cd \hc@a }                     % aleph again
+\gdef \tc@R {\act@cd \hc@j  \@dageshtrue }       % gimel dagesh
+\gdef \tc@S {\act@cd \hc@ss \@finaltrue }        % sade
+\gdef \tc@T {\act@cd \hc@h  \@dageshtrue }       % he
+\gdef \tc@U {\act@cd \hc@w  \@dageshtrue }       % shureq
+\gdef \tc@V {\act@cd \hc@t  \@dageshtrue }       % taw dagesh
+\gdef \tc@W {\act@cd \hc@N }                     % phantom 2
+\gdef \tc@X {\act@cd \hc@hh }                    % chet
+\gdef \tc@Y {\act@cd \hc@y }                     % yod
+
+\tc@def \a@b {\act@cd \hc@b  \@dageshtrue }             % beth dagesh
+\tc@def \a@f {\act@cd \hc@f  \@finaltrue \@dageshtrue } % pe dagesh
+\tc@def \a@i {\act@cd \hc@ey }                          % yod yod
+\tc@def \a@k {\act@cd \hc@k  \@finaltrue \@dageshtrue } % kaph dagesh
+\tc@def \a@o {\act@cd \hc@oy }                          % waw yod
+\tc@def \a@s {\act@cd \hc@si \act@mod \sind@t }         % sin with dot
+\tc@def \a@w {\act@cd \hc@v }                           % waw waw
+\tc@def \a@B {\act@cd \hc@b  \act@mod \r@phe }          % veyz
+\tc@def \a@F {\act@cd \hc@f \@finaltrue \act@mod\r@phe }% fey
+\tc@def \a@H {\act@cd \hc@h }                           % silent he 
+\tc@def \a@K {\act@cd \hc@kf }				% kaf sofit
+\tc@def \a@M {\act@cd \hc@mf }				% mem sofit
+\tc@def \a@N {\act@cd \hc@nf }				% nun sofit
+\tc@def \a@P {\act@cd \hc@ff }				% peh sofit
+\tc@def \a@S {\act@cd \hc@si }                          % sin without dot
+\tc@def \a@Z {\act@cd \hc@sf }				% tsadeh sofit
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}}% end of dynamic definitions for Hebrew
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def \tc@def #1{% define letter description \tc@#1 
+\xpa \gdef \csname tc@\string #1\endcsname }
+
+\def \a@letters {abcdefghijklmnopqrstuvwxyz}
+
+\def \tc@clear #1{% reset all letter descriptions, also for Hebrew!
+\ifx #1\relax \relax \else \uppercase {\gdef \1{#1}}%
+\xpa \gdef \csname tc@#1\endcsname {\relax}%
+\xpa \gdef \csname tc@\1\endcsname {\relax}%
+\xpa \gdef \csname tc@\xpa\string\csname a@#1\endcsname\endcsname {\relax}%
+\xpa \gdef \csname tc@\xpa\string\csname a@\1\endcsname\endcsname {\relax}%
+\xpa \tc@clear \fi }
+
+\def \tc@clearall {% reset all \tc@x definitions
+\xpa \tc@clear \a@letters \relax }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

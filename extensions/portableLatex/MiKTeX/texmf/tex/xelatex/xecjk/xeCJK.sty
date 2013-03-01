@@ -1,0 +1,1043 @@
+%%
+%% This is file `xeCJK.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% xeCJK.dtx  (with options: `xeCJK')
+%% 
+%%  Version 2.3.10 (30-Sept-2009)
+%% 
+%%  Copyright (C) Wenchang Sun <sunwch@hotmail.com>
+%% 
+%%  This file may be distributed and/or modified under the
+%%  conditions of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%%  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%%  and version 1.3 or later is part of all distributions of LaTeX
+%%  version 2005/12/01 or later.
+%% 
+\def\fileversion{2.3.10}
+\def\filedate{2009/09/30}
+\ProvidesPackage{xeCJK}[\filedate\space\fileversion]
+\RequirePackage{ifxetex}
+\RequireXeTeX
+\expandafter\def\csname ver@CJK.sty\endcsname{2020/01/01}
+
+\newif\ifxeCJK@SlantFont@
+\xeCJK@SlantFont@false
+
+\newif\ifxeCJK@BoldFont@
+\xeCJK@BoldFont@false
+
+\newif\ifxeCJK@num
+\xeCJK@numfalse
+
+\newif\ifxeCJK@checksingle
+\xeCJK@checksinglefalse
+
+\DeclareOption{boldfont}{\xeCJK@BoldFont@true}
+\DeclareOption{BoldFont}{\ExecuteOptions{boldfont}}
+\DeclareOption{slantfont}{\xeCJK@SlantFont@true}
+\DeclareOption{SlantFont}{\ExecuteOptions{slantfont}}
+\DeclareOption{CJKnumber}{\xeCJK@numtrue}
+\DeclareOption{CJKnormalspaces}{}
+\DeclareOption{CJKaddspaces}{}
+\DeclareOption{CJKtextspaces}{}
+\DeclareOption{CJKmathspaces}{}
+\DeclareOption{CJKsetspaces}{}
+\DeclareOption{CJKnospaces}{}
+\DeclareOption{CJKchecksingle}{\AtEndOfPackage{\let\xeCJK@i@i\xeCJK@checksingle}}
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{fontspec}}
+\ProcessOptions\relax
+
+\RequirePackage{fontspec}
+\relax
+\endlinechar \m@ne
+\def\makexeCJKactive{
+  \XeTeXinterchartokenstate=1\relax}
+
+\def\makexeCJKinactive{
+  \XeTeXinterchartokenstate=0\relax}
+
+\makexeCJKactive
+
+\def\xeCJKsetcharclass#1#2#3{
+  \@tempcnta=#1
+  \loop
+    \XeTeXcharclass \@tempcnta #3\relax
+    \advance\@tempcnta 1\relax
+    \ifnum\the\@tempcnta<#2 \repeat
+  \xeCJK@setpunctcharclass}
+
+\def\xeCJK@prePunct#1#2{\xeCJK@setPunct{2}{#1}{#2}}
+\def\xeCJK@postPunct#1#2{\xeCJK@setPunct{3}{#1}{#2}}
+
+\def\xeCJK@setPunct#1#2#3{
+  \def\xeCJK@class{#1}
+  \@tempcnta "#2\relax
+  \multiply\@tempcnta 256\relax
+  \xeCJK@setPunct@#3,,}
+
+\def\xeCJK@setPunct@#1,{
+  \edef\xeCJK@temp{#1}%
+  \ifx\xeCJK@temp\@empty
+  \else
+     \@tempcntb "#1\relax
+     \advance\@tempcntb\@tempcnta\relax
+     \XeTeXcharclass \@tempcntb=\xeCJK@class\relax
+     \def\xeCJK@temp{\xeCJK@setPunct@}
+  \fi
+  \xeCJK@temp}
+
+\def\xeCJK@setpunctcharclass{
+  \xeCJK@prePunct{20}{18,1C}
+  \xeCJK@postPunct{20}{19,1D,14,26}
+  \xeCJK@postPunct{25}{00}
+  \xeCJK@prePunct{30}{08,0A,0C,0E,10,12,14,16,18,1A,1D,1F,36}
+
+  \xeCJK@postPunct{30}{01,02,05,06,09,0B,0D,0F,11,15,17,19,1B,1E,
+                     41,43,45,47,49,63,83,85,87,8E,
+                     9B,9C,9D,9E,A1,A3,A5,A7,A9,C3,E3,E5,E7,EE,F5,F6,FB,FC,FD,FE}
+  \xeCJK@prePunct {FE}{59,5B,5D,5F,60,69,6B}
+  \xeCJK@postPunct{FE}{50,51,52,54,55,56,57,5A,5C,5E,6A}
+  \xeCJK@prePunct {FF}{03,04,08,20,3B,5B,E0,E1,E5,E6}
+  \xeCJK@postPunct{FF}{01,05,09,0C,0E,1A,1B,1F,3D,5D,
+                     61,63,64,65,67,68,69,6A,6B,6C,6D,6E,6F,70,9E,9F}
+
+  \xeCJK@setPunct{4}{0}{28,2D,5B,60,7B}
+  \xeCJK@setPunct{5}{0}{21,22,25,27,29,2C,2E,3A,3B,3F,5D,7D}}
+
+\xeCJKsetcharclass{"2000}{"FFFF}{1}
+
+\def\CJK@stop{\CJK@stop}
+
+\def\normalspacedchars#1{
+  \xeCJK@setnormalspacedchar#1\CJK@stop}
+
+\def\xeCJK@setnormalspacedchar#1{
+  \ifx#1\CJK@stop
+  \else
+    \XeTeXcharclass`#1=6
+    \expandafter\xeCJK@setnormalspacedchar
+  \fi}
+
+\normalspacedchars{/}
+
+\XeTeXinterchartoks 1 0{\egroup\CJKecglue}
+\XeTeXinterchartoks 1 1{\xeCJK@i@i}
+\XeTeXinterchartoks 1 2{\xeCJK@i@ii}
+\XeTeXinterchartoks 1 3{\xeCJK@i@iii}
+\XeTeXinterchartoks 1 4{\egroup\CJKecglue}
+\XeTeXinterchartoks 1 5{\egroup}
+\XeTeXinterchartoks 1 255{\xeCJK@i@cclv}
+
+\XeTeXinterchartoks 2 0{\xeCJK@ii@}
+\XeTeXinterchartoks 2 1{\xeCJK@ii@i}
+\XeTeXinterchartoks 2 2{\xeCJK@ii@ii}
+\XeTeXinterchartoks 2 3{\xeCJK@ii@iii}
+\XeTeXinterchartoks 2 4{\xeCJK@ii@iv}
+\XeTeXinterchartoks 2 5{\xeCJK@ii@v}
+\XeTeXinterchartoks 2 255{\xeCJK@ii@cclv}
+
+\XeTeXinterchartoks 3 0{\xeCJK@iii@}
+\XeTeXinterchartoks 3 1{\xeCJK@iii@i}
+\XeTeXinterchartoks 3 2{\xeCJK@iii@ii}
+\XeTeXinterchartoks 3 3{\xeCJK@iii@iii}
+\XeTeXinterchartoks 3 4{\xeCJK@iii@iv}
+\XeTeXinterchartoks 3 5{\xeCJK@iii@v}
+\XeTeXinterchartoks 3 255{\xeCJK@iii@cclv}
+
+\XeTeXinterchartoks 0 1{\xeCJK@@i}
+\XeTeXinterchartoks 0 2{\xeCJK@@ii}
+\XeTeXinterchartoks 0 3{\xeCJK@@iii}
+\XeTeXinterchartoks 0 255{\xeCJK@@cclv}
+
+\XeTeXinterchartoks 4 1{\xeCJK@iv@i}
+\XeTeXinterchartoks 4 2{\xeCJK@iv@ii}
+\XeTeXinterchartoks 4 3{\xeCJK@iv@iii}
+
+\XeTeXinterchartoks 5 1{\xeCJK@v@i}
+\XeTeXinterchartoks 5 2{\xeCJK@v@ii}
+\XeTeXinterchartoks 5 3{\xeCJK@v@iii}
+\XeTeXinterchartoks 5 255{\xeCJK@v@cclv}
+
+\XeTeXinterchartoks 255 0{\xeCJK@cclv@}
+\XeTeXinterchartoks 255 1{\xeCJK@cclv@i}
+\XeTeXinterchartoks 255 2{\xeCJK@cclv@ii}
+\XeTeXinterchartoks 255 3{\xeCJK@cclv@iii}
+\XeTeXinterchartoks 255 4{\xeCJK@cclv@iv}
+
+\XeTeXinterchartoks 1 6{\xeCJK@i@vi}
+\XeTeXinterchartoks 6 1{\xeCJK@vi@i}
+
+\def\xeCJK@vi@i{
+  \bgroup
+  \xeCJK@emptyCJKtoks
+  \xeCJK@setfont
+  \CJKsymbol}
+
+\def\xeCJK@i@vi{
+  \egroup}
+
+\def\xeCJK@i@i{
+  \CJKglue
+  \CJKsymbol}
+
+\def\xeCJK@i@ii#1{
+  \xeCJK@punctrule{#1}{l}
+  \hskip \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @lglue@#1\endcsname
+    plus 0.1em minus 0.1 em
+  \xeCJK@setprepunct{#1}}
+
+\def\xeCJK@i@iii#1{
+  \xeCJK@punctrule{#1}{r}
+  \ifcsname xeCJK@specialpunct#1\endcsname
+    \CJKglue % breakable
+  \else
+    \nobreak
+  \fi
+  \global\edef\xeCJK@lastpunct{#1}
+  \CJKpunctsymbol{#1}}
+
+\def\xeCJK@setprepunct#1{
+  \edef\xeCJK@lastpunct{#1}
+  \vrule width \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname
+    @lrule@#1\endcsname depth \z@ height \z@
+  \CJKpunctsymbol{#1}}
+
+\def\xeCJK@i@cclv{
+  \egroup
+  {\xeCJK@CJKkern}
+  \xeCJK@ignorespaces}
+
+\def\xeCJK@ii@i{
+  \nobreak
+  \CJKsymbol}
+
+\def\xeCJK@ii@ii#1{
+  \nobreak
+  \xeCJK@punctrule{#1}{l}
+  \xeCJK@setkern{\xeCJK@lastpunct}{#1}
+  \kern \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern\xeCJK@lastpunct#1\endcsname
+  \xeCJK@setprepunct{#1}}
+
+\def\xeCJK@ii@iii#1{
+  \nobreak
+  \xeCJK@punctrule{#1}{r}
+  \xeCJK@setkern{\xeCJK@lastpunct}{#1}
+  \kern \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern\xeCJK@lastpunct#1\endcsname
+  \nobreak
+  \edef\xeCJK@lastpunct{#1}
+  \CJKpunctsymbol{#1}}
+
+\def\xeCJK@ii@{
+  \nobreak
+  \egroup}
+
+\let\xeCJK@ii@iv\xeCJK@ii@
+\let\xeCJK@ii@v\xeCJK@ii@
+
+\def\xeCJK@ii@cclv{
+  \nobreak
+  \egroup
+  \ignorespaces}
+
+\def\xeCJK@iii@{
+  \xeCJK@afterpostpunct
+  \egroup}
+
+\def\xeCJK@iii@i{
+  \xeCJK@afterpostpunct
+  \CJKsymbol}
+
+\def\xeCJK@iii@ii#1{
+  \vrule width \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname
+     @rrule@\xeCJK@lastpunct\endcsname depth \z@ height \z@
+  \xeCJK@punctrule{#1}{l}
+  \xeCJK@setkern{\xeCJK@lastpunct}{#1}
+  \kern \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern\xeCJK@lastpunct#1\endcsname
+  \xeCJKpunctnobreak
+  \xeCJK@setprepunct{#1}}
+
+\def\xeCJK@iii@iii#1{
+  \vrule width \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname
+     @rrule@\xeCJK@lastpunct\endcsname depth \z@ height \z@
+  \xeCJK@punctrule{#1}{r}
+  \xeCJK@setkern{\xeCJK@lastpunct}{#1}
+  \kern \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern\xeCJK@lastpunct#1\endcsname
+  \nobreak
+  \edef\xeCJK@lastpunct{#1}
+  \CJKpunctsymbol{#1}}
+
+\def\xeCJK@iii@iv{
+  \xeCJK@afterpostpunct
+  \egroup}
+
+\def\xeCJK@afterpostpunct{
+  \vrule width \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname
+     @rrule@\xeCJK@lastpunct\endcsname depth \z@ height \z@
+  \hskip \csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @rglue@\xeCJK@lastpunct\endcsname
+    plus 0.1em minus 0.1 em}
+\let\xeCJK@iii@v\xeCJK@iii@iv
+
+\def\xeCJK@iii@cclv{
+    \xeCJK@afterpostpunct
+    \egroup
+    \expandafter\xeCJK@ignorespaces}
+
+\def\xeCJK@@i{
+  \CJKecglue
+  \bgroup
+  \xeCJK@setfont
+  \xeCJK@emptyCJKtoks
+  \CJKsymbol}
+
+\def\xeCJK@@ii{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 0   2{\relax}
+  \xeCJK@emptyCJKtoks
+  \xeCJK@i@ii}
+
+\def\xeCJK@@iii{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 0   3{\relax}
+  \xeCJK@emptyCJKtoks
+  \xeCJK@i@iii}
+
+\def\xeCJK@iv@i{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 4 1{\relax}
+  \xeCJK@emptyCJKtoks
+  \CJKsymbol}
+
+\def\xeCJK@iv@ii{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 4 2{\relax}
+  \xeCJK@emptyCJKtoks
+  \xeCJK@i@ii}
+
+\def\xeCJK@iv@iii{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 4 3{\relax}
+  \xeCJK@emptyCJKtoks
+  \xeCJK@i@iii}
+
+\def\xeCJK@v@i{
+  \CJKecglue
+  \bgroup
+  \xeCJK@setfont
+  \xeCJK@emptyCJKtoks
+  \CJKsymbol}
+
+\def\xeCJK@v@ii{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 5 2{\relax}
+  \xeCJK@emptyCJKtoks
+  \xeCJK@i@ii}
+
+\def\xeCJK@v@iii{
+  \bgroup
+  \xeCJK@setfont
+  \XeTeXinterchartoks 5 3{\relax}
+  \xeCJK@emptyCJKtoks
+  \xeCJK@i@iii}
+
+\def\xeCJK@emptyCJKtoks{
+  \XeTeXinterchartoks 255 1{\relax}
+  \XeTeXinterchartoks 255 2{\relax}
+  \XeTeXinterchartoks 255 3{\relax}}
+
+\def\xeCJK@@cclv{
+  \futurelet\xeCJK@nexttoken\xeCJK@zz@cclv}
+
+\def\xeCJK@zz@cclv{
+  \ifx\xeCJK@nexttoken\@sptoken
+  \else
+    {\xeCJK@zerokern}
+  \fi}
+
+\let\xeCJK@v@cclv\xeCJK@@cclv
+
+\def\xeCJK@cclv@{
+  \ifnum\lastkern=\@ne
+    \@sptoken%\CJKecglue
+  \fi}
+\let\xeCJK@cclv@iv\xeCJK@cclv@
+
+\def\xeCJK@cclv@i{{
+  \ifnum\lastkern=\@ne
+    \CJKglue
+  \else
+    \ifnum\lastkern=\xeCJK@four
+      \@sptoken%\CJKecglue
+    \else
+      \ifnum\lastnodetype=\xeCJK@ten
+        \CJKecglue
+      \fi
+    \fi
+  \fi}
+  \bgroup
+
+  \xeCJK@emptyCJKtoks
+  \xeCJK@setfont
+  \CJKsymbol}
+
+\def\xeCJK@cclv@ii{
+  \bgroup
+  \xeCJK@emptyCJKtoks
+  \xeCJK@setfont
+  \xeCJK@i@ii}
+
+\def\xeCJK@cclv@iii{
+  \bgroup
+  \xeCJK@emptyCJKtoks
+  \xeCJK@setfont
+  \xeCJK@i@iii}
+
+\def\CJKglue{\hskip \z@ \@plus .08\baselineskip}
+\def\CJK@nobreakglue{\nobreak\CJKglue\nobreak}
+
+\edef\xeCJK@CJKkern{\kern -1sp\kern 1sp}
+\edef\xeCJK@prepunctkern{\kern -2sp\kern 2sp}
+\edef\xeCJK@zerokern{\kern -4sp\kern 4sp}
+
+\chardef\xeCJK@four=4
+\chardef\xeCJK@ten=10
+
+\def\xeCJK@ignorespaces{
+  \futurelet\xeCJK@nexttoken\xeCJK@checknext}
+
+\def\xeCJK@checknext{
+  \ifx\xeCJK@nexttoken\@sptoken
+    \expandafter\xeCJK@@checknext
+  \else
+    \ifx $\xeCJK@nexttoken
+      \CJKecglue
+    \fi
+  \fi}
+
+{
+  \def\:{\xeCJK@@checknext}
+  \global\expandafter\def\: {\futurelet\@let@token\xeCJK@@@checknext}
+}
+
+\def\xeCJK@@@checknext{
+  \ifx $\@let@token
+    \@sptoken%\CJKecglue
+  \else
+    \if\relax\noexpand\@let@token
+      \ifx\@let@token\xeCJK@par
+      \else
+        \@sptoken
+      \fi
+    \fi
+  \fi
+  \let\xeCJK@nexttoken\relax}
+
+\long\def\xeCJK@gobble#1\CJK@stop{}
+
+
+\def\xeCJK@checksingle#1{
+  \def\xeCJK@setcurrentchar@i{
+    \CJKglue
+    \CJKsymbol{#1}}
+  \def\xeCJK@setcurrentnobreakchar@i{
+    \CJKsymbol{#1}}
+  \futurelet\@let@token\xeCJK@@checksingle}
+
+\def\xeCJK@@checksingle{
+  \ifcat 。\noexpand\@let@token
+    \expandafter\xeCJK@@@checksingle
+  \else
+    \expandafter\xeCJK@setcurrentchar@i
+  \fi}
+
+\def\xeCJK@@@checksingle#1{
+  \def\xeCJK@setcurrentchar@ii{
+    \xeCJK@setcurrentchar@i #1}
+  \def\xeCJK@setcurrentnobreakchar@ii{
+    \xeCJK@setcurrentnobreakchar@i #1}
+  \futurelet\@let@token\xeCJK@@@@checksingle}
+
+\def\xeCJK@@@@checksingle{
+  \ifx\@let@token\@sptoken
+    \expandafter\xeCJK@checkpar
+  \else
+    \expandafter\xeCJK@setcurrentchar@ii
+  \fi}
+
+\let\xeCJK@par\par
+\def\xeCJK@checkpar{
+  \@ifnextchar\xeCJK@par{\xeCJK@setcurrentnobreakchar@ii}{\xeCJK@setcurrentchar@ii}}
+
+\def\xeCJKsetecglue#1{
+    \def\CJK@ecglue{#1}
+    \let\CJKecglue\CJK@ecglue}
+\let\CJKsetecglue\xeCJKsetecglue
+\CJKsetecglue{ }
+
+\def\xeCJKallowbreakbetweenpuncts{
+  \def\xeCJKpunctnobreak{
+    \hskip 0pt}}
+
+\def\xeCJKnobreakbetweenpuncts{
+  \let\xeCJKpunctnobreak\nobreak}
+\xeCJKnobreakbetweenpuncts
+
+\newcount\xeCJK@cnta
+\newcount\xeCJK@cntb
+\newcount\xeCJK@cntc
+\newcount\xeCJK@cntd
+\newcount\xeCJK@cnte
+\newdimen\xeCJK@dima
+\newif\ifxeCJK@dokerning
+
+\def\xeCJK@punctrule#1#2{
+  \xdef\xeCJK@bboxname{\xeCJK@family/\f@series/\f@shape}
+  \ifcsname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @#2rule@#1\endcsname
+  \else
+    \ifcsname xeCJK@\xeCJK@bboxname @lspace@#1\endcsname
+    \else
+      {\xeCJK@setfont
+       \xeCJK@setpunctbounds{#1}}
+    \fi
+    \xeCJK@dokerningtrue
+    \ifnum\xeCJK@punctstyle=\xeCJK@ps@plain\relax
+      \xeCJK@dokerningfalse
+    \else
+      \ifcsname xeCJK@specialpunct#1\endcsname
+        \xeCJK@dokerningfalse
+      \fi
+    \fi
+    \ifxeCJK@dokerning
+      \xeCJK@cnta=\csname xeCJK@\xeCJK@bboxname @#2space@#1\endcsname\relax
+      \xeCJK@cntc=\xeCJK@cnta
+      \ifcase\xeCJK@punctstyle
+          % hangmobanjiao
+      \or % quanjiao
+      \or % banjiao
+        \advance\xeCJK@cntc -50\relax
+      \or % kaiming
+        \ifcsname xeCJK@kaiming#1\endcsname
+        \else
+          \advance\xeCJK@cntc -50\relax
+        \fi
+      \or %CCT
+        \advance\xeCJK@cntc -20\relax
+      \fi
+      \xeCJK@cntd=\xeCJK@cntc
+      \ifnum\xeCJK@cntc<0\relax
+        \xeCJK@cntc=0\relax
+      \fi
+    \else
+      \xeCJK@cnta=0\relax
+      \xeCJK@cntc=0\relax
+      \xeCJK@cntd=0\relax
+    \fi
+    \xeCJK@numtodim{\xeCJK@cnta}
+    \global\expandafter\edef\csname
+      xeCJK\xeCJK@punctstyle\xeCJK@bboxname @#2rule@#1\endcsname{
+        -\xeCJK@temp em}
+    \xeCJK@numtodim{\xeCJK@cntc}
+    \global\expandafter\edef\csname
+      xeCJK\xeCJK@punctstyle\xeCJK@bboxname @#2glue@#1\endcsname{
+        \xeCJK@temp em}
+    \global\expandafter\edef\csname
+      xeCJK\xeCJK@punctstyle\xeCJK@bboxname @#2oglue@#1\endcsname{
+        \the\xeCJK@cntd}
+  \fi}
+
+\def\xeCJK@numtodim#1{
+  \xeCJK@cnte=#1\relax
+  \ifnum\the\xeCJK@cnte<100\relax
+    \def\xeCJK@temp{0}
+  \else
+    \advance\xeCJK@cnte -100\relax
+    \def\xeCJK@temp{1}
+  \fi
+  \ifnum\the\xeCJK@cnte<10
+    \edef\xeCJK@temp{\xeCJK@temp.0\the\xeCJK@cnte}
+  \else
+    \edef\xeCJK@temp{\xeCJK@temp.\the\xeCJK@cnte}
+  \fi}
+
+\expandafter\def\csname xeCJK@kaiming。\endcsname{}
+\expandafter\def\csname xeCJK@kaiming？\endcsname{}
+\expandafter\def\csname xeCJK@kaiming！\endcsname{}
+\expandafter\def\csname xeCJK@specialpunct—\endcsname{}% U+2014
+\expandafter\def\csname xeCJK@specialpunct─\endcsname{}% U+2500
+\expandafter\def\csname xeCJK@specialpunct…\endcsname{}
+\def\xeCJK@setkern#1#2{
+  \ifcsname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern#1#2\endcsname
+  \else
+    \xeCJK@cnta=0\relax
+    \ifcsname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @roglue@#1\endcsname
+      \advance\xeCJK@cnta\csname
+        xeCJK\xeCJK@punctstyle\xeCJK@bboxname @roglue@#1\endcsname
+    \fi
+    \ifcsname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @loglue@#2\endcsname
+      \advance\xeCJK@cnta\csname xeCJK\xeCJK@punctstyle\xeCJK@bboxname
+        @loglue@#2\endcsname
+    \fi
+    \relax
+    \ifcase\xeCJK@punctstyle
+        % hangmobanjiao
+    \or % quanjiao
+      \advance\xeCJK@cnta -50\relax
+    \or % banjiao
+    \or % kaiming
+      \ifcsname xeCJK@kaiming#1\endcsname
+        \ifcsname xeCJK\xeCJK@punctstyle\xeCJK@bboxname @roglue@#2\endcsname
+          \advance\xeCJK@cnta -50\relax
+        \fi
+      \fi
+    \fi
+    \ifnum\xeCJK@cnta<0\relax
+      \xeCJK@cnta=0\relax
+    \fi
+    \xeCJK@numtodim{\xeCJK@cnta}
+    \global\expandafter\edef\csname
+      xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern#1#2\endcsname{
+        \xeCJK@temp em}
+  \fi}
+
+\def\xeCJKsetkern#1#2#3{
+  \xdef\xeCJK@bboxname{\xeCJK@family/\f@series/\f@shape}
+  \global\expandafter\edef\csname
+      xeCJK\xeCJK@punctstyle\xeCJK@bboxname @kern#1#2\endcsname{#3}}
+
+\def\punctstyle#1{
+  \ifcsname xeCJK@ps@#1\endcsname
+    \edef\xeCJK@punctstyle{\csname xeCJK@ps@#1\endcsname}
+    \ifnum\xeCJK@punctstyle=\xeCJK@ps@plain\relax
+      \xeCJKallowbreakbetweenpuncts
+    \fi
+  \else
+    \typeout{Warning: Punctstyle #1\space is not defined.}
+  \fi}
+
+\def\xeCJK@ps@hangmobanjiao{0}
+\def\xeCJK@ps@marginkerning{0}
+\def\xeCJK@ps@quanjiao{1}
+\def\xeCJK@ps@fullwidth{1}
+\def\xeCJK@ps@banjiao{2}
+\def\xeCJK@ps@halfwidth{2}
+\def\xeCJK@ps@kaiming{3}
+\def\xeCJK@ps@mixedwidth{3}
+\def\xeCJK@ps@CCT{4}
+\def\xeCJK@ps@plain{5}
+\punctstyle{quanjiao}
+
+\let\@afterindentfalse\relax
+
+\def\xeCJKplainchr{\punctstyle{plain}}
+
+\def\xeCJK@sidespace{10}
+
+\def\xeCJK@getglyphbounds#1{
+  \xeCJK@cnta=\number\XeTeXglyphbounds #1 \xeCJK@gid
+  \xeCJK@dima 1em\relax
+  \xeCJK@cntb=\number\xeCJK@dima
+  \multiply\xeCJK@cnta 100\relax
+  \divide\xeCJK@cnta\xeCJK@cntb
+  \advance\xeCJK@cnta -15\relax
+  \edef\xeCJK@temp{\the\xeCJK@cnta}
+  \ifnum\xeCJK@temp<0\relax
+    \def\xeCJK@temp{0}
+  \fi}
+
+\def\xeCJK@setpunctbounds#1{
+  \edef\xeCJK@gid{\the\XeTeXcharglyph`#1}
+  \xeCJK@getglyphbounds{1}
+  \expandafter\xdef\csname xeCJK@\xeCJK@bboxname @lspace@#1\endcsname{
+    \xeCJK@temp}
+  \xeCJK@getglyphbounds{3}
+  \expandafter\xdef\csname xeCJK@\xeCJK@bboxname @rspace@#1\endcsname{
+    \xeCJK@temp}
+  \ifcsname xeCJK@specialpunct#1\endcsname
+    \ifx#1…
+    \else
+      \xeCJK@cnta=\number\XeTeXglyphbounds 1 \xeCJK@gid
+      \advance\xeCJK@cnta\number\XeTeXglyphbounds 3 \xeCJK@gid
+      \xeCJK@dima 1em\relax
+      \xeCJK@cntb=\number\xeCJK@dima
+      \multiply\xeCJK@cnta 100\relax
+      \divide\xeCJK@cnta\xeCJK@cntb
+      \advance\xeCJK@cnta 1\relax
+      \ifnum\xeCJK@cnta>9
+        \edef\xeCJK@temp{-0.\the\xeCJK@cnta em}
+      \else
+        \ifnum\xeCJK@cnta>1
+          \edef\xeCJK@temp{-0.0\the\xeCJK@cnta em}
+        \else
+          \edef\xeCJK@temp{-0.01 em}
+        \fi
+      \fi
+      \xeCJK@cnta=0
+      \loop
+        \global\expandafter\edef\csname xeCJK\the\xeCJK@cnta\xeCJK@bboxname
+          @kern#1#1\endcsname{\xeCJK@temp}
+        \advance \xeCJK@cnta 1\relax
+      \ifnum\xeCJK@cnta<6\repeat
+    \fi
+  \fi}
+
+\ifcsname XeTeXglyphbounds\endcsname
+\else
+  \PackageError{xeCJK}{\string\XeTeXglyphbounds \space not defined.^^J
+    You have to update XeTeX  to the version 0.9995.0 or later}
+    \relax
+\fi
+
+\def\CJKsymbol#1{#1}
+\def\CJKpunctsymbol#1{#1}
+
+\DeclareRobustCommand{\xeCJK@ULprepunctchar}[1]{
+ {\XeTeXinterchartokenstate=0
+  \CJKpunctsymbol{#1}
+  \nobreak}
+  \ignorespaces}
+\DeclareRobustCommand{\xeCJK@ULpostpunctchar}[1]{
+ {\XeTeXinterchartokenstate=0
+  \CJKpunctsymbol{#1}}
+  \xeCJK@ignorespaces}
+\def\xeCJK@ULroutines{
+  \XeTeXinterchartoks 0   1 {\CJKecglue\CJKsymbol}
+  \XeTeXinterchartoks 4   1 {\CJKsymbol}
+  \XeTeXinterchartoks 5   1 {\CJKecglue\CJKsymbol}
+  \XeTeXinterchartoks 255 1 {\xeCJK@cclv@i}
+  \XeTeXinterchartoks 0   2 {\xeCJK@ULprepunctchar}
+  \XeTeXinterchartoks 4   2 {\xeCJK@ULprepunctchar}
+  \XeTeXinterchartoks 5   2 {\xeCJK@ULprepunctchar}
+  \XeTeXinterchartoks 255 2 {\xeCJK@ULprepunctchar}
+  \XeTeXinterchartoks 0   3 {\xeCJK@ULpostpunctchar}
+  \XeTeXinterchartoks 4   3 {\xeCJK@ULpostpunctchar}
+  \XeTeXinterchartoks 5   3 {\xeCJK@ULpostpunctchar}
+  \XeTeXinterchartoks 255 3 {\xeCJK@ULpostpunctchar}}
+
+\AtBeginDocument{
+  \ifcsname UL@hook\endcsname
+    \addto@hook\UL@hook{
+      \def\CJKsymbol#1{{\xeCJK@setfont #1}\kern -1sp\kern 1sp\xeCJK@ignorespaces}
+      \def\CJKpunctsymbol#1{{\xeCJK@setfont #1}}
+      \xeCJK@ULroutines}
+  \fi
+  \ifcsname ver@CJKfntef.sty\endcsname
+    \def\XeTeX@CJKfntef@hook{
+      \xeCJK@setfont
+      \XeTeXinterchartokenstate=0}
+  \fi}
+
+\def\xeCJK@setfont{
+  \ifcsname\xeCJK@family/\f@series/\f@shape/\f@size\endcsname
+    \csname\xeCJK@family/\f@series/\f@shape/\f@size\endcsname
+  \else
+    \csname xeCJK@font@\xeCJK@family\endcsname
+    \get@external@font
+    \expandafter\global\expandafter\font
+     \csname\xeCJK@family/\f@series/\f@shape/\f@size\endcsname=\external@font
+  \fi}
+
+\def\setCJKmainfont{
+  \xeCJK@newfontfamily{rm}}
+
+\let\setCJKromanfont\setCJKmainfont
+
+\def\setCJKsansfont{
+  \xeCJK@newfontfamily{sf}}
+
+\def\setCJKmonofont{
+  \xeCJK@newfontfamily{tt}}
+
+\def\setCJKfamilyfont#1{
+  \xeCJK@newfontfamily{#1}}
+\DeclareRobustCommand\rmfamily
+        {\not@math@alphabet\rmfamily\mathrm
+         \fontfamily\rmdefault\CJKfamily{rm}\selectfont}
+
+\DeclareRobustCommand\sffamily
+        {\not@math@alphabet\sffamily\mathsf
+         \fontfamily\sfdefault\CJKfamily{sf}\selectfont}
+
+\DeclareRobustCommand\ttfamily
+        {\not@math@alphabet\ttfamily\mathtt
+         \fontfamily\ttdefault\CJKfamily{tt}\selectfont}
+\newcommand*\xeCJK@newfontfamily[1]{
+  \@ifnextchar[
+    {\xeCJK@newfontfamily@{#1}}
+    {\xeCJK@newfontfamily@{#1}[]}}
+
+\def\xeCJK@newfontfamily@#1[#2]#3{
+  %
+  % Get user defined options
+  \def\xeCJK@temp{#2,}
+  \expandafter
+    \xeCJK@getBoldFont\xeCJK@temp BoldFont={},{}\relax
+  \expandafter
+    \xeCJK@getBoldItalicFont\xeCJK@temp BoldItalicFont={},{}\relax
+  \expandafter
+    \xeCJK@getItalicFont\xeCJK@temp ItalicFont={},{}\relax
+
+  \edef\xeCJK@Features{}
+
+  \ifxeCJK@BoldFont@
+    \ifx\xeCJK@BoldFont\@empty
+      \edef\xeCJK@Features{BoldFont={#3},
+        BoldFeatures={RawFeature={embolden=\xeCJK@emboldenfactor}}}
+    \fi
+  \fi
+
+  \ifxeCJK@SlantFont@
+    \ifx\xeCJK@ItalicFont\@empty
+      \ifx\xeCJK@Features\@empty
+        \edef\xeCJK@Features{ItalicFont={#3},
+          ItalicFeatures={RawFeature={slant=\xeCJK@slantfactor}}}
+      \else
+        \edef\xeCJK@Features{\xeCJK@Features,ItalicFont={#3},
+          ItalicFeatures={RawFeature={slant=\xeCJK@slantfactor}}}
+      \fi
+    \fi
+
+    \ifx\xeCJK@BoldItalicFont\@empty
+      \ifx\xeCJK@BoldFont\@empty
+        \edef\xeCJK@Features{\xeCJK@Features,BoldItalicFont={#3},
+          BoldItalicFeatures={RawFeature={embolden=\xeCJK@emboldenfactor,slant=\xeCJK@slantfactor}}}
+      \else
+        \edef\xeCJK@Features{\xeCJK@Features,BoldItalicFont={\xeCJK@BoldFont},
+          BoldItalicFeatures={RawFeature={slant=\xeCJK@slantfactor}}}
+      \fi
+    \fi
+  \fi
+
+  \edef\xeCJK@temp{#2}
+  \ifx\xeCJK@temp\@empty
+  \else
+    \ifx\xeCJK@Features\@empty
+      \edef\xeCJK@Features{#2}
+    \else
+      \edef\xeCJK@Features{\xeCJK@Features,#2}
+    \fi
+  \fi
+
+  \edef\@tempa{\noexpand\zf@fontspec{\xeCJK@Features}{#3}}
+  \@tempa
+  \edef\@tempa{
+    \noexpand\DeclareRobustCommand\expandafter\noexpand\csname xeCJK@font@#1\endcsname
+      {\noexpand\fontfamily{\zf@family}\noexpand\selectfont}}
+  \@tempa
+  \expandafter\edef\csname xeCJK@nsff#1\endcsname{\zf@family}}
+
+\def\xeCJK@setmacro@getkey#1{
+  \expandafter\def\csname xeCJK@get#1\endcsname ##1#1=##2,##3\relax{
+    \expandafter\edef\csname xeCJK@#1\endcsname{##2}
+  \edef\xeCJK@temp{##1##3}}}
+
+\xeCJK@setmacro@getkey{BoldFont}
+\xeCJK@setmacro@getkey{ItalicFont}
+\xeCJK@setmacro@getkey{BoldItalicFont}
+
+\define@key[zf]{preparse}{ItalicFeatures}{
+  \edef\zf@it@feat{,#1}
+  \edef\zf@family@long{\zf@family@long itfeat:#1}}
+
+\renewcommand*\zf@fontspec[2]{%
+  \begingroup
+  \zf@init
+  \edef\zf@fontname{#2}%
+  \let\zf@family@long\zf@fontname
+  \setkeys*[zf]{prepreparse}{#1}%
+  \let\zf@up\zf@fontname
+  \edef\@tempa{\noexpand\setkeys*[zf]{preparse}{\XKV@rm}}\@tempa
+  \let\zf@fontname\zf@up
+  \let\zf@font@feat\XKV@rm
+  \font\zf@basefont="\zf@font@wrap\zf@fontname\zf@suffix" at \f@size pt
+  \unless\ifzf@icu
+    \zf@set@font@type
+  \fi
+  \ifx\zf@suffix\@empty
+    \ifzf@atsui
+      \def\zf@suffix{/AAT}%
+    \else
+      \ifzf@icu
+        \def\zf@suffix{/ICU}%
+      \fi
+    \fi
+    \font\zf@basefont="\zf@font@wrap\zf@fontname\zf@suffix" at \f@size pt
+  \fi
+  \zf@firsttimetrue
+    \zf@get@feature@requests{\zf@font@feat}%
+  \zf@firsttimefalse
+  \unless\ifcsname zf@UID@\zf@family@long\endcsname
+    \edef\@tempa{#2}%
+    \ifcsname c@zf@famc@\@tempa\endcsname
+      \expandafter\stepcounter\else
+      \expandafter\newcounter\fi
+        {zf@famc@\@tempa}%
+    \gdef@cx{zf@UID@\zf@family@long}{%
+      \expandafter\expandafter\expandafter
+        \zap@space\expandafter\@tempa\space\@empty
+      (\expandafter\the\csname c@zf@famc@\@tempa\endcsname)}%
+  \fi
+  \xdef\zf@family{\@nameuse{zf@UID@\zf@family@long}}%
+  \unless\ifcsname zf@family@fontname\zf@family\endcsname
+    \zf@PackageInfo{Defining font family for '#2'
+          with options [\zf@default@options #1]}%
+    \gdef@cx{zf@family@fontname\zf@family}{\zf@fontname}%
+    \gdef@cx{zf@family@options\zf@family}{\zf@default@options #1}%
+    \gdef@cx{zf@family@fontdef\zf@family}
+      {\zf@fontname\zf@suffix:\zf@pre@ff\zf@ff}%
+    \DeclareFontFamily{\zf@enc}{\zf@family}{}%
+    \zf@make@font@shapes{\zf@fontname}
+      {\mddefault}{\updefault}{\zf@font@feat\zf@up@feat}%
+    \unless\ifzf@nobf
+      \ifx\zf@bf\@empty
+        \zf@make@font@shapes[\zf@fontname]{/B}
+          {\bfdefault}{\updefault}{\zf@font@feat\zf@bf@feat}%
+      \else
+        \zf@make@font@shapes{\zf@bf}
+          {\bfdefault}{\updefault}{\zf@font@feat\zf@bf@feat}%
+      \fi
+    \fi
+    \unless\ifzf@noit
+      \ifx\zf@it\@empty
+        \zf@make@font@shapes[\zf@fontname]{/I}
+          {\mddefault}{\itdefault}{\zf@font@feat\zf@it@feat}%
+      \else
+        \zf@make@font@shapes{\zf@it}
+          {\mddefault}{\itdefault}{\zf@font@feat\zf@it@feat}%
+      \fi
+    \fi
+    \@tempswatrue
+    \ifzf@nobf\@tempswafalse\fi
+    \ifzf@noit\@tempswafalse\fi
+    \if@tempswa
+      \ifx\zf@bfit\@empty
+        \ifx\zf@bf\@empty
+          \ifx\zf@it\@empty
+            \zf@make@font@shapes[\zf@fontname]{/BI}
+              {\bfdefault}{\itdefault}{\zf@font@feat\zf@bfit@feat}%
+          \else
+            \zf@make@font@shapes[\zf@it]{/B}
+              {\bfdefault}{\itdefault}{\zf@font@feat\zf@bfit@feat}%
+          \fi
+        \else
+          \zf@make@font@shapes[\zf@bf]{/I}
+            {\bfdefault}{\itdefault}{\zf@font@feat\zf@bfit@feat}%
+        \fi
+      \else
+        \zf@make@font@shapes{\zf@bfit}
+          {\bfdefault}{\itdefault}{\zf@font@feat\zf@bfit@feat}%
+      \fi
+    \fi
+    \ifxeCJK@SlantFont@
+      \zf@make@font@shapes{\zf@fontname}{\mddefault}{\sldefault}
+        {\zf@font@feat,RawFeature={slant=0.167}}
+      \ifx\zf@bf\@empty
+        \ifzf@nobf
+          \zf@make@font@shapes{\zf@fontname}{\bfdefault}{\sldefault}
+            {\zf@font@feat,RawFeature={embolden=4,slant=0.167}}
+        \else
+          \zf@make@font@shapes[\zf@fontname]{/B}
+            {\bfdefault}{\sldefault}{\zf@font@feat\zf@bf@feat,RawFeature={slant=0.167}}
+        \fi
+      \else
+        \ifx\zf@fontname\zf@bf
+          \zf@make@font@shapes{\zf@fontname}{\bfdefault}{\sldefault}
+            {\zf@font@feat,RawFeature={embolden=4,slant=0.167}}
+        \else
+          \zf@make@font@shapes{\zf@bf}{\bfdefault}{\sldefault}
+            {\zf@font@feat\zf@bf@feat,RawFeature={slant=0.167}}
+        \fi
+      \fi
+    \fi
+  \fi
+  \endgroup}
+
+\newcount\xeCJK@featureadded
+\xeCJK@featureadded=0
+
+\let\xeCJK@addfontfeatures\addfontfeatures
+\def\addCJKfontfeatures#1{
+  \global\advance\xeCJK@featureadded\@ne
+  \ifcsname xeCJK@family\endcsname
+    \edef\xeCJK@temp{\csname xeCJK@nsff\xeCJK@family\endcsname}
+    \edef\xeCJK@Features{[\csname zf@family@options\xeCJK@temp\endcsname,#1]}
+    \expandafter
+      \newfontfamily@i\csname xeCJK@font@\xeCJK@family @\the\xeCJK@featureadded\expandafter\endcsname
+        \xeCJK@Features
+        {\csname zf@family@fontname\xeCJK@temp\endcsname}
+    \expandafter\edef\csname xeCJK@nsff\xeCJK@family @\the\xeCJK@featureadded\endcsname{\zf@family}
+    \CJKfamily{\xeCJK@family @\the\xeCJK@featureadded}
+  \fi}
+
+\def\addfontfeatures#1{
+  \xeCJK@addfontfeatures{#1}
+  \addCJKfontfeatures{#1}}
+
+
+\def\xeCJK@font@rm{}
+
+\DeclareRobustCommand\CJKfamily[1]{
+  \ifcsname xeCJK@font@#1\endcsname
+    \edef\xeCJK@family{#1}
+  \else
+    \ifcsname xeCJK@#1@warned\endcsname
+    \else
+      \PackageWarning{xeCJK}{
+        Unknown CJK family `#1' is ignored.^^J
+        Use \string\setCJKfamilyfont \space to define a CJK family.}
+      \expandafter\gdef\csname xeCJK@#1@warned\endcsname{}
+    \fi
+  \fi}
+\CJKfamily{rm}
+
+\def\xeCJKsetslantfactor#1{\edef\xeCJK@slantfactor{#1}}
+\def\xeCJKsetemboldenfactor#1{\edef\xeCJK@emboldenfactor{#1}}
+
+\xeCJKsetslantfactor{0.17}
+\xeCJKsetemboldenfactor{4}
+
+\ifxeCJK@num
+  \edef\CJK@UnicodeEnc{UTF8}
+  \def\CJKaddEncHook#1#2{\expandafter\def\csname xeCJK@enc@#1\endcsname{#2}}
+  \def\Unicode#1#2{\@tempcnta #1\relax
+    \multiply\@tempcnta 256\relax
+    \advance\@tempcnta #2\relax
+    \char\@tempcnta}
+  \RequirePackage{CJKnumb}
+  \csname xeCJK@enc@UTF8\endcsname
+  \def\CJK@tenthousand{万}
+\fi
+
+\def\CJK@ifundefined#1{
+  \ifx #1\@undefined
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+
+\newcommand{\xeCJKcaption}[2][]{
+  \edef\xeCJK@temp{#1}
+  \ifx\xeCJK@temp\@empty
+  \else
+    \XeTeXdefaultencoding "#1"
+  \fi
+  \makeatletter
+  \input{#2.cpx}
+  \makeatother
+  \XeTeXdefaultencoding "UTF-8"}
+
+\endlinechar `\^^M
+\catcode "FEFF=9\relax
+\endinput
+%%
+%% End of file `xeCJK.sty'.

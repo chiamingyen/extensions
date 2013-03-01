@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/simplecv"><TPM:Name>simplecv</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>A simple class for writing curricula vitae</TPM:Title><TPM:Version></TPM:Version><TPM:Description>A derivative of the cv class available to lyx users (renamed to avoid the existing cv package). 
+
+The author is Jean-Marc Lasgouttes. The package is Copyright © 2007 Jean-Marc Lasgouttes.
+</TPM:Description><TPM:RunFiles size="5202">texmf\tex\latex\simplecv\simplecv.cls</TPM:RunFiles><TPM:DocFiles size="57073">texmf\doc\latex\simplecv\README texmf\doc\latex\simplecv\simplecv.dvi texmf\doc\latex\simplecv\testcv.pdf</TPM:DocFiles><TPM:SourceFiles size="6454">texmf\source\simplecv-src.tar.bz2</TPM:SourceFiles><TPM:TimePackaged>1178961026</TPM:TimePackaged><TPM:MD5>64657c31ade7186e3e369c832417626d</TPM:MD5></rdf:Description></rdf:RDF>

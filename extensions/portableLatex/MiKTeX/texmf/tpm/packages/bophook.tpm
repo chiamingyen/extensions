@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/bophook"><TPM:Name>bophook</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>Provides AtBeginPage hook.</TPM:Title><TPM:Version></TPM:Version><TPM:Description>Using the \AtBeginPage hook, you can add material in the
+      background of a page. \PageLayout can be used to give page
+      makeup commands to be executed on every page e.g. depend on the
+      page style.</TPM:Description><TPM:RunFiles size="4026">texmf\tex\latex\bophook\bophook.sty texmf\tpm\packages\bophook.tpm</TPM:RunFiles><TPM:SourceFiles size="10111">texmf\source\latex\bophook\bophook.dtx texmf\source\latex\bophook\bophook.ins</TPM:SourceFiles><TPM:TimePackaged>991340658</TPM:TimePackaged><TPM:MD5>a9967fb1736c0d76b76d60e1da92fede</TPM:MD5></rdf:Description></rdf:RDF>

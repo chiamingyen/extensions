@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/ssqquote"><TPM:Name>ssqquote</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title></TPM:Title><TPM:Version></TPM:Version><TPM:Description>LaTeX package and font definition file to access the `cmssq'
+      fonts, i.e. Computer Modern Sans Serif Quotation Style. The
+      LaTeX package also defines a chapterquotes environment as an
+      example application.</TPM:Description><TPM:RunFiles size="7792">texmf\tex\latex\ssqquote\OT1cmssq.fd texmf\tex\latex\ssqquote\ssqquote.sty texmf\tex\latex\ssqquote\T1cmssq.fd texmf\tpm\packages\ssqquote.tpm</TPM:RunFiles><TPM:DocFiles size="23748">texmf\doc\latex\ssqquote\ssqquote.dvi</TPM:DocFiles><TPM:SourceFiles size="26283">texmf\source\latex\ssqquote\ssqquote.drv texmf\source\latex\ssqquote\ssqquote.dtx texmf\source\latex\ssqquote\ssqquote.ins texmf\source\latex\ssqquote\ssqquote.readme</TPM:SourceFiles><TPM:TimePackaged>989864094</TPM:TimePackaged><TPM:MD5>4d2a9a0d122be906b920a4a0b4635da3</TPM:MD5></rdf:Description></rdf:RDF>
