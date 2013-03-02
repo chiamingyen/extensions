@@ -1,0 +1,7 @@
+cms
+intranet
+chat
+files
+forum
+expenses
+timesheets

@@ -1,0 +1,37 @@
+body {
+	background-color: #F5F5F5;
+	font-size: 13px;
+	padding: 2px;
+	margin: 0;
+	color: #0000FF;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+
+h2, pre, img, p, div {
+  margin:0px;
+  padding:0px;
+  border:0px;
+  border-spacing:0px;
+}
+
+td {
+}
+thead {
+	background-color: #FFBBBB;
+}
+tfoot {
+	background-color: #BBBBFF;
+}
+
+.example1 {
+	font-weight: bold;
+	font-size: 14px
+}
+.example2 {
+	font-weight: bold;
+	font-size: 12px;
+	color: #FF0000
+}
+.tablerow1 {
+	background-color: #BBBBBB;
+}

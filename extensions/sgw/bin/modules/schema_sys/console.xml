@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Console" default_view="display" orderby="name" order="asc" limit="20" enable_new="true" enable_edit="true" enable_purge="true" enable_purgeall="true">
+  <view name="display" displayname="Display" groupby="console">
+  </view>
+  <viewbutton name="sql" displayname="SQL console" onclick="nWin('console.php?console=sql');" icon="sql.gif"/>
+  <viewbutton name="php" displayname="PHP console" onclick="nWin('console.php?console=php');" icon="php.gif"/>
+  <viewbutton name="sys" displayname="SYS console" onclick="nWin('console.php?console=sys');" icon="sys.gif"/>
+  
+  <field name="name" displayname="Name" simple_type="text" is_unique="true" required="true">
+    <INDEX/>
+    <linktext views="all" value="#console.php?console=@console@&amp;name=@name@&amp;tlimit=@tlimit@&amp;mlimit=@mlimit@&amp;token=@token@"/>
+  </field>
+  <field name="command" displayname="Command" simple_type="textarea" required="true">
+	<filter views="all" function="truncate|100"/>
+    <linktext views="all" value="#console.php?console=@console@&amp;name=@name@&amp;tlimit=@tlimit@&amp;mlimit=@mlimit@&amp;token=@token@"/>
+  </field>
+  <field name="console" displayname="Console" simple_type="select" simple_size="1" required="true">
+	<data reverse="true" values="sql_##_SQL|php_##_PHP|sys_##_SYS"/>
+	<linktext views="all" value="#console.php?console=@console@&amp;iframe=1"/>
+  </field>
+  <field name="tlimit" displayname="Time limit (seconds)" simple_type="text">
+	<validate function="integer"/>
+  </field>
+  <field name="mlimit" displayname="Memory limit (MB)" simple_type="text">
+	<validate function="integer"/>
+  </field>
+</table>

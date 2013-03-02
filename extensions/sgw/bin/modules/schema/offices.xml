@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Offices" default_view="display" orderby="officename" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+  <view name="display" displayname="Display">
+  </view>
+  <view name="details" displayname="Details">
+  </view>
+
+  <field name="officename" displayname="Office" simple_type="text" is_unique="true" required="true">
+    <readonlyin views="edit"/>
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="manager" displayname="Manager" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@manager@&amp;view=details"/>
+  </field>
+  <field name="ceo" displayname="CEO" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@ceo@&amp;view=details"/>
+  </field>
+  <field name="cio" displayname="CIO" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@cio@&amp;view=details"/>
+  </field>
+  <field name="street" displayname="Street" simple_type="text">
+    <link value="@ext/norefer.php?url=http://maps.google.com/maps?q=@zipcode@ @city@ @street@ @country@"/>
+	<notin views="display" />
+  </field>
+  <field name="zipcode" displayname="Zipcode" simple_type="text">
+	<notin views="display" />
+  </field>
+  <field name="city" displayname="City" simple_type="text">
+  </field>
+  <field name="state" displayname="State" simple_type="text">
+	<notin views="display" />
+  </field>
+  <field name="country" displayname="Country" simple_type="text">
+	<notin views="display" />
+  </field>
+  <field name="description" displayname="Description" simple_type="textarea">
+	<notin views="display" />
+  </field>
+</table>

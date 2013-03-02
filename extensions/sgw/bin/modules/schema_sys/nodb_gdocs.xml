@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Google Docs" limit="20" default_view="display" orderby="filedata_show" order="asc" sql_handler="gdocs" disable_rights="true" enable_purgeall="true" enable_purge="true" enable_new_only="true" enable_edit="true">
+  <view name="display" displayname="Display">
+  </view>
+  <view name="details" displayname="Details" show_preview="true">
+  </view>
+
+  <field name="id" displayname="Id" simple_type="id">
+    <notin views="display" />
+	<filter views="details" function="truncate|40"/>
+  </field>
+  <field name="filename" simple_type="text" required="true" hidden="true">
+    <onlyin views="display|details"/>
+  </field>
+  <field name="filedata_show" displayname="File" simple_type="text">
+    <onlyin views="display"/>
+    <link value="download.php?view=details&amp;field=filedata&amp;item[]=@_id@&amp;subitem=@subitem@&amp;dispo=noinline" icon="download.gif"/>
+    <linktext value="%index.php?folder=@folder@&amp;view=details&amp;item[]=@_id@&amp;iframe=1"/>
+  </field>
+  <field name="filedata" displayname="File" simple_type="files" simple_file_size="20M" simple_size="1" required="true">
+    <notin views="display"/>
+  </field>
+  <field name="description" displayname="Description" simple_type="textarea">
+	<notin views="display" />
+  </field>
+  <field name="fileext" displayname="Type" simple_type="text">
+	<onlyin views="details"/>
+  </field>
+  <field name="lastmodified" displayname="Modified" simple_type="datetime">
+    <filter views="all" function="shortdateformat" />
+	<onlyin views="display|details"/>
+  </field>
+  <field name="created" displayname="Created" simple_type="datetime">
+    <filter views="all" function="shortdateformat" />
+	<onlyin views="display|details"/>
+  </field>
+  <field name="status" displayname="Status" simple_type="select" simple_size="1">
+	<data title="Default" values="confirmed|checked|unconfirmed|to be checked|canceled"/>
+	<data title="Lookup" function="dbselect|simple_statuses|statusname,statusname|stattype='files'|statusname asc|10"/>
+  </field>
+  <field name="filesize" displayname="Size" simple_type="text" sum="true">
+    <filter views="all" function="filesize" />
+	<onlyin views="display|details"/>
+  </field>
+<!--<field name="fileperms" displayname="Permissions" simple_type="text">
+	<onlyin views="details"/>
+  </field>-->
+  <field name="filesize" displayname="Size" simple_type="text" sum="true">
+    <filter views="all" function="filesize" />
+	<onlyin views="display|details"/>
+  </field>
+  
+  <rowfilter name="filter_sys0" views="all" type="_bgstyle" function="buildbgcolor|bgcolor"/>
+  <field name="bgcolor" displayname="Color" simple_type="select" simple_size="1" hidden="true" editable="true">
+    <data sort="asc" values="#DDDDFF_##_blue|#CCFFCC_##_green|#FFDDFF_##_magenta|#FFDDAA_##_orange|#FFCCCC_##_red|#FFFFDD_##_yellow|#FFFFFF_##_white"/>
+  </field>
+  
+  <field name="notification" displayname="Notification" simple_type="multitext" separator=", " hidden="true" editable="true">
+    <data title="Users" function="dbselect|simple_sys_users|email,concat(lastname;' ';firstname)|length(email)!=0 and activated=1|lastname asc|10"/>
+    <data title="Groups" function="dbselect|simple_sys_groups|concat('@';groupname),groupname|length(members)!=0 and activated=1|groupname asc|10"/>
+    <data title="Contacts" function="dbselect|simple_contacts|email,concat(lastname;' ';firstname)|length(email)!=0|lastname asc|10"/>
+    <data title="Contact groups" function="dbselect|simple_contactgroups|concat('@';groupname),groupname|length(members)!=0|groupname asc|10"/>
+  </field>
+  
+  <field name="history" displayname="History" simple_type="textarea" notinall="true"><onlyin views="history" /></field>  
+</table>

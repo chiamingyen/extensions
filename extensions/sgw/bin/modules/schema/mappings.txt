@@ -1,0 +1,33 @@
+// Copy-Paste mappings
+
+# allow move mails from pop3/imap to emails
+sys_nodb_pop3->emails
+sys_nodb_imap->emails
+
+# allow move mails from emails to imap
+emails->sys_nodb_imap
+
+mail=emails,sys_nodb_imap,sys_nodb_pop3
+
+# copy mails to contactactivities
+{mail}.message|contactactivities.description
+{mail}.message|tasks.description
+
+{mail}.efrom|contactactivities.contactid
+{mail}->contactactivities.origin.SIMPLE_DEFAULT=E-mail
+{mail}->contactactivities.contactid.RESTORE.0.FUNCTION=get_email_address
+{mail}->contactactivities.contactid.RESTORE.1.FUNCTION=dbvalue|simple_contacts|contactid|email=@value@
+
+{mail}.efrom|helpdesk.affecteduser
+{mail}.efrom|helpdesk.notification
+{mail}->helpdesk.origin.SIMPLE_DEFAULT=E-mail
+{mail}->helpdesk.affecteduser.RESTORE.0.FUNCTION=get_email_address
+{mail}->helpdesk.affecteduser.RESTORE.1.FUNCTION=dbvalue|simple_contacts|contactid|email=@value@
+{mail}->helpdesk.affecteduser.RESTORE.2.FUNCTION=dbvalue|simple_sys_users|username|email=@value@
+{mail}->helpdesk.affecteduser.RESTORE.3.FUNCTION=dbvalue|simple_sys_identities|identityid|email=@value@
+{mail}->helpdesk.notification.RESTORE.0.FUNCTION=get_email_address
+
+# copy contacts to companies (for sync)
+companies->contacts.lastname.RESTORE.0.FUNCTION=append| (Company)
+companies.companyname|contacts.lastname
+companies.companyname|contacts.company

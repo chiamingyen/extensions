@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table custom_name="
+(select b.*,concat('Birthday: ';firstname;' ';lastname;' ';company) as subject,86399 as duration,
+		0 as repeatuntil,birthday as begin,(birthday+86399) as ending,1 as allday,cast('years' as char(5)) as recurrence,
+		0 as until,1 as repeatinterval,0 as repeatcount,'' as repeatexcludes,0 as repeatbegin,
+		365 as repeatend from simple_contacts b where birthday!=0
+) p" modulename="Birthdays" default_view="display" orderby="begin" order="asc" limit="20" enable_calendar="begin,ending,recurrence,until,allday,repeatinterval,repeatexcludes,repeatbegin,repeatend">
+  <view name="display" template="display" markdate="month">
+  </view>
+  <tab name="general" />
+
+  <field name="subject" displayname="Subject" simple_type="text">
+    <linktext views="display" value="index.php?view=details&amp;item[]=@id@"/>
+  </field>
+  <field name="begin" displayname="Birthday" simple_type="datetime" nowrap="true">
+    <filter views="all" function="shortdatetimeformat"/>
+    <link value="index.php?view=calendar&amp;today=@begin@"/>
+  </field>
+  <field name="ending" simple_type="datetime" hidden="true">
+  </field>
+  <field name="duration" simple_type="int" hidden="true">
+  </field>
+  <field name="allday" simple_type="checkbox" hidden="true">
+  </field>
+  <field name="recurrence" simple_type="select" hidden="true">
+  </field>
+  <field name="repeatinterval" simple_type="int" hidden="true">
+  </field>
+  <field name="repeatcount" simple_type="int" hidden="true">
+  </field>
+  <field name="repeatuntil" simple_type="date" hidden="true">
+  </field>
+  <field name="repeatexcludes" simple_type="dateselect" hidden="true">
+  </field>
+  <field name="until" simple_type="id" hidden="true">
+  </field>
+</table>

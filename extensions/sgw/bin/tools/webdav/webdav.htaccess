@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Options / Propfind / make directory
+RewriteCond %{REQUEST_METHOD}	^OPTIONS|^PROPPATCH
+# Workaround for Apache 2.2.8
+RewriteCond %{REQUEST_FILENAME}  !-f
+RewriteRule .* /sgs/bin/webdav.php  [L]
+
+RewriteRule ^sgdav.* /sgs/bin/webdav.php  [L]

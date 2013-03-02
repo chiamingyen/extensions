@@ -1,0 +1,60 @@
+blank|Blank
+bookmarks|Bookmarks
+chat|Chat
+cms|CMS
+emails|E-mail
+faq|FAQ
+files|Files
+forum|Forum
+graphviz|GraphViz
+helpdesk|Helpdesk
+htmldocs|HTML documents
+intranet|Intranet
+news|News
+notes|Notes
+offline|Offline folders
+passwords|Passwords
+gallery|Photo gallery
+portal|Portal
+projects|Projects
+code|Source code
+spreadsheets|Spreadsheet
+surveys|Surveys
+tasks|Tasks
+wiki|Wiki
+
+Calendar
+calendar|Calendar
+locations|Locations
+
+Contacts
+contacts|Contacts
+contactactivities|Contact activities
+companies|Companies
+contactgroups|Contact groups
+
+Other
+templates|Templates
+statuses|Statuses
+categories|Categories
+
+Accounting
+absence|Absence
+expenses|Expenses
+timesheets|Time sheets
+costcenter|Cost center
+
+Human resources
+hr_contracts|Contracts
+
+Inventory
+brands|Brands
+devicetypes|Device types
+distributors|Distributors
+inventories|Inventory
+resources|Resources
+
+Organisation
+departments|Departments
+offices|Offices
+positions|Positions

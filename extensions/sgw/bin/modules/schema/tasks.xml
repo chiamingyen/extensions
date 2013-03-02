@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Tasks" default_view="display" orderby="ending" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" trigger_edit="duration|notify|sync4j::createedit" trigger_new="duration|notify|sync4j::createedit" trigger_delete="sync4j::delete">
+  <view name="display" displayname="Open" groupby="category" where="closed=0">
+  </view>
+  <view name="calendar" displayname="Calendar (Open)" groupby="category" where="closed=0" template="display" enable_calendar="begin,ending" markdate="gantt" tfield_1="subject" tfield_2="progress">
+  </view>
+  <view name="display2" displayname="Closed" groupby="category" where="closed=1" template="display">
+  </view>
+  <view name="details" displayname="Details" show_preview="true" tfield_1="subject" tfield_2="progress">
+  </view>
+  <view name="every" displayname="All" groupby="category" template="display" visibility="active">
+  </view>
+  <singlebutton name="take_over" displayname="Take over" onclick="asset_update_confirm({responsibles:sys.username},'@id@');" right="write" condition="responsibles|nlike|@username@||closed|eq|0" icon="user_add.gif" />
+  <singlebutton name="close" displayname="Close" onclick="asset_update_confirm({closed:'1'},'@id@');" condition="closed|neq|1" right="write" icon="accept.gif" />
+
+  <tab name="general" displayname="General" />
+  <tab name="misc" displayname="Miscellaneous" />
+  <tab name="responsible" displayname="Responsible" />
+
+  <rowfilter name="filter1" views="all" type="_bgstyle" function="isinpast|ending|background-color:#FFDDDD;"/>
+
+  <field name="closed" displayname="Closed" simple_type="checkbox">
+    <INDEX/>
+    <hiddenin views="display|display2|calendar"/>
+  </field>
+  <field name="subject" displayname="Title" simple_type="text" required="true">
+    <linktext views="display|display2|calendar|every" value="#index.php?folder=@folder@&amp;view=details&amp;iframe=1&amp;item[]=@id@"/>
+	<filter views="all" function="milestone"/>
+  </field>
+  <field name="begin" displayname="Begin" simple_type="date" simple_default_function="dateformat_request|begin|now|m/d/Y" required="true" nowrap="true">
+    <filter views="all" function="dateformat||m/d/Y"/>
+    <link views="calendar" value="index.php?view=display&amp;today=@begin@"/>
+	<notin views="display2|every" />
+    <INDEX/>
+	<description hint="Relative formats" value="nWin('http://www.php.net/manual/en/datetime.formats.relative.php');"/>
+  </field>
+ <field name="ending" displayname="Deadline" simple_type="date" simple_default_function="dateformat_request|end|now + 1 week|m/d/Y" required="true" nowrap="true">
+    <filter views="all" function="dateformat||m/d/Y"/>
+    <link views="calendar" value="index.php?view=calendar&amp;today=@ending@"/>
+    <INDEX/>
+  </field>
+  <field name="duration" displayname="Duration" simple_type="int" notinall="true" sum="true">
+    <filter views="all" function="duration"/>
+	<onlyin views="display2|details|calendar|every"/>
+  </field>
+  <field name="description" displayname="Description" simple_type="textarea">
+    <notin views="display|display2|calendar|every"/>
+  </field>
+  <field name="url" displayname="URL" simple_type="text" simple_tab="misc">
+	<validate function="url"/>
+    <link value="@ext/norefer.php?url=@url@"/>
+  </field>
+  <field name="project" displayname="Project" simple_type="select" simple_size="1">
+    <INDEX/>
+	<data function="dbselect|simple_projects|projectname,projectname||projectname asc|10"/>
+  </field>
+  <field name="milestone" displayname="Milestone" simple_type="checkbox" hidden="true" editable="true">
+  </field>
+  <field name="priority" displayname="Priority" simple_type="select" simple_size="1" simple_default="3">
+  	<data reverse="true" values="1_##_lowest|2_##_low|3_##_normal|4_##_urgent|5_##_immediate"/>
+  </field>
+  <field name="status" displayname="Status" simple_type="select" simple_size="1">
+	<data title="Default" values="Planned|In progress|Completed|Waiting|Suspended|Canceled"/>
+	<data title="Lookup" function="dbselect|simple_statuses|statusname,statusname|stattype='tasks'|statusname asc|10"/>
+  </field>
+  <field name="progress" displayname="Progress" simple_type="select" simple_size="1" avg="true">
+    <data values="0_##_0%|0.05_##_5%|0.1_##_10%|0.2_##_20%|0.25_##_25%|0.4_##_40%|0.5_##_50%|0.6_##_60%|0.75_##_75%|0.8_##_80%|0.9_##_90%|1_##_100%"/>
+    <filter views="all" function="percent"/>
+	<store function="storepercent"/>
+  </field>
+  <field name="location" displayname="Location" simple_type="select" simple_size="1" allow_custom="true" simple_tab="misc">
+    <data function="dbselect|simple_locations|locationname,locationname||locationname asc|10" />
+	<link value="index.php?find=asset|simple_locations||locationname=@location@&amp;view=display"/>
+  </field>
+  <field name="dependancy" displayname="Dependancies" simple_type="select" simple_tab="misc">
+    <data function="dbselect|simple_tasks|id,subject||subject asc|10"/>
+	<link value="index.php?find=asset|simple_tasks||id=@dependancy@&amp;view=details"/>
+	<filter views="all" function="to_int"/>
+	<filter views="all" function="showselect|\n|simple_tasks|concat(cast(progress as decimal(3,2))*100;'%'),subject|@value@!='0' and id=@value@|"/>
+    <filter views="all" function="task_dependancy"/>
+  </field>
+  <field name="risks" displayname="Risks" simple_type="textarea" simple_tab="misc">
+    <notin views="calendar"/>
+  </field>
+  <field name="responsibles" displayname="Responsible (internal)" simple_type="select" simple_size="5" simple_tab="responsible">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@responsibles@&amp;view=details"/>
+  </field>
+  <field name="responsibles_ext" displayname="Responsible (external)" simple_type="select" simple_size="5" allow_custom="true" simple_tab="responsible">
+    <data function="dbselect|simple_contacts|contactid,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_contacts||contactid=@responsibles_ext@&amp;view=details"/>
+  </field>
+  <field name="image" displayname="Image" simple_type="files" simple_file_size="5M" simple_size="10" simple_tab="misc">
+    <notin views="display|display2|calendar|every"/>
+    <validate function="fileupload|jpg,jpeg,gif,png"/>
+  </field>
+  <field name="attachment" displayname="Attachment" simple_type="files" simple_file_size="10M" simple_size="10" simple_tab="misc">
+    <notin views="display|display2|calendar|every"/>
+  </field>
+  <field name="category" displayname="Category" simple_type="select" simple_size="1">
+	<data function="dbselect|simple_categories|categoryname,categoryname|cattype='tasks'|categoryname asc|10"/>
+  </field>
+  <field name="syncid" simple_type="id" hidden="true">
+  </field>
+</table>

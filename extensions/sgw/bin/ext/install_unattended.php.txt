@@ -1,0 +1,105 @@
+<?php
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+
+error_reporting(E_ALL);
+@set_time_limit(1800);
+$argv = $_SERVER["argv"];
+
+if (!function_exists("out")) {
+  function out($str) {
+	if (($pos = strpos($str,"<body"))) $str = substr($str,$pos);
+	$str = preg_replace("|<[^>]+>|"," ",str_replace("<br>","\n",$str));
+	$str = str_replace("\n ","\n",trim(preg_replace("| +|"," ",$str)," "));
+	echo $str;
+	if ($str!="" and $str[strlen($str)-1]!="\n") echo " ";
+	@ob_flush();
+	flush();
+  }
+}
+
+echo "\n";
+if (count($argv)<10) {
+  echo "Usage:\n";
+  echo "php -d register_argc_argv=1 -q install_unattended.php.txt <url> <lang-code> <admin-user> <admin-pw> <db-type> <db-host> <db-name> <db-user> <db-pw> <demo-data>\n\n";
+  echo "url = http://<your-server>/<your-sgs-dir>/src/index.php
+lang-code = ar, cz, cn, da, de, en, enUK, es, fr, gr, hr, hu, idn, it, nl, pl, ptBR, ru, se, sk, tr, uk
+admin-user = super administrator username
+admin-pw = super administrator password
+db-type = mysql, pgsql, sqlite
+db-host = database hostname / ip
+db-name = database name
+db-user = database username
+db-pw = database password (use '_' if empty)
+folder-structure = 0=full, <file>=path / folder template";
+  exit(1);
+}
+$url = $argv[1];
+$lang = $argv[2];
+$folders = @$argv[10];
+
+out("Building translations ...\n\n");
+if (($fp = fopen($url."?lang=".$lang,"r"))) {
+  $data = "";
+  while (!feof($fp)) $data .= fread($fp,8192);
+  fclose($fp);
+} else exit(1);
+
+if (!strpos($data,"Continue")) {
+  echo "Error building translations: ".$url."?lang=".$lang."\n\n";
+  if (($pos = strpos($data,"<body"))) $data = substr($data, $pos);
+  echo strip_tags($data);
+  exit(1);
+}
+
+$url = str_replace("/src/","/bin/",$url);
+$url .= "?install=yes";
+$url .= "&accept_gpl=yes";
+$url .= "&language=".$lang;
+$url .= "&admin_user=".urlencode($argv[3]);
+$url .= "&admin_pw=".urlencode($argv[4]);
+$url .= "&db_type=".$argv[5];
+$url .= "&db_host=".urlencode($argv[6]);
+$url .= "&db_name=".urlencode($argv[7]);
+$url .= "&db_user=".urlencode($argv[8]);
+$url .= "&db_pw=".urlencode(str_replace("_","",$argv[9]));
+$url .= "&folders=".urlencode($folders);
+
+out("Running setup ...\n\n");
+if (($fp = fopen($url,"r"))) {
+  $data = "";
+  while (!feof($fp)) {
+    $line = fread($fp,8192);
+	out(str_replace("\n"," ",$line));
+	$data .= $line;
+  }
+  fclose($fp);
+} else exit(1);
+
+if (strpos($data,"<error>")) {
+  $pos = strpos($data,"<error>")+7;
+  echo "Error running setup: ".$url."\n";
+  echo substr($data,$pos,strpos($data,"</error>")-$pos);
+  exit(1);
+}
+
+out("\n\nFinished.\n");

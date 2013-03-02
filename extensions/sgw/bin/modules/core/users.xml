@@ -1,0 +1,70 @@
+﻿<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<folder name="@username@" type="portal" anchor="home_@username@" rread_users="@username@" rwrite_users="@username@" radmin_users="" data="modules/core/users_portal.xml">
+  <!-- example for imap mountpoint including the user's current password:
+    mountpoint="imap:%username%:%password%@localhost/INBOX/"
+  -->
+
+  <folder name="E-mail" type="emails" anchor="emails_@username@">
+  </folder>
+  <folder name="Calendar" type="calendar" anchor="calendar_@username@" rexception_users="freebusy:read:anonymous">
+    <folder name="Locations" type="locations">
+    </folder>
+  </folder>
+  <folder name="Tasks" type="tasks" anchor="tasks_@username@">
+    <folder name="Statuses" type="statuses">
+    </folder>
+  </folder>
+  <folder name="Contact activities" type="contactactivities">
+  </folder>
+  <folder name="Contacts" type="contacts" anchor="contacts_@username@">
+    <folder name="Companies" type="companies">
+    </folder>
+  </folder>
+  <folder name="Passwords" type="passwords">
+  </folder>
+  <folder name="Bookmarks" type="bookmarks" anchor="bookmarks_@username@">
+  </folder>
+  <folder name="Notes" type="notes" anchor="notes_@username@">
+  </folder>
+  <folder name="Files" type="files">
+    <folder name="Import" mountpoint="fs:../simple_store/home/@username@/">
+    </folder>
+  </folder>
+  <folder name="Photo gallery" type="gallery">
+  </folder>
+  <folder name="Spreadsheet" type="spreadsheets">
+  </folder>
+  <folder name="GraphViz" type="graphviz">
+  </folder>
+  <folder name="HTML documents" type="htmldocs">
+  </folder>
+  <folder name="Wiki" type="cms">
+  </folder>
+  <folder name="Categories" type="categories">
+  </folder>
+  <folder name="Templates" type="templates">
+  </folder>
+  <folder name="Offline folders" type="offline" anchor="offline_@username@">
+  </folder>
+</folder>

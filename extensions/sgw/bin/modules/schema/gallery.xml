@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Photo gallery" default_view="display" orderby="id" order="desc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+  <view name="display" template="free" displayname="Display" image_width="250" image_height="200" cols="3" row_height="270px" show_preview="true">
+  </view>
+  <field name="filename" displayname="Title" simple_type="text" height="16px" required="true">
+  </field>
+  <field name="filedata" displayname="Photo" simple_type="files" simple_file_size="10M" simple_size="10" required="true">
+  </field>
+  <field name="description" displayname="Description" simple_type="textarea">
+  </field>
+</table>

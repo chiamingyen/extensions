@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Backups" limit="20" default_view="display" orderby="created" order="desc" sql_handler="backups" enable_purge="true" enable_purgeall="true" enable_new_only="true">
+  <view name="display" displayname="Display" groupby="category">
+  </view>
+  <singlebutton views="display" name="restore_here" displayname="Restore here" onclick="locate('index.php?action_sys=restore_here&amp;file=@id@');"/>
+  <singlebutton views="display" name="restore" displayname="Restore to origin" onclick="if (confirm('Really overwrite existing dataset(s) ?')) locate('index.php?action_sys=restore&amp;file=@id@');"/>
+  <singlebutton views="display" name="restore_newer" displayname="Restore only newer" onclick="if (confirm('Really overwrite existing dataset(s) ?')) locate('index.php?action_sys=restore_newer&amp;file=@id@');"/>
+  <singlebutton views="display" name="restore_missing" displayname="Restore only missing" onclick="locate('index.php?action_sys=restore_missing&amp;file=@id@');" />
+  
+  <field name="id" displayname="Id" simple_type="id" hidden="true">
+  </field>
+  <field name="category" displayname="Category" simple_type="text">
+	<onlyin views="display"/>
+  </field>
+  <field name="filename" displayname="Title" simple_type="text" required="true">
+    <link value="download.php?field=id&amp;subitem=0&amp;dispo=noinline&amp;item=@id@" icon="download.gif"/>
+  </field>
+  <field name="filedata" displayname="File" simple_type="files" simple_size="1" required="true" hidden="true" editable="true">
+    <validate function="fileupload|tar"/>
+  </field>
+  <field name="created" displayname="Created" simple_type="text">
+    <filter views="all" function="shortdateformat" />
+	<onlyin views="display"/>
+  </field>
+  <field name="filesize" displayname="Size" simple_type="text">
+    <filter views="all" function="filesize" />
+	<onlyin views="display"/>
+  </field>
+</table>

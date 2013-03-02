@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Tree" default_view="display" orderby="lft" order="asc" limit="20" enable_purgeall="true" disable_history="true">
+  <view name="display" displayname="Display" nosqlfolder="true" merge_tabs="true">
+  </view>
+  <view name="permissions" displayname="Permissions" nosqlfolder="true" template="display" merge_tabs="true">
+  </view>
+  <view name="details" displayname="Details" nosqlfolder="true">
+  </view>
+  <view name="edit" displayname="Edit" schema_mode="edit" nosqlfolder="true" right="write" accesskey="e" showinsingleview="true">
+  </view>
+  <view name="history" displayname="History" visibility="button" template="details" accesskey="i" icon="history.png" nosqlfolder="true">
+  </view>
+  
+  <tab name="general" displayname="General" />
+  <tab name="permissions" displayname="Permissions" />
+
+  <field name="ftitle" displayname="Title" db_size="40" simple_type="text" required="true" nowrap="true">
+    <linktext views="all" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+    <link views="all" value="index.php?folder=@id@"/>
+	<filter views="display|permissions" function="folderstructure"/>
+  </field>
+  <field name="ftype" displayname="Folder Type" simple_type="select" simple_size="1" required="true">
+    <data function="modules"/>
+ 	<notin views="permissions"/>
+    <INDEX/>
+  </field>
+  <field name="icon" displayname="Folder icon" simple_type="select" simple_size="1">
+    <data function="icons_modules"/>
+ 	<notin views="display|permissions"/>
+	<description value="nWin('ext/modules/folder_icons.php?obj=@prefix@icon');"/>
+  </field>
+  <field name="fdescription" displayname="Description" simple_type="textarea">
+	<notin views="display|permissions" />
+  </field>
+  <field name="fmountpoint" displayname="Mountpoint" simple_type="text" no_search_index="true">
+    <notin views="permissions"/>
+  </field>
+  <field name="custom_schema" displayname="Custom schema (XML)" simple_type="textarea">
+	<notin views="display|permissions" />
+	<validate function="xml"/>
+  </field>
+  <field name="folders" displayname="Merged folders" simple_type="text" no_search_index="true">
+    <notin views="permissions"/>
+  </field>
+  <field name="fquota" displayname="Quota [MB]" simple_type="int" no_search_index="true">
+	<notin views="permissions"/>
+  </field>
+  <field name="default_values" displayname="Default values for assets" simple_type="textarea">
+	<notin views="display|permissions" />
+	<description value="alert('
+	Usage:\n\n
+	Field=Value\n
+	Field2=Value2\n\n
+	e.g. project=pr1\n\n
+	(inheritance to subfolders without default values)');"/>
+  </field>
+  <field name="lft" simple_type="int" no_search_index="true" notinall="true">
+    <INDEX/>
+  </field>
+  <field name="rgt" simple_type="int" no_search_index="true" notinall="true">
+    <INDEX/>
+  </field>
+  <field name="flevel" simple_type="int" no_search_index="true" hidden="true">
+    <INDEX/>
+	<onlyin views="display|permissions"/>
+  </field>
+  <field name="parent" simple_type="id" hidden="true">
+    <INDEX/>
+  </field>
+  <field name="fsizecount" displayname="Size" simple_type="int" sum="true" no_search_index="true">
+    <notin views="edit|permissions"/>
+    <filter views="all" function="filesize" />
+  </field>
+  <field name="fchsizecount" displayname="Size (children)" simple_type="int" sum="true" no_search_index="true">
+    <notin views="edit|permissions|display"/>
+    <filter views="all" function="filesize" />
+  </field>
+  <field name="fcount" displayname="Assets" simple_type="int" sum="true" no_search_index="true">
+    <notin views="edit|permissions"/>
+  </field>
+  <field name="fchcount" displayname="Assets (children)" simple_type="int" sum="true" no_search_index="true">
+    <notin views="edit|permissions|display"/>
+  </field>
+  <field name="ffcount" displayname="Folders" simple_type="int" no_search_index="true">
+    <notin views="display|edit|permissions"/>
+  </field>
+  <field name="anchor" displayname="Anchor" simple_type="text">
+    <notin views="permissions"/>
+    <INDEX/>
+  </field>
+  <field name="rread_users" displayname="Read access (users)" simple_type="select" no_search_index="true" simple_tab="permissions">
+    <data title="Users" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<data title="Default" values="anonymous"/>
+    <notin views="display"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@rread_users@&amp;view=details"/>
+	<linktext value="index.php?filters=rread_users|like|@rread_users@"/>
+  </field>
+  <field name="rread_groups" displayname="Read access (groups)" simple_type="select" no_search_index="true" simple_tab="permissions">
+    <data function="dbselect|simple_sys_groups|groupname,groupname||groupname asc|10"/>
+    <notin views="display"/>
+	<link value="index.php?find=asset|simple_sys_groups||groupname=@rread_groups@&amp;view=display"/>
+	<linktext value="index.php?filters=rread_groups|like|@rread_groups@"/>
+  </field>
+  <field name="rwrite_users" displayname="Write access (users)" simple_type="select" no_search_index="true" simple_tab="permissions">
+    <data title="Users" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<data title="Default" values="anonymous"/>
+    <notin views="display"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@rwrite_users@&amp;view=details"/>
+	<linktext value="index.php?filters=rwrite_users|like|@rwrite_users@"/>
+  </field>
+  <field name="rwrite_groups" displayname="Write access (groups)" simple_type="select" no_search_index="true" simple_tab="permissions">
+    <data function="dbselect|simple_sys_groups|groupname,groupname||groupname asc|10"/>
+    <notin views="display"/>
+	<link value="index.php?find=asset|simple_sys_groups||groupname=@rwrite_groups@&amp;view=display"/>
+	<linktext value="index.php?filters=rwrite_groups|like|@rwrite_groups@"/>
+  </field>
+  <field name="radmin_users" displayname="Admin access (users)" simple_type="select" no_search_index="true" simple_tab="permissions">
+    <data title="Users" function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<data title="Default" values="anonymous"/>
+    <notin views="display"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@radmin_users@&amp;view=details"/>
+	<linktext value="index.php?filters=radmin_users|like|@radmin_users@"/>
+  </field>
+  <field name="radmin_groups" displayname="Admin access (groups)" simple_type="select" no_search_index="true" simple_tab="permissions">
+    <data function="dbselect|simple_sys_groups|groupname,groupname||groupname asc|10"/>
+    <notin views="display"/>
+	<link value="index.php?find=asset|simple_sys_groups||groupname=@radmin_groups@&amp;view=display"/>
+	<linktext value="index.php?filters=radmin_groups|like|@radmin_groups@"/>
+  </field>
+  <field name="rexception_users" displayname="View access (users)" simple_type="text" no_search_index="true" simple_tab="permissions">
+    <notin views="display"/>
+	<description value="alert('
+Syntax:\n
+|&lt;view[,view2]&gt;:&lt;right&gt;:&lt;username[,username2]&gt;|\n
+\n
+Examples:\n
+|freebusy:read:anonymous|\n
+|freebusy:read:anonymous|details:no_read:anonymous|\n
+\n
+Rights: read, no_read, write, no_write
+');"/>
+  </field>
+  <field name="rexception_groups" displayname="View access (groups)" simple_type="text" no_search_index="true" simple_tab="permissions">
+    <notin views="display"/>
+	<description value="alert('
+Syntax:\n
+|&lt;view[,view2]&gt;:&lt;right&gt;:&lt;groupname[,groupname2]&gt;|\n
+\n
+Examples:\n
+|freebusy:read:internals|\n
+|freebusy:read:internals|details:no_read:guests|\n
+\n
+Rights: read, no_read, write, no_write
+');"/>
+  </field>
+  <field name="lastsync" simple_type="datetime" notinall="true"/>
+</table>

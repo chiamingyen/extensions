@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Portal" default_view="display" orderby="bookmarkname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+  <view name="display" displayname="Display" template="portal" cols="3" groupby="category">
+  </view>
+
+  <field name="bookmarkname" displayname="Name" simple_type="text" required="true">
+  </field>
+  <field name="url" displayname="URL" simple_type="text" required="true">
+    <validate function="url"/>
+	<store function="urldecode"/>
+	<description value="alert('
+Folder:\n
+index.php?folder=&lt;number-or-path&gt;&amp;view=&lt;view&gt;\n
+\n
+Example without mountpoint:\n
+\n
+RSS:\n
+index.php?folder=rss:/&lt;URL&gt;\n
+\n
+Example: Calendar\n
+view=display&amp;markdate=week&amp;\n
+today=last monday\n
+\n
+Find assets in multiple folders:\n
+find[]=assets|simple_&lt;module&gt;||&lt;field&gt;~&lt;value&gt;\n
+\n
+Example:\n
+treetype=categories&amp;\n
+find[]=assets|simple_calendar||participants~&#166;johndoe&#166;&amp;\n
+find[]=assets|simple_calendar||folder=12301
+');"/>
+  </field>
+  <field name="refresh" displayname="Refresh every x seconds" simple_type="int" simple_default="300">
+	<description value="alert('minimum = 15 secs, 0 = disabled');"/>
+  </field>
+  <field name="height" displayname="Height" simple_type="int" simple_default="210">
+  </field>
+  <field name="fullwidth" displayname="Full width" simple_type="checkbox" simple_default="1">
+  </field>
+  <field name="notification"/>
+
+  <field name="category" displayname="Category" simple_type="select" simple_size="1">
+	<data function="dbselect|simple_categories|categoryname,categoryname|cattype='portal'|categoryname asc|10"/>
+  </field>
+</table>

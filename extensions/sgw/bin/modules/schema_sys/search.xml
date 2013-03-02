@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Search" default_view="search" orderby="sorder" order="desc" limit="20" groupby="folder" no_search_index="true"
+  custom_name="(
+  	select s.folder,s.id,s.searchcontent,s.lastmodified,s.lastmodifiedby,s.created,
+	  '' as bgcolor,'' as notification,'' as notification_summary,'' as createdby,(match (s.sindex) against (@search@)) as sorder
+	from simple_sys_search s, simple_sys_tree t
+	where t.id=s.folder
+	  and t.lft between @lft@ and @rgt@
+	  and @search_rights@
+      and (length(@module@)=0 or t.ftype=@module@)
+	  and (@subfolders@='1' or t.id=@folder@)
+   and (
+   	(length(@search@)>0 and match (s.sindex) against (@search@ in boolean mode)) or
+	(length(@search_snd@)>2 and s.sindex_snd like @search_snd@) or
+	(length(@search2@)>0 and s.sindex like @search2@)
+   )
+  ) p">
+  <view name="search" displayname="Display" template="display">
+  </view>
+  <field name="folder" displayname="Folder" simple_type="id">
+    <KEY/>
+    <linktext value="index.php?view=none&amp;folder=@folder@"/>
+    <filter views="all" function="getpath"/>
+  </field>
+  <field name="id" displayname="Id" simple_type="id" hidden="true">
+  </field>
+  <field name="sindex" simple_type="textarea" notinall="true">
+    <INDEX_FULLTEXT/>
+  </field>
+  <field name="sindex_snd" simple_type="textarea" notinall="true">
+    <INDEX_FULLTEXT/>
+  </field>
+  <field name="searchcontent" displayname="Content" simple_type="htmlarea">
+    <filter views="all" function="highlight_search"/>
+    <link value="#index.php?folder=@folder@&amp;view=details&amp;markdate=all&amp;item[]=@id@&amp;iframe=1"/>
+    <linktext value="index.php?folder=@folder@&amp;view=details&amp;markdate=all&amp;item[]=@id@"/>
+  </field>
+<!-- TODO2 check again
+  <field name="sorder" displayname="Relevance" simple_type="text" nodb="true">
+    <filter views="all" function="numberformat|2"/>
+  </field>
+  -->
+  <field name="createdby" simple_type="text" notinall="true"/>
+  <field name="lastmodified" displayname="Modified" simple_type="datetime" nowrap="true">
+    <filter views="all" function="dateformat||m/d/Y"/>
+  </field>
+  <field name="lastmodifiedby" displayname="User" simple_type="text" nowrap="true">
+    <link value="index.php?find=asset|simple_sys_users||username=@lastmodifiedby@&amp;view=details"/>
+  </field>
+  <field name="rread_users" simple_type="select" notinall="true">
+  </field>
+  <field name="rread_groups" simple_type="select" notinall="true">
+  </field>
+</table>

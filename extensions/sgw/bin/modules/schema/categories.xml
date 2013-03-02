@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Categories" default_view="display" orderby="categoryname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" disable_quick_add="true">
+  <view name="display" displayname="Display">
+  </view>
+  
+  <field name="categoryname" displayname="Category" simple_type="text" required="true">
+  </field>
+  <field name="cattype" displayname="Type" simple_type="select" simple_size="1">
+	<data sort="asc" values="bookmarks_##_Bookmarks|calendar_##_Calendar|companies_##_Companies|contactactivities_##_Contact activities|contacts_##_Contacts|expenses_##_Expenses|files_##_Files|forum_##_Forum|helpdesk_##_Helpdesk|notes_##_Notes|news_##_News|passwords_##_Passwords|portal_##_Portal|projects_##_Projects|tasks_##_Tasks|timesheets_##_Time sheets"/>
+  </field>
+  <field name="description" displayname="Description" simple_type="textarea">
+  </field>
+</table>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<assets>
+  <asset>
+	<bookmarkname>1) E-mail</bookmarkname>
+	<url>index.php?folder=^home_@username@/!emails&amp;view=display&amp;limit=50</url>
+	<height>260</height>
+  </asset>
+  <asset>
+	<bookmarkname>2) My appointments</bookmarkname>
+	<url>index.php?folder=^calendar_@username@&amp;view=display&amp;markdate=week&amp;today=last monday<!--
+		-->&amp;find[]=assets|simple_calendar||participants~¦@username@¦</url>
+  </asset>
+  <asset>
+	<bookmarkname>3) My tasks</bookmarkname>
+	<url>index.php?folder=^tasks_@username@&amp;view=display&amp;find[]=assets|simple_tasks||responsibles~¦@username@¦</url>
+  </asset>
+  <asset>
+	<bookmarkname>4) Bookmarks</bookmarkname>
+	<url>index.php?folder=^bookmarks_@username@&amp;view=display</url>
+  </asset>
+  <asset>
+	<bookmarkname>5) Notes</bookmarkname>
+	<url>index.php?folder=^notes_@username@&amp;view=display</url>
+  </asset>
+  <asset>
+	<bookmarkname>6) Files</bookmarkname>
+	<url>index.php?folder=^home_@username@/!files&amp;view=display&amp;orderby=lastmodified&amp;order=desc</url>
+  </asset>
+</assets>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Resources" default_view="display" orderby="resourcename" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" disable_quick_add="true">
+  <view name="display" displayname="Display">
+  </view>
+  <view name="details" displayname="Details">
+  </view>
+  
+  <field name="resourcename" displayname="Resource" simple_type="text" is_unique="true" required="true">
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+    <readonlyin views="edit"/>
+  </field>
+  <field name="devicetype" displayname="Device type" simple_type="select" simple_size="1" required="true">
+    <data function="dbselect|simple_devicetypes|devicetypename,devicetypename||devicetypename asc|10"/>
+	<link value="index.php?find=asset|simple_devicetypes||devicetypename=@devicetype@&amp;view=display"/>
+  </field>
+  <field name="brand" displayname="Brand" simple_type="select" simple_size="1" required="true">
+    <data function="dbselect|simple_brands|brandname,brandname||brandname asc|10"/>
+	<link value="index.php?find=asset|simple_brands||brandname=@brand@&amp;view=display"/>
+  </field>
+  <field name="model" displayname="Model" simple_type="text" required="true">
+  </field>
+  <field name="distributor" displayname="Distributor" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_distributors|distributorname,distributorname||distributorname asc|10"/>
+	<link value="index.php?find=asset|simple_distributors||distributorname=@distributor@&amp;view=display"/>
+  </field>
+  <field name="description" displayname="Description" simple_type="textarea">
+	<notin views="display" />
+  </field>
+</table>

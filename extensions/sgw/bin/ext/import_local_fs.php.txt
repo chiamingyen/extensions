@@ -1,0 +1,129 @@
+<?php
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+
+// TODO replace simple_store ??
+
+/*
+ * Simple Groupware File Importer
+ * 
+ * This script imports files and directories from the local file system
+ * of the server into the Simple Groupware database.
+ * In Simple Groupware, files are stored in the file system and only get
+ * indexed by the database.
+ * 
+ * That way, you can use Simple Groupware as a document management system
+ * including all your existing files and directories.
+ *
+ * Getting started:
+ * 1) copy the files to the Simple Groupware server
+ * e.g. cp -R /mnt/data_cifs /var/www/sgs/simple_store/import
+ *
+ * 2) make sure to use at least PHP 5.x
+ * e.g. php -v
+ * gives: PHP 5.3.3 (cli) (built: Jul 21 2010 20:28:30)
+ *
+ * 3) execute this script from the command line (import file structure into database):
+ * php import_local_fs.php.txt
+ */
+
+error_reporting(E_ALL);
+$argv = $_SERVER["argv"];
+
+// time limit: 3600 seconds = 1 hour
+set_time_limit(3600);
+
+echo "\n";
+if (count($argv)<6) {
+  echo "Usage:\n";
+  echo "php -d register_argc_argv=1 -q import_local_fs.php.txt <source> <target> <url> <admin-user> <admin-pw>\n\n";
+  echo "source = local file system, e.g. /var/www/sgs/simple_store/import/ (files copied before)
+target = path inside Simple Groupware, e.g. /Workspace/Demo/Files/
+url = server URL, e.g. http://localhost/<your-sgs-dir>/bin/soap.php
+admin-user = super administrator username
+admin-pw = super administrator password";
+  exit(1);
+}
+
+$source = $argv[1];
+$target = $argv[2];
+$server = $argv[3];
+$username = $argv[4];
+$password = $argv[5];
+
+// Connect to Simple Groupware Soap Server
+$client = new SoapClient(null, array(
+  "location" => $server,
+  "uri" => "",
+  "trace" => true,
+  "login" => $username,
+  "password" => $password
+) );
+try {
+  // check if soap connection is ok
+  assert($client->get_echo("test") === array("test"));
+
+  // import files and directories into simple groupware database  
+  import_dir($source, $target, $client);
+}
+catch (Exception $e) {
+  echo $e->getMessage();
+  get_trace($client);
+}
+
+function import_dir($source, $target, $client) {
+
+  $elems = array_diff(scandir($source), array(".", ".."));
+  foreach ($elems as $elem) {
+	if (is_dir($source . $elem)) {
+	  $d_source = $source . $elem . "/";
+	  $d_target = $target . $elem . "/";
+		
+	  echo "importing directory $d_source to $d_target\n";
+	  $result = $client->folder_create(dirname($d_target), basename($d_target), "files", "", "");
+	  
+	  if (!is_numeric($result)) throw new Exception(print_r($result, true));
+
+	  import_dir($d_source, $d_target, $client);
+
+    } else {
+	  $f_source = $source . $elem;
+	  $f_target = $target . $elem;
+      $data = array(
+		"filename" => basename($f_source),
+		"filedata" => $f_source,
+	  );
+      echo "importing file $f_source to $f_target\n";
+	  $result = $client->asset_insert(dirname($f_target), "new", $data);
+		
+	  if (!is_numeric($result)) throw new Exception(print_r($result, true));
+} } }
+  
+function get_trace($client) {
+  print_r( array(
+	// "request_headers" => $client->__getLastRequestHeaders(),
+	// "request" => $client->__getLastRequest(),
+	"response_headers" => $client->__getLastResponseHeaders(),
+	"response" => $client->__getLastResponse()
+  ));
+}
+?>

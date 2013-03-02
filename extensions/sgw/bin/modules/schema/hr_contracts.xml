@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Contracts" default_view="display" orderby="username" order="asc" limit="20" enable_new="true" enable_edit="true" trigger_edit="duration" trigger_new="duration">
+  <view name="display" displayname="Active" where="status='active'" groupby="ctype">
+  </view>
+  <view name="offer" displayname="Offer" where="status='offer'" template="display" groupby="ctype">
+  </view>
+  <view name="inactive" displayname="Inactive" where="(status='canceled' or status='rejected')" template="display" groupby="ctype">
+  </view>
+  <view name="details" displayname="Details" show_preview="true">
+  </view>
+  <singlebutton name="activate" displayname="Activate" onclick="asset_update_confirm({status:'active'},'@id@');" condition="status|eq|offer" right="write" icon="accept.gif" />
+  <singlebutton name="reject" displayname="Reject" onclick="asset_update_confirm({status:'rejected'},'@id@');" condition="status|eq|offer" right="write" icon="disabled.gif" />
+
+  <field name="username" displayname="Username" simple_type="select" simple_size="1" required="true" allow_custom="true">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+	<link value="index.php?find=asset|simple_sys_users||username=@username@&amp;view=details"/>
+    <linktext views="display|offer|inactive" value="#index.php?folder=@folder@&amp;view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="status" displayname="Status" simple_type="select" simple_size="1" required="true">
+	<data values="offer_##_offer|active_##_active|canceled_##_canceled|rejected_##_rejected"/>
+	<hiddenin views="display|offer"/>
+  </field>
+  <field name="begin" displayname="Begin" simple_type="date" simple_default_function="dateformat|first day of next month|m/d/Y" required="true">
+    <filter views="all" function="dateformat||m/d/Y"/>
+	<description hint="Relative formats" value="nWin('http://www.php.net/manual/en/datetime.formats.relative.php');"/>
+  </field>
+ <field name="ending" displayname="End" simple_type="date" simple_default_function="dateformat|first day of +25 month|m/d/Y">
+    <filter views="all" function="dateformat||m/d/Y"/>
+  </field>
+  <field name="duration" displayname="Duration" simple_type="int" sum="true">
+    <filter views="all" function="duration"/>
+	<onlyin views="details"/>
+  </field>
+  <field name="ctype" displayname="Type" simple_type="select" simple_size="1">
+	<data values="Full time|Part time|Freelance|Temporary work|Working student|Practical training|Apprenticeship"/>
+  </field>
+  <field name="hours_per_week" displayname="Hours per week" simple_type="float" simple_default="0">
+  </field>
+  <field name="salary" displayname="Salary" simple_type="float" simple_default="0">
+	<notin views="display"/>
+  </field>
+  <field name="salary_type" displayname="Salary per" simple_type="select" simple_size="1">
+	<data values="hour_##_Hour|day_##_Day|month_##_Month|year_##_Year"/>
+	<notin views="display"/>
+  </field>
+  <field name="salary_overtime" displayname="Overtime compensation per hour" simple_type="float" simple_default="0">
+	<notin views="display|offer|inactive"/>
+  </field>
+  <field name="vacation_days" displayname="Vacation days per year" simple_type="int" simple_default="0">
+	<notin views="inactive|offer"/>
+  </field>
+  <field name="paid_holidays" displayname="Paid holidays" simple_type="checkbox" simple_default="1">
+	<notin views="display|offer|inactive"/>
+  </field>
+  <field name="attachment" displayname="Attachment" simple_type="files" simple_file_size="10M" simple_size="10">
+	<notin views="display|offer|inactive"/>
+  </field>
+  <field name="comment" displayname="Comment" simple_type="textarea">
+	<notin views="display"/>
+  </field>
+</table>

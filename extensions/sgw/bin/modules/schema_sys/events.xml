@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="Events" default_view="display" orderby="created" limit="20" order="desc" enable_purgeall="true" enable_purge="true" disable_history="true" enable_calendar="created" nosqlfolder="true">
+  <view name="display" displayname="All events">
+  </view>
+  <view name="details" displayname="Details" tfield_1="message">
+  </view>
+  <view name="error" displayname="Error" where="(component like '%-fail')" template="display">
+  </view>
+  <view name="slow" displayname="Slow" where="(component like '%-slow')" template="display">
+  </view>
+  <view name="info" displayname="Info" where="(component='purge' or component='info' or component='quota')" template="display">
+  </view>
+  <view name="logins" displayname="Logins" where="component='login'" template="display">
+  </view>
+  <view name="clean" displayname="Clean" where="component='clean'" template="display">
+  </view>
+  
+  <field name="id" simple_type="id" displayname="Id" nowrap="true">
+  </field>
+  <field name="created" simple_type="datetime" displayname="Created">
+    <filter views="all" function="shortdatetimeformat"/>
+  </field>
+  <field name="servername" displayname="Server" simple_type="text">
+  </field>
+  <field name="serverip" displayname="Server-IP" simple_type="text">
+  	<notin views="display" />
+  </field>
+  <field name="username" displayname="Username" simple_type="text">
+  </field>
+  <field name="component" displayname="Component" simple_type="text" nowrap="true">
+    <INDEX/>
+  </field>
+  <field name="message" displayname="Message" simple_type="textarea" width="100%">
+    <linktext views="display|error|slow|info|logins|clean" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="message_trace" displayname="Trace" simple_type="htmlarea" no_search_index="true">
+  	<filter views="all" function="highlight_string" />
+  	<onlyin views="details" />
+  </field>
+</table>

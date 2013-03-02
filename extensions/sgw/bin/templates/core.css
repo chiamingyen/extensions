@@ -1,0 +1,913 @@
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+<config_load file="core_css.conf" section=$style>
+body, h2, pre, img, p, div, iframe, table.data {
+  margin:0px;
+  padding:0px;
+  border:0px;
+  border-spacing:0px;
+  <#direction#>
+}
+body, select, input, textarea {
+  <#font#>
+}
+thead {
+  display:table-header-group;
+}
+ol {
+  margin-top:0px;
+  margin-bottom:0px;
+}
+form {
+  margin:0px;
+  border:0px;
+}
+img {
+  vertical-align:middle;
+}
+body {
+  background-color: <#bg_white#>;
+}
+<if $browser eq "safari">
+body {
+  -webkit-text-size-adjust:none;
+}
+div {
+  word-break:break-all;
+}
+</if>
+
+body, .default10 {
+  <#font_data_black#>
+  <#font_10#>
+}
+
+a {
+  text-decoration:none;
+  color: <#color_blue#>;
+  <#cursor#>
+}
+
+a:hover {
+  text-decoration:underline;
+  color: <#color_blue#>;
+}
+
+iframe {
+  border: <#border#>;
+  background-color: <#bg_grey#>;
+  <#font_blue#>
+}
+
+input,select,textarea {
+  border: <#border#>;
+  background-color: <#bg_grey#>;
+  <#font_blue#>
+  <#font_9#>
+}
+input,select,button {
+  vertical-align:middle;
+}
+
+<if $browser neq "msie">
+.baseline select, .baseline input {
+  vertical-align:baseline;
+}
+.baseline img {
+  vertical-align:text-top;
+}
+</if>
+
+<if $browser eq "msie" || $browser eq "konqueror" || $browser eq "safari">
+input,button {
+  height:19px;
+}
+input[type="checkbox"] {
+  height:14px;
+}
+</if>
+
+.input,textarea,input[type="button"],input[type="image"],input[type="submit"],input[type="text"],input[type="password"] {
+  padding-left:5px;
+  padding-right:5px;
+  border-radius:10px;
+}
+input[type="radio"] {
+  border:0px;
+}
+input[type="file"] {
+  <#font_8#>
+}
+
+.default {
+  <#font_black#>
+  <#font_9#>
+}
+.bold {
+  font-weight:bold;
+}
+
+.chat {
+  width:100%;
+  height:200px;
+  overflow-x:auto;
+  overflow-y:auto;
+  overflow:auto;
+  margin-top:2px;
+  margin-bottom:2px;
+  border: <#border#>;
+  background-color: <#bg_grey#>;
+  <#font_blue#>
+}
+
+.checkbox {
+  border:0px;
+  padding:0px;
+  margin:1px 0 0 0;
+  background-color:transparent;
+  width:13px;
+  <if $browser eq "msie">
+  height:13px;
+  </if>
+}
+
+.checkbox2 {
+  margin:2px 0 0 0;
+}
+
+.checkbox3 {
+  margin:0 0 2px 0;
+}
+
+.input:hover,textarea:hover,input[type="button"]:hover,input[type="image"]:hover,input[type="text"]:hover,input[type="submit"]:hover,input[type="password"]:hover {
+  border: <#border_blue#>;
+}
+.input:focus,textarea:focus,input[type="button"]:focus,input[type="image"]:focus,input[type="text"]:focus,input[type="submit"]:focus,input[type="password"]:focus {
+  border: <#border_red#>;
+}
+
+.submit {
+  margin:1px 10px 1px 10px;
+  width:220px;
+  background-color: <#button_bg_white#>;
+  border: <#border#>;
+  <#font_blue#>
+  <#font_8#>
+  <#cursor#>
+}
+
+input[type="button"], input[type="submit"], input[type="image"] {
+  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+#main {
+  width:100%;
+  position:relative;
+  z-index:1;
+}
+.main2 {
+  padding-left:1px;
+  padding-right:1px;
+}
+
+table.data {
+  width:100%;
+  margin:auto;
+  margin-bottom:6px;
+  border: <#border_black#>;
+  background-color: <#bg_grey#>;
+  <#font_data_black#>
+  <#font_10#>
+}
+
+table.data_page {
+  border-radius:0 0 6px 6px;
+}
+
+<if $browser eq "msie">
+table.data td {
+  padding-left:5px;
+  padding-right:5px;
+  word-break:break-all;
+  <#text_align#>
+}
+table.data .external_content td {
+  padding-left:0px;
+  padding-right:0px;
+}
+</if>
+table.data>tbody>tr>td, table.data>thead>tr>td {
+  padding-left:5px;
+  padding-right:5px;
+  <#text_align#>
+}
+
+table.data tr.fields td {
+  padding-top:0px;
+  padding-bottom:0px;
+  background-color: <#bg_light_blue#>;
+  <#font_white#>
+  <#cursor#>
+  <if $browser eq "msie">
+  word-break:normal;
+  </if>
+}
+table.data tr.fields td a {
+  <#font_white#>
+}
+
+table.data tr.summary td {
+  border-top: <#border_black#>;
+  <#font_8#>
+}
+
+table.data tr.summary2 td {
+  border-top: <#border_black#>;
+  <#font_9#>
+}
+
+#linktext {
+  <#font_data_black#>
+}
+
+.notification {
+  background-color: <#bg_green_click#>;
+}
+
+.menu_notification {
+  padding:0 10px;
+  margin-left:4px;
+  border-left:1px solid <#color_grey#>;
+  cursor:auto;
+}
+
+table.data td.item_groupby {
+  border-bottom: <#border#>;
+  border-top: <#border#>;
+  padding-top:4px;
+  padding-bottom:2px;
+  font-weight:bold;
+}
+
+table.data td.item_groupby a {
+  text-decoration:none;
+  <#font_data_black#>
+}
+
+table.data td.item_time {
+  width:55px;
+  height:44px;
+  text-align:center;
+  white-space:nowrap;
+  border-top: <#border#>;
+  border-right: <#border#>;
+  <#font_9#>
+  <#cursor#>
+  <if $browser eq "msie">
+  word-break:normal;
+  </if>
+}
+table.data td.item_week {
+  width:55px;
+  height:65px;
+  text-align:center;
+  white-space:nowrap;
+  border-top: <#border#>;
+  border-right: <#border#>;
+  <#font_9#>
+  <#cursor#>
+  <if $browser eq "msie">
+  word-break:normal;
+  </if>
+}
+
+table.data td.item_data {
+  padding:0px;
+  background-color: <#bg_white_fixed#>;
+  border: <#border#>;
+  <if $browser eq "msie">
+  word-break:normal;
+  </if>
+  border-radius:0 6px 6px 0;
+}
+
+table.data td.item_data_spacer {
+  padding:0px;
+  padding-right:1px;
+  border-top: <#border#>;
+  <#font_7#>
+}
+
+table.data tr.items_odd {
+  background-color: <#bg_dark_grey#>;
+}
+table.data tr.hl_items {
+  background-color: <#bg_hl_items#>;
+}
+
+table.data tr.id {
+  padding-top:2px;
+  padding-bottom:2px;
+  <#font_white_bold#>
+  background-color: <#bg_light_blue#>;
+}
+
+table.data tr.id_header {
+  <#font_white_bold#>
+  background-color: <#bg_light_blue#>;
+}
+table.data tr.id_header a {
+  <#font_white_bold#>
+}
+
+table.data tr.id_header_bg {
+  <#font_black_bold#>
+  background-color: <#bg_light_blue#>;
+}
+table.data tr.id_header_bg a {
+  <#font_black_bold#>
+}
+
+.tabstyle, .tabstyle2 {
+  padding-right:10px;
+  padding-left:12px;
+  text-align:center;
+  white-space:nowrap;
+  border: <#border_black#>;
+  <#font_10#>
+  <#cursor#>
+  border-radius:12px 0 0 0;
+}
+
+span.tabstyle, span.tabstyle2, a.tabstyle, a.tabstyle2 {
+  margin-right:2px;
+  margin-bottom:2px;
+  display:inline-block;
+}
+a.tabstyle:hover {
+  text-decoration:none;
+  <#font_data_black#>  
+}
+a.tabstyle2:hover {
+  text-decoration:none;
+  <#font_white_bold#>
+}
+
+.tabstyle3 {
+  padding-left:2px;
+  padding-right:2px;
+  cursor:move;
+  border: <#border_black#>;
+  background-color: <#bg_grey#>;
+  <#font_10#>
+}
+
+.tabstyle_empty {
+  margin-right:2px;
+  border: <#border_black#>;
+  background-color: <#bg_grey#>;
+  <#font_10#>
+}
+
+.tabstyle {
+  background-color: <#bg_grey#>;
+  <#font_tab_black#>
+  background: -moz-linear-gradient(top, #FFFFFF, <#bg_grey_gradient#>);
+}
+
+.tabstyle2 {
+  background-color: <#bg_light_blue#>;
+  <#font_white_bold#>
+}
+
+.path_caption {
+  <#font_10#>
+}
+
+.tree_caption {
+  margin:1px;
+  margin-bottom:3px;
+  width:100%;
+  <#font_black_bold#>
+  <#font_10#>
+}
+
+.tree_folders {
+  max-height:65px;
+  overflow:auto;
+}
+
+.tree_views {
+  width:100%;
+  margin-bottom:2px;
+}
+
+<if $browser eq "msie">
+#view_buttons {
+  margin-top:2px;
+}
+</if>
+
+.tree_frame {
+  width:100%;
+  height:100%;
+  padding:3px;
+  text-align:left;
+  <if #direction#>
+    border-left: <#border_black#>;
+  <else>
+    border-right: <#border_black#>;
+  </if>
+  border-top: <#border_black#>;
+}
+
+.tree_data {
+  width:100%;
+  text-align:center;
+  border: <#border_black#>;
+  border-bottom:0px;
+  background-color: <#bg_grey#>;
+  <#font_data_black#>
+  <#font_10#>
+}
+
+table.tree_data tr.fields td {
+  background-color: <#bg_light_blue#>;
+  <#font_white#>
+  <#cursor#>
+}
+
+.tree2 {
+  width:99%;
+}
+
+.path_caption a {
+  text-decoration:none;
+  <#font_black#>
+  <#font_10#>
+}
+
+#tree, #tree a, .tree2 {
+  text-decoration:none;
+  <#font_black#>
+  <#font_9#>
+}
+
+.tree_box {
+  width:100%;
+  padding:4px;
+  margin-bottom:2px;
+  text-align:center;
+  background-color: <#bg_grey#>;
+  border: <#border_black#>;
+  <#font_10#>
+  <if $browser eq "msie">
+  word-break:break-all;
+  </if>
+}
+.tree_box:first-line, .tree_box :first-line {
+  font-weight:bold;
+}
+
+#tree_bar {
+  width:100%;
+  text-align:center;
+  padding:2px;
+  margin-bottom:2px;
+  background-color: <#bg_grey#>;
+  border: <#border_black#>;
+  border-top:0px;
+}
+
+#tree_bar a {
+  text-decoration:none;
+  <#font_data_black#>
+  <#font_9#>
+}
+
+.search_bar {
+  width:100%;
+  padding-top:3px;
+  padding-bottom:5px;
+  border-bottom: <#border#>;
+}
+
+#tree_searchengines {
+  margin-left:3px;
+  margin-bottom:0px;  
+  width:auto;
+}
+
+#tree_searchengines input {
+  margin-right:2px;
+  margin-bottom:2px;
+}
+
+.tree_cpane {
+  padding-bottom:3px;
+  <#font_9#>
+  <#cursor#>
+}
+
+.tree_panes {
+  margin-top:5px;
+  margin-left:10px;
+  margin-bottom:5px;
+  width:200px;
+}
+
+.tree_subpane {
+  font-weight: bold;
+  margin-left:2px;
+  margin-bottom:5px;
+  border-bottom: <#border#>;
+}
+
+#content_pane {
+  overflow:hidden;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+#tree_def, #content_def {
+  overflow:auto;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+
+#login_reminder {
+  display:none;
+  top:42%;
+  left:25%;
+  right:25%;
+  width:50%;
+  z-index:99;
+  position:absolute;
+  border: <#border_black#>;
+  background-color: <#bg_white#>;
+  <#font_30#>
+  <if $browser eq "safari">
+  word-break:normal;
+  position:fixed;
+  </if>
+  border-radius:10px;
+}
+
+#login {
+  position:absolute;
+  left:0px;
+  right:0px;
+  top:0px;
+  bottom:0px;
+  display:none;
+  z-index:99;
+  height:100%;
+  background-color: <#bg_white#>;
+}
+
+#calendar {
+  display:none;
+  top:30%;
+  width:180px;
+  height:220px;
+  z-index:99;
+  position:absolute;
+}
+#calendar iframe {
+  border:0px;
+  background-color:transparent;
+}
+.pane_spacer {
+  width:100%;
+  height:4px;
+  font-size:4px;
+  margin:2px 0 2px 0;
+  cursor:move;
+  border-top: <#border#>;
+  border-bottom: <#border#>;
+}
+#pane2 {
+  width:100%;
+  height:100%;
+  border:1px;
+  cursor:move;
+  padding-left:2px;
+  border-left: <#border_black#>;
+}
+.datebox_headline {
+  font-weight:bold;
+  text-align:center;
+}
+.datebox_headline_day, .datebox_headline_text, .datebox_headline_day2 {
+  width:2%;
+  border-top: <#border#>;
+  border-right: <#border#>;
+  <#font_data_black#>
+  <#font_9#>
+  <if $browser eq "msie">
+  white-space:nowrap;
+  </if>
+  <if $browser eq "safari">  
+  word-break:normal;
+  </if>
+}
+
+.datebox_footerline td {
+  <#font_9#>
+  <#cursor#>
+}
+.datebox_footerline_b td {
+  border-top: <#border#>;
+  <#font_9#>
+}
+.datebox_headline_day, .datebox_headline_day2 {
+  <#cursor#>  
+}
+.datebox_headline_day2 {
+  font-weight:bold;
+}
+
+.datebox_head {
+  text-decoration:underline;
+  font-weight:bold;
+}
+.datebox_head_div, .datebox_head_div2 {
+  width:17px;
+  text-align:center;
+  font-weight:bold;
+  <#font_9#>
+  <#cursor#>  
+}
+.datebox_head_div {
+  background-color: <#bg_light_blue#>;
+  <#font_white#>
+}
+.datebox_today {
+  border: <#border_red#>;
+}
+.datebox_realtoday {
+  font-weight:bold;
+}
+.datebox_disabled {
+  <#font_light_grey#>
+}
+.datebox_row td {
+  <#font_9#>
+  <#cursor#>  
+}
+.datebox_rowweek td {
+  border-top: <#border_red#>;
+  border-bottom: <#border_red#>;
+}
+.datebox_rowfirst td {
+  border-top: <#border#>;
+}
+.datebox_rowlast td {
+  border-bottom: <#border#>;
+}
+.datebox_week {
+  border-right: <#border#>;
+  <#font_grey#>;
+}
+.datebox_days {
+  border-top: <#border#>;
+  <#cursor#>
+  <#font_grey#>;
+}
+
+.notice {
+  margin:1px;
+  margin-top:5px;
+  <#font_7#>
+}
+.lnotice {
+  color: <#color_menu_black#>;
+}
+.notice2 {
+  position:absolute;
+  bottom:0px;
+  padding:0 12px 0 4px;
+  background-color: <#color_white#>;
+  opacity:0.5;
+  <#cursor#>
+  <#font_7#>
+  <if $browser eq "msie">
+    filter:alpha(opacity=50);
+  </if>
+  border-radius:0 12px 0 0;
+}
+.notice3 {
+  right:0px;
+  padding:0 2px 0 12px;
+  border-radius:12px 0 0 0;
+}
+
+.menu {
+  top:0px;
+  left:0px;
+  z-index:2;
+  position:relative;
+  margin-bottom:4px;
+  color: <#color_menu_black#>;
+  background-color: <#bg_grey#>;
+  border:1px solid <#color_grey#>;
+  border-top:0px;
+  <#font_menu_big#>
+  <#cursor#>
+  <if #direction#>
+    border-radius:0 0 0 6px;
+  <else>
+    border-radius:0 0 6px 0;
+  </if>
+  background: -moz-linear-gradient(top, #FFFFFF, <#bg_grey_gradient#>);
+}
+
+.submenu {
+  <if #direction#>
+    top:28px;
+  <else>
+    top:24px;
+  </if>
+  position:absolute;
+  padding:2px;
+  z-index:2;
+  color: <#color_menu_black#>;
+  background-color: <#bg_grey#>;
+  border:1px solid <#color_grey#>;
+  <#font_menu#>
+  <#cursor#>
+  border-radius:0 0 6px 6px;
+  background: -moz-linear-gradient(top, <#bg_grey_gradient#>, #FFFFFF);
+}
+.menu td {
+  height:20px;
+  text-align:center;
+  border-radius:3px;
+}
+.submenu td {
+  width:160px;
+  border-radius:3px;
+}
+.menu_item {
+  height:20px;
+  border:1px solid transparent;
+  <if $browser eq "msie">
+  border:1px solid <#bg_grey#>;
+  </if>
+}
+
+.menu_item2 {
+  height:20px;
+  background-color: <#bg_light_blue#>;
+  color: <#color_white#>;
+  border: <#border_blue#>;
+}
+
+.cursor {
+  <#cursor#>
+}
+
+.bg_full {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+#console {
+  position:absolute;
+  display:none;
+  width:250px;
+  height:100px;
+  top:100px;
+  z-index:10;
+}
+.sgslogo {
+  position:absolute;
+  <if #direction#>
+    left:0px;
+  <else>
+    right:6px;
+  </if>
+  z-index:1;
+}
+.folder_block {
+  width:10px;
+  height:10px;
+  margin-top:2px;
+}
+.folder_block2 {
+  width:9px;
+  height:9px;
+  margin-top:2px;
+}
+.folder_block_image {
+  width:10px;
+  height:10px;
+  margin-top:3px;
+  vertical-align:top; 
+}
+#search_bar {
+  width:100%;
+  max-width:250px;
+  <if $browser eq "msie">
+  width:expression(getObj("tree_frame").offsetWidth > 257? "250px": "auto")}
+  </if>
+}
+.image {
+  padding-left:5px;
+  padding-right:5px;
+  width:18px;
+  height:17px;
+}
+.hide {
+  position:absolute;
+  left:-200px;
+}
+.gantt_bar {
+  background-color: <#bg_light_blue#>;
+}
+.nowrap {
+  white-space:nowrap;
+}
+.cal_item {
+  border-radius:0 0 6px 0;
+}
+.login_table {
+  border:<#border#>;
+  background-color:<#bg_white_fixed#>;
+  padding-top:0px;
+  padding-bottom:0px;
+  text-align:right;
+  border-radius:10px;
+}
+#login_table_obj {
+  width:100%;
+  top:43%;
+  position:absolute;
+  opacity:0;
+  -moz-transition:opacity 4s;
+  -webkit-transition:opacity 4s;
+  -o-transition:opacity 4s;
+  <if $browser eq "msie">
+  filter:alpha(opacity=75);
+  </if>
+}
+.login_alert {
+  background-color:<#bg_white_fixed#>;
+  position:absolute;
+  top:0px;
+  width:100%;
+  opacity:0.75;
+  <if $browser eq "msie">
+  filter:alpha(opacity=75);
+  </if>
+}
+blockquote {
+  margin-left:0px;
+  padding-left:10px;
+  border-left:2px solid <#color_grey#>;
+}
+.drag_asset {
+  cursor:move;
+  -moz-user-select:none;
+}
+.red {
+  color: <#color_red#>;
+}
+a.hide_field, a.hide_field:hover {
+  visibility:hidden;
+  text-decoration:none;
+}
+
+/* IE6 */
+.hidden {
+  display:none;
+}
+.overflow {
+  overflow:auto;
+}
+.full_width {
+  width:100%;
+}

@@ -1,0 +1,21 @@
+sys_groups|Groups
+sys_identities|Mail identities
+sys_users|Users
+
+System
+sys_nodb_admin|Administration
+sys_nodb_backups|Backups
+sys_console|Console
+sys_events|Events
+sys_custom_fields|Field customization
+sys_hosts|Hosts
+sys_nodb_modules|Modules
+sys_notifications|Notifications
+sys_search|Search
+sys_session|Sessions
+sys_stats|Statistics
+sys_nodb_status|Status
+sys_nodb_tables|Tables
+sys_nodb_tablesizes|Table sizes
+sys_tree|Tree
+sys_nodb_variables|Variables

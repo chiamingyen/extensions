@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<table modulename="IMAP" limit="20" default_view="display" orderby="created" order="desc" sql_handler="imap" enable_purge="true" enable_purgeall="true" enable_new="true" trigger_new="sendmail" disable_rights="true" disable_quick_add="true" disable_trigger_ccp="true">
+  <view name="display" displayname="Display">
+  </view>
+  <view name="details" displayname="Details" changeseen="true">
+  </view>
+  <view name="attachment_show" displayname="Attachments" template="details" show_preview="true" showonly="subject|attachment">
+  </view>
+  <view name="headers" displayname="Headers" template="details" visibility="bottom" showonly="subject|headers">
+  </view>
+  <view name="reply" displayname="Reply" changeseen="true" schema_mode="edit_as_new" showinsingleview="true" template="edit" right="write" visibility="bottom">
+  </view>
+  <view name="replyall" displayname="Reply all" changeseen="true" schema_mode="edit_as_new" showinsingleview="true" template="edit" right="write" visibility="bottom">
+  </view>
+  <view name="forward" displayname="Forward" changeseen="true" schema_mode="edit_as_new" showinsingleview="true" template="edit" right="write" visibility="bottom">
+  </view>
+  <viewbutton name="archive" displayname="Move to subfolder 'Archive'" onclick="if (asset_form_selected()) ajax('asset_ccp',[tfolder, tview, assets_get_selected(true), tfolder+'Archive/', 'cut'], locate_folder);" right="write" icon="archive.gif" />
+
+  <field name="id" displayname="Id" simple_type="id" hidden="true">
+  </field>
+  <field name="subject" displayname="Subject" simple_type="text" required="true">
+	<restore views="reply|replyall" function="replysubject"/>
+	<restore views="forward" function="forwardsubject"/>
+    <linktext views="display" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+  </field>
+  <field name="efrom" displayname="From" simple_type="select" simple_size="1" required="true" simple_default_function="dbselect|simple_sys_users|email,concat(lastname;' ';firstname)|username=@username@|username asc|10">
+    <data function="dbselect|simple_sys_identities|email,name|users like @username_sql@|name asc|10"/>
+    <filter views="display" function="shortemail" />
+    <filter views="details" function="displayemail" />
+	<restore views="reply|replyall|forward|edit_as_new" function="empty_str"/>
+    <linktext value="index.php?view=new&amp;eto=@efrom@"/>
+    <link views="details" align="right" value="index.php?folder=^contacts_@username@&amp;view=new&amp;data=@efrom@" icon="contact.gif" />
+  </field>
+  <field name="eto" displayname="To" simple_type="multitext" required="true" separator=", " simple_default_function="fillform|eto">
+	<notin views="display" />
+    <data title="Users" function="dbselect|simple_sys_users|email,concat(lastname;' ';firstname)|length(email)!=0 and activated=1|lastname asc|10"/>
+    <data title="Groups" function="dbselect|simple_sys_groups|concat('@';groupname),groupname|length(members)!=0 and activated=1|groupname asc|10"/>
+    <data title="Contacts" function="dbselect|simple_contacts|email,concat(lastname;' ';firstname)|length(email)!=0|lastname asc|10"/>
+    <data title="Contact groups" function="dbselect|simple_contactgroups|concat('@';groupname),groupname|length(members)!=0|groupname asc|10"/>
+	<restore views="reply" function="replyto"/>
+	<restore views="replyall" function="replytoall"/>
+	<restore views="forward" function="empty_str"/>
+    <filter views="details" function="displayemail" />
+    <linktext value="index.php?view=new&amp;eto=@eto@"/>
+    <link views="details" align="right" value="index.php?folder=^contacts_@username@&amp;view=new&amp;data=@eto@" icon="contact.gif" />
+	<description value="sys_alert('Syntax:\nabc@doecorp.com, cc:abcd@doecorp.com, bcc:abcde@diecorp.com,\n@Group, cc:@Group1, bcc:@Group2');"/>
+  </field>
+  <field name="cc" displayname="Cc" simple_type="text" separator=", ">
+	<onlyin views="details|edit_as_new" />
+	<restore views="forward" function="empty_str"/>
+    <filter views="details" function="displayemail" />
+    <linktext value="index.php?view=new&amp;eto=@cc@"/>
+    <link views="details" align="right" value="index.php?folder=^contacts_@username@&amp;view=new&amp;data=@cc@" icon="contact.gif" />
+  </field>
+  <field name="attachment" displayname="Attachment" simple_type="files" simple_file_size="10M" simple_size="10">
+	<notin views="details|display" />
+	<restore views="reply|replyall" function="empty_str"/>
+  </field>
+  <field name="attachment_show" displayname="Attachment" simple_type="select" simple_size="5" separator=", ">
+	<onlyin views="details" />
+    <link value="download.php?view=attachment_show&amp;field=attachment&amp;item[]=@id@&amp;subitem=@subitem@&amp;dispo=noinline" icon="download.gif"/>
+    <linktext value="index.php?view=attachment_show&amp;item[]=@id@&amp;subitem=@subitem@"/>
+  </field>
+  <field name="message_html" displayname="Message" simple_type="htmlarea" insecure="true">
+	<onlyin views="details" />
+    <filter views="details" function="embed_attachments"/>
+  </field>
+  <field name="message" displayname="Message" simple_type="textarea" form="no_formatting_button">
+	<notin views="details|edit" />
+    <filter views="display" function="shortmessage|100"/>
+	<restore views="reply|replyall" function="replymessage"/>
+	<restore views="forward" function="forwardmessage"/>
+  </field>
+  <field name="receipt" displayname="Return receipt" simple_type="checkbox">
+    <notin views="display"/>
+    <link value="index.php?view=reply&amp;return_receipt&amp;item[]=@id@" icon="reply.gif"/>
+	<filter views="all" function="receipt"/>
+  </field>
+  <field name="created" displayname="Date" simple_type="datetime" nowrap="true">
+	<onlyin views="display|details|new"/>
+	<hiddenin views="new"/>
+    <filter views="all" function="shortdateformat" />
+  </field>
+  <field name="sendnow" displayname="Send now" simple_type="checkbox" simple_default="1" hidden="true" editable="true">
+  </field>
+  <field name="size" displayname="Size" simple_type="int" nowrap="true">
+	<onlyin views="display|details"/>
+    <filter views="all" function="filesize" />
+  </field>
+<!--  
+  <field name="flags" displayname="Flags" simple_type="text">
+	<onlyin views="details"/>
+  </field>
+-->
+  <field name="headers" displayname="Headers" simple_type="textarea">
+	<onlyin views="headers" />
+  </field>
+</table>

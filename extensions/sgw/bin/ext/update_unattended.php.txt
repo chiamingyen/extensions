@@ -1,0 +1,94 @@
+<?php
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+
+
+error_reporting(E_ALL);
+@set_time_limit(1800);
+$argv = $_SERVER["argv"];
+
+if (!function_exists("out")) {
+  function out($str) {
+	if (($pos = strpos($str,"<body"))) $str = substr($str,$pos);
+	$str = preg_replace("|<[^>]+>|"," ",str_replace("<br>","\n",$str));
+	$str = str_replace("\n ","\n",trim(preg_replace("| +|"," ",$str)," "));
+	echo $str;
+	if ($str!="" and $str[strlen($str)-1]!="\n") echo " ";
+	@ob_flush();
+	flush();
+  }
+}
+
+echo "\n";
+if (count($argv)<5) {
+  echo "Usage:\n";
+  echo "php -d register_argc_argv=1 -q update_unattended.php.txt <url> <admin-user> <admin-pw> <release> <no-backup>\n\n";
+  echo "url = http://<your-server>/<your-sgs-dir>/bin/index.php
+admin-user = super administrator username
+admin-pw = super administrator password
+release = e.g. 0.659 or latest
+no-backup = 1=don't backup files, 0=backup files";
+  exit(1);
+}
+$url = $argv[1];
+$admin_user = $argv[2];
+$admin_pass = $argv[3];
+$release = $argv[4];
+$nobackup = (int)@$argv[5];
+
+out("Downloading update ...\n\n");
+$url = dirname($url)."/updater.php?release={$release}&username={$admin_user}&password={$admin_pass}&nobackup={$nobackup}";
+if (($fp = fopen($url,"r"))) {
+  $data = "";
+  while (!feof($fp)) $data .= fread($fp,8192);
+  fclose($fp);
+} else exit(1);
+
+if (!strpos($data,"<finished>")) {
+  echo "Error downloading update: ".$url."\n\n";
+  if (($pos = strpos($data,"<body"))) $data = substr($data, $pos);
+  echo strip_tags($data);
+  exit(1);
+}
+
+out("Installing update ...\n\n");
+$url = dirname($url)."/index.php";
+if (($fp = fopen($url,"r"))) {
+  $data = "";
+  while (!feof($fp)) $data .= fread($fp,8192);
+  fclose($fp);
+} else exit(1);
+
+if (($pos = strpos($data,"<error>"))) {
+  $pos += 7;
+  echo "Error running setup: ".$url."\n";
+  echo substr($data,$pos,strpos($data,"</error>")-$pos);
+  exit(1);
+}
+
+if (!strpos($data,"<finished>")) {
+  echo "Error installing update: ".$url."\n\n";
+  if (($pos = strpos($data,"<body"))) $data = substr($data, $pos);
+  echo strip_tags($data);
+  exit(1);
+}
+
+out("\n\nFinished.\n");

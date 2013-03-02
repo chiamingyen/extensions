@@ -1,0 +1,90 @@
+<!--
+	/**************************************************************************\
+	* Simple Groupware 0.743                                                   *
+	* http://www.simple-groupware.de                                           *
+	* Copyright (C) 2002-2012 by Thomas Bley                                   *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or           *
+	*  modify it under the terms of the GNU General Public License Version 2   *
+	*  as published by the Free Software Foundation; only version 2            *
+	*  of the License, no later version.                                       *
+	*                                                                          *
+	*  This program is distributed in the hope that it will be useful,         *
+	*  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+	*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the            *
+	*  GNU General Public License for more details.                            *
+	*                                                                          *
+	*  You should have received a copy of the GNU General Public License       *
+	*  Version 2 along with this program; if not, write to the Free Software   *
+	*  Foundation, Inc., 59 Temple Place - Suite 330, Boston,                  *
+	*  MA  02111-1307, USA.                                                    *
+	\**************************************************************************/
+-->
+<folder name="Workspace" description="Welcome to Simple Groupware!\nOpen Source Groupware &amp; CMS" type="blank" anchor="workspace" rread_users="anonymous" rread_groups="" rwrite_users="" rwrite_groups="" radmin_users="" radmin_groups="">
+  <folder name="Personal folders" anchor="home" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="Personal department" anchor="departments" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  <folder name="Personal projects" anchor="projects" rread_users="anonymous" rwrite_users="" radmin_users="">
+  </folder>
+  
+  <folder name="Organisation" type="blank" anchor="organisation" rwrite_groups="admin_organisation">
+    <folder name="Users" type="sys_users" rwrite_users="" radmin_users="" rexception_users="changepwd:write:anonymous">
+    </folder>
+    <folder name="Groups" type="sys_groups" rwrite_users="" radmin_users="">
+    </folder>
+	<folder name="Projects" type="projects" rwrite_groups="admin_projects|admin_organisation">
+	</folder>
+	<!-- TODO fix perms?? -->
+	<folder name="Helpdesk" type="helpdesk" rread_users="" rwrite_users="" rwrite_groups2="admin_helpdesk" rread_groups2="admin_helpdesk"><!--###-->
+	</folder>
+    <folder name="Mail identities" type="sys_identities" rwrite_users="" radmin_users="">
+    </folder>
+    <folder name="Departments" type="departments">
+    </folder>
+    <folder name="Offices" type="offices">
+    </folder>
+    <folder name="Rooms" anchor="locations" type="locations">
+    </folder>
+    <folder name="Positions" type="positions">
+    </folder>
+    <folder name="CMS" type="cms" data="../import/data_cms_sys.xml">
+    </folder>
+  </folder>
+  <folder name="System" anchor="system" type="sys_nodb_admin" rread_users="" rwrite_users="" radmin_users="">
+    <folder name="Backups" type="sys_nodb_backups">
+    </folder>
+    <folder name="Sessions" type="sys_session">
+    </folder>
+    <folder name="Events" type="sys_events">
+    </folder>
+    <folder name="Notifications" type="sys_notifications" description="Delivery: cron.php">
+    </folder>
+    <folder name="Statistics" type="sys_stats">
+    </folder>
+    <folder name="Tree" type="sys_tree">
+    </folder>
+    <folder name="Modules" type="sys_nodb_modules" description="Source:\nmodules/schema/modules.txt\nmodules/schema_sys/modules.txt">
+    </folder>
+    <folder name="Customize" type="blank" anchor="customize">
+      <folder name="Fields" type="sys_custom_fields" description="Customization rules\nfor modules based on sgsML\nhttp://bit.ly/sgsML">
+      </folder>
+    </folder>
+    <folder name="Table status" type="sys_nodb_tables">
+    </folder>
+    <folder name="Table sizes" type="sys_nodb_tablesizes">
+    </folder>
+    <folder name="Database status" type="sys_nodb_status">
+    </folder>
+    <folder name="Database variables" type="sys_nodb_variables">
+    </folder>
+    <folder name="Debug" anchor="debug" mountpoint="fs:../simple_cache/debug/">
+    </folder>
+    <folder name="Trash" type="blank" anchor="trash">
+      <folder name="Files" mountpoint="fs:../simple_store/trash/">
+      </folder>
+    </folder>
+  </folder>
+  <folder name="Extensions" type="blank" anchor="extensions">
+  </folder>
+</folder>
